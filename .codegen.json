@@ -1,0 +1,6 @@
+{
+  "formatter": "echo 1",
+  "services": {
+    ".codegen/service.R.tmpl": "R/{{.SnakeName}}.R"
+  }
+}

@@ -1,0 +1,21 @@
+# Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
+
+{{range .Methods}}{{.Comment "#' " 80}}
+{{if .Request}}#'{{range .Request.Fields}}
+#' @param {{.SnakeName}} {{.Summary}}{{end}}
+{{end -}}
+databricks_{{.Service.SnakeName}}_{{.SnakeName}} <- function(
+    {{- if .Request}}{{range .Request.RequiredFields}}{{.SnakeName}}, {{end -}}
+    {{- range .Request.NonRequiredFields}}{{.SnakeName}} = NULL, 
+    {{end}}{{- end -}}...) {
+    {{if .Request}}
+    {{- if .Request.HasQueryField}}query <- list({{range .Request.Fields}}{{if .IsQuery}}
+        {{.SnakeName}} = {{.SnakeName}}, {{end}}{{end}}...){{end}}
+    {{- if .Request.HasJsonField}}body <- list({{range .Request.Fields}}{{if .IsJson}}
+        {{.SnakeName}} = {{.SnakeName}}, {{end}}{{end}}...){{end}}
+    {{end -}}
+    .api$do("{{.Verb}}", {{if .PathParts -}}paste({{range  .PathParts}}"{{.Prefix}}", {{if .Field}}{{.Field.SnakeName}}{{else if .IsAccountId}}.api$account_id{{end}}, {{ end }}sep = "")
+    {{- else}}"{{.Path}}"{{end}}{{if .Request}}{{if .Request.HasQueryField}}, query = query{{end}}{{if .Request.HasJsonField}}, body = body{{end}}{{end}})
+}
+
+{{end}}

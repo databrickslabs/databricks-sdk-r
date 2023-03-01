@@ -1,0 +1,136 @@
+# Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
+
+#' Create a function.
+#' 
+#' Creates a new function
+#' 
+#' The user must have the following permissions in order for the function to be
+#' created: - **USE_CATALOG** on the function's parent catalog - **USE_SCHEMA**
+#' and **CREATE_FUNCTION** on the function's parent schema
+#'
+#' @param catalog_name Name of parent catalog.
+#' @param comment User-provided free-form text description.
+#' @param data_type Scalar function return data type.
+#' @param external_language External function language.
+#' @param external_name External function name.
+#' @param full_data_type Pretty printed function data type.
+#' @param input_params The array of __FunctionParameterInfo__ definitions of the function's parameters.
+#' @param is_deterministic Whether the function is deterministic.
+#' @param is_null_call Function null call.
+#' @param name Name of function, relative to parent schema.
+#' @param parameter_style Function parameter style.
+#' @param properties A map of key-value properties attached to the securable.
+#' @param return_params Table function return parameters.
+#' @param routine_body Function language.
+#' @param routine_definition Function body.
+#' @param routine_dependencies Function dependencies.
+#' @param schema_name Name of parent schema relative to its parent catalog.
+#' @param security_type Function security type.
+#' @param specific_name Specific name of the function; Reserved for future use.
+#' @param sql_data_access Function SQL data access.
+#' @param sql_path List of schemes whose objects can be referenced without qualification.
+databricks_functions_create <- function(is_deterministic, name, specific_name, catalog_name, return_params, routine_definition, is_null_call, input_params, parameter_style, schema_name, routine_body, data_type, security_type, routine_dependencies, sql_data_access, full_data_type, comment = NULL, 
+    external_language = NULL, 
+    external_name = NULL, 
+    properties = NULL, 
+    sql_path = NULL, 
+    ...) {
+    body <- list(
+        catalog_name = catalog_name, 
+        comment = comment, 
+        data_type = data_type, 
+        external_language = external_language, 
+        external_name = external_name, 
+        full_data_type = full_data_type, 
+        input_params = input_params, 
+        is_deterministic = is_deterministic, 
+        is_null_call = is_null_call, 
+        name = name, 
+        parameter_style = parameter_style, 
+        properties = properties, 
+        return_params = return_params, 
+        routine_body = routine_body, 
+        routine_definition = routine_definition, 
+        routine_dependencies = routine_dependencies, 
+        schema_name = schema_name, 
+        security_type = security_type, 
+        specific_name = specific_name, 
+        sql_data_access = sql_data_access, 
+        sql_path = sql_path, ...)
+    .api$do("POST", "/api/2.1/unity-catalog/functions", body = body)
+}
+
+#' Delete a function.
+#' 
+#' Deletes the function that matches the supplied name. For the deletion to
+#' succeed, the user must satisfy one of the following conditions: - Is the
+#' owner of the function's parent catalog - Is the owner of the function's
+#' parent schema and have the **USE_CATALOG** privilege on its parent catalog -
+#' Is the owner of the function itself and have both the **USE_CATALOG**
+#' privilege on its parent catalog and the **USE_SCHEMA** privilege on its
+#' parent schema
+#'
+#' @param force Force deletion even if the function is notempty.
+#' @param name The fully-qualified name of the function (of the form __catalog_name__.__schema_name__.__function__name__).
+databricks_functions_delete <- function(name, force = NULL, 
+    ...) {
+    query <- list(
+        force = force, ...)
+    .api$do("DELETE", paste("/api/2.1/unity-catalog/functions/", name, sep = ""), query = query)
+}
+
+#' Get a function.
+#' 
+#' Gets a function from within a parent catalog and schema. For the fetch to
+#' succeed, the user must satisfy one of the following requirements: - Is a
+#' metastore admin - Is an owner of the function's parent catalog - Have the
+#' **USE_CATALOG** privilege on the function's parent catalog and be the owner
+#' of the function - Have the **USE_CATALOG** privilege on the function's parent
+#' catalog, the **USE_SCHEMA** privilege on the function's parent schema, and
+#' the **EXECUTE** privilege on the function itself
+#'
+#' @param name The fully-qualified name of the function (of the form __catalog_name__.__schema_name__.__function__name__).
+databricks_functions_get <- function(name, ...) {
+    
+    .api$do("GET", paste("/api/2.1/unity-catalog/functions/", name, sep = ""))
+}
+
+#' List functions.
+#' 
+#' List functions within the specified parent catalog and schema. If the user is
+#' a metastore admin, all functions are returned in the output list. Otherwise,
+#' the user must have the **USE_CATALOG** privilege on the catalog and the
+#' **USE_SCHEMA** privilege on the schema, and the output list contains only
+#' functions for which either the user has the **EXECUTE** privilege or the user
+#' is the owner. There is no guarantee of a specific ordering of the elements in
+#' the array.
+#'
+#' @param catalog_name Name of parent catalog for functions of interest.
+#' @param schema_name Parent schema of functions.
+databricks_functions_list <- function(catalog_name, schema_name, ...) {
+    query <- list(
+        catalog_name = catalog_name, 
+        schema_name = schema_name, ...)
+    .api$do("GET", "/api/2.1/unity-catalog/functions", query = query)
+}
+
+#' Update a function.
+#' 
+#' Updates the function that matches the supplied name. Only the owner of the
+#' function can be updated. If the user is not a metastore admin, the user must
+#' be a member of the group that is the new function owner. - Is a metastore
+#' admin - Is the owner of the function's parent catalog - Is the owner of the
+#' function's parent schema and has the **USE_CATALOG** privilege on its parent
+#' catalog - Is the owner of the function itself and has the **USE_CATALOG**
+#' privilege on its parent catalog as well as the **USE_SCHEMA** privilege on
+#' the function's parent schema.
+#'
+#' @param name The fully-qualified name of the function (of the form __catalog_name__.__schema_name__.__function__name__).
+#' @param owner Username of current owner of function.
+databricks_functions_update <- function(name, owner = NULL, 
+    ...) {
+    body <- list(
+        owner = owner, ...)
+    .api$do("PATCH", paste("/api/2.1/unity-catalog/functions/", name, sep = ""), body = body)
+}
+

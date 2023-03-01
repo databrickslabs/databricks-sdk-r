@@ -1,0 +1,146 @@
+# Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
+
+#' Create an assignment.
+#' 
+#' Creates a new metastore assignment. If an assignment for the same
+#' __workspace_id__ exists, it will be overwritten by the new __metastore_id__
+#' and __default_catalog_name__. The caller must be an account admin.
+#'
+#' @param default_catalog_name The name of the default catalog in the metastore.
+#' @param metastore_id The unique ID of the metastore.
+#' @param workspace_id A workspace ID.
+databricks_metastores_assign <- function(metastore_id, default_catalog_name, workspace_id, ...) {
+    body <- list(
+        default_catalog_name = default_catalog_name, 
+        metastore_id = metastore_id, ...)
+    .api$do("PUT", paste("/api/2.1/unity-catalog/workspaces/", workspace_id, "/metastore", , sep = ""), body = body)
+}
+
+#' Create a metastore.
+#' 
+#' Creates a new metastore based on a provided name and storage root path.
+#'
+#' @param name The user-specified name of the metastore.
+#' @param region Cloud region which the metastore serves (e.g., `us-west-2`, `westus`).
+#' @param storage_root The storage root URL for metastore.
+databricks_metastores_create <- function(name, storage_root, region = NULL, 
+    ...) {
+    body <- list(
+        name = name, 
+        region = region, 
+        storage_root = storage_root, ...)
+    .api$do("POST", "/api/2.1/unity-catalog/metastores", body = body)
+}
+
+#' Get metastore assignment for workspace.
+#' 
+#' Gets the metastore assignment for the workspace being accessed.
+databricks_metastores_current <- function(...) {
+    .api$do("GET", "/api/2.1/unity-catalog/current-metastore-assignment")
+}
+
+#' Delete a metastore.
+#' 
+#' Deletes a metastore. The caller must be a metastore admin.
+#'
+#' @param force Force deletion even if the metastore is not empty.
+#' @param id Unique ID of the metastore.
+databricks_metastores_delete <- function(id, force = NULL, 
+    ...) {
+    query <- list(
+        force = force, ...)
+    .api$do("DELETE", paste("/api/2.1/unity-catalog/metastores/", id, sep = ""), query = query)
+}
+
+#' Get a metastore.
+#' 
+#' Gets a metastore that matches the supplied ID. The caller must be a metastore
+#' admin to retrieve this info.
+#'
+#' @param id Unique ID of the metastore.
+databricks_metastores_get <- function(id, ...) {
+    
+    .api$do("GET", paste("/api/2.1/unity-catalog/metastores/", id, sep = ""))
+}
+
+#' List metastores.
+#' 
+#' Gets an array of the available metastores (as __MetastoreInfo__ objects). The
+#' caller must be an admin to retrieve this info. There is no guarantee of a
+#' specific ordering of the elements in the array.
+databricks_metastores_list <- function(...) {
+    .api$do("GET", "/api/2.1/unity-catalog/metastores")
+}
+
+#' Get a metastore summary.
+#' 
+#' Gets information about a metastore. This summary includes the storage
+#' credential, the cloud vendor, the cloud region, and the global metastore ID.
+databricks_metastores_summary <- function(...) {
+    .api$do("GET", "/api/2.1/unity-catalog/metastore_summary")
+}
+
+#' Delete an assignment.
+#' 
+#' Deletes a metastore assignment. The caller must be an account administrator.
+#'
+#' @param metastore_id Query for the ID of the metastore to delete.
+#' @param workspace_id A workspace ID.
+databricks_metastores_unassign <- function(workspace_id, metastore_id, ...) {
+    query <- list(
+        metastore_id = metastore_id, ...)
+    .api$do("DELETE", paste("/api/2.1/unity-catalog/workspaces/", workspace_id, "/metastore", , sep = ""), query = query)
+}
+
+#' Update a metastore.
+#' 
+#' Updates information for a specific metastore. The caller must be a metastore
+#' admin.
+#'
+#' @param delta_sharing_organization_name The organization name of a Delta Sharing entity, to be used in Databricks-to-Databricks Delta Sharing as the official name.
+#' @param delta_sharing_recipient_token_lifetime_in_seconds The lifetime of delta sharing recipient token in seconds.
+#' @param delta_sharing_scope The scope of Delta Sharing enabled for the metastore.
+#' @param id Unique ID of the metastore.
+#' @param name The user-specified name of the metastore.
+#' @param owner The owner of the metastore.
+#' @param privilege_model_version Privilege model version of the metastore, of the form `major.minor` (e.g., `1.0`).
+#' @param storage_root_credential_id UUID of storage credential to access the metastore storage_root.
+databricks_metastores_update <- function(id, delta_sharing_organization_name = NULL, 
+    delta_sharing_recipient_token_lifetime_in_seconds = NULL, 
+    delta_sharing_scope = NULL, 
+    name = NULL, 
+    owner = NULL, 
+    privilege_model_version = NULL, 
+    storage_root_credential_id = NULL, 
+    ...) {
+    body <- list(
+        delta_sharing_organization_name = delta_sharing_organization_name, 
+        delta_sharing_recipient_token_lifetime_in_seconds = delta_sharing_recipient_token_lifetime_in_seconds, 
+        delta_sharing_scope = delta_sharing_scope, 
+        name = name, 
+        owner = owner, 
+        privilege_model_version = privilege_model_version, 
+        storage_root_credential_id = storage_root_credential_id, ...)
+    .api$do("PATCH", paste("/api/2.1/unity-catalog/metastores/", id, sep = ""), body = body)
+}
+
+#' Update an assignment.
+#' 
+#' Updates a metastore assignment. This operation can be used to update
+#' __metastore_id__ or __default_catalog_name__ for a specified Workspace, if
+#' the Workspace is already assigned a metastore. The caller must be an account
+#' admin to update __metastore_id__; otherwise, the caller can be a Workspace
+#' admin.
+#'
+#' @param default_catalog_name The name of the default catalog for the metastore.
+#' @param metastore_id The unique ID of the metastore.
+#' @param workspace_id A workspace ID.
+databricks_metastores_update_assignment <- function(workspace_id, default_catalog_name = NULL, 
+    metastore_id = NULL, 
+    ...) {
+    body <- list(
+        default_catalog_name = default_catalog_name, 
+        metastore_id = metastore_id, ...)
+    .api$do("PATCH", paste("/api/2.1/unity-catalog/workspaces/", workspace_id, "/metastore", , sep = ""), body = body)
+}
+

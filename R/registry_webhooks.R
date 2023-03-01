@@ -1,0 +1,108 @@
+# Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
+
+#' Create a webhook.
+#' 
+#' **NOTE**: This endpoint is in Public Preview.
+#' 
+#' Creates a registry webhook.
+#'
+#' @param description User-specified description for the webhook.
+#' @param events Events that can trigger a registry webhook: * `MODEL_VERSION_CREATED`: A new model version was created for the associated model.
+#' @param http_url_spec 
+#' @param job_spec 
+#' @param model_name Name of the model whose events would trigger this webhook.
+#' @param status This describes an enum.
+databricks_registry_webhooks_create <- function(events, description = NULL, 
+    http_url_spec = NULL, 
+    job_spec = NULL, 
+    model_name = NULL, 
+    status = NULL, 
+    ...) {
+    body <- list(
+        description = description, 
+        events = events, 
+        http_url_spec = http_url_spec, 
+        job_spec = job_spec, 
+        model_name = model_name, 
+        status = status, ...)
+    .api$do("POST", "/api/2.0/mlflow/registry-webhooks/create", body = body)
+}
+
+#' Delete a webhook.
+#' 
+#' **NOTE:** This endpoint is in Public Preview.
+#' 
+#' Deletes a registry webhook.
+#'
+#' @param id Webhook ID required to delete a registry webhook.
+databricks_registry_webhooks_delete <- function(id = NULL, 
+    ...) {
+    query <- list(
+        id = id, ...)
+    .api$do("DELETE", "/api/2.0/mlflow/registry-webhooks/delete", query = query)
+}
+
+#' List registry webhooks.
+#' 
+#' **NOTE:** This endpoint is in Public Preview.
+#' 
+#' Lists all registry webhooks.
+#'
+#' @param events If `events` is specified, any webhook with one or more of the specified trigger events is included in the output.
+#' @param model_name If not specified, all webhooks associated with the specified events are listed, regardless of their associated model.
+#' @param page_token Token indicating the page of artifact results to fetch.
+databricks_registry_webhooks_list <- function(events = NULL, 
+    model_name = NULL, 
+    page_token = NULL, 
+    ...) {
+    query <- list(
+        events = events, 
+        model_name = model_name, 
+        page_token = page_token, ...)
+    .api$do("GET", "/api/2.0/mlflow/registry-webhooks/list", query = query)
+}
+
+#' Test a webhook.
+#' 
+#' **NOTE:** This endpoint is in Public Preview.
+#' 
+#' Tests a registry webhook.
+#'
+#' @param event If `event` is specified, the test trigger uses the specified event.
+#' @param id Webhook ID.
+databricks_registry_webhooks_test <- function(id, event = NULL, 
+    ...) {
+    body <- list(
+        event = event, 
+        id = id, ...)
+    .api$do("POST", "/api/2.0/mlflow/registry-webhooks/test", body = body)
+}
+
+#' Update a webhook.
+#' 
+#' **NOTE:** This endpoint is in Public Preview.
+#' 
+#' Updates a registry webhook.
+#'
+#' @param description User-specified description for the webhook.
+#' @param events Events that can trigger a registry webhook: * `MODEL_VERSION_CREATED`: A new model version was created for the associated model.
+#' @param http_url_spec 
+#' @param id Webhook ID.
+#' @param job_spec 
+#' @param status This describes an enum.
+databricks_registry_webhooks_update <- function(id, description = NULL, 
+    events = NULL, 
+    http_url_spec = NULL, 
+    job_spec = NULL, 
+    status = NULL, 
+    ...) {
+    body <- list(
+        description = description, 
+        events = events, 
+        http_url_spec = http_url_spec, 
+        id = id, 
+        job_spec = job_spec, 
+        status = status, ...)
+    .api$do("PATCH", "/api/2.0/mlflow/registry-webhooks/update", body = body)
+}
+
