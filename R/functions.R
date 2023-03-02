@@ -29,7 +29,7 @@
 #' @param specific_name Specific name of the function; Reserved for future use.
 #' @param sql_data_access Function SQL data access.
 #' @param sql_path List of schemes whose objects can be referenced without qualification.
-databricks_functions_create <- function(is_deterministic, name, specific_name, catalog_name, return_params, routine_definition, is_null_call, input_params, parameter_style, schema_name, routine_body, data_type, security_type, routine_dependencies, sql_data_access, full_data_type, comment = NULL, 
+databricks_functions_create <- function(name, catalog_name, schema_name, input_params, data_type, full_data_type, return_params, routine_body, routine_definition, routine_dependencies, parameter_style, is_deterministic, sql_data_access, is_null_call, security_type, specific_name, comment = NULL, 
     external_language = NULL, 
     external_name = NULL, 
     properties = NULL, 

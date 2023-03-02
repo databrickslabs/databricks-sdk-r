@@ -29,6 +29,7 @@ databricks_jobs_cancel_run <- function(run_id, ...) {
 #' Create a new job.
 #'
 #' @param access_control_list List of permissions to set on the job.
+#' @param continuous An optional continuous property for this job.
 #' @param email_notifications An optional set of email addresses that is notified when runs of this job begin or complete as well as when this job is deleted.
 #' @param format Used to tell what is the format of the job.
 #' @param git_source An optional specification for a remote repository containing the notebooks used by this job's notebook tasks.
@@ -41,6 +42,7 @@ databricks_jobs_cancel_run <- function(run_id, ...) {
 #' @param timeout_seconds An optional timeout applied to each run of this job.
 #' @param webhook_notifications A collection of system notification IDs to notify when the run begins or completes.
 databricks_jobs_create <- function(access_control_list = NULL, 
+    continuous = NULL, 
     email_notifications = NULL, 
     format = NULL, 
     git_source = NULL, 
@@ -55,6 +57,7 @@ databricks_jobs_create <- function(access_control_list = NULL,
     ...) {
     body <- list(
         access_control_list = access_control_list, 
+        continuous = continuous, 
         email_notifications = email_notifications, 
         format = format, 
         git_source = git_source, 

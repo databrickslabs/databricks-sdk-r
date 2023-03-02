@@ -15,9 +15,7 @@
 #'
 #' @param constraint A table constraint, as defined by *one* of the following fields being set: __primary_key_constraint__, __foreign_key_constraint__, __named_table_constraint__.
 #' @param full_name_arg The full name of the table referenced by the constraint.
-databricks_table_constraints_create <- function(constraint = NULL, 
-    full_name_arg = NULL, 
-    ...) {
+databricks_table_constraints_create <- function(full_name_arg, constraint, ...) {
     body <- list(
         constraint = constraint, 
         full_name_arg = full_name_arg, ...)

@@ -8,7 +8,7 @@
 #'
 #' @param default_catalog_name The name of the default catalog in the metastore.
 #' @param metastore_id The unique ID of the metastore.
-#' @param workspace_id A workspace ID.
+#' @param workspace_id Workspace ID.
 databricks_metastores_assign <- function(metastore_id, default_catalog_name, workspace_id, ...) {
     body <- list(
         default_catalog_name = default_catalog_name, 
@@ -101,11 +101,12 @@ databricks_metastores_unassign <- function(workspace_id, metastore_id, ...) {
 #' @param delta_sharing_recipient_token_lifetime_in_seconds The lifetime of delta sharing recipient token in seconds.
 #' @param delta_sharing_scope The scope of Delta Sharing enabled for the metastore.
 #' @param id Unique ID of the metastore.
+#' @param metastore_id Databricks Unity Catalog metastore ID.
 #' @param name The user-specified name of the metastore.
 #' @param owner The owner of the metastore.
 #' @param privilege_model_version Privilege model version of the metastore, of the form `major.minor` (e.g., `1.0`).
 #' @param storage_root_credential_id UUID of storage credential to access the metastore storage_root.
-databricks_metastores_update <- function(id, delta_sharing_organization_name = NULL, 
+databricks_metastores_update <- function(metastore_id, id, delta_sharing_organization_name = NULL, 
     delta_sharing_recipient_token_lifetime_in_seconds = NULL, 
     delta_sharing_scope = NULL, 
     name = NULL, 
@@ -134,9 +135,8 @@ databricks_metastores_update <- function(id, delta_sharing_organization_name = N
 #'
 #' @param default_catalog_name The name of the default catalog for the metastore.
 #' @param metastore_id The unique ID of the metastore.
-#' @param workspace_id A workspace ID.
-databricks_metastores_update_assignment <- function(workspace_id, default_catalog_name = NULL, 
-    metastore_id = NULL, 
+#' @param workspace_id Workspace ID.
+databricks_metastores_update_assignment <- function(workspace_id, metastore_id, default_catalog_name = NULL, 
     ...) {
     body <- list(
         default_catalog_name = default_catalog_name, 

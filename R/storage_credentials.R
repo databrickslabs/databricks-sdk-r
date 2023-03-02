@@ -15,10 +15,11 @@
 #' @param azure_service_principal The Azure service principal configuration.
 #' @param comment Comment associated with the credential.
 #' @param gcp_service_account_key The GCP service account key configuration.
+#' @param metastore_id Databricks Unity Catalog metastore ID.
 #' @param name The credential name.
 #' @param read_only Whether the storage credential is only usable for read operations.
 #' @param skip_validation Supplying true to this argument skips validation of the created credential.
-databricks_storage_credentials_create <- function(name, aws_iam_role = NULL, 
+databricks_storage_credentials_create <- function(name, metastore_id, aws_iam_role = NULL, 
     azure_service_principal = NULL, 
     comment = NULL, 
     gcp_service_account_key = NULL, 
