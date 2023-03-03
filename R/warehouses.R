@@ -30,7 +30,7 @@ databricks_warehouses_create <- function(auto_stop_mins = NULL,
     spot_instance_policy = NULL, 
     tags = NULL, 
     warehouse_type = NULL, 
-    ...) {
+    timeout=20, ...) {
     body <- list(
         auto_stop_mins = auto_stop_mins, 
         channel = channel, 
@@ -46,7 +46,40 @@ databricks_warehouses_create <- function(auto_stop_mins = NULL,
         tags = tags, 
         warehouse_type = warehouse_type, ...)
     
-    .api$do("POST", "/api/2.0/sql/warehouses", body = body)
+    op_response <- .api$do("POST", "/api/2.0/sql/warehouses", body = body)
+    started <- as.numeric(Sys.time())
+    target_states <- c("RUNNING", c())
+    failure_states <- c("STOPPED", "DELETED", c())
+    status_message <- 'polling...'
+    attempt <- 1
+    while ((started + (timeout*60)) > as.numeric(Sys.time())) {
+        poll <- databricks_warehouses_get(id = op_response$id)
+        status <- poll$state
+        status_message <- paste("current status:", status)
+        if (!is.null(poll$health)) {
+            status_message <- poll$health$summary
+        }
+        if (status %in% target_states) {
+            return (poll)
+        }
+        if (status %in% failure_states) {
+            msg <- paste("failed to reach RUNNING, got ", status, "-", status_message)
+            rlang::abort(msg, call = rlang::caller_env())
+        }
+        prefix <- paste("databricks_warehouses_get(id=", op_response$id)
+        sleep <- attempt
+        if (sleep > 10) {
+            # sleep 10s max per attempt
+            sleep <- 10
+        }
+        msg <- paste(prefix, status, status_message, paste0(". Sleeping ~", sleep, "s"))
+        message(msg)
+        random_pause <- runif(1, min = 0.1, max = 0.5)
+        Sys.sleep(sleep + random_pause)
+        attempt <- attempt + 1
+    }
+    msg <- paste("timed out after", timeout, "minutes:", status_message)
+    rlang::abort(msg, call = rlang::caller_env())
 }
 
 #' Delete a warehouse.
@@ -54,10 +87,38 @@ databricks_warehouses_create <- function(auto_stop_mins = NULL,
 #' Deletes a SQL warehouse.
 #'
 #' @param id Required.
-databricks_warehouses_delete <- function(id, ...) {
+databricks_warehouses_delete <- function(id, timeout=20, ...) {
     
     
     .api$do("DELETE", paste("/api/2.0/sql/warehouses/", id, sep = ""))
+    started <- as.numeric(Sys.time())
+    target_states <- c("DELETED", c())
+    status_message <- 'polling...'
+    attempt <- 1
+    while ((started + (timeout*60)) > as.numeric(Sys.time())) {
+        poll <- databricks_warehouses_get(id = id)
+        status <- poll$state
+        status_message <- paste("current status:", status)
+        if (!is.null(poll$health)) {
+            status_message <- poll$health$summary
+        }
+        if (status %in% target_states) {
+            return (poll)
+        }
+        prefix <- paste("databricks_warehouses_get(id=", id)
+        sleep <- attempt
+        if (sleep > 10) {
+            # sleep 10s max per attempt
+            sleep <- 10
+        }
+        msg <- paste(prefix, status, status_message, paste0(". Sleeping ~", sleep, "s"))
+        message(msg)
+        random_pause <- runif(1, min = 0.1, max = 0.5)
+        Sys.sleep(sleep + random_pause)
+        attempt <- attempt + 1
+    }
+    msg <- paste("timed out after", timeout, "minutes:", status_message)
+    rlang::abort(msg, call = rlang::caller_env())
 }
 
 #' Update a warehouse.
@@ -93,7 +154,7 @@ databricks_warehouses_edit <- function(id, auto_stop_mins = NULL,
     spot_instance_policy = NULL, 
     tags = NULL, 
     warehouse_type = NULL, 
-    ...) {
+    timeout=20, ...) {
     body <- list(
         auto_stop_mins = auto_stop_mins, 
         channel = channel, 
@@ -111,6 +172,39 @@ databricks_warehouses_edit <- function(id, auto_stop_mins = NULL,
         warehouse_type = warehouse_type, ...)
     
     .api$do("POST", paste("/api/2.0/sql/warehouses/", id, "/edit", , sep = ""), body = body)
+    started <- as.numeric(Sys.time())
+    target_states <- c("RUNNING", c())
+    failure_states <- c("STOPPED", "DELETED", c())
+    status_message <- 'polling...'
+    attempt <- 1
+    while ((started + (timeout*60)) > as.numeric(Sys.time())) {
+        poll <- databricks_warehouses_get(id = id)
+        status <- poll$state
+        status_message <- paste("current status:", status)
+        if (!is.null(poll$health)) {
+            status_message <- poll$health$summary
+        }
+        if (status %in% target_states) {
+            return (poll)
+        }
+        if (status %in% failure_states) {
+            msg <- paste("failed to reach RUNNING, got ", status, "-", status_message)
+            rlang::abort(msg, call = rlang::caller_env())
+        }
+        prefix <- paste("databricks_warehouses_get(id=", id)
+        sleep <- attempt
+        if (sleep > 10) {
+            # sleep 10s max per attempt
+            sleep <- 10
+        }
+        msg <- paste(prefix, status, status_message, paste0(". Sleeping ~", sleep, "s"))
+        message(msg)
+        random_pause <- runif(1, min = 0.1, max = 0.5)
+        Sys.sleep(sleep + random_pause)
+        attempt <- attempt + 1
+    }
+    msg <- paste("timed out after", timeout, "minutes:", status_message)
+    rlang::abort(msg, call = rlang::caller_env())
 }
 
 #' Get warehouse info.
@@ -201,10 +295,43 @@ databricks_warehouses_set_workspace_warehouse_config <- function(channel = NULL,
 #' Starts a SQL warehouse.
 #'
 #' @param id Required.
-databricks_warehouses_start <- function(id, ...) {
+databricks_warehouses_start <- function(id, timeout=20, ...) {
     
     
     .api$do("POST", paste("/api/2.0/sql/warehouses/", id, "/start", , sep = ""))
+    started <- as.numeric(Sys.time())
+    target_states <- c("RUNNING", c())
+    failure_states <- c("STOPPED", "DELETED", c())
+    status_message <- 'polling...'
+    attempt <- 1
+    while ((started + (timeout*60)) > as.numeric(Sys.time())) {
+        poll <- databricks_warehouses_get(id = id)
+        status <- poll$state
+        status_message <- paste("current status:", status)
+        if (!is.null(poll$health)) {
+            status_message <- poll$health$summary
+        }
+        if (status %in% target_states) {
+            return (poll)
+        }
+        if (status %in% failure_states) {
+            msg <- paste("failed to reach RUNNING, got ", status, "-", status_message)
+            rlang::abort(msg, call = rlang::caller_env())
+        }
+        prefix <- paste("databricks_warehouses_get(id=", id)
+        sleep <- attempt
+        if (sleep > 10) {
+            # sleep 10s max per attempt
+            sleep <- 10
+        }
+        msg <- paste(prefix, status, status_message, paste0(". Sleeping ~", sleep, "s"))
+        message(msg)
+        random_pause <- runif(1, min = 0.1, max = 0.5)
+        Sys.sleep(sleep + random_pause)
+        attempt <- attempt + 1
+    }
+    msg <- paste("timed out after", timeout, "minutes:", status_message)
+    rlang::abort(msg, call = rlang::caller_env())
 }
 
 #' Stop a warehouse.
@@ -212,11 +339,41 @@ databricks_warehouses_start <- function(id, ...) {
 #' Stops a SQL warehouse.
 #'
 #' @param id Required.
-databricks_warehouses_stop <- function(id, ...) {
+databricks_warehouses_stop <- function(id, timeout=20, ...) {
     
     
     .api$do("POST", paste("/api/2.0/sql/warehouses/", id, "/stop", , sep = ""))
+    started <- as.numeric(Sys.time())
+    target_states <- c("STOPPED", c())
+    status_message <- 'polling...'
+    attempt <- 1
+    while ((started + (timeout*60)) > as.numeric(Sys.time())) {
+        poll <- databricks_warehouses_get(id = id)
+        status <- poll$state
+        status_message <- paste("current status:", status)
+        if (!is.null(poll$health)) {
+            status_message <- poll$health$summary
+        }
+        if (status %in% target_states) {
+            return (poll)
+        }
+        prefix <- paste("databricks_warehouses_get(id=", id)
+        sleep <- attempt
+        if (sleep > 10) {
+            # sleep 10s max per attempt
+            sleep <- 10
+        }
+        msg <- paste(prefix, status, status_message, paste0(". Sleeping ~", sleep, "s"))
+        message(msg)
+        random_pause <- runif(1, min = 0.1, max = 0.5)
+        Sys.sleep(sleep + random_pause)
+        attempt <- attempt + 1
+    }
+    msg <- paste("timed out after", timeout, "minutes:", status_message)
+    rlang::abort(msg, call = rlang::caller_env())
 }
+
+
 
 
 

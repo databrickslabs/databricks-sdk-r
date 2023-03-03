@@ -19,11 +19,44 @@ databricks_jobs_cancel_all_runs <- function(job_id, ...) {
 #' running when this request completes.
 #'
 #' @param run_id This field is required.
-databricks_jobs_cancel_run <- function(run_id, ...) {
+databricks_jobs_cancel_run <- function(run_id, timeout=20, ...) {
     body <- list(
         run_id = run_id, ...)
     
     .api$do("POST", "/api/2.1/jobs/runs/cancel", body = body)
+    started <- as.numeric(Sys.time())
+    target_states <- c("TERMINATED", "SKIPPED", c())
+    failure_states <- c("INTERNAL_ERROR", c())
+    status_message <- 'polling...'
+    attempt <- 1
+    while ((started + (timeout*60)) > as.numeric(Sys.time())) {
+        poll <- databricks_jobs_get_run(run_id = run_id)
+        status <- poll$state$life_cycle_state
+        status_message <- paste("current status:", status)
+        if (!is.null(poll$state)) {
+            status_message <- poll$state$state_message
+        }
+        if (status %in% target_states) {
+            return (poll)
+        }
+        if (status %in% failure_states) {
+            msg <- paste("failed to reach TERMINATED or SKIPPED, got ", status, "-", status_message)
+            rlang::abort(msg, call = rlang::caller_env())
+        }
+        prefix <- paste("databricks_jobs_get_run(run_id=", run_id)
+        sleep <- attempt
+        if (sleep > 10) {
+            # sleep 10s max per attempt
+            sleep <- 10
+        }
+        msg <- paste(prefix, status, status_message, paste0(". Sleeping ~", sleep, "s"))
+        message(msg)
+        random_pause <- runif(1, min = 0.1, max = 0.5)
+        Sys.sleep(sleep + random_pause)
+        attempt <- attempt + 1
+    }
+    msg <- paste("timed out after", timeout, "minutes:", status_message)
+    rlang::abort(msg, call = rlang::caller_env())
 }
 
 #' Create a new job.
@@ -133,12 +166,45 @@ databricks_jobs_get <- function(job_id, ...) {
 #' @param include_history Whether to include the repair history in the response.
 #' @param run_id The canonical identifier of the run for which to retrieve the metadata.
 databricks_jobs_get_run <- function(run_id, include_history = NULL, 
-    ...) {
+    timeout=20, ...) {
     query <- list(
         include_history = include_history, 
         run_id = run_id, ...)
     
-    .api$do("GET", "/api/2.1/jobs/runs/get", query = query)
+    op_response <- .api$do("GET", "/api/2.1/jobs/runs/get", query = query)
+    started <- as.numeric(Sys.time())
+    target_states <- c("TERMINATED", "SKIPPED", c())
+    failure_states <- c("INTERNAL_ERROR", c())
+    status_message <- 'polling...'
+    attempt <- 1
+    while ((started + (timeout*60)) > as.numeric(Sys.time())) {
+        poll <- databricks_jobs_get_run(run_id = op_response$run_id)
+        status <- poll$state$life_cycle_state
+        status_message <- paste("current status:", status)
+        if (!is.null(poll$state)) {
+            status_message <- poll$state$state_message
+        }
+        if (status %in% target_states) {
+            return (poll)
+        }
+        if (status %in% failure_states) {
+            msg <- paste("failed to reach TERMINATED or SKIPPED, got ", status, "-", status_message)
+            rlang::abort(msg, call = rlang::caller_env())
+        }
+        prefix <- paste("databricks_jobs_get_run(run_id=", op_response$run_id)
+        sleep <- attempt
+        if (sleep > 10) {
+            # sleep 10s max per attempt
+            sleep <- 10
+        }
+        msg <- paste(prefix, status, status_message, paste0(". Sleeping ~", sleep, "s"))
+        message(msg)
+        random_pause <- runif(1, min = 0.1, max = 0.5)
+        Sys.sleep(sleep + random_pause)
+        attempt <- attempt + 1
+    }
+    msg <- paste("timed out after", timeout, "minutes:", status_message)
+    rlang::abort(msg, call = rlang::caller_env())
 }
 
 #' Get the output for a single run.
@@ -282,7 +348,7 @@ databricks_jobs_repair_run <- function(run_id, dbt_commands = NULL,
     rerun_tasks = NULL, 
     spark_submit_params = NULL, 
     sql_params = NULL, 
-    ...) {
+    timeout=20, ...) {
     body <- list(
         dbt_commands = dbt_commands, 
         jar_params = jar_params, 
@@ -297,7 +363,40 @@ databricks_jobs_repair_run <- function(run_id, dbt_commands = NULL,
         spark_submit_params = spark_submit_params, 
         sql_params = sql_params, ...)
     
-    .api$do("POST", "/api/2.1/jobs/runs/repair", body = body)
+    op_response <- .api$do("POST", "/api/2.1/jobs/runs/repair", body = body)
+    started <- as.numeric(Sys.time())
+    target_states <- c("TERMINATED", "SKIPPED", c())
+    failure_states <- c("INTERNAL_ERROR", c())
+    status_message <- 'polling...'
+    attempt <- 1
+    while ((started + (timeout*60)) > as.numeric(Sys.time())) {
+        poll <- databricks_jobs_get_run(run_id = run_id)
+        status <- poll$state$life_cycle_state
+        status_message <- paste("current status:", status)
+        if (!is.null(poll$state)) {
+            status_message <- poll$state$state_message
+        }
+        if (status %in% target_states) {
+            return (poll)
+        }
+        if (status %in% failure_states) {
+            msg <- paste("failed to reach TERMINATED or SKIPPED, got ", status, "-", status_message)
+            rlang::abort(msg, call = rlang::caller_env())
+        }
+        prefix <- paste("databricks_jobs_get_run(run_id=", run_id)
+        sleep <- attempt
+        if (sleep > 10) {
+            # sleep 10s max per attempt
+            sleep <- 10
+        }
+        msg <- paste(prefix, status, status_message, paste0(". Sleeping ~", sleep, "s"))
+        message(msg)
+        random_pause <- runif(1, min = 0.1, max = 0.5)
+        Sys.sleep(sleep + random_pause)
+        attempt <- attempt + 1
+    }
+    msg <- paste("timed out after", timeout, "minutes:", status_message)
+    rlang::abort(msg, call = rlang::caller_env())
 }
 
 #' Overwrites all settings for a job.
@@ -338,7 +437,7 @@ databricks_jobs_run_now <- function(job_id, dbt_commands = NULL,
     python_params = NULL, 
     spark_submit_params = NULL, 
     sql_params = NULL, 
-    ...) {
+    timeout=20, ...) {
     body <- list(
         dbt_commands = dbt_commands, 
         idempotency_token = idempotency_token, 
@@ -351,7 +450,40 @@ databricks_jobs_run_now <- function(job_id, dbt_commands = NULL,
         spark_submit_params = spark_submit_params, 
         sql_params = sql_params, ...)
     
-    .api$do("POST", "/api/2.1/jobs/run-now", body = body)
+    op_response <- .api$do("POST", "/api/2.1/jobs/run-now", body = body)
+    started <- as.numeric(Sys.time())
+    target_states <- c("TERMINATED", "SKIPPED", c())
+    failure_states <- c("INTERNAL_ERROR", c())
+    status_message <- 'polling...'
+    attempt <- 1
+    while ((started + (timeout*60)) > as.numeric(Sys.time())) {
+        poll <- databricks_jobs_get_run(run_id = op_response$run_id)
+        status <- poll$state$life_cycle_state
+        status_message <- paste("current status:", status)
+        if (!is.null(poll$state)) {
+            status_message <- poll$state$state_message
+        }
+        if (status %in% target_states) {
+            return (poll)
+        }
+        if (status %in% failure_states) {
+            msg <- paste("failed to reach TERMINATED or SKIPPED, got ", status, "-", status_message)
+            rlang::abort(msg, call = rlang::caller_env())
+        }
+        prefix <- paste("databricks_jobs_get_run(run_id=", op_response$run_id)
+        sleep <- attempt
+        if (sleep > 10) {
+            # sleep 10s max per attempt
+            sleep <- 10
+        }
+        msg <- paste(prefix, status, status_message, paste0(". Sleeping ~", sleep, "s"))
+        message(msg)
+        random_pause <- runif(1, min = 0.1, max = 0.5)
+        Sys.sleep(sleep + random_pause)
+        attempt <- attempt + 1
+    }
+    msg <- paste("timed out after", timeout, "minutes:", status_message)
+    rlang::abort(msg, call = rlang::caller_env())
 }
 
 #' Create and trigger a one-time run.
@@ -375,7 +507,7 @@ databricks_jobs_submit <- function(access_control_list = NULL,
     tasks = NULL, 
     timeout_seconds = NULL, 
     webhook_notifications = NULL, 
-    ...) {
+    timeout=20, ...) {
     body <- list(
         access_control_list = access_control_list, 
         git_source = git_source, 
@@ -385,7 +517,40 @@ databricks_jobs_submit <- function(access_control_list = NULL,
         timeout_seconds = timeout_seconds, 
         webhook_notifications = webhook_notifications, ...)
     
-    .api$do("POST", "/api/2.1/jobs/runs/submit", body = body)
+    op_response <- .api$do("POST", "/api/2.1/jobs/runs/submit", body = body)
+    started <- as.numeric(Sys.time())
+    target_states <- c("TERMINATED", "SKIPPED", c())
+    failure_states <- c("INTERNAL_ERROR", c())
+    status_message <- 'polling...'
+    attempt <- 1
+    while ((started + (timeout*60)) > as.numeric(Sys.time())) {
+        poll <- databricks_jobs_get_run(run_id = op_response$run_id)
+        status <- poll$state$life_cycle_state
+        status_message <- paste("current status:", status)
+        if (!is.null(poll$state)) {
+            status_message <- poll$state$state_message
+        }
+        if (status %in% target_states) {
+            return (poll)
+        }
+        if (status %in% failure_states) {
+            msg <- paste("failed to reach TERMINATED or SKIPPED, got ", status, "-", status_message)
+            rlang::abort(msg, call = rlang::caller_env())
+        }
+        prefix <- paste("databricks_jobs_get_run(run_id=", op_response$run_id)
+        sleep <- attempt
+        if (sleep > 10) {
+            # sleep 10s max per attempt
+            sleep <- 10
+        }
+        msg <- paste(prefix, status, status_message, paste0(". Sleeping ~", sleep, "s"))
+        message(msg)
+        random_pause <- runif(1, min = 0.1, max = 0.5)
+        Sys.sleep(sleep + random_pause)
+        attempt <- attempt + 1
+    }
+    msg <- paste("timed out after", timeout, "minutes:", status_message)
+    rlang::abort(msg, call = rlang::caller_env())
 }
 
 #' Partially updates a job.
@@ -406,6 +571,8 @@ databricks_jobs_update <- function(job_id, fields_to_remove = NULL,
     
     .api$do("POST", "/api/2.1/jobs/update", body = body)
 }
+
+
 
 
 

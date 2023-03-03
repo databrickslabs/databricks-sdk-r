@@ -35,7 +35,7 @@ PRODUCT_VERSION <- "0.0.0"
       return(list())
     }
     if (!profile_exists) {
-      abort(paste("Profile", profile_name, "not found in", config_path), call = caller_env())
+      rlang::abort(paste("Profile", profile_name, "not found in", config_path), call = rlang::caller_env())
     }
     return(as.list(parsed_file[[profile_name]]))
   }
@@ -109,7 +109,7 @@ PRODUCT_VERSION <- "0.0.0"
       cfg$auth_visitor <- visitor
       return(cfg$auth_visitor)
     }
-    abort("cannot configure default credentials", call = caller_env())
+    rlang::abort("cannot configure default credentials", call = rlang::caller_env())
   }
 
   user_agent <- function() {
@@ -152,7 +152,7 @@ PRODUCT_VERSION <- "0.0.0"
       } else {
         msg <- paste(json, collapse = " ")
       }
-      abort(msg, call = caller_env())
+      rlang::abort(msg, call = rlang::caller_env())
     }
     json_string <- httr::content(response, as = "text", encoding = "UTF-8")
     jsonlite::fromJSON(json_string)

@@ -50,3 +50,5 @@ databricks_query_history_list <- function(filter_by = NULL,
 
 
 
+
+

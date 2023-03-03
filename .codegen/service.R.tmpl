@@ -7,7 +7,7 @@
 databricks_{{.Service.SnakeName}}_{{.SnakeName}} <- function(
     {{- if .Request}}{{range .Request.RequiredFields}}{{.SnakeName}}, {{end -}}
     {{- range .Request.NonRequiredFields}}{{.SnakeName}} = NULL, 
-    {{end}}{{- end -}}...) {
+    {{end}}{{- end -}}{{if and .Wait (not .IsCrudRead)}}timeout={{.Wait.Timeout}}, {{end}}...) {
     {{template "method-serialize" .}}
     {{template "method-call" .}}
 }
@@ -25,6 +25,7 @@ databricks_{{.Service.SnakeName}}_{{.SnakeName}} <- function(
 
 {{define "method-call" -}}
     {{if .Pagination -}}{{template "method-call-paginated" .}}
+    {{- else if and .Wait (not .IsCrudRead) -}}{{template "method-call-retried" .}}
     {{- else}}{{template "method-call-default" .}}{{end}}
 {{- end}}
 
@@ -65,6 +66,54 @@ databricks_{{.Service.SnakeName}}_{{.SnakeName}} <- function(
     json <- {{template "method-do" .}}
     return (json{{if .Pagination.Results}}${{.Pagination.Results.Name}}{{end}})
     {{end}}
+{{- end}}
+
+{{define "method-call-retried" -}}
+    {{if .Response}}op_response <- {{end}}{{template "method-do" .}}
+    started <- as.numeric(Sys.time())
+    target_states <- c({{range .Wait.Success}}"{{.Content}}", {{end}}c()){{if .Wait.Failure}}
+    failure_states <- c({{range .Wait.Failure}}"{{.Content}}", {{end}}c()){{end}}
+    status_message <- 'polling...'
+    attempt <- 1
+    while ((started + (timeout*60)) > as.numeric(Sys.time())) {
+        poll <- databricks_{{.Service.SnakeName}}_{{.Wait.Poll.SnakeName}}({{range $i, $b := .Wait.Binding}}{{if $i}}, {{end -}}
+            {{$b.PollField.SnakeName}} = {{if $b.IsResponseBind}}op_response${{$b.Bind.Name}}{{else}}{{$b.Bind.SnakeName}}{{end}}
+        {{- end}})
+        status <- poll{{range .Wait.StatusPath}}${{.SnakeName}}{{end}}
+        {{if .Wait.ComplexMessagePath -}}
+        status_message <- paste("current status:", status)
+        if (!is.null(poll${{.Wait.MessagePathHead.SnakeName}})) {
+            status_message <- poll{{range .Wait.MessagePath}}${{.SnakeName}}{{end}}
+        }
+        {{- else if .Wait.MessagePath -}}
+        status_message <- poll{{range .Wait.MessagePath}}${{.SnakeName}}{{end}}
+        {{- else -}}
+        status_message <- paste("current status:", status)
+        {{- end}}
+        if (status %in% target_states) {
+            return (poll)
+        }
+        {{if .Wait.Failure -}}
+        if (status %in% failure_states) {
+            msg <- paste("failed to reach {{range $i, $e := .Wait.Success}}{{if $i}} or {{end}}{{$e.Content}}{{end}}, got ", status, "-", status_message)
+            rlang::abort(msg, call = rlang::caller_env())
+        }
+        {{end}}prefix <- paste0("databricks_{{.Service.SnakeName}}_{{.Wait.Poll.SnakeName}}({{range $i, $b := .Wait.Binding}}{{if $i}}, "{{end -}}
+            {{$b.PollField.SnakeName}}=", {{if $b.IsResponseBind}}op_response${{$b.Bind.Name}}{{else}}{{$b.Bind.SnakeName}}{{end}}
+        {{- end}}, ")")
+        sleep <- attempt
+        if (sleep > 10) {
+            # sleep 10s max per attempt
+            sleep <- 10
+        }
+        msg <- paste(prefix, status, status_message, paste0(". Sleeping ~", sleep, "s"))
+        message(msg)
+        random_pause <- runif(1, min = 0.1, max = 0.5)
+        Sys.sleep(sleep + random_pause)
+        attempt <- attempt + 1
+    }
+    msg <- paste("timed out after", timeout, "minutes:", status_message)
+    rlang::abort(msg, call = rlang::caller_env())
 {{- end}}
 
 {{define "method-call-default" -}}

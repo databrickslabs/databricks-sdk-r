@@ -157,10 +157,40 @@ databricks_pipelines_list_updates <- function(pipeline_id, max_results = NULL,
 #' Resets a pipeline.
 #'
 #' @param pipeline_id 
-databricks_pipelines_reset <- function(pipeline_id, ...) {
+databricks_pipelines_reset <- function(pipeline_id, timeout=20, ...) {
     
     
     .api$do("POST", paste("/api/2.0/pipelines/", pipeline_id, "/reset", , sep = ""))
+    started <- as.numeric(Sys.time())
+    target_states <- c("RUNNING", c())
+    failure_states <- c("FAILED", c())
+    status_message <- 'polling...'
+    attempt <- 1
+    while ((started + (timeout*60)) > as.numeric(Sys.time())) {
+        poll <- databricks_pipelines_get(pipeline_id = pipeline_id)
+        status <- poll$state
+        status_message <- poll$cause
+        if (status %in% target_states) {
+            return (poll)
+        }
+        if (status %in% failure_states) {
+            msg <- paste("failed to reach RUNNING, got ", status, "-", status_message)
+            rlang::abort(msg, call = rlang::caller_env())
+        }
+        prefix <- paste("databricks_pipelines_get(pipeline_id=", pipeline_id)
+        sleep <- attempt
+        if (sleep > 10) {
+            # sleep 10s max per attempt
+            sleep <- 10
+        }
+        msg <- paste(prefix, status, status_message, paste0(". Sleeping ~", sleep, "s"))
+        message(msg)
+        random_pause <- runif(1, min = 0.1, max = 0.5)
+        Sys.sleep(sleep + random_pause)
+        attempt <- attempt + 1
+    }
+    msg <- paste("timed out after", timeout, "minutes:", status_message)
+    rlang::abort(msg, call = rlang::caller_env())
 }
 
 #' Queue a pipeline update.
@@ -191,10 +221,40 @@ databricks_pipelines_start_update <- function(pipeline_id, cause = NULL,
 #' Stops a pipeline.
 #'
 #' @param pipeline_id 
-databricks_pipelines_stop <- function(pipeline_id, ...) {
+databricks_pipelines_stop <- function(pipeline_id, timeout=20, ...) {
     
     
     .api$do("POST", paste("/api/2.0/pipelines/", pipeline_id, "/stop", , sep = ""))
+    started <- as.numeric(Sys.time())
+    target_states <- c("IDLE", c())
+    failure_states <- c("FAILED", c())
+    status_message <- 'polling...'
+    attempt <- 1
+    while ((started + (timeout*60)) > as.numeric(Sys.time())) {
+        poll <- databricks_pipelines_get(pipeline_id = pipeline_id)
+        status <- poll$state
+        status_message <- poll$cause
+        if (status %in% target_states) {
+            return (poll)
+        }
+        if (status %in% failure_states) {
+            msg <- paste("failed to reach IDLE, got ", status, "-", status_message)
+            rlang::abort(msg, call = rlang::caller_env())
+        }
+        prefix <- paste("databricks_pipelines_get(pipeline_id=", pipeline_id)
+        sleep <- attempt
+        if (sleep > 10) {
+            # sleep 10s max per attempt
+            sleep <- 10
+        }
+        msg <- paste(prefix, status, status_message, paste0(". Sleeping ~", sleep, "s"))
+        message(msg)
+        random_pause <- runif(1, min = 0.1, max = 0.5)
+        Sys.sleep(sleep + random_pause)
+        attempt <- attempt + 1
+    }
+    msg <- paste("timed out after", timeout, "minutes:", status_message)
+    rlang::abort(msg, call = rlang::caller_env())
 }
 
 #' Edit a pipeline.
@@ -259,6 +319,8 @@ databricks_pipelines_update <- function(pipeline_id, allow_duplicate_names = NUL
     
     .api$do("PUT", paste("/api/2.0/pipelines/", pipeline_id, sep = ""), body = body)
 }
+
+
 
 
 

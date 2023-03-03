@@ -55,3 +55,5 @@ databricks_dbsql_permissions_transfer_ownership <- function(object_type, object_
 
 
 
+
+

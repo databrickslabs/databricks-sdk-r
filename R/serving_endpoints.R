@@ -18,12 +18,42 @@ databricks_serving_endpoints_build_logs <- function(name, served_model_name, ...
 #'
 #' @param config The core config of the serving endpoint.
 #' @param name The name of the serving endpoint.
-databricks_serving_endpoints_create <- function(name, config, ...) {
+databricks_serving_endpoints_create <- function(name, config, timeout=20, ...) {
     body <- list(
         config = config, 
         name = name, ...)
     
-    .api$do("POST", "/api/2.0/serving-endpoints", body = body)
+    op_response <- .api$do("POST", "/api/2.0/serving-endpoints", body = body)
+    started <- as.numeric(Sys.time())
+    target_states <- c("NOT_UPDATING", c())
+    failure_states <- c("UPDATE_FAILED", c())
+    status_message <- 'polling...'
+    attempt <- 1
+    while ((started + (timeout*60)) > as.numeric(Sys.time())) {
+        poll <- databricks_serving_endpoints_get(name = op_response$name)
+        status <- poll$state$config_update
+        status_message <- paste("current status:", status)
+        if (status %in% target_states) {
+            return (poll)
+        }
+        if (status %in% failure_states) {
+            msg <- paste("failed to reach NOT_UPDATING, got ", status, "-", status_message)
+            rlang::abort(msg, call = rlang::caller_env())
+        }
+        prefix <- paste("databricks_serving_endpoints_get(name=", op_response$name)
+        sleep <- attempt
+        if (sleep > 10) {
+            # sleep 10s max per attempt
+            sleep <- 10
+        }
+        msg <- paste(prefix, status, status_message, paste0(". Sleeping ~", sleep, "s"))
+        message(msg)
+        random_pause <- runif(1, min = 0.1, max = 0.5)
+        Sys.sleep(sleep + random_pause)
+        attempt <- attempt + 1
+    }
+    msg <- paste("timed out after", timeout, "minutes:", status_message)
+    rlang::abort(msg, call = rlang::caller_env())
 }
 
 #' Delete a serving endpoint.
@@ -100,13 +130,45 @@ databricks_serving_endpoints_query <- function(name, ...) {
 #' @param served_models A list of served models for the endpoint to serve.
 #' @param traffic_config The traffic config defining how invocations to the serving endpoint should be routed.
 databricks_serving_endpoints_update_config <- function(served_models, name, traffic_config = NULL, 
-    ...) {
+    timeout=20, ...) {
     body <- list(
         served_models = served_models, 
         traffic_config = traffic_config, ...)
     
-    .api$do("PUT", paste("/api/2.0/serving-endpoints/", name, "/config", , sep = ""), body = body)
+    op_response <- .api$do("PUT", paste("/api/2.0/serving-endpoints/", name, "/config", , sep = ""), body = body)
+    started <- as.numeric(Sys.time())
+    target_states <- c("NOT_UPDATING", c())
+    failure_states <- c("UPDATE_FAILED", c())
+    status_message <- 'polling...'
+    attempt <- 1
+    while ((started + (timeout*60)) > as.numeric(Sys.time())) {
+        poll <- databricks_serving_endpoints_get(name = op_response$name)
+        status <- poll$state$config_update
+        status_message <- paste("current status:", status)
+        if (status %in% target_states) {
+            return (poll)
+        }
+        if (status %in% failure_states) {
+            msg <- paste("failed to reach NOT_UPDATING, got ", status, "-", status_message)
+            rlang::abort(msg, call = rlang::caller_env())
+        }
+        prefix <- paste("databricks_serving_endpoints_get(name=", op_response$name)
+        sleep <- attempt
+        if (sleep > 10) {
+            # sleep 10s max per attempt
+            sleep <- 10
+        }
+        msg <- paste(prefix, status, status_message, paste0(". Sleeping ~", sleep, "s"))
+        message(msg)
+        random_pause <- runif(1, min = 0.1, max = 0.5)
+        Sys.sleep(sleep + random_pause)
+        attempt <- attempt + 1
+    }
+    msg <- paste("timed out after", timeout, "minutes:", status_message)
+    rlang::abort(msg, call = rlang::caller_env())
 }
+
+
 
 
 
