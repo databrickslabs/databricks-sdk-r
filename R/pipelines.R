@@ -177,7 +177,7 @@ databricks_pipelines_reset <- function(pipeline_id, timeout=20, ...) {
             msg <- paste("failed to reach RUNNING, got ", status, "-", status_message)
             rlang::abort(msg, call = rlang::caller_env())
         }
-        prefix <- paste("databricks_pipelines_get(pipeline_id=", pipeline_id)
+        prefix <- paste0("databricks_pipelines_get(pipeline_id=", pipeline_id, ")")
         sleep <- attempt
         if (sleep > 10) {
             # sleep 10s max per attempt
@@ -241,7 +241,7 @@ databricks_pipelines_stop <- function(pipeline_id, timeout=20, ...) {
             msg <- paste("failed to reach IDLE, got ", status, "-", status_message)
             rlang::abort(msg, call = rlang::caller_env())
         }
-        prefix <- paste("databricks_pipelines_get(pipeline_id=", pipeline_id)
+        prefix <- paste0("databricks_pipelines_get(pipeline_id=", pipeline_id, ")")
         sleep <- attempt
         if (sleep > 10) {
             # sleep 10s max per attempt

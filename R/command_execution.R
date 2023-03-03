@@ -6,17 +6,17 @@
 #' 
 #' The command ID is obtained from a prior successful call to __execute__.
 #'
-#' @param clusterId 
+#' @param cluster_id 
 #' @param command_id 
 #' @param context_id 
-databricks_command_execution_cancel <- function(clusterId = NULL, 
+databricks_command_execution_cancel <- function(cluster_id = NULL, 
     command_id = NULL, 
     context_id = NULL, 
     timeout=20, ...) {
     body <- list(
-        clusterId = clusterId, 
-        command_id = command_id, 
-        context_id = context_id, ...)
+        clusterId = cluster_id, 
+        commandId = command_id, 
+        contextId = context_id, ...)
     
     .api$do("POST", "/api/1.2/commands/cancel", body = body)
     started <- as.numeric(Sys.time())
@@ -25,7 +25,7 @@ databricks_command_execution_cancel <- function(clusterId = NULL,
     status_message <- 'polling...'
     attempt <- 1
     while ((started + (timeout*60)) > as.numeric(Sys.time())) {
-        poll <- databricks_command_execution_command_status(clusterId = clusterId, command_id = command_id, context_id = context_id)
+        poll <- databricks_command_execution_command_status(cluster_id = cluster_id, command_id = command_id, context_id = context_id)
         status <- poll$status
         status_message <- paste("current status:", status)
         if (!is.null(poll$results)) {
@@ -38,7 +38,7 @@ databricks_command_execution_cancel <- function(clusterId = NULL,
             msg <- paste("failed to reach Cancelled, got ", status, "-", status_message)
             rlang::abort(msg, call = rlang::caller_env())
         }
-        prefix <- paste("databricks_command_execution_command_status(clusterId=", clusterId, "command_id=", command_id, "context_id=", context_id)
+        prefix <- paste0("databricks_command_execution_command_status(cluster_id=", cluster_id, "command_id=", command_id, "context_id=", context_id, ")")
         sleep <- attempt
         if (sleep > 10) {
             # sleep 10s max per attempt
@@ -61,14 +61,14 @@ databricks_command_execution_cancel <- function(clusterId = NULL,
 #' 
 #' The command ID is obtained from a prior successful call to __execute__.
 #'
-#' @param clusterId 
+#' @param cluster_id 
 #' @param command_id 
 #' @param context_id 
-databricks_command_execution_command_status <- function(clusterId, context_id, command_id, ...) {
+databricks_command_execution_command_status <- function(cluster_id, context_id, command_id, ...) {
     query <- list(
-        clusterId = clusterId, 
-        command_id = command_id, 
-        context_id = context_id, ...)
+        clusterId = cluster_id, 
+        commandId = command_id, 
+        contextId = context_id, ...)
     
     .api$do("GET", "/api/1.2/commands/status", query = query)
 }
@@ -77,12 +77,12 @@ databricks_command_execution_command_status <- function(clusterId, context_id, c
 #' 
 #' Gets the status for an execution context.
 #'
-#' @param clusterId 
+#' @param cluster_id 
 #' @param context_id 
-databricks_command_execution_context_status <- function(clusterId, context_id, ...) {
+databricks_command_execution_context_status <- function(cluster_id, context_id, ...) {
     query <- list(
-        clusterId = clusterId, 
-        context_id = context_id, ...)
+        clusterId = cluster_id, 
+        contextId = context_id, ...)
     
     .api$do("GET", "/api/1.2/contexts/status", query = query)
 }
@@ -93,13 +93,13 @@ databricks_command_execution_context_status <- function(clusterId, context_id, .
 #' 
 #' If successful, this method returns the ID of the new execution context.
 #'
-#' @param clusterId Running cluster id.
+#' @param cluster_id Running cluster id.
 #' @param language 
-databricks_command_execution_create <- function(clusterId = NULL, 
+databricks_command_execution_create <- function(cluster_id = NULL, 
     language = NULL, 
     timeout=20, ...) {
     body <- list(
-        clusterId = clusterId, 
+        clusterId = cluster_id, 
         language = language, ...)
     
     op_response <- .api$do("POST", "/api/1.2/contexts/create", body = body)
@@ -109,7 +109,7 @@ databricks_command_execution_create <- function(clusterId = NULL,
     status_message <- 'polling...'
     attempt <- 1
     while ((started + (timeout*60)) > as.numeric(Sys.time())) {
-        poll <- databricks_command_execution_context_status(clusterId = clusterId, context_id = op_response$id)
+        poll <- databricks_command_execution_context_status(cluster_id = cluster_id, context_id = op_response$id)
         status <- poll$status
         status_message <- paste("current status:", status)
         if (status %in% target_states) {
@@ -117,9 +117,9 @@ databricks_command_execution_create <- function(clusterId = NULL,
         }
         if (status %in% failure_states) {
             msg <- paste("failed to reach Running, got ", status, "-", status_message)
-            stop(msg, call = rlang::caller_env())
+            rlang::abort(msg, call = rlang::caller_env())
         }
-        prefix <- paste("databricks_command_execution_context_status(clusterId=", clusterId, "context_id=", op_response$id)
+        prefix <- paste0("databricks_command_execution_context_status(cluster_id=", cluster_id, "context_id=", op_response$id, ")")
         sleep <- attempt
         if (sleep > 10) {
             # sleep 10s max per attempt
@@ -139,12 +139,12 @@ databricks_command_execution_create <- function(clusterId = NULL,
 #' 
 #' Deletes an execution context.
 #'
-#' @param clusterId 
+#' @param cluster_id 
 #' @param context_id 
-databricks_command_execution_destroy <- function(clusterId, context_id, ...) {
+databricks_command_execution_destroy <- function(cluster_id, context_id, ...) {
     body <- list(
-        clusterId = clusterId, 
-        context_id = context_id, ...)
+        clusterId = cluster_id, 
+        contextId = context_id, ...)
     
     .api$do("POST", "/api/1.2/contexts/destroy", body = body)
 }
@@ -157,19 +157,19 @@ databricks_command_execution_destroy <- function(clusterId, context_id, ...) {
 #' If successful, it returns an ID for tracking the status of the command's
 #' execution.
 #'
-#' @param clusterId Running cluster id.
+#' @param cluster_id Running cluster id.
 #' @param command Executable code.
 #' @param context_id Running context id.
 #' @param language 
-databricks_command_execution_execute <- function(clusterId = NULL, 
+databricks_command_execution_execute <- function(cluster_id = NULL, 
     command = NULL, 
     context_id = NULL, 
     language = NULL, 
     timeout=20, ...) {
     body <- list(
-        clusterId = clusterId, 
+        clusterId = cluster_id, 
         command = command, 
-        context_id = context_id, 
+        contextId = context_id, 
         language = language, ...)
     
     op_response <- .api$do("POST", "/api/1.2/commands/execute", body = body)
@@ -179,7 +179,7 @@ databricks_command_execution_execute <- function(clusterId = NULL,
     status_message <- 'polling...'
     attempt <- 1
     while ((started + (timeout*60)) > as.numeric(Sys.time())) {
-        poll <- databricks_command_execution_command_status(clusterId = clusterId, command_id = op_response$id, context_id = context_id)
+        poll <- databricks_command_execution_command_status(cluster_id = cluster_id, command_id = op_response$id, context_id = context_id)
         status <- poll$status
         status_message <- paste("current status:", status)
         if (status %in% target_states) {
@@ -189,7 +189,7 @@ databricks_command_execution_execute <- function(clusterId = NULL,
             msg <- paste("failed to reach Finished or Error, got ", status, "-", status_message)
             rlang::abort(msg, call = rlang::caller_env())
         }
-        prefix <- paste("databricks_command_execution_command_status(clusterId=", clusterId, "command_id=", op_response$id, "context_id=", context_id)
+        prefix <- paste0("databricks_command_execution_command_status(cluster_id=", cluster_id, "command_id=", op_response$id, "context_id=", context_id, ")")
         sleep <- attempt
         if (sleep > 10) {
             # sleep 10s max per attempt

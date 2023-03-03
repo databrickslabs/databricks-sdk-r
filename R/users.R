@@ -27,15 +27,15 @@ databricks_users_create <- function(id, active = NULL,
     ...) {
     body <- list(
         active = active, 
-        display_name = display_name, 
+        displayName = display_name, 
         emails = emails, 
         entitlements = entitlements, 
-        external_id = external_id, 
+        externalId = external_id, 
         groups = groups, 
         id = id, 
         name = name, 
         roles = roles, 
-        user_name = user_name, ...)
+        userName = user_name, ...)
     
     .api$do("POST", "/api/2.0/preview/scim/v2/Users", body = body)
 }
@@ -85,11 +85,11 @@ databricks_users_list <- function(attributes = NULL,
     query <- list(
         attributes = attributes, 
         count = count, 
-        excluded_attributes = excluded_attributes, 
+        excludedAttributes = excluded_attributes, 
         filter = filter, 
-        sort_by = sort_by, 
-        sort_order = sort_order, 
-        start_index = start_index, ...)
+        sortBy = sort_by, 
+        sortOrder = sort_order, 
+        startIndex = start_index, ...)
     
     
     json <- .api$do("GET", "/api/2.0/preview/scim/v2/Users", query = query)
@@ -138,15 +138,15 @@ databricks_users_update <- function(id, active = NULL,
     ...) {
     body <- list(
         active = active, 
-        display_name = display_name, 
+        displayName = display_name, 
         emails = emails, 
         entitlements = entitlements, 
-        external_id = external_id, 
+        externalId = external_id, 
         groups = groups, 
         id = id, 
         name = name, 
         roles = roles, 
-        user_name = user_name, ...)
+        userName = user_name, ...)
     
     .api$do("PUT", paste("/api/2.0/preview/scim/v2/Users/", id, sep = ""), body = body)
 }

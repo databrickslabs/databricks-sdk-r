@@ -17,9 +17,9 @@ databricks_{{.Service.SnakeName}}_{{.SnakeName}} <- function(
 {{define "method-serialize" -}}
     {{if .Request}}
     {{- if .Request.HasQueryField}}query <- list({{range .Request.Fields}}{{if .IsQuery}}
-        {{.SnakeName}} = {{.SnakeName}}, {{end}}{{end}}...){{end}}
+        {{.Name}} = {{.SnakeName}}, {{end}}{{end}}...){{end}}
     {{- if .Request.HasJsonField}}body <- list({{range .Request.Fields}}{{if .IsJson}}
-        {{.SnakeName}} = {{.SnakeName}}, {{end}}{{end}}...){{end}}
+        {{.Name}} = {{.SnakeName}}, {{end}}{{end}}...){{end}}
     {{end -}}
 {{- end}}
 

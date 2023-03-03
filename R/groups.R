@@ -20,9 +20,9 @@ databricks_groups_create <- function(id, display_name = NULL,
     roles = NULL, 
     ...) {
     body <- list(
-        display_name = display_name, 
+        displayName = display_name, 
         entitlements = entitlements, 
-        external_id = external_id, 
+        externalId = external_id, 
         groups = groups, 
         id = id, 
         members = members, 
@@ -75,11 +75,11 @@ databricks_groups_list <- function(attributes = NULL,
     query <- list(
         attributes = attributes, 
         count = count, 
-        excluded_attributes = excluded_attributes, 
+        excludedAttributes = excluded_attributes, 
         filter = filter, 
-        sort_by = sort_by, 
-        sort_order = sort_order, 
-        start_index = start_index, ...)
+        sortBy = sort_by, 
+        sortOrder = sort_order, 
+        startIndex = start_index, ...)
     
     
     json <- .api$do("GET", "/api/2.0/preview/scim/v2/Groups", query = query)
@@ -120,9 +120,9 @@ databricks_groups_update <- function(id, display_name = NULL,
     roles = NULL, 
     ...) {
     body <- list(
-        display_name = display_name, 
+        displayName = display_name, 
         entitlements = entitlements, 
-        external_id = external_id, 
+        externalId = external_id, 
         groups = groups, 
         id = id, 
         members = members, 

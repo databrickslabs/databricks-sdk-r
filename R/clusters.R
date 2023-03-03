@@ -122,7 +122,7 @@ databricks_clusters_create <- function(spark_version, apply_policy_default_value
             msg <- paste("failed to reach RUNNING, got ", status, "-", status_message)
             rlang::abort(msg, call = rlang::caller_env())
         }
-        prefix <- paste("databricks_clusters_get(cluster_id=", op_response$cluster_id)
+        prefix <- paste0("databricks_clusters_get(cluster_id=", op_response$cluster_id, ")")
         sleep <- attempt
         if (sleep > 10) {
             # sleep 10s max per attempt
@@ -167,7 +167,7 @@ databricks_clusters_delete <- function(cluster_id, timeout=20, ...) {
             msg <- paste("failed to reach TERMINATED, got ", status, "-", status_message)
             rlang::abort(msg, call = rlang::caller_env())
         }
-        prefix <- paste("databricks_clusters_get(cluster_id=", cluster_id)
+        prefix <- paste0("databricks_clusters_get(cluster_id=", cluster_id, ")")
         sleep <- attempt
         if (sleep > 10) {
             # sleep 10s max per attempt
@@ -291,7 +291,7 @@ databricks_clusters_edit <- function(cluster_id, spark_version, apply_policy_def
             msg <- paste("failed to reach RUNNING, got ", status, "-", status_message)
             rlang::abort(msg, call = rlang::caller_env())
         }
-        prefix <- paste("databricks_clusters_get(cluster_id=", cluster_id)
+        prefix <- paste0("databricks_clusters_get(cluster_id=", cluster_id, ")")
         sleep <- attempt
         if (sleep > 10) {
             # sleep 10s max per attempt
@@ -476,7 +476,7 @@ databricks_clusters_resize <- function(cluster_id, autoscale = NULL,
             msg <- paste("failed to reach RUNNING, got ", status, "-", status_message)
             rlang::abort(msg, call = rlang::caller_env())
         }
-        prefix <- paste("databricks_clusters_get(cluster_id=", cluster_id)
+        prefix <- paste0("databricks_clusters_get(cluster_id=", cluster_id, ")")
         sleep <- attempt
         if (sleep > 10) {
             # sleep 10s max per attempt
@@ -522,7 +522,7 @@ databricks_clusters_restart <- function(cluster_id, restart_user = NULL,
             msg <- paste("failed to reach RUNNING, got ", status, "-", status_message)
             rlang::abort(msg, call = rlang::caller_env())
         }
-        prefix <- paste("databricks_clusters_get(cluster_id=", cluster_id)
+        prefix <- paste0("databricks_clusters_get(cluster_id=", cluster_id, ")")
         sleep <- attempt
         if (sleep > 10) {
             # sleep 10s max per attempt
@@ -580,7 +580,7 @@ databricks_clusters_start <- function(cluster_id, timeout=20, ...) {
             msg <- paste("failed to reach RUNNING, got ", status, "-", status_message)
             rlang::abort(msg, call = rlang::caller_env())
         }
-        prefix <- paste("databricks_clusters_get(cluster_id=", cluster_id)
+        prefix <- paste0("databricks_clusters_get(cluster_id=", cluster_id, ")")
         sleep <- attempt
         if (sleep > 10) {
             # sleep 10s max per attempt

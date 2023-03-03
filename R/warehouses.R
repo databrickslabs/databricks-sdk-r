@@ -66,7 +66,7 @@ databricks_warehouses_create <- function(auto_stop_mins = NULL,
             msg <- paste("failed to reach RUNNING, got ", status, "-", status_message)
             rlang::abort(msg, call = rlang::caller_env())
         }
-        prefix <- paste("databricks_warehouses_get(id=", op_response$id)
+        prefix <- paste0("databricks_warehouses_get(id=", op_response$id, ")")
         sleep <- attempt
         if (sleep > 10) {
             # sleep 10s max per attempt
@@ -105,7 +105,7 @@ databricks_warehouses_delete <- function(id, timeout=20, ...) {
         if (status %in% target_states) {
             return (poll)
         }
-        prefix <- paste("databricks_warehouses_get(id=", id)
+        prefix <- paste0("databricks_warehouses_get(id=", id, ")")
         sleep <- attempt
         if (sleep > 10) {
             # sleep 10s max per attempt
@@ -191,7 +191,7 @@ databricks_warehouses_edit <- function(id, auto_stop_mins = NULL,
             msg <- paste("failed to reach RUNNING, got ", status, "-", status_message)
             rlang::abort(msg, call = rlang::caller_env())
         }
-        prefix <- paste("databricks_warehouses_get(id=", id)
+        prefix <- paste0("databricks_warehouses_get(id=", id, ")")
         sleep <- attempt
         if (sleep > 10) {
             # sleep 10s max per attempt
@@ -318,7 +318,7 @@ databricks_warehouses_start <- function(id, timeout=20, ...) {
             msg <- paste("failed to reach RUNNING, got ", status, "-", status_message)
             rlang::abort(msg, call = rlang::caller_env())
         }
-        prefix <- paste("databricks_warehouses_get(id=", id)
+        prefix <- paste0("databricks_warehouses_get(id=", id, ")")
         sleep <- attempt
         if (sleep > 10) {
             # sleep 10s max per attempt
@@ -357,7 +357,7 @@ databricks_warehouses_stop <- function(id, timeout=20, ...) {
         if (status %in% target_states) {
             return (poll)
         }
-        prefix <- paste("databricks_warehouses_get(id=", id)
+        prefix <- paste0("databricks_warehouses_get(id=", id, ")")
         sleep <- attempt
         if (sleep > 10) {
             # sleep 10s max per attempt

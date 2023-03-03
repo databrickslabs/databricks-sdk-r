@@ -40,7 +40,7 @@ databricks_serving_endpoints_create <- function(name, config, timeout=20, ...) {
             msg <- paste("failed to reach NOT_UPDATING, got ", status, "-", status_message)
             rlang::abort(msg, call = rlang::caller_env())
         }
-        prefix <- paste("databricks_serving_endpoints_get(name=", op_response$name)
+        prefix <- paste0("databricks_serving_endpoints_get(name=", op_response$name, ")")
         sleep <- attempt
         if (sleep > 10) {
             # sleep 10s max per attempt
@@ -152,7 +152,7 @@ databricks_serving_endpoints_update_config <- function(served_models, name, traf
             msg <- paste("failed to reach NOT_UPDATING, got ", status, "-", status_message)
             rlang::abort(msg, call = rlang::caller_env())
         }
-        prefix <- paste("databricks_serving_endpoints_get(name=", op_response$name)
+        prefix <- paste0("databricks_serving_endpoints_get(name=", op_response$name, ")")
         sleep <- attempt
         if (sleep > 10) {
             # sleep 10s max per attempt

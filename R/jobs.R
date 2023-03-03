@@ -43,7 +43,7 @@ databricks_jobs_cancel_run <- function(run_id, timeout=20, ...) {
             msg <- paste("failed to reach TERMINATED or SKIPPED, got ", status, "-", status_message)
             rlang::abort(msg, call = rlang::caller_env())
         }
-        prefix <- paste("databricks_jobs_get_run(run_id=", run_id)
+        prefix <- paste0("databricks_jobs_get_run(run_id=", run_id, ")")
         sleep <- attempt
         if (sleep > 10) {
             # sleep 10s max per attempt
@@ -191,7 +191,7 @@ databricks_jobs_get_run <- function(run_id, include_history = NULL,
             msg <- paste("failed to reach TERMINATED or SKIPPED, got ", status, "-", status_message)
             rlang::abort(msg, call = rlang::caller_env())
         }
-        prefix <- paste("databricks_jobs_get_run(run_id=", op_response$run_id)
+        prefix <- paste0("databricks_jobs_get_run(run_id=", op_response$run_id, ")")
         sleep <- attempt
         if (sleep > 10) {
             # sleep 10s max per attempt
@@ -383,7 +383,7 @@ databricks_jobs_repair_run <- function(run_id, dbt_commands = NULL,
             msg <- paste("failed to reach TERMINATED or SKIPPED, got ", status, "-", status_message)
             rlang::abort(msg, call = rlang::caller_env())
         }
-        prefix <- paste("databricks_jobs_get_run(run_id=", run_id)
+        prefix <- paste0("databricks_jobs_get_run(run_id=", run_id, ")")
         sleep <- attempt
         if (sleep > 10) {
             # sleep 10s max per attempt
@@ -470,7 +470,7 @@ databricks_jobs_run_now <- function(job_id, dbt_commands = NULL,
             msg <- paste("failed to reach TERMINATED or SKIPPED, got ", status, "-", status_message)
             rlang::abort(msg, call = rlang::caller_env())
         }
-        prefix <- paste("databricks_jobs_get_run(run_id=", op_response$run_id)
+        prefix <- paste0("databricks_jobs_get_run(run_id=", op_response$run_id, ")")
         sleep <- attempt
         if (sleep > 10) {
             # sleep 10s max per attempt
@@ -537,7 +537,7 @@ databricks_jobs_submit <- function(access_control_list = NULL,
             msg <- paste("failed to reach TERMINATED or SKIPPED, got ", status, "-", status_message)
             rlang::abort(msg, call = rlang::caller_env())
         }
-        prefix <- paste("databricks_jobs_get_run(run_id=", op_response$run_id)
+        prefix <- paste0("databricks_jobs_get_run(run_id=", op_response$run_id, ")")
         sleep <- attempt
         if (sleep > 10) {
             # sleep 10s max per attempt
