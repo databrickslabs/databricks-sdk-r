@@ -35,7 +35,7 @@ PRODUCT_VERSION <- "0.0.0"
       return(list())
     }
     if (!profile_exists) {
-      stop(paste("Profile", profile_name, "not found in", config_path))
+      abort(paste("Profile", profile_name, "not found in", config_path), call = caller_env())
     }
     return(as.list(parsed_file[[profile_name]]))
   }
@@ -87,7 +87,7 @@ PRODUCT_VERSION <- "0.0.0"
       return(NULL)
     }
     return(function() {
-      return(c(Authentication = paste("Bearer", cfg$token)))
+      c(Authentication = paste("Bearer", cfg$token))
     })
   })
 
@@ -109,7 +109,7 @@ PRODUCT_VERSION <- "0.0.0"
       cfg$auth_visitor <- visitor
       return(cfg$auth_visitor)
     }
-    stop("cannot configure default credentials")
+    abort("cannot configure default credentials", call = caller_env())
   }
 
   user_agent <- function() {
@@ -124,25 +124,41 @@ PRODUCT_VERSION <- "0.0.0"
     paste(product_info, sdk_info, lang_info, os_info)
   }
 
-  # TODO: add retries as with other SDKs See: client/client.go#L269-L280 in Go
-  # SDK # nolint TODO: rewrite with httr2
-  request <- function(method, path, body = NULL, query = NULL) {
+  # TODO: add retries as with other SDKs See: client/client.go#L269-L280 in Go SDK
+  do <- function(method, path, body = NULL, query = NULL) {
     visitor <- authenticate()
     headers <- visitor()
     if (!is.null(body)) {
-      body <- jsonlite::toJSON(body)
+      body <- base::Filter(length, body)
+      body <- jsonlite::toJSON(body, auto_unbox = TRUE, digits = 22, null = "null")
     }
     url <- paste0(cfg$host, path)
-    response <- httr::VERB(method, url, httr::add_headers(headers), httr::user_agent(user_agent()),
-      httr::config(verbose = FALSE, forbid_reuse = TRUE), body = body, query = query)
+    response <- httr::VERB(method, url,
+      httr::add_headers(headers),
+      httr::user_agent(user_agent()),
+      httr::config(verbose = FALSE, http_version=11),
+      httr::accept_json(),
+      query = base::Filter(length, query),
+      body = body)
     if (httr::http_error(response)) {
-      stop("API request failed: ", httr::content(response, as = "text"))
+      #httr::warn_for_status()
+      json <- httr::content(response, as = "parsed", encoding = "UTF-8")
+      if (!is.null(json$message)) { # API 2.0 errors
+        msg <- paste(json$error_code, json$message, sep = ": ")
+      } else if (!is.null(json$error)) { # API 1.2 errors
+        msg <- json$error
+      } else if (!is.null(json$detail)) { # SCIM API erors
+        msg <- json$detail
+      } else {
+        msg <- paste(json, collapse = " ")
+      }
+      abort(msg, call = caller_env())
     }
-    json_string <- httr::content(response, as = "text")
+    json_string <- httr::content(response, as = "text", encoding = "UTF-8")
     jsonlite::fromJSON(json_string)
   }
 
-  return(list(is_aws = is_aws, is_azure = is_azure, is_gcp = is_gcp, do = request))
+  return(list(is_aws = is_aws, is_azure = is_azure, is_gcp = is_gcp, do = do))
 }
 
 .api <- .DatabricksClient()
