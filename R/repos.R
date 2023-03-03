@@ -18,6 +18,7 @@ databricks_repos_create <- function(url, provider, path = NULL,
         provider = provider, 
         sparse_checkout = sparse_checkout, 
         url = url, ...)
+    
     .api$do("POST", "/api/2.0/repos", body = body)
 }
 
@@ -28,6 +29,7 @@ databricks_repos_create <- function(url, provider, path = NULL,
 #' @param repo_id The ID for the corresponding repo to access.
 databricks_repos_delete <- function(repo_id, ...) {
     
+    
     .api$do("DELETE", paste("/api/2.0/repos/", repo_id, sep = ""))
 }
 
@@ -37,6 +39,7 @@ databricks_repos_delete <- function(repo_id, ...) {
 #'
 #' @param repo_id The ID for the corresponding repo to access.
 databricks_repos_get <- function(repo_id, ...) {
+    
     
     .api$do("GET", paste("/api/2.0/repos/", repo_id, sep = ""))
 }
@@ -54,7 +57,24 @@ databricks_repos_list <- function(next_page_token = NULL,
     query <- list(
         next_page_token = next_page_token, 
         path_prefix = path_prefix, ...)
-    .api$do("GET", "/api/2.0/repos", query = query)
+    
+    
+    
+    results <- data.frame()
+    while (TRUE) {
+        json <- .api$do("GET", "/api/2.0/repos", query = query)
+        if (is.null(nrow(json$repos))) {
+            break
+        }
+        # append this page of results to one results data.frame
+        results <- dplyr::bind_rows(results, json$repos)
+        if (is.null(json$next_page_token)) {
+            break
+        }
+        query$next_page_token <- json$next_page_token
+    }
+    return (results)
+    
 }
 
 #' Update a repo.
@@ -74,6 +94,17 @@ databricks_repos_update <- function(repo_id, branch = NULL,
         branch = branch, 
         sparse_checkout = sparse_checkout, 
         tag = tag, ...)
+    
     .api$do("PATCH", paste("/api/2.0/repos/", repo_id, sep = ""), body = body)
 }
+
+
+
+
+
+
+
+
+
+
 

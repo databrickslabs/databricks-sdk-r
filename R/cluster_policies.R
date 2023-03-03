@@ -23,6 +23,7 @@ databricks_cluster_policies_create <- function(name, definition = NULL,
         name = name, 
         policy_family_definition_overrides = policy_family_definition_overrides, 
         policy_family_id = policy_family_id, ...)
+    
     .api$do("POST", "/api/2.0/policies/clusters/create", body = body)
 }
 
@@ -35,6 +36,7 @@ databricks_cluster_policies_create <- function(name, definition = NULL,
 databricks_cluster_policies_delete <- function(policy_id, ...) {
     body <- list(
         policy_id = policy_id, ...)
+    
     .api$do("POST", "/api/2.0/policies/clusters/delete", body = body)
 }
 
@@ -64,6 +66,7 @@ databricks_cluster_policies_edit <- function(policy_id, name, definition = NULL,
         policy_family_definition_overrides = policy_family_definition_overrides, 
         policy_family_id = policy_family_id, 
         policy_id = policy_id, ...)
+    
     .api$do("POST", "/api/2.0/policies/clusters/edit", body = body)
 }
 
@@ -76,6 +79,7 @@ databricks_cluster_policies_edit <- function(policy_id, name, definition = NULL,
 databricks_cluster_policies_get <- function(policy_id, ...) {
     query <- list(
         policy_id = policy_id, ...)
+    
     .api$do("GET", "/api/2.0/policies/clusters/get", query = query)
 }
 
@@ -91,6 +95,20 @@ databricks_cluster_policies_list <- function(sort_column = NULL,
     query <- list(
         sort_column = sort_column, 
         sort_order = sort_order, ...)
-    .api$do("GET", "/api/2.0/policies/clusters/list", query = query)
+    
+    
+    json <- .api$do("GET", "/api/2.0/policies/clusters/list", query = query)
+    return (json$policies)
+    
 }
+
+
+
+
+
+
+
+
+
+
 

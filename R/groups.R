@@ -27,6 +27,7 @@ databricks_groups_create <- function(id, display_name = NULL,
         id = id, 
         members = members, 
         roles = roles, ...)
+    
     .api$do("POST", "/api/2.0/preview/scim/v2/Groups", body = body)
 }
 
@@ -37,6 +38,7 @@ databricks_groups_create <- function(id, display_name = NULL,
 #' @param id Unique ID for a group in the Databricks Workspace.
 databricks_groups_delete <- function(id, ...) {
     
+    
     .api$do("DELETE", paste("/api/2.0/preview/scim/v2/Groups/", id, sep = ""))
 }
 
@@ -46,6 +48,7 @@ databricks_groups_delete <- function(id, ...) {
 #'
 #' @param id Unique ID for a group in the Databricks Workspace.
 databricks_groups_get <- function(id, ...) {
+    
     
     .api$do("GET", paste("/api/2.0/preview/scim/v2/Groups/", id, sep = ""))
 }
@@ -77,7 +80,11 @@ databricks_groups_list <- function(attributes = NULL,
         sort_by = sort_by, 
         sort_order = sort_order, 
         start_index = start_index, ...)
-    .api$do("GET", "/api/2.0/preview/scim/v2/Groups", query = query)
+    
+    
+    json <- .api$do("GET", "/api/2.0/preview/scim/v2/Groups", query = query)
+    return (json$Resources)
+    
 }
 
 #' Update group details.
@@ -90,6 +97,7 @@ databricks_groups_patch <- function(id, operations = NULL,
     ...) {
     body <- list(
         operations = operations, ...)
+    
     .api$do("PATCH", paste("/api/2.0/preview/scim/v2/Groups/", id, sep = ""), body = body)
 }
 
@@ -119,6 +127,17 @@ databricks_groups_update <- function(id, display_name = NULL,
         id = id, 
         members = members, 
         roles = roles, ...)
+    
     .api$do("PUT", paste("/api/2.0/preview/scim/v2/Groups/", id, sep = ""), body = body)
 }
+
+
+
+
+
+
+
+
+
+
 

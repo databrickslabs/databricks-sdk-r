@@ -24,6 +24,7 @@ databricks_catalogs_create <- function(name, comment = NULL,
         provider_name = provider_name, 
         share_name = share_name, 
         storage_root = storage_root, ...)
+    
     .api$do("POST", "/api/2.1/unity-catalog/catalogs", body = body)
 }
 
@@ -38,6 +39,7 @@ databricks_catalogs_delete <- function(name, force = NULL,
     ...) {
     query <- list(
         force = force, ...)
+    
     .api$do("DELETE", paste("/api/2.1/unity-catalog/catalogs/", name, sep = ""), query = query)
 }
 
@@ -50,6 +52,7 @@ databricks_catalogs_delete <- function(name, force = NULL,
 #' @param name The name of the catalog.
 databricks_catalogs_get <- function(name, ...) {
     
+    
     .api$do("GET", paste("/api/2.1/unity-catalog/catalogs/", name, sep = ""))
 }
 
@@ -61,7 +64,11 @@ databricks_catalogs_get <- function(name, ...) {
 #' retrieved. There is no guarantee of a specific ordering of the elements in
 #' the array.
 databricks_catalogs_list <- function(...) {
-    .api$do("GET", "/api/2.1/unity-catalog/catalogs")
+    
+    
+    json <- .api$do("GET", "/api/2.1/unity-catalog/catalogs")
+    return (json$catalogs)
+    
 }
 
 #' Update a catalog.
@@ -83,6 +90,17 @@ databricks_catalogs_update <- function(name, comment = NULL,
         name = name, 
         owner = owner, 
         properties = properties, ...)
+    
     .api$do("PATCH", paste("/api/2.1/unity-catalog/catalogs/", name, sep = ""), body = body)
 }
+
+
+
+
+
+
+
+
+
+
 

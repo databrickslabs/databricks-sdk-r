@@ -19,6 +19,7 @@ databricks_experiments_create <- function(name, artifact_location = NULL,
         artifact_location = artifact_location, 
         name = name, 
         tags = tags, ...)
+    
     .api$do("POST", "/api/2.0/mlflow/experiments/create", body = body)
 }
 
@@ -32,6 +33,7 @@ databricks_experiments_create <- function(name, artifact_location = NULL,
 databricks_experiments_delete <- function(experiment_id, ...) {
     body <- list(
         experiment_id = experiment_id, ...)
+    
     .api$do("POST", "/api/2.0/mlflow/experiments/delete", body = body)
 }
 
@@ -43,6 +45,7 @@ databricks_experiments_delete <- function(experiment_id, ...) {
 databricks_experiments_get <- function(experiment_id, ...) {
     query <- list(
         experiment_id = experiment_id, ...)
+    
     .api$do("GET", "/api/2.0/mlflow/experiments/get", query = query)
 }
 
@@ -62,6 +65,7 @@ databricks_experiments_get <- function(experiment_id, ...) {
 databricks_experiments_get_by_name <- function(experiment_name, ...) {
     query <- list(
         experiment_name = experiment_name, ...)
+    
     .api$do("GET", "/api/2.0/mlflow/experiments/get-by-name", query = query)
 }
 
@@ -80,7 +84,24 @@ databricks_experiments_list <- function(max_results = NULL,
         max_results = max_results, 
         page_token = page_token, 
         view_type = view_type, ...)
-    .api$do("GET", "/api/2.0/mlflow/experiments/list", query = query)
+    
+    
+    
+    results <- data.frame()
+    while (TRUE) {
+        json <- .api$do("GET", "/api/2.0/mlflow/experiments/list", query = query)
+        if (is.null(nrow(json$experiments))) {
+            break
+        }
+        # append this page of results to one results data.frame
+        results <- dplyr::bind_rows(results, json$experiments)
+        if (is.null(json$next_page_token)) {
+            break
+        }
+        query$page_token <- json$next_page_token
+    }
+    return (results)
+    
 }
 
 #' Restores an experiment.
@@ -95,6 +116,7 @@ databricks_experiments_list <- function(max_results = NULL,
 databricks_experiments_restore <- function(experiment_id, ...) {
     body <- list(
         experiment_id = experiment_id, ...)
+    
     .api$do("POST", "/api/2.0/mlflow/experiments/restore", body = body)
 }
 
@@ -119,7 +141,24 @@ databricks_experiments_search <- function(filter = NULL,
         order_by = order_by, 
         page_token = page_token, 
         view_type = view_type, ...)
-    .api$do("POST", "/api/2.0/mlflow/experiments/search", body = body)
+    
+    
+    
+    results <- data.frame()
+    while (TRUE) {
+        json <- .api$do("POST", "/api/2.0/mlflow/experiments/search", body = body)
+        if (is.null(nrow(json$experiments))) {
+            break
+        }
+        # append this page of results to one results data.frame
+        results <- dplyr::bind_rows(results, json$experiments)
+        if (is.null(json$next_page_token)) {
+            break
+        }
+        body$page_token <- json$next_page_token
+    }
+    return (results)
+    
 }
 
 #' Set a tag.
@@ -135,6 +174,7 @@ databricks_experiments_set_experiment_tag <- function(experiment_id, key, value,
         experiment_id = experiment_id, 
         key = key, 
         value = value, ...)
+    
     .api$do("POST", "/api/2.0/mlflow/experiments/set-experiment-tag", body = body)
 }
 
@@ -149,6 +189,17 @@ databricks_experiments_update <- function(experiment_id, new_name = NULL,
     body <- list(
         experiment_id = experiment_id, 
         new_name = new_name, ...)
+    
     .api$do("POST", "/api/2.0/mlflow/experiments/update", body = body)
 }
+
+
+
+
+
+
+
+
+
+
 

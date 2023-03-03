@@ -23,6 +23,7 @@ databricks_external_locations_create <- function(name, url, credential_name, com
         read_only = read_only, 
         skip_validation = skip_validation, 
         url = url, ...)
+    
     .api$do("POST", "/api/2.1/unity-catalog/external-locations", body = body)
 }
 
@@ -37,6 +38,7 @@ databricks_external_locations_delete <- function(name, force = NULL,
     ...) {
     query <- list(
         force = force, ...)
+    
     .api$do("DELETE", paste("/api/2.1/unity-catalog/external-locations/", name, sep = ""), query = query)
 }
 
@@ -49,6 +51,7 @@ databricks_external_locations_delete <- function(name, force = NULL,
 #' @param name Name of the external location.
 databricks_external_locations_get <- function(name, ...) {
     
+    
     .api$do("GET", paste("/api/2.1/unity-catalog/external-locations/", name, sep = ""))
 }
 
@@ -60,7 +63,11 @@ databricks_external_locations_get <- function(name, ...) {
 #' location. There is no guarantee of a specific ordering of the elements in the
 #' array.
 databricks_external_locations_list <- function(...) {
-    .api$do("GET", "/api/2.1/unity-catalog/external-locations")
+    
+    
+    json <- .api$do("GET", "/api/2.1/unity-catalog/external-locations")
+    return (json$external_locations)
+    
 }
 
 #' Update an external location.
@@ -91,6 +98,17 @@ databricks_external_locations_update <- function(name, comment = NULL,
         owner = owner, 
         read_only = read_only, 
         url = url, ...)
+    
     .api$do("PATCH", paste("/api/2.1/unity-catalog/external-locations/", name, sep = ""), body = body)
 }
+
+
+
+
+
+
+
+
+
+
 

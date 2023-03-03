@@ -34,6 +34,7 @@ databricks_storage_credentials_create <- function(name, metastore_id, aws_iam_ro
         name = name, 
         read_only = read_only, 
         skip_validation = skip_validation, ...)
+    
     .api$do("POST", "/api/2.1/unity-catalog/storage-credentials", body = body)
 }
 
@@ -48,6 +49,7 @@ databricks_storage_credentials_delete <- function(name, force = NULL,
     ...) {
     query <- list(
         force = force, ...)
+    
     .api$do("DELETE", paste("/api/2.1/unity-catalog/storage-credentials/", name, sep = ""), query = query)
 }
 
@@ -60,6 +62,7 @@ databricks_storage_credentials_delete <- function(name, force = NULL,
 #' @param name Name of the storage credential.
 databricks_storage_credentials_get <- function(name, ...) {
     
+    
     .api$do("GET", paste("/api/2.1/unity-catalog/storage-credentials/", name, sep = ""))
 }
 
@@ -71,6 +74,7 @@ databricks_storage_credentials_get <- function(name, ...) {
 #' credentials will be retrieved. There is no guarantee of a specific ordering
 #' of the elements in the array.
 databricks_storage_credentials_list <- function(...) {
+    
     .api$do("GET", "/api/2.1/unity-catalog/storage-credentials")
 }
 
@@ -108,6 +112,7 @@ databricks_storage_credentials_update <- function(name, aws_iam_role = NULL,
         owner = owner, 
         read_only = read_only, 
         skip_validation = skip_validation, ...)
+    
     .api$do("PATCH", paste("/api/2.1/unity-catalog/storage-credentials/", name, sep = ""), body = body)
 }
 
@@ -149,6 +154,17 @@ databricks_storage_credentials_validate <- function(aws_iam_role = NULL,
         read_only = read_only, 
         storage_credential_name = storage_credential_name, 
         url = url, ...)
+    
     .api$do("POST", "/api/2.1/unity-catalog/validate-storage-credentials", body = body)
 }
+
+
+
+
+
+
+
+
+
+
 

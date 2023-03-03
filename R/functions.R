@@ -57,6 +57,7 @@ databricks_functions_create <- function(name, catalog_name, schema_name, input_p
         specific_name = specific_name, 
         sql_data_access = sql_data_access, 
         sql_path = sql_path, ...)
+    
     .api$do("POST", "/api/2.1/unity-catalog/functions", body = body)
 }
 
@@ -76,6 +77,7 @@ databricks_functions_delete <- function(name, force = NULL,
     ...) {
     query <- list(
         force = force, ...)
+    
     .api$do("DELETE", paste("/api/2.1/unity-catalog/functions/", name, sep = ""), query = query)
 }
 
@@ -91,6 +93,7 @@ databricks_functions_delete <- function(name, force = NULL,
 #'
 #' @param name The fully-qualified name of the function (of the form __catalog_name__.__schema_name__.__function__name__).
 databricks_functions_get <- function(name, ...) {
+    
     
     .api$do("GET", paste("/api/2.1/unity-catalog/functions/", name, sep = ""))
 }
@@ -111,6 +114,7 @@ databricks_functions_list <- function(catalog_name, schema_name, ...) {
     query <- list(
         catalog_name = catalog_name, 
         schema_name = schema_name, ...)
+    
     .api$do("GET", "/api/2.1/unity-catalog/functions", query = query)
 }
 
@@ -131,6 +135,17 @@ databricks_functions_update <- function(name, owner = NULL,
     ...) {
     body <- list(
         owner = owner, ...)
+    
     .api$do("PATCH", paste("/api/2.1/unity-catalog/functions/", name, sep = ""), body = body)
 }
+
+
+
+
+
+
+
+
+
+
 

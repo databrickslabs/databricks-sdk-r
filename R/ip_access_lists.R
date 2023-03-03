@@ -27,6 +27,7 @@ databricks_ip_access_lists_create <- function(label, list_type, ip_addresses, ..
         ip_addresses = ip_addresses, 
         label = label, 
         list_type = list_type, ...)
+    
     .api$do("POST", "/api/2.0/ip-access-lists", body = body)
 }
 
@@ -36,6 +37,7 @@ databricks_ip_access_lists_create <- function(label, list_type, ip_addresses, ..
 #'
 #' @param ip_access_list_id The ID for the corresponding IP access list to modify.
 databricks_ip_access_lists_delete <- function(ip_access_list_id, ...) {
+    
     
     .api$do("DELETE", paste("/api/2.0/ip-access-lists/", ip_access_list_id, sep = ""))
 }
@@ -47,6 +49,7 @@ databricks_ip_access_lists_delete <- function(ip_access_list_id, ...) {
 #' @param ip_access_list_id The ID for the corresponding IP access list to modify.
 databricks_ip_access_lists_get <- function(ip_access_list_id, ...) {
     
+    
     .api$do("GET", paste("/api/2.0/ip-access-lists/", ip_access_list_id, sep = ""))
 }
 
@@ -54,7 +57,11 @@ databricks_ip_access_lists_get <- function(ip_access_list_id, ...) {
 #' 
 #' Gets all IP access lists for the specified workspace.
 databricks_ip_access_lists_list <- function(...) {
-    .api$do("GET", "/api/2.0/ip-access-lists")
+    
+    
+    json <- .api$do("GET", "/api/2.0/ip-access-lists")
+    return (json$ip_access_lists)
+    
 }
 
 #' Replace access list.
@@ -86,6 +93,7 @@ databricks_ip_access_lists_replace <- function(label, list_type, ip_addresses, e
         label = label, 
         list_id = list_id, 
         list_type = list_type, ...)
+    
     .api$do("PUT", paste("/api/2.0/ip-access-lists/", ip_access_list_id, sep = ""), body = body)
 }
 
@@ -123,6 +131,17 @@ databricks_ip_access_lists_update <- function(label, list_type, ip_addresses, en
         label = label, 
         list_id = list_id, 
         list_type = list_type, ...)
+    
     .api$do("PATCH", paste("/api/2.0/ip-access-lists/", ip_access_list_id, sep = ""), body = body)
 }
+
+
+
+
+
+
+
+
+
+
 

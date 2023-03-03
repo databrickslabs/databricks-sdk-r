@@ -19,6 +19,7 @@ databricks_table_constraints_create <- function(full_name_arg, constraint, ...) 
     body <- list(
         constraint = constraint, 
         full_name_arg = full_name_arg, ...)
+    
     .api$do("POST", "/api/2.1/unity-catalog/constraints", body = body)
 }
 
@@ -41,6 +42,17 @@ databricks_table_constraints_delete <- function(full_name, constraint_name, casc
     query <- list(
         cascade = cascade, 
         constraint_name = constraint_name, ...)
+    
     .api$do("DELETE", paste("/api/2.1/unity-catalog/constraints/", full_name, sep = ""), query = query)
 }
+
+
+
+
+
+
+
+
+
+
 

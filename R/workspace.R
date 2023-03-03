@@ -18,6 +18,7 @@ databricks_workspace_delete <- function(path, recursive = NULL,
     body <- list(
         path = path, 
         recursive = recursive, ...)
+    
     .api$do("POST", "/api/2.0/workspace/delete", body = body)
 }
 
@@ -42,6 +43,7 @@ databricks_workspace_export <- function(path, direct_download = NULL,
         direct_download = direct_download, 
         format = format, 
         path = path, ...)
+    
     .api$do("GET", "/api/2.0/workspace/export", query = query)
 }
 
@@ -54,6 +56,7 @@ databricks_workspace_export <- function(path, direct_download = NULL,
 databricks_workspace_get_status <- function(path, ...) {
     query <- list(
         path = path, ...)
+    
     .api$do("GET", "/api/2.0/workspace/get-status", query = query)
 }
 
@@ -80,6 +83,7 @@ databricks_workspace_import <- function(path, content = NULL,
         language = language, 
         overwrite = overwrite, 
         path = path, ...)
+    
     .api$do("POST", "/api/2.0/workspace/import", body = body)
 }
 
@@ -96,7 +100,11 @@ databricks_workspace_list <- function(path, notebooks_modified_after = NULL,
     query <- list(
         notebooks_modified_after = notebooks_modified_after, 
         path = path, ...)
-    .api$do("GET", "/api/2.0/workspace/list", query = query)
+    
+    
+    json <- .api$do("GET", "/api/2.0/workspace/list", query = query)
+    return (json$objects)
+    
 }
 
 #' Create a directory.
@@ -112,6 +120,17 @@ databricks_workspace_list <- function(path, notebooks_modified_after = NULL,
 databricks_workspace_mkdirs <- function(path, ...) {
     body <- list(
         path = path, ...)
+    
     .api$do("POST", "/api/2.0/workspace/mkdirs", body = body)
 }
+
+
+
+
+
+
+
+
+
+
 

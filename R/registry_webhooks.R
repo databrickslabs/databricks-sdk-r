@@ -25,6 +25,7 @@ databricks_registry_webhooks_create <- function(events, description = NULL,
         job_spec = job_spec, 
         model_name = model_name, 
         status = status, ...)
+    
     .api$do("POST", "/api/2.0/mlflow/registry-webhooks/create", body = body)
 }
 
@@ -39,6 +40,7 @@ databricks_registry_webhooks_delete <- function(id = NULL,
     ...) {
     query <- list(
         id = id, ...)
+    
     .api$do("DELETE", "/api/2.0/mlflow/registry-webhooks/delete", query = query)
 }
 
@@ -59,7 +61,24 @@ databricks_registry_webhooks_list <- function(events = NULL,
         events = events, 
         model_name = model_name, 
         page_token = page_token, ...)
-    .api$do("GET", "/api/2.0/mlflow/registry-webhooks/list", query = query)
+    
+    
+    
+    results <- data.frame()
+    while (TRUE) {
+        json <- .api$do("GET", "/api/2.0/mlflow/registry-webhooks/list", query = query)
+        if (is.null(nrow(json$webhooks))) {
+            break
+        }
+        # append this page of results to one results data.frame
+        results <- dplyr::bind_rows(results, json$webhooks)
+        if (is.null(json$next_page_token)) {
+            break
+        }
+        query$page_token <- json$next_page_token
+    }
+    return (results)
+    
 }
 
 #' Test a webhook.
@@ -75,6 +94,7 @@ databricks_registry_webhooks_test <- function(id, event = NULL,
     body <- list(
         event = event, 
         id = id, ...)
+    
     .api$do("POST", "/api/2.0/mlflow/registry-webhooks/test", body = body)
 }
 
@@ -103,6 +123,17 @@ databricks_registry_webhooks_update <- function(id, description = NULL,
         id = id, 
         job_spec = job_spec, 
         status = status, ...)
+    
     .api$do("PATCH", "/api/2.0/mlflow/registry-webhooks/update", body = body)
 }
+
+
+
+
+
+
+
+
+
+
 

@@ -43,6 +43,7 @@ databricks_instance_pools_create <- function(instance_pool_name, node_type_id, a
         node_type_id = node_type_id, 
         preloaded_docker_images = preloaded_docker_images, 
         preloaded_spark_versions = preloaded_spark_versions, ...)
+    
     .api$do("POST", "/api/2.0/instance-pools/create", body = body)
 }
 
@@ -55,6 +56,7 @@ databricks_instance_pools_create <- function(instance_pool_name, node_type_id, a
 databricks_instance_pools_delete <- function(instance_pool_id, ...) {
     body <- list(
         instance_pool_id = instance_pool_id, ...)
+    
     .api$do("POST", "/api/2.0/instance-pools/delete", body = body)
 }
 
@@ -103,6 +105,7 @@ databricks_instance_pools_edit <- function(instance_pool_id, instance_pool_name,
         node_type_id = node_type_id, 
         preloaded_docker_images = preloaded_docker_images, 
         preloaded_spark_versions = preloaded_spark_versions, ...)
+    
     .api$do("POST", "/api/2.0/instance-pools/edit", body = body)
 }
 
@@ -114,6 +117,7 @@ databricks_instance_pools_edit <- function(instance_pool_id, instance_pool_name,
 databricks_instance_pools_get <- function(instance_pool_id, ...) {
     query <- list(
         instance_pool_id = instance_pool_id, ...)
+    
     .api$do("GET", "/api/2.0/instance-pools/get", query = query)
 }
 
@@ -121,6 +125,20 @@ databricks_instance_pools_get <- function(instance_pool_id, ...) {
 #' 
 #' Gets a list of instance pools with their statistics.
 databricks_instance_pools_list <- function(...) {
-    .api$do("GET", "/api/2.0/instance-pools/list")
+    
+    
+    json <- .api$do("GET", "/api/2.0/instance-pools/list")
+    return (json$instance_pools)
+    
 }
+
+
+
+
+
+
+
+
+
+
 

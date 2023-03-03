@@ -9,6 +9,7 @@
 databricks_jobs_cancel_all_runs <- function(job_id, ...) {
     body <- list(
         job_id = job_id, ...)
+    
     .api$do("POST", "/api/2.1/jobs/runs/cancel-all", body = body)
 }
 
@@ -21,6 +22,7 @@ databricks_jobs_cancel_all_runs <- function(job_id, ...) {
 databricks_jobs_cancel_run <- function(run_id, ...) {
     body <- list(
         run_id = run_id, ...)
+    
     .api$do("POST", "/api/2.1/jobs/runs/cancel", body = body)
 }
 
@@ -69,6 +71,7 @@ databricks_jobs_create <- function(access_control_list = NULL,
         tasks = tasks, 
         timeout_seconds = timeout_seconds, 
         webhook_notifications = webhook_notifications, ...)
+    
     .api$do("POST", "/api/2.1/jobs/create", body = body)
 }
 
@@ -80,6 +83,7 @@ databricks_jobs_create <- function(access_control_list = NULL,
 databricks_jobs_delete <- function(job_id, ...) {
     body <- list(
         job_id = job_id, ...)
+    
     .api$do("POST", "/api/2.1/jobs/delete", body = body)
 }
 
@@ -91,6 +95,7 @@ databricks_jobs_delete <- function(job_id, ...) {
 databricks_jobs_delete_run <- function(run_id, ...) {
     body <- list(
         run_id = run_id, ...)
+    
     .api$do("POST", "/api/2.1/jobs/runs/delete", body = body)
 }
 
@@ -105,6 +110,7 @@ databricks_jobs_export_run <- function(run_id, views_to_export = NULL,
     query <- list(
         run_id = run_id, 
         views_to_export = views_to_export, ...)
+    
     .api$do("GET", "/api/2.1/jobs/runs/export", query = query)
 }
 
@@ -116,6 +122,7 @@ databricks_jobs_export_run <- function(run_id, views_to_export = NULL,
 databricks_jobs_get <- function(job_id, ...) {
     query <- list(
         job_id = job_id, ...)
+    
     .api$do("GET", "/api/2.1/jobs/get", query = query)
 }
 
@@ -130,6 +137,7 @@ databricks_jobs_get_run <- function(run_id, include_history = NULL,
     query <- list(
         include_history = include_history, 
         run_id = run_id, ...)
+    
     .api$do("GET", "/api/2.1/jobs/runs/get", query = query)
 }
 
@@ -150,6 +158,7 @@ databricks_jobs_get_run <- function(run_id, include_history = NULL,
 databricks_jobs_get_run_output <- function(run_id, ...) {
     query <- list(
         run_id = run_id, ...)
+    
     .api$do("GET", "/api/2.1/jobs/runs/get-output", query = query)
 }
 
@@ -171,7 +180,24 @@ databricks_jobs_list <- function(expand_tasks = NULL,
         limit = limit, 
         name = name, 
         offset = offset, ...)
-    .api$do("GET", "/api/2.1/jobs/list", query = query)
+    
+    
+    
+    query$offset = 0
+    results <- data.frame()
+    while (TRUE) {
+        json <- .api$do("GET", "/api/2.1/jobs/list", query = query)
+        if (is.null(nrow(json$jobs))) {
+            break
+        }
+        # append this page of results to one results data.frame
+        results <- dplyr::bind_rows(results, json$jobs)
+        query$offset <- query$offset + nrow(json$jobs)
+    }
+    # de-duplicate any records via job_id column
+    results <- results[!duplicated(results$job_id), ]
+    return (results)
+    
 }
 
 #' List runs for a job.
@@ -207,7 +233,24 @@ databricks_jobs_list_runs <- function(active_only = NULL,
         run_type = run_type, 
         start_time_from = start_time_from, 
         start_time_to = start_time_to, ...)
-    .api$do("GET", "/api/2.1/jobs/runs/list", query = query)
+    
+    
+    
+    query$offset = 0
+    results <- data.frame()
+    while (TRUE) {
+        json <- .api$do("GET", "/api/2.1/jobs/runs/list", query = query)
+        if (is.null(nrow(json$runs))) {
+            break
+        }
+        # append this page of results to one results data.frame
+        results <- dplyr::bind_rows(results, json$runs)
+        query$offset <- query$offset + nrow(json$runs)
+    }
+    # de-duplicate any records via run_id column
+    results <- results[!duplicated(results$run_id), ]
+    return (results)
+    
 }
 
 #' Repair a job run.
@@ -253,6 +296,7 @@ databricks_jobs_repair_run <- function(run_id, dbt_commands = NULL,
         run_id = run_id, 
         spark_submit_params = spark_submit_params, 
         sql_params = sql_params, ...)
+    
     .api$do("POST", "/api/2.1/jobs/runs/repair", body = body)
 }
 
@@ -267,6 +311,7 @@ databricks_jobs_reset <- function(job_id, new_settings, ...) {
     body <- list(
         job_id = job_id, 
         new_settings = new_settings, ...)
+    
     .api$do("POST", "/api/2.1/jobs/reset", body = body)
 }
 
@@ -305,6 +350,7 @@ databricks_jobs_run_now <- function(job_id, dbt_commands = NULL,
         python_params = python_params, 
         spark_submit_params = spark_submit_params, 
         sql_params = sql_params, ...)
+    
     .api$do("POST", "/api/2.1/jobs/run-now", body = body)
 }
 
@@ -338,6 +384,7 @@ databricks_jobs_submit <- function(access_control_list = NULL,
         tasks = tasks, 
         timeout_seconds = timeout_seconds, 
         webhook_notifications = webhook_notifications, ...)
+    
     .api$do("POST", "/api/2.1/jobs/runs/submit", body = body)
 }
 
@@ -356,6 +403,17 @@ databricks_jobs_update <- function(job_id, fields_to_remove = NULL,
         fields_to_remove = fields_to_remove, 
         job_id = job_id, 
         new_settings = new_settings, ...)
+    
     .api$do("POST", "/api/2.1/jobs/update", body = body)
 }
+
+
+
+
+
+
+
+
+
+
 

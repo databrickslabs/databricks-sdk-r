@@ -9,6 +9,7 @@
 #' @param object_type The type of object permissions to check.
 databricks_dbsql_permissions_get <- function(object_type, object_id, ...) {
     
+    
     .api$do("GET", paste("/api/2.0/preview/sql/permissions/", object_type, "/", object_id, sep = ""))
 }
 
@@ -24,6 +25,7 @@ databricks_dbsql_permissions_set <- function(object_type, object_id, access_cont
     ...) {
     body <- list(
         access_control_list = access_control_list, ...)
+    
     .api$do("POST", paste("/api/2.0/preview/sql/permissions/", object_type, "/", object_id, sep = ""), body = body)
 }
 
@@ -39,6 +41,17 @@ databricks_dbsql_permissions_transfer_ownership <- function(object_type, object_
     ...) {
     body <- list(
         new_owner = new_owner, ...)
+    
     .api$do("POST", paste("/api/2.0/preview/sql/permissions/", object_type, "/", object_id, "/transfer", , sep = ""), body = body)
 }
+
+
+
+
+
+
+
+
+
+
 

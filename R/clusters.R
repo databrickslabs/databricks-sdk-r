@@ -11,6 +11,7 @@ databricks_clusters_change_owner <- function(cluster_id, owner_username, ...) {
     body <- list(
         cluster_id = cluster_id, 
         owner_username = owner_username, ...)
+    
     .api$do("POST", "/api/2.0/clusters/change-owner", body = body)
 }
 
@@ -103,6 +104,7 @@ databricks_clusters_create <- function(spark_version, apply_policy_default_value
         spark_version = spark_version, 
         ssh_public_keys = ssh_public_keys, 
         workload_type = workload_type, ...)
+    
     .api$do("POST", "/api/2.0/clusters/create", body = body)
 }
 
@@ -117,6 +119,7 @@ databricks_clusters_create <- function(spark_version, apply_policy_default_value
 databricks_clusters_delete <- function(cluster_id, ...) {
     body <- list(
         cluster_id = cluster_id, ...)
+    
     .api$do("POST", "/api/2.0/clusters/delete", body = body)
 }
 
@@ -210,6 +213,7 @@ databricks_clusters_edit <- function(cluster_id, spark_version, apply_policy_def
         spark_version = spark_version, 
         ssh_public_keys = ssh_public_keys, 
         workload_type = workload_type, ...)
+    
     .api$do("POST", "/api/2.0/clusters/edit", body = body)
 }
 
@@ -241,7 +245,24 @@ databricks_clusters_events <- function(cluster_id, end_time = NULL,
         offset = offset, 
         order = order, 
         start_time = start_time, ...)
-    .api$do("POST", "/api/2.0/clusters/events", body = body)
+    
+    
+    
+    results <- data.frame()
+    while (TRUE) {
+        json <- .api$do("POST", "/api/2.0/clusters/events", body = body)
+        if (is.null(nrow(json$events))) {
+            break
+        }
+        # append this page of results to one results data.frame
+        results <- dplyr::bind_rows(results, json$events)
+        if (is.null(json$next_page)) {
+            break
+        }
+        body <- json$next_page
+    }
+    return (results)
+    
 }
 
 #' Get cluster info.
@@ -254,6 +275,7 @@ databricks_clusters_events <- function(cluster_id, end_time = NULL,
 databricks_clusters_get <- function(cluster_id, ...) {
     query <- list(
         cluster_id = cluster_id, ...)
+    
     .api$do("GET", "/api/2.0/clusters/get", query = query)
 }
 
@@ -275,7 +297,11 @@ databricks_clusters_list <- function(can_use_client = NULL,
     ...) {
     query <- list(
         can_use_client = can_use_client, ...)
-    .api$do("GET", "/api/2.0/clusters/list", query = query)
+    
+    
+    json <- .api$do("GET", "/api/2.0/clusters/list", query = query)
+    return (json$clusters)
+    
 }
 
 #' List node types.
@@ -283,6 +309,7 @@ databricks_clusters_list <- function(can_use_client = NULL,
 #' Returns a list of supported Spark node types. These node types can be used to
 #' launch a cluster.
 databricks_clusters_list_node_types <- function(...) {
+    
     .api$do("GET", "/api/2.0/clusters/list-node-types")
 }
 
@@ -291,6 +318,7 @@ databricks_clusters_list_node_types <- function(...) {
 #' Returns a list of availability zones where clusters can be created in (For
 #' example, us-west-2a). These zones can be used to launch a cluster.
 databricks_clusters_list_zones <- function(...) {
+    
     .api$do("GET", "/api/2.0/clusters/list-zones")
 }
 
@@ -307,6 +335,7 @@ databricks_clusters_list_zones <- function(...) {
 databricks_clusters_permanent_delete <- function(cluster_id, ...) {
     body <- list(
         cluster_id = cluster_id, ...)
+    
     .api$do("POST", "/api/2.0/clusters/permanent-delete", body = body)
 }
 
@@ -320,6 +349,7 @@ databricks_clusters_permanent_delete <- function(cluster_id, ...) {
 databricks_clusters_pin <- function(cluster_id, ...) {
     body <- list(
         cluster_id = cluster_id, ...)
+    
     .api$do("POST", "/api/2.0/clusters/pin", body = body)
 }
 
@@ -338,6 +368,7 @@ databricks_clusters_resize <- function(cluster_id, autoscale = NULL,
         autoscale = autoscale, 
         cluster_id = cluster_id, 
         num_workers = num_workers, ...)
+    
     .api$do("POST", "/api/2.0/clusters/resize", body = body)
 }
 
@@ -353,6 +384,7 @@ databricks_clusters_restart <- function(cluster_id, restart_user = NULL,
     body <- list(
         cluster_id = cluster_id, 
         restart_user = restart_user, ...)
+    
     .api$do("POST", "/api/2.0/clusters/restart", body = body)
 }
 
@@ -361,6 +393,7 @@ databricks_clusters_restart <- function(cluster_id, restart_user = NULL,
 #' Returns the list of available Spark versions. These versions can be used to
 #' launch a cluster.
 databricks_clusters_spark_versions <- function(...) {
+    
     .api$do("GET", "/api/2.0/clusters/spark-versions")
 }
 
@@ -379,6 +412,7 @@ databricks_clusters_spark_versions <- function(...) {
 databricks_clusters_start <- function(cluster_id, ...) {
     body <- list(
         cluster_id = cluster_id, ...)
+    
     .api$do("POST", "/api/2.0/clusters/start", body = body)
 }
 
@@ -392,6 +426,17 @@ databricks_clusters_start <- function(cluster_id, ...) {
 databricks_clusters_unpin <- function(cluster_id, ...) {
     body <- list(
         cluster_id = cluster_id, ...)
+    
     .api$do("POST", "/api/2.0/clusters/unpin", body = body)
 }
+
+
+
+
+
+
+
+
+
+
 

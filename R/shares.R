@@ -13,6 +13,7 @@ databricks_shares_create <- function(name, comment = NULL,
     body <- list(
         comment = comment, 
         name = name, ...)
+    
     .api$do("POST", "/api/2.1/unity-catalog/shares", body = body)
 }
 
@@ -23,6 +24,7 @@ databricks_shares_create <- function(name, comment = NULL,
 #'
 #' @param name The name of the share.
 databricks_shares_delete <- function(name, ...) {
+    
     
     .api$do("DELETE", paste("/api/2.1/unity-catalog/shares/", name, sep = ""))
 }
@@ -38,6 +40,7 @@ databricks_shares_get <- function(name, include_shared_data = NULL,
     ...) {
     query <- list(
         include_shared_data = include_shared_data, ...)
+    
     .api$do("GET", paste("/api/2.1/unity-catalog/shares/", name, sep = ""), query = query)
 }
 
@@ -47,7 +50,11 @@ databricks_shares_get <- function(name, include_shared_data = NULL,
 #' metastore admin or the owner of the share. There is no guarantee of a
 #' specific ordering of the elements in the array.
 databricks_shares_list <- function(...) {
-    .api$do("GET", "/api/2.1/unity-catalog/shares")
+    
+    
+    json <- .api$do("GET", "/api/2.1/unity-catalog/shares")
+    return (json$shares)
+    
 }
 
 #' Get permissions.
@@ -57,6 +64,7 @@ databricks_shares_list <- function(...) {
 #'
 #' @param name The name of the share.
 databricks_shares_share_permissions <- function(name, ...) {
+    
     
     .api$do("GET", paste("/api/2.1/unity-catalog/shares/", name, "/permissions", , sep = ""))
 }
@@ -92,6 +100,7 @@ databricks_shares_update <- function(name, comment = NULL,
         name = name, 
         owner = owner, 
         updates = updates, ...)
+    
     .api$do("PATCH", paste("/api/2.1/unity-catalog/shares/", name, sep = ""), body = body)
 }
 
@@ -109,6 +118,17 @@ databricks_shares_update_permissions <- function(name, changes = NULL,
     ...) {
     body <- list(
         changes = changes, ...)
+    
     .api$do("PATCH", paste("/api/2.1/unity-catalog/shares/", name, "/permissions", , sep = ""), body = body)
 }
+
+
+
+
+
+
+
+
+
+
 

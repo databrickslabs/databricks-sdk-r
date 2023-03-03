@@ -25,6 +25,7 @@ databricks_dashboards_create <- function(dashboard_filters_enabled = NULL,
         parent = parent, 
         tags = tags, 
         widgets = widgets, ...)
+    
     .api$do("POST", "/api/2.0/preview/sql/dashboards", body = body)
 }
 
@@ -36,6 +37,7 @@ databricks_dashboards_create <- function(dashboard_filters_enabled = NULL,
 #' @param dashboard_id 
 databricks_dashboards_delete <- function(dashboard_id, ...) {
     
+    
     .api$do("DELETE", paste("/api/2.0/preview/sql/dashboards/", dashboard_id, sep = ""))
 }
 
@@ -46,6 +48,7 @@ databricks_dashboards_delete <- function(dashboard_id, ...) {
 #'
 #' @param dashboard_id 
 databricks_dashboards_get <- function(dashboard_id, ...) {
+    
     
     .api$do("GET", paste("/api/2.0/preview/sql/dashboards/", dashboard_id, sep = ""))
 }
@@ -68,7 +71,24 @@ databricks_dashboards_list <- function(order = NULL,
         page = page, 
         page_size = page_size, 
         q = q, ...)
-    .api$do("GET", "/api/2.0/preview/sql/dashboards", query = query)
+    
+    
+    
+    query$page = 1
+    results <- data.frame()
+    while (TRUE) {
+        json <- .api$do("GET", "/api/2.0/preview/sql/dashboards", query = query)
+        if (is.null(nrow(json$results))) {
+            break
+        }
+        # append this page of results to one results data.frame
+        results <- dplyr::bind_rows(results, json$results)
+        query$page <- query$page + 1
+    }
+    # de-duplicate any records via id column
+    results <- results[!duplicated(results$id), ]
+    return (results)
+    
 }
 
 #' Restore a dashboard.
@@ -78,6 +98,17 @@ databricks_dashboards_list <- function(order = NULL,
 #' @param dashboard_id 
 databricks_dashboards_restore <- function(dashboard_id, ...) {
     
+    
     .api$do("POST", paste("/api/2.0/preview/sql/dashboards/trash/", dashboard_id, sep = ""))
 }
+
+
+
+
+
+
+
+
+
+
 

@@ -20,6 +20,7 @@ databricks_alerts_create <- function(name, options, query_id, parent = NULL,
         parent = parent, 
         query_id = query_id, 
         rearm = rearm, ...)
+    
     .api$do("POST", "/api/2.0/preview/sql/alerts", body = body)
 }
 
@@ -40,6 +41,7 @@ databricks_alerts_create_schedule <- function(cron, alert_id, data_source_id = N
     body <- list(
         cron = cron, 
         data_source_id = data_source_id, ...)
+    
     .api$do("POST", paste("/api/2.0/preview/sql/alerts/", alert_id, "/refresh-schedules", , sep = ""), body = body)
 }
 
@@ -51,6 +53,7 @@ databricks_alerts_create_schedule <- function(cron, alert_id, data_source_id = N
 #'
 #' @param alert_id 
 databricks_alerts_delete <- function(alert_id, ...) {
+    
     
     .api$do("DELETE", paste("/api/2.0/preview/sql/alerts/", alert_id, sep = ""))
 }
@@ -67,6 +70,7 @@ databricks_alerts_delete <- function(alert_id, ...) {
 #' @param schedule_id 
 databricks_alerts_delete_schedule <- function(alert_id, schedule_id, ...) {
     
+    
     .api$do("DELETE", paste("/api/2.0/preview/sql/alerts/", alert_id, "/refresh-schedules/", schedule_id, sep = ""))
 }
 
@@ -76,6 +80,7 @@ databricks_alerts_delete_schedule <- function(alert_id, schedule_id, ...) {
 #'
 #' @param alert_id 
 databricks_alerts_get <- function(alert_id, ...) {
+    
     
     .api$do("GET", paste("/api/2.0/preview/sql/alerts/", alert_id, sep = ""))
 }
@@ -93,6 +98,7 @@ databricks_alerts_get <- function(alert_id, ...) {
 #' @param alert_id 
 databricks_alerts_get_subscriptions <- function(alert_id, ...) {
     
+    
     .api$do("GET", paste("/api/2.0/preview/sql/alerts/", alert_id, "/subscriptions", , sep = ""))
 }
 
@@ -100,6 +106,7 @@ databricks_alerts_get_subscriptions <- function(alert_id, ...) {
 #' 
 #' Gets a list of alerts.
 databricks_alerts_list <- function(...) {
+    
     .api$do("GET", "/api/2.0/preview/sql/alerts")
 }
 
@@ -119,6 +126,7 @@ databricks_alerts_list <- function(...) {
 #' @param alert_id 
 databricks_alerts_list_schedules <- function(alert_id, ...) {
     
+    
     .api$do("GET", paste("/api/2.0/preview/sql/alerts/", alert_id, "/refresh-schedules", , sep = ""))
 }
 
@@ -137,6 +145,7 @@ databricks_alerts_subscribe <- function(alert_id, destination_id = NULL,
         alert_id = alert_id, 
         destination_id = destination_id, 
         user_id = user_id, ...)
+    
     .api$do("POST", paste("/api/2.0/preview/sql/alerts/", alert_id, "/subscriptions", , sep = ""), body = body)
 }
 
@@ -150,6 +159,7 @@ databricks_alerts_subscribe <- function(alert_id, destination_id = NULL,
 #' @param alert_id 
 #' @param subscription_id 
 databricks_alerts_unsubscribe <- function(alert_id, subscription_id, ...) {
+    
     
     .api$do("DELETE", paste("/api/2.0/preview/sql/alerts/", alert_id, "/subscriptions/", subscription_id, sep = ""))
 }
@@ -170,6 +180,17 @@ databricks_alerts_update <- function(name, options, query_id, alert_id, rearm = 
         options = options, 
         query_id = query_id, 
         rearm = rearm, ...)
+    
     .api$do("PUT", paste("/api/2.0/preview/sql/alerts/", alert_id, sep = ""), body = body)
 }
+
+
+
+
+
+
+
+
+
+
 

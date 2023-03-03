@@ -15,6 +15,7 @@ databricks_tokens_create <- function(comment = NULL,
     body <- list(
         comment = comment, 
         lifetime_seconds = lifetime_seconds, ...)
+    
     .api$do("POST", "/api/2.0/token/create", body = body)
 }
 
@@ -29,6 +30,7 @@ databricks_tokens_create <- function(comment = NULL,
 databricks_tokens_delete <- function(token_id, ...) {
     body <- list(
         token_id = token_id, ...)
+    
     .api$do("POST", "/api/2.0/token/delete", body = body)
 }
 
@@ -36,6 +38,20 @@ databricks_tokens_delete <- function(token_id, ...) {
 #' 
 #' Lists all the valid tokens for a user-workspace pair.
 databricks_tokens_list <- function(...) {
-    .api$do("GET", "/api/2.0/token/list")
+    
+    
+    json <- .api$do("GET", "/api/2.0/token/list")
+    return (json$token_infos)
+    
 }
+
+
+
+
+
+
+
+
+
+
 

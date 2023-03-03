@@ -29,6 +29,7 @@ databricks_service_principals_create <- function(id, active = NULL,
         groups = groups, 
         id = id, 
         roles = roles, ...)
+    
     .api$do("POST", "/api/2.0/preview/scim/v2/ServicePrincipals", body = body)
 }
 
@@ -38,6 +39,7 @@ databricks_service_principals_create <- function(id, active = NULL,
 #'
 #' @param id Unique ID for a service principal in the Databricks Workspace.
 databricks_service_principals_delete <- function(id, ...) {
+    
     
     .api$do("DELETE", paste("/api/2.0/preview/scim/v2/ServicePrincipals/", id, sep = ""))
 }
@@ -49,6 +51,7 @@ databricks_service_principals_delete <- function(id, ...) {
 #'
 #' @param id Unique ID for a service principal in the Databricks Workspace.
 databricks_service_principals_get <- function(id, ...) {
+    
     
     .api$do("GET", paste("/api/2.0/preview/scim/v2/ServicePrincipals/", id, sep = ""))
 }
@@ -80,7 +83,11 @@ databricks_service_principals_list <- function(attributes = NULL,
         sort_by = sort_by, 
         sort_order = sort_order, 
         start_index = start_index, ...)
-    .api$do("GET", "/api/2.0/preview/scim/v2/ServicePrincipals", query = query)
+    
+    
+    json <- .api$do("GET", "/api/2.0/preview/scim/v2/ServicePrincipals", query = query)
+    return (json$Resources)
+    
 }
 
 #' Update service principal details.
@@ -94,6 +101,7 @@ databricks_service_principals_patch <- function(id, operations = NULL,
     ...) {
     body <- list(
         operations = operations, ...)
+    
     .api$do("PATCH", paste("/api/2.0/preview/scim/v2/ServicePrincipals/", id, sep = ""), body = body)
 }
 
@@ -128,6 +136,17 @@ databricks_service_principals_update <- function(id, active = NULL,
         groups = groups, 
         id = id, 
         roles = roles, ...)
+    
     .api$do("PUT", paste("/api/2.0/preview/scim/v2/ServicePrincipals/", id, sep = ""), body = body)
 }
+
+
+
+
+
+
+
+
+
+
 

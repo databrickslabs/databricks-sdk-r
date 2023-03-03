@@ -7,6 +7,7 @@
 #' as well as libraries set to be installed on all clusters via the libraries
 #' UI.
 databricks_libraries_all_cluster_statuses <- function(...) {
+    
     .api$do("GET", "/api/2.0/libraries/all-cluster-statuses")
 }
 
@@ -32,6 +33,7 @@ databricks_libraries_all_cluster_statuses <- function(...) {
 databricks_libraries_cluster_status <- function(cluster_id, ...) {
     query <- list(
         cluster_id = cluster_id, ...)
+    
     .api$do("GET", "/api/2.0/libraries/cluster-status", query = query)
 }
 
@@ -50,6 +52,7 @@ databricks_libraries_install <- function(cluster_id, libraries, ...) {
     body <- list(
         cluster_id = cluster_id, 
         libraries = libraries, ...)
+    
     .api$do("POST", "/api/2.0/libraries/install", body = body)
 }
 
@@ -65,6 +68,17 @@ databricks_libraries_uninstall <- function(cluster_id, libraries, ...) {
     body <- list(
         cluster_id = cluster_id, 
         libraries = libraries, ...)
+    
     .api$do("POST", "/api/2.0/libraries/uninstall", body = body)
 }
+
+
+
+
+
+
+
+
+
+
 

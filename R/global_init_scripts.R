@@ -16,6 +16,7 @@ databricks_global_init_scripts_create <- function(name, script, enabled = NULL,
         name = name, 
         position = position, 
         script = script, ...)
+    
     .api$do("POST", "/api/2.0/global-init-scripts", body = body)
 }
 
@@ -25,6 +26,7 @@ databricks_global_init_scripts_create <- function(name, script, enabled = NULL,
 #'
 #' @param script_id The ID of the global init script.
 databricks_global_init_scripts_delete <- function(script_id, ...) {
+    
     
     .api$do("DELETE", paste("/api/2.0/global-init-scripts/", script_id, sep = ""))
 }
@@ -36,6 +38,7 @@ databricks_global_init_scripts_delete <- function(script_id, ...) {
 #' @param script_id The ID of the global init script.
 databricks_global_init_scripts_get <- function(script_id, ...) {
     
+    
     .api$do("GET", paste("/api/2.0/global-init-scripts/", script_id, sep = ""))
 }
 
@@ -46,7 +49,11 @@ databricks_global_init_scripts_get <- function(script_id, ...) {
 #' contents of a script, use the [get a global init
 #' script](#operation/get-script) operation.
 databricks_global_init_scripts_list <- function(...) {
-    .api$do("GET", "/api/2.0/global-init-scripts")
+    
+    
+    json <- .api$do("GET", "/api/2.0/global-init-scripts")
+    return (json$scripts)
+    
 }
 
 #' Update init script.
@@ -67,6 +74,17 @@ databricks_global_init_scripts_update <- function(name, script, script_id, enabl
         name = name, 
         position = position, 
         script = script, ...)
+    
     .api$do("PATCH", paste("/api/2.0/global-init-scripts/", script_id, sep = ""), body = body)
 }
+
+
+
+
+
+
+
+
+
+
 

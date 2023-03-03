@@ -13,6 +13,7 @@ databricks_token_management_create_obo_token <- function(application_id, lifetim
         application_id = application_id, 
         comment = comment, 
         lifetime_seconds = lifetime_seconds, ...)
+    
     .api$do("POST", "/api/2.0/token-management/on-behalf-of/tokens", body = body)
 }
 
@@ -23,6 +24,7 @@ databricks_token_management_create_obo_token <- function(application_id, lifetim
 #' @param token_id The ID of the token to get.
 databricks_token_management_delete <- function(token_id, ...) {
     
+    
     .api$do("DELETE", paste("/api/2.0/token-management/tokens/", token_id, sep = ""))
 }
 
@@ -32,6 +34,7 @@ databricks_token_management_delete <- function(token_id, ...) {
 #'
 #' @param token_id The ID of the token to get.
 databricks_token_management_get <- function(token_id, ...) {
+    
     
     .api$do("GET", paste("/api/2.0/token-management/tokens/", token_id, sep = ""))
 }
@@ -48,6 +51,20 @@ databricks_token_management_list <- function(created_by_id = NULL,
     query <- list(
         created_by_id = created_by_id, 
         created_by_username = created_by_username, ...)
-    .api$do("GET", "/api/2.0/token-management/tokens", query = query)
+    
+    
+    json <- .api$do("GET", "/api/2.0/token-management/tokens", query = query)
+    return (json$token_infos)
+    
 }
+
+
+
+
+
+
+
+
+
+
 

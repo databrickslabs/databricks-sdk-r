@@ -18,6 +18,7 @@ databricks_instance_profiles_add <- function(instance_profile_arn, iam_role_arn 
         instance_profile_arn = instance_profile_arn, 
         is_meta_instance_profile = is_meta_instance_profile, 
         skip_validation = skip_validation, ...)
+    
     .api$do("POST", "/api/2.0/instance-profiles/add", body = body)
 }
 
@@ -49,6 +50,7 @@ databricks_instance_profiles_edit <- function(instance_profile_arn, iam_role_arn
         iam_role_arn = iam_role_arn, 
         instance_profile_arn = instance_profile_arn, 
         is_meta_instance_profile = is_meta_instance_profile, ...)
+    
     .api$do("POST", "/api/2.0/instance-profiles/edit", body = body)
 }
 
@@ -58,7 +60,11 @@ databricks_instance_profiles_edit <- function(instance_profile_arn, iam_role_arn
 #' 
 #' This API is available to all users.
 databricks_instance_profiles_list <- function(...) {
-    .api$do("GET", "/api/2.0/instance-profiles/list")
+    
+    
+    json <- .api$do("GET", "/api/2.0/instance-profiles/list")
+    return (json$instance_profiles)
+    
 }
 
 #' Remove the instance profile.
@@ -72,6 +78,17 @@ databricks_instance_profiles_list <- function(...) {
 databricks_instance_profiles_remove <- function(instance_profile_arn, ...) {
     body <- list(
         instance_profile_arn = instance_profile_arn, ...)
+    
     .api$do("POST", "/api/2.0/instance-profiles/remove", body = body)
 }
+
+
+
+
+
+
+
+
+
+
 

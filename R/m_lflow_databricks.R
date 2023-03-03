@@ -12,6 +12,7 @@
 databricks_m_lflow_databricks_get <- function(name, ...) {
     query <- list(
         name = name, ...)
+    
     .api$do("GET", "/api/2.0/mlflow/databricks/registered-models/get", query = query)
 }
 
@@ -36,6 +37,17 @@ databricks_m_lflow_databricks_transition_stage <- function(name, version, stage,
         name = name, 
         stage = stage, 
         version = version, ...)
+    
     .api$do("POST", "/api/2.0/mlflow/databricks/model-versions/transition-stage", body = body)
 }
+
+
+
+
+
+
+
+
+
+
 

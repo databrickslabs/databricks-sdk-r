@@ -8,6 +8,7 @@
 databricks_workspace_conf_get_status <- function(keys, ...) {
     query <- list(
         keys = keys, ...)
+    
     .api$do("GET", "/api/2.0/workspace-conf", query = query)
 }
 
@@ -18,6 +19,17 @@ databricks_workspace_conf_get_status <- function(keys, ...) {
 #'
 databricks_workspace_conf_set_status <- function(...) {
     
+    
     .api$do("PATCH", "/api/2.0/workspace-conf")
 }
+
+
+
+
+
+
+
+
+
+
 

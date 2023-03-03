@@ -21,6 +21,7 @@ databricks_m_lflow_runs_create <- function(experiment_id = NULL,
         start_time = start_time, 
         tags = tags, 
         user_id = user_id, ...)
+    
     .api$do("POST", "/api/2.0/mlflow/runs/create", body = body)
 }
 
@@ -32,6 +33,7 @@ databricks_m_lflow_runs_create <- function(experiment_id = NULL,
 databricks_m_lflow_runs_delete <- function(run_id, ...) {
     body <- list(
         run_id = run_id, ...)
+    
     .api$do("POST", "/api/2.0/mlflow/runs/delete", body = body)
 }
 
@@ -46,6 +48,7 @@ databricks_m_lflow_runs_delete_tag <- function(run_id, key, ...) {
     body <- list(
         key = key, 
         run_id = run_id, ...)
+    
     .api$do("POST", "/api/2.0/mlflow/runs/delete-tag", body = body)
 }
 
@@ -65,6 +68,7 @@ databricks_m_lflow_runs_get <- function(run_id, run_uuid = NULL,
     query <- list(
         run_id = run_id, 
         run_uuid = run_uuid, ...)
+    
     .api$do("GET", "/api/2.0/mlflow/runs/get", query = query)
 }
 
@@ -122,6 +126,7 @@ databricks_m_lflow_runs_log_batch <- function(metrics = NULL,
         params = params, 
         run_id = run_id, 
         tags = tags, ...)
+    
     .api$do("POST", "/api/2.0/mlflow/runs/log-batch", body = body)
 }
 
@@ -148,6 +153,7 @@ databricks_m_lflow_runs_log_metric <- function(key, value, timestamp, run_id = N
         step = step, 
         timestamp = timestamp, 
         value = value, ...)
+    
     .api$do("POST", "/api/2.0/mlflow/runs/log-metric", body = body)
 }
 
@@ -164,6 +170,7 @@ databricks_m_lflow_runs_log_model <- function(model_json = NULL,
     body <- list(
         model_json = model_json, 
         run_id = run_id, ...)
+    
     .api$do("POST", "/api/2.0/mlflow/runs/log-model", body = body)
 }
 
@@ -186,6 +193,7 @@ databricks_m_lflow_runs_log_parameter <- function(key, value, run_id = NULL,
         run_id = run_id, 
         run_uuid = run_uuid, 
         value = value, ...)
+    
     .api$do("POST", "/api/2.0/mlflow/runs/log-parameter", body = body)
 }
 
@@ -197,6 +205,7 @@ databricks_m_lflow_runs_log_parameter <- function(key, value, run_id = NULL,
 databricks_m_lflow_runs_restore <- function(run_id, ...) {
     body <- list(
         run_id = run_id, ...)
+    
     .api$do("POST", "/api/2.0/mlflow/runs/restore", body = body)
 }
 
@@ -226,7 +235,24 @@ databricks_m_lflow_runs_search <- function(experiment_ids = NULL,
         order_by = order_by, 
         page_token = page_token, 
         run_view_type = run_view_type, ...)
-    .api$do("POST", "/api/2.0/mlflow/runs/search", body = body)
+    
+    
+    
+    results <- data.frame()
+    while (TRUE) {
+        json <- .api$do("POST", "/api/2.0/mlflow/runs/search", body = body)
+        if (is.null(nrow(json$runs))) {
+            break
+        }
+        # append this page of results to one results data.frame
+        results <- dplyr::bind_rows(results, json$runs)
+        if (is.null(json$next_page_token)) {
+            break
+        }
+        body$page_token <- json$next_page_token
+    }
+    return (results)
+    
 }
 
 #' Set a tag.
@@ -246,6 +272,7 @@ databricks_m_lflow_runs_set_tag <- function(key, value, run_id = NULL,
         run_id = run_id, 
         run_uuid = run_uuid, 
         value = value, ...)
+    
     .api$do("POST", "/api/2.0/mlflow/runs/set-tag", body = body)
 }
 
@@ -267,6 +294,17 @@ databricks_m_lflow_runs_update <- function(end_time = NULL,
         run_id = run_id, 
         run_uuid = run_uuid, 
         status = status, ...)
+    
     .api$do("POST", "/api/2.0/mlflow/runs/update", body = body)
 }
+
+
+
+
+
+
+
+
+
+
 

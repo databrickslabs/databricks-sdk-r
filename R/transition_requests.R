@@ -17,6 +17,7 @@ databricks_transition_requests_approve <- function(name, version, stage, archive
         name = name, 
         stage = stage, 
         version = version, ...)
+    
     .api$do("POST", "/api/2.0/mlflow/transition-requests/approve", body = body)
 }
 
@@ -35,6 +36,7 @@ databricks_transition_requests_create <- function(name, version, stage, comment 
         name = name, 
         stage = stage, 
         version = version, ...)
+    
     .api$do("POST", "/api/2.0/mlflow/transition-requests/create", body = body)
 }
 
@@ -55,6 +57,7 @@ databricks_transition_requests_delete <- function(name, version, stage, creator,
         name = name, 
         stage = stage, 
         version = version, ...)
+    
     .api$do("DELETE", "/api/2.0/mlflow/transition-requests/delete", query = query)
 }
 
@@ -68,7 +71,11 @@ databricks_transition_requests_list <- function(name, version, ...) {
     query <- list(
         name = name, 
         version = version, ...)
-    .api$do("GET", "/api/2.0/mlflow/transition-requests/list", query = query)
+    
+    
+    json <- .api$do("GET", "/api/2.0/mlflow/transition-requests/list", query = query)
+    return (json$requests)
+    
 }
 
 #' Reject a transition request.
@@ -86,6 +93,17 @@ databricks_transition_requests_reject <- function(name, version, stage, comment 
         name = name, 
         stage = stage, 
         version = version, ...)
+    
     .api$do("POST", "/api/2.0/mlflow/transition-requests/reject", body = body)
 }
+
+
+
+
+
+
+
+
+
+
 

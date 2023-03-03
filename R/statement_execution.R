@@ -8,6 +8,7 @@
 #' @param statement_id 
 databricks_statement_execution_cancel_execution <- function(statement_id, ...) {
     
+    
     .api$do("POST", paste("/api/2.0/sql/statements/", statement_id, "/cancel", , sep = ""))
 }
 
@@ -48,6 +49,7 @@ databricks_statement_execution_execute_statement <- function(byte_limit = NULL,
         statement = statement, 
         wait_timeout = wait_timeout, 
         warehouse_id = warehouse_id, ...)
+    
     .api$do("POST", "/api/2.0/sql/statements/", body = body)
 }
 
@@ -61,6 +63,7 @@ databricks_statement_execution_execute_statement <- function(byte_limit = NULL,
 #'
 #' @param statement_id 
 databricks_statement_execution_get_statement <- function(statement_id, ...) {
+    
     
     .api$do("GET", paste("/api/2.0/sql/statements/", statement_id, sep = ""))
 }
@@ -80,6 +83,17 @@ databricks_statement_execution_get_statement <- function(statement_id, ...) {
 #' @param statement_id 
 databricks_statement_execution_get_statement_result_chunk_n <- function(statement_id, chunk_index, ...) {
     
+    
     .api$do("GET", paste("/api/2.0/sql/statements/", statement_id, "/result/chunks/", chunk_index, sep = ""))
 }
+
+
+
+
+
+
+
+
+
+
 

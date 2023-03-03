@@ -17,6 +17,7 @@ databricks_command_execution_cancel <- function(cluster_id = NULL,
         cluster_id = cluster_id, 
         command_id = command_id, 
         context_id = context_id, ...)
+    
     .api$do("POST", "/api/1.2/commands/cancel", body = body)
 }
 
@@ -35,6 +36,7 @@ databricks_command_execution_command_status <- function(cluster_id, context_id, 
         cluster_id = cluster_id, 
         command_id = command_id, 
         context_id = context_id, ...)
+    
     .api$do("GET", "/api/1.2/commands/status", query = query)
 }
 
@@ -48,6 +50,7 @@ databricks_command_execution_context_status <- function(cluster_id, context_id, 
     query <- list(
         cluster_id = cluster_id, 
         context_id = context_id, ...)
+    
     .api$do("GET", "/api/1.2/contexts/status", query = query)
 }
 
@@ -65,6 +68,7 @@ databricks_command_execution_create <- function(cluster_id = NULL,
     body <- list(
         cluster_id = cluster_id, 
         language = language, ...)
+    
     .api$do("POST", "/api/1.2/contexts/create", body = body)
 }
 
@@ -78,6 +82,7 @@ databricks_command_execution_destroy <- function(cluster_id, context_id, ...) {
     body <- list(
         cluster_id = cluster_id, 
         context_id = context_id, ...)
+    
     .api$do("POST", "/api/1.2/contexts/destroy", body = body)
 }
 
@@ -103,6 +108,17 @@ databricks_command_execution_execute <- function(cluster_id = NULL,
         command = command, 
         context_id = context_id, 
         language = language, ...)
+    
     .api$do("POST", "/api/1.2/commands/execute", body = body)
 }
+
+
+
+
+
+
+
+
+
+
 

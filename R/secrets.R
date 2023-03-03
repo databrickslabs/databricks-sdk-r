@@ -19,6 +19,7 @@ databricks_secrets_create_scope <- function(scope, initial_manage_principal = NU
         keyvault_metadata = keyvault_metadata, 
         scope = scope, 
         scope_backend_type = scope_backend_type, ...)
+    
     .api$do("POST", "/api/2.0/secrets/scopes/create", body = body)
 }
 
@@ -37,6 +38,7 @@ databricks_secrets_delete_acl <- function(scope, principal, ...) {
     body <- list(
         principal = principal, 
         scope = scope, ...)
+    
     .api$do("POST", "/api/2.0/secrets/acls/delete", body = body)
 }
 
@@ -52,6 +54,7 @@ databricks_secrets_delete_acl <- function(scope, principal, ...) {
 databricks_secrets_delete_scope <- function(scope, ...) {
     body <- list(
         scope = scope, ...)
+    
     .api$do("POST", "/api/2.0/secrets/scopes/delete", body = body)
 }
 
@@ -70,6 +73,7 @@ databricks_secrets_delete_secret <- function(scope, key, ...) {
     body <- list(
         key = key, 
         scope = scope, ...)
+    
     .api$do("POST", "/api/2.0/secrets/delete", body = body)
 }
 
@@ -88,6 +92,7 @@ databricks_secrets_get_acl <- function(scope, principal, ...) {
     query <- list(
         principal = principal, 
         scope = scope, ...)
+    
     .api$do("GET", "/api/2.0/secrets/acls/get", query = query)
 }
 
@@ -104,7 +109,11 @@ databricks_secrets_get_acl <- function(scope, principal, ...) {
 databricks_secrets_list_acls <- function(scope, ...) {
     query <- list(
         scope = scope, ...)
-    .api$do("GET", "/api/2.0/secrets/acls/list", query = query)
+    
+    
+    json <- .api$do("GET", "/api/2.0/secrets/acls/list", query = query)
+    return (json$items)
+    
 }
 
 #' List all scopes.
@@ -114,7 +123,11 @@ databricks_secrets_list_acls <- function(scope, ...) {
 #' Throws `PERMISSION_DENIED` if the user does not have permission to make this
 #' API call.
 databricks_secrets_list_scopes <- function(...) {
-    .api$do("GET", "/api/2.0/secrets/scopes/list")
+    
+    
+    json <- .api$do("GET", "/api/2.0/secrets/scopes/list")
+    return (json$scopes)
+    
 }
 
 #' List secret keys.
@@ -132,7 +145,11 @@ databricks_secrets_list_scopes <- function(...) {
 databricks_secrets_list_secrets <- function(scope, ...) {
     query <- list(
         scope = scope, ...)
-    .api$do("GET", "/api/2.0/secrets/list", query = query)
+    
+    
+    json <- .api$do("GET", "/api/2.0/secrets/list", query = query)
+    return (json$secrets)
+    
 }
 
 #' Create/update an ACL.
@@ -172,6 +189,7 @@ databricks_secrets_put_acl <- function(scope, principal, permission, ...) {
         permission = permission, 
         principal = principal, 
         scope = scope, ...)
+    
     .api$do("POST", "/api/2.0/secrets/acls/put", body = body)
 }
 
@@ -209,6 +227,17 @@ databricks_secrets_put_secret <- function(scope, key, bytes_value = NULL,
         key = key, 
         scope = scope, 
         string_value = string_value, ...)
+    
     .api$do("POST", "/api/2.0/secrets/put", body = body)
 }
+
+
+
+
+
+
+
+
+
+
 

@@ -15,6 +15,7 @@ databricks_dbfs_add_block <- function(handle, data, ...) {
     body <- list(
         data = data, 
         handle = handle, ...)
+    
     .api$do("POST", "/api/2.0/dbfs/add-block", body = body)
 }
 
@@ -27,6 +28,7 @@ databricks_dbfs_add_block <- function(handle, data, ...) {
 databricks_dbfs_close <- function(handle, ...) {
     body <- list(
         handle = handle, ...)
+    
     .api$do("POST", "/api/2.0/dbfs/close", body = body)
 }
 
@@ -50,6 +52,7 @@ databricks_dbfs_create <- function(path, overwrite = NULL,
     body <- list(
         overwrite = overwrite, 
         path = path, ...)
+    
     .api$do("POST", "/api/2.0/dbfs/create", body = body)
 }
 
@@ -81,6 +84,7 @@ databricks_dbfs_delete <- function(path, recursive = NULL,
     body <- list(
         path = path, 
         recursive = recursive, ...)
+    
     .api$do("POST", "/api/2.0/dbfs/delete", body = body)
 }
 
@@ -93,6 +97,7 @@ databricks_dbfs_delete <- function(path, recursive = NULL,
 databricks_dbfs_get_status <- function(path, ...) {
     query <- list(
         path = path, ...)
+    
     .api$do("GET", "/api/2.0/dbfs/get-status", query = query)
 }
 
@@ -114,7 +119,11 @@ databricks_dbfs_get_status <- function(path, ...) {
 databricks_dbfs_list <- function(path, ...) {
     query <- list(
         path = path, ...)
-    .api$do("GET", "/api/2.0/dbfs/list", query = query)
+    
+    
+    json <- .api$do("GET", "/api/2.0/dbfs/list", query = query)
+    return (json$files)
+    
 }
 
 #' Create a directory.
@@ -129,6 +138,7 @@ databricks_dbfs_list <- function(path, ...) {
 databricks_dbfs_mkdirs <- function(path, ...) {
     body <- list(
         path = path, ...)
+    
     .api$do("POST", "/api/2.0/dbfs/mkdirs", body = body)
 }
 
@@ -146,6 +156,7 @@ databricks_dbfs_move <- function(source_path, destination_path, ...) {
     body <- list(
         destination_path = destination_path, 
         source_path = source_path, ...)
+    
     .api$do("POST", "/api/2.0/dbfs/move", body = body)
 }
 
@@ -174,6 +185,7 @@ databricks_dbfs_put <- function(path, contents = NULL,
         contents = contents, 
         overwrite = overwrite, 
         path = path, ...)
+    
     .api$do("POST", "/api/2.0/dbfs/put", body = body)
 }
 
@@ -198,6 +210,17 @@ databricks_dbfs_read <- function(path, length = NULL,
         length = length, 
         offset = offset, 
         path = path, ...)
+    
     .api$do("GET", "/api/2.0/dbfs/read", query = query)
 }
+
+
+
+
+
+
+
+
+
+
 

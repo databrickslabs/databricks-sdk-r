@@ -17,6 +17,7 @@ databricks_providers_create <- function(name, authentication_type, comment = NUL
         comment = comment, 
         name = name, 
         recipient_profile_str = recipient_profile_str, ...)
+    
     .api$do("POST", "/api/2.1/unity-catalog/providers", body = body)
 }
 
@@ -27,6 +28,7 @@ databricks_providers_create <- function(name, authentication_type, comment = NUL
 #'
 #' @param name Name of the provider.
 databricks_providers_delete <- function(name, ...) {
+    
     
     .api$do("DELETE", paste("/api/2.1/unity-catalog/providers/", name, sep = ""))
 }
@@ -39,6 +41,7 @@ databricks_providers_delete <- function(name, ...) {
 #'
 #' @param name Name of the provider.
 databricks_providers_get <- function(name, ...) {
+    
     
     .api$do("GET", paste("/api/2.1/unity-catalog/providers/", name, sep = ""))
 }
@@ -55,7 +58,11 @@ databricks_providers_list <- function(data_provider_global_metastore_id = NULL,
     ...) {
     query <- list(
         data_provider_global_metastore_id = data_provider_global_metastore_id, ...)
-    .api$do("GET", "/api/2.1/unity-catalog/providers", query = query)
+    
+    
+    json <- .api$do("GET", "/api/2.1/unity-catalog/providers", query = query)
+    return (json$providers)
+    
 }
 
 #' List shares by Provider.
@@ -66,6 +73,7 @@ databricks_providers_list <- function(data_provider_global_metastore_id = NULL,
 #'
 #' @param name Name of the provider in which to list shares.
 databricks_providers_list_shares <- function(name, ...) {
+    
     
     .api$do("GET", paste("/api/2.1/unity-catalog/providers/", name, "/shares", , sep = ""))
 }
@@ -90,6 +98,17 @@ databricks_providers_update <- function(name, comment = NULL,
         name = name, 
         owner = owner, 
         recipient_profile_str = recipient_profile_str, ...)
+    
     .api$do("PATCH", paste("/api/2.1/unity-catalog/providers/", name, sep = ""), body = body)
 }
+
+
+
+
+
+
+
+
+
+
 

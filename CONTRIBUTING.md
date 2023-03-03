@@ -34,3 +34,8 @@ HTTP client devloop:
 ```
 load_all(); .ApiClient(profile = 'demo')$do('GET', '/api/2.0/scim/Me')
 ```
+
+### Debugging
+
+* insert `browser()` whenever necessary and use `Q` to quit interactiv debugging
+* see more at https://adv-r.hadley.nz/debugging.html

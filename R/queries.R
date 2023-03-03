@@ -35,6 +35,7 @@ databricks_queries_create <- function(data_source_id = NULL,
         parent = parent, 
         query = query, 
         schedule = schedule, ...)
+    
     .api$do("POST", "/api/2.0/preview/sql/queries", body = body)
 }
 
@@ -47,6 +48,7 @@ databricks_queries_create <- function(data_source_id = NULL,
 #' @param query_id 
 databricks_queries_delete <- function(query_id, ...) {
     
+    
     .api$do("DELETE", paste("/api/2.0/preview/sql/queries/", query_id, sep = ""))
 }
 
@@ -57,6 +59,7 @@ databricks_queries_delete <- function(query_id, ...) {
 #'
 #' @param query_id 
 databricks_queries_get <- function(query_id, ...) {
+    
     
     .api$do("GET", paste("/api/2.0/preview/sql/queries/", query_id, sep = ""))
 }
@@ -80,7 +83,24 @@ databricks_queries_list <- function(order = NULL,
         page = page, 
         page_size = page_size, 
         q = q, ...)
-    .api$do("GET", "/api/2.0/preview/sql/queries", query = query)
+    
+    
+    
+    query$page = 1
+    results <- data.frame()
+    while (TRUE) {
+        json <- .api$do("GET", "/api/2.0/preview/sql/queries", query = query)
+        if (is.null(nrow(json$results))) {
+            break
+        }
+        # append this page of results to one results data.frame
+        results <- dplyr::bind_rows(results, json$results)
+        query$page <- query$page + 1
+    }
+    # de-duplicate any records via id column
+    results <- results[!duplicated(results$id), ]
+    return (results)
+    
 }
 
 #' Restore a query.
@@ -90,6 +110,7 @@ databricks_queries_list <- function(order = NULL,
 #'
 #' @param query_id 
 databricks_queries_restore <- function(query_id, ...) {
+    
     
     .api$do("POST", paste("/api/2.0/preview/sql/queries/trash/", query_id, sep = ""))
 }
@@ -121,6 +142,17 @@ databricks_queries_update <- function(query_id, data_source_id = NULL,
         options = options, 
         query = query, 
         schedule = schedule, ...)
+    
     .api$do("POST", paste("/api/2.0/preview/sql/queries/", query_id, sep = ""), body = body)
 }
+
+
+
+
+
+
+
+
+
+
 

@@ -21,6 +21,7 @@ databricks_schemas_create <- function(name, catalog_name, comment = NULL,
         name = name, 
         properties = properties, 
         storage_root = storage_root, ...)
+    
     .api$do("POST", "/api/2.1/unity-catalog/schemas", body = body)
 }
 
@@ -31,6 +32,7 @@ databricks_schemas_create <- function(name, catalog_name, comment = NULL,
 #'
 #' @param full_name Full name of the schema.
 databricks_schemas_delete <- function(full_name, ...) {
+    
     
     .api$do("DELETE", paste("/api/2.1/unity-catalog/schemas/", full_name, sep = ""))
 }
@@ -43,6 +45,7 @@ databricks_schemas_delete <- function(full_name, ...) {
 #'
 #' @param full_name Full name of the schema.
 databricks_schemas_get <- function(full_name, ...) {
+    
     
     .api$do("GET", paste("/api/2.1/unity-catalog/schemas/", full_name, sep = ""))
 }
@@ -59,7 +62,11 @@ databricks_schemas_get <- function(full_name, ...) {
 databricks_schemas_list <- function(catalog_name, ...) {
     query <- list(
         catalog_name = catalog_name, ...)
-    .api$do("GET", "/api/2.1/unity-catalog/schemas", query = query)
+    
+    
+    json <- .api$do("GET", "/api/2.1/unity-catalog/schemas", query = query)
+    return (json$schemas)
+    
 }
 
 #' Update a schema.
@@ -85,6 +92,17 @@ databricks_schemas_update <- function(full_name, comment = NULL,
         name = name, 
         owner = owner, 
         properties = properties, ...)
+    
     .api$do("PATCH", paste("/api/2.1/unity-catalog/schemas/", full_name, sep = ""), body = body)
 }
+
+
+
+
+
+
+
+
+
+
 

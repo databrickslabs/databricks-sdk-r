@@ -17,6 +17,7 @@ databricks_registered_models_create <- function(name, description = NULL,
         description = description, 
         name = name, 
         tags = tags, ...)
+    
     .api$do("POST", "/api/2.0/mlflow/registered-models/create", body = body)
 }
 
@@ -28,6 +29,7 @@ databricks_registered_models_create <- function(name, description = NULL,
 databricks_registered_models_delete <- function(name, ...) {
     query <- list(
         name = name, ...)
+    
     .api$do("DELETE", "/api/2.0/mlflow/registered-models/delete", query = query)
 }
 
@@ -41,6 +43,7 @@ databricks_registered_models_delete_tag <- function(name, key, ...) {
     query <- list(
         key = key, 
         name = name, ...)
+    
     .api$do("DELETE", "/api/2.0/mlflow/registered-models/delete-tag", query = query)
 }
 
@@ -52,6 +55,7 @@ databricks_registered_models_delete_tag <- function(name, key, ...) {
 databricks_registered_models_get <- function(name, ...) {
     query <- list(
         name = name, ...)
+    
     .api$do("GET", "/api/2.0/mlflow/registered-models/get", query = query)
 }
 
@@ -66,7 +70,11 @@ databricks_registered_models_get_latest_versions <- function(name, stages = NULL
     body <- list(
         name = name, 
         stages = stages, ...)
-    .api$do("POST", "/api/2.0/mlflow/registered-models/get-latest-versions", body = body)
+    
+    
+    json <- .api$do("POST", "/api/2.0/mlflow/registered-models/get-latest-versions", body = body)
+    return (json$model_versions)
+    
 }
 
 #' List models.
@@ -82,7 +90,24 @@ databricks_registered_models_list <- function(max_results = NULL,
     query <- list(
         max_results = max_results, 
         page_token = page_token, ...)
-    .api$do("GET", "/api/2.0/mlflow/registered-models/list", query = query)
+    
+    
+    
+    results <- data.frame()
+    while (TRUE) {
+        json <- .api$do("GET", "/api/2.0/mlflow/registered-models/list", query = query)
+        if (is.null(nrow(json$registered_models))) {
+            break
+        }
+        # append this page of results to one results data.frame
+        results <- dplyr::bind_rows(results, json$registered_models)
+        if (is.null(json$next_page_token)) {
+            break
+        }
+        query$page_token <- json$next_page_token
+    }
+    return (results)
+    
 }
 
 #' Rename a model.
@@ -96,6 +121,7 @@ databricks_registered_models_rename <- function(name, new_name = NULL,
     body <- list(
         name = name, 
         new_name = new_name, ...)
+    
     .api$do("POST", "/api/2.0/mlflow/registered-models/rename", body = body)
 }
 
@@ -117,7 +143,24 @@ databricks_registered_models_search <- function(filter = NULL,
         max_results = max_results, 
         order_by = order_by, 
         page_token = page_token, ...)
-    .api$do("GET", "/api/2.0/mlflow/registered-models/search", query = query)
+    
+    
+    
+    results <- data.frame()
+    while (TRUE) {
+        json <- .api$do("GET", "/api/2.0/mlflow/registered-models/search", query = query)
+        if (is.null(nrow(json$registered_models))) {
+            break
+        }
+        # append this page of results to one results data.frame
+        results <- dplyr::bind_rows(results, json$registered_models)
+        if (is.null(json$next_page_token)) {
+            break
+        }
+        query$page_token <- json$next_page_token
+    }
+    return (results)
+    
 }
 
 #' Set a tag.
@@ -132,6 +175,7 @@ databricks_registered_models_set_tag <- function(name, key, value, ...) {
         key = key, 
         name = name, 
         value = value, ...)
+    
     .api$do("POST", "/api/2.0/mlflow/registered-models/set-tag", body = body)
 }
 
@@ -146,6 +190,17 @@ databricks_registered_models_update <- function(name, description = NULL,
     body <- list(
         description = description, 
         name = name, ...)
+    
     .api$do("PATCH", "/api/2.0/mlflow/registered-models/update", body = body)
 }
+
+
+
+
+
+
+
+
+
+
 

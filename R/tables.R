@@ -11,6 +11,7 @@
 #' @param full_name Full name of the table.
 databricks_tables_delete <- function(full_name, ...) {
     
+    
     .api$do("DELETE", paste("/api/2.1/unity-catalog/tables/", full_name, sep = ""))
 }
 
@@ -28,6 +29,7 @@ databricks_tables_get <- function(full_name, include_delta_metadata = NULL,
     ...) {
     query <- list(
         include_delta_metadata = include_delta_metadata, ...)
+    
     .api$do("GET", paste("/api/2.1/unity-catalog/tables/", full_name, sep = ""), query = query)
 }
 
@@ -49,7 +51,11 @@ databricks_tables_list <- function(catalog_name, schema_name, include_delta_meta
         catalog_name = catalog_name, 
         include_delta_metadata = include_delta_metadata, 
         schema_name = schema_name, ...)
-    .api$do("GET", "/api/2.1/unity-catalog/tables", query = query)
+    
+    
+    json <- .api$do("GET", "/api/2.1/unity-catalog/tables", query = query)
+    return (json$tables)
+    
 }
 
 #' List table summaries.
@@ -82,6 +88,17 @@ databricks_tables_list_summaries <- function(catalog_name, max_results = NULL,
         page_token = page_token, 
         schema_name_pattern = schema_name_pattern, 
         table_name_pattern = table_name_pattern, ...)
+    
     .api$do("GET", "/api/2.1/unity-catalog/table-summaries", query = query)
 }
+
+
+
+
+
+
+
+
+
+
 

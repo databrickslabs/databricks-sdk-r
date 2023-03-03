@@ -10,6 +10,7 @@
 #' @param served_model_name The name of the served model that build logs will be retrieved for.
 databricks_serving_endpoints_build_logs <- function(name, served_model_name, ...) {
     
+    
     .api$do("GET", paste("/api/2.0/serving-endpoints/", name, "/served-models/", served_model_name, "/build-logs", , sep = ""))
 }
 
@@ -21,6 +22,7 @@ databricks_serving_endpoints_create <- function(name, config, ...) {
     body <- list(
         config = config, 
         name = name, ...)
+    
     .api$do("POST", "/api/2.0/serving-endpoints", body = body)
 }
 
@@ -28,6 +30,7 @@ databricks_serving_endpoints_create <- function(name, config, ...) {
 #'
 #' @param name The name of the serving endpoint.
 databricks_serving_endpoints_delete <- function(name, ...) {
+    
     
     .api$do("DELETE", paste("/api/2.0/serving-endpoints/", name, sep = ""))
 }
@@ -42,6 +45,7 @@ databricks_serving_endpoints_delete <- function(name, ...) {
 #' @param name The name of the serving endpoint to retrieve metrics for.
 databricks_serving_endpoints_export_metrics <- function(name, ...) {
     
+    
     .api$do("GET", paste("/api/2.0/serving-endpoints/", name, "/metrics", , sep = ""))
 }
 
@@ -52,11 +56,13 @@ databricks_serving_endpoints_export_metrics <- function(name, ...) {
 #' @param name The name of the serving endpoint.
 databricks_serving_endpoints_get <- function(name, ...) {
     
+    
     .api$do("GET", paste("/api/2.0/serving-endpoints/", name, sep = ""))
 }
 
 #' Retrieve all serving endpoints.
 databricks_serving_endpoints_list <- function(...) {
+    
     .api$do("GET", "/api/2.0/serving-endpoints")
 }
 
@@ -70,6 +76,7 @@ databricks_serving_endpoints_list <- function(...) {
 #' @param served_model_name The name of the served model that logs will be retrieved for.
 databricks_serving_endpoints_logs <- function(name, served_model_name, ...) {
     
+    
     .api$do("GET", paste("/api/2.0/serving-endpoints/", name, "/served-models/", served_model_name, "/logs", , sep = ""))
 }
 
@@ -77,6 +84,7 @@ databricks_serving_endpoints_logs <- function(name, served_model_name, ...) {
 #'
 #' @param name The name of the serving endpoint.
 databricks_serving_endpoints_query <- function(name, ...) {
+    
     
     .api$do("POST", paste("/serving-endpoints/", name, "/invocations", , sep = ""))
 }
@@ -96,6 +104,17 @@ databricks_serving_endpoints_update_config <- function(served_models, name, traf
     body <- list(
         served_models = served_models, 
         traffic_config = traffic_config, ...)
+    
     .api$do("PUT", paste("/api/2.0/serving-endpoints/", name, "/config", , sep = ""), body = body)
 }
+
+
+
+
+
+
+
+
+
+
 

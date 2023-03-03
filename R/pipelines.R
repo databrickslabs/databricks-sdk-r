@@ -58,6 +58,7 @@ databricks_pipelines_create <- function(allow_duplicate_names = NULL,
         storage = storage, 
         target = target, 
         trigger = trigger, ...)
+    
     .api$do("POST", "/api/2.0/pipelines", body = body)
 }
 
@@ -68,6 +69,7 @@ databricks_pipelines_create <- function(allow_duplicate_names = NULL,
 #' @param pipeline_id 
 databricks_pipelines_delete <- function(pipeline_id, ...) {
     
+    
     .api$do("DELETE", paste("/api/2.0/pipelines/", pipeline_id, sep = ""))
 }
 
@@ -75,6 +77,7 @@ databricks_pipelines_delete <- function(pipeline_id, ...) {
 #'
 #' @param pipeline_id 
 databricks_pipelines_get <- function(pipeline_id, ...) {
+    
     
     .api$do("GET", paste("/api/2.0/pipelines/", pipeline_id, sep = ""))
 }
@@ -86,6 +89,7 @@ databricks_pipelines_get <- function(pipeline_id, ...) {
 #' @param pipeline_id The ID of the pipeline.
 #' @param update_id The ID of the update.
 databricks_pipelines_get_update <- function(pipeline_id, update_id, ...) {
+    
     
     .api$do("GET", paste("/api/2.0/pipelines/", pipeline_id, "/updates/", update_id, sep = ""))
 }
@@ -108,7 +112,24 @@ databricks_pipelines_list_pipelines <- function(filter = NULL,
         max_results = max_results, 
         order_by = order_by, 
         page_token = page_token, ...)
-    .api$do("GET", "/api/2.0/pipelines", query = query)
+    
+    
+    
+    results <- data.frame()
+    while (TRUE) {
+        json <- .api$do("GET", "/api/2.0/pipelines", query = query)
+        if (is.null(nrow(json$statuses))) {
+            break
+        }
+        # append this page of results to one results data.frame
+        results <- dplyr::bind_rows(results, json$statuses)
+        if (is.null(json$next_page_token)) {
+            break
+        }
+        query$page_token <- json$next_page_token
+    }
+    return (results)
+    
 }
 
 #' List pipeline updates.
@@ -127,6 +148,7 @@ databricks_pipelines_list_updates <- function(pipeline_id, max_results = NULL,
         max_results = max_results, 
         page_token = page_token, 
         until_update_id = until_update_id, ...)
+    
     .api$do("GET", paste("/api/2.0/pipelines/", pipeline_id, "/updates", , sep = ""), query = query)
 }
 
@@ -136,6 +158,7 @@ databricks_pipelines_list_updates <- function(pipeline_id, max_results = NULL,
 #'
 #' @param pipeline_id 
 databricks_pipelines_reset <- function(pipeline_id, ...) {
+    
     
     .api$do("POST", paste("/api/2.0/pipelines/", pipeline_id, "/reset", , sep = ""))
 }
@@ -159,6 +182,7 @@ databricks_pipelines_start_update <- function(pipeline_id, cause = NULL,
         full_refresh = full_refresh, 
         full_refresh_selection = full_refresh_selection, 
         refresh_selection = refresh_selection, ...)
+    
     .api$do("POST", paste("/api/2.0/pipelines/", pipeline_id, "/updates", , sep = ""), body = body)
 }
 
@@ -168,6 +192,7 @@ databricks_pipelines_start_update <- function(pipeline_id, cause = NULL,
 #'
 #' @param pipeline_id 
 databricks_pipelines_stop <- function(pipeline_id, ...) {
+    
     
     .api$do("POST", paste("/api/2.0/pipelines/", pipeline_id, "/stop", , sep = ""))
 }
@@ -231,6 +256,17 @@ databricks_pipelines_update <- function(pipeline_id, allow_duplicate_names = NUL
         storage = storage, 
         target = target, 
         trigger = trigger, ...)
+    
     .api$do("PUT", paste("/api/2.0/pipelines/", pipeline_id, sep = ""), body = body)
 }
+
+
+
+
+
+
+
+
+
+
 

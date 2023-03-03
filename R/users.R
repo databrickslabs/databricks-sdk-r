@@ -36,6 +36,7 @@ databricks_users_create <- function(id, active = NULL,
         name = name, 
         roles = roles, 
         user_name = user_name, ...)
+    
     .api$do("POST", "/api/2.0/preview/scim/v2/Users", body = body)
 }
 
@@ -47,6 +48,7 @@ databricks_users_create <- function(id, active = NULL,
 #' @param id Unique ID for a user in the Databricks Workspace.
 databricks_users_delete <- function(id, ...) {
     
+    
     .api$do("DELETE", paste("/api/2.0/preview/scim/v2/Users/", id, sep = ""))
 }
 
@@ -56,6 +58,7 @@ databricks_users_delete <- function(id, ...) {
 #'
 #' @param id Unique ID for a user in the Databricks Workspace.
 databricks_users_get <- function(id, ...) {
+    
     
     .api$do("GET", paste("/api/2.0/preview/scim/v2/Users/", id, sep = ""))
 }
@@ -87,7 +90,11 @@ databricks_users_list <- function(attributes = NULL,
         sort_by = sort_by, 
         sort_order = sort_order, 
         start_index = start_index, ...)
-    .api$do("GET", "/api/2.0/preview/scim/v2/Users", query = query)
+    
+    
+    json <- .api$do("GET", "/api/2.0/preview/scim/v2/Users", query = query)
+    return (json$Resources)
+    
 }
 
 #' Update user details.
@@ -101,6 +108,7 @@ databricks_users_patch <- function(id, operations = NULL,
     ...) {
     body <- list(
         operations = operations, ...)
+    
     .api$do("PATCH", paste("/api/2.0/preview/scim/v2/Users/", id, sep = ""), body = body)
 }
 
@@ -139,6 +147,17 @@ databricks_users_update <- function(id, active = NULL,
         name = name, 
         roles = roles, 
         user_name = user_name, ...)
+    
     .api$do("PUT", paste("/api/2.0/preview/scim/v2/Users/", id, sep = ""), body = body)
 }
+
+
+
+
+
+
+
+
+
+
 

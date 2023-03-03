@@ -11,6 +11,7 @@ databricks_grants_get <- function(securable_type, full_name, principal = NULL,
     ...) {
     query <- list(
         principal = principal, ...)
+    
     .api$do("GET", paste("/api/2.1/unity-catalog/permissions/", securable_type, "/", full_name, sep = ""), query = query)
 }
 
@@ -25,6 +26,7 @@ databricks_grants_get_effective <- function(securable_type, full_name, principal
     ...) {
     query <- list(
         principal = principal, ...)
+    
     .api$do("GET", paste("/api/2.1/unity-catalog/effective-permissions/", securable_type, "/", full_name, sep = ""), query = query)
 }
 
@@ -39,6 +41,17 @@ databricks_grants_update <- function(securable_type, full_name, changes = NULL,
     ...) {
     body <- list(
         changes = changes, ...)
+    
     .api$do("PATCH", paste("/api/2.1/unity-catalog/permissions/", securable_type, "/", full_name, sep = ""), body = body)
 }
+
+
+
+
+
+
+
+
+
+
 

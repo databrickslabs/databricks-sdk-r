@@ -13,6 +13,7 @@ databricks_metastores_assign <- function(metastore_id, default_catalog_name, wor
     body <- list(
         default_catalog_name = default_catalog_name, 
         metastore_id = metastore_id, ...)
+    
     .api$do("PUT", paste("/api/2.1/unity-catalog/workspaces/", workspace_id, "/metastore", , sep = ""), body = body)
 }
 
@@ -29,6 +30,7 @@ databricks_metastores_create <- function(name, storage_root, region = NULL,
         name = name, 
         region = region, 
         storage_root = storage_root, ...)
+    
     .api$do("POST", "/api/2.1/unity-catalog/metastores", body = body)
 }
 
@@ -36,6 +38,7 @@ databricks_metastores_create <- function(name, storage_root, region = NULL,
 #' 
 #' Gets the metastore assignment for the workspace being accessed.
 databricks_metastores_current <- function(...) {
+    
     .api$do("GET", "/api/2.1/unity-catalog/current-metastore-assignment")
 }
 
@@ -49,6 +52,7 @@ databricks_metastores_delete <- function(id, force = NULL,
     ...) {
     query <- list(
         force = force, ...)
+    
     .api$do("DELETE", paste("/api/2.1/unity-catalog/metastores/", id, sep = ""), query = query)
 }
 
@@ -60,6 +64,7 @@ databricks_metastores_delete <- function(id, force = NULL,
 #' @param id Unique ID of the metastore.
 databricks_metastores_get <- function(id, ...) {
     
+    
     .api$do("GET", paste("/api/2.1/unity-catalog/metastores/", id, sep = ""))
 }
 
@@ -69,7 +74,11 @@ databricks_metastores_get <- function(id, ...) {
 #' caller must be an admin to retrieve this info. There is no guarantee of a
 #' specific ordering of the elements in the array.
 databricks_metastores_list <- function(...) {
-    .api$do("GET", "/api/2.1/unity-catalog/metastores")
+    
+    
+    json <- .api$do("GET", "/api/2.1/unity-catalog/metastores")
+    return (json$metastores)
+    
 }
 
 #' Get a metastore summary.
@@ -77,6 +86,7 @@ databricks_metastores_list <- function(...) {
 #' Gets information about a metastore. This summary includes the storage
 #' credential, the cloud vendor, the cloud region, and the global metastore ID.
 databricks_metastores_summary <- function(...) {
+    
     .api$do("GET", "/api/2.1/unity-catalog/metastore_summary")
 }
 
@@ -89,6 +99,7 @@ databricks_metastores_summary <- function(...) {
 databricks_metastores_unassign <- function(workspace_id, metastore_id, ...) {
     query <- list(
         metastore_id = metastore_id, ...)
+    
     .api$do("DELETE", paste("/api/2.1/unity-catalog/workspaces/", workspace_id, "/metastore", , sep = ""), query = query)
 }
 
@@ -122,6 +133,7 @@ databricks_metastores_update <- function(metastore_id, id, delta_sharing_organiz
         owner = owner, 
         privilege_model_version = privilege_model_version, 
         storage_root_credential_id = storage_root_credential_id, ...)
+    
     .api$do("PATCH", paste("/api/2.1/unity-catalog/metastores/", id, sep = ""), body = body)
 }
 
@@ -141,6 +153,17 @@ databricks_metastores_update_assignment <- function(workspace_id, metastore_id, 
     body <- list(
         default_catalog_name = default_catalog_name, 
         metastore_id = metastore_id, ...)
+    
     .api$do("PATCH", paste("/api/2.1/unity-catalog/workspaces/", workspace_id, "/metastore", , sep = ""), body = body)
 }
+
+
+
+
+
+
+
+
+
+
 

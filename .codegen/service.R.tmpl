@@ -8,14 +8,70 @@ databricks_{{.Service.SnakeName}}_{{.SnakeName}} <- function(
     {{- if .Request}}{{range .Request.RequiredFields}}{{.SnakeName}}, {{end -}}
     {{- range .Request.NonRequiredFields}}{{.SnakeName}} = NULL, 
     {{end}}{{- end -}}...) {
+    {{template "method-serialize" .}}
+    {{template "method-call" .}}
+}
+
+{{end}}
+
+{{define "method-serialize" -}}
     {{if .Request}}
     {{- if .Request.HasQueryField}}query <- list({{range .Request.Fields}}{{if .IsQuery}}
         {{.SnakeName}} = {{.SnakeName}}, {{end}}{{end}}...){{end}}
     {{- if .Request.HasJsonField}}body <- list({{range .Request.Fields}}{{if .IsJson}}
         {{.SnakeName}} = {{.SnakeName}}, {{end}}{{end}}...){{end}}
     {{end -}}
-    .api$do("{{.Verb}}", {{if .PathParts -}}paste({{range  .PathParts}}"{{.Prefix}}", {{if .Field}}{{.Field.SnakeName}}{{else if .IsAccountId}}.api$account_id{{end}}, {{ end }}sep = "")
-    {{- else}}"{{.Path}}"{{end}}{{if .Request}}{{if .Request.HasQueryField}}, query = query{{end}}{{if .Request.HasJsonField}}, body = body{{end}}{{end}})
-}
+{{- end}}
 
-{{end}}
+{{define "method-call" -}}
+    {{if .Pagination -}}{{template "method-call-paginated" .}}
+    {{- else}}{{template "method-call-default" .}}{{end}}
+{{- end}}
+
+{{define "method-call-paginated" -}}
+    {{if .Pagination.MultiRequest}}
+    {{if and .Pagination.Offset (not (eq .Path "/api/2.0/clusters/events")) }}
+    query${{.Pagination.Offset.Name}} = {{if eq .Pagination.Increment 1}}1{{else}}0{{end}}{{end}}
+    results <- data.frame()
+    while (TRUE) {
+        json <- {{template "method-do" .}}
+        if (is.null(nrow(json${{.Pagination.Results.Name}}))) {
+            break
+        }
+        # append this page of results to one results data.frame
+        results <- dplyr::bind_rows(results, json${{.Pagination.Results.Name}})
+        {{if eq .Path "/api/2.0/clusters/events" -}}
+        if (is.null(json$next_page)) {
+            break
+        }
+        body <- json$next_page
+        {{- else if .Pagination.Token -}}
+        if (is.null(json${{.Pagination.Token.Bind.Name}})) {
+            break
+        }
+        {{if eq "GET" .Verb}}query{{else}}body{{end}}${{.Pagination.Token.PollField.Name}} <- json${{.Pagination.Token.Bind.Name}}
+        {{- else if eq .Pagination.Increment 1 -}}
+        query${{.Pagination.Offset.Name}} <- query${{.Pagination.Offset.Name}} + 1
+        {{- else -}}
+        query${{.Pagination.Offset.Name}} <- query${{.Pagination.Offset.Name}} + nrow(json${{.Pagination.Results.Name}})
+        {{- end}}
+    }
+    {{if .Pagination.NeedsOffsetDedupe -}}
+    # de-duplicate any records via {{.Pagination.Entity.IdentifierField.Name}} column
+    results <- results[!duplicated(results${{.Pagination.Entity.IdentifierField.Name}}), ]
+    {{end -}}
+    return (results)
+    {{else}}
+    json <- {{template "method-do" .}}
+    return (json{{if .Pagination.Results}}${{.Pagination.Results.Name}}{{end}})
+    {{end}}
+{{- end}}
+
+{{define "method-call-default" -}}
+    {{template "method-do" .}}
+{{- end}}
+
+{{define "method-do" -}}
+.api$do("{{.Verb}}", {{if .PathParts -}}paste({{range  .PathParts}}"{{.Prefix}}", {{if .Field}}{{.Field.SnakeName}}{{else if .IsAccountId}}.api$account_id{{end}}, {{ end }}sep = "")
+    {{- else}}"{{.Path}}"{{end}}{{if .Request}}{{if .Request.HasQueryField}}, query = query{{end}}{{if .Request.HasJsonField}}, body = body{{end}}{{end}})
+{{- end}}

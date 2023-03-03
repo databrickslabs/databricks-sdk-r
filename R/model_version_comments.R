@@ -14,6 +14,7 @@ databricks_model_version_comments_create <- function(name, version, comment, ...
         comment = comment, 
         name = name, 
         version = version, ...)
+    
     .api$do("POST", "/api/2.0/mlflow/comments/create", body = body)
 }
 
@@ -25,6 +26,7 @@ databricks_model_version_comments_create <- function(name, version, comment, ...
 databricks_model_version_comments_delete <- function(id, ...) {
     query <- list(
         id = id, ...)
+    
     .api$do("DELETE", "/api/2.0/mlflow/comments/delete", query = query)
 }
 
@@ -38,6 +40,17 @@ databricks_model_version_comments_update <- function(id, comment, ...) {
     body <- list(
         comment = comment, 
         id = id, ...)
+    
     .api$do("POST", "/api/2.0/mlflow/comments/update", body = body)
 }
+
+
+
+
+
+
+
+
+
+
 

@@ -20,6 +20,33 @@ databricks_query_history_list <- function(filter_by = NULL,
         include_metrics = include_metrics, 
         max_results = max_results, 
         page_token = page_token, ...)
-    .api$do("GET", "/api/2.0/sql/history/queries", query = query)
+    
+    
+    
+    results <- data.frame()
+    while (TRUE) {
+        json <- .api$do("GET", "/api/2.0/sql/history/queries", query = query)
+        if (is.null(nrow(json$res))) {
+            break
+        }
+        # append this page of results to one results data.frame
+        results <- dplyr::bind_rows(results, json$res)
+        if (is.null(json$next_page_token)) {
+            break
+        }
+        query$page_token <- json$next_page_token
+    }
+    return (results)
+    
 }
+
+
+
+
+
+
+
+
+
+
 

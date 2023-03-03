@@ -45,6 +45,7 @@ databricks_warehouses_create <- function(auto_stop_mins = NULL,
         spot_instance_policy = spot_instance_policy, 
         tags = tags, 
         warehouse_type = warehouse_type, ...)
+    
     .api$do("POST", "/api/2.0/sql/warehouses", body = body)
 }
 
@@ -54,6 +55,7 @@ databricks_warehouses_create <- function(auto_stop_mins = NULL,
 #'
 #' @param id Required.
 databricks_warehouses_delete <- function(id, ...) {
+    
     
     .api$do("DELETE", paste("/api/2.0/sql/warehouses/", id, sep = ""))
 }
@@ -107,6 +109,7 @@ databricks_warehouses_edit <- function(id, auto_stop_mins = NULL,
         spot_instance_policy = spot_instance_policy, 
         tags = tags, 
         warehouse_type = warehouse_type, ...)
+    
     .api$do("POST", paste("/api/2.0/sql/warehouses/", id, "/edit", , sep = ""), body = body)
 }
 
@@ -117,6 +120,7 @@ databricks_warehouses_edit <- function(id, auto_stop_mins = NULL,
 #' @param id Required.
 databricks_warehouses_get <- function(id, ...) {
     
+    
     .api$do("GET", paste("/api/2.0/sql/warehouses/", id, sep = ""))
 }
 
@@ -125,6 +129,7 @@ databricks_warehouses_get <- function(id, ...) {
 #' Gets the workspace level configuration that is shared by all SQL warehouses
 #' in a workspace.
 databricks_warehouses_get_workspace_warehouse_config <- function(...) {
+    
     .api$do("GET", "/api/2.0/sql/config/warehouses")
 }
 
@@ -137,7 +142,11 @@ databricks_warehouses_list <- function(run_as_user_id = NULL,
     ...) {
     query <- list(
         run_as_user_id = run_as_user_id, ...)
-    .api$do("GET", "/api/2.0/sql/warehouses", query = query)
+    
+    
+    json <- .api$do("GET", "/api/2.0/sql/warehouses", query = query)
+    return (json$warehouses)
+    
 }
 
 #' Set the workspace configuration.
@@ -183,6 +192,7 @@ databricks_warehouses_set_workspace_warehouse_config <- function(channel = NULL,
         security_policy = security_policy, 
         serverless_agreement = serverless_agreement, 
         sql_configuration_parameters = sql_configuration_parameters, ...)
+    
     .api$do("PUT", "/api/2.0/sql/config/warehouses", body = body)
 }
 
@@ -192,6 +202,7 @@ databricks_warehouses_set_workspace_warehouse_config <- function(channel = NULL,
 #'
 #' @param id Required.
 databricks_warehouses_start <- function(id, ...) {
+    
     
     .api$do("POST", paste("/api/2.0/sql/warehouses/", id, "/start", , sep = ""))
 }
@@ -203,6 +214,17 @@ databricks_warehouses_start <- function(id, ...) {
 #' @param id Required.
 databricks_warehouses_stop <- function(id, ...) {
     
+    
     .api$do("POST", paste("/api/2.0/sql/warehouses/", id, "/stop", , sep = ""))
 }
+
+
+
+
+
+
+
+
+
+
 

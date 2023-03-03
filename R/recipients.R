@@ -30,6 +30,7 @@ databricks_recipients_create <- function(name, authentication_type, comment = NU
         owner = owner, 
         properties_kvpairs = properties_kvpairs, 
         sharing_code = sharing_code, ...)
+    
     .api$do("POST", "/api/2.1/unity-catalog/recipients", body = body)
 }
 
@@ -40,6 +41,7 @@ databricks_recipients_create <- function(name, authentication_type, comment = NU
 #'
 #' @param name Name of the recipient.
 databricks_recipients_delete <- function(name, ...) {
+    
     
     .api$do("DELETE", paste("/api/2.1/unity-catalog/recipients/", name, sep = ""))
 }
@@ -52,6 +54,7 @@ databricks_recipients_delete <- function(name, ...) {
 #'
 #' @param name Name of the recipient.
 databricks_recipients_get <- function(name, ...) {
+    
     
     .api$do("GET", paste("/api/2.1/unity-catalog/recipients/", name, sep = ""))
 }
@@ -68,7 +71,11 @@ databricks_recipients_list <- function(data_recipient_global_metastore_id = NULL
     ...) {
     query <- list(
         data_recipient_global_metastore_id = data_recipient_global_metastore_id, ...)
-    .api$do("GET", "/api/2.1/unity-catalog/recipients", query = query)
+    
+    
+    json <- .api$do("GET", "/api/2.1/unity-catalog/recipients", query = query)
+    return (json$recipients)
+    
 }
 
 #' Rotate a token.
@@ -81,6 +88,7 @@ databricks_recipients_list <- function(data_recipient_global_metastore_id = NULL
 databricks_recipients_rotate_token <- function(existing_token_expire_in_seconds, name, ...) {
     body <- list(
         existing_token_expire_in_seconds = existing_token_expire_in_seconds, ...)
+    
     .api$do("POST", paste("/api/2.1/unity-catalog/recipients/", name, "/rotate-token", , sep = ""), body = body)
 }
 
@@ -91,6 +99,7 @@ databricks_recipients_rotate_token <- function(existing_token_expire_in_seconds,
 #'
 #' @param name The name of the Recipient.
 databricks_recipients_share_permissions <- function(name, ...) {
+    
     
     .api$do("GET", paste("/api/2.1/unity-catalog/recipients/", name, "/share-permissions", , sep = ""))
 }
@@ -118,6 +127,17 @@ databricks_recipients_update <- function(name, comment = NULL,
         name = name, 
         owner = owner, 
         properties_kvpairs = properties_kvpairs, ...)
+    
     .api$do("PATCH", paste("/api/2.1/unity-catalog/recipients/", name, sep = ""), body = body)
 }
+
+
+
+
+
+
+
+
+
+
 

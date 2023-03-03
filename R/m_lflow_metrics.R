@@ -20,6 +20,17 @@ databricks_m_lflow_metrics_get_history <- function(metric_key, max_results = NUL
         page_token = page_token, 
         run_id = run_id, 
         run_uuid = run_uuid, ...)
+    
     .api$do("GET", "/api/2.0/mlflow/metrics/get-history", query = query)
 }
+
+
+
+
+
+
+
+
+
+
 

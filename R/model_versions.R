@@ -22,6 +22,7 @@ databricks_model_versions_create <- function(name, source, description = NULL,
         run_link = run_link, 
         source = source, 
         tags = tags, ...)
+    
     .api$do("POST", "/api/2.0/mlflow/model-versions/create", body = body)
 }
 
@@ -35,6 +36,7 @@ databricks_model_versions_delete <- function(name, version, ...) {
     query <- list(
         name = name, 
         version = version, ...)
+    
     .api$do("DELETE", "/api/2.0/mlflow/model-versions/delete", query = query)
 }
 
@@ -50,6 +52,7 @@ databricks_model_versions_delete_tag <- function(name, version, key, ...) {
         key = key, 
         name = name, 
         version = version, ...)
+    
     .api$do("DELETE", "/api/2.0/mlflow/model-versions/delete-tag", query = query)
 }
 
@@ -63,6 +66,7 @@ databricks_model_versions_get <- function(name, version, ...) {
     query <- list(
         name = name, 
         version = version, ...)
+    
     .api$do("GET", "/api/2.0/mlflow/model-versions/get", query = query)
 }
 
@@ -76,6 +80,7 @@ databricks_model_versions_get_download_uri <- function(name, version, ...) {
     query <- list(
         name = name, 
         version = version, ...)
+    
     .api$do("GET", "/api/2.0/mlflow/model-versions/get-download-uri", query = query)
 }
 
@@ -97,7 +102,24 @@ databricks_model_versions_search <- function(filter = NULL,
         max_results = max_results, 
         order_by = order_by, 
         page_token = page_token, ...)
-    .api$do("GET", "/api/2.0/mlflow/model-versions/search", query = query)
+    
+    
+    
+    results <- data.frame()
+    while (TRUE) {
+        json <- .api$do("GET", "/api/2.0/mlflow/model-versions/search", query = query)
+        if (is.null(nrow(json$model_versions))) {
+            break
+        }
+        # append this page of results to one results data.frame
+        results <- dplyr::bind_rows(results, json$model_versions)
+        if (is.null(json$next_page_token)) {
+            break
+        }
+        query$page_token <- json$next_page_token
+    }
+    return (results)
+    
 }
 
 #' Set a version tag.
@@ -114,6 +136,7 @@ databricks_model_versions_set_tag <- function(name, version, key, value, ...) {
         name = name, 
         value = value, 
         version = version, ...)
+    
     .api$do("POST", "/api/2.0/mlflow/model-versions/set-tag", body = body)
 }
 
@@ -131,6 +154,7 @@ databricks_model_versions_transition_stage <- function(name, version, stage, arc
         name = name, 
         stage = stage, 
         version = version, ...)
+    
     .api$do("POST", "/api/2.0/mlflow/model-versions/transition-stage", body = body)
 }
 
@@ -147,6 +171,17 @@ databricks_model_versions_update <- function(name, version, description = NULL,
         description = description, 
         name = name, 
         version = version, ...)
+    
     .api$do("PATCH", "/api/2.0/mlflow/model-versions/update", body = body)
 }
+
+
+
+
+
+
+
+
+
+
 
