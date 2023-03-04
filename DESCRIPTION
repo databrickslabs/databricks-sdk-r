@@ -1,7 +1,7 @@
 Package: databricks
 Type: Package
 Title: Databricks SDK for R
-Version: 0.0.1
+Version: 0.0.2
 Author: Serge Smertin <serge.smertin@databricks.com>
 Maintainer: Serge Smertin <serge.smertin@databricks.com>
 Description: Call all Databricks REST APIs via R
