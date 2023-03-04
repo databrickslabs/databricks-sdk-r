@@ -12,7 +12,7 @@ gen:
 
 build: gen
 	@echo "✅ Building tarball"
-	@Rscript -e "devtools::install(upgrade = FALSE)"
+	@R CMD build .
 
 check: gen
 	@echo "✅ run R CMD check on packages"
