@@ -1,8 +1,35 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
+#' A SQL warehouse is a compute resource that lets you run SQL commands on data
+#' objects within Databricks SQL. Compute resources are infrastructure resources
+#' that provide processing capabilities in the cloud.
+#' 
+#' @section Operations:
+#' \tabular{ll}{
+#'  \link[=warehouses_create]{create} \tab Create a warehouse.\cr
+#'  \link[=warehouses_delete]{delete} \tab Delete a warehouse.\cr
+#'  \link[=warehouses_edit]{edit} \tab Update a warehouse.\cr
+#'  \link[=warehouses_get]{get} \tab Get warehouse info.\cr
+#'  \link[=warehouses_get_workspace_warehouse_config]{get_workspace_warehouse_config} \tab Get the workspace configuration.\cr
+#'  \link[=warehouses_list]{list} \tab List warehouses.\cr
+#'  \link[=warehouses_set_workspace_warehouse_config]{set_workspace_warehouse_config} \tab Set the workspace configuration.\cr
+#'  \link[=warehouses_start]{start} \tab Start a warehouse.\cr
+#'  \link[=warehouses_stop]{stop} \tab Stop a warehouse.\cr
+#' }
+#'
+#' @rdname warehouses
+#' @export
+warehouses <- list()
+
 #' Create a warehouse.
 #' 
 #' Creates a new SQL warehouse.
+#'
+#' @description
+#' This is a long-running operation, which blocks until Warehouses on Databricks reach  
+#' RUNNING state with the timeout of 20 minutes, that you can change via `timeout` parameter. 
+#' By default, the state of Databricks Warehouses is reported to console. You can change this behavior 
+#' by changing the `callback` parameter.
 #'
 #' @param auto_stop_mins The amount of time in minutes that a SQL Endpoint must be idle (i.e., no RUNNING queries) before it is automatically stopped.
 #' @param channel Channel Details.
@@ -17,6 +44,12 @@
 #' @param spot_instance_policy Configurations whether the warehouse should use spot instances.
 #' @param tags A set of key-value pairs that will be tagged on all resources (e.g., AWS instances and EBS volumes) associated with this SQL Endpoints.
 #' @param warehouse_type 
+#'
+#' @keywords internal
+#'
+#' @rdname warehouses_create
+#'
+#' @aliases warehouses_create
 warehouses_create <- function(auto_stop_mins = NULL, 
     channel = NULL, 
     cluster_size = NULL, 
@@ -85,12 +118,25 @@ warehouses_create <- function(auto_stop_mins = NULL,
     msg <- paste("timed out after", timeout, "minutes:", status_message)
     rlang::abort(msg, call = rlang::caller_env())
 }
+warehouses$create <- warehouses_create
 
 #' Delete a warehouse.
 #' 
 #' Deletes a SQL warehouse.
 #'
-#' @param id Required.
+#' @description
+#' This is a long-running operation, which blocks until Warehouses on Databricks reach  
+#' DELETED state with the timeout of 20 minutes, that you can change via `timeout` parameter. 
+#' By default, the state of Databricks Warehouses is reported to console. You can change this behavior 
+#' by changing the `callback` parameter.
+#'
+#' @param id [required] Required.
+#'
+#' @keywords internal
+#'
+#' @rdname warehouses_delete
+#'
+#' @aliases warehouses_delete
 warehouses_delete <- function(id, timeout=20, callback = cli_reporter, ...) {
     
     
@@ -128,10 +174,17 @@ warehouses_delete <- function(id, timeout=20, callback = cli_reporter, ...) {
     msg <- paste("timed out after", timeout, "minutes:", status_message)
     rlang::abort(msg, call = rlang::caller_env())
 }
+warehouses$delete <- warehouses_delete
 
 #' Update a warehouse.
 #' 
 #' Updates the configuration for a SQL warehouse.
+#'
+#' @description
+#' This is a long-running operation, which blocks until Warehouses on Databricks reach  
+#' RUNNING state with the timeout of 20 minutes, that you can change via `timeout` parameter. 
+#' By default, the state of Databricks Warehouses is reported to console. You can change this behavior 
+#' by changing the `callback` parameter.
 #'
 #' @param auto_stop_mins The amount of time in minutes that a SQL Endpoint must be idle (i.e., no RUNNING queries) before it is automatically stopped.
 #' @param channel Channel Details.
@@ -140,7 +193,7 @@ warehouses_delete <- function(id, timeout=20, callback = cli_reporter, ...) {
 #' @param enable_databricks_compute Configures whether the endpoint should use Databricks Compute (aka Nephos) Deprecated: Use enable_serverless_compute.
 #' @param enable_photon Configures whether the endpoint should use Photon optimized clusters.
 #' @param enable_serverless_compute Configures whether the endpoint should use Serverless Compute (aka Nephos) Defaults to value in global endpoint settings.
-#' @param id Required.
+#' @param id [required] Required.
 #' @param instance_profile_arn Deprecated.
 #' @param max_num_clusters Maximum number of clusters that the autoscaler will create to handle concurrent queries.
 #' @param min_num_clusters Minimum number of available clusters that will be maintained for this SQL Endpoint.
@@ -148,6 +201,12 @@ warehouses_delete <- function(id, timeout=20, callback = cli_reporter, ...) {
 #' @param spot_instance_policy Configurations whether the warehouse should use spot instances.
 #' @param tags A set of key-value pairs that will be tagged on all resources (e.g., AWS instances and EBS volumes) associated with this SQL Endpoints.
 #' @param warehouse_type 
+#'
+#' @keywords internal
+#'
+#' @rdname warehouses_edit
+#'
+#' @aliases warehouses_edit
 warehouses_edit <- function(id, auto_stop_mins = NULL, 
     channel = NULL, 
     cluster_size = NULL, 
@@ -218,32 +277,54 @@ warehouses_edit <- function(id, auto_stop_mins = NULL,
     msg <- paste("timed out after", timeout, "minutes:", status_message)
     rlang::abort(msg, call = rlang::caller_env())
 }
+warehouses$edit <- warehouses_edit
 
 #' Get warehouse info.
 #' 
 #' Gets the information for a single SQL warehouse.
 #'
-#' @param id Required.
+#' @param id [required] Required.
+#'
+#' @keywords internal
+#'
+#' @rdname warehouses_get
+#'
+#' @aliases warehouses_get
 warehouses_get <- function(id, ...) {
     
     
     .api$do("GET", paste("/api/2.0/sql/warehouses/", id, sep = ""))
 }
+warehouses$get <- warehouses_get
 
 #' Get the workspace configuration.
 #' 
 #' Gets the workspace level configuration that is shared by all SQL warehouses
-#' in a workspace.
+#' in a workspace.#'
+#' @keywords internal
+#'
+#' @rdname warehouses_get_workspace_warehouse_config
+#'
+#' @aliases warehouses_get_workspace_warehouse_config
 warehouses_get_workspace_warehouse_config <- function(...) {
     
     .api$do("GET", "/api/2.0/sql/config/warehouses")
 }
+warehouses$get_workspace_warehouse_config <- warehouses_get_workspace_warehouse_config
 
 #' List warehouses.
 #' 
 #' Lists all SQL warehouses that a user has manager permissions on.
 #'
 #' @param run_as_user_id Service Principal which will be used to fetch the list of endpoints.
+#' 
+#' @return `data.frame` with all of the response pages.
+#'
+#' @keywords internal
+#'
+#' @rdname warehouses_list
+#'
+#' @aliases warehouses_list
 warehouses_list <- function(run_as_user_id = NULL, 
     ...) {
     query <- list(
@@ -254,6 +335,7 @@ warehouses_list <- function(run_as_user_id = NULL,
     return (json$warehouses)
     
 }
+warehouses$list <- warehouses_list
 
 #' Set the workspace configuration.
 #' 
@@ -272,6 +354,12 @@ warehouses_list <- function(run_as_user_id = NULL,
 #' @param security_policy Security policy for endpoints.
 #' @param serverless_agreement Internal.
 #' @param sql_configuration_parameters SQL configuration parameters.
+#'
+#' @keywords internal
+#'
+#' @rdname warehouses_set_workspace_warehouse_config
+#'
+#' @aliases warehouses_set_workspace_warehouse_config
 warehouses_set_workspace_warehouse_config <- function(channel = NULL, 
     config_param = NULL, 
     data_access_config = NULL, 
@@ -301,12 +389,25 @@ warehouses_set_workspace_warehouse_config <- function(channel = NULL,
     
     .api$do("PUT", "/api/2.0/sql/config/warehouses", body = body)
 }
+warehouses$set_workspace_warehouse_config <- warehouses_set_workspace_warehouse_config
 
 #' Start a warehouse.
 #' 
 #' Starts a SQL warehouse.
 #'
-#' @param id Required.
+#' @description
+#' This is a long-running operation, which blocks until Warehouses on Databricks reach  
+#' RUNNING state with the timeout of 20 minutes, that you can change via `timeout` parameter. 
+#' By default, the state of Databricks Warehouses is reported to console. You can change this behavior 
+#' by changing the `callback` parameter.
+#'
+#' @param id [required] Required.
+#'
+#' @keywords internal
+#'
+#' @rdname warehouses_start
+#'
+#' @aliases warehouses_start
 warehouses_start <- function(id, timeout=20, callback = cli_reporter, ...) {
     
     
@@ -349,12 +450,25 @@ warehouses_start <- function(id, timeout=20, callback = cli_reporter, ...) {
     msg <- paste("timed out after", timeout, "minutes:", status_message)
     rlang::abort(msg, call = rlang::caller_env())
 }
+warehouses$start <- warehouses_start
 
 #' Stop a warehouse.
 #' 
 #' Stops a SQL warehouse.
 #'
-#' @param id Required.
+#' @description
+#' This is a long-running operation, which blocks until Warehouses on Databricks reach  
+#' STOPPED state with the timeout of 20 minutes, that you can change via `timeout` parameter. 
+#' By default, the state of Databricks Warehouses is reported to console. You can change this behavior 
+#' by changing the `callback` parameter.
+#'
+#' @param id [required] Required.
+#'
+#' @keywords internal
+#'
+#' @rdname warehouses_stop
+#'
+#' @aliases warehouses_stop
 warehouses_stop <- function(id, timeout=20, callback = cli_reporter, ...) {
     
     
@@ -392,6 +506,7 @@ warehouses_stop <- function(id, timeout=20, callback = cli_reporter, ...) {
     msg <- paste("timed out after", timeout, "minutes:", status_message)
     rlang::abort(msg, call = rlang::caller_env())
 }
+warehouses$stop <- warehouses_stop
 
 
 

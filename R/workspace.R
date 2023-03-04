@@ -1,5 +1,25 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
+#' The Workspace API allows you to list, import, export, and delete notebooks
+#' and folders.
+#' 
+#' A notebook is a web-based interface to a document that contains runnable
+#' code, visualizations, and explanatory text.
+#' 
+#' @section Operations:
+#' \tabular{ll}{
+#'  \link[=workspace_delete]{delete} \tab Delete a workspace object.\cr
+#'  \link[=workspace_export]{export} \tab Export a notebook.\cr
+#'  \link[=workspace_get_status]{get_status} \tab Get status.\cr
+#'  \link[=workspace_import]{import} \tab Import a notebook.\cr
+#'  \link[=workspace_list]{list} \tab List contents.\cr
+#'  \link[=workspace_mkdirs]{mkdirs} \tab Create a directory.\cr
+#' }
+#'
+#' @rdname workspace
+#' @export
+workspace <- list()
+
 #' Delete a workspace object.
 #' 
 #' Deletes an object or a directory (and optionally recursively deletes all
@@ -11,8 +31,14 @@
 #' Object deletion cannot be undone and deleting a directory recursively is not
 #' atomic.
 #'
-#' @param path The absolute path of the notebook or directory.
+#' @param path [required] The absolute path of the notebook or directory.
 #' @param recursive The flag that specifies whether to delete the object recursively.
+#'
+#' @keywords internal
+#'
+#' @rdname workspace_delete
+#'
+#' @aliases workspace_delete
 workspace_delete <- function(path, recursive = NULL, 
     ...) {
     body <- list(
@@ -21,6 +47,7 @@ workspace_delete <- function(path, recursive = NULL,
     
     .api$do("POST", "/api/2.0/workspace/delete", body = body)
 }
+workspace$delete <- workspace_delete
 
 #' Export a notebook.
 #' 
@@ -35,7 +62,13 @@ workspace_delete <- function(path, recursive = NULL,
 #'
 #' @param direct_download Flag to enable direct download.
 #' @param format This specifies the format of the exported file.
-#' @param path The absolute path of the notebook or directory.
+#' @param path [required] The absolute path of the notebook or directory.
+#'
+#' @keywords internal
+#'
+#' @rdname workspace_export
+#'
+#' @aliases workspace_export
 workspace_export <- function(path, direct_download = NULL, 
     format = NULL, 
     ...) {
@@ -46,19 +79,27 @@ workspace_export <- function(path, direct_download = NULL,
     
     .api$do("GET", "/api/2.0/workspace/export", query = query)
 }
+workspace$export <- workspace_export
 
 #' Get status.
 #' 
 #' Gets the status of an object or a directory. If `path` does not exist, this
 #' call returns an error `RESOURCE_DOES_NOT_EXIST`.
 #'
-#' @param path The absolute path of the notebook or directory.
+#' @param path [required] The absolute path of the notebook or directory.
+#'
+#' @keywords internal
+#'
+#' @rdname workspace_get_status
+#'
+#' @aliases workspace_get_status
 workspace_get_status <- function(path, ...) {
     query <- list(
         path = path, ...)
     
     .api$do("GET", "/api/2.0/workspace/get-status", query = query)
 }
+workspace$get_status <- workspace_get_status
 
 #' Import a notebook.
 #' 
@@ -71,7 +112,13 @@ workspace_get_status <- function(path, ...) {
 #' @param format This specifies the format of the file to be imported.
 #' @param language The language of the object.
 #' @param overwrite The flag that specifies whether to overwrite existing object.
-#' @param path The absolute path of the notebook or directory.
+#' @param path [required] The absolute path of the notebook or directory.
+#'
+#' @keywords internal
+#'
+#' @rdname workspace_import
+#'
+#' @aliases workspace_import
 workspace_import <- function(path, content = NULL, 
     format = NULL, 
     language = NULL, 
@@ -86,6 +133,7 @@ workspace_import <- function(path, content = NULL,
     
     .api$do("POST", "/api/2.0/workspace/import", body = body)
 }
+workspace$import <- workspace_import
 
 #' List contents.
 #' 
@@ -94,7 +142,15 @@ workspace_import <- function(path, content = NULL,
 #' `RESOURCE_DOES_NOT_EXIST`.
 #'
 #' @param notebooks_modified_after <content needed>.
-#' @param path The absolute path of the notebook or directory.
+#' @param path [required] The absolute path of the notebook or directory.
+#' 
+#' @return `data.frame` with all of the response pages.
+#'
+#' @keywords internal
+#'
+#' @rdname workspace_list
+#'
+#' @aliases workspace_list
 workspace_list <- function(path, notebooks_modified_after = NULL, 
     ...) {
     query <- list(
@@ -106,6 +162,7 @@ workspace_list <- function(path, notebooks_modified_after = NULL,
     return (json$objects)
     
 }
+workspace$list <- workspace_list
 
 #' Create a directory.
 #' 
@@ -116,13 +173,20 @@ workspace_list <- function(path, notebooks_modified_after = NULL,
 #' Note that if this operation fails it may have succeeded in creating some of
 #' the necessary\nparrent directories.
 #'
-#' @param path The absolute path of the directory.
+#' @param path [required] The absolute path of the directory.
+#'
+#' @keywords internal
+#'
+#' @rdname workspace_mkdirs
+#'
+#' @aliases workspace_mkdirs
 workspace_mkdirs <- function(path, ...) {
     body <- list(
         path = path, ...)
     
     .api$do("POST", "/api/2.0/workspace/mkdirs", body = body)
 }
+workspace$mkdirs <- workspace_mkdirs
 
 
 

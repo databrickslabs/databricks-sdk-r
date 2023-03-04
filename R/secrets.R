@@ -1,5 +1,36 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
+#' The Secrets API allows you to manage secrets, secret scopes, and access
+#' permissions.
+#' 
+#' Sometimes accessing data requires that you authenticate to external data
+#' sources through JDBC. Instead of directly entering your credentials into a
+#' notebook, use Databricks secrets to store your credentials and reference them
+#' in notebooks and jobs.
+#' 
+#' Administrators, secret creators, and users granted permission can read
+#' Databricks secrets. While Databricks makes an effort to redact secret values
+#' that might be displayed in notebooks, it is not possible to prevent such
+#' users from reading secrets.
+#' 
+#' @section Operations:
+#' \tabular{ll}{
+#'  \link[=secrets_create_scope]{create_scope} \tab Create a new secret scope.\cr
+#'  \link[=secrets_delete_acl]{delete_acl} \tab Delete an ACL.\cr
+#'  \link[=secrets_delete_scope]{delete_scope} \tab Delete a secret scope.\cr
+#'  \link[=secrets_delete_secret]{delete_secret} \tab Delete a secret.\cr
+#'  \link[=secrets_get_acl]{get_acl} \tab Get secret ACL details.\cr
+#'  \link[=secrets_list_acls]{list_acls} \tab Lists ACLs.\cr
+#'  \link[=secrets_list_scopes]{list_scopes} \tab List all scopes.\cr
+#'  \link[=secrets_list_secrets]{list_secrets} \tab List secret keys.\cr
+#'  \link[=secrets_put_acl]{put_acl} \tab Create/update an ACL.\cr
+#'  \link[=secrets_put_secret]{put_secret} \tab Add a secret.\cr
+#' }
+#'
+#' @rdname secrets
+#' @export
+secrets <- list()
+
 #' Create a new secret scope.
 #' 
 #' The scope name must consist of alphanumeric characters, dashes, underscores,
@@ -8,8 +39,14 @@
 #'
 #' @param initial_manage_principal The principal that is initially granted `MANAGE` permission to the created scope.
 #' @param keyvault_metadata The metadata for the secret scope if the type is `AZURE_KEYVAULT`.
-#' @param scope Scope name requested by the user.
+#' @param scope [required] Scope name requested by the user.
 #' @param scope_backend_type The backend type the scope will be created with.
+#'
+#' @keywords internal
+#'
+#' @rdname secrets_create_scope
+#'
+#' @aliases secrets_create_scope
 secrets_create_scope <- function(scope, initial_manage_principal = NULL, 
     keyvault_metadata = NULL, 
     scope_backend_type = NULL, 
@@ -22,6 +59,7 @@ secrets_create_scope <- function(scope, initial_manage_principal = NULL,
     
     .api$do("POST", "/api/2.0/secrets/scopes/create", body = body)
 }
+secrets$create_scope <- secrets_create_scope
 
 #' Delete an ACL.
 #' 
@@ -32,8 +70,14 @@ secrets_create_scope <- function(scope, initial_manage_principal = NULL,
 #' Throws `PERMISSION_DENIED` if the user does not have permission to make this
 #' API call.
 #'
-#' @param principal The principal to remove an existing ACL from.
-#' @param scope The name of the scope to remove permissions from.
+#' @param principal [required] The principal to remove an existing ACL from.
+#' @param scope [required] The name of the scope to remove permissions from.
+#'
+#' @keywords internal
+#'
+#' @rdname secrets_delete_acl
+#'
+#' @aliases secrets_delete_acl
 secrets_delete_acl <- function(scope, principal, ...) {
     body <- list(
         principal = principal, 
@@ -41,6 +85,7 @@ secrets_delete_acl <- function(scope, principal, ...) {
     
     .api$do("POST", "/api/2.0/secrets/acls/delete", body = body)
 }
+secrets$delete_acl <- secrets_delete_acl
 
 #' Delete a secret scope.
 #' 
@@ -50,13 +95,20 @@ secrets_delete_acl <- function(scope, principal, ...) {
 #' `PERMISSION_DENIED` if the user does not have permission to make this API
 #' call.
 #'
-#' @param scope Name of the scope to delete.
+#' @param scope [required] Name of the scope to delete.
+#'
+#' @keywords internal
+#'
+#' @rdname secrets_delete_scope
+#'
+#' @aliases secrets_delete_scope
 secrets_delete_scope <- function(scope, ...) {
     body <- list(
         scope = scope, ...)
     
     .api$do("POST", "/api/2.0/secrets/scopes/delete", body = body)
 }
+secrets$delete_scope <- secrets_delete_scope
 
 #' Delete a secret.
 #' 
@@ -67,8 +119,14 @@ secrets_delete_scope <- function(scope, ...) {
 #' Throws `PERMISSION_DENIED` if the user does not have permission to make this
 #' API call.
 #'
-#' @param key Name of the secret to delete.
-#' @param scope The name of the scope that contains the secret to delete.
+#' @param key [required] Name of the secret to delete.
+#' @param scope [required] The name of the scope that contains the secret to delete.
+#'
+#' @keywords internal
+#'
+#' @rdname secrets_delete_secret
+#'
+#' @aliases secrets_delete_secret
 secrets_delete_secret <- function(scope, key, ...) {
     body <- list(
         key = key, 
@@ -76,6 +134,7 @@ secrets_delete_secret <- function(scope, key, ...) {
     
     .api$do("POST", "/api/2.0/secrets/delete", body = body)
 }
+secrets$delete_secret <- secrets_delete_secret
 
 #' Get secret ACL details.
 #' 
@@ -86,8 +145,14 @@ secrets_delete_secret <- function(scope, key, ...) {
 #' `PERMISSION_DENIED` if the user does not have permission to make this API
 #' call.
 #'
-#' @param principal The principal to fetch ACL information for.
-#' @param scope The name of the scope to fetch ACL information from.
+#' @param principal [required] The principal to fetch ACL information for.
+#' @param scope [required] The name of the scope to fetch ACL information from.
+#'
+#' @keywords internal
+#'
+#' @rdname secrets_get_acl
+#'
+#' @aliases secrets_get_acl
 secrets_get_acl <- function(scope, principal, ...) {
     query <- list(
         principal = principal, 
@@ -95,6 +160,7 @@ secrets_get_acl <- function(scope, principal, ...) {
     
     .api$do("GET", "/api/2.0/secrets/acls/get", query = query)
 }
+secrets$get_acl <- secrets_get_acl
 
 #' Lists ACLs.
 #' 
@@ -105,7 +171,15 @@ secrets_get_acl <- function(scope, principal, ...) {
 #' `PERMISSION_DENIED` if the user does not have permission to make this API
 #' call.
 #'
-#' @param scope The name of the scope to fetch ACL information from.
+#' @param scope [required] The name of the scope to fetch ACL information from.
+#' 
+#' @return `data.frame` with all of the response pages.
+#'
+#' @keywords internal
+#'
+#' @rdname secrets_list_acls
+#'
+#' @aliases secrets_list_acls
 secrets_list_acls <- function(scope, ...) {
     query <- list(
         scope = scope, ...)
@@ -115,13 +189,21 @@ secrets_list_acls <- function(scope, ...) {
     return (json$items)
     
 }
+secrets$list_acls <- secrets_list_acls
 
 #' List all scopes.
 #' 
 #' Lists all secret scopes available in the workspace.
 #' 
 #' Throws `PERMISSION_DENIED` if the user does not have permission to make this
-#' API call.
+#' API call.#' 
+#' @return `data.frame` with all of the response pages.
+#'
+#' @keywords internal
+#'
+#' @rdname secrets_list_scopes
+#'
+#' @aliases secrets_list_scopes
 secrets_list_scopes <- function(...) {
     
     
@@ -129,6 +211,7 @@ secrets_list_scopes <- function(...) {
     return (json$scopes)
     
 }
+secrets$list_scopes <- secrets_list_scopes
 
 #' List secret keys.
 #' 
@@ -141,7 +224,15 @@ secrets_list_scopes <- function(...) {
 #' `PERMISSION_DENIED` if the user does not have permission to make this API
 #' call.
 #'
-#' @param scope The name of the scope to list secrets within.
+#' @param scope [required] The name of the scope to list secrets within.
+#' 
+#' @return `data.frame` with all of the response pages.
+#'
+#' @keywords internal
+#'
+#' @rdname secrets_list_secrets
+#'
+#' @aliases secrets_list_secrets
 secrets_list_secrets <- function(scope, ...) {
     query <- list(
         scope = scope, ...)
@@ -151,6 +242,7 @@ secrets_list_secrets <- function(scope, ...) {
     return (json$secrets)
     
 }
+secrets$list_secrets <- secrets_list_secrets
 
 #' Create/update an ACL.
 #' 
@@ -181,9 +273,15 @@ secrets_list_secrets <- function(scope, ...) {
 #' `PERMISSION_DENIED` if the user does not have permission to make this API
 #' call.
 #'
-#' @param permission The permission level applied to the principal.
-#' @param principal The principal in which the permission is applied.
-#' @param scope The name of the scope to apply permissions to.
+#' @param permission [required] The permission level applied to the principal.
+#' @param principal [required] The principal in which the permission is applied.
+#' @param scope [required] The name of the scope to apply permissions to.
+#'
+#' @keywords internal
+#'
+#' @rdname secrets_put_acl
+#'
+#' @aliases secrets_put_acl
 secrets_put_acl <- function(scope, principal, permission, ...) {
     body <- list(
         permission = permission, 
@@ -192,6 +290,7 @@ secrets_put_acl <- function(scope, principal, permission, ...) {
     
     .api$do("POST", "/api/2.0/secrets/acls/put", body = body)
 }
+secrets$put_acl <- secrets_put_acl
 
 #' Add a secret.
 #' 
@@ -216,9 +315,15 @@ secrets_put_acl <- function(scope, principal, permission, ...) {
 #' API call.
 #'
 #' @param bytes_value If specified, value will be stored as bytes.
-#' @param key A unique name to identify the secret.
-#' @param scope The name of the scope to which the secret will be associated with.
+#' @param key [required] A unique name to identify the secret.
+#' @param scope [required] The name of the scope to which the secret will be associated with.
 #' @param string_value If specified, note that the value will be stored in UTF-8 (MB4) form.
+#'
+#' @keywords internal
+#'
+#' @rdname secrets_put_secret
+#'
+#' @aliases secrets_put_secret
 secrets_put_secret <- function(scope, key, bytes_value = NULL, 
     string_value = NULL, 
     ...) {
@@ -230,6 +335,7 @@ secrets_put_secret <- function(scope, key, bytes_value = NULL,
     
     .api$do("POST", "/api/2.0/secrets/put", body = body)
 }
+secrets$put_secret <- secrets_put_secret
 
 
 

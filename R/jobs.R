@@ -1,24 +1,85 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
+#' The Jobs API allows you to create, edit, and delete jobs.
+#' 
+#' You can use a Databricks job to run a data processing or data analysis task
+#' in a Databricks cluster with scalable resources. Your job can consist of a
+#' single task or can be a large, multi-task workflow with complex dependencies.
+#' Databricks manages the task orchestration, cluster management, monitoring,
+#' and error reporting for all of your jobs. You can run your jobs immediately
+#' or periodically through an easy-to-use scheduling system. You can implement
+#' job tasks using notebooks, JARS, Delta Live Tables pipelines, or Python,
+#' Scala, Spark submit, and Java applications.
+#' 
+#' You should never hard code secrets or store them in plain text. Use the
+#' :service:secrets to manage secrets in the [Databricks CLI]. Use the [Secrets
+#' utility] to reference secrets in notebooks and jobs.
+#' 
+#' [Databricks CLI]: https://docs.databricks.com/dev-tools/cli/index.html
+#' [Secrets utility]: https://docs.databricks.com/dev-tools/databricks-utils.html#dbutils-secrets
+#' 
+#' @section Operations:
+#' \tabular{ll}{
+#'  \link[=jobs_cancel_all_runs]{cancel_all_runs} \tab Cancel all runs of a job.\cr
+#'  \link[=jobs_cancel_run]{cancel_run} \tab Cancel a job run.\cr
+#'  \link[=jobs_create]{create} \tab Create a new job.\cr
+#'  \link[=jobs_delete]{delete} \tab Delete a job.\cr
+#'  \link[=jobs_delete_run]{delete_run} \tab Delete a job run.\cr
+#'  \link[=jobs_export_run]{export_run} \tab Export and retrieve a job run.\cr
+#'  \link[=jobs_get]{get} \tab Get a single job.\cr
+#'  \link[=jobs_get_run]{get_run} \tab Get a single job run.\cr
+#'  \link[=jobs_get_run_output]{get_run_output} \tab Get the output for a single run.\cr
+#'  \link[=jobs_list]{list} \tab List all jobs.\cr
+#'  \link[=jobs_list_runs]{list_runs} \tab List runs for a job.\cr
+#'  \link[=jobs_repair_run]{repair_run} \tab Repair a job run.\cr
+#'  \link[=jobs_reset]{reset} \tab Overwrites all settings for a job.\cr
+#'  \link[=jobs_run_now]{run_now} \tab Trigger a new job run.\cr
+#'  \link[=jobs_submit]{submit} \tab Create and trigger a one-time run.\cr
+#'  \link[=jobs_update]{update} \tab Partially updates a job.\cr
+#' }
+#'
+#' @rdname jobs
+#' @export
+jobs <- list()
+
 #' Cancel all runs of a job.
 #' 
 #' Cancels all active runs of a job. The runs are canceled asynchronously, so it
 #' doesn't prevent new runs from being started.
 #'
-#' @param job_id The canonical identifier of the job to cancel all runs of.
+#' @param job_id [required] The canonical identifier of the job to cancel all runs of.
+#'
+#' @keywords internal
+#'
+#' @rdname jobs_cancel_all_runs
+#'
+#' @aliases jobs_cancel_all_runs
 jobs_cancel_all_runs <- function(job_id, ...) {
     body <- list(
         job_id = job_id, ...)
     
     .api$do("POST", "/api/2.1/jobs/runs/cancel-all", body = body)
 }
+jobs$cancel_all_runs <- jobs_cancel_all_runs
 
 #' Cancel a job run.
 #' 
 #' Cancels a job run. The run is canceled asynchronously, so it may still be
 #' running when this request completes.
 #'
-#' @param run_id This field is required.
+#' @description
+#' This is a long-running operation, which blocks until Jobs on Databricks reach  
+#' TERMINATED or SKIPPED state with the timeout of 20 minutes, that you can change via `timeout` parameter. 
+#' By default, the state of Databricks Jobs is reported to console. You can change this behavior 
+#' by changing the `callback` parameter.
+#'
+#' @param run_id [required] This field is required.
+#'
+#' @keywords internal
+#'
+#' @rdname jobs_cancel_run
+#'
+#' @aliases jobs_cancel_run
 jobs_cancel_run <- function(run_id, timeout=20, callback = cli_reporter, ...) {
     body <- list(
         run_id = run_id, ...)
@@ -62,6 +123,7 @@ jobs_cancel_run <- function(run_id, timeout=20, callback = cli_reporter, ...) {
     msg <- paste("timed out after", timeout, "minutes:", status_message)
     rlang::abort(msg, call = rlang::caller_env())
 }
+jobs$cancel_run <- jobs_cancel_run
 
 #' Create a new job.
 #' 
@@ -80,6 +142,12 @@ jobs_cancel_run <- function(run_id, timeout=20, callback = cli_reporter, ...) {
 #' @param tasks A list of task specifications to be executed by this job.
 #' @param timeout_seconds An optional timeout applied to each run of this job.
 #' @param webhook_notifications A collection of system notification IDs to notify when the run begins or completes.
+#'
+#' @keywords internal
+#'
+#' @rdname jobs_create
+#'
+#' @aliases jobs_create
 jobs_create <- function(access_control_list = NULL, 
     continuous = NULL, 
     email_notifications = NULL, 
@@ -111,37 +179,58 @@ jobs_create <- function(access_control_list = NULL,
     
     .api$do("POST", "/api/2.1/jobs/create", body = body)
 }
+jobs$create <- jobs_create
 
 #' Delete a job.
 #' 
 #' Deletes a job.
 #'
-#' @param job_id The canonical identifier of the job to delete.
+#' @param job_id [required] The canonical identifier of the job to delete.
+#'
+#' @keywords internal
+#'
+#' @rdname jobs_delete
+#'
+#' @aliases jobs_delete
 jobs_delete <- function(job_id, ...) {
     body <- list(
         job_id = job_id, ...)
     
     .api$do("POST", "/api/2.1/jobs/delete", body = body)
 }
+jobs$delete <- jobs_delete
 
 #' Delete a job run.
 #' 
 #' Deletes a non-active run. Returns an error if the run is active.
 #'
-#' @param run_id The canonical identifier of the run for which to retrieve the metadata.
+#' @param run_id [required] The canonical identifier of the run for which to retrieve the metadata.
+#'
+#' @keywords internal
+#'
+#' @rdname jobs_delete_run
+#'
+#' @aliases jobs_delete_run
 jobs_delete_run <- function(run_id, ...) {
     body <- list(
         run_id = run_id, ...)
     
     .api$do("POST", "/api/2.1/jobs/runs/delete", body = body)
 }
+jobs$delete_run <- jobs_delete_run
 
 #' Export and retrieve a job run.
 #' 
 #' Export and retrieve the job run task.
 #'
-#' @param run_id The canonical identifier for the run.
+#' @param run_id [required] The canonical identifier for the run.
 #' @param views_to_export Which views to export (CODE, DASHBOARDS, or ALL).
+#'
+#' @keywords internal
+#'
+#' @rdname jobs_export_run
+#'
+#' @aliases jobs_export_run
 jobs_export_run <- function(run_id, views_to_export = NULL, 
     ...) {
     query <- list(
@@ -150,25 +239,45 @@ jobs_export_run <- function(run_id, views_to_export = NULL,
     
     .api$do("GET", "/api/2.1/jobs/runs/export", query = query)
 }
+jobs$export_run <- jobs_export_run
 
 #' Get a single job.
 #' 
 #' Retrieves the details for a single job.
 #'
-#' @param job_id The canonical identifier of the job to retrieve information about.
+#' @param job_id [required] The canonical identifier of the job to retrieve information about.
+#'
+#' @keywords internal
+#'
+#' @rdname jobs_get
+#'
+#' @aliases jobs_get
 jobs_get <- function(job_id, ...) {
     query <- list(
         job_id = job_id, ...)
     
     .api$do("GET", "/api/2.1/jobs/get", query = query)
 }
+jobs$get <- jobs_get
 
 #' Get a single job run.
 #' 
 #' Retrieve the metadata of a run.
 #'
+#' @description
+#' This is a long-running operation, which blocks until Jobs on Databricks reach  
+#' TERMINATED or SKIPPED state with the timeout of 20 minutes, that you can change via `timeout` parameter. 
+#' By default, the state of Databricks Jobs is reported to console. You can change this behavior 
+#' by changing the `callback` parameter.
+#'
 #' @param include_history Whether to include the repair history in the response.
-#' @param run_id The canonical identifier of the run for which to retrieve the metadata.
+#' @param run_id [required] The canonical identifier of the run for which to retrieve the metadata.
+#'
+#' @keywords internal
+#'
+#' @rdname jobs_get_run
+#'
+#' @aliases jobs_get_run
 jobs_get_run <- function(run_id, include_history = NULL, 
     timeout=20, callback = cli_reporter, ...) {
     query <- list(
@@ -214,6 +323,7 @@ jobs_get_run <- function(run_id, include_history = NULL,
     msg <- paste("timed out after", timeout, "minutes:", status_message)
     rlang::abort(msg, call = rlang::caller_env())
 }
+jobs$get_run <- jobs_get_run
 
 #' Get the output for a single run.
 #' 
@@ -228,13 +338,20 @@ jobs_get_run <- function(run_id, include_history = NULL,
 #' automatically removed after 60 days. If you to want to reference them beyond
 #' 60 days, you must save old run results before they expire.
 #'
-#' @param run_id The canonical identifier for the run.
+#' @param run_id [required] The canonical identifier for the run.
+#'
+#' @keywords internal
+#'
+#' @rdname jobs_get_run_output
+#'
+#' @aliases jobs_get_run_output
 jobs_get_run_output <- function(run_id, ...) {
     query <- list(
         run_id = run_id, ...)
     
     .api$do("GET", "/api/2.1/jobs/runs/get-output", query = query)
 }
+jobs$get_run_output <- jobs_get_run_output
 
 #' List all jobs.
 #' 
@@ -244,6 +361,14 @@ jobs_get_run_output <- function(run_id, ...) {
 #' @param limit The number of jobs to return.
 #' @param name A filter on the list based on the exact (case insensitive) job name.
 #' @param offset The offset of the first job to return, relative to the most recently created job.
+#' 
+#' @return `data.frame` with all of the response pages.
+#'
+#' @keywords internal
+#'
+#' @rdname jobs_list
+#'
+#' @aliases jobs_list
 jobs_list <- function(expand_tasks = NULL, 
     limit = NULL, 
     name = NULL, 
@@ -273,6 +398,7 @@ jobs_list <- function(expand_tasks = NULL,
     return (results)
     
 }
+jobs$list <- jobs_list
 
 #' List runs for a job.
 #' 
@@ -287,6 +413,14 @@ jobs_list <- function(expand_tasks = NULL,
 #' @param run_type The type of runs to return.
 #' @param start_time_from Show runs that started _at or after_ this value.
 #' @param start_time_to Show runs that started _at or before_ this value.
+#' 
+#' @return `data.frame` with all of the response pages.
+#'
+#' @keywords internal
+#'
+#' @rdname jobs_list_runs
+#'
+#' @aliases jobs_list_runs
 jobs_list_runs <- function(active_only = NULL, 
     completed_only = NULL, 
     expand_tasks = NULL, 
@@ -326,12 +460,19 @@ jobs_list_runs <- function(active_only = NULL,
     return (results)
     
 }
+jobs$list_runs <- jobs_list_runs
 
 #' Repair a job run.
 #' 
 #' Re-run one or more tasks. Tasks are re-run as part of the original job run.
 #' They use the current job and task settings, and can be viewed in the history
 #' for the original job run.
+#'
+#' @description
+#' This is a long-running operation, which blocks until Jobs on Databricks reach  
+#' TERMINATED or SKIPPED state with the timeout of 20 minutes, that you can change via `timeout` parameter. 
+#' By default, the state of Databricks Jobs is reported to console. You can change this behavior 
+#' by changing the `callback` parameter.
 #'
 #' @param dbt_commands An array of commands to execute for jobs with the dbt task, for example `"dbt_commands": ["dbt deps", "dbt seed", "dbt run"]`.
 #' @param jar_params A list of parameters for jobs with Spark JAR tasks, for example `\"jar_params\": [\"john doe\", \"35\"]`.
@@ -342,9 +483,15 @@ jobs_list_runs <- function(active_only = NULL,
 #' @param python_params A list of parameters for jobs with Python tasks, for example `\"python_params\": [\"john doe\", \"35\"]`.
 #' @param rerun_all_failed_tasks If true, repair all failed tasks.
 #' @param rerun_tasks The task keys of the task runs to repair.
-#' @param run_id The job run ID of the run to repair.
+#' @param run_id [required] The job run ID of the run to repair.
 #' @param spark_submit_params A list of parameters for jobs with spark submit task, for example `\"spark_submit_params\": [\"--class\", \"org.apache.spark.examples.SparkPi\"]`.
 #' @param sql_params A map from keys to values for jobs with SQL task, for example `"sql_params": {"name": "john doe", "age": "35"}`.
+#'
+#' @keywords internal
+#'
+#' @rdname jobs_repair_run
+#'
+#' @aliases jobs_repair_run
 jobs_repair_run <- function(run_id, dbt_commands = NULL, 
     jar_params = NULL, 
     latest_repair_id = NULL, 
@@ -410,14 +557,21 @@ jobs_repair_run <- function(run_id, dbt_commands = NULL,
     msg <- paste("timed out after", timeout, "minutes:", status_message)
     rlang::abort(msg, call = rlang::caller_env())
 }
+jobs$repair_run <- jobs_repair_run
 
 #' Overwrites all settings for a job.
 #' 
 #' Overwrites all the settings for a specific job. Use the Update endpoint to
 #' update job settings partially.
 #'
-#' @param job_id The canonical identifier of the job to reset.
-#' @param new_settings The new settings of the job.
+#' @param job_id [required] The canonical identifier of the job to reset.
+#' @param new_settings [required] The new settings of the job.
+#'
+#' @keywords internal
+#'
+#' @rdname jobs_reset
+#'
+#' @aliases jobs_reset
 jobs_reset <- function(job_id, new_settings, ...) {
     body <- list(
         job_id = job_id, 
@@ -425,21 +579,34 @@ jobs_reset <- function(job_id, new_settings, ...) {
     
     .api$do("POST", "/api/2.1/jobs/reset", body = body)
 }
+jobs$reset <- jobs_reset
 
 #' Trigger a new job run.
 #' 
 #' Run a job and return the `run_id` of the triggered run.
 #'
+#' @description
+#' This is a long-running operation, which blocks until Jobs on Databricks reach  
+#' TERMINATED or SKIPPED state with the timeout of 20 minutes, that you can change via `timeout` parameter. 
+#' By default, the state of Databricks Jobs is reported to console. You can change this behavior 
+#' by changing the `callback` parameter.
+#'
 #' @param dbt_commands An array of commands to execute for jobs with the dbt task, for example `"dbt_commands": ["dbt deps", "dbt seed", "dbt run"]`.
 #' @param idempotency_token An optional token to guarantee the idempotency of job run requests.
 #' @param jar_params A list of parameters for jobs with Spark JAR tasks, for example `\"jar_params\": [\"john doe\", \"35\"]`.
-#' @param job_id The ID of the job to be executed.
+#' @param job_id [required] The ID of the job to be executed.
 #' @param notebook_params A map from keys to values for jobs with notebook task, for example `\"notebook_params\": {\"name\": \"john doe\", \"age\": \"35\"}`.
 #' @param pipeline_params 
 #' @param python_named_params A map from keys to values for jobs with Python wheel task, for example `"python_named_params": {"name": "task", "data": "dbfs:/path/to/data.json"}`.
 #' @param python_params A list of parameters for jobs with Python tasks, for example `\"python_params\": [\"john doe\", \"35\"]`.
 #' @param spark_submit_params A list of parameters for jobs with spark submit task, for example `\"spark_submit_params\": [\"--class\", \"org.apache.spark.examples.SparkPi\"]`.
 #' @param sql_params A map from keys to values for jobs with SQL task, for example `"sql_params": {"name": "john doe", "age": "35"}`.
+#'
+#' @keywords internal
+#'
+#' @rdname jobs_run_now
+#'
+#' @aliases jobs_run_now
 jobs_run_now <- function(job_id, dbt_commands = NULL, 
     idempotency_token = NULL, 
     jar_params = NULL, 
@@ -501,6 +668,7 @@ jobs_run_now <- function(job_id, dbt_commands = NULL,
     msg <- paste("timed out after", timeout, "minutes:", status_message)
     rlang::abort(msg, call = rlang::caller_env())
 }
+jobs$run_now <- jobs_run_now
 
 #' Create and trigger a one-time run.
 #' 
@@ -509,6 +677,12 @@ jobs_run_now <- function(job_id, dbt_commands = NULL,
 #' the UI. Use the `jobs/runs/get` API to check the run state after the job is
 #' submitted.
 #'
+#' @description
+#' This is a long-running operation, which blocks until Jobs on Databricks reach  
+#' TERMINATED or SKIPPED state with the timeout of 20 minutes, that you can change via `timeout` parameter. 
+#' By default, the state of Databricks Jobs is reported to console. You can change this behavior 
+#' by changing the `callback` parameter.
+#'
 #' @param access_control_list List of permissions to set on the job.
 #' @param git_source An optional specification for a remote repository containing the notebooks used by this job's notebook tasks.
 #' @param idempotency_token An optional token that can be used to guarantee the idempotency of job run requests.
@@ -516,6 +690,12 @@ jobs_run_now <- function(job_id, dbt_commands = NULL,
 #' @param tasks 
 #' @param timeout_seconds An optional timeout applied to each run of this job.
 #' @param webhook_notifications A collection of system notification IDs to notify when the run begins or completes.
+#'
+#' @keywords internal
+#'
+#' @rdname jobs_submit
+#'
+#' @aliases jobs_submit
 jobs_submit <- function(access_control_list = NULL, 
     git_source = NULL, 
     idempotency_token = NULL, 
@@ -572,6 +752,7 @@ jobs_submit <- function(access_control_list = NULL,
     msg <- paste("timed out after", timeout, "minutes:", status_message)
     rlang::abort(msg, call = rlang::caller_env())
 }
+jobs$submit <- jobs_submit
 
 #' Partially updates a job.
 #' 
@@ -579,8 +760,14 @@ jobs_submit <- function(access_control_list = NULL,
 #' to overwrite all job settings.
 #'
 #' @param fields_to_remove Remove top-level fields in the job settings.
-#' @param job_id The canonical identifier of the job to update.
+#' @param job_id [required] The canonical identifier of the job to update.
 #' @param new_settings The new settings for the job.
+#'
+#' @keywords internal
+#'
+#' @rdname jobs_update
+#'
+#' @aliases jobs_update
 jobs_update <- function(job_id, fields_to_remove = NULL, 
     new_settings = NULL, 
     ...) {
@@ -591,6 +778,7 @@ jobs_update <- function(job_id, fields_to_remove = NULL,
     
     .api$do("POST", "/api/2.1/jobs/update", body = body)
 }
+jobs$update <- jobs_update
 
 
 

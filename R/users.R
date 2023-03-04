@@ -1,5 +1,31 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
+#' User identities recognized by Databricks and represented by email addresses.
+#' 
+#' Databricks recommends using SCIM provisioning to sync users and groups
+#' automatically from your identity provider to your Databricks Workspace. SCIM
+#' streamlines onboarding a new employee or team by using your identity provider
+#' to create users and groups in Databricks Workspace and give them the proper
+#' level of access. When a user leaves your organization or no longer needs
+#' access to Databricks Workspace, admins can terminate the user in your
+#' identity provider and that user’s account will also be removed from
+#' Databricks Workspace. This ensures a consistent offboarding process and
+#' prevents unauthorized users from accessing sensitive data.
+#' 
+#' @section Operations:
+#' \tabular{ll}{
+#'  \link[=users_create]{create} \tab Create a new user.\cr
+#'  \link[=users_delete]{delete} \tab Delete a user.\cr
+#'  \link[=users_get]{get} \tab Get user details.\cr
+#'  \link[=users_list]{list} \tab List users.\cr
+#'  \link[=users_patch]{patch} \tab Update user details.\cr
+#'  \link[=users_update]{update} \tab Replace a user.\cr
+#' }
+#'
+#' @rdname users
+#' @export
+users <- list()
+
 #' Create a new user.
 #' 
 #' Creates a new user in the Databricks Workspace. This new user will also be
@@ -15,6 +41,12 @@
 #' @param name 
 #' @param roles 
 #' @param user_name Email address of the Databricks user.
+#'
+#' @keywords internal
+#'
+#' @rdname users_create
+#'
+#' @aliases users_create
 users_create <- function(id, active = NULL, 
     display_name = NULL, 
     emails = NULL, 
@@ -39,29 +71,44 @@ users_create <- function(id, active = NULL,
     
     .api$do("POST", "/api/2.0/preview/scim/v2/Users", body = body)
 }
+users$create <- users_create
 
 #' Delete a user.
 #' 
 #' Deletes a user. Deleting a user from a Databricks Workspace also removes
 #' objects associated with the user.
 #'
-#' @param id Unique ID for a user in the Databricks Workspace.
+#' @param id [required] Unique ID for a user in the Databricks Workspace.
+#'
+#' @keywords internal
+#'
+#' @rdname users_delete
+#'
+#' @aliases users_delete
 users_delete <- function(id, ...) {
     
     
     .api$do("DELETE", paste("/api/2.0/preview/scim/v2/Users/", id, sep = ""))
 }
+users$delete <- users_delete
 
 #' Get user details.
 #' 
 #' Gets information for a specific user in Databricks Workspace.
 #'
-#' @param id Unique ID for a user in the Databricks Workspace.
+#' @param id [required] Unique ID for a user in the Databricks Workspace.
+#'
+#' @keywords internal
+#'
+#' @rdname users_get
+#'
+#' @aliases users_get
 users_get <- function(id, ...) {
     
     
     .api$do("GET", paste("/api/2.0/preview/scim/v2/Users/", id, sep = ""))
 }
+users$get <- users_get
 
 #' List users.
 #' 
@@ -74,6 +121,14 @@ users_get <- function(id, ...) {
 #' @param sort_by Attribute to sort the results.
 #' @param sort_order The order to sort the results.
 #' @param start_index Specifies the index of the first result.
+#' 
+#' @return `data.frame` with all of the response pages.
+#'
+#' @keywords internal
+#'
+#' @rdname users_list
+#'
+#' @aliases users_list
 users_list <- function(attributes = NULL, 
     count = NULL, 
     excluded_attributes = NULL, 
@@ -96,14 +151,21 @@ users_list <- function(attributes = NULL,
     return (json$Resources)
     
 }
+users$list <- users_list
 
 #' Update user details.
 #' 
 #' Partially updates a user resource by applying the supplied operations on
 #' specific user attributes.
 #'
-#' @param id Unique ID for a group in the Databricks Account.
+#' @param id [required] Unique ID for a group in the Databricks Account.
 #' @param operations 
+#'
+#' @keywords internal
+#'
+#' @rdname users_patch
+#'
+#' @aliases users_patch
 users_patch <- function(id, operations = NULL, 
     ...) {
     body <- list(
@@ -111,6 +173,7 @@ users_patch <- function(id, operations = NULL,
     
     .api$do("PATCH", paste("/api/2.0/preview/scim/v2/Users/", id, sep = ""), body = body)
 }
+users$patch <- users_patch
 
 #' Replace a user.
 #' 
@@ -126,6 +189,12 @@ users_patch <- function(id, operations = NULL,
 #' @param name 
 #' @param roles 
 #' @param user_name Email address of the Databricks user.
+#'
+#' @keywords internal
+#'
+#' @rdname users_update
+#'
+#' @aliases users_update
 users_update <- function(id, active = NULL, 
     display_name = NULL, 
     emails = NULL, 
@@ -150,6 +219,7 @@ users_update <- function(id, active = NULL,
     
     .api$do("PUT", paste("/api/2.0/preview/scim/v2/Users/", id, sep = ""), body = body)
 }
+users$update <- users_update
 
 
 

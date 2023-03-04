@@ -1,9 +1,33 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.{{if .IsAccounts}}{{skipThisFile}}{{end}}
 
-{{range .Methods}}{{.Comment "#' " 80}}
-{{if .Request}}#'{{range .Request.Fields}}
-#' @param {{.SnakeName}} {{.Summary}}{{end}}
-{{end -}}
+{{.Comment "#' " 80}}
+#' 
+#' @section Operations:
+#' \tabular{ll}{{"{"}}{{range .Methods}}
+#'  \link[={{.Service.SnakeName}}_{{.SnakeName}}]{{"{"}}{{.SnakeName}}{{"}"}} \tab {{.Summary}}\cr{{end}}
+#' }
+#'
+#' @rdname {{.SnakeName}}
+#' @export
+{{.SnakeName}} <- list()
+
+{{range .Methods}}{{.Comment "#' " 80}}{{if .Request}}
+{{if and .Wait (not .IsCrudRead)}}#'
+#' @description
+#' This is a long-running operation, which blocks until {{.Service.TitleName}} on Databricks reach  
+#' {{range $i, $s := .Wait.Success}}{{if $i}} or {{end}}{{.Content}}{{end}} state with the timeout of {{.Wait.Timeout}} minutes, that you can change via `timeout` parameter. 
+#' By default, the state of Databricks {{.Service.TitleName}} is reported to console. You can change this behavior 
+#' by changing the `callback` parameter.
+{{end}}#'{{range .Request.Fields}}
+#' @param {{.SnakeName}} {{if .Required}}[required] {{end}}{{.Summary}}{{end}}
+{{end}}{{if .Pagination}}#' 
+#' @return `data.frame` with all of the response pages.
+{{end}}#'
+#' @keywords internal
+#'
+#' @rdname {{.Service.SnakeName}}_{{.SnakeName}}
+#'
+#' @aliases {{.Service.SnakeName}}_{{.SnakeName}}
 {{.Service.SnakeName}}_{{.SnakeName}} <- function(
     {{- if .Request}}{{range .Request.RequiredFields}}{{.SnakeName}}, {{end -}}
     {{- range .Request.NonRequiredFields}}{{.SnakeName}} = NULL, 
@@ -11,6 +35,7 @@
     {{template "method-serialize" .}}
     {{template "method-call" .}}
 }
+{{.Service.SnakeName}}${{.SnakeName}} <- {{.Service.SnakeName}}_{{.SnakeName}}
 
 {{end}}
 

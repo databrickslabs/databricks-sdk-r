@@ -1,5 +1,27 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
+
+#' 
+#' @section Operations:
+#' \tabular{ll}{
+#'  \link[=m_lflow_runs_create]{create} \tab Create a run.\cr
+#'  \link[=m_lflow_runs_delete]{delete} \tab Delete a run.\cr
+#'  \link[=m_lflow_runs_delete_tag]{delete_tag} \tab Delete a tag.\cr
+#'  \link[=m_lflow_runs_get]{get} \tab Get a run.\cr
+#'  \link[=m_lflow_runs_log_batch]{log_batch} \tab Log a batch.\cr
+#'  \link[=m_lflow_runs_log_metric]{log_metric} \tab Log a metric.\cr
+#'  \link[=m_lflow_runs_log_model]{log_model} \tab Log a model.\cr
+#'  \link[=m_lflow_runs_log_parameter]{log_parameter} \tab Log a param.\cr
+#'  \link[=m_lflow_runs_restore]{restore} \tab Restore a run.\cr
+#'  \link[=m_lflow_runs_search]{search} \tab Search for runs.\cr
+#'  \link[=m_lflow_runs_set_tag]{set_tag} \tab Set a tag.\cr
+#'  \link[=m_lflow_runs_update]{update} \tab Update a run.\cr
+#' }
+#'
+#' @rdname m_lflow_runs
+#' @export
+m_lflow_runs <- list()
+
 #' Create a run.
 #' 
 #' Creates a new run within an experiment. A run is usually a single execution
@@ -11,6 +33,12 @@
 #' @param start_time Unix timestamp in milliseconds of when the run started.
 #' @param tags Additional metadata for run.
 #' @param user_id ID of the user executing the run.
+#'
+#' @keywords internal
+#'
+#' @rdname m_lflow_runs_create
+#'
+#' @aliases m_lflow_runs_create
 m_lflow_runs_create <- function(experiment_id = NULL, 
     start_time = NULL, 
     tags = NULL, 
@@ -24,26 +52,40 @@ m_lflow_runs_create <- function(experiment_id = NULL,
     
     .api$do("POST", "/api/2.0/mlflow/runs/create", body = body)
 }
+m_lflow_runs$create <- m_lflow_runs_create
 
 #' Delete a run.
 #' 
 #' Marks a run for deletion.
 #'
-#' @param run_id ID of the run to delete.
+#' @param run_id [required] ID of the run to delete.
+#'
+#' @keywords internal
+#'
+#' @rdname m_lflow_runs_delete
+#'
+#' @aliases m_lflow_runs_delete
 m_lflow_runs_delete <- function(run_id, ...) {
     body <- list(
         run_id = run_id, ...)
     
     .api$do("POST", "/api/2.0/mlflow/runs/delete", body = body)
 }
+m_lflow_runs$delete <- m_lflow_runs_delete
 
 #' Delete a tag.
 #' 
 #' Deletes a tag on a run. Tags are run metadata that can be updated during a
 #' run and after a run completes.
 #'
-#' @param key Name of the tag.
-#' @param run_id ID of the run that the tag was logged under.
+#' @param key [required] Name of the tag.
+#' @param run_id [required] ID of the run that the tag was logged under.
+#'
+#' @keywords internal
+#'
+#' @rdname m_lflow_runs_delete_tag
+#'
+#' @aliases m_lflow_runs_delete_tag
 m_lflow_runs_delete_tag <- function(run_id, key, ...) {
     body <- list(
         key = key, 
@@ -51,6 +93,7 @@ m_lflow_runs_delete_tag <- function(run_id, key, ...) {
     
     .api$do("POST", "/api/2.0/mlflow/runs/delete-tag", body = body)
 }
+m_lflow_runs$delete_tag <- m_lflow_runs_delete_tag
 
 #' Get a run.
 #' 
@@ -61,8 +104,14 @@ m_lflow_runs_delete_tag <- function(run_id, key, ...) {
 #' If there are multiple values with the latest timestamp, return the maximum of
 #' these values.
 #'
-#' @param run_id ID of the run to fetch.
+#' @param run_id [required] ID of the run to fetch.
 #' @param run_uuid [Deprecated, use run_id instead] ID of the run to fetch.
+#'
+#' @keywords internal
+#'
+#' @rdname m_lflow_runs_get
+#'
+#' @aliases m_lflow_runs_get
 m_lflow_runs_get <- function(run_id, run_uuid = NULL, 
     ...) {
     query <- list(
@@ -71,6 +120,7 @@ m_lflow_runs_get <- function(run_id, run_uuid = NULL,
     
     .api$do("GET", "/api/2.0/mlflow/runs/get", query = query)
 }
+m_lflow_runs$get <- m_lflow_runs_get
 
 #' Log a batch.
 #' 
@@ -116,6 +166,12 @@ m_lflow_runs_get <- function(run_id, run_uuid = NULL,
 #' @param params Params to log.
 #' @param run_id ID of the run to log under.
 #' @param tags Tags to log.
+#'
+#' @keywords internal
+#'
+#' @rdname m_lflow_runs_log_batch
+#'
+#' @aliases m_lflow_runs_log_batch
 m_lflow_runs_log_batch <- function(metrics = NULL, 
     params = NULL, 
     run_id = NULL, 
@@ -129,6 +185,7 @@ m_lflow_runs_log_batch <- function(metrics = NULL,
     
     .api$do("POST", "/api/2.0/mlflow/runs/log-batch", body = body)
 }
+m_lflow_runs$log_batch <- m_lflow_runs_log_batch
 
 #' Log a metric.
 #' 
@@ -136,12 +193,18 @@ m_lflow_runs_log_batch <- function(metrics = NULL,
 #' value) with an associated timestamp. Examples include the various metrics
 #' that represent ML model accuracy. A metric can be logged multiple times.
 #'
-#' @param key Name of the metric.
+#' @param key [required] Name of the metric.
 #' @param run_id ID of the run under which to log the metric.
 #' @param run_uuid [Deprecated, use run_id instead] ID of the run under which to log the metric.
 #' @param step Step at which to log the metric.
-#' @param timestamp Unix timestamp in milliseconds at the time metric was logged.
-#' @param value Double value of the metric being logged.
+#' @param timestamp [required] Unix timestamp in milliseconds at the time metric was logged.
+#' @param value [required] Double value of the metric being logged.
+#'
+#' @keywords internal
+#'
+#' @rdname m_lflow_runs_log_metric
+#'
+#' @aliases m_lflow_runs_log_metric
 m_lflow_runs_log_metric <- function(key, value, timestamp, run_id = NULL, 
     run_uuid = NULL, 
     step = NULL, 
@@ -156,6 +219,7 @@ m_lflow_runs_log_metric <- function(key, value, timestamp, run_id = NULL,
     
     .api$do("POST", "/api/2.0/mlflow/runs/log-metric", body = body)
 }
+m_lflow_runs$log_metric <- m_lflow_runs_log_metric
 
 #' Log a model.
 #' 
@@ -164,6 +228,12 @@ m_lflow_runs_log_metric <- function(key, value, timestamp, run_id = NULL,
 #'
 #' @param model_json MLmodel file in json format.
 #' @param run_id ID of the run to log under.
+#'
+#' @keywords internal
+#'
+#' @rdname m_lflow_runs_log_model
+#'
+#' @aliases m_lflow_runs_log_model
 m_lflow_runs_log_model <- function(model_json = NULL, 
     run_id = NULL, 
     ...) {
@@ -173,6 +243,7 @@ m_lflow_runs_log_model <- function(model_json = NULL,
     
     .api$do("POST", "/api/2.0/mlflow/runs/log-model", body = body)
 }
+m_lflow_runs$log_model <- m_lflow_runs_log_model
 
 #' Log a param.
 #' 
@@ -181,10 +252,16 @@ m_lflow_runs_log_model <- function(model_json = NULL,
 #' constant dates and values used in an ETL pipeline. A param can be logged only
 #' once for a run.
 #'
-#' @param key Name of the param.
+#' @param key [required] Name of the param.
 #' @param run_id ID of the run under which to log the param.
 #' @param run_uuid [Deprecated, use run_id instead] ID of the run under which to log the param.
-#' @param value String value of the param being logged.
+#' @param value [required] String value of the param being logged.
+#'
+#' @keywords internal
+#'
+#' @rdname m_lflow_runs_log_parameter
+#'
+#' @aliases m_lflow_runs_log_parameter
 m_lflow_runs_log_parameter <- function(key, value, run_id = NULL, 
     run_uuid = NULL, 
     ...) {
@@ -196,18 +273,26 @@ m_lflow_runs_log_parameter <- function(key, value, run_id = NULL,
     
     .api$do("POST", "/api/2.0/mlflow/runs/log-parameter", body = body)
 }
+m_lflow_runs$log_parameter <- m_lflow_runs_log_parameter
 
 #' Restore a run.
 #' 
 #' Restores a deleted run.
 #'
-#' @param run_id ID of the run to restore.
+#' @param run_id [required] ID of the run to restore.
+#'
+#' @keywords internal
+#'
+#' @rdname m_lflow_runs_restore
+#'
+#' @aliases m_lflow_runs_restore
 m_lflow_runs_restore <- function(run_id, ...) {
     body <- list(
         run_id = run_id, ...)
     
     .api$do("POST", "/api/2.0/mlflow/runs/restore", body = body)
 }
+m_lflow_runs$restore <- m_lflow_runs_restore
 
 #' Search for runs.
 #' 
@@ -221,6 +306,14 @@ m_lflow_runs_restore <- function(run_id, ...) {
 #' @param order_by List of columns to be ordered by, including attributes, params, metrics, and tags with an optional "DESC" or "ASC" annotation, where "ASC" is the default.
 #' @param page_token Token for the current page of runs.
 #' @param run_view_type Whether to display only active, only deleted, or all runs.
+#' 
+#' @return `data.frame` with all of the response pages.
+#'
+#' @keywords internal
+#'
+#' @rdname m_lflow_runs_search
+#'
+#' @aliases m_lflow_runs_search
 m_lflow_runs_search <- function(experiment_ids = NULL, 
     filter = NULL, 
     max_results = NULL, 
@@ -254,16 +347,23 @@ m_lflow_runs_search <- function(experiment_ids = NULL,
     return (results)
     
 }
+m_lflow_runs$search <- m_lflow_runs_search
 
 #' Set a tag.
 #' 
 #' Sets a tag on a run. Tags are run metadata that can be updated during a run
 #' and after a run completes.
 #'
-#' @param key Name of the tag.
+#' @param key [required] Name of the tag.
 #' @param run_id ID of the run under which to log the tag.
 #' @param run_uuid [Deprecated, use run_id instead] ID of the run under which to log the tag.
-#' @param value String value of the tag being logged.
+#' @param value [required] String value of the tag being logged.
+#'
+#' @keywords internal
+#'
+#' @rdname m_lflow_runs_set_tag
+#'
+#' @aliases m_lflow_runs_set_tag
 m_lflow_runs_set_tag <- function(key, value, run_id = NULL, 
     run_uuid = NULL, 
     ...) {
@@ -275,6 +375,7 @@ m_lflow_runs_set_tag <- function(key, value, run_id = NULL,
     
     .api$do("POST", "/api/2.0/mlflow/runs/set-tag", body = body)
 }
+m_lflow_runs$set_tag <- m_lflow_runs_set_tag
 
 #' Update a run.
 #' 
@@ -284,6 +385,12 @@ m_lflow_runs_set_tag <- function(key, value, run_id = NULL,
 #' @param run_id ID of the run to update.
 #' @param run_uuid [Deprecated, use run_id instead] ID of the run to update.
 #' @param status Updated status of the run.
+#'
+#' @keywords internal
+#'
+#' @rdname m_lflow_runs_update
+#'
+#' @aliases m_lflow_runs_update
 m_lflow_runs_update <- function(end_time = NULL, 
     run_id = NULL, 
     run_uuid = NULL, 
@@ -297,6 +404,7 @@ m_lflow_runs_update <- function(end_time = NULL,
     
     .api$do("POST", "/api/2.0/mlflow/runs/update", body = body)
 }
+m_lflow_runs$update <- m_lflow_runs_update
 
 
 

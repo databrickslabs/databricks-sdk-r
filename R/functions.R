@@ -1,5 +1,25 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
+#' Functions implement User-Defined Functions (UDFs) in Unity Catalog.
+#' 
+#' The function implementation can be any SQL expression or Query, and it can be
+#' invoked wherever a table reference is allowed in a query. In Unity Catalog, a
+#' function resides at the same level as a table, so it can be referenced with
+#' the form __catalog_name__.__schema_name__.__function_name__.
+#' 
+#' @section Operations:
+#' \tabular{ll}{
+#'  \link[=functions_create]{create} \tab Create a function.\cr
+#'  \link[=functions_delete]{delete} \tab Delete a function.\cr
+#'  \link[=functions_get]{get} \tab Get a function.\cr
+#'  \link[=functions_list]{list} \tab List functions.\cr
+#'  \link[=functions_update]{update} \tab Update a function.\cr
+#' }
+#'
+#' @rdname functions
+#' @export
+functions <- list()
+
 #' Create a function.
 #' 
 #' Creates a new function
@@ -8,27 +28,33 @@
 #' created: - **USE_CATALOG** on the function's parent catalog - **USE_SCHEMA**
 #' and **CREATE_FUNCTION** on the function's parent schema
 #'
-#' @param catalog_name Name of parent catalog.
+#' @param catalog_name [required] Name of parent catalog.
 #' @param comment User-provided free-form text description.
-#' @param data_type Scalar function return data type.
+#' @param data_type [required] Scalar function return data type.
 #' @param external_language External function language.
 #' @param external_name External function name.
-#' @param full_data_type Pretty printed function data type.
-#' @param input_params The array of __FunctionParameterInfo__ definitions of the function's parameters.
-#' @param is_deterministic Whether the function is deterministic.
-#' @param is_null_call Function null call.
-#' @param name Name of function, relative to parent schema.
-#' @param parameter_style Function parameter style.
+#' @param full_data_type [required] Pretty printed function data type.
+#' @param input_params [required] The array of __FunctionParameterInfo__ definitions of the function's parameters.
+#' @param is_deterministic [required] Whether the function is deterministic.
+#' @param is_null_call [required] Function null call.
+#' @param name [required] Name of function, relative to parent schema.
+#' @param parameter_style [required] Function parameter style.
 #' @param properties A map of key-value properties attached to the securable.
-#' @param return_params Table function return parameters.
-#' @param routine_body Function language.
-#' @param routine_definition Function body.
-#' @param routine_dependencies Function dependencies.
-#' @param schema_name Name of parent schema relative to its parent catalog.
-#' @param security_type Function security type.
-#' @param specific_name Specific name of the function; Reserved for future use.
-#' @param sql_data_access Function SQL data access.
+#' @param return_params [required] Table function return parameters.
+#' @param routine_body [required] Function language.
+#' @param routine_definition [required] Function body.
+#' @param routine_dependencies [required] Function dependencies.
+#' @param schema_name [required] Name of parent schema relative to its parent catalog.
+#' @param security_type [required] Function security type.
+#' @param specific_name [required] Specific name of the function; Reserved for future use.
+#' @param sql_data_access [required] Function SQL data access.
 #' @param sql_path List of schemes whose objects can be referenced without qualification.
+#'
+#' @keywords internal
+#'
+#' @rdname functions_create
+#'
+#' @aliases functions_create
 functions_create <- function(name, catalog_name, schema_name, input_params, data_type, full_data_type, return_params, routine_body, routine_definition, routine_dependencies, parameter_style, is_deterministic, sql_data_access, is_null_call, security_type, specific_name, comment = NULL, 
     external_language = NULL, 
     external_name = NULL, 
@@ -60,6 +86,7 @@ functions_create <- function(name, catalog_name, schema_name, input_params, data
     
     .api$do("POST", "/api/2.1/unity-catalog/functions", body = body)
 }
+functions$create <- functions_create
 
 #' Delete a function.
 #' 
@@ -72,7 +99,13 @@ functions_create <- function(name, catalog_name, schema_name, input_params, data
 #' parent schema
 #'
 #' @param force Force deletion even if the function is notempty.
-#' @param name The fully-qualified name of the function (of the form __catalog_name__.__schema_name__.__function__name__).
+#' @param name [required] The fully-qualified name of the function (of the form __catalog_name__.__schema_name__.__function__name__).
+#'
+#' @keywords internal
+#'
+#' @rdname functions_delete
+#'
+#' @aliases functions_delete
 functions_delete <- function(name, force = NULL, 
     ...) {
     query <- list(
@@ -80,6 +113,7 @@ functions_delete <- function(name, force = NULL,
     
     .api$do("DELETE", paste("/api/2.1/unity-catalog/functions/", name, sep = ""), query = query)
 }
+functions$delete <- functions_delete
 
 #' Get a function.
 #' 
@@ -91,12 +125,19 @@ functions_delete <- function(name, force = NULL,
 #' catalog, the **USE_SCHEMA** privilege on the function's parent schema, and
 #' the **EXECUTE** privilege on the function itself
 #'
-#' @param name The fully-qualified name of the function (of the form __catalog_name__.__schema_name__.__function__name__).
+#' @param name [required] The fully-qualified name of the function (of the form __catalog_name__.__schema_name__.__function__name__).
+#'
+#' @keywords internal
+#'
+#' @rdname functions_get
+#'
+#' @aliases functions_get
 functions_get <- function(name, ...) {
     
     
     .api$do("GET", paste("/api/2.1/unity-catalog/functions/", name, sep = ""))
 }
+functions$get <- functions_get
 
 #' List functions.
 #' 
@@ -108,8 +149,14 @@ functions_get <- function(name, ...) {
 #' is the owner. There is no guarantee of a specific ordering of the elements in
 #' the array.
 #'
-#' @param catalog_name Name of parent catalog for functions of interest.
-#' @param schema_name Parent schema of functions.
+#' @param catalog_name [required] Name of parent catalog for functions of interest.
+#' @param schema_name [required] Parent schema of functions.
+#'
+#' @keywords internal
+#'
+#' @rdname functions_list
+#'
+#' @aliases functions_list
 functions_list <- function(catalog_name, schema_name, ...) {
     query <- list(
         catalog_name = catalog_name, 
@@ -117,6 +164,7 @@ functions_list <- function(catalog_name, schema_name, ...) {
     
     .api$do("GET", "/api/2.1/unity-catalog/functions", query = query)
 }
+functions$list <- functions_list
 
 #' Update a function.
 #' 
@@ -129,8 +177,14 @@ functions_list <- function(catalog_name, schema_name, ...) {
 #' privilege on its parent catalog as well as the **USE_SCHEMA** privilege on
 #' the function's parent schema.
 #'
-#' @param name The fully-qualified name of the function (of the form __catalog_name__.__schema_name__.__function__name__).
+#' @param name [required] The fully-qualified name of the function (of the form __catalog_name__.__schema_name__.__function__name__).
 #' @param owner Username of current owner of function.
+#'
+#' @keywords internal
+#'
+#' @rdname functions_update
+#'
+#' @aliases functions_update
 functions_update <- function(name, owner = NULL, 
     ...) {
     body <- list(
@@ -138,6 +192,7 @@ functions_update <- function(name, owner = NULL,
     
     .api$do("PATCH", paste("/api/2.1/unity-catalog/functions/", name, sep = ""), body = body)
 }
+functions$update <- functions_update
 
 
 

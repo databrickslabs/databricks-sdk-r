@@ -1,5 +1,38 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
+#' The Delta Live Tables API allows you to create, edit, delete, start, and view
+#' details about pipelines.
+#' 
+#' Delta Live Tables is a framework for building reliable, maintainable, and
+#' testable data processing pipelines. You define the transformations to perform
+#' on your data, and Delta Live Tables manages task orchestration, cluster
+#' management, monitoring, data quality, and error handling.
+#' 
+#' Instead of defining your data pipelines using a series of separate Apache
+#' Spark tasks, Delta Live Tables manages how your data is transformed based on
+#' a target schema you define for each processing step. You can also enforce
+#' data quality with Delta Live Tables expectations. Expectations allow you to
+#' define expected data quality and specify how to handle records that fail
+#' those expectations.
+#' 
+#' @section Operations:
+#' \tabular{ll}{
+#'  \link[=pipelines_create]{create} \tab Create a pipeline.\cr
+#'  \link[=pipelines_delete]{delete} \tab Delete a pipeline.\cr
+#'  \link[=pipelines_get]{get} \tab Get a pipeline.\cr
+#'  \link[=pipelines_get_update]{get_update} \tab Get a pipeline update.\cr
+#'  \link[=pipelines_list_pipelines]{list_pipelines} \tab List pipelines.\cr
+#'  \link[=pipelines_list_updates]{list_updates} \tab List pipeline updates.\cr
+#'  \link[=pipelines_reset]{reset} \tab Reset a pipeline.\cr
+#'  \link[=pipelines_start_update]{start_update} \tab Queue a pipeline update.\cr
+#'  \link[=pipelines_stop]{stop} \tab Stop a pipeline.\cr
+#'  \link[=pipelines_update]{update} \tab Edit a pipeline.\cr
+#' }
+#'
+#' @rdname pipelines
+#' @export
+pipelines <- list()
+
 #' Create a pipeline.
 #' 
 #' Creates a new data processing pipeline based on the requested configuration.
@@ -22,6 +55,12 @@
 #' @param storage DBFS root directory for storing checkpoints and tables.
 #' @param target Target schema (database) to add tables in this pipeline to.
 #' @param trigger Which pipeline trigger to use.
+#'
+#' @keywords internal
+#'
+#' @rdname pipelines_create
+#'
+#' @aliases pipelines_create
 pipelines_create <- function(allow_duplicate_names = NULL, 
     catalog = NULL, 
     channel = NULL, 
@@ -61,38 +100,60 @@ pipelines_create <- function(allow_duplicate_names = NULL,
     
     .api$do("POST", "/api/2.0/pipelines", body = body)
 }
+pipelines$create <- pipelines_create
 
 #' Delete a pipeline.
 #' 
 #' Deletes a pipeline.
 #'
-#' @param pipeline_id 
+#' @param pipeline_id [required] 
+#'
+#' @keywords internal
+#'
+#' @rdname pipelines_delete
+#'
+#' @aliases pipelines_delete
 pipelines_delete <- function(pipeline_id, ...) {
     
     
     .api$do("DELETE", paste("/api/2.0/pipelines/", pipeline_id, sep = ""))
 }
+pipelines$delete <- pipelines_delete
 
 #' Get a pipeline.
 #'
-#' @param pipeline_id 
+#' @param pipeline_id [required] 
+#'
+#' @keywords internal
+#'
+#' @rdname pipelines_get
+#'
+#' @aliases pipelines_get
 pipelines_get <- function(pipeline_id, ...) {
     
     
     .api$do("GET", paste("/api/2.0/pipelines/", pipeline_id, sep = ""))
 }
+pipelines$get <- pipelines_get
 
 #' Get a pipeline update.
 #' 
 #' Gets an update from an active pipeline.
 #'
-#' @param pipeline_id The ID of the pipeline.
-#' @param update_id The ID of the update.
+#' @param pipeline_id [required] The ID of the pipeline.
+#' @param update_id [required] The ID of the update.
+#'
+#' @keywords internal
+#'
+#' @rdname pipelines_get_update
+#'
+#' @aliases pipelines_get_update
 pipelines_get_update <- function(pipeline_id, update_id, ...) {
     
     
     .api$do("GET", paste("/api/2.0/pipelines/", pipeline_id, "/updates/", update_id, sep = ""))
 }
+pipelines$get_update <- pipelines_get_update
 
 #' List pipelines.
 #' 
@@ -102,6 +163,14 @@ pipelines_get_update <- function(pipeline_id, update_id, ...) {
 #' @param max_results The maximum number of entries to return in a single page.
 #' @param order_by A list of strings specifying the order of results.
 #' @param page_token Page token returned by previous call.
+#' 
+#' @return `data.frame` with all of the response pages.
+#'
+#' @keywords internal
+#'
+#' @rdname pipelines_list_pipelines
+#'
+#' @aliases pipelines_list_pipelines
 pipelines_list_pipelines <- function(filter = NULL, 
     max_results = NULL, 
     order_by = NULL, 
@@ -131,6 +200,7 @@ pipelines_list_pipelines <- function(filter = NULL,
     return (results)
     
 }
+pipelines$list_pipelines <- pipelines_list_pipelines
 
 #' List pipeline updates.
 #' 
@@ -138,8 +208,14 @@ pipelines_list_pipelines <- function(filter = NULL,
 #'
 #' @param max_results Max number of entries to return in a single page.
 #' @param page_token Page token returned by previous call.
-#' @param pipeline_id The pipeline to return updates for.
+#' @param pipeline_id [required] The pipeline to return updates for.
 #' @param until_update_id If present, returns updates until and including this update_id.
+#'
+#' @keywords internal
+#'
+#' @rdname pipelines_list_updates
+#'
+#' @aliases pipelines_list_updates
 pipelines_list_updates <- function(pipeline_id, max_results = NULL, 
     page_token = NULL, 
     until_update_id = NULL, 
@@ -151,12 +227,25 @@ pipelines_list_updates <- function(pipeline_id, max_results = NULL,
     
     .api$do("GET", paste("/api/2.0/pipelines/", pipeline_id, "/updates", , sep = ""), query = query)
 }
+pipelines$list_updates <- pipelines_list_updates
 
 #' Reset a pipeline.
 #' 
 #' Resets a pipeline.
 #'
-#' @param pipeline_id 
+#' @description
+#' This is a long-running operation, which blocks until Pipelines on Databricks reach  
+#' RUNNING state with the timeout of 20 minutes, that you can change via `timeout` parameter. 
+#' By default, the state of Databricks Pipelines is reported to console. You can change this behavior 
+#' by changing the `callback` parameter.
+#'
+#' @param pipeline_id [required] 
+#'
+#' @keywords internal
+#'
+#' @rdname pipelines_reset
+#'
+#' @aliases pipelines_reset
 pipelines_reset <- function(pipeline_id, timeout=20, callback = cli_reporter, ...) {
     
     
@@ -196,6 +285,7 @@ pipelines_reset <- function(pipeline_id, timeout=20, callback = cli_reporter, ..
     msg <- paste("timed out after", timeout, "minutes:", status_message)
     rlang::abort(msg, call = rlang::caller_env())
 }
+pipelines$reset <- pipelines_reset
 
 #' Queue a pipeline update.
 #' 
@@ -204,8 +294,14 @@ pipelines_reset <- function(pipeline_id, timeout=20, callback = cli_reporter, ..
 #' @param cause 
 #' @param full_refresh If true, this update will reset all tables before running.
 #' @param full_refresh_selection A list of tables to update with fullRefresh.
-#' @param pipeline_id 
+#' @param pipeline_id [required] 
 #' @param refresh_selection A list of tables to update without fullRefresh.
+#'
+#' @keywords internal
+#'
+#' @rdname pipelines_start_update
+#'
+#' @aliases pipelines_start_update
 pipelines_start_update <- function(pipeline_id, cause = NULL, 
     full_refresh = NULL, 
     full_refresh_selection = NULL, 
@@ -219,12 +315,25 @@ pipelines_start_update <- function(pipeline_id, cause = NULL,
     
     .api$do("POST", paste("/api/2.0/pipelines/", pipeline_id, "/updates", , sep = ""), body = body)
 }
+pipelines$start_update <- pipelines_start_update
 
 #' Stop a pipeline.
 #' 
 #' Stops a pipeline.
 #'
-#' @param pipeline_id 
+#' @description
+#' This is a long-running operation, which blocks until Pipelines on Databricks reach  
+#' IDLE state with the timeout of 20 minutes, that you can change via `timeout` parameter. 
+#' By default, the state of Databricks Pipelines is reported to console. You can change this behavior 
+#' by changing the `callback` parameter.
+#'
+#' @param pipeline_id [required] 
+#'
+#' @keywords internal
+#'
+#' @rdname pipelines_stop
+#'
+#' @aliases pipelines_stop
 pipelines_stop <- function(pipeline_id, timeout=20, callback = cli_reporter, ...) {
     
     
@@ -264,6 +373,7 @@ pipelines_stop <- function(pipeline_id, timeout=20, callback = cli_reporter, ...
     msg <- paste("timed out after", timeout, "minutes:", status_message)
     rlang::abort(msg, call = rlang::caller_env())
 }
+pipelines$stop <- pipelines_stop
 
 #' Edit a pipeline.
 #' 
@@ -287,6 +397,12 @@ pipelines_stop <- function(pipeline_id, timeout=20, callback = cli_reporter, ...
 #' @param storage DBFS root directory for storing checkpoints and tables.
 #' @param target Target schema (database) to add tables in this pipeline to.
 #' @param trigger Which pipeline trigger to use.
+#'
+#' @keywords internal
+#'
+#' @rdname pipelines_update
+#'
+#' @aliases pipelines_update
 pipelines_update <- function(pipeline_id, allow_duplicate_names = NULL, 
     catalog = NULL, 
     channel = NULL, 
@@ -327,6 +443,7 @@ pipelines_update <- function(pipeline_id, allow_duplicate_names = NULL,
     
     .api$do("PUT", paste("/api/2.0/pipelines/", pipeline_id, sep = ""), body = body)
 }
+pipelines$update <- pipelines_update
 
 
 

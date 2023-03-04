@@ -1,5 +1,28 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
+#' A table resides in the third layer of Unity Catalog’s three-level
+#' namespace. It contains rows of data. To create a table, users must have
+#' CREATE_TABLE and USE_SCHEMA permissions on the schema, and they must have the
+#' USE_CATALOG permission on its parent catalog. To query a table, users must
+#' have the SELECT permission on the table, and they must have the USE_CATALOG
+#' permission on its parent catalog and the USE_SCHEMA permission on its parent
+#' schema.
+#' 
+#' A table can be managed or external. From an API perspective, a __VIEW__ is a
+#' particular kind of table (rather than a managed or external table).
+#' 
+#' @section Operations:
+#' \tabular{ll}{
+#'  \link[=tables_delete]{delete} \tab Delete a table.\cr
+#'  \link[=tables_get]{get} \tab Get a table.\cr
+#'  \link[=tables_list]{list} \tab List tables.\cr
+#'  \link[=tables_list_summaries]{list_summaries} \tab List table summaries.\cr
+#' }
+#'
+#' @rdname tables
+#' @export
+tables <- list()
+
 #' Delete a table.
 #' 
 #' Deletes a table from the specified parent catalog and schema. The caller must
@@ -8,12 +31,19 @@
 #' table and have the **USE_CATALOG** privilege on the parent catalog and the
 #' **USE_SCHEMA** privilege on the parent schema.
 #'
-#' @param full_name Full name of the table.
+#' @param full_name [required] Full name of the table.
+#'
+#' @keywords internal
+#'
+#' @rdname tables_delete
+#'
+#' @aliases tables_delete
 tables_delete <- function(full_name, ...) {
     
     
     .api$do("DELETE", paste("/api/2.1/unity-catalog/tables/", full_name, sep = ""))
 }
+tables$delete <- tables_delete
 
 #' Get a table.
 #' 
@@ -23,8 +53,14 @@ tables_delete <- function(full_name, ...) {
 #' privilege on the parent schema, or be the owner of the table and have the
 #' **SELECT** privilege on it as well.
 #'
-#' @param full_name Full name of the table.
+#' @param full_name [required] Full name of the table.
 #' @param include_delta_metadata Whether delta metadata should be included in the response.
+#'
+#' @keywords internal
+#'
+#' @rdname tables_get
+#'
+#' @aliases tables_get
 tables_get <- function(full_name, include_delta_metadata = NULL, 
     ...) {
     query <- list(
@@ -32,6 +68,7 @@ tables_get <- function(full_name, include_delta_metadata = NULL,
     
     .api$do("GET", paste("/api/2.1/unity-catalog/tables/", full_name, sep = ""), query = query)
 }
+tables$get <- tables_get
 
 #' List tables.
 #' 
@@ -42,9 +79,17 @@ tables_get <- function(full_name, include_delta_metadata = NULL,
 #' catalog and the **USE_SCHEMA** privilege on the parent schema. There is no
 #' guarantee of a specific ordering of the elements in the array.
 #'
-#' @param catalog_name Name of parent catalog for tables of interest.
+#' @param catalog_name [required] Name of parent catalog for tables of interest.
 #' @param include_delta_metadata Whether delta metadata should be included in the response.
-#' @param schema_name Parent schema of tables.
+#' @param schema_name [required] Parent schema of tables.
+#' 
+#' @return `data.frame` with all of the response pages.
+#'
+#' @keywords internal
+#'
+#' @rdname tables_list
+#'
+#' @aliases tables_list
 tables_list <- function(catalog_name, schema_name, include_delta_metadata = NULL, 
     ...) {
     query <- list(
@@ -57,6 +102,7 @@ tables_list <- function(catalog_name, schema_name, include_delta_metadata = NULL
     return (json$tables)
     
 }
+tables$list <- tables_list
 
 #' List table summaries.
 #' 
@@ -72,11 +118,17 @@ tables_list <- function(catalog_name, schema_name, include_delta_metadata = NULL
 #' 
 #' There is no guarantee of a specific ordering of the elements in the array.
 #'
-#' @param catalog_name Name of parent catalog for tables of interest.
+#' @param catalog_name [required] Name of parent catalog for tables of interest.
 #' @param max_results Maximum number of tables to return (page length).
 #' @param page_token Opaque token to send for the next page of results (pagination).
 #' @param schema_name_pattern A sql LIKE pattern (% and _) for schema names.
 #' @param table_name_pattern A sql LIKE pattern (% and _) for table names.
+#'
+#' @keywords internal
+#'
+#' @rdname tables_list_summaries
+#'
+#' @aliases tables_list_summaries
 tables_list_summaries <- function(catalog_name, max_results = NULL, 
     page_token = NULL, 
     schema_name_pattern = NULL, 
@@ -91,6 +143,7 @@ tables_list_summaries <- function(catalog_name, max_results = NULL,
     
     .api$do("GET", "/api/2.1/unity-catalog/table-summaries", query = query)
 }
+tables$list_summaries <- tables_list_summaries
 
 
 

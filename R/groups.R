@@ -1,5 +1,27 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
+#' Groups simplify identity management, making it easier to assign access to
+#' Databricks Workspace, data, and other securable objects.
+#' 
+#' It is best practice to assign access to workspaces and access-control
+#' policies in Unity Catalog to groups, instead of to users individually. All
+#' Databricks Workspace identities can be assigned as members of groups, and
+#' members inherit permissions that are assigned to their group.
+#' 
+#' @section Operations:
+#' \tabular{ll}{
+#'  \link[=groups_create]{create} \tab Create a new group.\cr
+#'  \link[=groups_delete]{delete} \tab Delete a group.\cr
+#'  \link[=groups_get]{get} \tab Get group details.\cr
+#'  \link[=groups_list]{list} \tab List group details.\cr
+#'  \link[=groups_patch]{patch} \tab Update group details.\cr
+#'  \link[=groups_update]{update} \tab Replace a group.\cr
+#' }
+#'
+#' @rdname groups
+#' @export
+groups <- list()
+
 #' Create a new group.
 #' 
 #' Creates a group in the Databricks Workspace with a unique name, using the
@@ -12,6 +34,12 @@
 #' @param id Databricks group ID.
 #' @param members 
 #' @param roles 
+#'
+#' @keywords internal
+#'
+#' @rdname groups_create
+#'
+#' @aliases groups_create
 groups_create <- function(id, display_name = NULL, 
     entitlements = NULL, 
     external_id = NULL, 
@@ -30,28 +58,43 @@ groups_create <- function(id, display_name = NULL,
     
     .api$do("POST", "/api/2.0/preview/scim/v2/Groups", body = body)
 }
+groups$create <- groups_create
 
 #' Delete a group.
 #' 
 #' Deletes a group from the Databricks Workspace.
 #'
-#' @param id Unique ID for a group in the Databricks Workspace.
+#' @param id [required] Unique ID for a group in the Databricks Workspace.
+#'
+#' @keywords internal
+#'
+#' @rdname groups_delete
+#'
+#' @aliases groups_delete
 groups_delete <- function(id, ...) {
     
     
     .api$do("DELETE", paste("/api/2.0/preview/scim/v2/Groups/", id, sep = ""))
 }
+groups$delete <- groups_delete
 
 #' Get group details.
 #' 
 #' Gets the information for a specific group in the Databricks Workspace.
 #'
-#' @param id Unique ID for a group in the Databricks Workspace.
+#' @param id [required] Unique ID for a group in the Databricks Workspace.
+#'
+#' @keywords internal
+#'
+#' @rdname groups_get
+#'
+#' @aliases groups_get
 groups_get <- function(id, ...) {
     
     
     .api$do("GET", paste("/api/2.0/preview/scim/v2/Groups/", id, sep = ""))
 }
+groups$get <- groups_get
 
 #' List group details.
 #' 
@@ -64,6 +107,14 @@ groups_get <- function(id, ...) {
 #' @param sort_by Attribute to sort the results.
 #' @param sort_order The order to sort the results.
 #' @param start_index Specifies the index of the first result.
+#' 
+#' @return `data.frame` with all of the response pages.
+#'
+#' @keywords internal
+#'
+#' @rdname groups_list
+#'
+#' @aliases groups_list
 groups_list <- function(attributes = NULL, 
     count = NULL, 
     excluded_attributes = NULL, 
@@ -86,13 +137,20 @@ groups_list <- function(attributes = NULL,
     return (json$Resources)
     
 }
+groups$list <- groups_list
 
 #' Update group details.
 #' 
 #' Partially updates the details of a group.
 #'
-#' @param id Unique ID for a group in the Databricks Account.
+#' @param id [required] Unique ID for a group in the Databricks Account.
 #' @param operations 
+#'
+#' @keywords internal
+#'
+#' @rdname groups_patch
+#'
+#' @aliases groups_patch
 groups_patch <- function(id, operations = NULL, 
     ...) {
     body <- list(
@@ -100,6 +158,7 @@ groups_patch <- function(id, operations = NULL,
     
     .api$do("PATCH", paste("/api/2.0/preview/scim/v2/Groups/", id, sep = ""), body = body)
 }
+groups$patch <- groups_patch
 
 #' Replace a group.
 #' 
@@ -112,6 +171,12 @@ groups_patch <- function(id, operations = NULL,
 #' @param id Databricks group ID.
 #' @param members 
 #' @param roles 
+#'
+#' @keywords internal
+#'
+#' @rdname groups_update
+#'
+#' @aliases groups_update
 groups_update <- function(id, display_name = NULL, 
     entitlements = NULL, 
     external_id = NULL, 
@@ -130,6 +195,7 @@ groups_update <- function(id, display_name = NULL,
     
     .api$do("PUT", paste("/api/2.0/preview/scim/v2/Groups/", id, sep = ""), body = body)
 }
+groups$update <- groups_update
 
 
 

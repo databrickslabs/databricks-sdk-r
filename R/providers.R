@@ -1,14 +1,36 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
+#' Databricks Delta Sharing: Providers REST API
+#' 
+#' @section Operations:
+#' \tabular{ll}{
+#'  \link[=providers_create]{create} \tab Create an auth provider.\cr
+#'  \link[=providers_delete]{delete} \tab Delete a provider.\cr
+#'  \link[=providers_get]{get} \tab Get a provider.\cr
+#'  \link[=providers_list]{list} \tab List providers.\cr
+#'  \link[=providers_list_shares]{list_shares} \tab List shares by Provider.\cr
+#'  \link[=providers_update]{update} \tab Update a provider.\cr
+#' }
+#'
+#' @rdname providers
+#' @export
+providers <- list()
+
 #' Create an auth provider.
 #' 
 #' Creates a new authentication provider minimally based on a name and
 #' authentication type. The caller must be an admin on the metastore.
 #'
-#' @param authentication_type The delta sharing authentication type.
+#' @param authentication_type [required] The delta sharing authentication type.
 #' @param comment Description about the provider.
-#' @param name The name of the Provider.
+#' @param name [required] The name of the Provider.
 #' @param recipient_profile_str This field is required when the __authentication_type__ is **TOKEN** or not provided.
+#'
+#' @keywords internal
+#'
+#' @rdname providers_create
+#'
+#' @aliases providers_create
 providers_create <- function(name, authentication_type, comment = NULL, 
     recipient_profile_str = NULL, 
     ...) {
@@ -20,18 +42,26 @@ providers_create <- function(name, authentication_type, comment = NULL,
     
     .api$do("POST", "/api/2.1/unity-catalog/providers", body = body)
 }
+providers$create <- providers_create
 
 #' Delete a provider.
 #' 
 #' Deletes an authentication provider, if the caller is a metastore admin or is
 #' the owner of the provider.
 #'
-#' @param name Name of the provider.
+#' @param name [required] Name of the provider.
+#'
+#' @keywords internal
+#'
+#' @rdname providers_delete
+#'
+#' @aliases providers_delete
 providers_delete <- function(name, ...) {
     
     
     .api$do("DELETE", paste("/api/2.1/unity-catalog/providers/", name, sep = ""))
 }
+providers$delete <- providers_delete
 
 #' Get a provider.
 #' 
@@ -39,12 +69,19 @@ providers_delete <- function(name, ...) {
 #' the provider, and must either be a metastore admin or the owner of the
 #' provider.
 #'
-#' @param name Name of the provider.
+#' @param name [required] Name of the provider.
+#'
+#' @keywords internal
+#'
+#' @rdname providers_get
+#'
+#' @aliases providers_get
 providers_get <- function(name, ...) {
     
     
     .api$do("GET", paste("/api/2.1/unity-catalog/providers/", name, sep = ""))
 }
+providers$get <- providers_get
 
 #' List providers.
 #' 
@@ -54,6 +91,14 @@ providers_get <- function(name, ...) {
 #' specific ordering of the elements in the array.
 #'
 #' @param data_provider_global_metastore_id If not provided, all providers will be returned.
+#' 
+#' @return `data.frame` with all of the response pages.
+#'
+#' @keywords internal
+#'
+#' @rdname providers_list
+#'
+#' @aliases providers_list
 providers_list <- function(data_provider_global_metastore_id = NULL, 
     ...) {
     query <- list(
@@ -64,6 +109,7 @@ providers_list <- function(data_provider_global_metastore_id = NULL,
     return (json$providers)
     
 }
+providers$list <- providers_list
 
 #' List shares by Provider.
 #' 
@@ -71,12 +117,19 @@ providers_list <- function(data_provider_global_metastore_id = NULL,
 #' 
 #' * the caller is a metastore admin, or * the caller is the owner.
 #'
-#' @param name Name of the provider in which to list shares.
+#' @param name [required] Name of the provider in which to list shares.
+#'
+#' @keywords internal
+#'
+#' @rdname providers_list_shares
+#'
+#' @aliases providers_list_shares
 providers_list_shares <- function(name, ...) {
     
     
     .api$do("GET", paste("/api/2.1/unity-catalog/providers/", name, "/shares", , sep = ""))
 }
+providers$list_shares <- providers_list_shares
 
 #' Update a provider.
 #' 
@@ -89,6 +142,12 @@ providers_list_shares <- function(name, ...) {
 #' @param name The name of the Provider.
 #' @param owner Username of Provider owner.
 #' @param recipient_profile_str This field is required when the __authentication_type__ is **TOKEN** or not provided.
+#'
+#' @keywords internal
+#'
+#' @rdname providers_update
+#'
+#' @aliases providers_update
 providers_update <- function(name, comment = NULL, 
     owner = NULL, 
     recipient_profile_str = NULL, 
@@ -101,6 +160,7 @@ providers_update <- function(name, comment = NULL,
     
     .api$do("PATCH", paste("/api/2.1/unity-catalog/providers/", name, sep = ""), body = body)
 }
+providers$update <- providers_update
 
 
 

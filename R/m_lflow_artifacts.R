@@ -1,5 +1,16 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
+
+#' 
+#' @section Operations:
+#' \tabular{ll}{
+#'  \link[=m_lflow_artifacts_list]{list} \tab Get all artifacts.\cr
+#' }
+#'
+#' @rdname m_lflow_artifacts
+#' @export
+m_lflow_artifacts <- list()
+
 #' Get all artifacts.
 #' 
 #' List artifacts for a run. Takes an optional `artifact_path` prefix. If it is
@@ -9,6 +20,14 @@
 #' @param path Filter artifacts matching this path (a relative path from the root artifact directory).
 #' @param run_id ID of the run whose artifacts to list.
 #' @param run_uuid [Deprecated, use run_id instead] ID of the run whose artifacts to list.
+#' 
+#' @return `data.frame` with all of the response pages.
+#'
+#' @keywords internal
+#'
+#' @rdname m_lflow_artifacts_list
+#'
+#' @aliases m_lflow_artifacts_list
 m_lflow_artifacts_list <- function(page_token = NULL, 
     path = NULL, 
     run_id = NULL, 
@@ -38,6 +57,7 @@ m_lflow_artifacts_list <- function(page_token = NULL,
     return (results)
     
 }
+m_lflow_artifacts$list <- m_lflow_artifacts_list
 
 
 

@@ -1,12 +1,70 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
+#' The Clusters API allows you to create, start, edit, list, terminate, and
+#' delete clusters.
+#' 
+#' Databricks maps cluster node instance types to compute units known as DBUs.
+#' See the instance type pricing page for a list of the supported instance types
+#' and their corresponding DBUs.
+#' 
+#' A Databricks cluster is a set of computation resources and configurations on
+#' which you run data engineering, data science, and data analytics workloads,
+#' such as production ETL pipelines, streaming analytics, ad-hoc analytics, and
+#' machine learning.
+#' 
+#' You run these workloads as a set of commands in a notebook or as an automated
+#' job. Databricks makes a distinction between all-purpose clusters and job
+#' clusters. You use all-purpose clusters to analyze data collaboratively using
+#' interactive notebooks. You use job clusters to run fast and robust automated
+#' jobs.
+#' 
+#' You can create an all-purpose cluster using the UI, CLI, or REST API. You can
+#' manually terminate and restart an all-purpose cluster. Multiple users can
+#' share such clusters to do collaborative interactive analysis.
+#' 
+#' IMPORTANT: Databricks retains cluster configuration information for up to 200
+#' all-purpose clusters terminated in the last 30 days and up to 30 job clusters
+#' recently terminated by the job scheduler. To keep an all-purpose cluster
+#' configuration even after it has been terminated for more than 30 days, an
+#' administrator can pin a cluster to the cluster list.
+#' 
+#' @section Operations:
+#' \tabular{ll}{
+#'  \link[=clusters_change_owner]{change_owner} \tab Change cluster owner.\cr
+#'  \link[=clusters_create]{create} \tab Create new cluster.\cr
+#'  \link[=clusters_delete]{delete} \tab Terminate cluster.\cr
+#'  \link[=clusters_edit]{edit} \tab Update cluster configuration.\cr
+#'  \link[=clusters_events]{events} \tab List cluster activity events.\cr
+#'  \link[=clusters_get]{get} \tab Get cluster info.\cr
+#'  \link[=clusters_list]{list} \tab List all clusters.\cr
+#'  \link[=clusters_list_node_types]{list_node_types} \tab List node types.\cr
+#'  \link[=clusters_list_zones]{list_zones} \tab List availability zones.\cr
+#'  \link[=clusters_permanent_delete]{permanent_delete} \tab Permanently delete cluster.\cr
+#'  \link[=clusters_pin]{pin} \tab Pin cluster.\cr
+#'  \link[=clusters_resize]{resize} \tab Resize cluster.\cr
+#'  \link[=clusters_restart]{restart} \tab Restart cluster.\cr
+#'  \link[=clusters_spark_versions]{spark_versions} \tab List available Spark versions.\cr
+#'  \link[=clusters_start]{start} \tab Start terminated cluster.\cr
+#'  \link[=clusters_unpin]{unpin} \tab Unpin cluster.\cr
+#' }
+#'
+#' @rdname clusters
+#' @export
+clusters <- list()
+
 #' Change cluster owner.
 #' 
 #' Change the owner of the cluster. You must be an admin to perform this
 #' operation.
 #'
-#' @param cluster_id <needs content added>.
-#' @param owner_username New owner of the cluster_id after this RPC.
+#' @param cluster_id [required] <needs content added>.
+#' @param owner_username [required] New owner of the cluster_id after this RPC.
+#'
+#' @keywords internal
+#'
+#' @rdname clusters_change_owner
+#'
+#' @aliases clusters_change_owner
 clusters_change_owner <- function(cluster_id, owner_username, ...) {
     body <- list(
         cluster_id = cluster_id, 
@@ -14,6 +72,7 @@ clusters_change_owner <- function(cluster_id, owner_username, ...) {
     
     .api$do("POST", "/api/2.0/clusters/change-owner", body = body)
 }
+clusters$change_owner <- clusters_change_owner
 
 #' Create new cluster.
 #' 
@@ -30,6 +89,12 @@ clusters_change_owner <- function(cluster_id, owner_username, ...) {
 #' If Databricks acquires at least 85% of the requested on-demand nodes, cluster
 #' creation will succeed. Otherwise the cluster will terminate with an
 #' informative error message.
+#'
+#' @description
+#' This is a long-running operation, which blocks until Clusters on Databricks reach  
+#' RUNNING state with the timeout of 20 minutes, that you can change via `timeout` parameter. 
+#' By default, the state of Databricks Clusters is reported to console. You can change this behavior 
+#' by changing the `callback` parameter.
 #'
 #' @param apply_policy_default_values Note: This field won't be true for webapp requests.
 #' @param autoscale Parameters needed in order to automatically scale clusters up and down based on load.
@@ -52,9 +117,15 @@ clusters_change_owner <- function(cluster_id, owner_username, ...) {
 #' @param runtime_engine Decides which runtime engine to be use, e.g.
 #' @param spark_conf An object containing a set of optional, user-specified Spark configuration key-value pairs.
 #' @param spark_env_vars An object containing a set of optional, user-specified environment variable key-value pairs.
-#' @param spark_version The Spark version of the cluster, e.g.
+#' @param spark_version [required] The Spark version of the cluster, e.g.
 #' @param ssh_public_keys SSH public key contents that will be added to each Spark node in this cluster.
 #' @param workload_type 
+#'
+#' @keywords internal
+#'
+#' @rdname clusters_create
+#'
+#' @aliases clusters_create
 clusters_create <- function(spark_version, apply_policy_default_values = NULL, 
     autoscale = NULL, 
     autotermination_minutes = NULL, 
@@ -141,6 +212,7 @@ clusters_create <- function(spark_version, apply_policy_default_values = NULL,
     msg <- paste("timed out after", timeout, "minutes:", status_message)
     rlang::abort(msg, call = rlang::caller_env())
 }
+clusters$create <- clusters_create
 
 #' Terminate cluster.
 #' 
@@ -149,7 +221,19 @@ clusters_create <- function(spark_version, apply_policy_default_values = NULL,
 #' `TERMINATED` state. If the cluster is already in a `TERMINATING` or
 #' `TERMINATED` state, nothing will happen.
 #'
-#' @param cluster_id The cluster to be terminated.
+#' @description
+#' This is a long-running operation, which blocks until Clusters on Databricks reach  
+#' TERMINATED state with the timeout of 20 minutes, that you can change via `timeout` parameter. 
+#' By default, the state of Databricks Clusters is reported to console. You can change this behavior 
+#' by changing the `callback` parameter.
+#'
+#' @param cluster_id [required] The cluster to be terminated.
+#'
+#' @keywords internal
+#'
+#' @rdname clusters_delete
+#'
+#' @aliases clusters_delete
 clusters_delete <- function(cluster_id, timeout=20, callback = cli_reporter, ...) {
     body <- list(
         cluster_id = cluster_id, ...)
@@ -190,6 +274,7 @@ clusters_delete <- function(cluster_id, timeout=20, callback = cli_reporter, ...
     msg <- paste("timed out after", timeout, "minutes:", status_message)
     rlang::abort(msg, call = rlang::caller_env())
 }
+clusters$delete <- clusters_delete
 
 #' Update cluster configuration.
 #' 
@@ -206,12 +291,18 @@ clusters_delete <- function(cluster_id, timeout=20, callback = cli_reporter, ...
 #' 
 #' Clusters created by the Databricks Jobs service cannot be edited.
 #'
+#' @description
+#' This is a long-running operation, which blocks until Clusters on Databricks reach  
+#' RUNNING state with the timeout of 20 minutes, that you can change via `timeout` parameter. 
+#' By default, the state of Databricks Clusters is reported to console. You can change this behavior 
+#' by changing the `callback` parameter.
+#'
 #' @param apply_policy_default_values Note: This field won't be true for webapp requests.
 #' @param autoscale Parameters needed in order to automatically scale clusters up and down based on load.
 #' @param autotermination_minutes Automatically terminates the cluster after it is inactive for this time in minutes.
 #' @param aws_attributes Attributes related to clusters running on Amazon Web Services.
 #' @param azure_attributes Attributes related to clusters running on Microsoft Azure.
-#' @param cluster_id ID of the cluser.
+#' @param cluster_id [required] ID of the cluser.
 #' @param cluster_log_conf The configuration for delivering spark logs to a long-term storage destination.
 #' @param cluster_name Cluster name requested by the user.
 #' @param cluster_source Determines whether the cluster was created by a user through the UI, created by the Databricks Jobs Scheduler, or through an API request.
@@ -228,9 +319,15 @@ clusters_delete <- function(cluster_id, timeout=20, callback = cli_reporter, ...
 #' @param runtime_engine Decides which runtime engine to be use, e.g.
 #' @param spark_conf An object containing a set of optional, user-specified Spark configuration key-value pairs.
 #' @param spark_env_vars An object containing a set of optional, user-specified environment variable key-value pairs.
-#' @param spark_version The Spark version of the cluster, e.g.
+#' @param spark_version [required] The Spark version of the cluster, e.g.
 #' @param ssh_public_keys SSH public key contents that will be added to each Spark node in this cluster.
 #' @param workload_type 
+#'
+#' @keywords internal
+#'
+#' @rdname clusters_edit
+#'
+#' @aliases clusters_edit
 clusters_edit <- function(cluster_id, spark_version, apply_policy_default_values = NULL, 
     autoscale = NULL, 
     autotermination_minutes = NULL, 
@@ -318,6 +415,7 @@ clusters_edit <- function(cluster_id, spark_version, apply_policy_default_values
     msg <- paste("timed out after", timeout, "minutes:", status_message)
     rlang::abort(msg, call = rlang::caller_env())
 }
+clusters$edit <- clusters_edit
 
 #' List cluster activity events.
 #' 
@@ -325,13 +423,21 @@ clusters_edit <- function(cluster_id, spark_version, apply_policy_default_values
 #' paginated. If there are more events to read, the response includes all the
 #' nparameters necessary to request the next page of events.
 #'
-#' @param cluster_id The ID of the cluster to retrieve events about.
+#' @param cluster_id [required] The ID of the cluster to retrieve events about.
 #' @param end_time The end time in epoch milliseconds.
 #' @param event_types An optional set of event types to filter on.
 #' @param limit The maximum number of events to include in a page of events.
 #' @param offset The offset in the result set.
 #' @param order The order to list events in; either "ASC" or "DESC".
 #' @param start_time The start time in epoch milliseconds.
+#' 
+#' @return `data.frame` with all of the response pages.
+#'
+#' @keywords internal
+#'
+#' @rdname clusters_events
+#'
+#' @aliases clusters_events
 clusters_events <- function(cluster_id, end_time = NULL, 
     event_types = NULL, 
     limit = NULL, 
@@ -366,6 +472,7 @@ clusters_events <- function(cluster_id, end_time = NULL,
     return (results)
     
 }
+clusters$events <- clusters_events
 
 #' Get cluster info.
 #' 
@@ -373,13 +480,20 @@ clusters_events <- function(cluster_id, end_time = NULL,
 #' be described while they are running, or up to 60 days after they are
 #' terminated.
 #'
-#' @param cluster_id The cluster about which to retrieve information.
+#' @param cluster_id [required] The cluster about which to retrieve information.
+#'
+#' @keywords internal
+#'
+#' @rdname clusters_get
+#'
+#' @aliases clusters_get
 clusters_get <- function(cluster_id, ...) {
     query <- list(
         cluster_id = cluster_id, ...)
     
     .api$do("GET", "/api/2.0/clusters/get", query = query)
 }
+clusters$get <- clusters_get
 
 #' List all clusters.
 #' 
@@ -395,6 +509,14 @@ clusters_get <- function(cluster_id, ...) {
 #' terminated job clusters.
 #'
 #' @param can_use_client Filter clusters based on what type of client it can be used for.
+#' 
+#' @return `data.frame` with all of the response pages.
+#'
+#' @keywords internal
+#'
+#' @rdname clusters_list
+#'
+#' @aliases clusters_list
 clusters_list <- function(can_use_client = NULL, 
     ...) {
     query <- list(
@@ -405,24 +527,37 @@ clusters_list <- function(can_use_client = NULL,
     return (json$clusters)
     
 }
+clusters$list <- clusters_list
 
 #' List node types.
 #' 
 #' Returns a list of supported Spark node types. These node types can be used to
-#' launch a cluster.
+#' launch a cluster.#'
+#' @keywords internal
+#'
+#' @rdname clusters_list_node_types
+#'
+#' @aliases clusters_list_node_types
 clusters_list_node_types <- function(...) {
     
     .api$do("GET", "/api/2.0/clusters/list-node-types")
 }
+clusters$list_node_types <- clusters_list_node_types
 
 #' List availability zones.
 #' 
 #' Returns a list of availability zones where clusters can be created in (For
-#' example, us-west-2a). These zones can be used to launch a cluster.
+#' example, us-west-2a). These zones can be used to launch a cluster.#'
+#' @keywords internal
+#'
+#' @rdname clusters_list_zones
+#'
+#' @aliases clusters_list_zones
 clusters_list_zones <- function(...) {
     
     .api$do("GET", "/api/2.0/clusters/list-zones")
 }
+clusters$list_zones <- clusters_list_zones
 
 #' Permanently delete cluster.
 #' 
@@ -433,13 +568,20 @@ clusters_list_zones <- function(...) {
 #' cluster list, and API users can no longer perform any action on permanently
 #' deleted clusters.
 #'
-#' @param cluster_id The cluster to be deleted.
+#' @param cluster_id [required] The cluster to be deleted.
+#'
+#' @keywords internal
+#'
+#' @rdname clusters_permanent_delete
+#'
+#' @aliases clusters_permanent_delete
 clusters_permanent_delete <- function(cluster_id, ...) {
     body <- list(
         cluster_id = cluster_id, ...)
     
     .api$do("POST", "/api/2.0/clusters/permanent-delete", body = body)
 }
+clusters$permanent_delete <- clusters_permanent_delete
 
 #' Pin cluster.
 #' 
@@ -447,22 +589,41 @@ clusters_permanent_delete <- function(cluster_id, ...) {
 #' ListClusters API. Pinning a cluster that is already pinned will have no
 #' effect. This API can only be called by workspace admins.
 #'
-#' @param cluster_id <needs content added>.
+#' @param cluster_id [required] <needs content added>.
+#'
+#' @keywords internal
+#'
+#' @rdname clusters_pin
+#'
+#' @aliases clusters_pin
 clusters_pin <- function(cluster_id, ...) {
     body <- list(
         cluster_id = cluster_id, ...)
     
     .api$do("POST", "/api/2.0/clusters/pin", body = body)
 }
+clusters$pin <- clusters_pin
 
 #' Resize cluster.
 #' 
 #' Resizes a cluster to have a desired number of workers. This will fail unless
 #' the cluster is in a `RUNNING` state.
 #'
+#' @description
+#' This is a long-running operation, which blocks until Clusters on Databricks reach  
+#' RUNNING state with the timeout of 20 minutes, that you can change via `timeout` parameter. 
+#' By default, the state of Databricks Clusters is reported to console. You can change this behavior 
+#' by changing the `callback` parameter.
+#'
 #' @param autoscale Parameters needed in order to automatically scale clusters up and down based on load.
-#' @param cluster_id The cluster to be resized.
+#' @param cluster_id [required] The cluster to be resized.
 #' @param num_workers Number of worker nodes that this cluster should have.
+#'
+#' @keywords internal
+#'
+#' @rdname clusters_resize
+#'
+#' @aliases clusters_resize
 clusters_resize <- function(cluster_id, autoscale = NULL, 
     num_workers = NULL, 
     timeout=20, callback = cli_reporter, ...) {
@@ -507,14 +668,27 @@ clusters_resize <- function(cluster_id, autoscale = NULL,
     msg <- paste("timed out after", timeout, "minutes:", status_message)
     rlang::abort(msg, call = rlang::caller_env())
 }
+clusters$resize <- clusters_resize
 
 #' Restart cluster.
 #' 
 #' Restarts a Spark cluster with the supplied ID. If the cluster is not
 #' currently in a `RUNNING` state, nothing will happen.
 #'
-#' @param cluster_id The cluster to be started.
+#' @description
+#' This is a long-running operation, which blocks until Clusters on Databricks reach  
+#' RUNNING state with the timeout of 20 minutes, that you can change via `timeout` parameter. 
+#' By default, the state of Databricks Clusters is reported to console. You can change this behavior 
+#' by changing the `callback` parameter.
+#'
+#' @param cluster_id [required] The cluster to be started.
 #' @param restart_user <needs content added>.
+#'
+#' @keywords internal
+#'
+#' @rdname clusters_restart
+#'
+#' @aliases clusters_restart
 clusters_restart <- function(cluster_id, restart_user = NULL, 
     timeout=20, callback = cli_reporter, ...) {
     body <- list(
@@ -557,15 +731,22 @@ clusters_restart <- function(cluster_id, restart_user = NULL,
     msg <- paste("timed out after", timeout, "minutes:", status_message)
     rlang::abort(msg, call = rlang::caller_env())
 }
+clusters$restart <- clusters_restart
 
 #' List available Spark versions.
 #' 
 #' Returns the list of available Spark versions. These versions can be used to
-#' launch a cluster.
+#' launch a cluster.#'
+#' @keywords internal
+#'
+#' @rdname clusters_spark_versions
+#'
+#' @aliases clusters_spark_versions
 clusters_spark_versions <- function(...) {
     
     .api$do("GET", "/api/2.0/clusters/spark-versions")
 }
+clusters$spark_versions <- clusters_spark_versions
 
 #' Start terminated cluster.
 #' 
@@ -578,7 +759,19 @@ clusters_spark_versions <- function(...) {
 #' nodes. * If the cluster is not currently in a `TERMINATED` state, nothing
 #' will happen. * Clusters launched to run a job cannot be started.
 #'
-#' @param cluster_id The cluster to be started.
+#' @description
+#' This is a long-running operation, which blocks until Clusters on Databricks reach  
+#' RUNNING state with the timeout of 20 minutes, that you can change via `timeout` parameter. 
+#' By default, the state of Databricks Clusters is reported to console. You can change this behavior 
+#' by changing the `callback` parameter.
+#'
+#' @param cluster_id [required] The cluster to be started.
+#'
+#' @keywords internal
+#'
+#' @rdname clusters_start
+#'
+#' @aliases clusters_start
 clusters_start <- function(cluster_id, timeout=20, callback = cli_reporter, ...) {
     body <- list(
         cluster_id = cluster_id, ...)
@@ -619,6 +812,7 @@ clusters_start <- function(cluster_id, timeout=20, callback = cli_reporter, ...)
     msg <- paste("timed out after", timeout, "minutes:", status_message)
     rlang::abort(msg, call = rlang::caller_env())
 }
+clusters$start <- clusters_start
 
 #' Unpin cluster.
 #' 
@@ -626,13 +820,20 @@ clusters_start <- function(cluster_id, timeout=20, callback = cli_reporter, ...)
 #' ListClusters API. Unpinning a cluster that is not pinned will have no effect.
 #' This API can only be called by workspace admins.
 #'
-#' @param cluster_id <needs content added>.
+#' @param cluster_id [required] <needs content added>.
+#'
+#' @keywords internal
+#'
+#' @rdname clusters_unpin
+#'
+#' @aliases clusters_unpin
 clusters_unpin <- function(cluster_id, ...) {
     body <- list(
         cluster_id = cluster_id, ...)
     
     .api$do("POST", "/api/2.0/clusters/unpin", body = body)
 }
+clusters$unpin <- clusters_unpin
 
 
 

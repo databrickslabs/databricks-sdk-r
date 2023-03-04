@@ -1,14 +1,43 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
+#' This API allows execution of Python, Scala, SQL, or R commands on running
+#' Databricks Clusters.
+#' 
+#' @section Operations:
+#' \tabular{ll}{
+#'  \link[=command_execution_cancel]{cancel} \tab Cancel a command.\cr
+#'  \link[=command_execution_command_status]{command_status} \tab Get command info.\cr
+#'  \link[=command_execution_context_status]{context_status} \tab Get status.\cr
+#'  \link[=command_execution_create]{create} \tab Create an execution context.\cr
+#'  \link[=command_execution_destroy]{destroy} \tab Delete an execution context.\cr
+#'  \link[=command_execution_execute]{execute} \tab Run a command.\cr
+#' }
+#'
+#' @rdname command_execution
+#' @export
+command_execution <- list()
+
 #' Cancel a command.
 #' 
 #' Cancels a currently running command within an execution context.
 #' 
 #' The command ID is obtained from a prior successful call to __execute__.
 #'
+#' @description
+#' This is a long-running operation, which blocks until Command Execution on Databricks reach  
+#' Cancelled state with the timeout of 20 minutes, that you can change via `timeout` parameter. 
+#' By default, the state of Databricks Command Execution is reported to console. You can change this behavior 
+#' by changing the `callback` parameter.
+#'
 #' @param cluster_id 
 #' @param command_id 
 #' @param context_id 
+#'
+#' @keywords internal
+#'
+#' @rdname command_execution_cancel
+#'
+#' @aliases command_execution_cancel
 command_execution_cancel <- function(cluster_id = NULL, 
     command_id = NULL, 
     context_id = NULL, 
@@ -57,6 +86,7 @@ command_execution_cancel <- function(cluster_id = NULL,
     msg <- paste("timed out after", timeout, "minutes:", status_message)
     rlang::abort(msg, call = rlang::caller_env())
 }
+command_execution$cancel <- command_execution_cancel
 
 #' Get command info.
 #' 
@@ -65,9 +95,15 @@ command_execution_cancel <- function(cluster_id = NULL,
 #' 
 #' The command ID is obtained from a prior successful call to __execute__.
 #'
-#' @param cluster_id 
-#' @param command_id 
-#' @param context_id 
+#' @param cluster_id [required] 
+#' @param command_id [required] 
+#' @param context_id [required] 
+#'
+#' @keywords internal
+#'
+#' @rdname command_execution_command_status
+#'
+#' @aliases command_execution_command_status
 command_execution_command_status <- function(cluster_id, context_id, command_id, ...) {
     query <- list(
         clusterId = cluster_id, 
@@ -76,13 +112,20 @@ command_execution_command_status <- function(cluster_id, context_id, command_id,
     
     .api$do("GET", "/api/1.2/commands/status", query = query)
 }
+command_execution$command_status <- command_execution_command_status
 
 #' Get status.
 #' 
 #' Gets the status for an execution context.
 #'
-#' @param cluster_id 
-#' @param context_id 
+#' @param cluster_id [required] 
+#' @param context_id [required] 
+#'
+#' @keywords internal
+#'
+#' @rdname command_execution_context_status
+#'
+#' @aliases command_execution_context_status
 command_execution_context_status <- function(cluster_id, context_id, ...) {
     query <- list(
         clusterId = cluster_id, 
@@ -90,6 +133,7 @@ command_execution_context_status <- function(cluster_id, context_id, ...) {
     
     .api$do("GET", "/api/1.2/contexts/status", query = query)
 }
+command_execution$context_status <- command_execution_context_status
 
 #' Create an execution context.
 #' 
@@ -97,8 +141,20 @@ command_execution_context_status <- function(cluster_id, context_id, ...) {
 #' 
 #' If successful, this method returns the ID of the new execution context.
 #'
+#' @description
+#' This is a long-running operation, which blocks until Command Execution on Databricks reach  
+#' Running state with the timeout of 20 minutes, that you can change via `timeout` parameter. 
+#' By default, the state of Databricks Command Execution is reported to console. You can change this behavior 
+#' by changing the `callback` parameter.
+#'
 #' @param cluster_id Running cluster id.
 #' @param language 
+#'
+#' @keywords internal
+#'
+#' @rdname command_execution_create
+#'
+#' @aliases command_execution_create
 command_execution_create <- function(cluster_id = NULL, 
     language = NULL, 
     timeout=20, callback = cli_reporter, ...) {
@@ -142,13 +198,20 @@ command_execution_create <- function(cluster_id = NULL,
     msg <- paste("timed out after", timeout, "minutes:", status_message)
     rlang::abort(msg, call = rlang::caller_env())
 }
+command_execution$create <- command_execution_create
 
 #' Delete an execution context.
 #' 
 #' Deletes an execution context.
 #'
-#' @param cluster_id 
-#' @param context_id 
+#' @param cluster_id [required] 
+#' @param context_id [required] 
+#'
+#' @keywords internal
+#'
+#' @rdname command_execution_destroy
+#'
+#' @aliases command_execution_destroy
 command_execution_destroy <- function(cluster_id, context_id, ...) {
     body <- list(
         clusterId = cluster_id, 
@@ -156,6 +219,7 @@ command_execution_destroy <- function(cluster_id, context_id, ...) {
     
     .api$do("POST", "/api/1.2/contexts/destroy", body = body)
 }
+command_execution$destroy <- command_execution_destroy
 
 #' Run a command.
 #' 
@@ -165,10 +229,22 @@ command_execution_destroy <- function(cluster_id, context_id, ...) {
 #' If successful, it returns an ID for tracking the status of the command's
 #' execution.
 #'
+#' @description
+#' This is a long-running operation, which blocks until Command Execution on Databricks reach  
+#' Finished or Error state with the timeout of 20 minutes, that you can change via `timeout` parameter. 
+#' By default, the state of Databricks Command Execution is reported to console. You can change this behavior 
+#' by changing the `callback` parameter.
+#'
 #' @param cluster_id Running cluster id.
 #' @param command Executable code.
 #' @param context_id Running context id.
 #' @param language 
+#'
+#' @keywords internal
+#'
+#' @rdname command_execution_execute
+#'
+#' @aliases command_execution_execute
 command_execution_execute <- function(cluster_id = NULL, 
     command = NULL, 
     context_id = NULL, 
@@ -216,6 +292,7 @@ command_execution_execute <- function(cluster_id = NULL,
     msg <- paste("timed out after", timeout, "minutes:", status_message)
     rlang::abort(msg, call = rlang::caller_env())
 }
+command_execution$execute <- command_execution_execute
 
 
 

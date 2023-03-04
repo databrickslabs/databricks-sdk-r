@@ -1,5 +1,26 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
+#' DBFS API makes it simple to interact with various data sources without having
+#' to include a users credentials every time to read a file.
+#' 
+#' @section Operations:
+#' \tabular{ll}{
+#'  \link[=dbfs_add_block]{add_block} \tab Append data block.\cr
+#'  \link[=dbfs_close]{close} \tab Close the stream.\cr
+#'  \link[=dbfs_create]{create} \tab Open a stream.\cr
+#'  \link[=dbfs_delete]{delete} \tab Delete a file/directory.\cr
+#'  \link[=dbfs_get_status]{get_status} \tab Get the information of a file or directory.\cr
+#'  \link[=dbfs_list]{list} \tab List directory contents or file details.\cr
+#'  \link[=dbfs_mkdirs]{mkdirs} \tab Create a directory.\cr
+#'  \link[=dbfs_move]{move} \tab Move a file.\cr
+#'  \link[=dbfs_put]{put} \tab Upload a file.\cr
+#'  \link[=dbfs_read]{read} \tab Get the contents of a file.\cr
+#' }
+#'
+#' @rdname dbfs
+#' @export
+dbfs <- list()
+
 #' Append data block.
 #' 
 #' Appends a block of data to the stream specified by the input handle. If the
@@ -9,8 +30,14 @@
 #' If the block of data exceeds 1 MB, this call will throw an exception with
 #' `MAX_BLOCK_SIZE_EXCEEDED`.
 #'
-#' @param data The base64-encoded data to append to the stream.
-#' @param handle The handle on an open stream.
+#' @param data [required] The base64-encoded data to append to the stream.
+#' @param handle [required] The handle on an open stream.
+#'
+#' @keywords internal
+#'
+#' @rdname dbfs_add_block
+#'
+#' @aliases dbfs_add_block
 dbfs_add_block <- function(handle, data, ...) {
     body <- list(
         data = data, 
@@ -18,19 +45,27 @@ dbfs_add_block <- function(handle, data, ...) {
     
     .api$do("POST", "/api/2.0/dbfs/add-block", body = body)
 }
+dbfs$add_block <- dbfs_add_block
 
 #' Close the stream.
 #' 
 #' Closes the stream specified by the input handle. If the handle does not
 #' exist, this call throws an exception with `RESOURCE_DOES_NOT_EXIST`.
 #'
-#' @param handle The handle on an open stream.
+#' @param handle [required] The handle on an open stream.
+#'
+#' @keywords internal
+#'
+#' @rdname dbfs_close
+#'
+#' @aliases dbfs_close
 dbfs_close <- function(handle, ...) {
     body <- list(
         handle = handle, ...)
     
     .api$do("POST", "/api/2.0/dbfs/close", body = body)
 }
+dbfs$close <- dbfs_close
 
 #' Open a stream.
 #' 
@@ -46,7 +81,13 @@ dbfs_close <- function(handle, ...) {
 #' have.
 #'
 #' @param overwrite The flag that specifies whether to overwrite existing file/files.
-#' @param path The path of the new file.
+#' @param path [required] The path of the new file.
+#'
+#' @keywords internal
+#'
+#' @rdname dbfs_create
+#'
+#' @aliases dbfs_create
 dbfs_create <- function(path, overwrite = NULL, 
     ...) {
     body <- list(
@@ -55,6 +96,7 @@ dbfs_create <- function(path, overwrite = NULL,
     
     .api$do("POST", "/api/2.0/dbfs/create", body = body)
 }
+dbfs$create <- dbfs_create
 
 #' Delete a file/directory.
 #' 
@@ -77,8 +119,14 @@ dbfs_create <- function(path, overwrite = NULL,
 #' such as selective deletes, and the possibility to automate periodic delete
 #' jobs.
 #'
-#' @param path The path of the file or directory to delete.
+#' @param path [required] The path of the file or directory to delete.
 #' @param recursive Whether or not to recursively delete the directory's contents.
+#'
+#' @keywords internal
+#'
+#' @rdname dbfs_delete
+#'
+#' @aliases dbfs_delete
 dbfs_delete <- function(path, recursive = NULL, 
     ...) {
     body <- list(
@@ -87,19 +135,27 @@ dbfs_delete <- function(path, recursive = NULL,
     
     .api$do("POST", "/api/2.0/dbfs/delete", body = body)
 }
+dbfs$delete <- dbfs_delete
 
 #' Get the information of a file or directory.
 #' 
 #' Gets the file information for a file or directory. If the file or directory
 #' does not exist, this call throws an exception with `RESOURCE_DOES_NOT_EXIST`.
 #'
-#' @param path The path of the file or directory.
+#' @param path [required] The path of the file or directory.
+#'
+#' @keywords internal
+#'
+#' @rdname dbfs_get_status
+#'
+#' @aliases dbfs_get_status
 dbfs_get_status <- function(path, ...) {
     query <- list(
         path = path, ...)
     
     .api$do("GET", "/api/2.0/dbfs/get-status", query = query)
 }
+dbfs$get_status <- dbfs_get_status
 
 #' List directory contents or file details.
 #' 
@@ -115,7 +171,15 @@ dbfs_get_status <- function(path, ...) {
 #' system utility (dbutils.fs)](/dev-tools/databricks-utils.html#dbutils-fs),
 #' which provides the same functionality without timing out.
 #'
-#' @param path The path of the file or directory.
+#' @param path [required] The path of the file or directory.
+#' 
+#' @return `data.frame` with all of the response pages.
+#'
+#' @keywords internal
+#'
+#' @rdname dbfs_list
+#'
+#' @aliases dbfs_list
 dbfs_list <- function(path, ...) {
     query <- list(
         path = path, ...)
@@ -125,6 +189,7 @@ dbfs_list <- function(path, ...) {
     return (json$files)
     
 }
+dbfs$list <- dbfs_list
 
 #' Create a directory.
 #' 
@@ -134,13 +199,20 @@ dbfs_list <- function(path, ...) {
 #' this operation fails, it might have succeeded in creating some of the
 #' necessary parent directories.
 #'
-#' @param path The path of the new directory.
+#' @param path [required] The path of the new directory.
+#'
+#' @keywords internal
+#'
+#' @rdname dbfs_mkdirs
+#'
+#' @aliases dbfs_mkdirs
 dbfs_mkdirs <- function(path, ...) {
     body <- list(
         path = path, ...)
     
     .api$do("POST", "/api/2.0/dbfs/mkdirs", body = body)
 }
+dbfs$mkdirs <- dbfs_mkdirs
 
 #' Move a file.
 #' 
@@ -150,8 +222,14 @@ dbfs_mkdirs <- function(path, ...) {
 #' this call throws an exception with `RESOURCE_ALREADY_EXISTS`. If the given
 #' source path is a directory, this call always recursively moves all files.",
 #'
-#' @param destination_path The destination path of the file or directory.
-#' @param source_path The source path of the file or directory.
+#' @param destination_path [required] The destination path of the file or directory.
+#' @param source_path [required] The source path of the file or directory.
+#'
+#' @keywords internal
+#'
+#' @rdname dbfs_move
+#'
+#' @aliases dbfs_move
 dbfs_move <- function(source_path, destination_path, ...) {
     body <- list(
         destination_path = destination_path, 
@@ -159,6 +237,7 @@ dbfs_move <- function(source_path, destination_path, ...) {
     
     .api$do("POST", "/api/2.0/dbfs/move", body = body)
 }
+dbfs$move <- dbfs_move
 
 #' Upload a file.
 #' 
@@ -177,7 +256,13 @@ dbfs_move <- function(source_path, destination_path, ...) {
 #'
 #' @param contents This parameter might be absent, and instead a posted file will be used.
 #' @param overwrite The flag that specifies whether to overwrite existing file/files.
-#' @param path The path of the new file.
+#' @param path [required] The path of the new file.
+#'
+#' @keywords internal
+#'
+#' @rdname dbfs_put
+#'
+#' @aliases dbfs_put
 dbfs_put <- function(path, contents = NULL, 
     overwrite = NULL, 
     ...) {
@@ -188,6 +273,7 @@ dbfs_put <- function(path, contents = NULL,
     
     .api$do("POST", "/api/2.0/dbfs/put", body = body)
 }
+dbfs$put <- dbfs_put
 
 #' Get the contents of a file.
 #' 
@@ -202,7 +288,13 @@ dbfs_put <- function(path, contents = NULL,
 #'
 #' @param length The number of bytes to read starting from the offset.
 #' @param offset The offset to read from in bytes.
-#' @param path The path of the file to read.
+#' @param path [required] The path of the file to read.
+#'
+#' @keywords internal
+#'
+#' @rdname dbfs_read
+#'
+#' @aliases dbfs_read
 dbfs_read <- function(path, length = NULL, 
     offset = NULL, 
     ...) {
@@ -213,6 +305,7 @@ dbfs_read <- function(path, length = NULL,
     
     .api$do("GET", "/api/2.0/dbfs/read", query = query)
 }
+dbfs$read <- dbfs_read
 
 
 

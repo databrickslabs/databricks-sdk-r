@@ -1,5 +1,18 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
+#' These endpoints are modified versions of the MLflow API that accept
+#' additional input parameters or return additional information.
+#' 
+#' @section Operations:
+#' \tabular{ll}{
+#'  \link[=m_lflow_databricks_get]{get} \tab Get model.\cr
+#'  \link[=m_lflow_databricks_transition_stage]{transition_stage} \tab Transition a stage.\cr
+#' }
+#'
+#' @rdname m_lflow_databricks
+#' @export
+m_lflow_databricks <- list()
+
 #' Get model.
 #' 
 #' Get the details of a model. This is a Databricks Workspace version of the
@@ -8,13 +21,20 @@
 #' 
 #' [MLflow endpoint]: https://www.mlflow.org/docs/latest/rest-api.html#get-registeredmodel
 #'
-#' @param name Name of the model.
+#' @param name [required] Name of the model.
+#'
+#' @keywords internal
+#'
+#' @rdname m_lflow_databricks_get
+#'
+#' @aliases m_lflow_databricks_get
 m_lflow_databricks_get <- function(name, ...) {
     query <- list(
         name = name, ...)
     
     .api$do("GET", "/api/2.0/mlflow/databricks/registered-models/get", query = query)
 }
+m_lflow_databricks$get <- m_lflow_databricks_get
 
 #' Transition a stage.
 #' 
@@ -24,11 +44,17 @@ m_lflow_databricks_get <- function(name, ...) {
 #' 
 #' [MLflow endpoint]: https://www.mlflow.org/docs/latest/rest-api.html#transition-modelversion-stage
 #'
-#' @param archive_existing_versions Specifies whether to archive all current model versions in the target stage.
+#' @param archive_existing_versions [required] Specifies whether to archive all current model versions in the target stage.
 #' @param comment User-provided comment on the action.
-#' @param name Name of the model.
-#' @param stage Target stage of the transition.
-#' @param version Version of the model.
+#' @param name [required] Name of the model.
+#' @param stage [required] Target stage of the transition.
+#' @param version [required] Version of the model.
+#'
+#' @keywords internal
+#'
+#' @rdname m_lflow_databricks_transition_stage
+#'
+#' @aliases m_lflow_databricks_transition_stage
 m_lflow_databricks_transition_stage <- function(name, version, stage, archive_existing_versions, comment = NULL, 
     ...) {
     body <- list(
@@ -40,6 +66,7 @@ m_lflow_databricks_transition_stage <- function(name, version, stage, archive_ex
     
     .api$do("POST", "/api/2.0/mlflow/databricks/model-versions/transition-stage", body = body)
 }
+m_lflow_databricks$transition_stage <- m_lflow_databricks_transition_stage
 
 
 
