@@ -33,8 +33,7 @@ policy_families <- list()
 #' @rdname policy_families_get
 #'
 #' @aliases policy_families_get
-policy_families_get <- function(policy_family_id, ...) {
-
+policy_families_get <- function(policy_family_id) {
 
   .api$do("GET", paste("/api/2.0/policy-families/", policy_family_id, sep = ""))
 }
@@ -52,11 +51,8 @@ policy_families$get <- policy_families_get
 #' @rdname policy_families_list
 #'
 #' @aliases policy_families_list
-policy_families_list <- function(max_results = NULL, page_token = NULL, ...) {
-  query <- list(max_results = max_results, page_token = page_token, ...)
-
-
-
+policy_families_list <- function(max_results = NULL, page_token = NULL) {
+  query <- list(max_results = max_results, page_token = page_token)
   results <- data.frame()
   while (TRUE) {
     json <- .api$do("GET", "/api/2.0/policy-families", query = query)

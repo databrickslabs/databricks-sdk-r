@@ -49,8 +49,7 @@ serving_endpoints <- list()
 #' @rdname serving_endpoints_build_logs
 #'
 #' @aliases serving_endpoints_build_logs
-serving_endpoints_build_logs <- function(name, served_model_name, ...) {
-
+serving_endpoints_build_logs <- function(name, served_model_name) {
 
   .api$do("GET", paste("/api/2.0/serving-endpoints/", name, "/served-models/",
     served_model_name, "/build-logs", , sep = ""))
@@ -73,10 +72,8 @@ serving_endpoints$build_logs <- serving_endpoints_build_logs
 #' @rdname serving_endpoints_create
 #'
 #' @aliases serving_endpoints_create
-serving_endpoints_create <- function(name, config, timeout = 20, callback = cli_reporter,
-  ...) {
-  body <- list(config = config, name = name, ...)
-
+serving_endpoints_create <- function(name, config, timeout = 20, callback = cli_reporter) {
+  body <- list(config = config, name = name)
   op_response <- .api$do("POST", "/api/2.0/serving-endpoints", body = body)
   started <- as.numeric(Sys.time())
   target_states <- c("NOT_UPDATING", c())
@@ -125,8 +122,7 @@ serving_endpoints$create <- serving_endpoints_create
 #' @rdname serving_endpoints_delete
 #'
 #' @aliases serving_endpoints_delete
-serving_endpoints_delete <- function(name, ...) {
-
+serving_endpoints_delete <- function(name) {
 
   .api$do("DELETE", paste("/api/2.0/serving-endpoints/", name, sep = ""))
 }
@@ -146,8 +142,7 @@ serving_endpoints$delete <- serving_endpoints_delete
 #' @rdname serving_endpoints_export_metrics
 #'
 #' @aliases serving_endpoints_export_metrics
-serving_endpoints_export_metrics <- function(name, ...) {
-
+serving_endpoints_export_metrics <- function(name) {
 
   .api$do("GET", paste("/api/2.0/serving-endpoints/", name, "/metrics", , sep = ""))
 }
@@ -164,8 +159,7 @@ serving_endpoints$export_metrics <- serving_endpoints_export_metrics
 #' @rdname serving_endpoints_get
 #'
 #' @aliases serving_endpoints_get
-serving_endpoints_get <- function(name, ...) {
-
+serving_endpoints_get <- function(name) {
 
   .api$do("GET", paste("/api/2.0/serving-endpoints/", name, sep = ""))
 }
@@ -177,8 +171,7 @@ serving_endpoints$get <- serving_endpoints_get
 #' @rdname serving_endpoints_list
 #'
 #' @aliases serving_endpoints_list
-serving_endpoints_list <- function(...) {
-
+serving_endpoints_list <- function() {
   .api$do("GET", "/api/2.0/serving-endpoints")
 }
 serving_endpoints$list <- serving_endpoints_list
@@ -197,8 +190,7 @@ serving_endpoints$list <- serving_endpoints_list
 #' @rdname serving_endpoints_logs
 #'
 #' @aliases serving_endpoints_logs
-serving_endpoints_logs <- function(name, served_model_name, ...) {
-
+serving_endpoints_logs <- function(name, served_model_name) {
 
   .api$do("GET", paste("/api/2.0/serving-endpoints/", name, "/served-models/",
     served_model_name, "/logs", , sep = ""))
@@ -214,8 +206,7 @@ serving_endpoints$logs <- serving_endpoints_logs
 #' @rdname serving_endpoints_query
 #'
 #' @aliases serving_endpoints_query
-serving_endpoints_query <- function(name, ...) {
-
+serving_endpoints_query <- function(name) {
 
   .api$do("POST", paste("/serving-endpoints/", name, "/invocations", , sep = ""))
 }
@@ -244,10 +235,8 @@ serving_endpoints$query <- serving_endpoints_query
 #'
 #' @aliases serving_endpoints_update_config
 serving_endpoints_update_config <- function(served_models, name, traffic_config = NULL,
-  timeout = 20, callback = cli_reporter, ...) {
-  body <- list(served_models = served_models, traffic_config = traffic_config,
-    ...)
-
+  timeout = 20, callback = cli_reporter) {
+  body <- list(, served_models = served_models, traffic_config = traffic_config)
   op_response <- .api$do("PUT", paste("/api/2.0/serving-endpoints/", name, "/config",
     , sep = ""), body = body)
   started <- as.numeric(Sys.time())

@@ -52,10 +52,9 @@ secrets <- list()
 #'
 #' @aliases secrets_create_scope
 secrets_create_scope <- function(scope, initial_manage_principal = NULL, keyvault_metadata = NULL,
-  scope_backend_type = NULL, ...) {
+  scope_backend_type = NULL) {
   body <- list(initial_manage_principal = initial_manage_principal, keyvault_metadata = keyvault_metadata,
-    scope = scope, scope_backend_type = scope_backend_type, ...)
-
+    scope = scope, scope_backend_type = scope_backend_type)
   .api$do("POST", "/api/2.0/secrets/scopes/create", body = body)
 }
 secrets$create_scope <- secrets_create_scope
@@ -77,9 +76,8 @@ secrets$create_scope <- secrets_create_scope
 #' @rdname secrets_delete_acl
 #'
 #' @aliases secrets_delete_acl
-secrets_delete_acl <- function(scope, principal, ...) {
-  body <- list(principal = principal, scope = scope, ...)
-
+secrets_delete_acl <- function(scope, principal) {
+  body <- list(principal = principal, scope = scope)
   .api$do("POST", "/api/2.0/secrets/acls/delete", body = body)
 }
 secrets$delete_acl <- secrets_delete_acl
@@ -99,9 +97,8 @@ secrets$delete_acl <- secrets_delete_acl
 #' @rdname secrets_delete_scope
 #'
 #' @aliases secrets_delete_scope
-secrets_delete_scope <- function(scope, ...) {
-  body <- list(scope = scope, ...)
-
+secrets_delete_scope <- function(scope) {
+  body <- list(scope = scope)
   .api$do("POST", "/api/2.0/secrets/scopes/delete", body = body)
 }
 secrets$delete_scope <- secrets_delete_scope
@@ -123,9 +120,8 @@ secrets$delete_scope <- secrets_delete_scope
 #' @rdname secrets_delete_secret
 #'
 #' @aliases secrets_delete_secret
-secrets_delete_secret <- function(scope, key, ...) {
-  body <- list(key = key, scope = scope, ...)
-
+secrets_delete_secret <- function(scope, key) {
+  body <- list(key = key, scope = scope)
   .api$do("POST", "/api/2.0/secrets/delete", body = body)
 }
 secrets$delete_secret <- secrets_delete_secret
@@ -147,9 +143,8 @@ secrets$delete_secret <- secrets_delete_secret
 #' @rdname secrets_get_acl
 #'
 #' @aliases secrets_get_acl
-secrets_get_acl <- function(scope, principal, ...) {
-  query <- list(principal = principal, scope = scope, ...)
-
+secrets_get_acl <- function(scope, principal) {
+  query <- list(principal = principal, scope = scope)
   .api$do("GET", "/api/2.0/secrets/acls/get", query = query)
 }
 secrets$get_acl <- secrets_get_acl
@@ -172,9 +167,8 @@ secrets$get_acl <- secrets_get_acl
 #' @rdname secrets_list_acls
 #'
 #' @aliases secrets_list_acls
-secrets_list_acls <- function(scope, ...) {
-  query <- list(scope = scope, ...)
-
+secrets_list_acls <- function(scope) {
+  query <- list(scope = scope)
 
   json <- .api$do("GET", "/api/2.0/secrets/acls/list", query = query)
   return(json$items)
@@ -195,8 +189,7 @@ secrets$list_acls <- secrets_list_acls
 #' @rdname secrets_list_scopes
 #'
 #' @aliases secrets_list_scopes
-secrets_list_scopes <- function(...) {
-
+secrets_list_scopes <- function() {
 
   json <- .api$do("GET", "/api/2.0/secrets/scopes/list")
   return(json$scopes)
@@ -224,9 +217,8 @@ secrets$list_scopes <- secrets_list_scopes
 #' @rdname secrets_list_secrets
 #'
 #' @aliases secrets_list_secrets
-secrets_list_secrets <- function(scope, ...) {
-  query <- list(scope = scope, ...)
-
+secrets_list_secrets <- function(scope) {
+  query <- list(scope = scope)
 
   json <- .api$do("GET", "/api/2.0/secrets/list", query = query)
   return(json$secrets)
@@ -272,9 +264,8 @@ secrets$list_secrets <- secrets_list_secrets
 #' @rdname secrets_put_acl
 #'
 #' @aliases secrets_put_acl
-secrets_put_acl <- function(scope, principal, permission, ...) {
-  body <- list(permission = permission, principal = principal, scope = scope, ...)
-
+secrets_put_acl <- function(scope, principal, permission) {
+  body <- list(permission = permission, principal = principal, scope = scope)
   .api$do("POST", "/api/2.0/secrets/acls/put", body = body)
 }
 secrets$put_acl <- secrets_put_acl
@@ -311,11 +302,8 @@ secrets$put_acl <- secrets_put_acl
 #' @rdname secrets_put_secret
 #'
 #' @aliases secrets_put_secret
-secrets_put_secret <- function(scope, key, bytes_value = NULL, string_value = NULL,
-  ...) {
-  body <- list(bytes_value = bytes_value, key = key, scope = scope, string_value = string_value,
-    ...)
-
+secrets_put_secret <- function(scope, key, bytes_value = NULL, string_value = NULL) {
+  body <- list(bytes_value = bytes_value, key = key, scope = scope, string_value = string_value)
   .api$do("POST", "/api/2.0/secrets/put", body = body)
 }
 secrets$put_secret <- secrets_put_secret

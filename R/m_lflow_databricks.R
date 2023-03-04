@@ -32,9 +32,8 @@ m_lflow_databricks <- list()
 #' @rdname m_lflow_databricks_get
 #'
 #' @aliases m_lflow_databricks_get
-m_lflow_databricks_get <- function(name, ...) {
-  query <- list(name = name, ...)
-
+m_lflow_databricks_get <- function(name) {
+  query <- list(name = name)
   .api$do("GET", "/api/2.0/mlflow/databricks/registered-models/get", query = query)
 }
 m_lflow_databricks$get <- m_lflow_databricks_get
@@ -59,10 +58,9 @@ m_lflow_databricks$get <- m_lflow_databricks_get
 #'
 #' @aliases m_lflow_databricks_transition_stage
 m_lflow_databricks_transition_stage <- function(name, version, stage, archive_existing_versions,
-  comment = NULL, ...) {
+  comment = NULL) {
   body <- list(archive_existing_versions = archive_existing_versions, comment = comment,
-    name = name, stage = stage, version = version, ...)
-
+    name = name, stage = stage, version = version)
   .api$do("POST", "/api/2.0/mlflow/databricks/model-versions/transition-stage",
     body = body)
 }

@@ -44,11 +44,10 @@ service_principals <- list()
 #'
 #' @aliases service_principals_create
 service_principals_create <- function(id, active = NULL, application_id = NULL, display_name = NULL,
-  entitlements = NULL, external_id = NULL, groups = NULL, roles = NULL, ...) {
+  entitlements = NULL, external_id = NULL, groups = NULL, roles = NULL) {
   body <- list(active = active, applicationId = application_id, displayName = display_name,
     entitlements = entitlements, externalId = external_id, groups = groups, id = id,
-    roles = roles, ...)
-
+    roles = roles)
   .api$do("POST", "/api/2.0/preview/scim/v2/ServicePrincipals", body = body)
 }
 service_principals$create <- service_principals_create
@@ -64,8 +63,7 @@ service_principals$create <- service_principals_create
 #' @rdname service_principals_delete
 #'
 #' @aliases service_principals_delete
-service_principals_delete <- function(id, ...) {
-
+service_principals_delete <- function(id) {
 
   .api$do("DELETE", paste("/api/2.0/preview/scim/v2/ServicePrincipals/", id, sep = ""))
 }
@@ -83,8 +81,7 @@ service_principals$delete <- service_principals_delete
 #' @rdname service_principals_get
 #'
 #' @aliases service_principals_get
-service_principals_get <- function(id, ...) {
-
+service_principals_get <- function(id) {
 
   .api$do("GET", paste("/api/2.0/preview/scim/v2/ServicePrincipals/", id, sep = ""))
 }
@@ -110,11 +107,9 @@ service_principals$get <- service_principals_get
 #'
 #' @aliases service_principals_list
 service_principals_list <- function(attributes = NULL, count = NULL, excluded_attributes = NULL,
-  filter = NULL, sort_by = NULL, sort_order = NULL, start_index = NULL, ...) {
+  filter = NULL, sort_by = NULL, sort_order = NULL, start_index = NULL) {
   query <- list(attributes = attributes, count = count, excludedAttributes = excluded_attributes,
-    filter = filter, sortBy = sort_by, sortOrder = sort_order, startIndex = start_index,
-    ...)
-
+    filter = filter, sortBy = sort_by, sortOrder = sort_order, startIndex = start_index)
 
   json <- .api$do("GET", "/api/2.0/preview/scim/v2/ServicePrincipals", query = query)
   return(json$Resources)
@@ -135,9 +130,8 @@ service_principals$list <- service_principals_list
 #' @rdname service_principals_patch
 #'
 #' @aliases service_principals_patch
-service_principals_patch <- function(id, operations = NULL, ...) {
-  body <- list(operations = operations, ...)
-
+service_principals_patch <- function(id, operations = NULL) {
+  body <- list(, operations = operations)
   .api$do("PATCH", paste("/api/2.0/preview/scim/v2/ServicePrincipals/", id, sep = ""),
     body = body)
 }
@@ -164,11 +158,10 @@ service_principals$patch <- service_principals_patch
 #'
 #' @aliases service_principals_update
 service_principals_update <- function(id, active = NULL, application_id = NULL, display_name = NULL,
-  entitlements = NULL, external_id = NULL, groups = NULL, roles = NULL, ...) {
+  entitlements = NULL, external_id = NULL, groups = NULL, roles = NULL) {
   body <- list(active = active, applicationId = application_id, displayName = display_name,
     entitlements = entitlements, externalId = external_id, groups = groups, id = id,
-    roles = roles, ...)
-
+    roles = roles)
   .api$do("PUT", paste("/api/2.0/preview/scim/v2/ServicePrincipals/", id, sep = ""),
     body = body)
 }

@@ -27,9 +27,8 @@ workspace_conf <- list()
 #' @rdname workspace_conf_get_status
 #'
 #' @aliases workspace_conf_get_status
-workspace_conf_get_status <- function(keys, ...) {
-  query <- list(keys = keys, ...)
-
+workspace_conf_get_status <- function(keys) {
+  query <- list(keys = keys)
   .api$do("GET", "/api/2.0/workspace-conf", query = query)
 }
 workspace_conf$get_status <- workspace_conf_get_status
@@ -45,8 +44,7 @@ workspace_conf$get_status <- workspace_conf_get_status
 #' @rdname workspace_conf_set_status
 #'
 #' @aliases workspace_conf_set_status
-workspace_conf_set_status <- function(...) {
-
+workspace_conf_set_status <- function() {
 
   .api$do("PATCH", "/api/2.0/workspace-conf")
 }

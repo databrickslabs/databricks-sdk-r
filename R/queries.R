@@ -51,12 +51,16 @@ queries <- list()
 #' @rdname queries_create
 #'
 #' @aliases queries_create
-queries_create <- function(data_source_id = NULL, description = NULL, name = NULL,
-  options = NULL, parent = NULL, query = NULL, schedule = NULL, ...) {
-  body <- list(data_source_id = data_source_id, description = description, name = name,
-    options = options, parent = parent, query = query, schedule = schedule, ...)
-
-  .api$do("POST", "/api/2.0/preview/sql/queries", body = body)
+queries_create <- function(data_source_id=NULL, description=NULL, name=NULL, options=NULL, parent=NULL, query=NULL, schedule=NULL) {
+    body <- list(
+        data_source_id = data_source_id
+        , description = description
+        , name = name
+        , options = options
+        , parent = parent
+        , query = query
+        , schedule = schedule)
+    .api$do("POST", "/api/2.0/preview/sql/queries", body = body)
 }
 queries$create <- queries_create
 
@@ -73,10 +77,9 @@ queries$create <- queries_create
 #' @rdname queries_delete
 #'
 #' @aliases queries_delete
-queries_delete <- function(query_id, ...) {
-
-
-  .api$do("DELETE", paste("/api/2.0/preview/sql/queries/", query_id, sep = ""))
+queries_delete <- function(query_id) {
+    
+    .api$do("DELETE", paste("/api/2.0/preview/sql/queries/", query_id, sep = ""))
 }
 queries$delete <- queries_delete
 
@@ -92,10 +95,9 @@ queries$delete <- queries_delete
 #' @rdname queries_get
 #'
 #' @aliases queries_get
-queries_get <- function(query_id, ...) {
-
-
-  .api$do("GET", paste("/api/2.0/preview/sql/queries/", query_id, sep = ""))
+queries_get <- function(query_id) {
+    
+    .api$do("GET", paste("/api/2.0/preview/sql/queries/", query_id, sep = ""))
 }
 queries$get <- queries_get
 
@@ -116,26 +118,27 @@ queries$get <- queries_get
 #' @rdname queries_list
 #'
 #' @aliases queries_list
-queries_list <- function(order = NULL, page = NULL, page_size = NULL, q = NULL, ...) {
-  query <- list(order = order, page = page, page_size = page_size, q = q, ...)
-
-
-
-  query$page = 1
-  results <- data.frame()
-  while (TRUE) {
-    json <- .api$do("GET", "/api/2.0/preview/sql/queries", query = query)
-    if (is.null(nrow(json$results))) {
-      break
+queries_list <- function(order=NULL, page=NULL, page_size=NULL, q=NULL) {
+    query <- list(
+        order = order
+        , page = page
+        , page_size = page_size
+        , q = q)
+    
+    query$page = 1results <- data.frame()
+    while (TRUE) {
+        json <- .api$do("GET", "/api/2.0/preview/sql/queries", query = query)
+        if (is.null(nrow(json$results))) {
+            break
+        }
+        # append this page of results to one results data.frame
+        results <- dplyr::bind_rows(results, json$results)
+        query$page <- query$page + 1
     }
-    # append this page of results to one results data.frame
-    results <- dplyr::bind_rows(results, json$results)
-    query$page <- query$page + 1
-  }
-  # de-duplicate any records via id column
-  results <- results[!duplicated(results$id), ]
-  return(results)
-
+    # de-duplicate any records via id column
+    results <- results[!duplicated(results$id), ]
+    return (results)
+    
 }
 queries$list <- queries_list
 
@@ -151,10 +154,9 @@ queries$list <- queries_list
 #' @rdname queries_restore
 #'
 #' @aliases queries_restore
-queries_restore <- function(query_id, ...) {
-
-
-  .api$do("POST", paste("/api/2.0/preview/sql/queries/trash/", query_id, sep = ""))
+queries_restore <- function(query_id) {
+    
+    .api$do("POST", paste("/api/2.0/preview/sql/queries/trash/", query_id, sep = ""))
 }
 queries$restore <- queries_restore
 
@@ -177,12 +179,15 @@ queries$restore <- queries_restore
 #' @rdname queries_update
 #'
 #' @aliases queries_update
-queries_update <- function(query_id, data_source_id = NULL, description = NULL, name = NULL,
-  options = NULL, query = NULL, schedule = NULL, ...) {
-  body <- list(data_source_id = data_source_id, description = description, name = name,
-    options = options, query = query, schedule = schedule, ...)
-
-  .api$do("POST", paste("/api/2.0/preview/sql/queries/", query_id, sep = ""), body = body)
+queries_update <- function(query_id, data_source_id=NULL, description=NULL, name=NULL, options=NULL, query=NULL, schedule=NULL) {
+    body <- list(
+        data_source_id = data_source_id
+        , description = description
+        , name = name
+        , options = options
+        , query = query
+        , schedule = schedule)
+    .api$do("POST", paste("/api/2.0/preview/sql/queries/", query_id, sep = ""), body = body)
 }
 queries$update <- queries_update
 

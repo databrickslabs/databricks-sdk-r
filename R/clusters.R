@@ -69,9 +69,8 @@ clusters <- list()
 #' @rdname clusters_change_owner
 #'
 #' @aliases clusters_change_owner
-clusters_change_owner <- function(cluster_id, owner_username, ...) {
-  body <- list(cluster_id = cluster_id, owner_username = owner_username, ...)
-
+clusters_change_owner <- function(cluster_id, owner_username) {
+  body <- list(cluster_id = cluster_id, owner_username = owner_username)
   .api$do("POST", "/api/2.0/clusters/change-owner", body = body)
 }
 clusters$change_owner <- clusters_change_owner
@@ -135,7 +134,7 @@ clusters_create <- function(spark_version, apply_policy_default_values = NULL, a
   enable_local_disk_encryption = NULL, gcp_attributes = NULL, instance_pool_id = NULL,
   node_type_id = NULL, num_workers = NULL, policy_id = NULL, runtime_engine = NULL,
   spark_conf = NULL, spark_env_vars = NULL, ssh_public_keys = NULL, workload_type = NULL,
-  timeout = 20, callback = cli_reporter, ...) {
+  timeout = 20, callback = cli_reporter) {
   body <- list(apply_policy_default_values = apply_policy_default_values, autoscale = autoscale,
     autotermination_minutes = autotermination_minutes, aws_attributes = aws_attributes,
     azure_attributes = azure_attributes, cluster_log_conf = cluster_log_conf,
@@ -145,8 +144,7 @@ clusters_create <- function(spark_version, apply_policy_default_values = NULL, a
     gcp_attributes = gcp_attributes, instance_pool_id = instance_pool_id, node_type_id = node_type_id,
     num_workers = num_workers, policy_id = policy_id, runtime_engine = runtime_engine,
     spark_conf = spark_conf, spark_env_vars = spark_env_vars, spark_version = spark_version,
-    ssh_public_keys = ssh_public_keys, workload_type = workload_type, ...)
-
+    ssh_public_keys = ssh_public_keys, workload_type = workload_type)
   op_response <- .api$do("POST", "/api/2.0/clusters/create", body = body)
   started <- as.numeric(Sys.time())
   target_states <- c("RUNNING", c())
@@ -206,9 +204,8 @@ clusters$create <- clusters_create
 #' @rdname clusters_delete
 #'
 #' @aliases clusters_delete
-clusters_delete <- function(cluster_id, timeout = 20, callback = cli_reporter, ...) {
-  body <- list(cluster_id = cluster_id, ...)
-
+clusters_delete <- function(cluster_id, timeout = 20, callback = cli_reporter) {
+  body <- list(cluster_id = cluster_id)
   .api$do("POST", "/api/2.0/clusters/delete", body = body)
   started <- as.numeric(Sys.time())
   target_states <- c("TERMINATED", c())
@@ -306,7 +303,7 @@ clusters_edit <- function(cluster_id, spark_version, apply_policy_default_values
   enable_local_disk_encryption = NULL, gcp_attributes = NULL, instance_pool_id = NULL,
   node_type_id = NULL, num_workers = NULL, policy_id = NULL, runtime_engine = NULL,
   spark_conf = NULL, spark_env_vars = NULL, ssh_public_keys = NULL, workload_type = NULL,
-  timeout = 20, callback = cli_reporter, ...) {
+  timeout = 20, callback = cli_reporter) {
   body <- list(apply_policy_default_values = apply_policy_default_values, autoscale = autoscale,
     autotermination_minutes = autotermination_minutes, aws_attributes = aws_attributes,
     azure_attributes = azure_attributes, cluster_id = cluster_id, cluster_log_conf = cluster_log_conf,
@@ -316,8 +313,7 @@ clusters_edit <- function(cluster_id, spark_version, apply_policy_default_values
     gcp_attributes = gcp_attributes, instance_pool_id = instance_pool_id, node_type_id = node_type_id,
     num_workers = num_workers, policy_id = policy_id, runtime_engine = runtime_engine,
     spark_conf = spark_conf, spark_env_vars = spark_env_vars, spark_version = spark_version,
-    ssh_public_keys = ssh_public_keys, workload_type = workload_type, ...)
-
+    ssh_public_keys = ssh_public_keys, workload_type = workload_type)
   .api$do("POST", "/api/2.0/clusters/edit", body = body)
   started <- as.numeric(Sys.time())
   target_states <- c("RUNNING", c())
@@ -378,12 +374,9 @@ clusters$edit <- clusters_edit
 #'
 #' @aliases clusters_events
 clusters_events <- function(cluster_id, end_time = NULL, event_types = NULL, limit = NULL,
-  offset = NULL, order = NULL, start_time = NULL, ...) {
+  offset = NULL, order = NULL, start_time = NULL) {
   body <- list(cluster_id = cluster_id, end_time = end_time, event_types = event_types,
-    limit = limit, offset = offset, order = order, start_time = start_time, ...)
-
-
-
+    limit = limit, offset = offset, order = order, start_time = start_time)
   results <- data.frame()
   while (TRUE) {
     json <- .api$do("POST", "/api/2.0/clusters/events", body = body)
@@ -415,9 +408,8 @@ clusters$events <- clusters_events
 #' @rdname clusters_get
 #'
 #' @aliases clusters_get
-clusters_get <- function(cluster_id, ...) {
-  query <- list(cluster_id = cluster_id, ...)
-
+clusters_get <- function(cluster_id) {
+  query <- list(cluster_id = cluster_id)
   .api$do("GET", "/api/2.0/clusters/get", query = query)
 }
 clusters$get <- clusters_get
@@ -444,9 +436,8 @@ clusters$get <- clusters_get
 #' @rdname clusters_list
 #'
 #' @aliases clusters_list
-clusters_list <- function(can_use_client = NULL, ...) {
-  query <- list(can_use_client = can_use_client, ...)
-
+clusters_list <- function(can_use_client = NULL) {
+  query <- list(can_use_client = can_use_client)
 
   json <- .api$do("GET", "/api/2.0/clusters/list", query = query)
   return(json$clusters)
@@ -463,8 +454,7 @@ clusters$list <- clusters_list
 #' @rdname clusters_list_node_types
 #'
 #' @aliases clusters_list_node_types
-clusters_list_node_types <- function(...) {
-
+clusters_list_node_types <- function() {
   .api$do("GET", "/api/2.0/clusters/list-node-types")
 }
 clusters$list_node_types <- clusters_list_node_types
@@ -478,8 +468,7 @@ clusters$list_node_types <- clusters_list_node_types
 #' @rdname clusters_list_zones
 #'
 #' @aliases clusters_list_zones
-clusters_list_zones <- function(...) {
-
+clusters_list_zones <- function() {
   .api$do("GET", "/api/2.0/clusters/list-zones")
 }
 clusters$list_zones <- clusters_list_zones
@@ -500,9 +489,8 @@ clusters$list_zones <- clusters_list_zones
 #' @rdname clusters_permanent_delete
 #'
 #' @aliases clusters_permanent_delete
-clusters_permanent_delete <- function(cluster_id, ...) {
-  body <- list(cluster_id = cluster_id, ...)
-
+clusters_permanent_delete <- function(cluster_id) {
+  body <- list(cluster_id = cluster_id)
   .api$do("POST", "/api/2.0/clusters/permanent-delete", body = body)
 }
 clusters$permanent_delete <- clusters_permanent_delete
@@ -520,9 +508,8 @@ clusters$permanent_delete <- clusters_permanent_delete
 #' @rdname clusters_pin
 #'
 #' @aliases clusters_pin
-clusters_pin <- function(cluster_id, ...) {
-  body <- list(cluster_id = cluster_id, ...)
-
+clusters_pin <- function(cluster_id) {
+  body <- list(cluster_id = cluster_id)
   .api$do("POST", "/api/2.0/clusters/pin", body = body)
 }
 clusters$pin <- clusters_pin
@@ -548,10 +535,8 @@ clusters$pin <- clusters_pin
 #'
 #' @aliases clusters_resize
 clusters_resize <- function(cluster_id, autoscale = NULL, num_workers = NULL, timeout = 20,
-  callback = cli_reporter, ...) {
-  body <- list(autoscale = autoscale, cluster_id = cluster_id, num_workers = num_workers,
-    ...)
-
+  callback = cli_reporter) {
+  body <- list(autoscale = autoscale, cluster_id = cluster_id, num_workers = num_workers)
   .api$do("POST", "/api/2.0/clusters/resize", body = body)
   started <- as.numeric(Sys.time())
   target_states <- c("RUNNING", c())
@@ -609,10 +594,8 @@ clusters$resize <- clusters_resize
 #' @rdname clusters_restart
 #'
 #' @aliases clusters_restart
-clusters_restart <- function(cluster_id, restart_user = NULL, timeout = 20, callback = cli_reporter,
-  ...) {
-  body <- list(cluster_id = cluster_id, restart_user = restart_user, ...)
-
+clusters_restart <- function(cluster_id, restart_user = NULL, timeout = 20, callback = cli_reporter) {
+  body <- list(cluster_id = cluster_id, restart_user = restart_user)
   .api$do("POST", "/api/2.0/clusters/restart", body = body)
   started <- as.numeric(Sys.time())
   target_states <- c("RUNNING", c())
@@ -660,8 +643,7 @@ clusters$restart <- clusters_restart
 #' @rdname clusters_spark_versions
 #'
 #' @aliases clusters_spark_versions
-clusters_spark_versions <- function(...) {
-
+clusters_spark_versions <- function() {
   .api$do("GET", "/api/2.0/clusters/spark-versions")
 }
 clusters$spark_versions <- clusters_spark_versions
@@ -690,9 +672,8 @@ clusters$spark_versions <- clusters_spark_versions
 #' @rdname clusters_start
 #'
 #' @aliases clusters_start
-clusters_start <- function(cluster_id, timeout = 20, callback = cli_reporter, ...) {
-  body <- list(cluster_id = cluster_id, ...)
-
+clusters_start <- function(cluster_id, timeout = 20, callback = cli_reporter) {
+  body <- list(cluster_id = cluster_id)
   .api$do("POST", "/api/2.0/clusters/start", body = body)
   started <- as.numeric(Sys.time())
   target_states <- c("RUNNING", c())
@@ -744,9 +725,8 @@ clusters$start <- clusters_start
 #' @rdname clusters_unpin
 #'
 #' @aliases clusters_unpin
-clusters_unpin <- function(cluster_id, ...) {
-  body <- list(cluster_id = cluster_id, ...)
-
+clusters_unpin <- function(cluster_id) {
+  body <- list(cluster_id = cluster_id)
   .api$do("POST", "/api/2.0/clusters/unpin", body = body)
 }
 clusters$unpin <- clusters_unpin

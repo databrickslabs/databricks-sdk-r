@@ -44,10 +44,9 @@ repos <- list()
 #' @rdname repos_create
 #'
 #' @aliases repos_create
-repos_create <- function(url, provider, path = NULL, sparse_checkout = NULL, ...) {
+repos_create <- function(url, provider, path = NULL, sparse_checkout = NULL) {
   body <- list(path = path, provider = provider, sparse_checkout = sparse_checkout,
-    url = url, ...)
-
+    url = url)
   .api$do("POST", "/api/2.0/repos", body = body)
 }
 repos$create <- repos_create
@@ -63,8 +62,7 @@ repos$create <- repos_create
 #' @rdname repos_delete
 #'
 #' @aliases repos_delete
-repos_delete <- function(repo_id, ...) {
-
+repos_delete <- function(repo_id) {
 
   .api$do("DELETE", paste("/api/2.0/repos/", repo_id, sep = ""))
 }
@@ -81,8 +79,7 @@ repos$delete <- repos_delete
 #' @rdname repos_get
 #'
 #' @aliases repos_get
-repos_get <- function(repo_id, ...) {
-
+repos_get <- function(repo_id) {
 
   .api$do("GET", paste("/api/2.0/repos/", repo_id, sep = ""))
 }
@@ -103,11 +100,8 @@ repos$get <- repos_get
 #' @rdname repos_list
 #'
 #' @aliases repos_list
-repos_list <- function(next_page_token = NULL, path_prefix = NULL, ...) {
-  query <- list(next_page_token = next_page_token, path_prefix = path_prefix, ...)
-
-
-
+repos_list <- function(next_page_token = NULL, path_prefix = NULL) {
+  query <- list(next_page_token = next_page_token, path_prefix = path_prefix)
   results <- data.frame()
   while (TRUE) {
     json <- .api$do("GET", "/api/2.0/repos", query = query)
@@ -141,10 +135,8 @@ repos$list <- repos_list
 #' @rdname repos_update
 #'
 #' @aliases repos_update
-repos_update <- function(repo_id, branch = NULL, sparse_checkout = NULL, tag = NULL,
-  ...) {
-  body <- list(branch = branch, sparse_checkout = sparse_checkout, tag = tag, ...)
-
+repos_update <- function(repo_id, branch = NULL, sparse_checkout = NULL, tag = NULL) {
+  body <- list(branch = branch, sparse_checkout = sparse_checkout, tag = tag)
   .api$do("PATCH", paste("/api/2.0/repos/", repo_id, sep = ""), body = body)
 }
 repos$update <- repos_update

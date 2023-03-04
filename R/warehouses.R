@@ -58,13 +58,12 @@ warehouses_create <- function(auto_stop_mins = NULL, channel = NULL, cluster_siz
   creator_name = NULL, enable_photon = NULL, enable_serverless_compute = NULL,
   instance_profile_arn = NULL, max_num_clusters = NULL, min_num_clusters = NULL,
   name = NULL, spot_instance_policy = NULL, tags = NULL, warehouse_type = NULL,
-  timeout = 20, callback = cli_reporter, ...) {
+  timeout = 20, callback = cli_reporter) {
   body <- list(auto_stop_mins = auto_stop_mins, channel = channel, cluster_size = cluster_size,
     creator_name = creator_name, enable_photon = enable_photon, enable_serverless_compute = enable_serverless_compute,
     instance_profile_arn = instance_profile_arn, max_num_clusters = max_num_clusters,
     min_num_clusters = min_num_clusters, name = name, spot_instance_policy = spot_instance_policy,
-    tags = tags, warehouse_type = warehouse_type, ...)
-
+    tags = tags, warehouse_type = warehouse_type)
   op_response <- .api$do("POST", "/api/2.0/sql/warehouses", body = body)
   started <- as.numeric(Sys.time())
   target_states <- c("RUNNING", c())
@@ -123,8 +122,7 @@ warehouses$create <- warehouses_create
 #' @rdname warehouses_delete
 #'
 #' @aliases warehouses_delete
-warehouses_delete <- function(id, timeout = 20, callback = cli_reporter, ...) {
-
+warehouses_delete <- function(id, timeout = 20, callback = cli_reporter) {
 
   .api$do("DELETE", paste("/api/2.0/sql/warehouses/", id, sep = ""))
   started <- as.numeric(Sys.time())
@@ -197,14 +195,13 @@ warehouses_edit <- function(id, auto_stop_mins = NULL, channel = NULL, cluster_s
   creator_name = NULL, enable_databricks_compute = NULL, enable_photon = NULL,
   enable_serverless_compute = NULL, instance_profile_arn = NULL, max_num_clusters = NULL,
   min_num_clusters = NULL, name = NULL, spot_instance_policy = NULL, tags = NULL,
-  warehouse_type = NULL, timeout = 20, callback = cli_reporter, ...) {
+  warehouse_type = NULL, timeout = 20, callback = cli_reporter) {
   body <- list(auto_stop_mins = auto_stop_mins, channel = channel, cluster_size = cluster_size,
     creator_name = creator_name, enable_databricks_compute = enable_databricks_compute,
     enable_photon = enable_photon, enable_serverless_compute = enable_serverless_compute,
     instance_profile_arn = instance_profile_arn, max_num_clusters = max_num_clusters,
     min_num_clusters = min_num_clusters, name = name, spot_instance_policy = spot_instance_policy,
-    tags = tags, warehouse_type = warehouse_type, ...)
-
+    tags = tags, warehouse_type = warehouse_type)
   .api$do("POST", paste("/api/2.0/sql/warehouses/", id, "/edit", , sep = ""), body = body)
   started <- as.numeric(Sys.time())
   target_states <- c("RUNNING", c())
@@ -257,8 +254,7 @@ warehouses$edit <- warehouses_edit
 #' @rdname warehouses_get
 #'
 #' @aliases warehouses_get
-warehouses_get <- function(id, ...) {
-
+warehouses_get <- function(id) {
 
   .api$do("GET", paste("/api/2.0/sql/warehouses/", id, sep = ""))
 }
@@ -273,8 +269,7 @@ warehouses$get <- warehouses_get
 #' @rdname warehouses_get_workspace_warehouse_config
 #'
 #' @aliases warehouses_get_workspace_warehouse_config
-warehouses_get_workspace_warehouse_config <- function(...) {
-
+warehouses_get_workspace_warehouse_config <- function() {
   .api$do("GET", "/api/2.0/sql/config/warehouses")
 }
 warehouses$get_workspace_warehouse_config <- warehouses_get_workspace_warehouse_config
@@ -292,9 +287,8 @@ warehouses$get_workspace_warehouse_config <- warehouses_get_workspace_warehouse_
 #' @rdname warehouses_list
 #'
 #' @aliases warehouses_list
-warehouses_list <- function(run_as_user_id = NULL, ...) {
-  query <- list(run_as_user_id = run_as_user_id, ...)
-
+warehouses_list <- function(run_as_user_id = NULL) {
+  query <- list(run_as_user_id = run_as_user_id)
 
   json <- .api$do("GET", "/api/2.0/sql/warehouses", query = query)
   return(json$warehouses)
@@ -329,14 +323,13 @@ warehouses_set_workspace_warehouse_config <- function(channel = NULL, config_par
   data_access_config = NULL, enable_databricks_compute = NULL, enable_serverless_compute = NULL,
   enabled_warehouse_types = NULL, global_param = NULL, google_service_account = NULL,
   instance_profile_arn = NULL, security_policy = NULL, serverless_agreement = NULL,
-  sql_configuration_parameters = NULL, ...) {
+  sql_configuration_parameters = NULL) {
   body <- list(channel = channel, config_param = config_param, data_access_config = data_access_config,
     enable_databricks_compute = enable_databricks_compute, enable_serverless_compute = enable_serverless_compute,
     enabled_warehouse_types = enabled_warehouse_types, global_param = global_param,
     google_service_account = google_service_account, instance_profile_arn = instance_profile_arn,
     security_policy = security_policy, serverless_agreement = serverless_agreement,
-    sql_configuration_parameters = sql_configuration_parameters, ...)
-
+    sql_configuration_parameters = sql_configuration_parameters)
   .api$do("PUT", "/api/2.0/sql/config/warehouses", body = body)
 }
 warehouses$set_workspace_warehouse_config <- warehouses_set_workspace_warehouse_config
@@ -358,8 +351,7 @@ warehouses$set_workspace_warehouse_config <- warehouses_set_workspace_warehouse_
 #' @rdname warehouses_start
 #'
 #' @aliases warehouses_start
-warehouses_start <- function(id, timeout = 20, callback = cli_reporter, ...) {
-
+warehouses_start <- function(id, timeout = 20, callback = cli_reporter) {
 
   .api$do("POST", paste("/api/2.0/sql/warehouses/", id, "/start", , sep = ""))
   started <- as.numeric(Sys.time())
@@ -419,8 +411,7 @@ warehouses$start <- warehouses_start
 #' @rdname warehouses_stop
 #'
 #' @aliases warehouses_stop
-warehouses_stop <- function(id, timeout = 20, callback = cli_reporter, ...) {
-
+warehouses_stop <- function(id, timeout = 20, callback = cli_reporter) {
 
   .api$do("POST", paste("/api/2.0/sql/warehouses/", id, "/stop", , sep = ""))
   started <- as.numeric(Sys.time())

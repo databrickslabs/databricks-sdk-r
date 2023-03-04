@@ -40,10 +40,9 @@ model_versions <- list()
 #'
 #' @aliases model_versions_create
 model_versions_create <- function(name, source, description = NULL, run_id = NULL,
-  run_link = NULL, tags = NULL, ...) {
+  run_link = NULL, tags = NULL) {
   body <- list(description = description, name = name, run_id = run_id, run_link = run_link,
-    source = source, tags = tags, ...)
-
+    source = source, tags = tags)
   .api$do("POST", "/api/2.0/mlflow/model-versions/create", body = body)
 }
 model_versions$create <- model_versions_create
@@ -60,9 +59,8 @@ model_versions$create <- model_versions_create
 #' @rdname model_versions_delete
 #'
 #' @aliases model_versions_delete
-model_versions_delete <- function(name, version, ...) {
-  query <- list(name = name, version = version, ...)
-
+model_versions_delete <- function(name, version) {
+  query <- list(name = name, version = version)
   .api$do("DELETE", "/api/2.0/mlflow/model-versions/delete", query = query)
 }
 model_versions$delete <- model_versions_delete
@@ -80,9 +78,8 @@ model_versions$delete <- model_versions_delete
 #' @rdname model_versions_delete_tag
 #'
 #' @aliases model_versions_delete_tag
-model_versions_delete_tag <- function(name, version, key, ...) {
-  query <- list(key = key, name = name, version = version, ...)
-
+model_versions_delete_tag <- function(name, version, key) {
+  query <- list(key = key, name = name, version = version)
   .api$do("DELETE", "/api/2.0/mlflow/model-versions/delete-tag", query = query)
 }
 model_versions$delete_tag <- model_versions_delete_tag
@@ -99,9 +96,8 @@ model_versions$delete_tag <- model_versions_delete_tag
 #' @rdname model_versions_get
 #'
 #' @aliases model_versions_get
-model_versions_get <- function(name, version, ...) {
-  query <- list(name = name, version = version, ...)
-
+model_versions_get <- function(name, version) {
+  query <- list(name = name, version = version)
   .api$do("GET", "/api/2.0/mlflow/model-versions/get", query = query)
 }
 model_versions$get <- model_versions_get
@@ -118,9 +114,8 @@ model_versions$get <- model_versions_get
 #' @rdname model_versions_get_download_uri
 #'
 #' @aliases model_versions_get_download_uri
-model_versions_get_download_uri <- function(name, version, ...) {
-  query <- list(name = name, version = version, ...)
-
+model_versions_get_download_uri <- function(name, version) {
+  query <- list(name = name, version = version)
   .api$do("GET", "/api/2.0/mlflow/model-versions/get-download-uri", query = query)
 }
 model_versions$get_download_uri <- model_versions_get_download_uri
@@ -142,12 +137,9 @@ model_versions$get_download_uri <- model_versions_get_download_uri
 #'
 #' @aliases model_versions_search
 model_versions_search <- function(filter = NULL, max_results = NULL, order_by = NULL,
-  page_token = NULL, ...) {
+  page_token = NULL) {
   query <- list(filter = filter, max_results = max_results, order_by = order_by,
-    page_token = page_token, ...)
-
-
-
+    page_token = page_token)
   results <- data.frame()
   while (TRUE) {
     json <- .api$do("GET", "/api/2.0/mlflow/model-versions/search", query = query)
@@ -180,9 +172,8 @@ model_versions$search <- model_versions_search
 #' @rdname model_versions_set_tag
 #'
 #' @aliases model_versions_set_tag
-model_versions_set_tag <- function(name, version, key, value, ...) {
-  body <- list(key = key, name = name, value = value, version = version, ...)
-
+model_versions_set_tag <- function(name, version, key, value) {
+  body <- list(key = key, name = name, value = value, version = version)
   .api$do("POST", "/api/2.0/mlflow/model-versions/set-tag", body = body)
 }
 model_versions$set_tag <- model_versions_set_tag
@@ -201,11 +192,9 @@ model_versions$set_tag <- model_versions_set_tag
 #' @rdname model_versions_transition_stage
 #'
 #' @aliases model_versions_transition_stage
-model_versions_transition_stage <- function(name, version, stage, archive_existing_versions,
-  ...) {
+model_versions_transition_stage <- function(name, version, stage, archive_existing_versions) {
   body <- list(archive_existing_versions = archive_existing_versions, name = name,
-    stage = stage, version = version, ...)
-
+    stage = stage, version = version)
   .api$do("POST", "/api/2.0/mlflow/model-versions/transition-stage", body = body)
 }
 model_versions$transition_stage <- model_versions_transition_stage
@@ -223,9 +212,8 @@ model_versions$transition_stage <- model_versions_transition_stage
 #' @rdname model_versions_update
 #'
 #' @aliases model_versions_update
-model_versions_update <- function(name, version, description = NULL, ...) {
-  body <- list(description = description, name = name, version = version, ...)
-
+model_versions_update <- function(name, version, description = NULL) {
+  body <- list(description = description, name = name, version = version)
   .api$do("PATCH", "/api/2.0/mlflow/model-versions/update", body = body)
 }
 model_versions$update <- model_versions_update

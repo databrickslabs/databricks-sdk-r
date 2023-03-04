@@ -38,10 +38,9 @@ registry_webhooks <- list()
 #'
 #' @aliases registry_webhooks_create
 registry_webhooks_create <- function(events, description = NULL, http_url_spec = NULL,
-  job_spec = NULL, model_name = NULL, status = NULL, ...) {
+  job_spec = NULL, model_name = NULL, status = NULL) {
   body <- list(description = description, events = events, http_url_spec = http_url_spec,
-    job_spec = job_spec, model_name = model_name, status = status, ...)
-
+    job_spec = job_spec, model_name = model_name, status = status)
   .api$do("POST", "/api/2.0/mlflow/registry-webhooks/create", body = body)
 }
 registry_webhooks$create <- registry_webhooks_create
@@ -59,9 +58,8 @@ registry_webhooks$create <- registry_webhooks_create
 #' @rdname registry_webhooks_delete
 #'
 #' @aliases registry_webhooks_delete
-registry_webhooks_delete <- function(id = NULL, ...) {
-  query <- list(id = id, ...)
-
+registry_webhooks_delete <- function(id = NULL) {
+  query <- list(id = id)
   .api$do("DELETE", "/api/2.0/mlflow/registry-webhooks/delete", query = query)
 }
 registry_webhooks$delete <- registry_webhooks_delete
@@ -83,13 +81,8 @@ registry_webhooks$delete <- registry_webhooks_delete
 #' @rdname registry_webhooks_list
 #'
 #' @aliases registry_webhooks_list
-registry_webhooks_list <- function(events = NULL, model_name = NULL, page_token = NULL,
-  ...) {
-  query <- list(events = events, model_name = model_name, page_token = page_token,
-    ...)
-
-
-
+registry_webhooks_list <- function(events = NULL, model_name = NULL, page_token = NULL) {
+  query <- list(events = events, model_name = model_name, page_token = page_token)
   results <- data.frame()
   while (TRUE) {
     json <- .api$do("GET", "/api/2.0/mlflow/registry-webhooks/list", query = query)
@@ -122,9 +115,8 @@ registry_webhooks$list <- registry_webhooks_list
 #' @rdname registry_webhooks_test
 #'
 #' @aliases registry_webhooks_test
-registry_webhooks_test <- function(id, event = NULL, ...) {
-  body <- list(event = event, id = id, ...)
-
+registry_webhooks_test <- function(id, event = NULL) {
+  body <- list(event = event, id = id)
   .api$do("POST", "/api/2.0/mlflow/registry-webhooks/test", body = body)
 }
 registry_webhooks$test <- registry_webhooks_test
@@ -148,10 +140,9 @@ registry_webhooks$test <- registry_webhooks_test
 #'
 #' @aliases registry_webhooks_update
 registry_webhooks_update <- function(id, description = NULL, events = NULL, http_url_spec = NULL,
-  job_spec = NULL, status = NULL, ...) {
+  job_spec = NULL, status = NULL) {
   body <- list(description = description, events = events, http_url_spec = http_url_spec,
-    id = id, job_spec = job_spec, status = status, ...)
-
+    id = id, job_spec = job_spec, status = status)
   .api$do("PATCH", "/api/2.0/mlflow/registry-webhooks/update", body = body)
 }
 registry_webhooks$update <- registry_webhooks_update

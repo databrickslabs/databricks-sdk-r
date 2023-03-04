@@ -42,9 +42,8 @@ dbfs <- list()
 #' @rdname dbfs_add_block
 #'
 #' @aliases dbfs_add_block
-dbfs_add_block <- function(handle, data, ...) {
-  body <- list(data = data, handle = handle, ...)
-
+dbfs_add_block <- function(handle, data) {
+  body <- list(data = data, handle = handle)
   .api$do("POST", "/api/2.0/dbfs/add-block", body = body)
 }
 dbfs$add_block <- dbfs_add_block
@@ -61,9 +60,8 @@ dbfs$add_block <- dbfs_add_block
 #' @rdname dbfs_close
 #'
 #' @aliases dbfs_close
-dbfs_close <- function(handle, ...) {
-  body <- list(handle = handle, ...)
-
+dbfs_close <- function(handle) {
+  body <- list(handle = handle)
   .api$do("POST", "/api/2.0/dbfs/close", body = body)
 }
 dbfs$close <- dbfs_close
@@ -89,9 +87,8 @@ dbfs$close <- dbfs_close
 #' @rdname dbfs_create
 #'
 #' @aliases dbfs_create
-dbfs_create <- function(path, overwrite = NULL, ...) {
-  body <- list(overwrite = overwrite, path = path, ...)
-
+dbfs_create <- function(path, overwrite = NULL) {
+  body <- list(overwrite = overwrite, path = path)
   .api$do("POST", "/api/2.0/dbfs/create", body = body)
 }
 dbfs$create <- dbfs_create
@@ -125,9 +122,8 @@ dbfs$create <- dbfs_create
 #' @rdname dbfs_delete
 #'
 #' @aliases dbfs_delete
-dbfs_delete <- function(path, recursive = NULL, ...) {
-  body <- list(path = path, recursive = recursive, ...)
-
+dbfs_delete <- function(path, recursive = NULL) {
+  body <- list(path = path, recursive = recursive)
   .api$do("POST", "/api/2.0/dbfs/delete", body = body)
 }
 dbfs$delete <- dbfs_delete
@@ -144,9 +140,8 @@ dbfs$delete <- dbfs_delete
 #' @rdname dbfs_get_status
 #'
 #' @aliases dbfs_get_status
-dbfs_get_status <- function(path, ...) {
-  query <- list(path = path, ...)
-
+dbfs_get_status <- function(path) {
+  query <- list(path = path)
   .api$do("GET", "/api/2.0/dbfs/get-status", query = query)
 }
 dbfs$get_status <- dbfs_get_status
@@ -174,9 +169,8 @@ dbfs$get_status <- dbfs_get_status
 #' @rdname dbfs_list
 #'
 #' @aliases dbfs_list
-dbfs_list <- function(path, ...) {
-  query <- list(path = path, ...)
-
+dbfs_list <- function(path) {
+  query <- list(path = path)
 
   json <- .api$do("GET", "/api/2.0/dbfs/list", query = query)
   return(json$files)
@@ -199,9 +193,8 @@ dbfs$list <- dbfs_list
 #' @rdname dbfs_mkdirs
 #'
 #' @aliases dbfs_mkdirs
-dbfs_mkdirs <- function(path, ...) {
-  body <- list(path = path, ...)
-
+dbfs_mkdirs <- function(path) {
+  body <- list(path = path)
   .api$do("POST", "/api/2.0/dbfs/mkdirs", body = body)
 }
 dbfs$mkdirs <- dbfs_mkdirs
@@ -222,10 +215,8 @@ dbfs$mkdirs <- dbfs_mkdirs
 #' @rdname dbfs_move
 #'
 #' @aliases dbfs_move
-dbfs_move <- function(source_path, destination_path, ...) {
-  body <- list(destination_path = destination_path, source_path = source_path,
-    ...)
-
+dbfs_move <- function(source_path, destination_path) {
+  body <- list(destination_path = destination_path, source_path = source_path)
   .api$do("POST", "/api/2.0/dbfs/move", body = body)
 }
 dbfs$move <- dbfs_move
@@ -254,9 +245,8 @@ dbfs$move <- dbfs_move
 #' @rdname dbfs_put
 #'
 #' @aliases dbfs_put
-dbfs_put <- function(path, contents = NULL, overwrite = NULL, ...) {
-  body <- list(contents = contents, overwrite = overwrite, path = path, ...)
-
+dbfs_put <- function(path, contents = NULL, overwrite = NULL) {
+  body <- list(contents = contents, overwrite = overwrite, path = path)
   .api$do("POST", "/api/2.0/dbfs/put", body = body)
 }
 dbfs$put <- dbfs_put
@@ -281,9 +271,8 @@ dbfs$put <- dbfs_put
 #' @rdname dbfs_read
 #'
 #' @aliases dbfs_read
-dbfs_read <- function(path, length = NULL, offset = NULL, ...) {
-  query <- list(length = length, offset = offset, path = path, ...)
-
+dbfs_read <- function(path, length = NULL, offset = NULL) {
+  query <- list(length = length, offset = offset, path = path)
   .api$do("GET", "/api/2.0/dbfs/read", query = query)
 }
 dbfs$read <- dbfs_read

@@ -33,12 +33,8 @@ m_lflow_artifacts <- list()
 #'
 #' @aliases m_lflow_artifacts_list
 m_lflow_artifacts_list <- function(page_token = NULL, path = NULL, run_id = NULL,
-  run_uuid = NULL, ...) {
-  query <- list(page_token = page_token, path = path, run_id = run_id, run_uuid = run_uuid,
-    ...)
-
-
-
+  run_uuid = NULL) {
+  query <- list(page_token = page_token, path = path, run_id = run_id, run_uuid = run_uuid)
   results <- data.frame()
   while (TRUE) {
     json <- .api$do("GET", "/api/2.0/mlflow/artifacts/list", query = query)

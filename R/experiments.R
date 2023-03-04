@@ -41,10 +41,8 @@ experiments <- list()
 #' @rdname experiments_create
 #'
 #' @aliases experiments_create
-experiments_create <- function(name, artifact_location = NULL, tags = NULL, ...) {
-  body <- list(artifact_location = artifact_location, name = name, tags = tags,
-    ...)
-
+experiments_create <- function(name, artifact_location = NULL, tags = NULL) {
+  body <- list(artifact_location = artifact_location, name = name, tags = tags)
   .api$do("POST", "/api/2.0/mlflow/experiments/create", body = body)
 }
 experiments$create <- experiments_create
@@ -62,9 +60,8 @@ experiments$create <- experiments_create
 #' @rdname experiments_delete
 #'
 #' @aliases experiments_delete
-experiments_delete <- function(experiment_id, ...) {
-  body <- list(experiment_id = experiment_id, ...)
-
+experiments_delete <- function(experiment_id) {
+  body <- list(experiment_id = experiment_id)
   .api$do("POST", "/api/2.0/mlflow/experiments/delete", body = body)
 }
 experiments$delete <- experiments_delete
@@ -80,9 +77,8 @@ experiments$delete <- experiments_delete
 #' @rdname experiments_get
 #'
 #' @aliases experiments_get
-experiments_get <- function(experiment_id, ...) {
-  query <- list(experiment_id = experiment_id, ...)
-
+experiments_get <- function(experiment_id) {
+  query <- list(experiment_id = experiment_id)
   .api$do("GET", "/api/2.0/mlflow/experiments/get", query = query)
 }
 experiments$get <- experiments_get
@@ -106,9 +102,8 @@ experiments$get <- experiments_get
 #' @rdname experiments_get_by_name
 #'
 #' @aliases experiments_get_by_name
-experiments_get_by_name <- function(experiment_name, ...) {
-  query <- list(experiment_name = experiment_name, ...)
-
+experiments_get_by_name <- function(experiment_name) {
+  query <- list(experiment_name = experiment_name)
   .api$do("GET", "/api/2.0/mlflow/experiments/get-by-name", query = query)
 }
 experiments$get_by_name <- experiments_get_by_name
@@ -128,13 +123,8 @@ experiments$get_by_name <- experiments_get_by_name
 #' @rdname experiments_list
 #'
 #' @aliases experiments_list
-experiments_list <- function(max_results = NULL, page_token = NULL, view_type = NULL,
-  ...) {
-  query <- list(max_results = max_results, page_token = page_token, view_type = view_type,
-    ...)
-
-
-
+experiments_list <- function(max_results = NULL, page_token = NULL, view_type = NULL) {
+  query <- list(max_results = max_results, page_token = page_token, view_type = view_type)
   results <- data.frame()
   while (TRUE) {
     json <- .api$do("GET", "/api/2.0/mlflow/experiments/list", query = query)
@@ -169,9 +159,8 @@ experiments$list <- experiments_list
 #' @rdname experiments_restore
 #'
 #' @aliases experiments_restore
-experiments_restore <- function(experiment_id, ...) {
-  body <- list(experiment_id = experiment_id, ...)
-
+experiments_restore <- function(experiment_id) {
+  body <- list(experiment_id = experiment_id)
   .api$do("POST", "/api/2.0/mlflow/experiments/restore", body = body)
 }
 experiments$restore <- experiments_restore
@@ -194,12 +183,9 @@ experiments$restore <- experiments_restore
 #'
 #' @aliases experiments_search
 experiments_search <- function(filter = NULL, max_results = NULL, order_by = NULL,
-  page_token = NULL, view_type = NULL, ...) {
+  page_token = NULL, view_type = NULL) {
   body <- list(filter = filter, max_results = max_results, order_by = order_by,
-    page_token = page_token, view_type = view_type, ...)
-
-
-
+    page_token = page_token, view_type = view_type)
   results <- data.frame()
   while (TRUE) {
     json <- .api$do("POST", "/api/2.0/mlflow/experiments/search", body = body)
@@ -232,9 +218,8 @@ experiments$search <- experiments_search
 #' @rdname experiments_set_experiment_tag
 #'
 #' @aliases experiments_set_experiment_tag
-experiments_set_experiment_tag <- function(experiment_id, key, value, ...) {
-  body <- list(experiment_id = experiment_id, key = key, value = value, ...)
-
+experiments_set_experiment_tag <- function(experiment_id, key, value) {
+  body <- list(experiment_id = experiment_id, key = key, value = value)
   .api$do("POST", "/api/2.0/mlflow/experiments/set-experiment-tag", body = body)
 }
 experiments$set_experiment_tag <- experiments_set_experiment_tag
@@ -251,9 +236,8 @@ experiments$set_experiment_tag <- experiments_set_experiment_tag
 #' @rdname experiments_update
 #'
 #' @aliases experiments_update
-experiments_update <- function(experiment_id, new_name = NULL, ...) {
-  body <- list(experiment_id = experiment_id, new_name = new_name, ...)
-
+experiments_update <- function(experiment_id, new_name = NULL) {
+  body <- list(experiment_id = experiment_id, new_name = new_name)
   .api$do("POST", "/api/2.0/mlflow/experiments/update", body = body)
 }
 experiments$update <- experiments_update

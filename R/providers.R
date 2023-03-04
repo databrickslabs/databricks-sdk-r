@@ -35,11 +35,9 @@ providers <- list()
 #' @rdname providers_create
 #'
 #' @aliases providers_create
-providers_create <- function(name, authentication_type, comment = NULL, recipient_profile_str = NULL,
-  ...) {
+providers_create <- function(name, authentication_type, comment = NULL, recipient_profile_str = NULL) {
   body <- list(authentication_type = authentication_type, comment = comment, name = name,
-    recipient_profile_str = recipient_profile_str, ...)
-
+    recipient_profile_str = recipient_profile_str)
   .api$do("POST", "/api/2.1/unity-catalog/providers", body = body)
 }
 providers$create <- providers_create
@@ -56,8 +54,7 @@ providers$create <- providers_create
 #' @rdname providers_delete
 #'
 #' @aliases providers_delete
-providers_delete <- function(name, ...) {
-
+providers_delete <- function(name) {
 
   .api$do("DELETE", paste("/api/2.1/unity-catalog/providers/", name, sep = ""))
 }
@@ -76,8 +73,7 @@ providers$delete <- providers_delete
 #' @rdname providers_get
 #'
 #' @aliases providers_get
-providers_get <- function(name, ...) {
-
+providers_get <- function(name) {
 
   .api$do("GET", paste("/api/2.1/unity-catalog/providers/", name, sep = ""))
 }
@@ -99,10 +95,8 @@ providers$get <- providers_get
 #' @rdname providers_list
 #'
 #' @aliases providers_list
-providers_list <- function(data_provider_global_metastore_id = NULL, ...) {
-  query <- list(data_provider_global_metastore_id = data_provider_global_metastore_id,
-    ...)
-
+providers_list <- function(data_provider_global_metastore_id = NULL) {
+  query <- list(data_provider_global_metastore_id = data_provider_global_metastore_id)
 
   json <- .api$do("GET", "/api/2.1/unity-catalog/providers", query = query)
   return(json$providers)
@@ -123,8 +117,7 @@ providers$list <- providers_list
 #' @rdname providers_list_shares
 #'
 #' @aliases providers_list_shares
-providers_list_shares <- function(name, ...) {
-
+providers_list_shares <- function(name) {
 
   .api$do("GET", paste("/api/2.1/unity-catalog/providers/", name, "/shares", ,
     sep = ""))
@@ -148,11 +141,8 @@ providers$list_shares <- providers_list_shares
 #' @rdname providers_update
 #'
 #' @aliases providers_update
-providers_update <- function(name, comment = NULL, owner = NULL, recipient_profile_str = NULL,
-  ...) {
-  body <- list(comment = comment, name = name, owner = owner, recipient_profile_str = recipient_profile_str,
-    ...)
-
+providers_update <- function(name, comment = NULL, owner = NULL, recipient_profile_str = NULL) {
+  body <- list(comment = comment, name = name, owner = owner, recipient_profile_str = recipient_profile_str)
   .api$do("PATCH", paste("/api/2.1/unity-catalog/providers/", name, sep = ""),
     body = body)
 }

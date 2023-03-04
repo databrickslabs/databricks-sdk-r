@@ -50,10 +50,9 @@ external_locations <- list()
 #'
 #' @aliases external_locations_create
 external_locations_create <- function(name, url, credential_name, comment = NULL,
-  read_only = NULL, skip_validation = NULL, ...) {
+  read_only = NULL, skip_validation = NULL) {
   body <- list(comment = comment, credential_name = credential_name, name = name,
-    read_only = read_only, skip_validation = skip_validation, url = url, ...)
-
+    read_only = read_only, skip_validation = skip_validation, url = url)
   .api$do("POST", "/api/2.1/unity-catalog/external-locations", body = body)
 }
 external_locations$create <- external_locations_create
@@ -71,9 +70,8 @@ external_locations$create <- external_locations_create
 #' @rdname external_locations_delete
 #'
 #' @aliases external_locations_delete
-external_locations_delete <- function(name, force = NULL, ...) {
-  query <- list(force = force, ...)
-
+external_locations_delete <- function(name, force = NULL) {
+  query <- list(force = force)
   .api$do("DELETE", paste("/api/2.1/unity-catalog/external-locations/", name, sep = ""),
     query = query)
 }
@@ -92,8 +90,7 @@ external_locations$delete <- external_locations_delete
 #' @rdname external_locations_get
 #'
 #' @aliases external_locations_get
-external_locations_get <- function(name, ...) {
-
+external_locations_get <- function(name) {
 
   .api$do("GET", paste("/api/2.1/unity-catalog/external-locations/", name, sep = ""))
 }
@@ -113,8 +110,7 @@ external_locations$get <- external_locations_get
 #' @rdname external_locations_list
 #'
 #' @aliases external_locations_list
-external_locations_list <- function(...) {
-
+external_locations_list <- function() {
 
   json <- .api$do("GET", "/api/2.1/unity-catalog/external-locations")
   return(json$external_locations)
@@ -142,10 +138,9 @@ external_locations$list <- external_locations_list
 #'
 #' @aliases external_locations_update
 external_locations_update <- function(name, comment = NULL, credential_name = NULL,
-  force = NULL, owner = NULL, read_only = NULL, url = NULL, ...) {
+  force = NULL, owner = NULL, read_only = NULL, url = NULL) {
   body <- list(comment = comment, credential_name = credential_name, force = force,
-    name = name, owner = owner, read_only = read_only, url = url, ...)
-
+    name = name, owner = owner, read_only = read_only, url = url)
   .api$do("PATCH", paste("/api/2.1/unity-catalog/external-locations/", name, sep = ""),
     body = body)
 }

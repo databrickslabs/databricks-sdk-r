@@ -44,10 +44,9 @@ m_lflow_runs <- list()
 #'
 #' @aliases m_lflow_runs_create
 m_lflow_runs_create <- function(experiment_id = NULL, start_time = NULL, tags = NULL,
-  user_id = NULL, ...) {
+  user_id = NULL) {
   body <- list(experiment_id = experiment_id, start_time = start_time, tags = tags,
-    user_id = user_id, ...)
-
+    user_id = user_id)
   .api$do("POST", "/api/2.0/mlflow/runs/create", body = body)
 }
 m_lflow_runs$create <- m_lflow_runs_create
@@ -63,9 +62,8 @@ m_lflow_runs$create <- m_lflow_runs_create
 #' @rdname m_lflow_runs_delete
 #'
 #' @aliases m_lflow_runs_delete
-m_lflow_runs_delete <- function(run_id, ...) {
-  body <- list(run_id = run_id, ...)
-
+m_lflow_runs_delete <- function(run_id) {
+  body <- list(run_id = run_id)
   .api$do("POST", "/api/2.0/mlflow/runs/delete", body = body)
 }
 m_lflow_runs$delete <- m_lflow_runs_delete
@@ -83,9 +81,8 @@ m_lflow_runs$delete <- m_lflow_runs_delete
 #' @rdname m_lflow_runs_delete_tag
 #'
 #' @aliases m_lflow_runs_delete_tag
-m_lflow_runs_delete_tag <- function(run_id, key, ...) {
-  body <- list(key = key, run_id = run_id, ...)
-
+m_lflow_runs_delete_tag <- function(run_id, key) {
+  body <- list(key = key, run_id = run_id)
   .api$do("POST", "/api/2.0/mlflow/runs/delete-tag", body = body)
 }
 m_lflow_runs$delete_tag <- m_lflow_runs_delete_tag
@@ -107,9 +104,8 @@ m_lflow_runs$delete_tag <- m_lflow_runs_delete_tag
 #' @rdname m_lflow_runs_get
 #'
 #' @aliases m_lflow_runs_get
-m_lflow_runs_get <- function(run_id, run_uuid = NULL, ...) {
-  query <- list(run_id = run_id, run_uuid = run_uuid, ...)
-
+m_lflow_runs_get <- function(run_id, run_uuid = NULL) {
+  query <- list(run_id = run_id, run_uuid = run_uuid)
   .api$do("GET", "/api/2.0/mlflow/runs/get", query = query)
 }
 m_lflow_runs$get <- m_lflow_runs_get
@@ -165,10 +161,8 @@ m_lflow_runs$get <- m_lflow_runs_get
 #'
 #' @aliases m_lflow_runs_log_batch
 m_lflow_runs_log_batch <- function(metrics = NULL, params = NULL, run_id = NULL,
-  tags = NULL, ...) {
-  body <- list(metrics = metrics, params = params, run_id = run_id, tags = tags,
-    ...)
-
+  tags = NULL) {
+  body <- list(metrics = metrics, params = params, run_id = run_id, tags = tags)
   .api$do("POST", "/api/2.0/mlflow/runs/log-batch", body = body)
 }
 m_lflow_runs$log_batch <- m_lflow_runs_log_batch
@@ -192,10 +186,9 @@ m_lflow_runs$log_batch <- m_lflow_runs_log_batch
 #'
 #' @aliases m_lflow_runs_log_metric
 m_lflow_runs_log_metric <- function(key, value, timestamp, run_id = NULL, run_uuid = NULL,
-  step = NULL, ...) {
+  step = NULL) {
   body <- list(key = key, run_id = run_id, run_uuid = run_uuid, step = step, timestamp = timestamp,
-    value = value, ...)
-
+    value = value)
   .api$do("POST", "/api/2.0/mlflow/runs/log-metric", body = body)
 }
 m_lflow_runs$log_metric <- m_lflow_runs_log_metric
@@ -213,9 +206,8 @@ m_lflow_runs$log_metric <- m_lflow_runs_log_metric
 #' @rdname m_lflow_runs_log_model
 #'
 #' @aliases m_lflow_runs_log_model
-m_lflow_runs_log_model <- function(model_json = NULL, run_id = NULL, ...) {
-  body <- list(model_json = model_json, run_id = run_id, ...)
-
+m_lflow_runs_log_model <- function(model_json = NULL, run_id = NULL) {
+  body <- list(model_json = model_json, run_id = run_id)
   .api$do("POST", "/api/2.0/mlflow/runs/log-model", body = body)
 }
 m_lflow_runs$log_model <- m_lflow_runs_log_model
@@ -237,11 +229,8 @@ m_lflow_runs$log_model <- m_lflow_runs_log_model
 #' @rdname m_lflow_runs_log_parameter
 #'
 #' @aliases m_lflow_runs_log_parameter
-m_lflow_runs_log_parameter <- function(key, value, run_id = NULL, run_uuid = NULL,
-  ...) {
-  body <- list(key = key, run_id = run_id, run_uuid = run_uuid, value = value,
-    ...)
-
+m_lflow_runs_log_parameter <- function(key, value, run_id = NULL, run_uuid = NULL) {
+  body <- list(key = key, run_id = run_id, run_uuid = run_uuid, value = value)
   .api$do("POST", "/api/2.0/mlflow/runs/log-parameter", body = body)
 }
 m_lflow_runs$log_parameter <- m_lflow_runs_log_parameter
@@ -257,9 +246,8 @@ m_lflow_runs$log_parameter <- m_lflow_runs_log_parameter
 #' @rdname m_lflow_runs_restore
 #'
 #' @aliases m_lflow_runs_restore
-m_lflow_runs_restore <- function(run_id, ...) {
-  body <- list(run_id = run_id, ...)
-
+m_lflow_runs_restore <- function(run_id) {
+  body <- list(run_id = run_id)
   .api$do("POST", "/api/2.0/mlflow/runs/restore", body = body)
 }
 m_lflow_runs$restore <- m_lflow_runs_restore
@@ -285,13 +273,9 @@ m_lflow_runs$restore <- m_lflow_runs_restore
 #'
 #' @aliases m_lflow_runs_search
 m_lflow_runs_search <- function(experiment_ids = NULL, filter = NULL, max_results = NULL,
-  order_by = NULL, page_token = NULL, run_view_type = NULL, ...) {
+  order_by = NULL, page_token = NULL, run_view_type = NULL) {
   body <- list(experiment_ids = experiment_ids, filter = filter, max_results = max_results,
-    order_by = order_by, page_token = page_token, run_view_type = run_view_type,
-    ...)
-
-
-
+    order_by = order_by, page_token = page_token, run_view_type = run_view_type)
   results <- data.frame()
   while (TRUE) {
     json <- .api$do("POST", "/api/2.0/mlflow/runs/search", body = body)
@@ -325,10 +309,8 @@ m_lflow_runs$search <- m_lflow_runs_search
 #' @rdname m_lflow_runs_set_tag
 #'
 #' @aliases m_lflow_runs_set_tag
-m_lflow_runs_set_tag <- function(key, value, run_id = NULL, run_uuid = NULL, ...) {
-  body <- list(key = key, run_id = run_id, run_uuid = run_uuid, value = value,
-    ...)
-
+m_lflow_runs_set_tag <- function(key, value, run_id = NULL, run_uuid = NULL) {
+  body <- list(key = key, run_id = run_id, run_uuid = run_uuid, value = value)
   .api$do("POST", "/api/2.0/mlflow/runs/set-tag", body = body)
 }
 m_lflow_runs$set_tag <- m_lflow_runs_set_tag
@@ -348,10 +330,8 @@ m_lflow_runs$set_tag <- m_lflow_runs_set_tag
 #'
 #' @aliases m_lflow_runs_update
 m_lflow_runs_update <- function(end_time = NULL, run_id = NULL, run_uuid = NULL,
-  status = NULL, ...) {
-  body <- list(end_time = end_time, run_id = run_id, run_uuid = run_uuid, status = status,
-    ...)
-
+  status = NULL) {
+  body <- list(end_time = end_time, run_id = run_id, run_uuid = run_uuid, status = status)
   .api$do("POST", "/api/2.0/mlflow/runs/update", body = body)
 }
 m_lflow_runs$update <- m_lflow_runs_update

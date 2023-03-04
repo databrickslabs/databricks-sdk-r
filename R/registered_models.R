@@ -40,9 +40,8 @@ registered_models <- list()
 #' @rdname registered_models_create
 #'
 #' @aliases registered_models_create
-registered_models_create <- function(name, description = NULL, tags = NULL, ...) {
-  body <- list(description = description, name = name, tags = tags, ...)
-
+registered_models_create <- function(name, description = NULL, tags = NULL) {
+  body <- list(description = description, name = name, tags = tags)
   .api$do("POST", "/api/2.0/mlflow/registered-models/create", body = body)
 }
 registered_models$create <- registered_models_create
@@ -58,9 +57,8 @@ registered_models$create <- registered_models_create
 #' @rdname registered_models_delete
 #'
 #' @aliases registered_models_delete
-registered_models_delete <- function(name, ...) {
-  query <- list(name = name, ...)
-
+registered_models_delete <- function(name) {
+  query <- list(name = name)
   .api$do("DELETE", "/api/2.0/mlflow/registered-models/delete", query = query)
 }
 registered_models$delete <- registered_models_delete
@@ -77,9 +75,8 @@ registered_models$delete <- registered_models_delete
 #' @rdname registered_models_delete_tag
 #'
 #' @aliases registered_models_delete_tag
-registered_models_delete_tag <- function(name, key, ...) {
-  query <- list(key = key, name = name, ...)
-
+registered_models_delete_tag <- function(name, key) {
+  query <- list(key = key, name = name)
   .api$do("DELETE", "/api/2.0/mlflow/registered-models/delete-tag", query = query)
 }
 registered_models$delete_tag <- registered_models_delete_tag
@@ -95,9 +92,8 @@ registered_models$delete_tag <- registered_models_delete_tag
 #' @rdname registered_models_get
 #'
 #' @aliases registered_models_get
-registered_models_get <- function(name, ...) {
-  query <- list(name = name, ...)
-
+registered_models_get <- function(name) {
+  query <- list(name = name)
   .api$do("GET", "/api/2.0/mlflow/registered-models/get", query = query)
 }
 registered_models$get <- registered_models_get
@@ -116,9 +112,8 @@ registered_models$get <- registered_models_get
 #' @rdname registered_models_get_latest_versions
 #'
 #' @aliases registered_models_get_latest_versions
-registered_models_get_latest_versions <- function(name, stages = NULL, ...) {
-  body <- list(name = name, stages = stages, ...)
-
+registered_models_get_latest_versions <- function(name, stages = NULL) {
+  body <- list(name = name, stages = stages)
 
   json <- .api$do("POST", "/api/2.0/mlflow/registered-models/get-latest-versions",
     body = body)
@@ -142,11 +137,8 @@ registered_models$get_latest_versions <- registered_models_get_latest_versions
 #' @rdname registered_models_list
 #'
 #' @aliases registered_models_list
-registered_models_list <- function(max_results = NULL, page_token = NULL, ...) {
-  query <- list(max_results = max_results, page_token = page_token, ...)
-
-
-
+registered_models_list <- function(max_results = NULL, page_token = NULL) {
+  query <- list(max_results = max_results, page_token = page_token)
   results <- data.frame()
   while (TRUE) {
     json <- .api$do("GET", "/api/2.0/mlflow/registered-models/list", query = query)
@@ -177,9 +169,8 @@ registered_models$list <- registered_models_list
 #' @rdname registered_models_rename
 #'
 #' @aliases registered_models_rename
-registered_models_rename <- function(name, new_name = NULL, ...) {
-  body <- list(name = name, new_name = new_name, ...)
-
+registered_models_rename <- function(name, new_name = NULL) {
+  body <- list(name = name, new_name = new_name)
   .api$do("POST", "/api/2.0/mlflow/registered-models/rename", body = body)
 }
 registered_models$rename <- registered_models_rename
@@ -201,12 +192,9 @@ registered_models$rename <- registered_models_rename
 #'
 #' @aliases registered_models_search
 registered_models_search <- function(filter = NULL, max_results = NULL, order_by = NULL,
-  page_token = NULL, ...) {
+  page_token = NULL) {
   query <- list(filter = filter, max_results = max_results, order_by = order_by,
-    page_token = page_token, ...)
-
-
-
+    page_token = page_token)
   results <- data.frame()
   while (TRUE) {
     json <- .api$do("GET", "/api/2.0/mlflow/registered-models/search", query = query)
@@ -238,9 +226,8 @@ registered_models$search <- registered_models_search
 #' @rdname registered_models_set_tag
 #'
 #' @aliases registered_models_set_tag
-registered_models_set_tag <- function(name, key, value, ...) {
-  body <- list(key = key, name = name, value = value, ...)
-
+registered_models_set_tag <- function(name, key, value) {
+  body <- list(key = key, name = name, value = value)
   .api$do("POST", "/api/2.0/mlflow/registered-models/set-tag", body = body)
 }
 registered_models$set_tag <- registered_models_set_tag
@@ -257,9 +244,8 @@ registered_models$set_tag <- registered_models_set_tag
 #' @rdname registered_models_update
 #'
 #' @aliases registered_models_update
-registered_models_update <- function(name, description = NULL, ...) {
-  body <- list(description = description, name = name, ...)
-
+registered_models_update <- function(name, description = NULL) {
+  body <- list(description = description, name = name)
   .api$do("PATCH", "/api/2.0/mlflow/registered-models/update", body = body)
 }
 registered_models$update <- registered_models_update

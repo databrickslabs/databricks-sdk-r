@@ -58,12 +58,10 @@ storage_credentials <- list()
 #'
 #' @aliases storage_credentials_create
 storage_credentials_create <- function(name, metastore_id, aws_iam_role = NULL, azure_service_principal = NULL,
-  comment = NULL, gcp_service_account_key = NULL, read_only = NULL, skip_validation = NULL,
-  ...) {
+  comment = NULL, gcp_service_account_key = NULL, read_only = NULL, skip_validation = NULL) {
   body <- list(aws_iam_role = aws_iam_role, azure_service_principal = azure_service_principal,
     comment = comment, gcp_service_account_key = gcp_service_account_key, name = name,
-    read_only = read_only, skip_validation = skip_validation, ...)
-
+    read_only = read_only, skip_validation = skip_validation)
   .api$do("POST", "/api/2.1/unity-catalog/storage-credentials", body = body)
 }
 storage_credentials$create <- storage_credentials_create
@@ -81,9 +79,8 @@ storage_credentials$create <- storage_credentials_create
 #' @rdname storage_credentials_delete
 #'
 #' @aliases storage_credentials_delete
-storage_credentials_delete <- function(name, force = NULL, ...) {
-  query <- list(force = force, ...)
-
+storage_credentials_delete <- function(name, force = NULL) {
+  query <- list(force = force)
   .api$do("DELETE", paste("/api/2.1/unity-catalog/storage-credentials/", name,
     sep = ""), query = query)
 }
@@ -102,8 +99,7 @@ storage_credentials$delete <- storage_credentials_delete
 #' @rdname storage_credentials_get
 #'
 #' @aliases storage_credentials_get
-storage_credentials_get <- function(name, ...) {
-
+storage_credentials_get <- function(name) {
 
   .api$do("GET", paste("/api/2.1/unity-catalog/storage-credentials/", name, sep = ""))
 }
@@ -121,8 +117,7 @@ storage_credentials$get <- storage_credentials_get
 #' @rdname storage_credentials_list
 #'
 #' @aliases storage_credentials_list
-storage_credentials_list <- function(...) {
-
+storage_credentials_list <- function() {
   .api$do("GET", "/api/2.1/unity-catalog/storage-credentials")
 }
 storage_credentials$list <- storage_credentials_list
@@ -150,12 +145,10 @@ storage_credentials$list <- storage_credentials_list
 #' @aliases storage_credentials_update
 storage_credentials_update <- function(name, aws_iam_role = NULL, azure_service_principal = NULL,
   comment = NULL, force = NULL, gcp_service_account_key = NULL, owner = NULL, read_only = NULL,
-  skip_validation = NULL, ...) {
+  skip_validation = NULL) {
   body <- list(aws_iam_role = aws_iam_role, azure_service_principal = azure_service_principal,
     comment = comment, force = force, gcp_service_account_key = gcp_service_account_key,
-    name = name, owner = owner, read_only = read_only, skip_validation = skip_validation,
-    ...)
-
+    name = name, owner = owner, read_only = read_only, skip_validation = skip_validation)
   .api$do("PATCH", paste("/api/2.1/unity-catalog/storage-credentials/", name, sep = ""),
     body = body)
 }
@@ -191,12 +184,11 @@ storage_credentials$update <- storage_credentials_update
 #' @aliases storage_credentials_validate
 storage_credentials_validate <- function(aws_iam_role = NULL, azure_service_principal = NULL,
   external_location_name = NULL, gcp_service_account_key = NULL, read_only = NULL,
-  storage_credential_name = NULL, url = NULL, ...) {
+  storage_credential_name = NULL, url = NULL) {
   body <- list(aws_iam_role = aws_iam_role, azure_service_principal = azure_service_principal,
     external_location_name = external_location_name, gcp_service_account_key = gcp_service_account_key,
     read_only = read_only, storage_credential_name = storage_credential_name,
-    url = url, ...)
-
+    url = url)
   .api$do("POST", "/api/2.1/unity-catalog/validate-storage-credentials", body = body)
 }
 storage_credentials$validate <- storage_credentials_validate

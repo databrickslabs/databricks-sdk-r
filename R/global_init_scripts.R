@@ -42,11 +42,8 @@ global_init_scripts <- list()
 #' @rdname global_init_scripts_create
 #'
 #' @aliases global_init_scripts_create
-global_init_scripts_create <- function(name, script, enabled = NULL, position = NULL,
-  ...) {
-  body <- list(enabled = enabled, name = name, position = position, script = script,
-    ...)
-
+global_init_scripts_create <- function(name, script, enabled = NULL, position = NULL) {
+  body <- list(enabled = enabled, name = name, position = position, script = script)
   .api$do("POST", "/api/2.0/global-init-scripts", body = body)
 }
 global_init_scripts$create <- global_init_scripts_create
@@ -62,8 +59,7 @@ global_init_scripts$create <- global_init_scripts_create
 #' @rdname global_init_scripts_delete
 #'
 #' @aliases global_init_scripts_delete
-global_init_scripts_delete <- function(script_id, ...) {
-
+global_init_scripts_delete <- function(script_id) {
 
   .api$do("DELETE", paste("/api/2.0/global-init-scripts/", script_id, sep = ""))
 }
@@ -80,8 +76,7 @@ global_init_scripts$delete <- global_init_scripts_delete
 #' @rdname global_init_scripts_get
 #'
 #' @aliases global_init_scripts_get
-global_init_scripts_get <- function(script_id, ...) {
-
+global_init_scripts_get <- function(script_id) {
 
   .api$do("GET", paste("/api/2.0/global-init-scripts/", script_id, sep = ""))
 }
@@ -100,8 +95,7 @@ global_init_scripts$get <- global_init_scripts_get
 #' @rdname global_init_scripts_list
 #'
 #' @aliases global_init_scripts_list
-global_init_scripts_list <- function(...) {
-
+global_init_scripts_list <- function() {
 
   json <- .api$do("GET", "/api/2.0/global-init-scripts")
   return(json$scripts)
@@ -125,11 +119,8 @@ global_init_scripts$list <- global_init_scripts_list
 #' @rdname global_init_scripts_update
 #'
 #' @aliases global_init_scripts_update
-global_init_scripts_update <- function(name, script, script_id, enabled = NULL, position = NULL,
-  ...) {
-  body <- list(enabled = enabled, name = name, position = position, script = script,
-    ...)
-
+global_init_scripts_update <- function(name, script, script_id, enabled = NULL, position = NULL) {
+  body <- list(enabled = enabled, name = name, position = position, script = script)
   .api$do("PATCH", paste("/api/2.0/global-init-scripts/", script_id, sep = ""),
     body = body)
 }

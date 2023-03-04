@@ -48,8 +48,7 @@ libraries <- list()
 #' @rdname libraries_all_cluster_statuses
 #'
 #' @aliases libraries_all_cluster_statuses
-libraries_all_cluster_statuses <- function(...) {
-
+libraries_all_cluster_statuses <- function() {
   .api$do("GET", "/api/2.0/libraries/all-cluster-statuses")
 }
 libraries$all_cluster_statuses <- libraries_all_cluster_statuses
@@ -79,9 +78,8 @@ libraries$all_cluster_statuses <- libraries_all_cluster_statuses
 #' @rdname libraries_cluster_status
 #'
 #' @aliases libraries_cluster_status
-libraries_cluster_status <- function(cluster_id, ...) {
-  query <- list(cluster_id = cluster_id, ...)
-
+libraries_cluster_status <- function(cluster_id) {
+  query <- list(cluster_id = cluster_id)
   .api$do("GET", "/api/2.0/libraries/cluster-status", query = query)
 }
 libraries$cluster_status <- libraries_cluster_status
@@ -103,9 +101,8 @@ libraries$cluster_status <- libraries_cluster_status
 #' @rdname libraries_install
 #'
 #' @aliases libraries_install
-libraries_install <- function(cluster_id, libraries, ...) {
-  body <- list(cluster_id = cluster_id, libraries = libraries, ...)
-
+libraries_install <- function(cluster_id, libraries) {
+  body <- list(cluster_id = cluster_id, libraries = libraries)
   .api$do("POST", "/api/2.0/libraries/install", body = body)
 }
 libraries$install <- libraries_install
@@ -124,9 +121,8 @@ libraries$install <- libraries_install
 #' @rdname libraries_uninstall
 #'
 #' @aliases libraries_uninstall
-libraries_uninstall <- function(cluster_id, libraries, ...) {
-  body <- list(cluster_id = cluster_id, libraries = libraries, ...)
-
+libraries_uninstall <- function(cluster_id, libraries) {
+  body <- list(cluster_id = cluster_id, libraries = libraries)
   .api$do("POST", "/api/2.0/libraries/uninstall", body = body)
 }
 libraries$uninstall <- libraries_uninstall

@@ -32,11 +32,11 @@ NULL
 #' @rdname {{.Service.SnakeName}}_{{.SnakeName}}
 #'
 #' @aliases {{.Service.SnakeName}}_{{.SnakeName}}
-{{.Service.SnakeName}}_{{.SnakeName}} <- function(
-    {{- if .Request}}{{range .Request.RequiredFields}}{{.SnakeName}}, {{end -}}
-    {{- range .Request.NonRequiredFields}}{{.SnakeName}} = NULL, 
-    {{end}}{{- end -}}{{if and .Wait (not .IsCrudRead)}}timeout={{.Wait.Timeout}}, callback = cli_reporter, {{end}}...) {
-    {{template "method-serialize" .}}
+{{- $hasRequiredFields := and .Request (gt (len .Request.RequiredFields) 0) }}
+{{.Service.SnakeName}}_{{.SnakeName}} <- function({{- if .Request}}{{range $i, $x := .Request.RequiredFields}}{{if $i}}, {{end}}{{.SnakeName}}{{end -}}
+    {{- range $i, $x := .Request.NonRequiredFields}}{{if or $i (and $hasRequiredFields (not $i))}}, {{end}}{{.SnakeName}}=NULL{{end}}
+    {{- end}}{{if and .Wait (not .IsCrudRead)}}, timeout={{.Wait.Timeout}}, callback=cli_reporter{{end}}) {
+    {{- template "method-serialize" .}}
     {{template "method-call" .}}
 }
 {{.Service.SnakeName}}${{.SnakeName}} <- {{.Service.SnakeName}}_{{.SnakeName}}
@@ -45,11 +45,11 @@ NULL
 
 {{- define "method-serialize" -}}
     {{if .Request}}
-    {{- if .Request.HasQueryField}}query <- list({{range .Request.Fields}}{{if .IsQuery}}
-        {{.Name}} = {{.SnakeName}}, {{end}}{{end}}...){{end}}
-    {{- if .Request.HasJsonField}}body <- list({{range .Request.Fields}}{{if .IsJson}}
-        {{.Name}} = {{.SnakeName}}, {{end}}{{end}}...){{end}}
-    {{end -}}
+    {{if .Request.HasQueryField}}query <- list({{range $i, $x := .Request.Fields}}{{if .IsQuery}}
+        {{if $i}}, {{end}}{{.Name}} = {{.SnakeName}}{{end}}{{end}}){{end -}}
+    {{- if .Request.HasJsonField}}body <- list({{range $i, $x := .Request.Fields}}{{if .IsJson}}
+        {{if $i}}, {{end}}{{.Name}} = {{.SnakeName}}{{end}}{{end}}){{end -}}
+    {{- end}}
 {{- end -}}
 
 {{- define "method-call" -}}
@@ -59,9 +59,9 @@ NULL
 {{- end -}}
 
 {{- define "method-call-paginated" -}}
-    {{if .Pagination.MultiRequest}}
+    {{- if .Pagination.MultiRequest -}}
     {{if and .Pagination.Offset (not (eq .Path "/api/2.0/clusters/events")) }}
-    query${{.Pagination.Offset.Name}} = {{if eq .Pagination.Increment 1}}1{{else}}0{{end}}{{end}}
+    query${{.Pagination.Offset.Name}} = {{if eq .Pagination.Increment 1}}1{{else}}0{{end}}{{end -}}
     results <- data.frame()
     while (TRUE) {
         json <- {{template "method-do" .}}

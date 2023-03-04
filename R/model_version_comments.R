@@ -32,9 +32,8 @@ model_version_comments <- list()
 #' @rdname model_version_comments_create
 #'
 #' @aliases model_version_comments_create
-model_version_comments_create <- function(name, version, comment, ...) {
-  body <- list(comment = comment, name = name, version = version, ...)
-
+model_version_comments_create <- function(name, version, comment) {
+  body <- list(comment = comment, name = name, version = version)
   .api$do("POST", "/api/2.0/mlflow/comments/create", body = body)
 }
 model_version_comments$create <- model_version_comments_create
@@ -50,9 +49,8 @@ model_version_comments$create <- model_version_comments_create
 #' @rdname model_version_comments_delete
 #'
 #' @aliases model_version_comments_delete
-model_version_comments_delete <- function(id, ...) {
-  query <- list(id = id, ...)
-
+model_version_comments_delete <- function(id) {
+  query <- list(id = id)
   .api$do("DELETE", "/api/2.0/mlflow/comments/delete", query = query)
 }
 model_version_comments$delete <- model_version_comments_delete
@@ -69,9 +67,8 @@ model_version_comments$delete <- model_version_comments_delete
 #' @rdname model_version_comments_update
 #'
 #' @aliases model_version_comments_update
-model_version_comments_update <- function(id, comment, ...) {
-  body <- list(comment = comment, id = id, ...)
-
+model_version_comments_update <- function(id, comment) {
+  body <- list(comment = comment, id = id)
   .api$do("POST", "/api/2.0/mlflow/comments/update", body = body)
 }
 model_version_comments$update <- model_version_comments_update
