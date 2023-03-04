@@ -9,7 +9,7 @@
 #' @param parent The identifier of the workspace folder containing the dashboard.
 #' @param tags 
 #' @param widgets An array of widget objects.
-databricks_dashboards_create <- function(dashboard_filters_enabled = NULL, 
+dashboards_create <- function(dashboard_filters_enabled = NULL, 
     is_draft = NULL, 
     is_trashed = NULL, 
     name = NULL, 
@@ -35,7 +35,7 @@ databricks_dashboards_create <- function(dashboard_filters_enabled = NULL,
 #' views or searches, and cannot be shared.
 #'
 #' @param dashboard_id 
-databricks_dashboards_delete <- function(dashboard_id, ...) {
+dashboards_delete <- function(dashboard_id, ...) {
     
     
     .api$do("DELETE", paste("/api/2.0/preview/sql/dashboards/", dashboard_id, sep = ""))
@@ -47,7 +47,7 @@ databricks_dashboards_delete <- function(dashboard_id, ...) {
 #' visualization and query objects.
 #'
 #' @param dashboard_id 
-databricks_dashboards_get <- function(dashboard_id, ...) {
+dashboards_get <- function(dashboard_id, ...) {
     
     
     .api$do("GET", paste("/api/2.0/preview/sql/dashboards/", dashboard_id, sep = ""))
@@ -61,7 +61,7 @@ databricks_dashboards_get <- function(dashboard_id, ...) {
 #' @param page Page number to retrieve.
 #' @param page_size Number of dashboards to return per page.
 #' @param q Full text search term.
-databricks_dashboards_list <- function(order = NULL, 
+dashboards_list <- function(order = NULL, 
     page = NULL, 
     page_size = NULL, 
     q = NULL, 
@@ -96,7 +96,7 @@ databricks_dashboards_list <- function(order = NULL,
 #' A restored dashboard appears in list views and searches and can be shared.
 #'
 #' @param dashboard_id 
-databricks_dashboards_restore <- function(dashboard_id, ...) {
+dashboards_restore <- function(dashboard_id, ...) {
     
     
     .api$do("POST", paste("/api/2.0/preview/sql/dashboards/trash/", dashboard_id, sep = ""))

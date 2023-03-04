@@ -9,7 +9,7 @@
 #' @param path Filter artifacts matching this path (a relative path from the root artifact directory).
 #' @param run_id ID of the run whose artifacts to list.
 #' @param run_uuid [Deprecated, use run_id instead] ID of the run whose artifacts to list.
-databricks_m_lflow_artifacts_list <- function(page_token = NULL, 
+m_lflow_artifacts_list <- function(page_token = NULL, 
     path = NULL, 
     run_id = NULL, 
     run_uuid = NULL, 

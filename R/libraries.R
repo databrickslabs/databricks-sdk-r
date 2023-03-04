@@ -6,7 +6,7 @@
 #' for all libraries installed on this cluster via the API or the libraries UI
 #' as well as libraries set to be installed on all clusters via the libraries
 #' UI.
-databricks_libraries_all_cluster_statuses <- function(...) {
+libraries_all_cluster_statuses <- function(...) {
     
     .api$do("GET", "/api/2.0/libraries/all-cluster-statuses")
 }
@@ -30,7 +30,7 @@ databricks_libraries_all_cluster_statuses <- function(...) {
 #' guarantee.
 #'
 #' @param cluster_id Unique identifier of the cluster whose status should be retrieved.
-databricks_libraries_cluster_status <- function(cluster_id, ...) {
+libraries_cluster_status <- function(cluster_id, ...) {
     query <- list(
         cluster_id = cluster_id, ...)
     
@@ -48,7 +48,7 @@ databricks_libraries_cluster_status <- function(cluster_id, ...) {
 #'
 #' @param cluster_id Unique identifier for the cluster on which to install these libraries.
 #' @param libraries The libraries to install.
-databricks_libraries_install <- function(cluster_id, libraries, ...) {
+libraries_install <- function(cluster_id, libraries, ...) {
     body <- list(
         cluster_id = cluster_id, 
         libraries = libraries, ...)
@@ -64,7 +64,7 @@ databricks_libraries_install <- function(cluster_id, libraries, ...) {
 #'
 #' @param cluster_id Unique identifier for the cluster on which to uninstall these libraries.
 #' @param libraries The libraries to uninstall.
-databricks_libraries_uninstall <- function(cluster_id, libraries, ...) {
+libraries_uninstall <- function(cluster_id, libraries, ...) {
     body <- list(
         cluster_id = cluster_id, 
         libraries = libraries, ...)

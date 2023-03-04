@@ -11,7 +11,7 @@
 #' @param provider_name The name of delta sharing provider.
 #' @param share_name The name of the share under the share provider.
 #' @param storage_root Storage root URL for managed tables within catalog.
-databricks_catalogs_create <- function(name, comment = NULL, 
+catalogs_create <- function(name, comment = NULL, 
     properties = NULL, 
     provider_name = NULL, 
     share_name = NULL, 
@@ -35,7 +35,7 @@ databricks_catalogs_create <- function(name, comment = NULL,
 #'
 #' @param force Force deletion even if the catalog is not empty.
 #' @param name The name of the catalog.
-databricks_catalogs_delete <- function(name, force = NULL, 
+catalogs_delete <- function(name, force = NULL, 
     ...) {
     query <- list(
         force = force, ...)
@@ -50,7 +50,7 @@ databricks_catalogs_delete <- function(name, force = NULL,
 #' privilege set for their account.
 #'
 #' @param name The name of the catalog.
-databricks_catalogs_get <- function(name, ...) {
+catalogs_get <- function(name, ...) {
     
     
     .api$do("GET", paste("/api/2.1/unity-catalog/catalogs/", name, sep = ""))
@@ -63,7 +63,7 @@ databricks_catalogs_get <- function(name, ...) {
 #' caller (or for which the caller has the **USE_CATALOG** privilege) will be
 #' retrieved. There is no guarantee of a specific ordering of the elements in
 #' the array.
-databricks_catalogs_list <- function(...) {
+catalogs_list <- function(...) {
     
     
     json <- .api$do("GET", "/api/2.1/unity-catalog/catalogs")
@@ -81,7 +81,7 @@ databricks_catalogs_list <- function(...) {
 #' @param name Name of catalog.
 #' @param owner Username of current owner of catalog.
 #' @param properties A map of key-value properties attached to the securable.
-databricks_catalogs_update <- function(name, comment = NULL, 
+catalogs_update <- function(name, comment = NULL, 
     owner = NULL, 
     properties = NULL, 
     ...) {

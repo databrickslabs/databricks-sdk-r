@@ -11,7 +11,7 @@
 #' @param name Name of schema, relative to parent catalog.
 #' @param properties A map of key-value properties attached to the securable.
 #' @param storage_root Storage root URL for managed tables within schema.
-databricks_schemas_create <- function(name, catalog_name, comment = NULL, 
+schemas_create <- function(name, catalog_name, comment = NULL, 
     properties = NULL, 
     storage_root = NULL, 
     ...) {
@@ -31,7 +31,7 @@ databricks_schemas_create <- function(name, catalog_name, comment = NULL,
 #' owner of the schema or an owner of the parent catalog.
 #'
 #' @param full_name Full name of the schema.
-databricks_schemas_delete <- function(full_name, ...) {
+schemas_delete <- function(full_name, ...) {
     
     
     .api$do("DELETE", paste("/api/2.1/unity-catalog/schemas/", full_name, sep = ""))
@@ -44,7 +44,7 @@ databricks_schemas_delete <- function(full_name, ...) {
 #' **USE_SCHEMA** privilege on the schema.
 #'
 #' @param full_name Full name of the schema.
-databricks_schemas_get <- function(full_name, ...) {
+schemas_get <- function(full_name, ...) {
     
     
     .api$do("GET", paste("/api/2.1/unity-catalog/schemas/", full_name, sep = ""))
@@ -59,7 +59,7 @@ databricks_schemas_get <- function(full_name, ...) {
 #' There is no guarantee of a specific ordering of the elements in the array.
 #'
 #' @param catalog_name Parent catalog for schemas of interest.
-databricks_schemas_list <- function(catalog_name, ...) {
+schemas_list <- function(catalog_name, ...) {
     query <- list(
         catalog_name = catalog_name, ...)
     
@@ -82,7 +82,7 @@ databricks_schemas_list <- function(catalog_name, ...) {
 #' @param name Name of schema, relative to parent catalog.
 #' @param owner Username of current owner of schema.
 #' @param properties A map of key-value properties attached to the securable.
-databricks_schemas_update <- function(full_name, comment = NULL, 
+schemas_update <- function(full_name, comment = NULL, 
     name = NULL, 
     owner = NULL, 
     properties = NULL, 

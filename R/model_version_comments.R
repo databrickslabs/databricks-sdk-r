@@ -9,7 +9,7 @@
 #' @param comment User-provided comment on the action.
 #' @param name Name of the model.
 #' @param version Version of the model.
-databricks_model_version_comments_create <- function(name, version, comment, ...) {
+model_version_comments_create <- function(name, version, comment, ...) {
     body <- list(
         comment = comment, 
         name = name, 
@@ -23,7 +23,7 @@ databricks_model_version_comments_create <- function(name, version, comment, ...
 #' Deletes a comment on a model version.
 #'
 #' @param id 
-databricks_model_version_comments_delete <- function(id, ...) {
+model_version_comments_delete <- function(id, ...) {
     query <- list(
         id = id, ...)
     
@@ -36,7 +36,7 @@ databricks_model_version_comments_delete <- function(id, ...) {
 #'
 #' @param comment User-provided comment on the action.
 #' @param id Unique identifier of an activity.
-databricks_model_version_comments_update <- function(id, comment, ...) {
+model_version_comments_update <- function(id, comment, ...) {
     body <- list(
         comment = comment, 
         id = id, ...)

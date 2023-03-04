@@ -9,7 +9,7 @@
 #' @param comment Description about the provider.
 #' @param name The name of the Provider.
 #' @param recipient_profile_str This field is required when the __authentication_type__ is **TOKEN** or not provided.
-databricks_providers_create <- function(name, authentication_type, comment = NULL, 
+providers_create <- function(name, authentication_type, comment = NULL, 
     recipient_profile_str = NULL, 
     ...) {
     body <- list(
@@ -27,7 +27,7 @@ databricks_providers_create <- function(name, authentication_type, comment = NUL
 #' the owner of the provider.
 #'
 #' @param name Name of the provider.
-databricks_providers_delete <- function(name, ...) {
+providers_delete <- function(name, ...) {
     
     
     .api$do("DELETE", paste("/api/2.1/unity-catalog/providers/", name, sep = ""))
@@ -40,7 +40,7 @@ databricks_providers_delete <- function(name, ...) {
 #' provider.
 #'
 #' @param name Name of the provider.
-databricks_providers_get <- function(name, ...) {
+providers_get <- function(name, ...) {
     
     
     .api$do("GET", paste("/api/2.1/unity-catalog/providers/", name, sep = ""))
@@ -54,7 +54,7 @@ databricks_providers_get <- function(name, ...) {
 #' specific ordering of the elements in the array.
 #'
 #' @param data_provider_global_metastore_id If not provided, all providers will be returned.
-databricks_providers_list <- function(data_provider_global_metastore_id = NULL, 
+providers_list <- function(data_provider_global_metastore_id = NULL, 
     ...) {
     query <- list(
         data_provider_global_metastore_id = data_provider_global_metastore_id, ...)
@@ -72,7 +72,7 @@ databricks_providers_list <- function(data_provider_global_metastore_id = NULL,
 #' * the caller is a metastore admin, or * the caller is the owner.
 #'
 #' @param name Name of the provider in which to list shares.
-databricks_providers_list_shares <- function(name, ...) {
+providers_list_shares <- function(name, ...) {
     
     
     .api$do("GET", paste("/api/2.1/unity-catalog/providers/", name, "/shares", , sep = ""))
@@ -89,7 +89,7 @@ databricks_providers_list_shares <- function(name, ...) {
 #' @param name The name of the Provider.
 #' @param owner Username of Provider owner.
 #' @param recipient_profile_str This field is required when the __authentication_type__ is **TOKEN** or not provided.
-databricks_providers_update <- function(name, comment = NULL, 
+providers_update <- function(name, comment = NULL, 
     owner = NULL, 
     recipient_profile_str = NULL, 
     ...) {

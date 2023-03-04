@@ -9,7 +9,7 @@
 #' [MLflow endpoint]: https://www.mlflow.org/docs/latest/rest-api.html#get-registeredmodel
 #'
 #' @param name Name of the model.
-databricks_m_lflow_databricks_get <- function(name, ...) {
+m_lflow_databricks_get <- function(name, ...) {
     query <- list(
         name = name, ...)
     
@@ -29,7 +29,7 @@ databricks_m_lflow_databricks_get <- function(name, ...) {
 #' @param name Name of the model.
 #' @param stage Target stage of the transition.
 #' @param version Version of the model.
-databricks_m_lflow_databricks_transition_stage <- function(name, version, stage, archive_existing_versions, comment = NULL, 
+m_lflow_databricks_transition_stage <- function(name, version, stage, archive_existing_versions, comment = NULL, 
     ...) {
     body <- list(
         archive_existing_versions = archive_existing_versions, 

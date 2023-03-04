@@ -8,7 +8,7 @@
 #'
 #' @param name The name of the serving endpoint that the served model belongs to.
 #' @param served_model_name The name of the served model that build logs will be retrieved for.
-databricks_serving_endpoints_build_logs <- function(name, served_model_name, ...) {
+serving_endpoints_build_logs <- function(name, served_model_name, ...) {
     
     
     .api$do("GET", paste("/api/2.0/serving-endpoints/", name, "/served-models/", served_model_name, "/build-logs", , sep = ""))
@@ -18,7 +18,7 @@ databricks_serving_endpoints_build_logs <- function(name, served_model_name, ...
 #'
 #' @param config The core config of the serving endpoint.
 #' @param name The name of the serving endpoint.
-databricks_serving_endpoints_create <- function(name, config, timeout=20, callback = cli_reporter, ...) {
+serving_endpoints_create <- function(name, config, timeout=20, callback = cli_reporter, ...) {
     body <- list(
         config = config, 
         name = name, ...)
@@ -30,7 +30,7 @@ databricks_serving_endpoints_create <- function(name, config, timeout=20, callba
     status_message <- 'polling...'
     attempt <- 1
     while ((started + (timeout*60)) > as.numeric(Sys.time())) {
-        poll <- databricks_serving_endpoints_get(name = op_response$name)
+        poll <- serving_endpoints_get(name = op_response$name)
         status <- poll$state$config_update
         status_message <- paste("current status:", status)
         if (status %in% target_states) {
@@ -43,7 +43,7 @@ databricks_serving_endpoints_create <- function(name, config, timeout=20, callba
             msg <- paste("failed to reach NOT_UPDATING, got ", status, "-", status_message)
             rlang::abort(msg, call = rlang::caller_env())
         }
-        prefix <- paste0("databricks_serving_endpoints_get(name=", op_response$name, ")")
+        prefix <- paste0("databricks::serving_endpoints_get(name=", op_response$name, ")")
         sleep <- attempt
         if (sleep > 10) {
             # sleep 10s max per attempt
@@ -63,7 +63,7 @@ databricks_serving_endpoints_create <- function(name, config, timeout=20, callba
 #' Delete a serving endpoint.
 #'
 #' @param name The name of the serving endpoint.
-databricks_serving_endpoints_delete <- function(name, ...) {
+serving_endpoints_delete <- function(name, ...) {
     
     
     .api$do("DELETE", paste("/api/2.0/serving-endpoints/", name, sep = ""))
@@ -77,7 +77,7 @@ databricks_serving_endpoints_delete <- function(name, ...) {
 #' preview and may change in the future.
 #'
 #' @param name The name of the serving endpoint to retrieve metrics for.
-databricks_serving_endpoints_export_metrics <- function(name, ...) {
+serving_endpoints_export_metrics <- function(name, ...) {
     
     
     .api$do("GET", paste("/api/2.0/serving-endpoints/", name, "/metrics", , sep = ""))
@@ -88,14 +88,14 @@ databricks_serving_endpoints_export_metrics <- function(name, ...) {
 #' Retrieves the details for a single serving endpoint.
 #'
 #' @param name The name of the serving endpoint.
-databricks_serving_endpoints_get <- function(name, ...) {
+serving_endpoints_get <- function(name, ...) {
     
     
     .api$do("GET", paste("/api/2.0/serving-endpoints/", name, sep = ""))
 }
 
 #' Retrieve all serving endpoints.
-databricks_serving_endpoints_list <- function(...) {
+serving_endpoints_list <- function(...) {
     
     .api$do("GET", "/api/2.0/serving-endpoints")
 }
@@ -108,7 +108,7 @@ databricks_serving_endpoints_list <- function(...) {
 #'
 #' @param name The name of the serving endpoint that the served model belongs to.
 #' @param served_model_name The name of the served model that logs will be retrieved for.
-databricks_serving_endpoints_logs <- function(name, served_model_name, ...) {
+serving_endpoints_logs <- function(name, served_model_name, ...) {
     
     
     .api$do("GET", paste("/api/2.0/serving-endpoints/", name, "/served-models/", served_model_name, "/logs", , sep = ""))
@@ -117,7 +117,7 @@ databricks_serving_endpoints_logs <- function(name, served_model_name, ...) {
 #' Query a serving endpoint with provided model input.
 #'
 #' @param name The name of the serving endpoint.
-databricks_serving_endpoints_query <- function(name, ...) {
+serving_endpoints_query <- function(name, ...) {
     
     
     .api$do("POST", paste("/serving-endpoints/", name, "/invocations", , sep = ""))
@@ -133,7 +133,7 @@ databricks_serving_endpoints_query <- function(name, ...) {
 #' @param name The name of the serving endpoint to update.
 #' @param served_models A list of served models for the endpoint to serve.
 #' @param traffic_config The traffic config defining how invocations to the serving endpoint should be routed.
-databricks_serving_endpoints_update_config <- function(served_models, name, traffic_config = NULL, 
+serving_endpoints_update_config <- function(served_models, name, traffic_config = NULL, 
     timeout=20, callback = cli_reporter, ...) {
     body <- list(
         served_models = served_models, 
@@ -146,7 +146,7 @@ databricks_serving_endpoints_update_config <- function(served_models, name, traf
     status_message <- 'polling...'
     attempt <- 1
     while ((started + (timeout*60)) > as.numeric(Sys.time())) {
-        poll <- databricks_serving_endpoints_get(name = op_response$name)
+        poll <- serving_endpoints_get(name = op_response$name)
         status <- poll$state$config_update
         status_message <- paste("current status:", status)
         if (status %in% target_states) {
@@ -159,7 +159,7 @@ databricks_serving_endpoints_update_config <- function(served_models, name, traf
             msg <- paste("failed to reach NOT_UPDATING, got ", status, "-", status_message)
             rlang::abort(msg, call = rlang::caller_env())
         }
-        prefix <- paste0("databricks_serving_endpoints_get(name=", op_response$name, ")")
+        prefix <- paste0("databricks::serving_endpoints_get(name=", op_response$name, ")")
         sleep <- attempt
         if (sleep > 10) {
             # sleep 10s max per attempt

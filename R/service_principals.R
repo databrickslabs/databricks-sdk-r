@@ -12,7 +12,7 @@
 #' @param groups 
 #' @param id Databricks service principal ID.
 #' @param roles 
-databricks_service_principals_create <- function(id, active = NULL, 
+service_principals_create <- function(id, active = NULL, 
     application_id = NULL, 
     display_name = NULL, 
     entitlements = NULL, 
@@ -38,7 +38,7 @@ databricks_service_principals_create <- function(id, active = NULL,
 #' Delete a single service principal in the Databricks Workspace.
 #'
 #' @param id Unique ID for a service principal in the Databricks Workspace.
-databricks_service_principals_delete <- function(id, ...) {
+service_principals_delete <- function(id, ...) {
     
     
     .api$do("DELETE", paste("/api/2.0/preview/scim/v2/ServicePrincipals/", id, sep = ""))
@@ -50,7 +50,7 @@ databricks_service_principals_delete <- function(id, ...) {
 #' Workspace.
 #'
 #' @param id Unique ID for a service principal in the Databricks Workspace.
-databricks_service_principals_get <- function(id, ...) {
+service_principals_get <- function(id, ...) {
     
     
     .api$do("GET", paste("/api/2.0/preview/scim/v2/ServicePrincipals/", id, sep = ""))
@@ -67,7 +67,7 @@ databricks_service_principals_get <- function(id, ...) {
 #' @param sort_by Attribute to sort the results.
 #' @param sort_order The order to sort the results.
 #' @param start_index Specifies the index of the first result.
-databricks_service_principals_list <- function(attributes = NULL, 
+service_principals_list <- function(attributes = NULL, 
     count = NULL, 
     excluded_attributes = NULL, 
     filter = NULL, 
@@ -97,7 +97,7 @@ databricks_service_principals_list <- function(attributes = NULL,
 #'
 #' @param id Unique ID for a group in the Databricks Account.
 #' @param operations 
-databricks_service_principals_patch <- function(id, operations = NULL, 
+service_principals_patch <- function(id, operations = NULL, 
     ...) {
     body <- list(
         operations = operations, ...)
@@ -119,7 +119,7 @@ databricks_service_principals_patch <- function(id, operations = NULL,
 #' @param groups 
 #' @param id Databricks service principal ID.
 #' @param roles 
-databricks_service_principals_update <- function(id, active = NULL, 
+service_principals_update <- function(id, active = NULL, 
     application_id = NULL, 
     display_name = NULL, 
     entitlements = NULL, 

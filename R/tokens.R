@@ -9,7 +9,7 @@
 #'
 #' @param comment Optional description to attach to the token.
 #' @param lifetime_seconds The lifetime of the token, in seconds.
-databricks_tokens_create <- function(comment = NULL, 
+tokens_create <- function(comment = NULL, 
     lifetime_seconds = NULL, 
     ...) {
     body <- list(
@@ -27,7 +27,7 @@ databricks_tokens_create <- function(comment = NULL,
 #' **RESOURCE_DOES_NOT_EXIST**.
 #'
 #' @param token_id The ID of the token to be revoked.
-databricks_tokens_delete <- function(token_id, ...) {
+tokens_delete <- function(token_id, ...) {
     body <- list(
         token_id = token_id, ...)
     
@@ -37,7 +37,7 @@ databricks_tokens_delete <- function(token_id, ...) {
 #' List tokens.
 #' 
 #' Lists all the valid tokens for a user-workspace pair.
-databricks_tokens_list <- function(...) {
+tokens_list <- function(...) {
     
     
     json <- .api$do("GET", "/api/2.0/token/list")

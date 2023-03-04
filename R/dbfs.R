@@ -11,7 +11,7 @@
 #'
 #' @param data The base64-encoded data to append to the stream.
 #' @param handle The handle on an open stream.
-databricks_dbfs_add_block <- function(handle, data, ...) {
+dbfs_add_block <- function(handle, data, ...) {
     body <- list(
         data = data, 
         handle = handle, ...)
@@ -25,7 +25,7 @@ databricks_dbfs_add_block <- function(handle, data, ...) {
 #' exist, this call throws an exception with `RESOURCE_DOES_NOT_EXIST`.
 #'
 #' @param handle The handle on an open stream.
-databricks_dbfs_close <- function(handle, ...) {
+dbfs_close <- function(handle, ...) {
     body <- list(
         handle = handle, ...)
     
@@ -47,7 +47,7 @@ databricks_dbfs_close <- function(handle, ...) {
 #'
 #' @param overwrite The flag that specifies whether to overwrite existing file/files.
 #' @param path The path of the new file.
-databricks_dbfs_create <- function(path, overwrite = NULL, 
+dbfs_create <- function(path, overwrite = NULL, 
     ...) {
     body <- list(
         overwrite = overwrite, 
@@ -79,7 +79,7 @@ databricks_dbfs_create <- function(path, overwrite = NULL,
 #'
 #' @param path The path of the file or directory to delete.
 #' @param recursive Whether or not to recursively delete the directory's contents.
-databricks_dbfs_delete <- function(path, recursive = NULL, 
+dbfs_delete <- function(path, recursive = NULL, 
     ...) {
     body <- list(
         path = path, 
@@ -94,7 +94,7 @@ databricks_dbfs_delete <- function(path, recursive = NULL,
 #' does not exist, this call throws an exception with `RESOURCE_DOES_NOT_EXIST`.
 #'
 #' @param path The path of the file or directory.
-databricks_dbfs_get_status <- function(path, ...) {
+dbfs_get_status <- function(path, ...) {
     query <- list(
         path = path, ...)
     
@@ -116,7 +116,7 @@ databricks_dbfs_get_status <- function(path, ...) {
 #' which provides the same functionality without timing out.
 #'
 #' @param path The path of the file or directory.
-databricks_dbfs_list <- function(path, ...) {
+dbfs_list <- function(path, ...) {
     query <- list(
         path = path, ...)
     
@@ -135,7 +135,7 @@ databricks_dbfs_list <- function(path, ...) {
 #' necessary parent directories.
 #'
 #' @param path The path of the new directory.
-databricks_dbfs_mkdirs <- function(path, ...) {
+dbfs_mkdirs <- function(path, ...) {
     body <- list(
         path = path, ...)
     
@@ -152,7 +152,7 @@ databricks_dbfs_mkdirs <- function(path, ...) {
 #'
 #' @param destination_path The destination path of the file or directory.
 #' @param source_path The source path of the file or directory.
-databricks_dbfs_move <- function(source_path, destination_path, ...) {
+dbfs_move <- function(source_path, destination_path, ...) {
     body <- list(
         destination_path = destination_path, 
         source_path = source_path, ...)
@@ -178,7 +178,7 @@ databricks_dbfs_move <- function(source_path, destination_path, ...) {
 #' @param contents This parameter might be absent, and instead a posted file will be used.
 #' @param overwrite The flag that specifies whether to overwrite existing file/files.
 #' @param path The path of the new file.
-databricks_dbfs_put <- function(path, contents = NULL, 
+dbfs_put <- function(path, contents = NULL, 
     overwrite = NULL, 
     ...) {
     body <- list(
@@ -203,7 +203,7 @@ databricks_dbfs_put <- function(path, contents = NULL,
 #' @param length The number of bytes to read starting from the offset.
 #' @param offset The offset to read from in bytes.
 #' @param path The path of the file to read.
-databricks_dbfs_read <- function(path, length = NULL, 
+dbfs_read <- function(path, length = NULL, 
     offset = NULL, 
     ...) {
     query <- list(

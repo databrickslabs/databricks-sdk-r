@@ -22,7 +22,7 @@
 #' @param ip_addresses Array of IP addresses or CIDR values to be added to the IP access list.
 #' @param label Label for the IP access list.
 #' @param list_type This describes an enum.
-databricks_ip_access_lists_create <- function(label, list_type, ip_addresses, ...) {
+ip_access_lists_create <- function(label, list_type, ip_addresses, ...) {
     body <- list(
         ip_addresses = ip_addresses, 
         label = label, 
@@ -36,7 +36,7 @@ databricks_ip_access_lists_create <- function(label, list_type, ip_addresses, ..
 #' Deletes an IP access list, specified by its list ID.
 #'
 #' @param ip_access_list_id The ID for the corresponding IP access list to modify.
-databricks_ip_access_lists_delete <- function(ip_access_list_id, ...) {
+ip_access_lists_delete <- function(ip_access_list_id, ...) {
     
     
     .api$do("DELETE", paste("/api/2.0/ip-access-lists/", ip_access_list_id, sep = ""))
@@ -47,7 +47,7 @@ databricks_ip_access_lists_delete <- function(ip_access_list_id, ...) {
 #' Gets an IP access list, specified by its list ID.
 #'
 #' @param ip_access_list_id The ID for the corresponding IP access list to modify.
-databricks_ip_access_lists_get <- function(ip_access_list_id, ...) {
+ip_access_lists_get <- function(ip_access_list_id, ...) {
     
     
     .api$do("GET", paste("/api/2.0/ip-access-lists/", ip_access_list_id, sep = ""))
@@ -56,7 +56,7 @@ databricks_ip_access_lists_get <- function(ip_access_list_id, ...) {
 #' Get access lists.
 #' 
 #' Gets all IP access lists for the specified workspace.
-databricks_ip_access_lists_list <- function(...) {
+ip_access_lists_list <- function(...) {
     
     
     json <- .api$do("GET", "/api/2.0/ip-access-lists")
@@ -85,7 +85,7 @@ databricks_ip_access_lists_list <- function(...) {
 #' @param label Label for the IP access list.
 #' @param list_id Universally unique identifier(UUID) of the IP access list.
 #' @param list_type This describes an enum.
-databricks_ip_access_lists_replace <- function(label, list_type, ip_addresses, enabled, ip_access_list_id, list_id = NULL, 
+ip_access_lists_replace <- function(label, list_type, ip_addresses, enabled, ip_access_list_id, list_id = NULL, 
     ...) {
     body <- list(
         enabled = enabled, 
@@ -123,7 +123,7 @@ databricks_ip_access_lists_replace <- function(label, list_type, ip_addresses, e
 #' @param label Label for the IP access list.
 #' @param list_id Universally unique identifier(UUID) of the IP access list.
 #' @param list_type This describes an enum.
-databricks_ip_access_lists_update <- function(label, list_type, ip_addresses, enabled, ip_access_list_id, list_id = NULL, 
+ip_access_lists_update <- function(label, list_type, ip_addresses, enabled, ip_access_list_id, list_id = NULL, 
     ...) {
     body <- list(
         enabled = enabled, 

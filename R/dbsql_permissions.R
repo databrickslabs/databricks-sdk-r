@@ -7,7 +7,7 @@
 #'
 #' @param object_id Object ID.
 #' @param object_type The type of object permissions to check.
-databricks_dbsql_permissions_get <- function(object_type, object_id, ...) {
+dbsql_permissions_get <- function(object_type, object_id, ...) {
     
     
     .api$do("GET", paste("/api/2.0/preview/sql/permissions/", object_type, "/", object_id, sep = ""))
@@ -21,7 +21,7 @@ databricks_dbsql_permissions_get <- function(object_type, object_id, ...) {
 #' @param access_control_list 
 #' @param object_id Object ID.
 #' @param object_type The type of object permission to set.
-databricks_dbsql_permissions_set <- function(object_type, object_id, access_control_list = NULL, 
+dbsql_permissions_set <- function(object_type, object_id, access_control_list = NULL, 
     ...) {
     body <- list(
         access_control_list = access_control_list, ...)
@@ -37,7 +37,7 @@ databricks_dbsql_permissions_set <- function(object_type, object_id, access_cont
 #' @param new_owner Email address for the new owner, who must exist in the workspace.
 #' @param object_id The ID of the object on which to change ownership.
 #' @param object_type The type of object on which to change ownership.
-databricks_dbsql_permissions_transfer_ownership <- function(object_type, object_id, new_owner = NULL, 
+dbsql_permissions_transfer_ownership <- function(object_type, object_id, new_owner = NULL, 
     ...) {
     body <- list(
         new_owner = new_owner, ...)

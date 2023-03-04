@@ -11,7 +11,7 @@
 #' @param parent The identifier of the workspace folder containing the alert.
 #' @param query_id ID of the query evaluated by the alert.
 #' @param rearm Number of seconds after being triggered before the alert rearms itself and can be triggered again.
-databricks_alerts_create <- function(name, options, query_id, parent = NULL, 
+alerts_create <- function(name, options, query_id, parent = NULL, 
     rearm = NULL, 
     ...) {
     body <- list(
@@ -36,7 +36,7 @@ databricks_alerts_create <- function(name, options, query_id, parent = NULL,
 #' @param alert_id 
 #' @param cron Cron string representing the refresh schedule.
 #' @param data_source_id ID of the SQL warehouse to refresh with.
-databricks_alerts_create_schedule <- function(cron, alert_id, data_source_id = NULL, 
+alerts_create_schedule <- function(cron, alert_id, data_source_id = NULL, 
     ...) {
     body <- list(
         cron = cron, 
@@ -52,7 +52,7 @@ databricks_alerts_create_schedule <- function(cron, alert_id, data_source_id = N
 #' the trash.
 #'
 #' @param alert_id 
-databricks_alerts_delete <- function(alert_id, ...) {
+alerts_delete <- function(alert_id, ...) {
     
     
     .api$do("DELETE", paste("/api/2.0/preview/sql/alerts/", alert_id, sep = ""))
@@ -68,7 +68,7 @@ databricks_alerts_delete <- function(alert_id, ...) {
 #'
 #' @param alert_id 
 #' @param schedule_id 
-databricks_alerts_delete_schedule <- function(alert_id, schedule_id, ...) {
+alerts_delete_schedule <- function(alert_id, schedule_id, ...) {
     
     
     .api$do("DELETE", paste("/api/2.0/preview/sql/alerts/", alert_id, "/refresh-schedules/", schedule_id, sep = ""))
@@ -79,7 +79,7 @@ databricks_alerts_delete_schedule <- function(alert_id, schedule_id, ...) {
 #' Gets an alert.
 #'
 #' @param alert_id 
-databricks_alerts_get <- function(alert_id, ...) {
+alerts_get <- function(alert_id, ...) {
     
     
     .api$do("GET", paste("/api/2.0/preview/sql/alerts/", alert_id, sep = ""))
@@ -96,7 +96,7 @@ databricks_alerts_get <- function(alert_id, ...) {
 #' subscriptions associated with a job for an alert.
 #'
 #' @param alert_id 
-databricks_alerts_get_subscriptions <- function(alert_id, ...) {
+alerts_get_subscriptions <- function(alert_id, ...) {
     
     
     .api$do("GET", paste("/api/2.0/preview/sql/alerts/", alert_id, "/subscriptions", , sep = ""))
@@ -105,7 +105,7 @@ databricks_alerts_get_subscriptions <- function(alert_id, ...) {
 #' Get alerts.
 #' 
 #' Gets a list of alerts.
-databricks_alerts_list <- function(...) {
+alerts_list <- function(...) {
     
     .api$do("GET", "/api/2.0/preview/sql/alerts")
 }
@@ -124,7 +124,7 @@ databricks_alerts_list <- function(...) {
 #' filter by the alert.
 #'
 #' @param alert_id 
-databricks_alerts_list_schedules <- function(alert_id, ...) {
+alerts_list_schedules <- function(alert_id, ...) {
     
     
     .api$do("GET", paste("/api/2.0/preview/sql/alerts/", alert_id, "/refresh-schedules", , sep = ""))
@@ -138,7 +138,7 @@ databricks_alerts_list_schedules <- function(alert_id, ...) {
 #' @param alert_id ID of the alert.
 #' @param destination_id ID of the alert subscriber (if subscribing an alert destination).
 #' @param user_id ID of the alert subscriber (if subscribing a user).
-databricks_alerts_subscribe <- function(alert_id, destination_id = NULL, 
+alerts_subscribe <- function(alert_id, destination_id = NULL, 
     user_id = NULL, 
     ...) {
     body <- list(
@@ -158,7 +158,7 @@ databricks_alerts_subscribe <- function(alert_id, destination_id = NULL,
 #'
 #' @param alert_id 
 #' @param subscription_id 
-databricks_alerts_unsubscribe <- function(alert_id, subscription_id, ...) {
+alerts_unsubscribe <- function(alert_id, subscription_id, ...) {
     
     
     .api$do("DELETE", paste("/api/2.0/preview/sql/alerts/", alert_id, "/subscriptions/", subscription_id, sep = ""))
@@ -173,7 +173,7 @@ databricks_alerts_unsubscribe <- function(alert_id, subscription_id, ...) {
 #' @param options Alert configuration options.
 #' @param query_id ID of the query evaluated by the alert.
 #' @param rearm Number of seconds after being triggered before the alert rearms itself and can be triggered again.
-databricks_alerts_update <- function(name, options, query_id, alert_id, rearm = NULL, 
+alerts_update <- function(name, options, query_id, alert_id, rearm = NULL, 
     ...) {
     body <- list(
         name = name, 

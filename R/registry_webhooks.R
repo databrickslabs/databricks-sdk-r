@@ -12,7 +12,7 @@
 #' @param job_spec 
 #' @param model_name Name of the model whose events would trigger this webhook.
 #' @param status This describes an enum.
-databricks_registry_webhooks_create <- function(events, description = NULL, 
+registry_webhooks_create <- function(events, description = NULL, 
     http_url_spec = NULL, 
     job_spec = NULL, 
     model_name = NULL, 
@@ -36,7 +36,7 @@ databricks_registry_webhooks_create <- function(events, description = NULL,
 #' Deletes a registry webhook.
 #'
 #' @param id Webhook ID required to delete a registry webhook.
-databricks_registry_webhooks_delete <- function(id = NULL, 
+registry_webhooks_delete <- function(id = NULL, 
     ...) {
     query <- list(
         id = id, ...)
@@ -53,7 +53,7 @@ databricks_registry_webhooks_delete <- function(id = NULL,
 #' @param events If `events` is specified, any webhook with one or more of the specified trigger events is included in the output.
 #' @param model_name If not specified, all webhooks associated with the specified events are listed, regardless of their associated model.
 #' @param page_token Token indicating the page of artifact results to fetch.
-databricks_registry_webhooks_list <- function(events = NULL, 
+registry_webhooks_list <- function(events = NULL, 
     model_name = NULL, 
     page_token = NULL, 
     ...) {
@@ -89,7 +89,7 @@ databricks_registry_webhooks_list <- function(events = NULL,
 #'
 #' @param event If `event` is specified, the test trigger uses the specified event.
 #' @param id Webhook ID.
-databricks_registry_webhooks_test <- function(id, event = NULL, 
+registry_webhooks_test <- function(id, event = NULL, 
     ...) {
     body <- list(
         event = event, 
@@ -110,7 +110,7 @@ databricks_registry_webhooks_test <- function(id, event = NULL,
 #' @param id Webhook ID.
 #' @param job_spec 
 #' @param status This describes an enum.
-databricks_registry_webhooks_update <- function(id, description = NULL, 
+registry_webhooks_update <- function(id, description = NULL, 
     events = NULL, 
     http_url_spec = NULL, 
     job_spec = NULL, 

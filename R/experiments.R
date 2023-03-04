@@ -12,7 +12,7 @@
 #' @param artifact_location Location where all artifacts for the experiment are stored.
 #' @param name Experiment name.
 #' @param tags A collection of tags to set on the experiment.
-databricks_experiments_create <- function(name, artifact_location = NULL, 
+experiments_create <- function(name, artifact_location = NULL, 
     tags = NULL, 
     ...) {
     body <- list(
@@ -30,7 +30,7 @@ databricks_experiments_create <- function(name, artifact_location = NULL,
 #' experiment are also deleted.
 #'
 #' @param experiment_id ID of the associated experiment.
-databricks_experiments_delete <- function(experiment_id, ...) {
+experiments_delete <- function(experiment_id, ...) {
     body <- list(
         experiment_id = experiment_id, ...)
     
@@ -42,7 +42,7 @@ databricks_experiments_delete <- function(experiment_id, ...) {
 #' Gets metadata for an experiment. This method works on deleted experiments.
 #'
 #' @param experiment_id ID of the associated experiment.
-databricks_experiments_get <- function(experiment_id, ...) {
+experiments_get <- function(experiment_id, ...) {
     query <- list(
         experiment_id = experiment_id, ...)
     
@@ -62,7 +62,7 @@ databricks_experiments_get <- function(experiment_id, ...) {
 #' exists.S
 #'
 #' @param experiment_name Name of the associated experiment.
-databricks_experiments_get_by_name <- function(experiment_name, ...) {
+experiments_get_by_name <- function(experiment_name, ...) {
     query <- list(
         experiment_name = experiment_name, ...)
     
@@ -76,7 +76,7 @@ databricks_experiments_get_by_name <- function(experiment_name, ...) {
 #' @param max_results Maximum number of experiments desired.
 #' @param page_token Token indicating the page of experiments to fetch.
 #' @param view_type Qualifier for type of experiments to be returned.
-databricks_experiments_list <- function(max_results = NULL, 
+experiments_list <- function(max_results = NULL, 
     page_token = NULL, 
     view_type = NULL, 
     ...) {
@@ -113,7 +113,7 @@ databricks_experiments_list <- function(max_results = NULL,
 #' deleted.",
 #'
 #' @param experiment_id ID of the associated experiment.
-databricks_experiments_restore <- function(experiment_id, ...) {
+experiments_restore <- function(experiment_id, ...) {
     body <- list(
         experiment_id = experiment_id, ...)
     
@@ -129,7 +129,7 @@ databricks_experiments_restore <- function(experiment_id, ...) {
 #' @param order_by List of columns for ordering search results, which can include experiment name and last updated timestamp with an optional "DESC" or "ASC" annotation, where "ASC" is the default.
 #' @param page_token Token indicating the page of experiments to fetch.
 #' @param view_type Qualifier for type of experiments to be returned.
-databricks_experiments_search <- function(filter = NULL, 
+experiments_search <- function(filter = NULL, 
     max_results = NULL, 
     order_by = NULL, 
     page_token = NULL, 
@@ -169,7 +169,7 @@ databricks_experiments_search <- function(filter = NULL,
 #' @param experiment_id ID of the experiment under which to log the tag.
 #' @param key Name of the tag.
 #' @param value String value of the tag being logged.
-databricks_experiments_set_experiment_tag <- function(experiment_id, key, value, ...) {
+experiments_set_experiment_tag <- function(experiment_id, key, value, ...) {
     body <- list(
         experiment_id = experiment_id, 
         key = key, 
@@ -184,7 +184,7 @@ databricks_experiments_set_experiment_tag <- function(experiment_id, key, value,
 #'
 #' @param experiment_id ID of the associated experiment.
 #' @param new_name If provided, the experiment's name is changed to the new name.
-databricks_experiments_update <- function(experiment_id, new_name = NULL, 
+experiments_update <- function(experiment_id, new_name = NULL, 
     ...) {
     body <- list(
         experiment_id = experiment_id, 

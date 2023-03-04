@@ -17,7 +17,7 @@
 #' @param spot_instance_policy Configurations whether the warehouse should use spot instances.
 #' @param tags A set of key-value pairs that will be tagged on all resources (e.g., AWS instances and EBS volumes) associated with this SQL Endpoints.
 #' @param warehouse_type 
-databricks_warehouses_create <- function(auto_stop_mins = NULL, 
+warehouses_create <- function(auto_stop_mins = NULL, 
     channel = NULL, 
     cluster_size = NULL, 
     creator_name = NULL, 
@@ -53,7 +53,7 @@ databricks_warehouses_create <- function(auto_stop_mins = NULL,
     status_message <- 'polling...'
     attempt <- 1
     while ((started + (timeout*60)) > as.numeric(Sys.time())) {
-        poll <- databricks_warehouses_get(id = op_response$id)
+        poll <- warehouses_get(id = op_response$id)
         status <- poll$state
         status_message <- paste("current status:", status)
         if (!is.null(poll$health)) {
@@ -69,7 +69,7 @@ databricks_warehouses_create <- function(auto_stop_mins = NULL,
             msg <- paste("failed to reach RUNNING, got ", status, "-", status_message)
             rlang::abort(msg, call = rlang::caller_env())
         }
-        prefix <- paste0("databricks_warehouses_get(id=", op_response$id, ")")
+        prefix <- paste0("databricks::warehouses_get(id=", op_response$id, ")")
         sleep <- attempt
         if (sleep > 10) {
             # sleep 10s max per attempt
@@ -91,7 +91,7 @@ databricks_warehouses_create <- function(auto_stop_mins = NULL,
 #' Deletes a SQL warehouse.
 #'
 #' @param id Required.
-databricks_warehouses_delete <- function(id, timeout=20, callback = cli_reporter, ...) {
+warehouses_delete <- function(id, timeout=20, callback = cli_reporter, ...) {
     
     
     .api$do("DELETE", paste("/api/2.0/sql/warehouses/", id, sep = ""))
@@ -100,7 +100,7 @@ databricks_warehouses_delete <- function(id, timeout=20, callback = cli_reporter
     status_message <- 'polling...'
     attempt <- 1
     while ((started + (timeout*60)) > as.numeric(Sys.time())) {
-        poll <- databricks_warehouses_get(id = id)
+        poll <- warehouses_get(id = id)
         status <- poll$state
         status_message <- paste("current status:", status)
         if (!is.null(poll$health)) {
@@ -112,7 +112,7 @@ databricks_warehouses_delete <- function(id, timeout=20, callback = cli_reporter
             }
             return (poll)
         }
-        prefix <- paste0("databricks_warehouses_get(id=", id, ")")
+        prefix <- paste0("databricks::warehouses_get(id=", id, ")")
         sleep <- attempt
         if (sleep > 10) {
             # sleep 10s max per attempt
@@ -148,7 +148,7 @@ databricks_warehouses_delete <- function(id, timeout=20, callback = cli_reporter
 #' @param spot_instance_policy Configurations whether the warehouse should use spot instances.
 #' @param tags A set of key-value pairs that will be tagged on all resources (e.g., AWS instances and EBS volumes) associated with this SQL Endpoints.
 #' @param warehouse_type 
-databricks_warehouses_edit <- function(id, auto_stop_mins = NULL, 
+warehouses_edit <- function(id, auto_stop_mins = NULL, 
     channel = NULL, 
     cluster_size = NULL, 
     creator_name = NULL, 
@@ -186,7 +186,7 @@ databricks_warehouses_edit <- function(id, auto_stop_mins = NULL,
     status_message <- 'polling...'
     attempt <- 1
     while ((started + (timeout*60)) > as.numeric(Sys.time())) {
-        poll <- databricks_warehouses_get(id = id)
+        poll <- warehouses_get(id = id)
         status <- poll$state
         status_message <- paste("current status:", status)
         if (!is.null(poll$health)) {
@@ -202,7 +202,7 @@ databricks_warehouses_edit <- function(id, auto_stop_mins = NULL,
             msg <- paste("failed to reach RUNNING, got ", status, "-", status_message)
             rlang::abort(msg, call = rlang::caller_env())
         }
-        prefix <- paste0("databricks_warehouses_get(id=", id, ")")
+        prefix <- paste0("databricks::warehouses_get(id=", id, ")")
         sleep <- attempt
         if (sleep > 10) {
             # sleep 10s max per attempt
@@ -224,7 +224,7 @@ databricks_warehouses_edit <- function(id, auto_stop_mins = NULL,
 #' Gets the information for a single SQL warehouse.
 #'
 #' @param id Required.
-databricks_warehouses_get <- function(id, ...) {
+warehouses_get <- function(id, ...) {
     
     
     .api$do("GET", paste("/api/2.0/sql/warehouses/", id, sep = ""))
@@ -234,7 +234,7 @@ databricks_warehouses_get <- function(id, ...) {
 #' 
 #' Gets the workspace level configuration that is shared by all SQL warehouses
 #' in a workspace.
-databricks_warehouses_get_workspace_warehouse_config <- function(...) {
+warehouses_get_workspace_warehouse_config <- function(...) {
     
     .api$do("GET", "/api/2.0/sql/config/warehouses")
 }
@@ -244,7 +244,7 @@ databricks_warehouses_get_workspace_warehouse_config <- function(...) {
 #' Lists all SQL warehouses that a user has manager permissions on.
 #'
 #' @param run_as_user_id Service Principal which will be used to fetch the list of endpoints.
-databricks_warehouses_list <- function(run_as_user_id = NULL, 
+warehouses_list <- function(run_as_user_id = NULL, 
     ...) {
     query <- list(
         run_as_user_id = run_as_user_id, ...)
@@ -272,7 +272,7 @@ databricks_warehouses_list <- function(run_as_user_id = NULL,
 #' @param security_policy Security policy for endpoints.
 #' @param serverless_agreement Internal.
 #' @param sql_configuration_parameters SQL configuration parameters.
-databricks_warehouses_set_workspace_warehouse_config <- function(channel = NULL, 
+warehouses_set_workspace_warehouse_config <- function(channel = NULL, 
     config_param = NULL, 
     data_access_config = NULL, 
     enable_databricks_compute = NULL, 
@@ -307,7 +307,7 @@ databricks_warehouses_set_workspace_warehouse_config <- function(channel = NULL,
 #' Starts a SQL warehouse.
 #'
 #' @param id Required.
-databricks_warehouses_start <- function(id, timeout=20, callback = cli_reporter, ...) {
+warehouses_start <- function(id, timeout=20, callback = cli_reporter, ...) {
     
     
     .api$do("POST", paste("/api/2.0/sql/warehouses/", id, "/start", , sep = ""))
@@ -317,7 +317,7 @@ databricks_warehouses_start <- function(id, timeout=20, callback = cli_reporter,
     status_message <- 'polling...'
     attempt <- 1
     while ((started + (timeout*60)) > as.numeric(Sys.time())) {
-        poll <- databricks_warehouses_get(id = id)
+        poll <- warehouses_get(id = id)
         status <- poll$state
         status_message <- paste("current status:", status)
         if (!is.null(poll$health)) {
@@ -333,7 +333,7 @@ databricks_warehouses_start <- function(id, timeout=20, callback = cli_reporter,
             msg <- paste("failed to reach RUNNING, got ", status, "-", status_message)
             rlang::abort(msg, call = rlang::caller_env())
         }
-        prefix <- paste0("databricks_warehouses_get(id=", id, ")")
+        prefix <- paste0("databricks::warehouses_get(id=", id, ")")
         sleep <- attempt
         if (sleep > 10) {
             # sleep 10s max per attempt
@@ -355,7 +355,7 @@ databricks_warehouses_start <- function(id, timeout=20, callback = cli_reporter,
 #' Stops a SQL warehouse.
 #'
 #' @param id Required.
-databricks_warehouses_stop <- function(id, timeout=20, callback = cli_reporter, ...) {
+warehouses_stop <- function(id, timeout=20, callback = cli_reporter, ...) {
     
     
     .api$do("POST", paste("/api/2.0/sql/warehouses/", id, "/stop", , sep = ""))
@@ -364,7 +364,7 @@ databricks_warehouses_stop <- function(id, timeout=20, callback = cli_reporter, 
     status_message <- 'polling...'
     attempt <- 1
     while ((started + (timeout*60)) > as.numeric(Sys.time())) {
-        poll <- databricks_warehouses_get(id = id)
+        poll <- warehouses_get(id = id)
         status <- poll$state
         status_message <- paste("current status:", status)
         if (!is.null(poll$health)) {
@@ -376,7 +376,7 @@ databricks_warehouses_stop <- function(id, timeout=20, callback = cli_reporter, 
             }
             return (poll)
         }
-        prefix <- paste0("databricks_warehouses_get(id=", id, ")")
+        prefix <- paste0("databricks::warehouses_get(id=", id, ")")
         sleep <- attempt
         if (sleep > 10) {
             # sleep 10s max per attempt

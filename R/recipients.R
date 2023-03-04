@@ -14,7 +14,7 @@
 #' @param owner Username of the recipient owner.
 #' @param properties_kvpairs Recipient properties as map of string key-value pairs.\n.
 #' @param sharing_code The one-time sharing code provided by the data recipient.
-databricks_recipients_create <- function(name, authentication_type, comment = NULL, 
+recipients_create <- function(name, authentication_type, comment = NULL, 
     data_recipient_global_metastore_id = NULL, 
     ip_access_list = NULL, 
     owner = NULL, 
@@ -40,7 +40,7 @@ databricks_recipients_create <- function(name, authentication_type, comment = NU
 #' owner of the recipient.
 #'
 #' @param name Name of the recipient.
-databricks_recipients_delete <- function(name, ...) {
+recipients_delete <- function(name, ...) {
     
     
     .api$do("DELETE", paste("/api/2.1/unity-catalog/recipients/", name, sep = ""))
@@ -53,7 +53,7 @@ databricks_recipients_delete <- function(name, ...) {
 #' * the caller is the owner of the share recipient, or: * is a metastore admin
 #'
 #' @param name Name of the recipient.
-databricks_recipients_get <- function(name, ...) {
+recipients_get <- function(name, ...) {
     
     
     .api$do("GET", paste("/api/2.1/unity-catalog/recipients/", name, sep = ""))
@@ -67,7 +67,7 @@ databricks_recipients_get <- function(name, ...) {
 #' guarantee of a specific ordering of the elements in the array.
 #'
 #' @param data_recipient_global_metastore_id If not provided, all recipients will be returned.
-databricks_recipients_list <- function(data_recipient_global_metastore_id = NULL, 
+recipients_list <- function(data_recipient_global_metastore_id = NULL, 
     ...) {
     query <- list(
         data_recipient_global_metastore_id = data_recipient_global_metastore_id, ...)
@@ -85,7 +85,7 @@ databricks_recipients_list <- function(data_recipient_global_metastore_id = NULL
 #'
 #' @param existing_token_expire_in_seconds The expiration time of the bearer token in ISO 8601 format.
 #' @param name The name of the recipient.
-databricks_recipients_rotate_token <- function(existing_token_expire_in_seconds, name, ...) {
+recipients_rotate_token <- function(existing_token_expire_in_seconds, name, ...) {
     body <- list(
         existing_token_expire_in_seconds = existing_token_expire_in_seconds, ...)
     
@@ -98,7 +98,7 @@ databricks_recipients_rotate_token <- function(existing_token_expire_in_seconds,
 #' metastore admin or the owner of the Recipient.
 #'
 #' @param name The name of the Recipient.
-databricks_recipients_share_permissions <- function(name, ...) {
+recipients_share_permissions <- function(name, ...) {
     
     
     .api$do("GET", paste("/api/2.1/unity-catalog/recipients/", name, "/share-permissions", , sep = ""))
@@ -116,7 +116,7 @@ databricks_recipients_share_permissions <- function(name, ...) {
 #' @param name Name of Recipient.
 #' @param owner Username of the recipient owner.
 #' @param properties_kvpairs Recipient properties as map of string key-value pairs.\n When provided in update request, the specified properties will override the existing properties.
-databricks_recipients_update <- function(name, comment = NULL, 
+recipients_update <- function(name, comment = NULL, 
     ip_access_list = NULL, 
     owner = NULL, 
     properties_kvpairs = NULL, 

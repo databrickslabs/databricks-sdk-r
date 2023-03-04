@@ -22,7 +22,7 @@
 #' @param storage DBFS root directory for storing checkpoints and tables.
 #' @param target Target schema (database) to add tables in this pipeline to.
 #' @param trigger Which pipeline trigger to use.
-databricks_pipelines_create <- function(allow_duplicate_names = NULL, 
+pipelines_create <- function(allow_duplicate_names = NULL, 
     catalog = NULL, 
     channel = NULL, 
     clusters = NULL, 
@@ -67,7 +67,7 @@ databricks_pipelines_create <- function(allow_duplicate_names = NULL,
 #' Deletes a pipeline.
 #'
 #' @param pipeline_id 
-databricks_pipelines_delete <- function(pipeline_id, ...) {
+pipelines_delete <- function(pipeline_id, ...) {
     
     
     .api$do("DELETE", paste("/api/2.0/pipelines/", pipeline_id, sep = ""))
@@ -76,7 +76,7 @@ databricks_pipelines_delete <- function(pipeline_id, ...) {
 #' Get a pipeline.
 #'
 #' @param pipeline_id 
-databricks_pipelines_get <- function(pipeline_id, ...) {
+pipelines_get <- function(pipeline_id, ...) {
     
     
     .api$do("GET", paste("/api/2.0/pipelines/", pipeline_id, sep = ""))
@@ -88,7 +88,7 @@ databricks_pipelines_get <- function(pipeline_id, ...) {
 #'
 #' @param pipeline_id The ID of the pipeline.
 #' @param update_id The ID of the update.
-databricks_pipelines_get_update <- function(pipeline_id, update_id, ...) {
+pipelines_get_update <- function(pipeline_id, update_id, ...) {
     
     
     .api$do("GET", paste("/api/2.0/pipelines/", pipeline_id, "/updates/", update_id, sep = ""))
@@ -102,7 +102,7 @@ databricks_pipelines_get_update <- function(pipeline_id, update_id, ...) {
 #' @param max_results The maximum number of entries to return in a single page.
 #' @param order_by A list of strings specifying the order of results.
 #' @param page_token Page token returned by previous call.
-databricks_pipelines_list_pipelines <- function(filter = NULL, 
+pipelines_list_pipelines <- function(filter = NULL, 
     max_results = NULL, 
     order_by = NULL, 
     page_token = NULL, 
@@ -140,7 +140,7 @@ databricks_pipelines_list_pipelines <- function(filter = NULL,
 #' @param page_token Page token returned by previous call.
 #' @param pipeline_id The pipeline to return updates for.
 #' @param until_update_id If present, returns updates until and including this update_id.
-databricks_pipelines_list_updates <- function(pipeline_id, max_results = NULL, 
+pipelines_list_updates <- function(pipeline_id, max_results = NULL, 
     page_token = NULL, 
     until_update_id = NULL, 
     ...) {
@@ -157,7 +157,7 @@ databricks_pipelines_list_updates <- function(pipeline_id, max_results = NULL,
 #' Resets a pipeline.
 #'
 #' @param pipeline_id 
-databricks_pipelines_reset <- function(pipeline_id, timeout=20, callback = cli_reporter, ...) {
+pipelines_reset <- function(pipeline_id, timeout=20, callback = cli_reporter, ...) {
     
     
     .api$do("POST", paste("/api/2.0/pipelines/", pipeline_id, "/reset", , sep = ""))
@@ -167,7 +167,7 @@ databricks_pipelines_reset <- function(pipeline_id, timeout=20, callback = cli_r
     status_message <- 'polling...'
     attempt <- 1
     while ((started + (timeout*60)) > as.numeric(Sys.time())) {
-        poll <- databricks_pipelines_get(pipeline_id = pipeline_id)
+        poll <- pipelines_get(pipeline_id = pipeline_id)
         status <- poll$state
         status_message <- poll$cause
         if (status %in% target_states) {
@@ -180,7 +180,7 @@ databricks_pipelines_reset <- function(pipeline_id, timeout=20, callback = cli_r
             msg <- paste("failed to reach RUNNING, got ", status, "-", status_message)
             rlang::abort(msg, call = rlang::caller_env())
         }
-        prefix <- paste0("databricks_pipelines_get(pipeline_id=", pipeline_id, ")")
+        prefix <- paste0("databricks::pipelines_get(pipeline_id=", pipeline_id, ")")
         sleep <- attempt
         if (sleep > 10) {
             # sleep 10s max per attempt
@@ -206,7 +206,7 @@ databricks_pipelines_reset <- function(pipeline_id, timeout=20, callback = cli_r
 #' @param full_refresh_selection A list of tables to update with fullRefresh.
 #' @param pipeline_id 
 #' @param refresh_selection A list of tables to update without fullRefresh.
-databricks_pipelines_start_update <- function(pipeline_id, cause = NULL, 
+pipelines_start_update <- function(pipeline_id, cause = NULL, 
     full_refresh = NULL, 
     full_refresh_selection = NULL, 
     refresh_selection = NULL, 
@@ -225,7 +225,7 @@ databricks_pipelines_start_update <- function(pipeline_id, cause = NULL,
 #' Stops a pipeline.
 #'
 #' @param pipeline_id 
-databricks_pipelines_stop <- function(pipeline_id, timeout=20, callback = cli_reporter, ...) {
+pipelines_stop <- function(pipeline_id, timeout=20, callback = cli_reporter, ...) {
     
     
     .api$do("POST", paste("/api/2.0/pipelines/", pipeline_id, "/stop", , sep = ""))
@@ -235,7 +235,7 @@ databricks_pipelines_stop <- function(pipeline_id, timeout=20, callback = cli_re
     status_message <- 'polling...'
     attempt <- 1
     while ((started + (timeout*60)) > as.numeric(Sys.time())) {
-        poll <- databricks_pipelines_get(pipeline_id = pipeline_id)
+        poll <- pipelines_get(pipeline_id = pipeline_id)
         status <- poll$state
         status_message <- poll$cause
         if (status %in% target_states) {
@@ -248,7 +248,7 @@ databricks_pipelines_stop <- function(pipeline_id, timeout=20, callback = cli_re
             msg <- paste("failed to reach IDLE, got ", status, "-", status_message)
             rlang::abort(msg, call = rlang::caller_env())
         }
-        prefix <- paste0("databricks_pipelines_get(pipeline_id=", pipeline_id, ")")
+        prefix <- paste0("databricks::pipelines_get(pipeline_id=", pipeline_id, ")")
         sleep <- attempt
         if (sleep > 10) {
             # sleep 10s max per attempt
@@ -287,7 +287,7 @@ databricks_pipelines_stop <- function(pipeline_id, timeout=20, callback = cli_re
 #' @param storage DBFS root directory for storing checkpoints and tables.
 #' @param target Target schema (database) to add tables in this pipeline to.
 #' @param trigger Which pipeline trigger to use.
-databricks_pipelines_update <- function(pipeline_id, allow_duplicate_names = NULL, 
+pipelines_update <- function(pipeline_id, allow_duplicate_names = NULL, 
     catalog = NULL, 
     channel = NULL, 
     clusters = NULL, 

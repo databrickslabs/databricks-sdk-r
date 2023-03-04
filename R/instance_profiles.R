@@ -9,7 +9,7 @@
 #' @param instance_profile_arn The AWS ARN of the instance profile to register with Databricks.
 #' @param is_meta_instance_profile By default, Databricks validates that it has sufficient permissions to launch instances with the instance profile.
 #' @param skip_validation By default, Databricks validates that it has sufficient permissions to launch instances with the instance profile.
-databricks_instance_profiles_add <- function(instance_profile_arn, iam_role_arn = NULL, 
+instance_profiles_add <- function(instance_profile_arn, iam_role_arn = NULL, 
     is_meta_instance_profile = NULL, 
     skip_validation = NULL, 
     ...) {
@@ -43,7 +43,7 @@ databricks_instance_profiles_add <- function(instance_profile_arn, iam_role_arn 
 #' @param iam_role_arn The AWS IAM role ARN of the role associated with the instance profile.
 #' @param instance_profile_arn The AWS ARN of the instance profile to register with Databricks.
 #' @param is_meta_instance_profile By default, Databricks validates that it has sufficient permissions to launch instances with the instance profile.
-databricks_instance_profiles_edit <- function(instance_profile_arn, iam_role_arn = NULL, 
+instance_profiles_edit <- function(instance_profile_arn, iam_role_arn = NULL, 
     is_meta_instance_profile = NULL, 
     ...) {
     body <- list(
@@ -59,7 +59,7 @@ databricks_instance_profiles_edit <- function(instance_profile_arn, iam_role_arn
 #' List the instance profiles that the calling user can use to launch a cluster.
 #' 
 #' This API is available to all users.
-databricks_instance_profiles_list <- function(...) {
+instance_profiles_list <- function(...) {
     
     
     json <- .api$do("GET", "/api/2.0/instance-profiles/list")
@@ -75,7 +75,7 @@ databricks_instance_profiles_list <- function(...) {
 #' This API is only accessible to admin users.
 #'
 #' @param instance_profile_arn The ARN of the instance profile to remove.
-databricks_instance_profiles_remove <- function(instance_profile_arn, ...) {
+instance_profiles_remove <- function(instance_profile_arn, ...) {
     body <- list(
         instance_profile_arn = instance_profile_arn, ...)
     

@@ -19,7 +19,7 @@
 #' @param parent The identifier of the workspace folder containing the query.
 #' @param query The text of the query.
 #' @param schedule JSON object that describes the scheduled execution frequency.
-databricks_queries_create <- function(data_source_id = NULL, 
+queries_create <- function(data_source_id = NULL, 
     description = NULL, 
     name = NULL, 
     options = NULL, 
@@ -46,7 +46,7 @@ databricks_queries_create <- function(data_source_id = NULL,
 #' deleted after 30 days.
 #'
 #' @param query_id 
-databricks_queries_delete <- function(query_id, ...) {
+queries_delete <- function(query_id, ...) {
     
     
     .api$do("DELETE", paste("/api/2.0/preview/sql/queries/", query_id, sep = ""))
@@ -58,7 +58,7 @@ databricks_queries_delete <- function(query_id, ...) {
 #' information about the currently authenticated user.
 #'
 #' @param query_id 
-databricks_queries_get <- function(query_id, ...) {
+queries_get <- function(query_id, ...) {
     
     
     .api$do("GET", paste("/api/2.0/preview/sql/queries/", query_id, sep = ""))
@@ -73,7 +73,7 @@ databricks_queries_get <- function(query_id, ...) {
 #' @param page Page number to retrieve.
 #' @param page_size Number of queries to return per page.
 #' @param q Full text search term.
-databricks_queries_list <- function(order = NULL, 
+queries_list <- function(order = NULL, 
     page = NULL, 
     page_size = NULL, 
     q = NULL, 
@@ -109,7 +109,7 @@ databricks_queries_list <- function(order = NULL,
 #' list views and searches. You can use restored queries for alerts.
 #'
 #' @param query_id 
-databricks_queries_restore <- function(query_id, ...) {
+queries_restore <- function(query_id, ...) {
     
     
     .api$do("POST", paste("/api/2.0/preview/sql/queries/trash/", query_id, sep = ""))
@@ -128,7 +128,7 @@ databricks_queries_restore <- function(query_id, ...) {
 #' @param query The text of the query.
 #' @param query_id 
 #' @param schedule JSON object that describes the scheduled execution frequency.
-databricks_queries_update <- function(query_id, data_source_id = NULL, 
+queries_update <- function(query_id, data_source_id = NULL, 
     description = NULL, 
     name = NULL, 
     options = NULL, 

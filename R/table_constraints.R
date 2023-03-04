@@ -15,7 +15,7 @@
 #'
 #' @param constraint A table constraint, as defined by *one* of the following fields being set: __primary_key_constraint__, __foreign_key_constraint__, __named_table_constraint__.
 #' @param full_name_arg The full name of the table referenced by the constraint.
-databricks_table_constraints_create <- function(full_name_arg, constraint, ...) {
+table_constraints_create <- function(full_name_arg, constraint, ...) {
     body <- list(
         constraint = constraint, 
         full_name_arg = full_name_arg, ...)
@@ -38,7 +38,7 @@ databricks_table_constraints_create <- function(full_name_arg, constraint, ...) 
 #' @param cascade If true, try deleting all child constraints of the current constraint.\n If false, reject this operation if the current constraint has any child constraints.
 #' @param constraint_name The name of the constraint to delete.
 #' @param full_name Full name of the table referenced by the constraint.
-databricks_table_constraints_delete <- function(full_name, constraint_name, cascade, ...) {
+table_constraints_delete <- function(full_name, constraint_name, cascade, ...) {
     query <- list(
         cascade = cascade, 
         constraint_name = constraint_name, ...)

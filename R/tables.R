@@ -9,7 +9,7 @@
 #' **USE_SCHEMA** privilege on the parent schema.
 #'
 #' @param full_name Full name of the table.
-databricks_tables_delete <- function(full_name, ...) {
+tables_delete <- function(full_name, ...) {
     
     
     .api$do("DELETE", paste("/api/2.1/unity-catalog/tables/", full_name, sep = ""))
@@ -25,7 +25,7 @@ databricks_tables_delete <- function(full_name, ...) {
 #'
 #' @param full_name Full name of the table.
 #' @param include_delta_metadata Whether delta metadata should be included in the response.
-databricks_tables_get <- function(full_name, include_delta_metadata = NULL, 
+tables_get <- function(full_name, include_delta_metadata = NULL, 
     ...) {
     query <- list(
         include_delta_metadata = include_delta_metadata, ...)
@@ -45,7 +45,7 @@ databricks_tables_get <- function(full_name, include_delta_metadata = NULL,
 #' @param catalog_name Name of parent catalog for tables of interest.
 #' @param include_delta_metadata Whether delta metadata should be included in the response.
 #' @param schema_name Parent schema of tables.
-databricks_tables_list <- function(catalog_name, schema_name, include_delta_metadata = NULL, 
+tables_list <- function(catalog_name, schema_name, include_delta_metadata = NULL, 
     ...) {
     query <- list(
         catalog_name = catalog_name, 
@@ -77,7 +77,7 @@ databricks_tables_list <- function(catalog_name, schema_name, include_delta_meta
 #' @param page_token Opaque token to send for the next page of results (pagination).
 #' @param schema_name_pattern A sql LIKE pattern (% and _) for schema names.
 #' @param table_name_pattern A sql LIKE pattern (% and _) for table names.
-databricks_tables_list_summaries <- function(catalog_name, max_results = NULL, 
+tables_list_summaries <- function(catalog_name, max_results = NULL, 
     page_token = NULL, 
     schema_name_pattern = NULL, 
     table_name_pattern = NULL, 

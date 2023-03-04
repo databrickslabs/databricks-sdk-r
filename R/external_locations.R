@@ -12,7 +12,7 @@
 #' @param read_only Indicates whether the external location is read-only.
 #' @param skip_validation Skips validation of the storage credential associated with the external location.
 #' @param url Path URL of the external location.
-databricks_external_locations_create <- function(name, url, credential_name, comment = NULL, 
+external_locations_create <- function(name, url, credential_name, comment = NULL, 
     read_only = NULL, 
     skip_validation = NULL, 
     ...) {
@@ -34,7 +34,7 @@ databricks_external_locations_create <- function(name, url, credential_name, com
 #'
 #' @param force Force deletion even if there are dependent external tables or mounts.
 #' @param name Name of the external location.
-databricks_external_locations_delete <- function(name, force = NULL, 
+external_locations_delete <- function(name, force = NULL, 
     ...) {
     query <- list(
         force = force, ...)
@@ -49,7 +49,7 @@ databricks_external_locations_delete <- function(name, force = NULL,
 #' privilege on the external location.
 #'
 #' @param name Name of the external location.
-databricks_external_locations_get <- function(name, ...) {
+external_locations_get <- function(name, ...) {
     
     
     .api$do("GET", paste("/api/2.1/unity-catalog/external-locations/", name, sep = ""))
@@ -62,7 +62,7 @@ databricks_external_locations_get <- function(name, ...) {
 #' external location, or a user that has some privilege on the external
 #' location. There is no guarantee of a specific ordering of the elements in the
 #' array.
-databricks_external_locations_list <- function(...) {
+external_locations_list <- function(...) {
     
     
     json <- .api$do("GET", "/api/2.1/unity-catalog/external-locations")
@@ -83,7 +83,7 @@ databricks_external_locations_list <- function(...) {
 #' @param owner The owner of the external location.
 #' @param read_only Indicates whether the external location is read-only.
 #' @param url Path URL of the external location.
-databricks_external_locations_update <- function(name, comment = NULL, 
+external_locations_update <- function(name, comment = NULL, 
     credential_name = NULL, 
     force = NULL, 
     owner = NULL, 

@@ -29,7 +29,7 @@
 #' @param specific_name Specific name of the function; Reserved for future use.
 #' @param sql_data_access Function SQL data access.
 #' @param sql_path List of schemes whose objects can be referenced without qualification.
-databricks_functions_create <- function(name, catalog_name, schema_name, input_params, data_type, full_data_type, return_params, routine_body, routine_definition, routine_dependencies, parameter_style, is_deterministic, sql_data_access, is_null_call, security_type, specific_name, comment = NULL, 
+functions_create <- function(name, catalog_name, schema_name, input_params, data_type, full_data_type, return_params, routine_body, routine_definition, routine_dependencies, parameter_style, is_deterministic, sql_data_access, is_null_call, security_type, specific_name, comment = NULL, 
     external_language = NULL, 
     external_name = NULL, 
     properties = NULL, 
@@ -73,7 +73,7 @@ databricks_functions_create <- function(name, catalog_name, schema_name, input_p
 #'
 #' @param force Force deletion even if the function is notempty.
 #' @param name The fully-qualified name of the function (of the form __catalog_name__.__schema_name__.__function__name__).
-databricks_functions_delete <- function(name, force = NULL, 
+functions_delete <- function(name, force = NULL, 
     ...) {
     query <- list(
         force = force, ...)
@@ -92,7 +92,7 @@ databricks_functions_delete <- function(name, force = NULL,
 #' the **EXECUTE** privilege on the function itself
 #'
 #' @param name The fully-qualified name of the function (of the form __catalog_name__.__schema_name__.__function__name__).
-databricks_functions_get <- function(name, ...) {
+functions_get <- function(name, ...) {
     
     
     .api$do("GET", paste("/api/2.1/unity-catalog/functions/", name, sep = ""))
@@ -110,7 +110,7 @@ databricks_functions_get <- function(name, ...) {
 #'
 #' @param catalog_name Name of parent catalog for functions of interest.
 #' @param schema_name Parent schema of functions.
-databricks_functions_list <- function(catalog_name, schema_name, ...) {
+functions_list <- function(catalog_name, schema_name, ...) {
     query <- list(
         catalog_name = catalog_name, 
         schema_name = schema_name, ...)
@@ -131,7 +131,7 @@ databricks_functions_list <- function(catalog_name, schema_name, ...) {
 #'
 #' @param name The fully-qualified name of the function (of the form __catalog_name__.__schema_name__.__function__name__).
 #' @param owner Username of current owner of function.
-databricks_functions_update <- function(name, owner = NULL, 
+functions_update <- function(name, owner = NULL, 
     ...) {
     body <- list(
         owner = owner, ...)

@@ -15,7 +15,7 @@
 #' @param name 
 #' @param roles 
 #' @param user_name Email address of the Databricks user.
-databricks_users_create <- function(id, active = NULL, 
+users_create <- function(id, active = NULL, 
     display_name = NULL, 
     emails = NULL, 
     entitlements = NULL, 
@@ -46,7 +46,7 @@ databricks_users_create <- function(id, active = NULL,
 #' objects associated with the user.
 #'
 #' @param id Unique ID for a user in the Databricks Workspace.
-databricks_users_delete <- function(id, ...) {
+users_delete <- function(id, ...) {
     
     
     .api$do("DELETE", paste("/api/2.0/preview/scim/v2/Users/", id, sep = ""))
@@ -57,7 +57,7 @@ databricks_users_delete <- function(id, ...) {
 #' Gets information for a specific user in Databricks Workspace.
 #'
 #' @param id Unique ID for a user in the Databricks Workspace.
-databricks_users_get <- function(id, ...) {
+users_get <- function(id, ...) {
     
     
     .api$do("GET", paste("/api/2.0/preview/scim/v2/Users/", id, sep = ""))
@@ -74,7 +74,7 @@ databricks_users_get <- function(id, ...) {
 #' @param sort_by Attribute to sort the results.
 #' @param sort_order The order to sort the results.
 #' @param start_index Specifies the index of the first result.
-databricks_users_list <- function(attributes = NULL, 
+users_list <- function(attributes = NULL, 
     count = NULL, 
     excluded_attributes = NULL, 
     filter = NULL, 
@@ -104,7 +104,7 @@ databricks_users_list <- function(attributes = NULL,
 #'
 #' @param id Unique ID for a group in the Databricks Account.
 #' @param operations 
-databricks_users_patch <- function(id, operations = NULL, 
+users_patch <- function(id, operations = NULL, 
     ...) {
     body <- list(
         operations = operations, ...)
@@ -126,7 +126,7 @@ databricks_users_patch <- function(id, operations = NULL,
 #' @param name 
 #' @param roles 
 #' @param user_name Email address of the Databricks user.
-databricks_users_update <- function(id, active = NULL, 
+users_update <- function(id, active = NULL, 
     display_name = NULL, 
     emails = NULL, 
     entitlements = NULL, 

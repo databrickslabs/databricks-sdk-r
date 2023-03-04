@@ -9,7 +9,7 @@
 #' @param default_catalog_name The name of the default catalog in the metastore.
 #' @param metastore_id The unique ID of the metastore.
 #' @param workspace_id Workspace ID.
-databricks_metastores_assign <- function(metastore_id, default_catalog_name, workspace_id, ...) {
+metastores_assign <- function(metastore_id, default_catalog_name, workspace_id, ...) {
     body <- list(
         default_catalog_name = default_catalog_name, 
         metastore_id = metastore_id, ...)
@@ -24,7 +24,7 @@ databricks_metastores_assign <- function(metastore_id, default_catalog_name, wor
 #' @param name The user-specified name of the metastore.
 #' @param region Cloud region which the metastore serves (e.g., `us-west-2`, `westus`).
 #' @param storage_root The storage root URL for metastore.
-databricks_metastores_create <- function(name, storage_root, region = NULL, 
+metastores_create <- function(name, storage_root, region = NULL, 
     ...) {
     body <- list(
         name = name, 
@@ -37,7 +37,7 @@ databricks_metastores_create <- function(name, storage_root, region = NULL,
 #' Get metastore assignment for workspace.
 #' 
 #' Gets the metastore assignment for the workspace being accessed.
-databricks_metastores_current <- function(...) {
+metastores_current <- function(...) {
     
     .api$do("GET", "/api/2.1/unity-catalog/current-metastore-assignment")
 }
@@ -48,7 +48,7 @@ databricks_metastores_current <- function(...) {
 #'
 #' @param force Force deletion even if the metastore is not empty.
 #' @param id Unique ID of the metastore.
-databricks_metastores_delete <- function(id, force = NULL, 
+metastores_delete <- function(id, force = NULL, 
     ...) {
     query <- list(
         force = force, ...)
@@ -62,7 +62,7 @@ databricks_metastores_delete <- function(id, force = NULL,
 #' admin to retrieve this info.
 #'
 #' @param id Unique ID of the metastore.
-databricks_metastores_get <- function(id, ...) {
+metastores_get <- function(id, ...) {
     
     
     .api$do("GET", paste("/api/2.1/unity-catalog/metastores/", id, sep = ""))
@@ -73,7 +73,7 @@ databricks_metastores_get <- function(id, ...) {
 #' Gets an array of the available metastores (as __MetastoreInfo__ objects). The
 #' caller must be an admin to retrieve this info. There is no guarantee of a
 #' specific ordering of the elements in the array.
-databricks_metastores_list <- function(...) {
+metastores_list <- function(...) {
     
     
     json <- .api$do("GET", "/api/2.1/unity-catalog/metastores")
@@ -85,7 +85,7 @@ databricks_metastores_list <- function(...) {
 #' 
 #' Gets information about a metastore. This summary includes the storage
 #' credential, the cloud vendor, the cloud region, and the global metastore ID.
-databricks_metastores_summary <- function(...) {
+metastores_summary <- function(...) {
     
     .api$do("GET", "/api/2.1/unity-catalog/metastore_summary")
 }
@@ -96,7 +96,7 @@ databricks_metastores_summary <- function(...) {
 #'
 #' @param metastore_id Query for the ID of the metastore to delete.
 #' @param workspace_id A workspace ID.
-databricks_metastores_unassign <- function(workspace_id, metastore_id, ...) {
+metastores_unassign <- function(workspace_id, metastore_id, ...) {
     query <- list(
         metastore_id = metastore_id, ...)
     
@@ -117,7 +117,7 @@ databricks_metastores_unassign <- function(workspace_id, metastore_id, ...) {
 #' @param owner The owner of the metastore.
 #' @param privilege_model_version Privilege model version of the metastore, of the form `major.minor` (e.g., `1.0`).
 #' @param storage_root_credential_id UUID of storage credential to access the metastore storage_root.
-databricks_metastores_update <- function(metastore_id, id, delta_sharing_organization_name = NULL, 
+metastores_update <- function(metastore_id, id, delta_sharing_organization_name = NULL, 
     delta_sharing_recipient_token_lifetime_in_seconds = NULL, 
     delta_sharing_scope = NULL, 
     name = NULL, 
@@ -148,7 +148,7 @@ databricks_metastores_update <- function(metastore_id, id, delta_sharing_organiz
 #' @param default_catalog_name The name of the default catalog for the metastore.
 #' @param metastore_id The unique ID of the metastore.
 #' @param workspace_id Workspace ID.
-databricks_metastores_update_assignment <- function(workspace_id, metastore_id, default_catalog_name = NULL, 
+metastores_update_assignment <- function(workspace_id, metastore_id, default_catalog_name = NULL, 
     ...) {
     body <- list(
         default_catalog_name = default_catalog_name, 

@@ -12,7 +12,7 @@
 #' @param id Databricks group ID.
 #' @param members 
 #' @param roles 
-databricks_groups_create <- function(id, display_name = NULL, 
+groups_create <- function(id, display_name = NULL, 
     entitlements = NULL, 
     external_id = NULL, 
     groups = NULL, 
@@ -36,7 +36,7 @@ databricks_groups_create <- function(id, display_name = NULL,
 #' Deletes a group from the Databricks Workspace.
 #'
 #' @param id Unique ID for a group in the Databricks Workspace.
-databricks_groups_delete <- function(id, ...) {
+groups_delete <- function(id, ...) {
     
     
     .api$do("DELETE", paste("/api/2.0/preview/scim/v2/Groups/", id, sep = ""))
@@ -47,7 +47,7 @@ databricks_groups_delete <- function(id, ...) {
 #' Gets the information for a specific group in the Databricks Workspace.
 #'
 #' @param id Unique ID for a group in the Databricks Workspace.
-databricks_groups_get <- function(id, ...) {
+groups_get <- function(id, ...) {
     
     
     .api$do("GET", paste("/api/2.0/preview/scim/v2/Groups/", id, sep = ""))
@@ -64,7 +64,7 @@ databricks_groups_get <- function(id, ...) {
 #' @param sort_by Attribute to sort the results.
 #' @param sort_order The order to sort the results.
 #' @param start_index Specifies the index of the first result.
-databricks_groups_list <- function(attributes = NULL, 
+groups_list <- function(attributes = NULL, 
     count = NULL, 
     excluded_attributes = NULL, 
     filter = NULL, 
@@ -93,7 +93,7 @@ databricks_groups_list <- function(attributes = NULL,
 #'
 #' @param id Unique ID for a group in the Databricks Account.
 #' @param operations 
-databricks_groups_patch <- function(id, operations = NULL, 
+groups_patch <- function(id, operations = NULL, 
     ...) {
     body <- list(
         operations = operations, ...)
@@ -112,7 +112,7 @@ databricks_groups_patch <- function(id, operations = NULL,
 #' @param id Databricks group ID.
 #' @param members 
 #' @param roles 
-databricks_groups_update <- function(id, display_name = NULL, 
+groups_update <- function(id, display_name = NULL, 
     entitlements = NULL, 
     external_id = NULL, 
     groups = NULL, 

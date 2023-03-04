@@ -9,7 +9,7 @@
 #' @param page_token Token indicating the page of metric histories to fetch.
 #' @param run_id ID of the run from which to fetch metric values.
 #' @param run_uuid [Deprecated, use run_id instead] ID of the run from which to fetch metric values.
-databricks_m_lflow_metrics_get_history <- function(metric_key, max_results = NULL, 
+m_lflow_metrics_get_history <- function(metric_key, max_results = NULL, 
     page_token = NULL, 
     run_id = NULL, 
     run_uuid = NULL, 

@@ -13,7 +13,7 @@
 #'
 #' @param path The absolute path of the notebook or directory.
 #' @param recursive The flag that specifies whether to delete the object recursively.
-databricks_workspace_delete <- function(path, recursive = NULL, 
+workspace_delete <- function(path, recursive = NULL, 
     ...) {
     body <- list(
         path = path, 
@@ -36,7 +36,7 @@ databricks_workspace_delete <- function(path, recursive = NULL,
 #' @param direct_download Flag to enable direct download.
 #' @param format This specifies the format of the exported file.
 #' @param path The absolute path of the notebook or directory.
-databricks_workspace_export <- function(path, direct_download = NULL, 
+workspace_export <- function(path, direct_download = NULL, 
     format = NULL, 
     ...) {
     query <- list(
@@ -53,7 +53,7 @@ databricks_workspace_export <- function(path, direct_download = NULL,
 #' call returns an error `RESOURCE_DOES_NOT_EXIST`.
 #'
 #' @param path The absolute path of the notebook or directory.
-databricks_workspace_get_status <- function(path, ...) {
+workspace_get_status <- function(path, ...) {
     query <- list(
         path = path, ...)
     
@@ -72,7 +72,7 @@ databricks_workspace_get_status <- function(path, ...) {
 #' @param language The language of the object.
 #' @param overwrite The flag that specifies whether to overwrite existing object.
 #' @param path The absolute path of the notebook or directory.
-databricks_workspace_import <- function(path, content = NULL, 
+workspace_import <- function(path, content = NULL, 
     format = NULL, 
     language = NULL, 
     overwrite = NULL, 
@@ -95,7 +95,7 @@ databricks_workspace_import <- function(path, content = NULL,
 #'
 #' @param notebooks_modified_after <content needed>.
 #' @param path The absolute path of the notebook or directory.
-databricks_workspace_list <- function(path, notebooks_modified_after = NULL, 
+workspace_list <- function(path, notebooks_modified_after = NULL, 
     ...) {
     query <- list(
         notebooks_modified_after = notebooks_modified_after, 
@@ -117,7 +117,7 @@ databricks_workspace_list <- function(path, notebooks_modified_after = NULL,
 #' the necessary\nparrent directories.
 #'
 #' @param path The absolute path of the directory.
-databricks_workspace_mkdirs <- function(path, ...) {
+workspace_mkdirs <- function(path, ...) {
     body <- list(
         path = path, ...)
     

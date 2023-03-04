@@ -10,7 +10,7 @@
 #' @param include_metrics Whether to include metrics about query.
 #' @param max_results Limit the number of results returned in one page.
 #' @param page_token A token that can be used to get the next page of results.
-databricks_query_history_list <- function(filter_by = NULL, 
+query_history_list <- function(filter_by = NULL, 
     include_metrics = NULL, 
     max_results = NULL, 
     page_token = NULL, 

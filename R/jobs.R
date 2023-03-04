@@ -6,7 +6,7 @@
 #' doesn't prevent new runs from being started.
 #'
 #' @param job_id The canonical identifier of the job to cancel all runs of.
-databricks_jobs_cancel_all_runs <- function(job_id, ...) {
+jobs_cancel_all_runs <- function(job_id, ...) {
     body <- list(
         job_id = job_id, ...)
     
@@ -19,7 +19,7 @@ databricks_jobs_cancel_all_runs <- function(job_id, ...) {
 #' running when this request completes.
 #'
 #' @param run_id This field is required.
-databricks_jobs_cancel_run <- function(run_id, timeout=20, callback = cli_reporter, ...) {
+jobs_cancel_run <- function(run_id, timeout=20, callback = cli_reporter, ...) {
     body <- list(
         run_id = run_id, ...)
     
@@ -30,7 +30,7 @@ databricks_jobs_cancel_run <- function(run_id, timeout=20, callback = cli_report
     status_message <- 'polling...'
     attempt <- 1
     while ((started + (timeout*60)) > as.numeric(Sys.time())) {
-        poll <- databricks_jobs_get_run(run_id = run_id)
+        poll <- jobs_get_run(run_id = run_id)
         status <- poll$state$life_cycle_state
         status_message <- paste("current status:", status)
         if (!is.null(poll$state)) {
@@ -46,7 +46,7 @@ databricks_jobs_cancel_run <- function(run_id, timeout=20, callback = cli_report
             msg <- paste("failed to reach TERMINATED or SKIPPED, got ", status, "-", status_message)
             rlang::abort(msg, call = rlang::caller_env())
         }
-        prefix <- paste0("databricks_jobs_get_run(run_id=", run_id, ")")
+        prefix <- paste0("databricks::jobs_get_run(run_id=", run_id, ")")
         sleep <- attempt
         if (sleep > 10) {
             # sleep 10s max per attempt
@@ -80,7 +80,7 @@ databricks_jobs_cancel_run <- function(run_id, timeout=20, callback = cli_report
 #' @param tasks A list of task specifications to be executed by this job.
 #' @param timeout_seconds An optional timeout applied to each run of this job.
 #' @param webhook_notifications A collection of system notification IDs to notify when the run begins or completes.
-databricks_jobs_create <- function(access_control_list = NULL, 
+jobs_create <- function(access_control_list = NULL, 
     continuous = NULL, 
     email_notifications = NULL, 
     format = NULL, 
@@ -117,7 +117,7 @@ databricks_jobs_create <- function(access_control_list = NULL,
 #' Deletes a job.
 #'
 #' @param job_id The canonical identifier of the job to delete.
-databricks_jobs_delete <- function(job_id, ...) {
+jobs_delete <- function(job_id, ...) {
     body <- list(
         job_id = job_id, ...)
     
@@ -129,7 +129,7 @@ databricks_jobs_delete <- function(job_id, ...) {
 #' Deletes a non-active run. Returns an error if the run is active.
 #'
 #' @param run_id The canonical identifier of the run for which to retrieve the metadata.
-databricks_jobs_delete_run <- function(run_id, ...) {
+jobs_delete_run <- function(run_id, ...) {
     body <- list(
         run_id = run_id, ...)
     
@@ -142,7 +142,7 @@ databricks_jobs_delete_run <- function(run_id, ...) {
 #'
 #' @param run_id The canonical identifier for the run.
 #' @param views_to_export Which views to export (CODE, DASHBOARDS, or ALL).
-databricks_jobs_export_run <- function(run_id, views_to_export = NULL, 
+jobs_export_run <- function(run_id, views_to_export = NULL, 
     ...) {
     query <- list(
         run_id = run_id, 
@@ -156,7 +156,7 @@ databricks_jobs_export_run <- function(run_id, views_to_export = NULL,
 #' Retrieves the details for a single job.
 #'
 #' @param job_id The canonical identifier of the job to retrieve information about.
-databricks_jobs_get <- function(job_id, ...) {
+jobs_get <- function(job_id, ...) {
     query <- list(
         job_id = job_id, ...)
     
@@ -169,7 +169,7 @@ databricks_jobs_get <- function(job_id, ...) {
 #'
 #' @param include_history Whether to include the repair history in the response.
 #' @param run_id The canonical identifier of the run for which to retrieve the metadata.
-databricks_jobs_get_run <- function(run_id, include_history = NULL, 
+jobs_get_run <- function(run_id, include_history = NULL, 
     timeout=20, callback = cli_reporter, ...) {
     query <- list(
         include_history = include_history, 
@@ -182,7 +182,7 @@ databricks_jobs_get_run <- function(run_id, include_history = NULL,
     status_message <- 'polling...'
     attempt <- 1
     while ((started + (timeout*60)) > as.numeric(Sys.time())) {
-        poll <- databricks_jobs_get_run(run_id = op_response$run_id)
+        poll <- jobs_get_run(run_id = op_response$run_id)
         status <- poll$state$life_cycle_state
         status_message <- paste("current status:", status)
         if (!is.null(poll$state)) {
@@ -198,7 +198,7 @@ databricks_jobs_get_run <- function(run_id, include_history = NULL,
             msg <- paste("failed to reach TERMINATED or SKIPPED, got ", status, "-", status_message)
             rlang::abort(msg, call = rlang::caller_env())
         }
-        prefix <- paste0("databricks_jobs_get_run(run_id=", op_response$run_id, ")")
+        prefix <- paste0("databricks::jobs_get_run(run_id=", op_response$run_id, ")")
         sleep <- attempt
         if (sleep > 10) {
             # sleep 10s max per attempt
@@ -229,7 +229,7 @@ databricks_jobs_get_run <- function(run_id, include_history = NULL,
 #' 60 days, you must save old run results before they expire.
 #'
 #' @param run_id The canonical identifier for the run.
-databricks_jobs_get_run_output <- function(run_id, ...) {
+jobs_get_run_output <- function(run_id, ...) {
     query <- list(
         run_id = run_id, ...)
     
@@ -244,7 +244,7 @@ databricks_jobs_get_run_output <- function(run_id, ...) {
 #' @param limit The number of jobs to return.
 #' @param name A filter on the list based on the exact (case insensitive) job name.
 #' @param offset The offset of the first job to return, relative to the most recently created job.
-databricks_jobs_list <- function(expand_tasks = NULL, 
+jobs_list <- function(expand_tasks = NULL, 
     limit = NULL, 
     name = NULL, 
     offset = NULL, 
@@ -287,7 +287,7 @@ databricks_jobs_list <- function(expand_tasks = NULL,
 #' @param run_type The type of runs to return.
 #' @param start_time_from Show runs that started _at or after_ this value.
 #' @param start_time_to Show runs that started _at or before_ this value.
-databricks_jobs_list_runs <- function(active_only = NULL, 
+jobs_list_runs <- function(active_only = NULL, 
     completed_only = NULL, 
     expand_tasks = NULL, 
     job_id = NULL, 
@@ -345,7 +345,7 @@ databricks_jobs_list_runs <- function(active_only = NULL,
 #' @param run_id The job run ID of the run to repair.
 #' @param spark_submit_params A list of parameters for jobs with spark submit task, for example `\"spark_submit_params\": [\"--class\", \"org.apache.spark.examples.SparkPi\"]`.
 #' @param sql_params A map from keys to values for jobs with SQL task, for example `"sql_params": {"name": "john doe", "age": "35"}`.
-databricks_jobs_repair_run <- function(run_id, dbt_commands = NULL, 
+jobs_repair_run <- function(run_id, dbt_commands = NULL, 
     jar_params = NULL, 
     latest_repair_id = NULL, 
     notebook_params = NULL, 
@@ -378,7 +378,7 @@ databricks_jobs_repair_run <- function(run_id, dbt_commands = NULL,
     status_message <- 'polling...'
     attempt <- 1
     while ((started + (timeout*60)) > as.numeric(Sys.time())) {
-        poll <- databricks_jobs_get_run(run_id = run_id)
+        poll <- jobs_get_run(run_id = run_id)
         status <- poll$state$life_cycle_state
         status_message <- paste("current status:", status)
         if (!is.null(poll$state)) {
@@ -394,7 +394,7 @@ databricks_jobs_repair_run <- function(run_id, dbt_commands = NULL,
             msg <- paste("failed to reach TERMINATED or SKIPPED, got ", status, "-", status_message)
             rlang::abort(msg, call = rlang::caller_env())
         }
-        prefix <- paste0("databricks_jobs_get_run(run_id=", run_id, ")")
+        prefix <- paste0("databricks::jobs_get_run(run_id=", run_id, ")")
         sleep <- attempt
         if (sleep > 10) {
             # sleep 10s max per attempt
@@ -418,7 +418,7 @@ databricks_jobs_repair_run <- function(run_id, dbt_commands = NULL,
 #'
 #' @param job_id The canonical identifier of the job to reset.
 #' @param new_settings The new settings of the job.
-databricks_jobs_reset <- function(job_id, new_settings, ...) {
+jobs_reset <- function(job_id, new_settings, ...) {
     body <- list(
         job_id = job_id, 
         new_settings = new_settings, ...)
@@ -440,7 +440,7 @@ databricks_jobs_reset <- function(job_id, new_settings, ...) {
 #' @param python_params A list of parameters for jobs with Python tasks, for example `\"python_params\": [\"john doe\", \"35\"]`.
 #' @param spark_submit_params A list of parameters for jobs with spark submit task, for example `\"spark_submit_params\": [\"--class\", \"org.apache.spark.examples.SparkPi\"]`.
 #' @param sql_params A map from keys to values for jobs with SQL task, for example `"sql_params": {"name": "john doe", "age": "35"}`.
-databricks_jobs_run_now <- function(job_id, dbt_commands = NULL, 
+jobs_run_now <- function(job_id, dbt_commands = NULL, 
     idempotency_token = NULL, 
     jar_params = NULL, 
     notebook_params = NULL, 
@@ -469,7 +469,7 @@ databricks_jobs_run_now <- function(job_id, dbt_commands = NULL,
     status_message <- 'polling...'
     attempt <- 1
     while ((started + (timeout*60)) > as.numeric(Sys.time())) {
-        poll <- databricks_jobs_get_run(run_id = op_response$run_id)
+        poll <- jobs_get_run(run_id = op_response$run_id)
         status <- poll$state$life_cycle_state
         status_message <- paste("current status:", status)
         if (!is.null(poll$state)) {
@@ -485,7 +485,7 @@ databricks_jobs_run_now <- function(job_id, dbt_commands = NULL,
             msg <- paste("failed to reach TERMINATED or SKIPPED, got ", status, "-", status_message)
             rlang::abort(msg, call = rlang::caller_env())
         }
-        prefix <- paste0("databricks_jobs_get_run(run_id=", op_response$run_id, ")")
+        prefix <- paste0("databricks::jobs_get_run(run_id=", op_response$run_id, ")")
         sleep <- attempt
         if (sleep > 10) {
             # sleep 10s max per attempt
@@ -516,7 +516,7 @@ databricks_jobs_run_now <- function(job_id, dbt_commands = NULL,
 #' @param tasks 
 #' @param timeout_seconds An optional timeout applied to each run of this job.
 #' @param webhook_notifications A collection of system notification IDs to notify when the run begins or completes.
-databricks_jobs_submit <- function(access_control_list = NULL, 
+jobs_submit <- function(access_control_list = NULL, 
     git_source = NULL, 
     idempotency_token = NULL, 
     run_name = NULL, 
@@ -540,7 +540,7 @@ databricks_jobs_submit <- function(access_control_list = NULL,
     status_message <- 'polling...'
     attempt <- 1
     while ((started + (timeout*60)) > as.numeric(Sys.time())) {
-        poll <- databricks_jobs_get_run(run_id = op_response$run_id)
+        poll <- jobs_get_run(run_id = op_response$run_id)
         status <- poll$state$life_cycle_state
         status_message <- paste("current status:", status)
         if (!is.null(poll$state)) {
@@ -556,7 +556,7 @@ databricks_jobs_submit <- function(access_control_list = NULL,
             msg <- paste("failed to reach TERMINATED or SKIPPED, got ", status, "-", status_message)
             rlang::abort(msg, call = rlang::caller_env())
         }
-        prefix <- paste0("databricks_jobs_get_run(run_id=", op_response$run_id, ")")
+        prefix <- paste0("databricks::jobs_get_run(run_id=", op_response$run_id, ")")
         sleep <- attempt
         if (sleep > 10) {
             # sleep 10s max per attempt
@@ -581,7 +581,7 @@ databricks_jobs_submit <- function(access_control_list = NULL,
 #' @param fields_to_remove Remove top-level fields in the job settings.
 #' @param job_id The canonical identifier of the job to update.
 #' @param new_settings The new settings for the job.
-databricks_jobs_update <- function(job_id, fields_to_remove = NULL, 
+jobs_update <- function(job_id, fields_to_remove = NULL, 
     new_settings = NULL, 
     ...) {
     body <- list(

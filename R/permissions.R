@@ -7,7 +7,7 @@
 #'
 #' @param request_object_id 
 #' @param request_object_type <needs content>.
-databricks_permissions_get <- function(request_object_type, request_object_id, ...) {
+permissions_get <- function(request_object_type, request_object_id, ...) {
     
     
     .api$do("GET", paste("/api/2.0/permissions/", request_object_type, "/", request_object_id, sep = ""))
@@ -19,7 +19,7 @@ databricks_permissions_get <- function(request_object_type, request_object_id, .
 #'
 #' @param request_object_id <needs content>.
 #' @param request_object_type <needs content>.
-databricks_permissions_get_permission_levels <- function(request_object_type, request_object_id, ...) {
+permissions_get_permission_levels <- function(request_object_type, request_object_id, ...) {
     
     
     .api$do("GET", paste("/api/2.0/permissions/", request_object_type, "/", request_object_id, "/permissionLevels", , sep = ""))
@@ -33,7 +33,7 @@ databricks_permissions_get_permission_levels <- function(request_object_type, re
 #' @param access_control_list 
 #' @param request_object_id 
 #' @param request_object_type <needs content>.
-databricks_permissions_set <- function(request_object_type, request_object_id, access_control_list = NULL, 
+permissions_set <- function(request_object_type, request_object_id, access_control_list = NULL, 
     ...) {
     body <- list(
         access_control_list = access_control_list, ...)
@@ -48,7 +48,7 @@ databricks_permissions_set <- function(request_object_type, request_object_id, a
 #' @param access_control_list 
 #' @param request_object_id 
 #' @param request_object_type <needs content>.
-databricks_permissions_update <- function(request_object_type, request_object_id, access_control_list = NULL, 
+permissions_update <- function(request_object_type, request_object_id, access_control_list = NULL, 
     ...) {
     body <- list(
         access_control_list = access_control_list, ...)

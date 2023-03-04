@@ -10,7 +10,7 @@
 #' @param run_link MLflow run link - this is the exact link of the run that generated this model version, potentially hosted at another instance of MLflow.
 #' @param source URI indicating the location of the model artifacts.
 #' @param tags Additional metadata for model version.
-databricks_model_versions_create <- function(name, source, description = NULL, 
+model_versions_create <- function(name, source, description = NULL, 
     run_id = NULL, 
     run_link = NULL, 
     tags = NULL, 
@@ -32,7 +32,7 @@ databricks_model_versions_create <- function(name, source, description = NULL,
 #'
 #' @param name Name of the registered model.
 #' @param version Model version number.
-databricks_model_versions_delete <- function(name, version, ...) {
+model_versions_delete <- function(name, version, ...) {
     query <- list(
         name = name, 
         version = version, ...)
@@ -47,7 +47,7 @@ databricks_model_versions_delete <- function(name, version, ...) {
 #' @param key Name of the tag.
 #' @param name Name of the registered model that the tag was logged under.
 #' @param version Model version number that the tag was logged under.
-databricks_model_versions_delete_tag <- function(name, version, key, ...) {
+model_versions_delete_tag <- function(name, version, key, ...) {
     query <- list(
         key = key, 
         name = name, 
@@ -62,7 +62,7 @@ databricks_model_versions_delete_tag <- function(name, version, key, ...) {
 #'
 #' @param name Name of the registered model.
 #' @param version Model version number.
-databricks_model_versions_get <- function(name, version, ...) {
+model_versions_get <- function(name, version, ...) {
     query <- list(
         name = name, 
         version = version, ...)
@@ -76,7 +76,7 @@ databricks_model_versions_get <- function(name, version, ...) {
 #'
 #' @param name Name of the registered model.
 #' @param version Model version number.
-databricks_model_versions_get_download_uri <- function(name, version, ...) {
+model_versions_get_download_uri <- function(name, version, ...) {
     query <- list(
         name = name, 
         version = version, ...)
@@ -92,7 +92,7 @@ databricks_model_versions_get_download_uri <- function(name, version, ...) {
 #' @param max_results Maximum number of models desired.
 #' @param order_by List of columns to be ordered by including model name, version, stage with an optional "DESC" or "ASC" annotation, where "ASC" is the default.
 #' @param page_token Pagination token to go to next page based on previous search query.
-databricks_model_versions_search <- function(filter = NULL, 
+model_versions_search <- function(filter = NULL, 
     max_results = NULL, 
     order_by = NULL, 
     page_token = NULL, 
@@ -130,7 +130,7 @@ databricks_model_versions_search <- function(filter = NULL,
 #' @param name Unique name of the model.
 #' @param value String value of the tag being logged.
 #' @param version Model version number.
-databricks_model_versions_set_tag <- function(name, version, key, value, ...) {
+model_versions_set_tag <- function(name, version, key, value, ...) {
     body <- list(
         key = key, 
         name = name, 
@@ -148,7 +148,7 @@ databricks_model_versions_set_tag <- function(name, version, key, value, ...) {
 #' @param name Name of the registered model.
 #' @param stage Transition `model_version` to new stage.
 #' @param version Model version number.
-databricks_model_versions_transition_stage <- function(name, version, stage, archive_existing_versions, ...) {
+model_versions_transition_stage <- function(name, version, stage, archive_existing_versions, ...) {
     body <- list(
         archive_existing_versions = archive_existing_versions, 
         name = name, 
@@ -165,7 +165,7 @@ databricks_model_versions_transition_stage <- function(name, version, stage, arc
 #' @param description If provided, updates the description for this `registered_model`.
 #' @param name Name of the registered model.
 #' @param version Model version number.
-databricks_model_versions_update <- function(name, version, description = NULL, 
+model_versions_update <- function(name, version, description = NULL, 
     ...) {
     body <- list(
         description = description, 

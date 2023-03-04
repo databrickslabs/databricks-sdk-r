@@ -8,7 +8,7 @@
 #'
 #' @param comment User-provided free-form text description.
 #' @param name Name of the share.
-databricks_shares_create <- function(name, comment = NULL, 
+shares_create <- function(name, comment = NULL, 
     ...) {
     body <- list(
         comment = comment, 
@@ -23,7 +23,7 @@ databricks_shares_create <- function(name, comment = NULL,
 #' of the share.
 #'
 #' @param name The name of the share.
-databricks_shares_delete <- function(name, ...) {
+shares_delete <- function(name, ...) {
     
     
     .api$do("DELETE", paste("/api/2.1/unity-catalog/shares/", name, sep = ""))
@@ -36,7 +36,7 @@ databricks_shares_delete <- function(name, ...) {
 #'
 #' @param include_shared_data Query for data to include in the share.
 #' @param name The name of the share.
-databricks_shares_get <- function(name, include_shared_data = NULL, 
+shares_get <- function(name, include_shared_data = NULL, 
     ...) {
     query <- list(
         include_shared_data = include_shared_data, ...)
@@ -49,7 +49,7 @@ databricks_shares_get <- function(name, include_shared_data = NULL,
 #' Gets an array of data object shares from the metastore. The caller must be a
 #' metastore admin or the owner of the share. There is no guarantee of a
 #' specific ordering of the elements in the array.
-databricks_shares_list <- function(...) {
+shares_list <- function(...) {
     
     
     json <- .api$do("GET", "/api/2.1/unity-catalog/shares")
@@ -63,7 +63,7 @@ databricks_shares_list <- function(...) {
 #' a metastore admin or the owner of the share.
 #'
 #' @param name The name of the share.
-databricks_shares_share_permissions <- function(name, ...) {
+shares_share_permissions <- function(name, ...) {
     
     
     .api$do("GET", paste("/api/2.1/unity-catalog/shares/", name, "/permissions", , sep = ""))
@@ -91,7 +91,7 @@ databricks_shares_share_permissions <- function(name, ...) {
 #' @param name Name of the share.
 #' @param owner Username of current owner of share.
 #' @param updates Array of shared data object updates.
-databricks_shares_update <- function(name, comment = NULL, 
+shares_update <- function(name, comment = NULL, 
     owner = NULL, 
     updates = NULL, 
     ...) {
@@ -114,7 +114,7 @@ databricks_shares_update <- function(name, comment = NULL,
 #'
 #' @param changes Array of permission changes.
 #' @param name The name of the share.
-databricks_shares_update_permissions <- function(name, changes = NULL, 
+shares_update_permissions <- function(name, changes = NULL, 
     ...) {
     body <- list(
         changes = changes, ...)

@@ -5,7 +5,7 @@
 #' Gets an activation URL for a share.
 #'
 #' @param activation_url The one time activation url.
-databricks_recipient_activation_get_activation_url_info <- function(activation_url, ...) {
+recipient_activation_get_activation_url_info <- function(activation_url, ...) {
     
     
     .api$do("GET", paste("/api/2.1/unity-catalog/public/data_sharing_activation_info/", activation_url, sep = ""))
@@ -17,7 +17,7 @@ databricks_recipient_activation_get_activation_url_info <- function(activation_u
 #' any authentication.
 #'
 #' @param activation_url The one time activation url.
-databricks_recipient_activation_retrieve_token <- function(activation_url, ...) {
+recipient_activation_retrieve_token <- function(activation_url, ...) {
     
     
     .api$do("GET", paste("/api/2.1/unity-catalog/public/data_sharing_activation/", activation_url, sep = ""))

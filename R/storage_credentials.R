@@ -19,7 +19,7 @@
 #' @param name The credential name.
 #' @param read_only Whether the storage credential is only usable for read operations.
 #' @param skip_validation Supplying true to this argument skips validation of the created credential.
-databricks_storage_credentials_create <- function(name, metastore_id, aws_iam_role = NULL, 
+storage_credentials_create <- function(name, metastore_id, aws_iam_role = NULL, 
     azure_service_principal = NULL, 
     comment = NULL, 
     gcp_service_account_key = NULL, 
@@ -45,7 +45,7 @@ databricks_storage_credentials_create <- function(name, metastore_id, aws_iam_ro
 #'
 #' @param force Force deletion even if there are dependent external locations or external tables.
 #' @param name Name of the storage credential.
-databricks_storage_credentials_delete <- function(name, force = NULL, 
+storage_credentials_delete <- function(name, force = NULL, 
     ...) {
     query <- list(
         force = force, ...)
@@ -60,7 +60,7 @@ databricks_storage_credentials_delete <- function(name, force = NULL,
 #' storage credential.
 #'
 #' @param name Name of the storage credential.
-databricks_storage_credentials_get <- function(name, ...) {
+storage_credentials_get <- function(name, ...) {
     
     
     .api$do("GET", paste("/api/2.1/unity-catalog/storage-credentials/", name, sep = ""))
@@ -73,7 +73,7 @@ databricks_storage_credentials_get <- function(name, ...) {
 #' permission to access. If the caller is a metastore admin, all storage
 #' credentials will be retrieved. There is no guarantee of a specific ordering
 #' of the elements in the array.
-databricks_storage_credentials_list <- function(...) {
+storage_credentials_list <- function(...) {
     
     .api$do("GET", "/api/2.1/unity-catalog/storage-credentials")
 }
@@ -93,7 +93,7 @@ databricks_storage_credentials_list <- function(...) {
 #' @param owner Username of current owner of credential.
 #' @param read_only Whether the storage credential is only usable for read operations.
 #' @param skip_validation Supplying true to this argument skips validation of the updated credential.
-databricks_storage_credentials_update <- function(name, aws_iam_role = NULL, 
+storage_credentials_update <- function(name, aws_iam_role = NULL, 
     azure_service_principal = NULL, 
     comment = NULL, 
     force = NULL, 
@@ -138,7 +138,7 @@ databricks_storage_credentials_update <- function(name, aws_iam_role = NULL,
 #' @param read_only Whether the storage credential is only usable for read operations.
 #' @param storage_credential_name The name of the storage credential to validate.
 #' @param url The external location url to validate.
-databricks_storage_credentials_validate <- function(aws_iam_role = NULL, 
+storage_credentials_validate <- function(aws_iam_role = NULL, 
     azure_service_principal = NULL, 
     external_location_name = NULL, 
     gcp_service_account_key = NULL, 

@@ -10,7 +10,7 @@
 #' @param description Optional description for registered model.
 #' @param name Register models under this name.
 #' @param tags Additional metadata for registered model.
-databricks_registered_models_create <- function(name, description = NULL, 
+registered_models_create <- function(name, description = NULL, 
     tags = NULL, 
     ...) {
     body <- list(
@@ -26,7 +26,7 @@ databricks_registered_models_create <- function(name, description = NULL,
 #' Deletes a registered model.
 #'
 #' @param name Registered model unique name identifier.
-databricks_registered_models_delete <- function(name, ...) {
+registered_models_delete <- function(name, ...) {
     query <- list(
         name = name, ...)
     
@@ -39,7 +39,7 @@ databricks_registered_models_delete <- function(name, ...) {
 #'
 #' @param key Name of the tag.
 #' @param name Name of the registered model that the tag was logged under.
-databricks_registered_models_delete_tag <- function(name, key, ...) {
+registered_models_delete_tag <- function(name, key, ...) {
     query <- list(
         key = key, 
         name = name, ...)
@@ -52,7 +52,7 @@ databricks_registered_models_delete_tag <- function(name, key, ...) {
 #' Gets the registered model that matches the specified ID.
 #'
 #' @param name Registered model unique name identifier.
-databricks_registered_models_get <- function(name, ...) {
+registered_models_get <- function(name, ...) {
     query <- list(
         name = name, ...)
     
@@ -65,7 +65,7 @@ databricks_registered_models_get <- function(name, ...) {
 #'
 #' @param name Registered model unique name identifier.
 #' @param stages List of stages.
-databricks_registered_models_get_latest_versions <- function(name, stages = NULL, 
+registered_models_get_latest_versions <- function(name, stages = NULL, 
     ...) {
     body <- list(
         name = name, 
@@ -84,7 +84,7 @@ databricks_registered_models_get_latest_versions <- function(name, stages = NULL
 #'
 #' @param max_results Maximum number of registered models desired.
 #' @param page_token Pagination token to go to the next page based on a previous query.
-databricks_registered_models_list <- function(max_results = NULL, 
+registered_models_list <- function(max_results = NULL, 
     page_token = NULL, 
     ...) {
     query <- list(
@@ -116,7 +116,7 @@ databricks_registered_models_list <- function(max_results = NULL,
 #'
 #' @param name Registered model unique name identifier.
 #' @param new_name If provided, updates the name for this `registered_model`.
-databricks_registered_models_rename <- function(name, new_name = NULL, 
+registered_models_rename <- function(name, new_name = NULL, 
     ...) {
     body <- list(
         name = name, 
@@ -133,7 +133,7 @@ databricks_registered_models_rename <- function(name, new_name = NULL,
 #' @param max_results Maximum number of models desired.
 #' @param order_by List of columns for ordering search results, which can include model name and last updated timestamp with an optional "DESC" or "ASC" annotation, where "ASC" is the default.
 #' @param page_token Pagination token to go to the next page based on a previous search query.
-databricks_registered_models_search <- function(filter = NULL, 
+registered_models_search <- function(filter = NULL, 
     max_results = NULL, 
     order_by = NULL, 
     page_token = NULL, 
@@ -170,7 +170,7 @@ databricks_registered_models_search <- function(filter = NULL,
 #' @param key Name of the tag.
 #' @param name Unique name of the model.
 #' @param value String value of the tag being logged.
-databricks_registered_models_set_tag <- function(name, key, value, ...) {
+registered_models_set_tag <- function(name, key, value, ...) {
     body <- list(
         key = key, 
         name = name, 
@@ -185,7 +185,7 @@ databricks_registered_models_set_tag <- function(name, key, value, ...) {
 #'
 #' @param description If provided, updates the description for this `registered_model`.
 #' @param name Registered model unique name identifier.
-databricks_registered_models_update <- function(name, description = NULL, 
+registered_models_update <- function(name, description = NULL, 
     ...) {
     body <- list(
         description = description, 

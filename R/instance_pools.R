@@ -17,7 +17,7 @@
 #' @param node_type_id This field encodes, through a single value, the resources available to each of the Spark nodes in this cluster.
 #' @param preloaded_docker_images Custom Docker Image BYOC.
 #' @param preloaded_spark_versions A list of preloaded Spark image versions for the pool.
-databricks_instance_pools_create <- function(instance_pool_name, node_type_id, aws_attributes = NULL, 
+instance_pools_create <- function(instance_pool_name, node_type_id, aws_attributes = NULL, 
     azure_attributes = NULL, 
     custom_tags = NULL, 
     disk_spec = NULL, 
@@ -53,7 +53,7 @@ databricks_instance_pools_create <- function(instance_pool_name, node_type_id, a
 #' terminated asynchronously.
 #'
 #' @param instance_pool_id The instance pool to be terminated.
-databricks_instance_pools_delete <- function(instance_pool_id, ...) {
+instance_pools_delete <- function(instance_pool_id, ...) {
     body <- list(
         instance_pool_id = instance_pool_id, ...)
     
@@ -78,7 +78,7 @@ databricks_instance_pools_delete <- function(instance_pool_id, ...) {
 #' @param node_type_id This field encodes, through a single value, the resources available to each of the Spark nodes in this cluster.
 #' @param preloaded_docker_images Custom Docker Image BYOC.
 #' @param preloaded_spark_versions A list of preloaded Spark image versions for the pool.
-databricks_instance_pools_edit <- function(instance_pool_id, instance_pool_name, node_type_id, aws_attributes = NULL, 
+instance_pools_edit <- function(instance_pool_id, instance_pool_name, node_type_id, aws_attributes = NULL, 
     azure_attributes = NULL, 
     custom_tags = NULL, 
     disk_spec = NULL, 
@@ -114,7 +114,7 @@ databricks_instance_pools_edit <- function(instance_pool_id, instance_pool_name,
 #' Retrieve the information for an instance pool based on its identifier.
 #'
 #' @param instance_pool_id The canonical unique identifier for the instance pool.
-databricks_instance_pools_get <- function(instance_pool_id, ...) {
+instance_pools_get <- function(instance_pool_id, ...) {
     query <- list(
         instance_pool_id = instance_pool_id, ...)
     
@@ -124,7 +124,7 @@ databricks_instance_pools_get <- function(instance_pool_id, ...) {
 #' List instance pool info.
 #' 
 #' Gets a list of instance pools with their statistics.
-databricks_instance_pools_list <- function(...) {
+instance_pools_list <- function(...) {
     
     
     json <- .api$do("GET", "/api/2.0/instance-pools/list")

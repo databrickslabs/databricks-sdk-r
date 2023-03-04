@@ -9,7 +9,7 @@
 #' @param name Name of the model.
 #' @param stage Target stage of the transition.
 #' @param version Version of the model.
-databricks_transition_requests_approve <- function(name, version, stage, archive_existing_versions, comment = NULL, 
+transition_requests_approve <- function(name, version, stage, archive_existing_versions, comment = NULL, 
     ...) {
     body <- list(
         archive_existing_versions = archive_existing_versions, 
@@ -29,7 +29,7 @@ databricks_transition_requests_approve <- function(name, version, stage, archive
 #' @param name Name of the model.
 #' @param stage Target stage of the transition.
 #' @param version Version of the model.
-databricks_transition_requests_create <- function(name, version, stage, comment = NULL, 
+transition_requests_create <- function(name, version, stage, comment = NULL, 
     ...) {
     body <- list(
         comment = comment, 
@@ -49,7 +49,7 @@ databricks_transition_requests_create <- function(name, version, stage, comment 
 #' @param name Name of the model.
 #' @param stage Target stage of the transition request.
 #' @param version Version of the model.
-databricks_transition_requests_delete <- function(name, version, stage, creator, comment = NULL, 
+transition_requests_delete <- function(name, version, stage, creator, comment = NULL, 
     ...) {
     query <- list(
         comment = comment, 
@@ -67,7 +67,7 @@ databricks_transition_requests_delete <- function(name, version, stage, creator,
 #'
 #' @param name Name of the model.
 #' @param version Version of the model.
-databricks_transition_requests_list <- function(name, version, ...) {
+transition_requests_list <- function(name, version, ...) {
     query <- list(
         name = name, 
         version = version, ...)
@@ -86,7 +86,7 @@ databricks_transition_requests_list <- function(name, version, ...) {
 #' @param name Name of the model.
 #' @param stage Target stage of the transition.
 #' @param version Version of the model.
-databricks_transition_requests_reject <- function(name, version, stage, comment = NULL, 
+transition_requests_reject <- function(name, version, stage, comment = NULL, 
     ...) {
     body <- list(
         comment = comment, 

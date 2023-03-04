@@ -10,7 +10,7 @@
 #' @param keyvault_metadata The metadata for the secret scope if the type is `AZURE_KEYVAULT`.
 #' @param scope Scope name requested by the user.
 #' @param scope_backend_type The backend type the scope will be created with.
-databricks_secrets_create_scope <- function(scope, initial_manage_principal = NULL, 
+secrets_create_scope <- function(scope, initial_manage_principal = NULL, 
     keyvault_metadata = NULL, 
     scope_backend_type = NULL, 
     ...) {
@@ -34,7 +34,7 @@ databricks_secrets_create_scope <- function(scope, initial_manage_principal = NU
 #'
 #' @param principal The principal to remove an existing ACL from.
 #' @param scope The name of the scope to remove permissions from.
-databricks_secrets_delete_acl <- function(scope, principal, ...) {
+secrets_delete_acl <- function(scope, principal, ...) {
     body <- list(
         principal = principal, 
         scope = scope, ...)
@@ -51,7 +51,7 @@ databricks_secrets_delete_acl <- function(scope, principal, ...) {
 #' call.
 #'
 #' @param scope Name of the scope to delete.
-databricks_secrets_delete_scope <- function(scope, ...) {
+secrets_delete_scope <- function(scope, ...) {
     body <- list(
         scope = scope, ...)
     
@@ -69,7 +69,7 @@ databricks_secrets_delete_scope <- function(scope, ...) {
 #'
 #' @param key Name of the secret to delete.
 #' @param scope The name of the scope that contains the secret to delete.
-databricks_secrets_delete_secret <- function(scope, key, ...) {
+secrets_delete_secret <- function(scope, key, ...) {
     body <- list(
         key = key, 
         scope = scope, ...)
@@ -88,7 +88,7 @@ databricks_secrets_delete_secret <- function(scope, key, ...) {
 #'
 #' @param principal The principal to fetch ACL information for.
 #' @param scope The name of the scope to fetch ACL information from.
-databricks_secrets_get_acl <- function(scope, principal, ...) {
+secrets_get_acl <- function(scope, principal, ...) {
     query <- list(
         principal = principal, 
         scope = scope, ...)
@@ -106,7 +106,7 @@ databricks_secrets_get_acl <- function(scope, principal, ...) {
 #' call.
 #'
 #' @param scope The name of the scope to fetch ACL information from.
-databricks_secrets_list_acls <- function(scope, ...) {
+secrets_list_acls <- function(scope, ...) {
     query <- list(
         scope = scope, ...)
     
@@ -122,7 +122,7 @@ databricks_secrets_list_acls <- function(scope, ...) {
 #' 
 #' Throws `PERMISSION_DENIED` if the user does not have permission to make this
 #' API call.
-databricks_secrets_list_scopes <- function(...) {
+secrets_list_scopes <- function(...) {
     
     
     json <- .api$do("GET", "/api/2.0/secrets/scopes/list")
@@ -142,7 +142,7 @@ databricks_secrets_list_scopes <- function(...) {
 #' call.
 #'
 #' @param scope The name of the scope to list secrets within.
-databricks_secrets_list_secrets <- function(scope, ...) {
+secrets_list_secrets <- function(scope, ...) {
     query <- list(
         scope = scope, ...)
     
@@ -184,7 +184,7 @@ databricks_secrets_list_secrets <- function(scope, ...) {
 #' @param permission The permission level applied to the principal.
 #' @param principal The principal in which the permission is applied.
 #' @param scope The name of the scope to apply permissions to.
-databricks_secrets_put_acl <- function(scope, principal, permission, ...) {
+secrets_put_acl <- function(scope, principal, permission, ...) {
     body <- list(
         permission = permission, 
         principal = principal, 
@@ -219,7 +219,7 @@ databricks_secrets_put_acl <- function(scope, principal, permission, ...) {
 #' @param key A unique name to identify the secret.
 #' @param scope The name of the scope to which the secret will be associated with.
 #' @param string_value If specified, note that the value will be stored in UTF-8 (MB4) form.
-databricks_secrets_put_secret <- function(scope, key, bytes_value = NULL, 
+secrets_put_secret <- function(scope, key, bytes_value = NULL, 
     string_value = NULL, 
     ...) {
     body <- list(

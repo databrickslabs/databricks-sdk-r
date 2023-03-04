@@ -6,7 +6,7 @@
 #' status to see the terminal state.
 #'
 #' @param statement_id 
-databricks_statement_execution_cancel_execution <- function(statement_id, ...) {
+statement_execution_cancel_execution <- function(statement_id, ...) {
     
     
     .api$do("POST", paste("/api/2.0/sql/statements/", statement_id, "/cancel", , sep = ""))
@@ -27,7 +27,7 @@ databricks_statement_execution_cancel_execution <- function(statement_id, ...) {
 #' @param statement SQL statement to execute.
 #' @param wait_timeout Time that the API service will wait for the statement result, in format '{N}s'.
 #' @param warehouse_id Warehouse upon which to execute a statement.
-databricks_statement_execution_execute_statement <- function(byte_limit = NULL, 
+statement_execution_execute_statement <- function(byte_limit = NULL, 
     catalog = NULL, 
     disposition = NULL, 
     format = NULL, 
@@ -62,7 +62,7 @@ databricks_statement_execution_execute_statement <- function(byte_limit = NULL,
 #' status and result.
 #'
 #' @param statement_id 
-databricks_statement_execution_get_statement <- function(statement_id, ...) {
+statement_execution_get_statement <- function(statement_id, ...) {
     
     
     .api$do("GET", paste("/api/2.0/sql/statements/", statement_id, sep = ""))
@@ -81,7 +81,7 @@ databricks_statement_execution_get_statement <- function(statement_id, ...) {
 #'
 #' @param chunk_index 
 #' @param statement_id 
-databricks_statement_execution_get_statement_result_chunk_n <- function(statement_id, chunk_index, ...) {
+statement_execution_get_statement_result_chunk_n <- function(statement_id, chunk_index, ...) {
     
     
     .api$do("GET", paste("/api/2.0/sql/statements/", statement_id, "/result/chunks/", chunk_index, sep = ""))

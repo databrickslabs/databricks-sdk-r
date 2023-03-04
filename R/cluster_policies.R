@@ -10,7 +10,7 @@
 #' @param name Cluster Policy name requested by the user.
 #' @param policy_family_definition_overrides Policy definition JSON document expressed in Databricks Policy Definition Language.
 #' @param policy_family_id ID of the policy family.
-databricks_cluster_policies_create <- function(name, definition = NULL, 
+cluster_policies_create <- function(name, definition = NULL, 
     description = NULL, 
     max_clusters_per_user = NULL, 
     policy_family_definition_overrides = NULL, 
@@ -33,7 +33,7 @@ databricks_cluster_policies_create <- function(name, definition = NULL,
 #' run, but cannot be edited.
 #'
 #' @param policy_id The ID of the policy to delete.
-databricks_cluster_policies_delete <- function(policy_id, ...) {
+cluster_policies_delete <- function(policy_id, ...) {
     body <- list(
         policy_id = policy_id, ...)
     
@@ -52,7 +52,7 @@ databricks_cluster_policies_delete <- function(policy_id, ...) {
 #' @param policy_family_definition_overrides Policy definition JSON document expressed in Databricks Policy Definition Language.
 #' @param policy_family_id ID of the policy family.
 #' @param policy_id The ID of the policy to update.
-databricks_cluster_policies_edit <- function(policy_id, name, definition = NULL, 
+cluster_policies_edit <- function(policy_id, name, definition = NULL, 
     description = NULL, 
     max_clusters_per_user = NULL, 
     policy_family_definition_overrides = NULL, 
@@ -76,7 +76,7 @@ databricks_cluster_policies_edit <- function(policy_id, name, definition = NULL,
 #' only.
 #'
 #' @param policy_id Canonical unique identifier for the cluster policy.
-databricks_cluster_policies_get <- function(policy_id, ...) {
+cluster_policies_get <- function(policy_id, ...) {
     query <- list(
         policy_id = policy_id, ...)
     
@@ -89,7 +89,7 @@ databricks_cluster_policies_get <- function(policy_id, ...) {
 #'
 #' @param sort_column The cluster policy attribute to sort by.
 #' @param sort_order The order in which the policies get listed.
-databricks_cluster_policies_list <- function(sort_column = NULL, 
+cluster_policies_list <- function(sort_column = NULL, 
     sort_order = NULL, 
     ...) {
     query <- list(

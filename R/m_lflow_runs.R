@@ -11,7 +11,7 @@
 #' @param start_time Unix timestamp in milliseconds of when the run started.
 #' @param tags Additional metadata for run.
 #' @param user_id ID of the user executing the run.
-databricks_m_lflow_runs_create <- function(experiment_id = NULL, 
+m_lflow_runs_create <- function(experiment_id = NULL, 
     start_time = NULL, 
     tags = NULL, 
     user_id = NULL, 
@@ -30,7 +30,7 @@ databricks_m_lflow_runs_create <- function(experiment_id = NULL,
 #' Marks a run for deletion.
 #'
 #' @param run_id ID of the run to delete.
-databricks_m_lflow_runs_delete <- function(run_id, ...) {
+m_lflow_runs_delete <- function(run_id, ...) {
     body <- list(
         run_id = run_id, ...)
     
@@ -44,7 +44,7 @@ databricks_m_lflow_runs_delete <- function(run_id, ...) {
 #'
 #' @param key Name of the tag.
 #' @param run_id ID of the run that the tag was logged under.
-databricks_m_lflow_runs_delete_tag <- function(run_id, key, ...) {
+m_lflow_runs_delete_tag <- function(run_id, key, ...) {
     body <- list(
         key = key, 
         run_id = run_id, ...)
@@ -63,7 +63,7 @@ databricks_m_lflow_runs_delete_tag <- function(run_id, key, ...) {
 #'
 #' @param run_id ID of the run to fetch.
 #' @param run_uuid [Deprecated, use run_id instead] ID of the run to fetch.
-databricks_m_lflow_runs_get <- function(run_id, run_uuid = NULL, 
+m_lflow_runs_get <- function(run_id, run_uuid = NULL, 
     ...) {
     query <- list(
         run_id = run_id, 
@@ -116,7 +116,7 @@ databricks_m_lflow_runs_get <- function(run_id, run_uuid = NULL,
 #' @param params Params to log.
 #' @param run_id ID of the run to log under.
 #' @param tags Tags to log.
-databricks_m_lflow_runs_log_batch <- function(metrics = NULL, 
+m_lflow_runs_log_batch <- function(metrics = NULL, 
     params = NULL, 
     run_id = NULL, 
     tags = NULL, 
@@ -142,7 +142,7 @@ databricks_m_lflow_runs_log_batch <- function(metrics = NULL,
 #' @param step Step at which to log the metric.
 #' @param timestamp Unix timestamp in milliseconds at the time metric was logged.
 #' @param value Double value of the metric being logged.
-databricks_m_lflow_runs_log_metric <- function(key, value, timestamp, run_id = NULL, 
+m_lflow_runs_log_metric <- function(key, value, timestamp, run_id = NULL, 
     run_uuid = NULL, 
     step = NULL, 
     ...) {
@@ -164,7 +164,7 @@ databricks_m_lflow_runs_log_metric <- function(key, value, timestamp, run_id = N
 #'
 #' @param model_json MLmodel file in json format.
 #' @param run_id ID of the run to log under.
-databricks_m_lflow_runs_log_model <- function(model_json = NULL, 
+m_lflow_runs_log_model <- function(model_json = NULL, 
     run_id = NULL, 
     ...) {
     body <- list(
@@ -185,7 +185,7 @@ databricks_m_lflow_runs_log_model <- function(model_json = NULL,
 #' @param run_id ID of the run under which to log the param.
 #' @param run_uuid [Deprecated, use run_id instead] ID of the run under which to log the param.
 #' @param value String value of the param being logged.
-databricks_m_lflow_runs_log_parameter <- function(key, value, run_id = NULL, 
+m_lflow_runs_log_parameter <- function(key, value, run_id = NULL, 
     run_uuid = NULL, 
     ...) {
     body <- list(
@@ -202,7 +202,7 @@ databricks_m_lflow_runs_log_parameter <- function(key, value, run_id = NULL,
 #' Restores a deleted run.
 #'
 #' @param run_id ID of the run to restore.
-databricks_m_lflow_runs_restore <- function(run_id, ...) {
+m_lflow_runs_restore <- function(run_id, ...) {
     body <- list(
         run_id = run_id, ...)
     
@@ -221,7 +221,7 @@ databricks_m_lflow_runs_restore <- function(run_id, ...) {
 #' @param order_by List of columns to be ordered by, including attributes, params, metrics, and tags with an optional "DESC" or "ASC" annotation, where "ASC" is the default.
 #' @param page_token Token for the current page of runs.
 #' @param run_view_type Whether to display only active, only deleted, or all runs.
-databricks_m_lflow_runs_search <- function(experiment_ids = NULL, 
+m_lflow_runs_search <- function(experiment_ids = NULL, 
     filter = NULL, 
     max_results = NULL, 
     order_by = NULL, 
@@ -264,7 +264,7 @@ databricks_m_lflow_runs_search <- function(experiment_ids = NULL,
 #' @param run_id ID of the run under which to log the tag.
 #' @param run_uuid [Deprecated, use run_id instead] ID of the run under which to log the tag.
 #' @param value String value of the tag being logged.
-databricks_m_lflow_runs_set_tag <- function(key, value, run_id = NULL, 
+m_lflow_runs_set_tag <- function(key, value, run_id = NULL, 
     run_uuid = NULL, 
     ...) {
     body <- list(
@@ -284,7 +284,7 @@ databricks_m_lflow_runs_set_tag <- function(key, value, run_id = NULL,
 #' @param run_id ID of the run to update.
 #' @param run_uuid [Deprecated, use run_id instead] ID of the run to update.
 #' @param status Updated status of the run.
-databricks_m_lflow_runs_update <- function(end_time = NULL, 
+m_lflow_runs_update <- function(end_time = NULL, 
     run_id = NULL, 
     run_uuid = NULL, 
     status = NULL, 
