@@ -2,11 +2,15 @@ Package: databricks
 Type: Package
 Title: Databricks SDK for R
 Version: 0.0.2
-Author: Serge Smertin <serge.smertin@databricks.com>
-Maintainer: Serge Smertin <serge.smertin@databricks.com>
+Authors@R: c(
+    person("Serge", "Smertin", email = "serge.smertin@databricks.com", role = c("aut", "cre")),
+    person("Databricks", role = c("cph", "fnd"))
+    )
+
 Description: Call all Databricks REST APIs via R
 License: What license is it under?
 Encoding: UTF-8
 LazyData: true
-Imports: httr, ini, jsonlite, dplyr
 StagedInstall: no 
+Imports: httr, ini, jsonlite, dplyr
+Suggests: knitr, testthat, formatR
