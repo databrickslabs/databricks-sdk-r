@@ -1,5 +1,10 @@
-PRODUCT <- "unknown"
-PRODUCT_VERSION <- "0.0.0"
+.productInfo <- tryCatch({
+  v <- RStudio.Version()
+  c("rstudio", v$long_version)
+}, error = function(e) {
+  # TODO: check if we can use RSTUDIO_PROJ_NAME as product name
+  c("unknown", "0.0.0")
+})
 
 # ApiClient is a constructor for class that performs any operations with
 # Databricks REST API and handle a subset of Unified Client Authentication.
@@ -113,7 +118,7 @@ PRODUCT_VERSION <- "0.0.0"
   }
 
   user_agent <- function() {
-    product_info <- paste0(PRODUCT, "/", PRODUCT_VERSION)
+    product_info <- paste0(.productInfo[1], "/", .productInfo[2])
     sdk_info <- paste0("databricks-sdk-r", "/", VERSION)
 
     r_version <- R.Version()
