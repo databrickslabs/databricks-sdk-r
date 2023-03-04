@@ -4,7 +4,7 @@
 \alias{functions_list}
 \title{List functions.}
 \usage{
-functions_list(catalog_name, schema_name, ...)
+functions_list(catalog_name, schema_name)
 }
 \arguments{
 \item{catalog_name}{Required. Name of parent catalog for functions of interest.}

@@ -4,7 +4,7 @@
 \alias{secrets_get_acl}
 \title{Get secret ACL details.}
 \usage{
-secrets_get_acl(scope, principal, ...)
+secrets_get_acl(scope, principal)
 }
 \arguments{
 \item{scope}{Required. The name of the scope to fetch ACL information from.}

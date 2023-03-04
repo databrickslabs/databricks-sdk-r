@@ -9,8 +9,7 @@ clusters_resize(
   autoscale = NULL,
   num_workers = NULL,
   timeout = 20,
-  callback = cli_reporter,
-  ...
+  callback = cli_reporter
 )
 }
 \arguments{

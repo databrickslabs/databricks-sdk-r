@@ -7,8 +7,7 @@
 instance_profiles_edit(
   instance_profile_arn,
   iam_role_arn = NULL,
-  is_meta_instance_profile = NULL,
-  ...
+  is_meta_instance_profile = NULL
 )
 }
 \arguments{

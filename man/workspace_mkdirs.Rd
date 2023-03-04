@@ -4,7 +4,7 @@
 \alias{workspace_mkdirs}
 \title{Create a directory.}
 \usage{
-workspace_mkdirs(path, ...)
+workspace_mkdirs(path)
 }
 \arguments{
 \item{path}{Required. The absolute path of the directory.}

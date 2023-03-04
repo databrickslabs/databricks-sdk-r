@@ -8,8 +8,7 @@ m_lflow_runs_log_batch(
   metrics = NULL,
   params = NULL,
   run_id = NULL,
-  tags = NULL,
-  ...
+  tags = NULL
 )
 }
 \arguments{

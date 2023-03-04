@@ -4,7 +4,7 @@
 \alias{global_init_scripts_list}
 \title{Get init scripts.}
 \usage{
-global_init_scripts_list(...)
+global_init_scripts_list()
 }
 \value{
 \code{data.frame} with all of the response pages.

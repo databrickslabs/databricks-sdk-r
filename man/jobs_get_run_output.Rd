@@ -4,7 +4,7 @@
 \alias{jobs_get_run_output}
 \title{Get the output for a single run.}
 \usage{
-jobs_get_run_output(run_id, ...)
+jobs_get_run_output(run_id)
 }
 \arguments{
 \item{run_id}{Required. The canonical identifier for the run.}

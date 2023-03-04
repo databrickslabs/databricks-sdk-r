@@ -9,8 +9,7 @@ serving_endpoints_update_config(
   name,
   traffic_config = NULL,
   timeout = 20,
-  callback = cli_reporter,
-  ...
+  callback = cli_reporter
 )
 }
 \arguments{

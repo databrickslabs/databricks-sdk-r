@@ -4,7 +4,7 @@
 \alias{model_version_comments_delete}
 \title{Delete a comment.}
 \usage{
-model_version_comments_delete(id, ...)
+model_version_comments_delete(id)
 }
 \arguments{
 \item{id}{Required.}

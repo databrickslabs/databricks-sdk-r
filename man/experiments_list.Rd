@@ -4,7 +4,7 @@
 \alias{experiments_list}
 \title{List experiments.}
 \usage{
-experiments_list(max_results = NULL, page_token = NULL, view_type = NULL, ...)
+experiments_list(max_results = NULL, page_token = NULL, view_type = NULL)
 }
 \arguments{
 \item{max_results}{Maximum number of experiments desired.}

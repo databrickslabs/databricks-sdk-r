@@ -9,8 +9,7 @@ transition_requests_approve(
   version,
   stage,
   archive_existing_versions,
-  comment = NULL,
-  ...
+  comment = NULL
 )
 }
 \arguments{

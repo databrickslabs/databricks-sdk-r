@@ -4,7 +4,7 @@
 \alias{alerts_unsubscribe}
 \title{\link{DEPRECATED} Unsubscribe to an alert.}
 \usage{
-alerts_unsubscribe(alert_id, subscription_id, ...)
+alerts_unsubscribe(alert_id, subscription_id)
 }
 \arguments{
 \item{alert_id}{Required.}

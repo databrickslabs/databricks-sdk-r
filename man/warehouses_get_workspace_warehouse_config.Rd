@@ -4,7 +4,7 @@
 \alias{warehouses_get_workspace_warehouse_config}
 \title{Get the workspace configuration.}
 \usage{
-warehouses_get_workspace_warehouse_config(...)
+warehouses_get_workspace_warehouse_config()
 }
 \description{
 Gets the workspace level configuration that is shared by all SQL warehouses

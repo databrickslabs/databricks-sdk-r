@@ -4,7 +4,7 @@
 \alias{permissions_get}
 \title{Get object permissions.}
 \usage{
-permissions_get(request_object_type, request_object_id, ...)
+permissions_get(request_object_type, request_object_id)
 }
 \arguments{
 \item{request_object_type}{Required. \if{html}{\out{<needs content>}}.}

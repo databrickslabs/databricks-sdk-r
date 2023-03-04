@@ -4,7 +4,7 @@
 \alias{clusters_list_zones}
 \title{List availability zones.}
 \usage{
-clusters_list_zones(...)
+clusters_list_zones()
 }
 \description{
 Returns a list of availability zones where clusters can be created in (For

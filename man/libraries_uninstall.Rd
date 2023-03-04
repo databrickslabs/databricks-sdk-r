@@ -4,7 +4,7 @@
 \alias{libraries_uninstall}
 \title{Uninstall libraries.}
 \usage{
-libraries_uninstall(cluster_id, libraries, ...)
+libraries_uninstall(cluster_id, libraries)
 }
 \arguments{
 \item{cluster_id}{Required. Unique identifier for the cluster on which to uninstall these libraries.}

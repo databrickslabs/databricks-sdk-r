@@ -4,7 +4,7 @@
 \alias{workspace_conf_get_status}
 \title{Check configuration status.}
 \usage{
-workspace_conf_get_status(keys, ...)
+workspace_conf_get_status(keys)
 }
 \arguments{
 \item{keys}{Required.}

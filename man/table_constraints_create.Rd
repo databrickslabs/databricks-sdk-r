@@ -4,7 +4,7 @@
 \alias{table_constraints_create}
 \title{Create a table constraint.}
 \usage{
-table_constraints_create(full_name_arg, constraint, ...)
+table_constraints_create(full_name_arg, constraint)
 }
 \arguments{
 \item{full_name_arg}{Required. The full name of the table referenced by the constraint.}

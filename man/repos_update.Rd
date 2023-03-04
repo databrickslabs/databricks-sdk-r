@@ -4,7 +4,7 @@
 \alias{repos_update}
 \title{Update a repo.}
 \usage{
-repos_update(repo_id, branch = NULL, sparse_checkout = NULL, tag = NULL, ...)
+repos_update(repo_id, branch = NULL, sparse_checkout = NULL, tag = NULL)
 }
 \arguments{
 \item{repo_id}{Required. The ID for the corresponding repo to access.}

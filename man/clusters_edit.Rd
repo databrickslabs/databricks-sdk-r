@@ -31,8 +31,7 @@ clusters_edit(
   ssh_public_keys = NULL,
   workload_type = NULL,
   timeout = 20,
-  callback = cli_reporter,
-  ...
+  callback = cli_reporter
 )
 }
 \arguments{

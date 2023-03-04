@@ -4,7 +4,7 @@
 \alias{registered_models_list}
 \title{List models.}
 \usage{
-registered_models_list(max_results = NULL, page_token = NULL, ...)
+registered_models_list(max_results = NULL, page_token = NULL)
 }
 \arguments{
 \item{max_results}{Maximum number of registered models desired.}

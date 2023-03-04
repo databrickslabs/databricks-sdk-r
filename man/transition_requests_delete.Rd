@@ -4,7 +4,7 @@
 \alias{transition_requests_delete}
 \title{Delete a ransition request.}
 \usage{
-transition_requests_delete(name, version, stage, creator, comment = NULL, ...)
+transition_requests_delete(name, version, stage, creator, comment = NULL)
 }
 \arguments{
 \item{name}{Required. Name of the model.}

@@ -4,7 +4,7 @@
 \alias{experiments_restore}
 \title{Restores an experiment.}
 \usage{
-experiments_restore(experiment_id, ...)
+experiments_restore(experiment_id)
 }
 \arguments{
 \item{experiment_id}{Required. ID of the associated experiment.}

@@ -4,7 +4,7 @@
 \alias{ip_access_lists_list}
 \title{Get access lists.}
 \usage{
-ip_access_lists_list(...)
+ip_access_lists_list()
 }
 \value{
 \code{data.frame} with all of the response pages.

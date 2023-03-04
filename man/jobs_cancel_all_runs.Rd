@@ -4,7 +4,7 @@
 \alias{jobs_cancel_all_runs}
 \title{Cancel all runs of a job.}
 \usage{
-jobs_cancel_all_runs(job_id, ...)
+jobs_cancel_all_runs(job_id)
 }
 \arguments{
 \item{job_id}{Required. The canonical identifier of the job to cancel all runs of.}

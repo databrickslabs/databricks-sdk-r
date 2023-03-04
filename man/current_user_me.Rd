@@ -4,7 +4,7 @@
 \alias{current_user_me}
 \title{Get current user info.}
 \usage{
-current_user_me(...)
+current_user_me()
 }
 \description{
 Get details about the current method caller's identity.#'

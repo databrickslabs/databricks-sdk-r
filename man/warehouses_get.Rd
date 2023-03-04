@@ -4,7 +4,7 @@
 \alias{warehouses_get}
 \title{Get warehouse info.}
 \usage{
-warehouses_get(id, ...)
+warehouses_get(id)
 }
 \arguments{
 \item{id}{Required. Required.}

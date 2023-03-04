@@ -4,7 +4,7 @@
 \alias{repos_delete}
 \title{Delete a repo.}
 \usage{
-repos_delete(repo_id, ...)
+repos_delete(repo_id)
 }
 \arguments{
 \item{repo_id}{Required. The ID for the corresponding repo to access.}

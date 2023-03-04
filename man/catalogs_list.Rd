@@ -4,7 +4,7 @@
 \alias{catalogs_list}
 \title{List catalogs.}
 \usage{
-catalogs_list(...)
+catalogs_list()
 }
 \value{
 \code{data.frame} with all of the response pages.

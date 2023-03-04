@@ -4,7 +4,7 @@
 \alias{tables_list}
 \title{List tables.}
 \usage{
-tables_list(catalog_name, schema_name, include_delta_metadata = NULL, ...)
+tables_list(catalog_name, schema_name, include_delta_metadata = NULL)
 }
 \arguments{
 \item{catalog_name}{Required. Name of parent catalog for tables of interest.}

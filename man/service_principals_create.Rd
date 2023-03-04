@@ -12,8 +12,7 @@ service_principals_create(
   entitlements = NULL,
   external_id = NULL,
   groups = NULL,
-  roles = NULL,
-  ...
+  roles = NULL
 )
 }
 \arguments{

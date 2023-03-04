@@ -9,8 +9,7 @@ pipelines_start_update(
   cause = NULL,
   full_refresh = NULL,
   full_refresh_selection = NULL,
-  refresh_selection = NULL,
-  ...
+  refresh_selection = NULL
 )
 }
 \arguments{

@@ -4,7 +4,7 @@
 \alias{jobs_update}
 \title{Partially updates a job.}
 \usage{
-jobs_update(job_id, fields_to_remove = NULL, new_settings = NULL, ...)
+jobs_update(job_id, fields_to_remove = NULL, new_settings = NULL)
 }
 \arguments{
 \item{job_id}{Required. The canonical identifier of the job to update.}

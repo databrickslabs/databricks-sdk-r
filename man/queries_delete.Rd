@@ -4,7 +4,7 @@
 \alias{queries_delete}
 \title{Delete a query.}
 \usage{
-queries_delete(query_id, ...)
+queries_delete(query_id)
 }
 \arguments{
 \item{query_id}{Required.}

@@ -4,7 +4,7 @@
 \alias{jobs_list}
 \title{List all jobs.}
 \usage{
-jobs_list(expand_tasks = NULL, limit = NULL, name = NULL, offset = NULL, ...)
+jobs_list(expand_tasks = NULL, limit = NULL, name = NULL, offset = NULL)
 }
 \arguments{
 \item{expand_tasks}{Whether to include task and cluster details in the response.}

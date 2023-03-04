@@ -14,8 +14,7 @@ users_update(
   groups = NULL,
   name = NULL,
   roles = NULL,
-  user_name = NULL,
-  ...
+  user_name = NULL
 )
 }
 \arguments{

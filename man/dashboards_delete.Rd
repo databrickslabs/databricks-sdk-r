@@ -4,7 +4,7 @@
 \alias{dashboards_delete}
 \title{Remove a dashboard.}
 \usage{
-dashboards_delete(dashboard_id, ...)
+dashboards_delete(dashboard_id)
 }
 \arguments{
 \item{dashboard_id}{Required.}

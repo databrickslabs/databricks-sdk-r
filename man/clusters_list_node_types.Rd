@@ -4,7 +4,7 @@
 \alias{clusters_list_node_types}
 \title{List node types.}
 \usage{
-clusters_list_node_types(...)
+clusters_list_node_types()
 }
 \description{
 Returns a list of supported Spark node types. These node types can be used to

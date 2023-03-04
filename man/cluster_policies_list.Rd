@@ -4,7 +4,7 @@
 \alias{cluster_policies_list}
 \title{Get a cluster policy.}
 \usage{
-cluster_policies_list(sort_column = NULL, sort_order = NULL, ...)
+cluster_policies_list(sort_column = NULL, sort_order = NULL)
 }
 \arguments{
 \item{sort_column}{The cluster policy attribute to sort by.}

@@ -4,7 +4,7 @@
 \alias{grants_get}
 \title{Get permissions.}
 \usage{
-grants_get(securable_type, full_name, principal = NULL, ...)
+grants_get(securable_type, full_name, principal = NULL)
 }
 \arguments{
 \item{securable_type}{Required. Type of securable.}

@@ -8,8 +8,7 @@ model_versions_transition_stage(
   name,
   version,
   stage,
-  archive_existing_versions,
-  ...
+  archive_existing_versions
 )
 }
 \arguments{

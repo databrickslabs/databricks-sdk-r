@@ -9,8 +9,7 @@ m_lflow_metrics_get_history(
   max_results = NULL,
   page_token = NULL,
   run_id = NULL,
-  run_uuid = NULL,
-  ...
+  run_uuid = NULL
 )
 }
 \arguments{

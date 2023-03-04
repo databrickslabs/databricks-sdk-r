@@ -4,7 +4,7 @@
 \alias{dbfs_move}
 \title{Move a file.}
 \usage{
-dbfs_move(source_path, destination_path, ...)
+dbfs_move(source_path, destination_path)
 }
 \arguments{
 \item{source_path}{Required. The source path of the file or directory.}

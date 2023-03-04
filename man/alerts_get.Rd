@@ -4,7 +4,7 @@
 \alias{alerts_get}
 \title{Get an alert.}
 \usage{
-alerts_get(alert_id, ...)
+alerts_get(alert_id)
 }
 \arguments{
 \item{alert_id}{Required.}

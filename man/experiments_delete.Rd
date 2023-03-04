@@ -4,7 +4,7 @@
 \alias{experiments_delete}
 \title{Delete an experiment.}
 \usage{
-experiments_delete(experiment_id, ...)
+experiments_delete(experiment_id)
 }
 \arguments{
 \item{experiment_id}{Required. ID of the associated experiment.}

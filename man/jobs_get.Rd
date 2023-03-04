@@ -4,7 +4,7 @@
 \alias{jobs_get}
 \title{Get a single job.}
 \usage{
-jobs_get(job_id, ...)
+jobs_get(job_id)
 }
 \arguments{
 \item{job_id}{Required. The canonical identifier of the job to retrieve information about.}

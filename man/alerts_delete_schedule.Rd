@@ -4,7 +4,7 @@
 \alias{alerts_delete_schedule}
 \title{\link{DEPRECATED} Delete a refresh schedule.}
 \usage{
-alerts_delete_schedule(alert_id, schedule_id, ...)
+alerts_delete_schedule(alert_id, schedule_id)
 }
 \arguments{
 \item{alert_id}{Required.}

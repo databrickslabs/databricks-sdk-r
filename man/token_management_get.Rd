@@ -4,7 +4,7 @@
 \alias{token_management_get}
 \title{Get token info.}
 \usage{
-token_management_get(token_id, ...)
+token_management_get(token_id)
 }
 \arguments{
 \item{token_id}{Required. The ID of the token to get.}

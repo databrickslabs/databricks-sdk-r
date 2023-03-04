@@ -9,8 +9,7 @@ schemas_create(
   catalog_name,
   comment = NULL,
   properties = NULL,
-  storage_root = NULL,
-  ...
+  storage_root = NULL
 )
 }
 \arguments{

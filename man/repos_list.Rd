@@ -4,7 +4,7 @@
 \alias{repos_list}
 \title{Get repos.}
 \usage{
-repos_list(next_page_token = NULL, path_prefix = NULL, ...)
+repos_list(next_page_token = NULL, path_prefix = NULL)
 }
 \arguments{
 \item{next_page_token}{Token used to get the next page of results.}

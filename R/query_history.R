@@ -37,6 +37,7 @@ query_history_list <- function(filter_by = NULL, include_metrics = NULL, max_res
   page_token = NULL) {
   query <- list(filter_by = filter_by, include_metrics = include_metrics, max_results = max_results,
     page_token = page_token)
+
   results <- data.frame()
   while (TRUE) {
     json <- .api$do("GET", "/api/2.0/sql/history/queries", query = query)

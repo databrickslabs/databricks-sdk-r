@@ -9,8 +9,7 @@ command_execution_cancel(
   command_id = NULL,
   context_id = NULL,
   timeout = 20,
-  callback = cli_reporter,
-  ...
+  callback = cli_reporter
 )
 }
 \arguments{

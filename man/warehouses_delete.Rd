@@ -4,7 +4,7 @@
 \alias{warehouses_delete}
 \title{Delete a warehouse.}
 \usage{
-warehouses_delete(id, timeout = 20, callback = cli_reporter, ...)
+warehouses_delete(id, timeout = 20, callback = cli_reporter)
 }
 \arguments{
 \item{id}{Required. Required.}

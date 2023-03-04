@@ -4,7 +4,7 @@
 \alias{libraries_cluster_status}
 \title{Get status.}
 \usage{
-libraries_cluster_status(cluster_id, ...)
+libraries_cluster_status(cluster_id)
 }
 \arguments{
 \item{cluster_id}{Required. Unique identifier of the cluster whose status should be retrieved.}

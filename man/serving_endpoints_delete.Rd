@@ -4,7 +4,7 @@
 \alias{serving_endpoints_delete}
 \title{Delete a serving endpoint.}
 \usage{
-serving_endpoints_delete(name, ...)
+serving_endpoints_delete(name)
 }
 \arguments{
 \item{name}{Required. The name of the serving endpoint.}

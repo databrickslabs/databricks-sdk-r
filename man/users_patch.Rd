@@ -4,7 +4,7 @@
 \alias{users_patch}
 \title{Update user details.}
 \usage{
-users_patch(id, operations = NULL, ...)
+users_patch(id, operations = NULL)
 }
 \arguments{
 \item{id}{Required. Unique ID for a group in the Databricks Account.}

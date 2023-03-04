@@ -4,7 +4,7 @@
 \alias{dashboards_restore}
 \title{Restore a dashboard.}
 \usage{
-dashboards_restore(dashboard_id, ...)
+dashboards_restore(dashboard_id)
 }
 \arguments{
 \item{dashboard_id}{Required.}

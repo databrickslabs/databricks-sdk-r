@@ -9,8 +9,7 @@ recipients_update(
   comment = NULL,
   ip_access_list = NULL,
   owner = NULL,
-  properties_kvpairs = NULL,
-  ...
+  properties_kvpairs = NULL
 )
 }
 \arguments{

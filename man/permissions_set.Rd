@@ -7,8 +7,7 @@
 permissions_set(
   request_object_type,
   request_object_id,
-  access_control_list = NULL,
-  ...
+  access_control_list = NULL
 )
 }
 \arguments{

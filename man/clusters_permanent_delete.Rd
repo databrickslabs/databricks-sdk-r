@@ -4,7 +4,7 @@
 \alias{clusters_permanent_delete}
 \title{Permanently delete cluster.}
 \usage{
-clusters_permanent_delete(cluster_id, ...)
+clusters_permanent_delete(cluster_id)
 }
 \arguments{
 \item{cluster_id}{Required. The cluster to be deleted.}

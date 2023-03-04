@@ -10,8 +10,7 @@ registry_webhooks_update(
   events = NULL,
   http_url_spec = NULL,
   job_spec = NULL,
-  status = NULL,
-  ...
+  status = NULL
 )
 }
 \arguments{

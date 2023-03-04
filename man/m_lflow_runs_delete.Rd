@@ -4,7 +4,7 @@
 \alias{m_lflow_runs_delete}
 \title{Delete a run.}
 \usage{
-m_lflow_runs_delete(run_id, ...)
+m_lflow_runs_delete(run_id)
 }
 \arguments{
 \item{run_id}{Required. ID of the run to delete.}

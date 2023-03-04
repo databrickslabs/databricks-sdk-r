@@ -4,7 +4,7 @@
 \alias{recipients_get}
 \title{Get a share recipient.}
 \usage{
-recipients_get(name, ...)
+recipients_get(name)
 }
 \arguments{
 \item{name}{Required. Name of the recipient.}

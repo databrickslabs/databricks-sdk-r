@@ -4,7 +4,7 @@
 \alias{git_credentials_list}
 \title{Get Git credentials.}
 \usage{
-git_credentials_list(...)
+git_credentials_list()
 }
 \value{
 \code{data.frame} with all of the response pages.

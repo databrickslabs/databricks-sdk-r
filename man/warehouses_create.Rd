@@ -19,8 +19,7 @@ warehouses_create(
   tags = NULL,
   warehouse_type = NULL,
   timeout = 20,
-  callback = cli_reporter,
-  ...
+  callback = cli_reporter
 )
 }
 \arguments{

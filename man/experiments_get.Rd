@@ -4,7 +4,7 @@
 \alias{experiments_get}
 \title{Get an experiment.}
 \usage{
-experiments_get(experiment_id, ...)
+experiments_get(experiment_id)
 }
 \arguments{
 \item{experiment_id}{Required. ID of the associated experiment.}

@@ -9,8 +9,7 @@ workspace_import(
   content = NULL,
   format = NULL,
   language = NULL,
-  overwrite = NULL,
-  ...
+  overwrite = NULL
 )
 }
 \arguments{

@@ -4,7 +4,7 @@
 \alias{model_versions_set_tag}
 \title{Set a version tag.}
 \usage{
-model_versions_set_tag(name, version, key, value, ...)
+model_versions_set_tag(name, version, key, value)
 }
 \arguments{
 \item{name}{Required. Unique name of the model.}

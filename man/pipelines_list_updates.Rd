@@ -8,8 +8,7 @@ pipelines_list_updates(
   pipeline_id,
   max_results = NULL,
   page_token = NULL,
-  until_update_id = NULL,
-  ...
+  until_update_id = NULL
 )
 }
 \arguments{

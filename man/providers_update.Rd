@@ -8,8 +8,7 @@ providers_update(
   name,
   comment = NULL,
   owner = NULL,
-  recipient_profile_str = NULL,
-  ...
+  recipient_profile_str = NULL
 )
 }
 \arguments{

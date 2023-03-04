@@ -10,8 +10,7 @@ external_locations_create(
   credential_name,
   comment = NULL,
   read_only = NULL,
-  skip_validation = NULL,
-  ...
+  skip_validation = NULL
 )
 }
 \arguments{

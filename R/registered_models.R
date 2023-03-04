@@ -139,6 +139,7 @@ registered_models$get_latest_versions <- registered_models_get_latest_versions
 #' @aliases registered_models_list
 registered_models_list <- function(max_results = NULL, page_token = NULL) {
   query <- list(max_results = max_results, page_token = page_token)
+
   results <- data.frame()
   while (TRUE) {
     json <- .api$do("GET", "/api/2.0/mlflow/registered-models/list", query = query)
@@ -195,6 +196,7 @@ registered_models_search <- function(filter = NULL, max_results = NULL, order_by
   page_token = NULL) {
   query <- list(filter = filter, max_results = max_results, order_by = order_by,
     page_token = page_token)
+
   results <- data.frame()
   while (TRUE) {
     json <- .api$do("GET", "/api/2.0/mlflow/registered-models/search", query = query)

@@ -4,7 +4,7 @@
 \alias{metastores_list}
 \title{List metastores.}
 \usage{
-metastores_list(...)
+metastores_list()
 }
 \value{
 \code{data.frame} with all of the response pages.

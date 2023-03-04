@@ -4,7 +4,7 @@
 \alias{alerts_list}
 \title{Get alerts.}
 \usage{
-alerts_list(...)
+alerts_list()
 }
 \description{
 Gets a list of alerts.#'

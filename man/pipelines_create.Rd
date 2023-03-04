@@ -21,8 +21,7 @@ pipelines_create(
   photon = NULL,
   storage = NULL,
   target = NULL,
-  trigger = NULL,
-  ...
+  trigger = NULL
 )
 }
 \arguments{

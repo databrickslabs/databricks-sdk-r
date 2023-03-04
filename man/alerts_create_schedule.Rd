@@ -4,7 +4,7 @@
 \alias{alerts_create_schedule}
 \title{\link{DEPRECATED} Create a refresh schedule.}
 \usage{
-alerts_create_schedule(cron, alert_id, data_source_id = NULL, ...)
+alerts_create_schedule(cron, alert_id, data_source_id = NULL)
 }
 \arguments{
 \item{cron}{Required. Cron string representing the refresh schedule.}

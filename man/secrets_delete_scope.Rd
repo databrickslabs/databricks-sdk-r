@@ -4,7 +4,7 @@
 \alias{secrets_delete_scope}
 \title{Delete a secret scope.}
 \usage{
-secrets_delete_scope(scope, ...)
+secrets_delete_scope(scope)
 }
 \arguments{
 \item{scope}{Required. Name of the scope to delete.}

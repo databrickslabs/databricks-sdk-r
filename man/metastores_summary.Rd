@@ -4,7 +4,7 @@
 \alias{metastores_summary}
 \title{Get a metastore summary.}
 \usage{
-metastores_summary(...)
+metastores_summary()
 }
 \description{
 Gets information about a metastore. This summary includes the storage

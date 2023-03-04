@@ -4,7 +4,7 @@
 \alias{service_principals_delete}
 \title{Delete a service principal.}
 \usage{
-service_principals_delete(id, ...)
+service_principals_delete(id)
 }
 \arguments{
 \item{id}{Required. Unique ID for a service principal in the Databricks Workspace.}

@@ -125,6 +125,7 @@ experiments$get_by_name <- experiments_get_by_name
 #' @aliases experiments_list
 experiments_list <- function(max_results = NULL, page_token = NULL, view_type = NULL) {
   query <- list(max_results = max_results, page_token = page_token, view_type = view_type)
+
   results <- data.frame()
   while (TRUE) {
     json <- .api$do("GET", "/api/2.0/mlflow/experiments/list", query = query)
@@ -186,6 +187,7 @@ experiments_search <- function(filter = NULL, max_results = NULL, order_by = NUL
   page_token = NULL, view_type = NULL) {
   body <- list(filter = filter, max_results = max_results, order_by = order_by,
     page_token = page_token, view_type = view_type)
+
   results <- data.frame()
   while (TRUE) {
     json <- .api$do("POST", "/api/2.0/mlflow/experiments/search", body = body)

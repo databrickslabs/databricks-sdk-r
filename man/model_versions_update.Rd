@@ -4,7 +4,7 @@
 \alias{model_versions_update}
 \title{Update model version.}
 \usage{
-model_versions_update(name, version, description = NULL, ...)
+model_versions_update(name, version, description = NULL)
 }
 \arguments{
 \item{name}{Required. Name of the registered model.}

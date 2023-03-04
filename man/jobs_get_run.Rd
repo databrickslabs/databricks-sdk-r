@@ -8,8 +8,7 @@ jobs_get_run(
   run_id,
   include_history = NULL,
   timeout = 20,
-  callback = cli_reporter,
-  ...
+  callback = cli_reporter
 )
 }
 \arguments{

@@ -4,7 +4,7 @@
 \alias{registry_webhooks_delete}
 \title{Delete a webhook.}
 \usage{
-registry_webhooks_delete(id = NULL, ...)
+registry_webhooks_delete(id = NULL)
 }
 \arguments{
 \item{id}{Webhook ID required to delete a registry webhook.}

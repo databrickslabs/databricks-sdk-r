@@ -10,8 +10,7 @@ registry_webhooks_create(
   http_url_spec = NULL,
   job_spec = NULL,
   model_name = NULL,
-  status = NULL,
-  ...
+  status = NULL
 )
 }
 \arguments{

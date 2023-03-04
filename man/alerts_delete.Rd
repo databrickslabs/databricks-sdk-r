@@ -4,7 +4,7 @@
 \alias{alerts_delete}
 \title{Delete an alert.}
 \usage{
-alerts_delete(alert_id, ...)
+alerts_delete(alert_id)
 }
 \arguments{
 \item{alert_id}{Required.}

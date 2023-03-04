@@ -7,8 +7,7 @@
 metastores_update_assignment(
   workspace_id,
   metastore_id,
-  default_catalog_name = NULL,
-  ...
+  default_catalog_name = NULL
 )
 }
 \arguments{

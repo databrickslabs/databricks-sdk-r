@@ -8,8 +8,7 @@ clusters_restart(
   cluster_id,
   restart_user = NULL,
   timeout = 20,
-  callback = cli_reporter,
-  ...
+  callback = cli_reporter
 )
 }
 \arguments{

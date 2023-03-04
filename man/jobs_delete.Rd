@@ -4,7 +4,7 @@
 \alias{jobs_delete}
 \title{Delete a job.}
 \usage{
-jobs_delete(job_id, ...)
+jobs_delete(job_id)
 }
 \arguments{
 \item{job_id}{Required. The canonical identifier of the job to delete.}

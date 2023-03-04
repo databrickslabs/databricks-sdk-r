@@ -17,8 +17,7 @@ jobs_create(
   tags = NULL,
   tasks = NULL,
   timeout_seconds = NULL,
-  webhook_notifications = NULL,
-  ...
+  webhook_notifications = NULL
 )
 }
 \arguments{

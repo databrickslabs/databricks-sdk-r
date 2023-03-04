@@ -16,8 +16,7 @@ jobs_run_now(
   spark_submit_params = NULL,
   sql_params = NULL,
   timeout = 20,
-  callback = cli_reporter,
-  ...
+  callback = cli_reporter
 )
 }
 \arguments{

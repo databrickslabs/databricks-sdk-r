@@ -8,8 +8,7 @@ providers_create(
   name,
   authentication_type,
   comment = NULL,
-  recipient_profile_str = NULL,
-  ...
+  recipient_profile_str = NULL
 )
 }
 \arguments{

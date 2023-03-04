@@ -4,11 +4,7 @@
 \alias{statement_execution_get_statement_result_chunk_n}
 \title{Get result chunk by index.}
 \usage{
-statement_execution_get_statement_result_chunk_n(
-  statement_id,
-  chunk_index,
-  ...
-)
+statement_execution_get_statement_result_chunk_n(statement_id, chunk_index)
 }
 \arguments{
 \item{statement_id}{Required.}

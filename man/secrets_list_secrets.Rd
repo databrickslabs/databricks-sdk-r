@@ -4,7 +4,7 @@
 \alias{secrets_list_secrets}
 \title{List secret keys.}
 \usage{
-secrets_list_secrets(scope, ...)
+secrets_list_secrets(scope)
 }
 \arguments{
 \item{scope}{Required. The name of the scope to list secrets within.}

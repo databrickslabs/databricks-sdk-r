@@ -4,7 +4,7 @@
 \alias{alerts_create}
 \title{Create an alert.}
 \usage{
-alerts_create(name, options, query_id, parent = NULL, rearm = NULL, ...)
+alerts_create(name, options, query_id, parent = NULL, rearm = NULL)
 }
 \arguments{
 \item{name}{Required. Name of the alert.}

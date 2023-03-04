@@ -8,8 +8,7 @@ instance_profiles_add(
   instance_profile_arn,
   iam_role_arn = NULL,
   is_meta_instance_profile = NULL,
-  skip_validation = NULL,
-  ...
+  skip_validation = NULL
 )
 }
 \arguments{

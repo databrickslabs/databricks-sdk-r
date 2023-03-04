@@ -18,8 +18,7 @@ instance_pools_edit(
   max_capacity = NULL,
   min_idle_instances = NULL,
   preloaded_docker_images = NULL,
-  preloaded_spark_versions = NULL,
-  ...
+  preloaded_spark_versions = NULL
 )
 }
 \arguments{

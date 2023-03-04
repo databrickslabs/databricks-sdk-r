@@ -42,16 +42,11 @@ dashboards <- list()
 #' @rdname dashboards_create
 #'
 #' @aliases dashboards_create
-dashboards_create <- function(dashboard_filters_enabled=NULL, is_draft=NULL, is_trashed=NULL, name=NULL, parent=NULL, tags=NULL, widgets=NULL) {
-    body <- list(
-        dashboard_filters_enabled = dashboard_filters_enabled
-        , is_draft = is_draft
-        , is_trashed = is_trashed
-        , name = name
-        , parent = parent
-        , tags = tags
-        , widgets = widgets)
-    .api$do("POST", "/api/2.0/preview/sql/dashboards", body = body)
+dashboards_create <- function(dashboard_filters_enabled = NULL, is_draft = NULL,
+  is_trashed = NULL, name = NULL, parent = NULL, tags = NULL, widgets = NULL) {
+  body <- list(dashboard_filters_enabled = dashboard_filters_enabled, is_draft = is_draft,
+    is_trashed = is_trashed, name = name, parent = parent, tags = tags, widgets = widgets)
+  .api$do("POST", "/api/2.0/preview/sql/dashboards", body = body)
 }
 dashboards$create <- dashboards_create
 
@@ -68,8 +63,8 @@ dashboards$create <- dashboards_create
 #'
 #' @aliases dashboards_delete
 dashboards_delete <- function(dashboard_id) {
-    
-    .api$do("DELETE", paste("/api/2.0/preview/sql/dashboards/", dashboard_id, sep = ""))
+
+  .api$do("DELETE", paste("/api/2.0/preview/sql/dashboards/", dashboard_id, sep = ""))
 }
 dashboards$delete <- dashboards_delete
 
@@ -86,8 +81,8 @@ dashboards$delete <- dashboards_delete
 #'
 #' @aliases dashboards_get
 dashboards_get <- function(dashboard_id) {
-    
-    .api$do("GET", paste("/api/2.0/preview/sql/dashboards/", dashboard_id, sep = ""))
+
+  .api$do("GET", paste("/api/2.0/preview/sql/dashboards/", dashboard_id, sep = ""))
 }
 dashboards$get <- dashboards_get
 
@@ -107,27 +102,24 @@ dashboards$get <- dashboards_get
 #' @rdname dashboards_list
 #'
 #' @aliases dashboards_list
-dashboards_list <- function(order=NULL, page=NULL, page_size=NULL, q=NULL) {
-    query <- list(
-        order = order
-        , page = page
-        , page_size = page_size
-        , q = q)
-    
-    query$page = 1results <- data.frame()
-    while (TRUE) {
-        json <- .api$do("GET", "/api/2.0/preview/sql/dashboards", query = query)
-        if (is.null(nrow(json$results))) {
-            break
-        }
-        # append this page of results to one results data.frame
-        results <- dplyr::bind_rows(results, json$results)
-        query$page <- query$page + 1
+dashboards_list <- function(order = NULL, page = NULL, page_size = NULL, q = NULL) {
+  query <- list(order = order, page = page, page_size = page_size, q = q)
+
+  query$page = 1
+  results <- data.frame()
+  while (TRUE) {
+    json <- .api$do("GET", "/api/2.0/preview/sql/dashboards", query = query)
+    if (is.null(nrow(json$results))) {
+      break
     }
-    # de-duplicate any records via id column
-    results <- results[!duplicated(results$id), ]
-    return (results)
-    
+    # append this page of results to one results data.frame
+    results <- dplyr::bind_rows(results, json$results)
+    query$page <- query$page + 1
+  }
+  # de-duplicate any records via id column
+  results <- results[!duplicated(results$id), ]
+  return(results)
+
 }
 dashboards$list <- dashboards_list
 
@@ -143,8 +135,9 @@ dashboards$list <- dashboards_list
 #'
 #' @aliases dashboards_restore
 dashboards_restore <- function(dashboard_id) {
-    
-    .api$do("POST", paste("/api/2.0/preview/sql/dashboards/trash/", dashboard_id, sep = ""))
+
+  .api$do("POST", paste("/api/2.0/preview/sql/dashboards/trash/", dashboard_id,
+    sep = ""))
 }
 dashboards$restore <- dashboards_restore
 

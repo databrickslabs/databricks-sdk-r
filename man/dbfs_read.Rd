@@ -4,7 +4,7 @@
 \alias{dbfs_read}
 \title{Get the contents of a file.}
 \usage{
-dbfs_read(path, length = NULL, offset = NULL, ...)
+dbfs_read(path, length = NULL, offset = NULL)
 }
 \arguments{
 \item{path}{Required. The path of the file to read.}

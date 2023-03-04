@@ -4,7 +4,7 @@
 \alias{jobs_reset}
 \title{Overwrites all settings for a job.}
 \usage{
-jobs_reset(job_id, new_settings, ...)
+jobs_reset(job_id, new_settings)
 }
 \arguments{
 \item{job_id}{Required. The canonical identifier of the job to reset.}

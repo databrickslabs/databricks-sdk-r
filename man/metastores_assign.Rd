@@ -4,7 +4,7 @@
 \alias{metastores_assign}
 \title{Create an assignment.}
 \usage{
-metastores_assign(metastore_id, default_catalog_name, workspace_id, ...)
+metastores_assign(metastore_id, default_catalog_name, workspace_id)
 }
 \arguments{
 \item{metastore_id}{Required. The unique ID of the metastore.}

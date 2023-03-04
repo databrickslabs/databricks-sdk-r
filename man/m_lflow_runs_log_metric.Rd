@@ -10,8 +10,7 @@ m_lflow_runs_log_metric(
   timestamp,
   run_id = NULL,
   run_uuid = NULL,
-  step = NULL,
-  ...
+  step = NULL
 )
 }
 \arguments{

@@ -4,12 +4,7 @@
 \alias{registry_webhooks_list}
 \title{List registry webhooks.}
 \usage{
-registry_webhooks_list(
-  events = NULL,
-  model_name = NULL,
-  page_token = NULL,
-  ...
-)
+registry_webhooks_list(events = NULL, model_name = NULL, page_token = NULL)
 }
 \arguments{
 \item{events}{If \code{events} is specified, any webhook with one or more of the specified trigger events is included in the output.}

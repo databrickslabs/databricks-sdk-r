@@ -4,7 +4,7 @@
 \alias{shares_share_permissions}
 \title{Get permissions.}
 \usage{
-shares_share_permissions(name, ...)
+shares_share_permissions(name)
 }
 \arguments{
 \item{name}{Required. The name of the share.}

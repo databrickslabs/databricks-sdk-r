@@ -4,7 +4,7 @@
 \alias{functions_get}
 \title{Get a function.}
 \usage{
-functions_get(name, ...)
+functions_get(name)
 }
 \arguments{
 \item{name}{Required. The fully-qualified name of the function (of the form \strong{catalog_name}.\strong{schema_name}.\strong{function__name}).}

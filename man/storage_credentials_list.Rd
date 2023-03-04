@@ -4,7 +4,7 @@
 \alias{storage_credentials_list}
 \title{List credentials.}
 \usage{
-storage_credentials_list(...)
+storage_credentials_list()
 }
 \description{
 Gets an array of storage credentials (as \strong{StorageCredentialInfo} objects).

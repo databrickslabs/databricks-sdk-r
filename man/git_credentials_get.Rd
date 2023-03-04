@@ -4,7 +4,7 @@
 \alias{git_credentials_get}
 \title{Get a credential entry.}
 \usage{
-git_credentials_get(credential_id, ...)
+git_credentials_get(credential_id)
 }
 \arguments{
 \item{credential_id}{Required. The ID for the corresponding credential to access.}

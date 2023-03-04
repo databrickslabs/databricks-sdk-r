@@ -4,7 +4,7 @@
 \alias{recipient_activation_get_activation_url_info}
 \title{Get a share activation URL.}
 \usage{
-recipient_activation_get_activation_url_info(activation_url, ...)
+recipient_activation_get_activation_url_info(activation_url)
 }
 \arguments{
 \item{activation_url}{Required. The one time activation url.}

@@ -4,7 +4,7 @@
 \alias{queries_get}
 \title{Get a query definition.}
 \usage{
-queries_get(query_id, ...)
+queries_get(query_id)
 }
 \arguments{
 \item{query_id}{Required.}

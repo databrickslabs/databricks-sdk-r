@@ -4,7 +4,7 @@
 \alias{statement_execution_cancel_execution}
 \title{Cancel statement execution.}
 \usage{
-statement_execution_cancel_execution(statement_id, ...)
+statement_execution_cancel_execution(statement_id)
 }
 \arguments{
 \item{statement_id}{Required.}

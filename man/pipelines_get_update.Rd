@@ -4,7 +4,7 @@
 \alias{pipelines_get_update}
 \title{Get a pipeline update.}
 \usage{
-pipelines_get_update(pipeline_id, update_id, ...)
+pipelines_get_update(pipeline_id, update_id)
 }
 \arguments{
 \item{pipeline_id}{Required. The ID of the pipeline.}

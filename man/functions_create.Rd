@@ -25,8 +25,7 @@ functions_create(
   external_language = NULL,
   external_name = NULL,
   properties = NULL,
-  sql_path = NULL,
-  ...
+  sql_path = NULL
 )
 }
 \arguments{

@@ -4,7 +4,7 @@
 \alias{cluster_policies_delete}
 \title{Delete a cluster policy.}
 \usage{
-cluster_policies_delete(policy_id, ...)
+cluster_policies_delete(policy_id)
 }
 \arguments{
 \item{policy_id}{Required. The ID of the policy to delete.}

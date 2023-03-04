@@ -4,7 +4,7 @@
 \alias{recipients_share_permissions}
 \title{Get recipient share permissions.}
 \usage{
-recipients_share_permissions(name, ...)
+recipients_share_permissions(name)
 }
 \arguments{
 \item{name}{Required. The name of the Recipient.}

@@ -7,17 +7,14 @@ deps:
 	
 gen:
 	@echo "✅ Regenerating files from OpenAPI"
-	oac
-
-doc: deps gen
-	@echo "✅ Making *.Rd files"
+	@oac
 	@Rscript -e "devtools::document()"
 
-build: doc
+build: gen
 	@echo "✅ Building tarball"
 	@Rscript -e "devtools::install(upgrade = FALSE)"
 
-check: doc
+check: gen
 	@echo "✅ run R CMD check on packages"
 	@set -e ; \
 	cleanup () { rm *.tar.gz; rm -fr *.Rcheck; } ; \

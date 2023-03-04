@@ -4,7 +4,7 @@
 \alias{workspace_conf_set_status}
 \title{Enable/disable features.}
 \usage{
-workspace_conf_set_status(...)
+workspace_conf_set_status()
 }
 \description{
 Sets the configuration status for a workspace, including enabling or

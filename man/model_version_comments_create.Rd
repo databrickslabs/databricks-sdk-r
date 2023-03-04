@@ -4,7 +4,7 @@
 \alias{model_version_comments_create}
 \title{Post a comment.}
 \usage{
-model_version_comments_create(name, version, comment, ...)
+model_version_comments_create(name, version, comment)
 }
 \arguments{
 \item{name}{Required. Name of the model.}

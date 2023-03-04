@@ -4,7 +4,7 @@
 \alias{shares_update_permissions}
 \title{Update permissions.}
 \usage{
-shares_update_permissions(name, changes = NULL, ...)
+shares_update_permissions(name, changes = NULL)
 }
 \arguments{
 \item{name}{Required. The name of the share.}

@@ -10,8 +10,7 @@ command_execution_execute(
   context_id = NULL,
   language = NULL,
   timeout = 20,
-  callback = cli_reporter,
-  ...
+  callback = cli_reporter
 )
 }
 \arguments{

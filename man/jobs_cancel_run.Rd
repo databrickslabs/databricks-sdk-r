@@ -4,7 +4,7 @@
 \alias{jobs_cancel_run}
 \title{Cancel a job run.}
 \usage{
-jobs_cancel_run(run_id, timeout = 20, callback = cli_reporter, ...)
+jobs_cancel_run(run_id, timeout = 20, callback = cli_reporter)
 }
 \arguments{
 \item{run_id}{Required. This field is required.}

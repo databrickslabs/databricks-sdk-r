@@ -4,7 +4,7 @@
 \alias{experiments_get_by_name}
 \title{Get metadata.}
 \usage{
-experiments_get_by_name(experiment_name, ...)
+experiments_get_by_name(experiment_name)
 }
 \arguments{
 \item{experiment_name}{Required. Name of the associated experiment.}

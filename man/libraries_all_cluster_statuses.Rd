@@ -4,7 +4,7 @@
 \alias{libraries_all_cluster_statuses}
 \title{Get all statuses.}
 \usage{
-libraries_all_cluster_statuses(...)
+libraries_all_cluster_statuses()
 }
 \description{
 Get the status of all libraries on all clusters. A status will be available

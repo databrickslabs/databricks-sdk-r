@@ -4,7 +4,7 @@
 \alias{dbfs_create}
 \title{Open a stream.}
 \usage{
-dbfs_create(path, overwrite = NULL, ...)
+dbfs_create(path, overwrite = NULL)
 }
 \arguments{
 \item{path}{Required. The path of the new file.}

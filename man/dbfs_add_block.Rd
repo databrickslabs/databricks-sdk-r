@@ -4,7 +4,7 @@
 \alias{dbfs_add_block}
 \title{Append data block.}
 \usage{
-dbfs_add_block(handle, data, ...)
+dbfs_add_block(handle, data)
 }
 \arguments{
 \item{handle}{Required. The handle on an open stream.}

@@ -4,7 +4,7 @@
 \alias{dbfs_mkdirs}
 \title{Create a directory.}
 \usage{
-dbfs_mkdirs(path, ...)
+dbfs_mkdirs(path)
 }
 \arguments{
 \item{path}{Required. The path of the new directory.}

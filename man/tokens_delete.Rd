@@ -4,7 +4,7 @@
 \alias{tokens_delete}
 \title{Revoke token.}
 \usage{
-tokens_delete(token_id, ...)
+tokens_delete(token_id)
 }
 \arguments{
 \item{token_id}{Required. The ID of the token to be revoked.}

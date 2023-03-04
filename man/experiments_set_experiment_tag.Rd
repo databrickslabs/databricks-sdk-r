@@ -4,7 +4,7 @@
 \alias{experiments_set_experiment_tag}
 \title{Set a tag.}
 \usage{
-experiments_set_experiment_tag(experiment_id, key, value, ...)
+experiments_set_experiment_tag(experiment_id, key, value)
 }
 \arguments{
 \item{experiment_id}{Required. ID of the experiment under which to log the tag.}

@@ -11,8 +11,7 @@ storage_credentials_validate(
   gcp_service_account_key = NULL,
   read_only = NULL,
   storage_credential_name = NULL,
-  url = NULL,
-  ...
+  url = NULL
 )
 }
 \arguments{

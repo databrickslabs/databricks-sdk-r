@@ -4,7 +4,7 @@
 \alias{metastores_get}
 \title{Get a metastore.}
 \usage{
-metastores_get(id, ...)
+metastores_get(id)
 }
 \arguments{
 \item{id}{Required. Unique ID of the metastore.}

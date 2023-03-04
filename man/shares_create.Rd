@@ -4,7 +4,7 @@
 \alias{shares_create}
 \title{Create a share.}
 \usage{
-shares_create(name, comment = NULL, ...)
+shares_create(name, comment = NULL)
 }
 \arguments{
 \item{name}{Required. Name of the share.}

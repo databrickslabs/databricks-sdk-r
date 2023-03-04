@@ -4,7 +4,7 @@
 \alias{dbfs_put}
 \title{Upload a file.}
 \usage{
-dbfs_put(path, contents = NULL, overwrite = NULL, ...)
+dbfs_put(path, contents = NULL, overwrite = NULL)
 }
 \arguments{
 \item{path}{Required. The path of the new file.}

@@ -4,7 +4,7 @@
 \alias{secrets_list_scopes}
 \title{List all scopes.}
 \usage{
-secrets_list_scopes(...)
+secrets_list_scopes()
 }
 \value{
 \code{data.frame} with all of the response pages.

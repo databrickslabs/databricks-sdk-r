@@ -4,7 +4,7 @@
 \alias{jobs_delete_run}
 \title{Delete a job run.}
 \usage{
-jobs_delete_run(run_id, ...)
+jobs_delete_run(run_id)
 }
 \arguments{
 \item{run_id}{Required. The canonical identifier of the run for which to retrieve the metadata.}

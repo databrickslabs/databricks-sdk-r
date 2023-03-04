@@ -4,7 +4,7 @@
 \alias{schemas_list}
 \title{List schemas.}
 \usage{
-schemas_list(catalog_name, ...)
+schemas_list(catalog_name)
 }
 \arguments{
 \item{catalog_name}{Required. Parent catalog for schemas of interest.}

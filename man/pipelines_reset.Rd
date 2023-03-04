@@ -4,7 +4,7 @@
 \alias{pipelines_reset}
 \title{Reset a pipeline.}
 \usage{
-pipelines_reset(pipeline_id, timeout = 20, callback = cli_reporter, ...)
+pipelines_reset(pipeline_id, timeout = 20, callback = cli_reporter)
 }
 \arguments{
 \item{pipeline_id}{Required.}

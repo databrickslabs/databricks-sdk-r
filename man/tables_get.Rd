@@ -4,7 +4,7 @@
 \alias{tables_get}
 \title{Get a table.}
 \usage{
-tables_get(full_name, include_delta_metadata = NULL, ...)
+tables_get(full_name, include_delta_metadata = NULL)
 }
 \arguments{
 \item{full_name}{Required. Full name of the table.}

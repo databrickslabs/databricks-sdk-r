@@ -4,7 +4,7 @@
 \alias{secrets_put_acl}
 \title{Create/update an ACL.}
 \usage{
-secrets_put_acl(scope, principal, permission, ...)
+secrets_put_acl(scope, principal, permission)
 }
 \arguments{
 \item{scope}{Required. The name of the scope to apply permissions to.}

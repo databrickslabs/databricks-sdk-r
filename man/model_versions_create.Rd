@@ -10,8 +10,7 @@ model_versions_create(
   description = NULL,
   run_id = NULL,
   run_link = NULL,
-  tags = NULL,
-  ...
+  tags = NULL
 )
 }
 \arguments{

@@ -4,7 +4,7 @@
 \alias{catalogs_update}
 \title{Update a catalog.}
 \usage{
-catalogs_update(name, comment = NULL, owner = NULL, properties = NULL, ...)
+catalogs_update(name, comment = NULL, owner = NULL, properties = NULL)
 }
 \arguments{
 \item{name}{Name of catalog.}

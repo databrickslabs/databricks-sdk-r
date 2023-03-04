@@ -4,7 +4,7 @@
 \alias{ip_access_lists_delete}
 \title{Delete access list.}
 \usage{
-ip_access_lists_delete(ip_access_list_id, ...)
+ip_access_lists_delete(ip_access_list_id)
 }
 \arguments{
 \item{ip_access_list_id}{Required. The ID for the corresponding IP access list to modify.}

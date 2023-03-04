@@ -4,7 +4,7 @@
 \alias{command_execution_command_status}
 \title{Get command info.}
 \usage{
-command_execution_command_status(cluster_id, context_id, command_id, ...)
+command_execution_command_status(cluster_id, context_id, command_id)
 }
 \arguments{
 \item{cluster_id}{Required.}

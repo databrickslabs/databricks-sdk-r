@@ -9,8 +9,7 @@ m_lflow_databricks_transition_stage(
   version,
   stage,
   archive_existing_versions,
-  comment = NULL,
-  ...
+  comment = NULL
 )
 }
 \arguments{

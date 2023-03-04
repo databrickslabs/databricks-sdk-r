@@ -11,8 +11,7 @@ clusters_events(
   limit = NULL,
   offset = NULL,
   order = NULL,
-  start_time = NULL,
-  ...
+  start_time = NULL
 )
 }
 \arguments{

@@ -4,7 +4,7 @@
 \alias{registered_models_set_tag}
 \title{Set a tag.}
 \usage{
-registered_models_set_tag(name, key, value, ...)
+registered_models_set_tag(name, key, value)
 }
 \arguments{
 \item{name}{Required. Unique name of the model.}

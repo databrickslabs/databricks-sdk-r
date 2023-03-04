@@ -4,7 +4,7 @@
 \alias{catalogs_get}
 \title{Get a catalog.}
 \usage{
-catalogs_get(name, ...)
+catalogs_get(name)
 }
 \arguments{
 \item{name}{Required. The name of the catalog.}

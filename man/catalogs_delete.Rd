@@ -4,7 +4,7 @@
 \alias{catalogs_delete}
 \title{Delete a catalog.}
 \usage{
-catalogs_delete(name, force = NULL, ...)
+catalogs_delete(name, force = NULL)
 }
 \arguments{
 \item{name}{Required. The name of the catalog.}

@@ -4,7 +4,7 @@
 \alias{transition_requests_create}
 \title{Make a transition request.}
 \usage{
-transition_requests_create(name, version, stage, comment = NULL, ...)
+transition_requests_create(name, version, stage, comment = NULL)
 }
 \arguments{
 \item{name}{Required. Name of the model.}

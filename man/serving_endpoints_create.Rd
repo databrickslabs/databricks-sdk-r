@@ -4,13 +4,7 @@
 \alias{serving_endpoints_create}
 \title{Create a new serving endpoint.}
 \usage{
-serving_endpoints_create(
-  name,
-  config,
-  timeout = 20,
-  callback = cli_reporter,
-  ...
-)
+serving_endpoints_create(name, config, timeout = 20, callback = cli_reporter)
 }
 \arguments{
 \item{name}{Required. The name of the serving endpoint.}

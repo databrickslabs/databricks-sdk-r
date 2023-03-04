@@ -4,7 +4,7 @@
 \alias{dbfs_close}
 \title{Close the stream.}
 \usage{
-dbfs_close(handle, ...)
+dbfs_close(handle)
 }
 \arguments{
 \item{handle}{Required. The handle on an open stream.}

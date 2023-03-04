@@ -11,8 +11,7 @@ queries_update(
   name = NULL,
   options = NULL,
   query = NULL,
-  schedule = NULL,
-  ...
+  schedule = NULL
 )
 }
 \arguments{

@@ -4,7 +4,7 @@
 \alias{registered_models_delete_tag}
 \title{Delete a model tag.}
 \usage{
-registered_models_delete_tag(name, key, ...)
+registered_models_delete_tag(name, key)
 }
 \arguments{
 \item{name}{Required. Name of the registered model that the tag was logged under.}

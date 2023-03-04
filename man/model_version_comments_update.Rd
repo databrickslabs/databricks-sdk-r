@@ -4,7 +4,7 @@
 \alias{model_version_comments_update}
 \title{Update a comment.}
 \usage{
-model_version_comments_update(id, comment, ...)
+model_version_comments_update(id, comment)
 }
 \arguments{
 \item{id}{Required. Unique identifier of an activity.}

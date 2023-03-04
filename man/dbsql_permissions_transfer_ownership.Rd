@@ -4,12 +4,7 @@
 \alias{dbsql_permissions_transfer_ownership}
 \title{Transfer object ownership.}
 \usage{
-dbsql_permissions_transfer_ownership(
-  object_type,
-  object_id,
-  new_owner = NULL,
-  ...
-)
+dbsql_permissions_transfer_ownership(object_type, object_id, new_owner = NULL)
 }
 \arguments{
 \item{object_type}{Required. The type of object on which to change ownership.}

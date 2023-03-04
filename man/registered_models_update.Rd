@@ -4,7 +4,7 @@
 \alias{registered_models_update}
 \title{Update model.}
 \usage{
-registered_models_update(name, description = NULL, ...)
+registered_models_update(name, description = NULL)
 }
 \arguments{
 \item{name}{Required. Registered model unique name identifier.}

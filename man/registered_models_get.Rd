@@ -4,7 +4,7 @@
 \alias{registered_models_get}
 \title{Get a model.}
 \usage{
-registered_models_get(name, ...)
+registered_models_get(name)
 }
 \arguments{
 \item{name}{Required. Registered model unique name identifier.}

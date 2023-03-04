@@ -4,7 +4,7 @@
 \alias{registry_webhooks_test}
 \title{Test a webhook.}
 \usage{
-registry_webhooks_test(id, event = NULL, ...)
+registry_webhooks_test(id, event = NULL)
 }
 \arguments{
 \item{id}{Required. Webhook ID.}

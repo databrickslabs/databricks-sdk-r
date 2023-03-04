@@ -10,8 +10,7 @@ m_lflow_runs_search(
   max_results = NULL,
   order_by = NULL,
   page_token = NULL,
-  run_view_type = NULL,
-  ...
+  run_view_type = NULL
 )
 }
 \arguments{

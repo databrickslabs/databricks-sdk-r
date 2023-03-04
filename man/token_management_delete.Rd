@@ -4,7 +4,7 @@
 \alias{token_management_delete}
 \title{Delete a token.}
 \usage{
-token_management_delete(token_id, ...)
+token_management_delete(token_id)
 }
 \arguments{
 \item{token_id}{Required. The ID of the token to get.}

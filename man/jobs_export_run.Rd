@@ -4,7 +4,7 @@
 \alias{jobs_export_run}
 \title{Export and retrieve a job run.}
 \usage{
-jobs_export_run(run_id, views_to_export = NULL, ...)
+jobs_export_run(run_id, views_to_export = NULL)
 }
 \arguments{
 \item{run_id}{Required. The canonical identifier for the run.}

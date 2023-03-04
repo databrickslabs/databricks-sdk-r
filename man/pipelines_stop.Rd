@@ -4,7 +4,7 @@
 \alias{pipelines_stop}
 \title{Stop a pipeline.}
 \usage{
-pipelines_stop(pipeline_id, timeout = 20, callback = cli_reporter, ...)
+pipelines_stop(pipeline_id, timeout = 20, callback = cli_reporter)
 }
 \arguments{
 \item{pipeline_id}{Required.}

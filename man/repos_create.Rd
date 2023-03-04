@@ -4,7 +4,7 @@
 \alias{repos_create}
 \title{Create a repo.}
 \usage{
-repos_create(url, provider, path = NULL, sparse_checkout = NULL, ...)
+repos_create(url, provider, path = NULL, sparse_checkout = NULL)
 }
 \arguments{
 \item{url}{Required. URL of the Git repository to be linked.}

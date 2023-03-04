@@ -4,7 +4,7 @@
 \alias{external_locations_get}
 \title{Get an external location.}
 \usage{
-external_locations_get(name, ...)
+external_locations_get(name)
 }
 \arguments{
 \item{name}{Required. Name of the external location.}

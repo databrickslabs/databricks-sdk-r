@@ -4,7 +4,7 @@
 \alias{m_lflow_runs_set_tag}
 \title{Set a tag.}
 \usage{
-m_lflow_runs_set_tag(key, value, run_id = NULL, run_uuid = NULL, ...)
+m_lflow_runs_set_tag(key, value, run_id = NULL, run_uuid = NULL)
 }
 \arguments{
 \item{key}{Required. Name of the tag.}

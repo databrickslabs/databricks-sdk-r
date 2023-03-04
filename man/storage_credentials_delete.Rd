@@ -4,7 +4,7 @@
 \alias{storage_credentials_delete}
 \title{Delete a credential.}
 \usage{
-storage_credentials_delete(name, force = NULL, ...)
+storage_credentials_delete(name, force = NULL)
 }
 \arguments{
 \item{name}{Required. Name of the storage credential.}

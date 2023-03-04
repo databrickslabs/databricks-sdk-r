@@ -11,8 +11,7 @@ queries_create(
   options = NULL,
   parent = NULL,
   query = NULL,
-  schedule = NULL,
-  ...
+  schedule = NULL
 )
 }
 \arguments{

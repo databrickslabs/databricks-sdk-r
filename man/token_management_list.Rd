@@ -4,7 +4,7 @@
 \alias{token_management_list}
 \title{List all tokens.}
 \usage{
-token_management_list(created_by_id = NULL, created_by_username = NULL, ...)
+token_management_list(created_by_id = NULL, created_by_username = NULL)
 }
 \arguments{
 \item{created_by_id}{User ID of the user that created the token.}

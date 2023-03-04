@@ -4,7 +4,7 @@
 \alias{dbfs_get_status}
 \title{Get the information of a file or directory.}
 \usage{
-dbfs_get_status(path, ...)
+dbfs_get_status(path)
 }
 \arguments{
 \item{path}{Required. The path of the file or directory.}

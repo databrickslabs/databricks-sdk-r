@@ -4,7 +4,7 @@
 \alias{secrets_list_acls}
 \title{Lists ACLs.}
 \usage{
-secrets_list_acls(scope, ...)
+secrets_list_acls(scope)
 }
 \arguments{
 \item{scope}{Required. The name of the scope to fetch ACL information from.}

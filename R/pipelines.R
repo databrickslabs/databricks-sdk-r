@@ -149,6 +149,7 @@ pipelines_list_pipelines <- function(filter = NULL, max_results = NULL, order_by
   page_token = NULL) {
   query <- list(filter = filter, max_results = max_results, order_by = order_by,
     page_token = page_token)
+
   results <- data.frame()
   while (TRUE) {
     json <- .api$do("GET", "/api/2.0/pipelines", query = query)

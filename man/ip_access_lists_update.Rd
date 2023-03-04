@@ -10,8 +10,7 @@ ip_access_lists_update(
   ip_addresses,
   enabled,
   ip_access_list_id,
-  list_id = NULL,
-  ...
+  list_id = NULL
 )
 }
 \arguments{

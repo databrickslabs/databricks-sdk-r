@@ -4,7 +4,7 @@
 \alias{alerts_get_subscriptions}
 \title{\link{DEPRECATED} Get an alert's subscriptions.}
 \usage{
-alerts_get_subscriptions(alert_id, ...)
+alerts_get_subscriptions(alert_id)
 }
 \arguments{
 \item{alert_id}{Required.}

@@ -4,7 +4,7 @@
 \alias{secrets_delete_acl}
 \title{Delete an ACL.}
 \usage{
-secrets_delete_acl(scope, principal, ...)
+secrets_delete_acl(scope, principal)
 }
 \arguments{
 \item{scope}{Required. The name of the scope to remove permissions from.}

@@ -4,7 +4,7 @@
 \alias{clusters_get}
 \title{Get cluster info.}
 \usage{
-clusters_get(cluster_id, ...)
+clusters_get(cluster_id)
 }
 \arguments{
 \item{cluster_id}{Required. The cluster about which to retrieve information.}

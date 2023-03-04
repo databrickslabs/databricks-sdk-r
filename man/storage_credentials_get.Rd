@@ -4,7 +4,7 @@
 \alias{storage_credentials_get}
 \title{Get a credential.}
 \usage{
-storage_credentials_get(name, ...)
+storage_credentials_get(name)
 }
 \arguments{
 \item{name}{Required. Name of the storage credential.}

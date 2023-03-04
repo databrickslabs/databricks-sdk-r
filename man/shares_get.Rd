@@ -4,7 +4,7 @@
 \alias{shares_get}
 \title{Get a share.}
 \usage{
-shares_get(name, include_shared_data = NULL, ...)
+shares_get(name, include_shared_data = NULL)
 }
 \arguments{
 \item{name}{Required. The name of the share.}

@@ -4,7 +4,7 @@
 \alias{shares_delete}
 \title{Delete a share.}
 \usage{
-shares_delete(name, ...)
+shares_delete(name)
 }
 \arguments{
 \item{name}{Required. The name of the share.}

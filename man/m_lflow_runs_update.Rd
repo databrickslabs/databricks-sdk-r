@@ -8,8 +8,7 @@ m_lflow_runs_update(
   end_time = NULL,
   run_id = NULL,
   run_uuid = NULL,
-  status = NULL,
-  ...
+  status = NULL
 )
 }
 \arguments{

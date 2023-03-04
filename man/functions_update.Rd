@@ -4,7 +4,7 @@
 \alias{functions_update}
 \title{Update a function.}
 \usage{
-functions_update(name, owner = NULL, ...)
+functions_update(name, owner = NULL)
 }
 \arguments{
 \item{name}{Required. The fully-qualified name of the function (of the form \strong{catalog_name}.\strong{schema_name}.\strong{function__name}).}

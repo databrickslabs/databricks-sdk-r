@@ -12,8 +12,7 @@ storage_credentials_create(
   comment = NULL,
   gcp_service_account_key = NULL,
   read_only = NULL,
-  skip_validation = NULL,
-  ...
+  skip_validation = NULL
 )
 }
 \arguments{

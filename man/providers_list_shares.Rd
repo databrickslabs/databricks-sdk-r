@@ -4,7 +4,7 @@
 \alias{providers_list_shares}
 \title{List shares by Provider.}
 \usage{
-providers_list_shares(name, ...)
+providers_list_shares(name)
 }
 \arguments{
 \item{name}{Required. Name of the provider in which to list shares.}

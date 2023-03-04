@@ -102,6 +102,7 @@ repos$get <- repos_get
 #' @aliases repos_list
 repos_list <- function(next_page_token = NULL, path_prefix = NULL) {
   query <- list(next_page_token = next_page_token, path_prefix = path_prefix)
+
   results <- data.frame()
   while (TRUE) {
     json <- .api$do("GET", "/api/2.0/repos", query = query)

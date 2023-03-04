@@ -4,7 +4,7 @@
 \alias{workspace_list}
 \title{List contents.}
 \usage{
-workspace_list(path, notebooks_modified_after = NULL, ...)
+workspace_list(path, notebooks_modified_after = NULL)
 }
 \arguments{
 \item{path}{Required. The absolute path of the notebook or directory.}

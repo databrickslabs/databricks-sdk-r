@@ -4,7 +4,7 @@
 \alias{table_constraints_delete}
 \title{Delete a table constraint.}
 \usage{
-table_constraints_delete(full_name, constraint_name, cascade, ...)
+table_constraints_delete(full_name, constraint_name, cascade)
 }
 \arguments{
 \item{full_name}{Required. Full name of the table referenced by the constraint.}

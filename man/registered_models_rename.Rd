@@ -4,7 +4,7 @@
 \alias{registered_models_rename}
 \title{Rename a model.}
 \usage{
-registered_models_rename(name, new_name = NULL, ...)
+registered_models_rename(name, new_name = NULL)
 }
 \arguments{
 \item{name}{Required. Registered model unique name identifier.}

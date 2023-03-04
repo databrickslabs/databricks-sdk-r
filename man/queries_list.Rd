@@ -4,7 +4,7 @@
 \alias{queries_list}
 \title{Get a list of queries.}
 \usage{
-queries_list(order = NULL, page = NULL, page_size = NULL, q = NULL, ...)
+queries_list(order = NULL, page = NULL, page_size = NULL, q = NULL)
 }
 \arguments{
 \item{order}{Name of query attribute to order by.}

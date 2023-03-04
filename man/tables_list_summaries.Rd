@@ -9,8 +9,7 @@ tables_list_summaries(
   max_results = NULL,
   page_token = NULL,
   schema_name_pattern = NULL,
-  table_name_pattern = NULL,
-  ...
+  table_name_pattern = NULL
 )
 }
 \arguments{

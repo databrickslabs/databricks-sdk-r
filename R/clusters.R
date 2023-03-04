@@ -377,6 +377,7 @@ clusters_events <- function(cluster_id, end_time = NULL, event_types = NULL, lim
   offset = NULL, order = NULL, start_time = NULL) {
   body <- list(cluster_id = cluster_id, end_time = end_time, event_types = event_types,
     limit = limit, offset = offset, order = order, start_time = start_time)
+
   results <- data.frame()
   while (TRUE) {
     json <- .api$do("POST", "/api/2.0/clusters/events", body = body)

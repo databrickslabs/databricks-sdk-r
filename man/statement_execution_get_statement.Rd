@@ -4,7 +4,7 @@
 \alias{statement_execution_get_statement}
 \title{Get status, manifest, and result first chunk.}
 \usage{
-statement_execution_get_statement(statement_id, ...)
+statement_execution_get_statement(statement_id)
 }
 \arguments{
 \item{statement_id}{Required.}

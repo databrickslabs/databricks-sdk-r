@@ -4,7 +4,7 @@
 \alias{dashboards_list}
 \title{Get dashboard objects.}
 \usage{
-dashboards_list(order = NULL, page = NULL, page_size = NULL, q = NULL, ...)
+dashboards_list(order = NULL, page = NULL, page_size = NULL, q = NULL)
 }
 \arguments{
 \item{order}{Name of dashboard attribute to order by.}

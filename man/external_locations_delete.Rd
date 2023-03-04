@@ -4,7 +4,7 @@
 \alias{external_locations_delete}
 \title{Delete an external location.}
 \usage{
-external_locations_delete(name, force = NULL, ...)
+external_locations_delete(name, force = NULL)
 }
 \arguments{
 \item{name}{Required. Name of the external location.}

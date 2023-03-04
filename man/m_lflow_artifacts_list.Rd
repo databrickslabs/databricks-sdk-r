@@ -8,8 +8,7 @@ m_lflow_artifacts_list(
   page_token = NULL,
   path = NULL,
   run_id = NULL,
-  run_uuid = NULL,
-  ...
+  run_uuid = NULL
 )
 }
 \arguments{

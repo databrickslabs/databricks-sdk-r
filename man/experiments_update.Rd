@@ -4,7 +4,7 @@
 \alias{experiments_update}
 \title{Update an experiment.}
 \usage{
-experiments_update(experiment_id, new_name = NULL, ...)
+experiments_update(experiment_id, new_name = NULL)
 }
 \arguments{
 \item{experiment_id}{Required. ID of the associated experiment.}

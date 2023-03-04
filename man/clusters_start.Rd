@@ -4,7 +4,7 @@
 \alias{clusters_start}
 \title{Start terminated cluster.}
 \usage{
-clusters_start(cluster_id, timeout = 20, callback = cli_reporter, ...)
+clusters_start(cluster_id, timeout = 20, callback = cli_reporter)
 }
 \arguments{
 \item{cluster_id}{Required. The cluster to be started.}

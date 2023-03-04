@@ -4,7 +4,7 @@
 \alias{metastores_delete}
 \title{Delete a metastore.}
 \usage{
-metastores_delete(id, force = NULL, ...)
+metastores_delete(id, force = NULL)
 }
 \arguments{
 \item{id}{Required. Unique ID of the metastore.}

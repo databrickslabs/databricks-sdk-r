@@ -4,7 +4,7 @@
 \alias{alerts_subscribe}
 \title{\link{DEPRECATED} Subscribe to an alert.}
 \usage{
-alerts_subscribe(alert_id, destination_id = NULL, user_id = NULL, ...)
+alerts_subscribe(alert_id, destination_id = NULL, user_id = NULL)
 }
 \arguments{
 \item{alert_id}{Required. ID of the alert.}

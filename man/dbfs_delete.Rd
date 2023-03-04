@@ -4,7 +4,7 @@
 \alias{dbfs_delete}
 \title{Delete a file/directory.}
 \usage{
-dbfs_delete(path, recursive = NULL, ...)
+dbfs_delete(path, recursive = NULL)
 }
 \arguments{
 \item{path}{Required. The path of the file or directory to delete.}

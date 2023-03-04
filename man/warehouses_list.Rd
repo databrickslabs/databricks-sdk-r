@@ -4,7 +4,7 @@
 \alias{warehouses_list}
 \title{List warehouses.}
 \usage{
-warehouses_list(run_as_user_id = NULL, ...)
+warehouses_list(run_as_user_id = NULL)
 }
 \arguments{
 \item{run_as_user_id}{Service Principal which will be used to fetch the list of endpoints.}

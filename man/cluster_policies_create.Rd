@@ -10,8 +10,7 @@ cluster_policies_create(
   description = NULL,
   max_clusters_per_user = NULL,
   policy_family_definition_overrides = NULL,
-  policy_family_id = NULL,
-  ...
+  policy_family_id = NULL
 )
 }
 \arguments{

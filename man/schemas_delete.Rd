@@ -4,7 +4,7 @@
 \alias{schemas_delete}
 \title{Delete a schema.}
 \usage{
-schemas_delete(full_name, ...)
+schemas_delete(full_name)
 }
 \arguments{
 \item{full_name}{Required. Full name of the schema.}

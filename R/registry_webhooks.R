@@ -83,6 +83,7 @@ registry_webhooks$delete <- registry_webhooks_delete
 #' @aliases registry_webhooks_list
 registry_webhooks_list <- function(events = NULL, model_name = NULL, page_token = NULL) {
   query <- list(events = events, model_name = model_name, page_token = page_token)
+
   results <- data.frame()
   while (TRUE) {
     json <- .api$do("GET", "/api/2.0/mlflow/registry-webhooks/list", query = query)

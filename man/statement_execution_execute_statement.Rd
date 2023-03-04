@@ -14,8 +14,7 @@ statement_execution_execute_statement(
   schema = NULL,
   statement = NULL,
   wait_timeout = NULL,
-  warehouse_id = NULL,
-  ...
+  warehouse_id = NULL
 )
 }
 \arguments{

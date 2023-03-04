@@ -4,7 +4,7 @@
 \alias{secrets_put_secret}
 \title{Add a secret.}
 \usage{
-secrets_put_secret(scope, key, bytes_value = NULL, string_value = NULL, ...)
+secrets_put_secret(scope, key, bytes_value = NULL, string_value = NULL)
 }
 \arguments{
 \item{scope}{Required. The name of the scope to which the secret will be associated with.}

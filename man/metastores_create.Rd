@@ -4,7 +4,7 @@
 \alias{metastores_create}
 \title{Create a metastore.}
 \usage{
-metastores_create(name, storage_root, region = NULL, ...)
+metastores_create(name, storage_root, region = NULL)
 }
 \arguments{
 \item{name}{Required. The user-specified name of the metastore.}

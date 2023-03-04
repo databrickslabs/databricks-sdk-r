@@ -4,7 +4,7 @@
 \alias{queries_restore}
 \title{Restore a query.}
 \usage{
-queries_restore(query_id, ...)
+queries_restore(query_id)
 }
 \arguments{
 \item{query_id}{Required.}

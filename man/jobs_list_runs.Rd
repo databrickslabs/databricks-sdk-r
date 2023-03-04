@@ -13,8 +13,7 @@ jobs_list_runs(
   offset = NULL,
   run_type = NULL,
   start_time_from = NULL,
-  start_time_to = NULL,
-  ...
+  start_time_to = NULL
 )
 }
 \arguments{

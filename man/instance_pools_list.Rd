@@ -4,7 +4,7 @@
 \alias{instance_pools_list}
 \title{List instance pool info.}
 \usage{
-instance_pools_list(...)
+instance_pools_list()
 }
 \value{
 \code{data.frame} with all of the response pages.

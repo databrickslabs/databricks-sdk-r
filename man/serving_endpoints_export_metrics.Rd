@@ -5,7 +5,7 @@
 \title{Retrieve the metrics corresponding to a serving endpoint for the current time
 in Prometheus or OpenMetrics exposition format.}
 \usage{
-serving_endpoints_export_metrics(name, ...)
+serving_endpoints_export_metrics(name)
 }
 \arguments{
 \item{name}{Required. The name of the serving endpoint to retrieve metrics for.}

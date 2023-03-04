@@ -4,7 +4,7 @@
 \alias{clusters_pin}
 \title{Pin cluster.}
 \usage{
-clusters_pin(cluster_id, ...)
+clusters_pin(cluster_id)
 }
 \arguments{
 \item{cluster_id}{Required. \if{html}{\out{<needs content added>}}.}

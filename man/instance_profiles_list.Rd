@@ -4,7 +4,7 @@
 \alias{instance_profiles_list}
 \title{List available instance profiles.}
 \usage{
-instance_profiles_list(...)
+instance_profiles_list()
 }
 \value{
 \code{data.frame} with all of the response pages.

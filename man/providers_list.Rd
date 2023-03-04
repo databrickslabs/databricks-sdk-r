@@ -4,7 +4,7 @@
 \alias{providers_list}
 \title{List providers.}
 \usage{
-providers_list(data_provider_global_metastore_id = NULL, ...)
+providers_list(data_provider_global_metastore_id = NULL)
 }
 \arguments{
 \item{data_provider_global_metastore_id}{If not provided, all providers will be returned.}

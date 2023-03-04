@@ -4,7 +4,7 @@
 \alias{m_lflow_runs_restore}
 \title{Restore a run.}
 \usage{
-m_lflow_runs_restore(run_id, ...)
+m_lflow_runs_restore(run_id)
 }
 \arguments{
 \item{run_id}{Required. ID of the run to restore.}

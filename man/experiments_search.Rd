@@ -9,8 +9,7 @@ experiments_search(
   max_results = NULL,
   order_by = NULL,
   page_token = NULL,
-  view_type = NULL,
-  ...
+  view_type = NULL
 )
 }
 \arguments{

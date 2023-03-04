@@ -4,7 +4,7 @@
 \alias{clusters_list}
 \title{List all clusters.}
 \usage{
-clusters_list(can_use_client = NULL, ...)
+clusters_list(can_use_client = NULL)
 }
 \arguments{
 \item{can_use_client}{Filter clusters based on what type of client it can be used for.}

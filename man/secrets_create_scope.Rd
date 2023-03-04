@@ -8,8 +8,7 @@ secrets_create_scope(
   scope,
   initial_manage_principal = NULL,
   keyvault_metadata = NULL,
-  scope_backend_type = NULL,
-  ...
+  scope_backend_type = NULL
 )
 }
 \arguments{

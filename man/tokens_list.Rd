@@ -4,7 +4,7 @@
 \alias{tokens_list}
 \title{List tokens.}
 \usage{
-tokens_list(...)
+tokens_list()
 }
 \value{
 \code{data.frame} with all of the response pages.

@@ -4,7 +4,7 @@
 \alias{experiments_create}
 \title{Create experiment.}
 \usage{
-experiments_create(name, artifact_location = NULL, tags = NULL, ...)
+experiments_create(name, artifact_location = NULL, tags = NULL)
 }
 \arguments{
 \item{name}{Required. Experiment name.}

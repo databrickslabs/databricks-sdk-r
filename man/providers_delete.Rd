@@ -4,7 +4,7 @@
 \alias{providers_delete}
 \title{Delete a provider.}
 \usage{
-providers_delete(name, ...)
+providers_delete(name)
 }
 \arguments{
 \item{name}{Required. Name of the provider.}

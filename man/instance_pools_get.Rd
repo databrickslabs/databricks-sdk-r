@@ -4,7 +4,7 @@
 \alias{instance_pools_get}
 \title{Get instance pool information.}
 \usage{
-instance_pools_get(instance_pool_id, ...)
+instance_pools_get(instance_pool_id)
 }
 \arguments{
 \item{instance_pool_id}{Required. The canonical unique identifier for the instance pool.}

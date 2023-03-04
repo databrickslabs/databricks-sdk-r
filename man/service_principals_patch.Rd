@@ -4,7 +4,7 @@
 \alias{service_principals_patch}
 \title{Update service principal details.}
 \usage{
-service_principals_patch(id, operations = NULL, ...)
+service_principals_patch(id, operations = NULL)
 }
 \arguments{
 \item{id}{Required. Unique ID for a group in the Databricks Account.}

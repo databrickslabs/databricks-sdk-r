@@ -7,8 +7,7 @@
 git_credentials_create(
   git_provider,
   git_username = NULL,
-  personal_access_token = NULL,
-  ...
+  personal_access_token = NULL
 )
 }
 \arguments{

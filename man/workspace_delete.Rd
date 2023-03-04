@@ -4,7 +4,7 @@
 \alias{workspace_delete}
 \title{Delete a workspace object.}
 \usage{
-workspace_delete(path, recursive = NULL, ...)
+workspace_delete(path, recursive = NULL)
 }
 \arguments{
 \item{path}{Required. The absolute path of the notebook or directory.}

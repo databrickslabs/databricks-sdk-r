@@ -4,7 +4,7 @@
 \alias{m_lflow_databricks_get}
 \title{Get model.}
 \usage{
-m_lflow_databricks_get(name, ...)
+m_lflow_databricks_get(name)
 }
 \arguments{
 \item{name}{Required. Name of the model.}

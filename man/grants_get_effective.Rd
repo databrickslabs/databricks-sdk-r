@@ -4,7 +4,7 @@
 \alias{grants_get_effective}
 \title{Get effective permissions.}
 \usage{
-grants_get_effective(securable_type, full_name, principal = NULL, ...)
+grants_get_effective(securable_type, full_name, principal = NULL)
 }
 \arguments{
 \item{securable_type}{Required. Type of securable.}

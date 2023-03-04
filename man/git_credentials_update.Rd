@@ -8,8 +8,7 @@ git_credentials_update(
   credential_id,
   git_provider = NULL,
   git_username = NULL,
-  personal_access_token = NULL,
-  ...
+  personal_access_token = NULL
 )
 }
 \arguments{

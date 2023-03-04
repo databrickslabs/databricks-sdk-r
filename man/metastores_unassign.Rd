@@ -4,7 +4,7 @@
 \alias{metastores_unassign}
 \title{Delete an assignment.}
 \usage{
-metastores_unassign(workspace_id, metastore_id, ...)
+metastores_unassign(workspace_id, metastore_id)
 }
 \arguments{
 \item{workspace_id}{Required. A workspace ID.}

@@ -9,8 +9,7 @@ schemas_update(
   comment = NULL,
   name = NULL,
   owner = NULL,
-  properties = NULL,
-  ...
+  properties = NULL
 )
 }
 \arguments{

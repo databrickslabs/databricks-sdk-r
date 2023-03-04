@@ -11,8 +11,7 @@ external_locations_update(
   force = NULL,
   owner = NULL,
   read_only = NULL,
-  url = NULL,
-  ...
+  url = NULL
 )
 }
 \arguments{

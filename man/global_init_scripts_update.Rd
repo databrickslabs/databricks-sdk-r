@@ -9,8 +9,7 @@ global_init_scripts_update(
   script,
   script_id,
   enabled = NULL,
-  position = NULL,
-  ...
+  position = NULL
 )
 }
 \arguments{

@@ -4,7 +4,7 @@
 \alias{recipient_activation_retrieve_token}
 \title{Get an access token.}
 \usage{
-recipient_activation_retrieve_token(activation_url, ...)
+recipient_activation_retrieve_token(activation_url)
 }
 \arguments{
 \item{activation_url}{Required. The one time activation url.}

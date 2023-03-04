@@ -4,7 +4,7 @@
 \alias{clusters_change_owner}
 \title{Change cluster owner.}
 \usage{
-clusters_change_owner(cluster_id, owner_username, ...)
+clusters_change_owner(cluster_id, owner_username)
 }
 \arguments{
 \item{cluster_id}{Required. \if{html}{\out{<needs content added>}}.}

@@ -4,7 +4,7 @@
 \alias{dbfs_list}
 \title{List directory contents or file details.}
 \usage{
-dbfs_list(path, ...)
+dbfs_list(path)
 }
 \arguments{
 \item{path}{Required. The path of the file or directory.}

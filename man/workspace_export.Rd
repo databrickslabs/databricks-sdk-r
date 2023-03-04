@@ -4,7 +4,7 @@
 \alias{workspace_export}
 \title{Export a notebook.}
 \usage{
-workspace_export(path, direct_download = NULL, format = NULL, ...)
+workspace_export(path, direct_download = NULL, format = NULL)
 }
 \arguments{
 \item{path}{Required. The absolute path of the notebook or directory.}

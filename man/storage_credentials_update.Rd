@@ -13,8 +13,7 @@ storage_credentials_update(
   gcp_service_account_key = NULL,
   owner = NULL,
   read_only = NULL,
-  skip_validation = NULL,
-  ...
+  skip_validation = NULL
 )
 }
 \arguments{

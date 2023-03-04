@@ -4,7 +4,7 @@
 \alias{permissions_get_permission_levels}
 \title{Get permission levels.}
 \usage{
-permissions_get_permission_levels(request_object_type, request_object_id, ...)
+permissions_get_permission_levels(request_object_type, request_object_id)
 }
 \arguments{
 \item{request_object_type}{Required. \if{html}{\out{<needs content>}}.}

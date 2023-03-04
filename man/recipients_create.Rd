@@ -12,8 +12,7 @@ recipients_create(
   ip_access_list = NULL,
   owner = NULL,
   properties_kvpairs = NULL,
-  sharing_code = NULL,
-  ...
+  sharing_code = NULL
 )
 }
 \arguments{

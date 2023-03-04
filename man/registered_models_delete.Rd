@@ -4,7 +4,7 @@
 \alias{registered_models_delete}
 \title{Delete a model.}
 \usage{
-registered_models_delete(name, ...)
+registered_models_delete(name)
 }
 \arguments{
 \item{name}{Required. Registered model unique name identifier.}

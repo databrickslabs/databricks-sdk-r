@@ -4,7 +4,7 @@
 \alias{dbsql_permissions_get}
 \title{Get object ACL.}
 \usage{
-dbsql_permissions_get(object_type, object_id, ...)
+dbsql_permissions_get(object_type, object_id)
 }
 \arguments{
 \item{object_type}{Required. The type of object permissions to check.}

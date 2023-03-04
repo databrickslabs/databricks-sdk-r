@@ -8,8 +8,7 @@ pipelines_list_pipelines(
   filter = NULL,
   max_results = NULL,
   order_by = NULL,
-  page_token = NULL,
-  ...
+  page_token = NULL
 )
 }
 \arguments{

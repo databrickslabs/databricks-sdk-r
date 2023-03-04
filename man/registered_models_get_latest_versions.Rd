@@ -4,7 +4,7 @@
 \alias{registered_models_get_latest_versions}
 \title{Get the latest version.}
 \usage{
-registered_models_get_latest_versions(name, stages = NULL, ...)
+registered_models_get_latest_versions(name, stages = NULL)
 }
 \arguments{
 \item{name}{Required. Registered model unique name identifier.}

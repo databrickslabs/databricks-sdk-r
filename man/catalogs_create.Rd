@@ -10,8 +10,7 @@ catalogs_create(
   properties = NULL,
   provider_name = NULL,
   share_name = NULL,
-  storage_root = NULL,
-  ...
+  storage_root = NULL
 )
 }
 \arguments{

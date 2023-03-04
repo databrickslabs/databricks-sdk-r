@@ -4,7 +4,7 @@
 \alias{pipelines_delete}
 \title{Delete a pipeline.}
 \usage{
-pipelines_delete(pipeline_id, ...)
+pipelines_delete(pipeline_id)
 }
 \arguments{
 \item{pipeline_id}{Required.}

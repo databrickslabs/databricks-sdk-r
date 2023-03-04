@@ -4,7 +4,7 @@
 \alias{users_delete}
 \title{Delete a user.}
 \usage{
-users_delete(id, ...)
+users_delete(id)
 }
 \arguments{
 \item{id}{Required. Unique ID for a user in the Databricks Workspace.}

@@ -4,7 +4,7 @@
 \alias{recipients_delete}
 \title{Delete a share recipient.}
 \usage{
-recipients_delete(name, ...)
+recipients_delete(name)
 }
 \arguments{
 \item{name}{Required. Name of the recipient.}

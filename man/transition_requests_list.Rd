@@ -4,7 +4,7 @@
 \alias{transition_requests_list}
 \title{List transition requests.}
 \usage{
-transition_requests_list(name, version, ...)
+transition_requests_list(name, version)
 }
 \arguments{
 \item{name}{Required. Name of the model.}

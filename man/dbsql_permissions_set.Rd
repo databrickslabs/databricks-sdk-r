@@ -4,7 +4,7 @@
 \alias{dbsql_permissions_set}
 \title{Set object ACL.}
 \usage{
-dbsql_permissions_set(object_type, object_id, access_control_list = NULL, ...)
+dbsql_permissions_set(object_type, object_id, access_control_list = NULL)
 }
 \arguments{
 \item{object_type}{Required. The type of object permission to set.}

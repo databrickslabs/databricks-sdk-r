@@ -4,7 +4,7 @@
 \alias{m_lflow_runs_get}
 \title{Get a run.}
 \usage{
-m_lflow_runs_get(run_id, run_uuid = NULL, ...)
+m_lflow_runs_get(run_id, run_uuid = NULL)
 }
 \arguments{
 \item{run_id}{Required. ID of the run to fetch.}

@@ -4,7 +4,7 @@
 \alias{model_versions_delete_tag}
 \title{Delete a model version tag.}
 \usage{
-model_versions_delete_tag(name, version, key, ...)
+model_versions_delete_tag(name, version, key)
 }
 \arguments{
 \item{name}{Required. Name of the registered model that the tag was logged under.}

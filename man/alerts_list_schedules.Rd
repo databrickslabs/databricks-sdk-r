@@ -4,7 +4,7 @@
 \alias{alerts_list_schedules}
 \title{\link{DEPRECATED} Get refresh schedules.}
 \usage{
-alerts_list_schedules(alert_id, ...)
+alerts_list_schedules(alert_id)
 }
 \arguments{
 \item{alert_id}{Required.}

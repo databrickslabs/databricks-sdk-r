@@ -4,7 +4,7 @@
 \alias{functions_delete}
 \title{Delete a function.}
 \usage{
-functions_delete(name, force = NULL, ...)
+functions_delete(name, force = NULL)
 }
 \arguments{
 \item{name}{Required. The fully-qualified name of the function (of the form \strong{catalog_name}.\strong{schema_name}.\strong{function__name}).}

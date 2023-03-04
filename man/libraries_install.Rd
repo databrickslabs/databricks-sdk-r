@@ -4,7 +4,7 @@
 \alias{libraries_install}
 \title{Add a library.}
 \usage{
-libraries_install(cluster_id, libraries, ...)
+libraries_install(cluster_id, libraries)
 }
 \arguments{
 \item{cluster_id}{Required. Unique identifier for the cluster on which to install these libraries.}

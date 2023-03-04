@@ -4,7 +4,7 @@
 \alias{groups_delete}
 \title{Delete a group.}
 \usage{
-groups_delete(id, ...)
+groups_delete(id)
 }
 \arguments{
 \item{id}{Required. Unique ID for a group in the Databricks Workspace.}

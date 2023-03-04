@@ -4,7 +4,7 @@
 \alias{shares_list}
 \title{List shares.}
 \usage{
-shares_list(...)
+shares_list()
 }
 \value{
 \code{data.frame} with all of the response pages.

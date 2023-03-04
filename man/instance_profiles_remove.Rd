@@ -4,7 +4,7 @@
 \alias{instance_profiles_remove}
 \title{Remove the instance profile.}
 \usage{
-instance_profiles_remove(instance_profile_arn, ...)
+instance_profiles_remove(instance_profile_arn)
 }
 \arguments{
 \item{instance_profile_arn}{Required. The ARN of the instance profile to remove.}

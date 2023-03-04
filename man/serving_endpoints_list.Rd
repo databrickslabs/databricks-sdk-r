@@ -4,7 +4,7 @@
 \alias{serving_endpoints_list}
 \title{Retrieve all serving endpoints.#'}
 \usage{
-serving_endpoints_list(...)
+serving_endpoints_list()
 }
 \description{
 Retrieve all serving endpoints.#'

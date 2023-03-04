@@ -4,7 +4,7 @@
 \alias{alerts_update}
 \title{Update an alert.}
 \usage{
-alerts_update(name, options, query_id, alert_id, rearm = NULL, ...)
+alerts_update(name, options, query_id, alert_id, rearm = NULL)
 }
 \arguments{
 \item{name}{Required. Name of the alert.}

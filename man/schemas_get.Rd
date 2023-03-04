@@ -4,7 +4,7 @@
 \alias{schemas_get}
 \title{Get a schema.}
 \usage{
-schemas_get(full_name, ...)
+schemas_get(full_name)
 }
 \arguments{
 \item{full_name}{Required. Full name of the schema.}

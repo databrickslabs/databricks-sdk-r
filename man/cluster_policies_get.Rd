@@ -4,7 +4,7 @@
 \alias{cluster_policies_get}
 \title{Get entity.}
 \usage{
-cluster_policies_get(policy_id, ...)
+cluster_policies_get(policy_id)
 }
 \arguments{
 \item{policy_id}{Required. Canonical unique identifier for the cluster policy.}

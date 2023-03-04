@@ -4,7 +4,7 @@
 \alias{instance_pools_delete}
 \title{Delete an instance pool.}
 \usage{
-instance_pools_delete(instance_pool_id, ...)
+instance_pools_delete(instance_pool_id)
 }
 \arguments{
 \item{instance_pool_id}{Required. The instance pool to be terminated.}

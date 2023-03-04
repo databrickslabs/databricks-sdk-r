@@ -13,8 +13,7 @@ jobs_submit(
   timeout_seconds = NULL,
   webhook_notifications = NULL,
   timeout = 20,
-  callback = cli_reporter,
-  ...
+  callback = cli_reporter
 )
 }
 \arguments{

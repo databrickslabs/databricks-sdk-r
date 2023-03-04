@@ -4,7 +4,7 @@
 \alias{m_lflow_runs_log_model}
 \title{Log a model.}
 \usage{
-m_lflow_runs_log_model(model_json = NULL, run_id = NULL, ...)
+m_lflow_runs_log_model(model_json = NULL, run_id = NULL)
 }
 \arguments{
 \item{model_json}{MLmodel file in json format.}

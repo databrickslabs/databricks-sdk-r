@@ -4,7 +4,7 @@
 \alias{workspace_get_status}
 \title{Get status.}
 \usage{
-workspace_get_status(path, ...)
+workspace_get_status(path)
 }
 \arguments{
 \item{path}{Required. The absolute path of the notebook or directory.}

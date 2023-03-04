@@ -4,7 +4,7 @@
 \alias{transition_requests_reject}
 \title{Reject a transition request.}
 \usage{
-transition_requests_reject(name, version, stage, comment = NULL, ...)
+transition_requests_reject(name, version, stage, comment = NULL)
 }
 \arguments{
 \item{name}{Required. Name of the model.}

@@ -4,7 +4,7 @@
 \alias{recipients_list}
 \title{List share recipients.}
 \usage{
-recipients_list(data_recipient_global_metastore_id = NULL, ...)
+recipients_list(data_recipient_global_metastore_id = NULL)
 }
 \arguments{
 \item{data_recipient_global_metastore_id}{If not provided, all recipients will be returned.}

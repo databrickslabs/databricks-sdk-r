@@ -4,7 +4,7 @@
 \alias{clusters_spark_versions}
 \title{List available Spark versions.}
 \usage{
-clusters_spark_versions(...)
+clusters_spark_versions()
 }
 \description{
 Returns the list of available Spark versions. These versions can be used to

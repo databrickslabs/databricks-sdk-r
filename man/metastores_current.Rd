@@ -4,7 +4,7 @@
 \alias{metastores_current}
 \title{Get metastore assignment for workspace.}
 \usage{
-metastores_current(...)
+metastores_current()
 }
 \description{
 Gets the metastore assignment for the workspace being accessed.#'

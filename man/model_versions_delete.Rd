@@ -4,7 +4,7 @@
 \alias{model_versions_delete}
 \title{Delete a model version.}
 \usage{
-model_versions_delete(name, version, ...)
+model_versions_delete(name, version)
 }
 \arguments{
 \item{name}{Required. Name of the registered model.}

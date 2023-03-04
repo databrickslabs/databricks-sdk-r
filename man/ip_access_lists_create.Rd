@@ -4,7 +4,7 @@
 \alias{ip_access_lists_create}
 \title{Create access list.}
 \usage{
-ip_access_lists_create(label, list_type, ip_addresses, ...)
+ip_access_lists_create(label, list_type, ip_addresses)
 }
 \arguments{
 \item{label}{Required. Label for the IP access list.}

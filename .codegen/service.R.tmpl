@@ -61,7 +61,7 @@ NULL
 {{- define "method-call-paginated" -}}
     {{- if .Pagination.MultiRequest -}}
     {{if and .Pagination.Offset (not (eq .Path "/api/2.0/clusters/events")) }}
-    query${{.Pagination.Offset.Name}} = {{if eq .Pagination.Increment 1}}1{{else}}0{{end}}{{end -}}
+    query${{.Pagination.Offset.Name}} = {{if eq .Pagination.Increment 1}}1{{else}}0{{end}}{{end}}
     results <- data.frame()
     while (TRUE) {
         json <- {{template "method-do" .}}

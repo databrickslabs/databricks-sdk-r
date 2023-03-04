@@ -4,7 +4,7 @@
 \alias{service_principals_get}
 \title{Get service principal details.}
 \usage{
-service_principals_get(id, ...)
+service_principals_get(id)
 }
 \arguments{
 \item{id}{Required. Unique ID for a service principal in the Databricks Workspace.}

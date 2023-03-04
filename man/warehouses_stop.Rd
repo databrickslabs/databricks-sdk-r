@@ -4,7 +4,7 @@
 \alias{warehouses_stop}
 \title{Stop a warehouse.}
 \usage{
-warehouses_stop(id, timeout = 20, callback = cli_reporter, ...)
+warehouses_stop(id, timeout = 20, callback = cli_reporter)
 }
 \arguments{
 \item{id}{Required. Required.}

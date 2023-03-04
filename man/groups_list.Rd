@@ -11,8 +11,7 @@ groups_list(
   filter = NULL,
   sort_by = NULL,
   sort_order = NULL,
-  start_index = NULL,
-  ...
+  start_index = NULL
 )
 }
 \arguments{

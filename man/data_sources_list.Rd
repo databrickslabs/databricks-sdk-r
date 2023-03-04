@@ -4,7 +4,7 @@
 \alias{data_sources_list}
 \title{Get a list of SQL warehouses.}
 \usage{
-data_sources_list(...)
+data_sources_list()
 }
 \description{
 Retrieves a full list of SQL warehouses available in this workspace. All

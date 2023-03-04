@@ -4,7 +4,7 @@
 \alias{recipients_rotate_token}
 \title{Rotate a token.}
 \usage{
-recipients_rotate_token(existing_token_expire_in_seconds, name, ...)
+recipients_rotate_token(existing_token_expire_in_seconds, name)
 }
 \arguments{
 \item{existing_token_expire_in_seconds}{Required. The expiration time of the bearer token in ISO 8601 format.}

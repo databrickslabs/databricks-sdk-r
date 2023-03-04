@@ -4,7 +4,7 @@
 \alias{repos_get}
 \title{Get a repo.}
 \usage{
-repos_get(repo_id, ...)
+repos_get(repo_id)
 }
 \arguments{
 \item{repo_id}{Required. The ID for the corresponding repo to access.}

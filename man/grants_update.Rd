@@ -4,7 +4,7 @@
 \alias{grants_update}
 \title{Update permissions.}
 \usage{
-grants_update(securable_type, full_name, changes = NULL, ...)
+grants_update(securable_type, full_name, changes = NULL)
 }
 \arguments{
 \item{securable_type}{Required. Type of securable.}

@@ -4,7 +4,7 @@
 \alias{command_execution_destroy}
 \title{Delete an execution context.}
 \usage{
-command_execution_destroy(cluster_id, context_id, ...)
+command_execution_destroy(cluster_id, context_id)
 }
 \arguments{
 \item{cluster_id}{Required.}

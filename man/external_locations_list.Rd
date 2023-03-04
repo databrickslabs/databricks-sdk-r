@@ -4,7 +4,7 @@
 \alias{external_locations_list}
 \title{List external locations.}
 \usage{
-external_locations_list(...)
+external_locations_list()
 }
 \value{
 \code{data.frame} with all of the response pages.

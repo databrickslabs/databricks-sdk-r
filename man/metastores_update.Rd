@@ -13,8 +13,7 @@ metastores_update(
   name = NULL,
   owner = NULL,
   privilege_model_version = NULL,
-  storage_root_credential_id = NULL,
-  ...
+  storage_root_credential_id = NULL
 )
 }
 \arguments{

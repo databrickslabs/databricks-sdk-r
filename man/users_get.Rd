@@ -4,7 +4,7 @@
 \alias{users_get}
 \title{Get user details.}
 \usage{
-users_get(id, ...)
+users_get(id)
 }
 \arguments{
 \item{id}{Required. Unique ID for a user in the Databricks Workspace.}

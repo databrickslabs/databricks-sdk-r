@@ -4,7 +4,7 @@
 \alias{git_credentials_delete}
 \title{Delete a credential.}
 \usage{
-git_credentials_delete(credential_id, ...)
+git_credentials_delete(credential_id)
 }
 \arguments{
 \item{credential_id}{Required. The ID for the corresponding credential to access.}

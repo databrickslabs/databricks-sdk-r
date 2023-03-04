@@ -11,8 +11,7 @@ groups_create(
   external_id = NULL,
   groups = NULL,
   members = NULL,
-  roles = NULL,
-  ...
+  roles = NULL
 )
 }
 \arguments{

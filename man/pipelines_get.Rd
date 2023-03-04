@@ -4,7 +4,7 @@
 \alias{pipelines_get}
 \title{Get a pipeline.}
 \usage{
-pipelines_get(pipeline_id, ...)
+pipelines_get(pipeline_id)
 }
 \arguments{
 \item{pipeline_id}{Required.}

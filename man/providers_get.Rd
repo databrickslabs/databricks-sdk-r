@@ -4,7 +4,7 @@
 \alias{providers_get}
 \title{Get a provider.}
 \usage{
-providers_get(name, ...)
+providers_get(name)
 }
 \arguments{
 \item{name}{Required. Name of the provider.}

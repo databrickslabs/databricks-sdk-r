@@ -4,7 +4,7 @@
 \alias{tables_delete}
 \title{Delete a table.}
 \usage{
-tables_delete(full_name, ...)
+tables_delete(full_name)
 }
 \arguments{
 \item{full_name}{Required. Full name of the table.}

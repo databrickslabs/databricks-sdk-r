@@ -4,7 +4,7 @@
 \alias{m_lflow_runs_log_parameter}
 \title{Log a param.}
 \usage{
-m_lflow_runs_log_parameter(key, value, run_id = NULL, run_uuid = NULL, ...)
+m_lflow_runs_log_parameter(key, value, run_id = NULL, run_uuid = NULL)
 }
 \arguments{
 \item{key}{Required. Name of the param.}

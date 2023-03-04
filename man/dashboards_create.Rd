@@ -11,8 +11,7 @@ dashboards_create(
   name = NULL,
   parent = NULL,
   tags = NULL,
-  widgets = NULL,
-  ...
+  widgets = NULL
 )
 }
 \arguments{

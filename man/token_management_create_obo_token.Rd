@@ -7,8 +7,7 @@
 token_management_create_obo_token(
   application_id,
   lifetime_seconds,
-  comment = NULL,
-  ...
+  comment = NULL
 )
 }
 \arguments{

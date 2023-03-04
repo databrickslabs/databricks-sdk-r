@@ -4,7 +4,7 @@
 \alias{global_init_scripts_create}
 \title{Create init script.}
 \usage{
-global_init_scripts_create(name, script, enabled = NULL, position = NULL, ...)
+global_init_scripts_create(name, script, enabled = NULL, position = NULL)
 }
 \arguments{
 \item{name}{Required. The name of the script.}

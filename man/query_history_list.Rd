@@ -8,8 +8,7 @@ query_history_list(
   filter_by = NULL,
   include_metrics = NULL,
   max_results = NULL,
-  page_token = NULL,
-  ...
+  page_token = NULL
 )
 }
 \arguments{

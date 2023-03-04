@@ -4,7 +4,7 @@
 \alias{tokens_create}
 \title{Create a user token.}
 \usage{
-tokens_create(comment = NULL, lifetime_seconds = NULL, ...)
+tokens_create(comment = NULL, lifetime_seconds = NULL)
 }
 \arguments{
 \item{comment}{Optional description to attach to the token.}

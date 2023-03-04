@@ -16,8 +16,7 @@ warehouses_set_workspace_warehouse_config(
   instance_profile_arn = NULL,
   security_policy = NULL,
   serverless_agreement = NULL,
-  sql_configuration_parameters = NULL,
-  ...
+  sql_configuration_parameters = NULL
 )
 }
 \arguments{

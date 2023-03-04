@@ -4,7 +4,7 @@
 \alias{shares_update}
 \title{Update a share.}
 \usage{
-shares_update(name, comment = NULL, owner = NULL, updates = NULL, ...)
+shares_update(name, comment = NULL, owner = NULL, updates = NULL)
 }
 \arguments{
 \item{name}{Name of the share.}

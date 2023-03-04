@@ -4,7 +4,7 @@
 \alias{registered_models_create}
 \title{Create a model.}
 \usage{
-registered_models_create(name, description = NULL, tags = NULL, ...)
+registered_models_create(name, description = NULL, tags = NULL)
 }
 \arguments{
 \item{name}{Required. Register models under this name.}

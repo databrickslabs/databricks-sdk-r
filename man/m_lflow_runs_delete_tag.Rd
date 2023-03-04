@@ -4,7 +4,7 @@
 \alias{m_lflow_runs_delete_tag}
 \title{Delete a tag.}
 \usage{
-m_lflow_runs_delete_tag(run_id, key, ...)
+m_lflow_runs_delete_tag(run_id, key)
 }
 \arguments{
 \item{run_id}{Required. ID of the run that the tag was logged under.}

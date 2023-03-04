@@ -4,7 +4,7 @@
 \alias{ip_access_lists_get}
 \title{Get access list.}
 \usage{
-ip_access_lists_get(ip_access_list_id, ...)
+ip_access_lists_get(ip_access_list_id)
 }
 \arguments{
 \item{ip_access_list_id}{Required. The ID for the corresponding IP access list to modify.}

@@ -4,7 +4,7 @@
 \alias{clusters_unpin}
 \title{Unpin cluster.}
 \usage{
-clusters_unpin(cluster_id, ...)
+clusters_unpin(cluster_id)
 }
 \arguments{
 \item{cluster_id}{Required. \if{html}{\out{<needs content added>}}.}

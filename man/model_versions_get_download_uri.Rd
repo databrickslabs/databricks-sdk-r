@@ -4,7 +4,7 @@
 \alias{model_versions_get_download_uri}
 \title{Get a model version URI.}
 \usage{
-model_versions_get_download_uri(name, version, ...)
+model_versions_get_download_uri(name, version)
 }
 \arguments{
 \item{name}{Required. Name of the registered model.}

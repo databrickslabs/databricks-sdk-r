@@ -4,7 +4,7 @@
 \alias{dashboards_get}
 \title{Retrieve a definition.}
 \usage{
-dashboards_get(dashboard_id, ...)
+dashboards_get(dashboard_id)
 }
 \arguments{
 \item{dashboard_id}{Required.}

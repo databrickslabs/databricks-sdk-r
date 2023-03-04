@@ -4,7 +4,7 @@
 \alias{serving_endpoints_query}
 \title{Query a serving endpoint with provided model input.}
 \usage{
-serving_endpoints_query(name, ...)
+serving_endpoints_query(name)
 }
 \arguments{
 \item{name}{Required. The name of the serving endpoint.}

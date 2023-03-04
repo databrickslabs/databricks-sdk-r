@@ -4,7 +4,7 @@
 \alias{serving_endpoints_get}
 \title{Get a single serving endpoint.}
 \usage{
-serving_endpoints_get(name, ...)
+serving_endpoints_get(name)
 }
 \arguments{
 \item{name}{Required. The name of the serving endpoint.}
