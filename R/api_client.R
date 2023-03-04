@@ -172,3 +172,10 @@ NULL
 }
 
 .api <- .DatabricksClient()
+
+#' Override default authentication credentials for Databricks SDK for R
+#'
+#' @export
+configure <- function(...) {
+  .api <- .DatabricksClient(...)
+}
