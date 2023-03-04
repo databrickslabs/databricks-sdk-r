@@ -128,6 +128,7 @@ PRODUCT_VERSION <- "0.0.0"
   do <- function(method, path, body = NULL, query = NULL) {
     visitor <- authenticate()
     headers <- visitor()
+    headers["Connection"] <- "close"
     if (!is.null(body)) {
       body <- base::Filter(length, body)
       body <- jsonlite::toJSON(body, auto_unbox = TRUE, digits = 22, null = "null")
@@ -136,8 +137,9 @@ PRODUCT_VERSION <- "0.0.0"
     response <- httr::VERB(method, url,
       httr::add_headers(headers),
       httr::user_agent(user_agent()),
-      httr::config(verbose = FALSE, http_version=11),
+      httr::config(verbose = FALSE, connecttimeout = 30),
       httr::accept_json(),
+      httr::write_memory(),
       query = base::Filter(length, query),
       body = body)
     if (httr::http_error(response)) {

@@ -78,7 +78,7 @@ databricks_clusters_create <- function(spark_version, apply_policy_default_value
     spark_env_vars = NULL, 
     ssh_public_keys = NULL, 
     workload_type = NULL, 
-    timeout=20, ...) {
+    timeout=20, callback = cli_reporter, ...) {
     body <- list(
         apply_policy_default_values = apply_policy_default_values, 
         autoscale = autoscale, 
@@ -116,6 +116,9 @@ databricks_clusters_create <- function(spark_version, apply_policy_default_value
         status <- poll$state
         status_message <- poll$state_message
         if (status %in% target_states) {
+            if (!is.null(callback)) {
+                callback(paste0(status, ": ", status_message), done=TRUE)
+            }
             return (poll)
         }
         if (status %in% failure_states) {
@@ -128,8 +131,9 @@ databricks_clusters_create <- function(spark_version, apply_policy_default_value
             # sleep 10s max per attempt
             sleep <- 10
         }
-        msg <- paste(prefix, status, status_message, paste0(". Sleeping ~", sleep, "s"))
-        message(msg)
+        if (!is.null(callback)) {
+            callback(paste0(status, ": ", status_message), done=FALSE)
+        }
         random_pause <- runif(1, min = 0.1, max = 0.5)
         Sys.sleep(sleep + random_pause)
         attempt <- attempt + 1
@@ -146,7 +150,7 @@ databricks_clusters_create <- function(spark_version, apply_policy_default_value
 #' `TERMINATED` state, nothing will happen.
 #'
 #' @param cluster_id The cluster to be terminated.
-databricks_clusters_delete <- function(cluster_id, timeout=20, ...) {
+databricks_clusters_delete <- function(cluster_id, timeout=20, callback = cli_reporter, ...) {
     body <- list(
         cluster_id = cluster_id, ...)
     
@@ -161,6 +165,9 @@ databricks_clusters_delete <- function(cluster_id, timeout=20, ...) {
         status <- poll$state
         status_message <- poll$state_message
         if (status %in% target_states) {
+            if (!is.null(callback)) {
+                callback(paste0(status, ": ", status_message), done=TRUE)
+            }
             return (poll)
         }
         if (status %in% failure_states) {
@@ -173,8 +180,9 @@ databricks_clusters_delete <- function(cluster_id, timeout=20, ...) {
             # sleep 10s max per attempt
             sleep <- 10
         }
-        msg <- paste(prefix, status, status_message, paste0(". Sleeping ~", sleep, "s"))
-        message(msg)
+        if (!is.null(callback)) {
+            callback(paste0(status, ": ", status_message), done=FALSE)
+        }
         random_pause <- runif(1, min = 0.1, max = 0.5)
         Sys.sleep(sleep + random_pause)
         attempt <- attempt + 1
@@ -246,7 +254,7 @@ databricks_clusters_edit <- function(cluster_id, spark_version, apply_policy_def
     spark_env_vars = NULL, 
     ssh_public_keys = NULL, 
     workload_type = NULL, 
-    timeout=20, ...) {
+    timeout=20, callback = cli_reporter, ...) {
     body <- list(
         apply_policy_default_values = apply_policy_default_values, 
         autoscale = autoscale, 
@@ -285,6 +293,9 @@ databricks_clusters_edit <- function(cluster_id, spark_version, apply_policy_def
         status <- poll$state
         status_message <- poll$state_message
         if (status %in% target_states) {
+            if (!is.null(callback)) {
+                callback(paste0(status, ": ", status_message), done=TRUE)
+            }
             return (poll)
         }
         if (status %in% failure_states) {
@@ -297,8 +308,9 @@ databricks_clusters_edit <- function(cluster_id, spark_version, apply_policy_def
             # sleep 10s max per attempt
             sleep <- 10
         }
-        msg <- paste(prefix, status, status_message, paste0(". Sleeping ~", sleep, "s"))
-        message(msg)
+        if (!is.null(callback)) {
+            callback(paste0(status, ": ", status_message), done=FALSE)
+        }
         random_pause <- runif(1, min = 0.1, max = 0.5)
         Sys.sleep(sleep + random_pause)
         attempt <- attempt + 1
@@ -453,7 +465,7 @@ databricks_clusters_pin <- function(cluster_id, ...) {
 #' @param num_workers Number of worker nodes that this cluster should have.
 databricks_clusters_resize <- function(cluster_id, autoscale = NULL, 
     num_workers = NULL, 
-    timeout=20, ...) {
+    timeout=20, callback = cli_reporter, ...) {
     body <- list(
         autoscale = autoscale, 
         cluster_id = cluster_id, 
@@ -470,6 +482,9 @@ databricks_clusters_resize <- function(cluster_id, autoscale = NULL,
         status <- poll$state
         status_message <- poll$state_message
         if (status %in% target_states) {
+            if (!is.null(callback)) {
+                callback(paste0(status, ": ", status_message), done=TRUE)
+            }
             return (poll)
         }
         if (status %in% failure_states) {
@@ -482,8 +497,9 @@ databricks_clusters_resize <- function(cluster_id, autoscale = NULL,
             # sleep 10s max per attempt
             sleep <- 10
         }
-        msg <- paste(prefix, status, status_message, paste0(". Sleeping ~", sleep, "s"))
-        message(msg)
+        if (!is.null(callback)) {
+            callback(paste0(status, ": ", status_message), done=FALSE)
+        }
         random_pause <- runif(1, min = 0.1, max = 0.5)
         Sys.sleep(sleep + random_pause)
         attempt <- attempt + 1
@@ -500,7 +516,7 @@ databricks_clusters_resize <- function(cluster_id, autoscale = NULL,
 #' @param cluster_id The cluster to be started.
 #' @param restart_user <needs content added>.
 databricks_clusters_restart <- function(cluster_id, restart_user = NULL, 
-    timeout=20, ...) {
+    timeout=20, callback = cli_reporter, ...) {
     body <- list(
         cluster_id = cluster_id, 
         restart_user = restart_user, ...)
@@ -516,6 +532,9 @@ databricks_clusters_restart <- function(cluster_id, restart_user = NULL,
         status <- poll$state
         status_message <- poll$state_message
         if (status %in% target_states) {
+            if (!is.null(callback)) {
+                callback(paste0(status, ": ", status_message), done=TRUE)
+            }
             return (poll)
         }
         if (status %in% failure_states) {
@@ -528,8 +547,9 @@ databricks_clusters_restart <- function(cluster_id, restart_user = NULL,
             # sleep 10s max per attempt
             sleep <- 10
         }
-        msg <- paste(prefix, status, status_message, paste0(". Sleeping ~", sleep, "s"))
-        message(msg)
+        if (!is.null(callback)) {
+            callback(paste0(status, ": ", status_message), done=FALSE)
+        }
         random_pause <- runif(1, min = 0.1, max = 0.5)
         Sys.sleep(sleep + random_pause)
         attempt <- attempt + 1
@@ -559,7 +579,7 @@ databricks_clusters_spark_versions <- function(...) {
 #' will happen. * Clusters launched to run a job cannot be started.
 #'
 #' @param cluster_id The cluster to be started.
-databricks_clusters_start <- function(cluster_id, timeout=20, ...) {
+databricks_clusters_start <- function(cluster_id, timeout=20, callback = cli_reporter, ...) {
     body <- list(
         cluster_id = cluster_id, ...)
     
@@ -574,6 +594,9 @@ databricks_clusters_start <- function(cluster_id, timeout=20, ...) {
         status <- poll$state
         status_message <- poll$state_message
         if (status %in% target_states) {
+            if (!is.null(callback)) {
+                callback(paste0(status, ": ", status_message), done=TRUE)
+            }
             return (poll)
         }
         if (status %in% failure_states) {
@@ -586,8 +609,9 @@ databricks_clusters_start <- function(cluster_id, timeout=20, ...) {
             # sleep 10s max per attempt
             sleep <- 10
         }
-        msg <- paste(prefix, status, status_message, paste0(". Sleeping ~", sleep, "s"))
-        message(msg)
+        if (!is.null(callback)) {
+            callback(paste0(status, ": ", status_message), done=FALSE)
+        }
         random_pause <- runif(1, min = 0.1, max = 0.5)
         Sys.sleep(sleep + random_pause)
         attempt <- attempt + 1

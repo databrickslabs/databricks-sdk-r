@@ -18,7 +18,7 @@ databricks_serving_endpoints_build_logs <- function(name, served_model_name, ...
 #'
 #' @param config The core config of the serving endpoint.
 #' @param name The name of the serving endpoint.
-databricks_serving_endpoints_create <- function(name, config, timeout=20, ...) {
+databricks_serving_endpoints_create <- function(name, config, timeout=20, callback = cli_reporter, ...) {
     body <- list(
         config = config, 
         name = name, ...)
@@ -34,6 +34,9 @@ databricks_serving_endpoints_create <- function(name, config, timeout=20, ...) {
         status <- poll$state$config_update
         status_message <- paste("current status:", status)
         if (status %in% target_states) {
+            if (!is.null(callback)) {
+                callback(paste0(status, ": ", status_message), done=TRUE)
+            }
             return (poll)
         }
         if (status %in% failure_states) {
@@ -46,8 +49,9 @@ databricks_serving_endpoints_create <- function(name, config, timeout=20, ...) {
             # sleep 10s max per attempt
             sleep <- 10
         }
-        msg <- paste(prefix, status, status_message, paste0(". Sleeping ~", sleep, "s"))
-        message(msg)
+        if (!is.null(callback)) {
+            callback(paste0(status, ": ", status_message), done=FALSE)
+        }
         random_pause <- runif(1, min = 0.1, max = 0.5)
         Sys.sleep(sleep + random_pause)
         attempt <- attempt + 1
@@ -130,7 +134,7 @@ databricks_serving_endpoints_query <- function(name, ...) {
 #' @param served_models A list of served models for the endpoint to serve.
 #' @param traffic_config The traffic config defining how invocations to the serving endpoint should be routed.
 databricks_serving_endpoints_update_config <- function(served_models, name, traffic_config = NULL, 
-    timeout=20, ...) {
+    timeout=20, callback = cli_reporter, ...) {
     body <- list(
         served_models = served_models, 
         traffic_config = traffic_config, ...)
@@ -146,6 +150,9 @@ databricks_serving_endpoints_update_config <- function(served_models, name, traf
         status <- poll$state$config_update
         status_message <- paste("current status:", status)
         if (status %in% target_states) {
+            if (!is.null(callback)) {
+                callback(paste0(status, ": ", status_message), done=TRUE)
+            }
             return (poll)
         }
         if (status %in% failure_states) {
@@ -158,8 +165,9 @@ databricks_serving_endpoints_update_config <- function(served_models, name, traf
             # sleep 10s max per attempt
             sleep <- 10
         }
-        msg <- paste(prefix, status, status_message, paste0(". Sleeping ~", sleep, "s"))
-        message(msg)
+        if (!is.null(callback)) {
+            callback(paste0(status, ": ", status_message), done=FALSE)
+        }
         random_pause <- runif(1, min = 0.1, max = 0.5)
         Sys.sleep(sleep + random_pause)
         attempt <- attempt + 1

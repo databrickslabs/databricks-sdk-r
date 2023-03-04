@@ -7,7 +7,7 @@
 databricks_{{.Service.SnakeName}}_{{.SnakeName}} <- function(
     {{- if .Request}}{{range .Request.RequiredFields}}{{.SnakeName}}, {{end -}}
     {{- range .Request.NonRequiredFields}}{{.SnakeName}} = NULL, 
-    {{end}}{{- end -}}{{if and .Wait (not .IsCrudRead)}}timeout={{.Wait.Timeout}}, {{end}}...) {
+    {{end}}{{- end -}}{{if and .Wait (not .IsCrudRead)}}timeout={{.Wait.Timeout}}, callback = cli_reporter, {{end}}...) {
     {{template "method-serialize" .}}
     {{template "method-call" .}}
 }
@@ -91,6 +91,9 @@ databricks_{{.Service.SnakeName}}_{{.SnakeName}} <- function(
         status_message <- paste("current status:", status)
         {{- end}}
         if (status %in% target_states) {
+            if (!is.null(callback)) {
+                callback(paste0(status, ": ", status_message), done=TRUE)
+            }
             return (poll)
         }
         {{if .Wait.Failure -}}
@@ -106,8 +109,9 @@ databricks_{{.Service.SnakeName}}_{{.SnakeName}} <- function(
             # sleep 10s max per attempt
             sleep <- 10
         }
-        msg <- paste(prefix, status, status_message, paste0(". Sleeping ~", sleep, "s"))
-        message(msg)
+        if (!is.null(callback)) {
+            callback(paste0(status, ": ", status_message), done=FALSE)
+        }
         random_pause <- runif(1, min = 0.1, max = 0.5)
         Sys.sleep(sleep + random_pause)
         attempt <- attempt + 1

@@ -157,7 +157,7 @@ databricks_pipelines_list_updates <- function(pipeline_id, max_results = NULL,
 #' Resets a pipeline.
 #'
 #' @param pipeline_id 
-databricks_pipelines_reset <- function(pipeline_id, timeout=20, ...) {
+databricks_pipelines_reset <- function(pipeline_id, timeout=20, callback = cli_reporter, ...) {
     
     
     .api$do("POST", paste("/api/2.0/pipelines/", pipeline_id, "/reset", , sep = ""))
@@ -171,6 +171,9 @@ databricks_pipelines_reset <- function(pipeline_id, timeout=20, ...) {
         status <- poll$state
         status_message <- poll$cause
         if (status %in% target_states) {
+            if (!is.null(callback)) {
+                callback(paste0(status, ": ", status_message), done=TRUE)
+            }
             return (poll)
         }
         if (status %in% failure_states) {
@@ -183,8 +186,9 @@ databricks_pipelines_reset <- function(pipeline_id, timeout=20, ...) {
             # sleep 10s max per attempt
             sleep <- 10
         }
-        msg <- paste(prefix, status, status_message, paste0(". Sleeping ~", sleep, "s"))
-        message(msg)
+        if (!is.null(callback)) {
+            callback(paste0(status, ": ", status_message), done=FALSE)
+        }
         random_pause <- runif(1, min = 0.1, max = 0.5)
         Sys.sleep(sleep + random_pause)
         attempt <- attempt + 1
@@ -221,7 +225,7 @@ databricks_pipelines_start_update <- function(pipeline_id, cause = NULL,
 #' Stops a pipeline.
 #'
 #' @param pipeline_id 
-databricks_pipelines_stop <- function(pipeline_id, timeout=20, ...) {
+databricks_pipelines_stop <- function(pipeline_id, timeout=20, callback = cli_reporter, ...) {
     
     
     .api$do("POST", paste("/api/2.0/pipelines/", pipeline_id, "/stop", , sep = ""))
@@ -235,6 +239,9 @@ databricks_pipelines_stop <- function(pipeline_id, timeout=20, ...) {
         status <- poll$state
         status_message <- poll$cause
         if (status %in% target_states) {
+            if (!is.null(callback)) {
+                callback(paste0(status, ": ", status_message), done=TRUE)
+            }
             return (poll)
         }
         if (status %in% failure_states) {
@@ -247,8 +254,9 @@ databricks_pipelines_stop <- function(pipeline_id, timeout=20, ...) {
             # sleep 10s max per attempt
             sleep <- 10
         }
-        msg <- paste(prefix, status, status_message, paste0(". Sleeping ~", sleep, "s"))
-        message(msg)
+        if (!is.null(callback)) {
+            callback(paste0(status, ": ", status_message), done=FALSE)
+        }
         random_pause <- runif(1, min = 0.1, max = 0.5)
         Sys.sleep(sleep + random_pause)
         attempt <- attempt + 1

@@ -12,7 +12,7 @@
 databricks_command_execution_cancel <- function(cluster_id = NULL, 
     command_id = NULL, 
     context_id = NULL, 
-    timeout=20, ...) {
+    timeout=20, callback = cli_reporter, ...) {
     body <- list(
         clusterId = cluster_id, 
         commandId = command_id, 
@@ -32,6 +32,9 @@ databricks_command_execution_cancel <- function(cluster_id = NULL,
             status_message <- poll$results$cause
         }
         if (status %in% target_states) {
+            if (!is.null(callback)) {
+                callback(paste0(status, ": ", status_message), done=TRUE)
+            }
             return (poll)
         }
         if (status %in% failure_states) {
@@ -44,8 +47,9 @@ databricks_command_execution_cancel <- function(cluster_id = NULL,
             # sleep 10s max per attempt
             sleep <- 10
         }
-        msg <- paste(prefix, status, status_message, paste0(". Sleeping ~", sleep, "s"))
-        message(msg)
+        if (!is.null(callback)) {
+            callback(paste0(status, ": ", status_message), done=FALSE)
+        }
         random_pause <- runif(1, min = 0.1, max = 0.5)
         Sys.sleep(sleep + random_pause)
         attempt <- attempt + 1
@@ -97,7 +101,7 @@ databricks_command_execution_context_status <- function(cluster_id, context_id, 
 #' @param language 
 databricks_command_execution_create <- function(cluster_id = NULL, 
     language = NULL, 
-    timeout=20, ...) {
+    timeout=20, callback = cli_reporter, ...) {
     body <- list(
         clusterId = cluster_id, 
         language = language, ...)
@@ -113,6 +117,9 @@ databricks_command_execution_create <- function(cluster_id = NULL,
         status <- poll$status
         status_message <- paste("current status:", status)
         if (status %in% target_states) {
+            if (!is.null(callback)) {
+                callback(paste0(status, ": ", status_message), done=TRUE)
+            }
             return (poll)
         }
         if (status %in% failure_states) {
@@ -125,8 +132,9 @@ databricks_command_execution_create <- function(cluster_id = NULL,
             # sleep 10s max per attempt
             sleep <- 10
         }
-        msg <- paste(prefix, status, status_message, paste0(". Sleeping ~", sleep, "s"))
-        message(msg)
+        if (!is.null(callback)) {
+            callback(paste0(status, ": ", status_message), done=FALSE)
+        }
         random_pause <- runif(1, min = 0.1, max = 0.5)
         Sys.sleep(sleep + random_pause)
         attempt <- attempt + 1
@@ -165,7 +173,7 @@ databricks_command_execution_execute <- function(cluster_id = NULL,
     command = NULL, 
     context_id = NULL, 
     language = NULL, 
-    timeout=20, ...) {
+    timeout=20, callback = cli_reporter, ...) {
     body <- list(
         clusterId = cluster_id, 
         command = command, 
@@ -183,6 +191,9 @@ databricks_command_execution_execute <- function(cluster_id = NULL,
         status <- poll$status
         status_message <- paste("current status:", status)
         if (status %in% target_states) {
+            if (!is.null(callback)) {
+                callback(paste0(status, ": ", status_message), done=TRUE)
+            }
             return (poll)
         }
         if (status %in% failure_states) {
@@ -195,8 +206,9 @@ databricks_command_execution_execute <- function(cluster_id = NULL,
             # sleep 10s max per attempt
             sleep <- 10
         }
-        msg <- paste(prefix, status, status_message, paste0(". Sleeping ~", sleep, "s"))
-        message(msg)
+        if (!is.null(callback)) {
+            callback(paste0(status, ": ", status_message), done=FALSE)
+        }
         random_pause <- runif(1, min = 0.1, max = 0.5)
         Sys.sleep(sleep + random_pause)
         attempt <- attempt + 1

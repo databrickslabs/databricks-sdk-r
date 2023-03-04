@@ -30,7 +30,7 @@ databricks_warehouses_create <- function(auto_stop_mins = NULL,
     spot_instance_policy = NULL, 
     tags = NULL, 
     warehouse_type = NULL, 
-    timeout=20, ...) {
+    timeout=20, callback = cli_reporter, ...) {
     body <- list(
         auto_stop_mins = auto_stop_mins, 
         channel = channel, 
@@ -60,6 +60,9 @@ databricks_warehouses_create <- function(auto_stop_mins = NULL,
             status_message <- poll$health$summary
         }
         if (status %in% target_states) {
+            if (!is.null(callback)) {
+                callback(paste0(status, ": ", status_message), done=TRUE)
+            }
             return (poll)
         }
         if (status %in% failure_states) {
@@ -72,8 +75,9 @@ databricks_warehouses_create <- function(auto_stop_mins = NULL,
             # sleep 10s max per attempt
             sleep <- 10
         }
-        msg <- paste(prefix, status, status_message, paste0(". Sleeping ~", sleep, "s"))
-        message(msg)
+        if (!is.null(callback)) {
+            callback(paste0(status, ": ", status_message), done=FALSE)
+        }
         random_pause <- runif(1, min = 0.1, max = 0.5)
         Sys.sleep(sleep + random_pause)
         attempt <- attempt + 1
@@ -87,7 +91,7 @@ databricks_warehouses_create <- function(auto_stop_mins = NULL,
 #' Deletes a SQL warehouse.
 #'
 #' @param id Required.
-databricks_warehouses_delete <- function(id, timeout=20, ...) {
+databricks_warehouses_delete <- function(id, timeout=20, callback = cli_reporter, ...) {
     
     
     .api$do("DELETE", paste("/api/2.0/sql/warehouses/", id, sep = ""))
@@ -103,6 +107,9 @@ databricks_warehouses_delete <- function(id, timeout=20, ...) {
             status_message <- poll$health$summary
         }
         if (status %in% target_states) {
+            if (!is.null(callback)) {
+                callback(paste0(status, ": ", status_message), done=TRUE)
+            }
             return (poll)
         }
         prefix <- paste0("databricks_warehouses_get(id=", id, ")")
@@ -111,8 +118,9 @@ databricks_warehouses_delete <- function(id, timeout=20, ...) {
             # sleep 10s max per attempt
             sleep <- 10
         }
-        msg <- paste(prefix, status, status_message, paste0(". Sleeping ~", sleep, "s"))
-        message(msg)
+        if (!is.null(callback)) {
+            callback(paste0(status, ": ", status_message), done=FALSE)
+        }
         random_pause <- runif(1, min = 0.1, max = 0.5)
         Sys.sleep(sleep + random_pause)
         attempt <- attempt + 1
@@ -154,7 +162,7 @@ databricks_warehouses_edit <- function(id, auto_stop_mins = NULL,
     spot_instance_policy = NULL, 
     tags = NULL, 
     warehouse_type = NULL, 
-    timeout=20, ...) {
+    timeout=20, callback = cli_reporter, ...) {
     body <- list(
         auto_stop_mins = auto_stop_mins, 
         channel = channel, 
@@ -185,6 +193,9 @@ databricks_warehouses_edit <- function(id, auto_stop_mins = NULL,
             status_message <- poll$health$summary
         }
         if (status %in% target_states) {
+            if (!is.null(callback)) {
+                callback(paste0(status, ": ", status_message), done=TRUE)
+            }
             return (poll)
         }
         if (status %in% failure_states) {
@@ -197,8 +208,9 @@ databricks_warehouses_edit <- function(id, auto_stop_mins = NULL,
             # sleep 10s max per attempt
             sleep <- 10
         }
-        msg <- paste(prefix, status, status_message, paste0(". Sleeping ~", sleep, "s"))
-        message(msg)
+        if (!is.null(callback)) {
+            callback(paste0(status, ": ", status_message), done=FALSE)
+        }
         random_pause <- runif(1, min = 0.1, max = 0.5)
         Sys.sleep(sleep + random_pause)
         attempt <- attempt + 1
@@ -295,7 +307,7 @@ databricks_warehouses_set_workspace_warehouse_config <- function(channel = NULL,
 #' Starts a SQL warehouse.
 #'
 #' @param id Required.
-databricks_warehouses_start <- function(id, timeout=20, ...) {
+databricks_warehouses_start <- function(id, timeout=20, callback = cli_reporter, ...) {
     
     
     .api$do("POST", paste("/api/2.0/sql/warehouses/", id, "/start", , sep = ""))
@@ -312,6 +324,9 @@ databricks_warehouses_start <- function(id, timeout=20, ...) {
             status_message <- poll$health$summary
         }
         if (status %in% target_states) {
+            if (!is.null(callback)) {
+                callback(paste0(status, ": ", status_message), done=TRUE)
+            }
             return (poll)
         }
         if (status %in% failure_states) {
@@ -324,8 +339,9 @@ databricks_warehouses_start <- function(id, timeout=20, ...) {
             # sleep 10s max per attempt
             sleep <- 10
         }
-        msg <- paste(prefix, status, status_message, paste0(". Sleeping ~", sleep, "s"))
-        message(msg)
+        if (!is.null(callback)) {
+            callback(paste0(status, ": ", status_message), done=FALSE)
+        }
         random_pause <- runif(1, min = 0.1, max = 0.5)
         Sys.sleep(sleep + random_pause)
         attempt <- attempt + 1
@@ -339,7 +355,7 @@ databricks_warehouses_start <- function(id, timeout=20, ...) {
 #' Stops a SQL warehouse.
 #'
 #' @param id Required.
-databricks_warehouses_stop <- function(id, timeout=20, ...) {
+databricks_warehouses_stop <- function(id, timeout=20, callback = cli_reporter, ...) {
     
     
     .api$do("POST", paste("/api/2.0/sql/warehouses/", id, "/stop", , sep = ""))
@@ -355,6 +371,9 @@ databricks_warehouses_stop <- function(id, timeout=20, ...) {
             status_message <- poll$health$summary
         }
         if (status %in% target_states) {
+            if (!is.null(callback)) {
+                callback(paste0(status, ": ", status_message), done=TRUE)
+            }
             return (poll)
         }
         prefix <- paste0("databricks_warehouses_get(id=", id, ")")
@@ -363,8 +382,9 @@ databricks_warehouses_stop <- function(id, timeout=20, ...) {
             # sleep 10s max per attempt
             sleep <- 10
         }
-        msg <- paste(prefix, status, status_message, paste0(". Sleeping ~", sleep, "s"))
-        message(msg)
+        if (!is.null(callback)) {
+            callback(paste0(status, ": ", status_message), done=FALSE)
+        }
         random_pause <- runif(1, min = 0.1, max = 0.5)
         Sys.sleep(sleep + random_pause)
         attempt <- attempt + 1

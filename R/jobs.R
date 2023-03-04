@@ -19,7 +19,7 @@ databricks_jobs_cancel_all_runs <- function(job_id, ...) {
 #' running when this request completes.
 #'
 #' @param run_id This field is required.
-databricks_jobs_cancel_run <- function(run_id, timeout=20, ...) {
+databricks_jobs_cancel_run <- function(run_id, timeout=20, callback = cli_reporter, ...) {
     body <- list(
         run_id = run_id, ...)
     
@@ -37,6 +37,9 @@ databricks_jobs_cancel_run <- function(run_id, timeout=20, ...) {
             status_message <- poll$state$state_message
         }
         if (status %in% target_states) {
+            if (!is.null(callback)) {
+                callback(paste0(status, ": ", status_message), done=TRUE)
+            }
             return (poll)
         }
         if (status %in% failure_states) {
@@ -49,8 +52,9 @@ databricks_jobs_cancel_run <- function(run_id, timeout=20, ...) {
             # sleep 10s max per attempt
             sleep <- 10
         }
-        msg <- paste(prefix, status, status_message, paste0(". Sleeping ~", sleep, "s"))
-        message(msg)
+        if (!is.null(callback)) {
+            callback(paste0(status, ": ", status_message), done=FALSE)
+        }
         random_pause <- runif(1, min = 0.1, max = 0.5)
         Sys.sleep(sleep + random_pause)
         attempt <- attempt + 1
@@ -166,7 +170,7 @@ databricks_jobs_get <- function(job_id, ...) {
 #' @param include_history Whether to include the repair history in the response.
 #' @param run_id The canonical identifier of the run for which to retrieve the metadata.
 databricks_jobs_get_run <- function(run_id, include_history = NULL, 
-    timeout=20, ...) {
+    timeout=20, callback = cli_reporter, ...) {
     query <- list(
         include_history = include_history, 
         run_id = run_id, ...)
@@ -185,6 +189,9 @@ databricks_jobs_get_run <- function(run_id, include_history = NULL,
             status_message <- poll$state$state_message
         }
         if (status %in% target_states) {
+            if (!is.null(callback)) {
+                callback(paste0(status, ": ", status_message), done=TRUE)
+            }
             return (poll)
         }
         if (status %in% failure_states) {
@@ -197,8 +204,9 @@ databricks_jobs_get_run <- function(run_id, include_history = NULL,
             # sleep 10s max per attempt
             sleep <- 10
         }
-        msg <- paste(prefix, status, status_message, paste0(". Sleeping ~", sleep, "s"))
-        message(msg)
+        if (!is.null(callback)) {
+            callback(paste0(status, ": ", status_message), done=FALSE)
+        }
         random_pause <- runif(1, min = 0.1, max = 0.5)
         Sys.sleep(sleep + random_pause)
         attempt <- attempt + 1
@@ -348,7 +356,7 @@ databricks_jobs_repair_run <- function(run_id, dbt_commands = NULL,
     rerun_tasks = NULL, 
     spark_submit_params = NULL, 
     sql_params = NULL, 
-    timeout=20, ...) {
+    timeout=20, callback = cli_reporter, ...) {
     body <- list(
         dbt_commands = dbt_commands, 
         jar_params = jar_params, 
@@ -377,6 +385,9 @@ databricks_jobs_repair_run <- function(run_id, dbt_commands = NULL,
             status_message <- poll$state$state_message
         }
         if (status %in% target_states) {
+            if (!is.null(callback)) {
+                callback(paste0(status, ": ", status_message), done=TRUE)
+            }
             return (poll)
         }
         if (status %in% failure_states) {
@@ -389,8 +400,9 @@ databricks_jobs_repair_run <- function(run_id, dbt_commands = NULL,
             # sleep 10s max per attempt
             sleep <- 10
         }
-        msg <- paste(prefix, status, status_message, paste0(". Sleeping ~", sleep, "s"))
-        message(msg)
+        if (!is.null(callback)) {
+            callback(paste0(status, ": ", status_message), done=FALSE)
+        }
         random_pause <- runif(1, min = 0.1, max = 0.5)
         Sys.sleep(sleep + random_pause)
         attempt <- attempt + 1
@@ -437,7 +449,7 @@ databricks_jobs_run_now <- function(job_id, dbt_commands = NULL,
     python_params = NULL, 
     spark_submit_params = NULL, 
     sql_params = NULL, 
-    timeout=20, ...) {
+    timeout=20, callback = cli_reporter, ...) {
     body <- list(
         dbt_commands = dbt_commands, 
         idempotency_token = idempotency_token, 
@@ -464,6 +476,9 @@ databricks_jobs_run_now <- function(job_id, dbt_commands = NULL,
             status_message <- poll$state$state_message
         }
         if (status %in% target_states) {
+            if (!is.null(callback)) {
+                callback(paste0(status, ": ", status_message), done=TRUE)
+            }
             return (poll)
         }
         if (status %in% failure_states) {
@@ -476,8 +491,9 @@ databricks_jobs_run_now <- function(job_id, dbt_commands = NULL,
             # sleep 10s max per attempt
             sleep <- 10
         }
-        msg <- paste(prefix, status, status_message, paste0(". Sleeping ~", sleep, "s"))
-        message(msg)
+        if (!is.null(callback)) {
+            callback(paste0(status, ": ", status_message), done=FALSE)
+        }
         random_pause <- runif(1, min = 0.1, max = 0.5)
         Sys.sleep(sleep + random_pause)
         attempt <- attempt + 1
@@ -507,7 +523,7 @@ databricks_jobs_submit <- function(access_control_list = NULL,
     tasks = NULL, 
     timeout_seconds = NULL, 
     webhook_notifications = NULL, 
-    timeout=20, ...) {
+    timeout=20, callback = cli_reporter, ...) {
     body <- list(
         access_control_list = access_control_list, 
         git_source = git_source, 
@@ -531,6 +547,9 @@ databricks_jobs_submit <- function(access_control_list = NULL,
             status_message <- poll$state$state_message
         }
         if (status %in% target_states) {
+            if (!is.null(callback)) {
+                callback(paste0(status, ": ", status_message), done=TRUE)
+            }
             return (poll)
         }
         if (status %in% failure_states) {
@@ -543,8 +562,9 @@ databricks_jobs_submit <- function(access_control_list = NULL,
             # sleep 10s max per attempt
             sleep <- 10
         }
-        msg <- paste(prefix, status, status_message, paste0(". Sleeping ~", sleep, "s"))
-        message(msg)
+        if (!is.null(callback)) {
+            callback(paste0(status, ": ", status_message), done=FALSE)
+        }
         random_pause <- runif(1, min = 0.1, max = 0.5)
         Sys.sleep(sleep + random_pause)
         attempt <- attempt + 1
