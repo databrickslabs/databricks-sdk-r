@@ -47,29 +47,14 @@ users <- list()
 #' @rdname users_create
 #'
 #' @aliases users_create
-users_create <- function(id, active = NULL, 
-    display_name = NULL, 
-    emails = NULL, 
-    entitlements = NULL, 
-    external_id = NULL, 
-    groups = NULL, 
-    name = NULL, 
-    roles = NULL, 
-    user_name = NULL, 
-    ...) {
-    body <- list(
-        active = active, 
-        displayName = display_name, 
-        emails = emails, 
-        entitlements = entitlements, 
-        externalId = external_id, 
-        groups = groups, 
-        id = id, 
-        name = name, 
-        roles = roles, 
-        userName = user_name, ...)
-    
-    .api$do("POST", "/api/2.0/preview/scim/v2/Users", body = body)
+users_create <- function(id, active = NULL, display_name = NULL, emails = NULL, entitlements = NULL,
+  external_id = NULL, groups = NULL, name = NULL, roles = NULL, user_name = NULL,
+  ...) {
+  body <- list(active = active, displayName = display_name, emails = emails, entitlements = entitlements,
+    externalId = external_id, groups = groups, id = id, name = name, roles = roles,
+    userName = user_name, ...)
+
+  .api$do("POST", "/api/2.0/preview/scim/v2/Users", body = body)
 }
 users$create <- users_create
 
@@ -86,9 +71,9 @@ users$create <- users_create
 #'
 #' @aliases users_delete
 users_delete <- function(id, ...) {
-    
-    
-    .api$do("DELETE", paste("/api/2.0/preview/scim/v2/Users/", id, sep = ""))
+
+
+  .api$do("DELETE", paste("/api/2.0/preview/scim/v2/Users/", id, sep = ""))
 }
 users$delete <- users_delete
 
@@ -104,9 +89,9 @@ users$delete <- users_delete
 #'
 #' @aliases users_get
 users_get <- function(id, ...) {
-    
-    
-    .api$do("GET", paste("/api/2.0/preview/scim/v2/Users/", id, sep = ""))
+
+
+  .api$do("GET", paste("/api/2.0/preview/scim/v2/Users/", id, sep = ""))
 }
 users$get <- users_get
 
@@ -129,27 +114,16 @@ users$get <- users_get
 #' @rdname users_list
 #'
 #' @aliases users_list
-users_list <- function(attributes = NULL, 
-    count = NULL, 
-    excluded_attributes = NULL, 
-    filter = NULL, 
-    sort_by = NULL, 
-    sort_order = NULL, 
-    start_index = NULL, 
-    ...) {
-    query <- list(
-        attributes = attributes, 
-        count = count, 
-        excludedAttributes = excluded_attributes, 
-        filter = filter, 
-        sortBy = sort_by, 
-        sortOrder = sort_order, 
-        startIndex = start_index, ...)
-    
-    
-    json <- .api$do("GET", "/api/2.0/preview/scim/v2/Users", query = query)
-    return (json$Resources)
-    
+users_list <- function(attributes = NULL, count = NULL, excluded_attributes = NULL,
+  filter = NULL, sort_by = NULL, sort_order = NULL, start_index = NULL, ...) {
+  query <- list(attributes = attributes, count = count, excludedAttributes = excluded_attributes,
+    filter = filter, sortBy = sort_by, sortOrder = sort_order, startIndex = start_index,
+    ...)
+
+
+  json <- .api$do("GET", "/api/2.0/preview/scim/v2/Users", query = query)
+  return(json$Resources)
+
 }
 users$list <- users_list
 
@@ -166,12 +140,10 @@ users$list <- users_list
 #' @rdname users_patch
 #'
 #' @aliases users_patch
-users_patch <- function(id, operations = NULL, 
-    ...) {
-    body <- list(
-        operations = operations, ...)
-    
-    .api$do("PATCH", paste("/api/2.0/preview/scim/v2/Users/", id, sep = ""), body = body)
+users_patch <- function(id, operations = NULL, ...) {
+  body <- list(operations = operations, ...)
+
+  .api$do("PATCH", paste("/api/2.0/preview/scim/v2/Users/", id, sep = ""), body = body)
 }
 users$patch <- users_patch
 
@@ -195,29 +167,14 @@ users$patch <- users_patch
 #' @rdname users_update
 #'
 #' @aliases users_update
-users_update <- function(id, active = NULL, 
-    display_name = NULL, 
-    emails = NULL, 
-    entitlements = NULL, 
-    external_id = NULL, 
-    groups = NULL, 
-    name = NULL, 
-    roles = NULL, 
-    user_name = NULL, 
-    ...) {
-    body <- list(
-        active = active, 
-        displayName = display_name, 
-        emails = emails, 
-        entitlements = entitlements, 
-        externalId = external_id, 
-        groups = groups, 
-        id = id, 
-        name = name, 
-        roles = roles, 
-        userName = user_name, ...)
-    
-    .api$do("PUT", paste("/api/2.0/preview/scim/v2/Users/", id, sep = ""), body = body)
+users_update <- function(id, active = NULL, display_name = NULL, emails = NULL, entitlements = NULL,
+  external_id = NULL, groups = NULL, name = NULL, roles = NULL, user_name = NULL,
+  ...) {
+  body <- list(active = active, displayName = display_name, emails = emails, entitlements = entitlements,
+    externalId = external_id, groups = groups, id = id, name = name, roles = roles,
+    userName = user_name, ...)
+
+  .api$do("PUT", paste("/api/2.0/preview/scim/v2/Users/", id, sep = ""), body = body)
 }
 users$update <- users_update
 

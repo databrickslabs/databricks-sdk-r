@@ -9,6 +9,14 @@ gen:
 	oac
 
 
+doc: deps
+	@echo "Making *.Rd files"
+	@Rscript -e "devtools::document();"
+
+build: gen doc
+	@echo "Building tarball"
+	@Rscript -e "devtools::install(upgrade = FALSE);"
+
 check:
 	@echo "run R CMD check on packages"
 	@set -e ; \

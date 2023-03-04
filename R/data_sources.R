@@ -31,8 +31,8 @@ data_sources <- list()
 #'
 #' @aliases data_sources_list
 data_sources_list <- function(...) {
-    
-    .api$do("GET", "/api/2.0/preview/sql/data_sources")
+
+  .api$do("GET", "/api/2.0/preview/sql/data_sources")
 }
 data_sources$list <- data_sources_list
 

@@ -40,7 +40,8 @@
       return(list())
     }
     if (!profile_exists) {
-      rlang::abort(paste("Profile", profile_name, "not found in", config_path), call = rlang::caller_env())
+      rlang::abort(paste("Profile", profile_name, "not found in", config_path),
+        call = rlang::caller_env())
     }
     return(as.list(parsed_file[[profile_name]]))
   }
@@ -129,7 +130,8 @@
     paste(product_info, sdk_info, lang_info, os_info)
   }
 
-  # TODO: add retries as with other SDKs See: client/client.go#L269-L280 in Go SDK
+  # TODO: add retries as with other SDKs See: client/client.go#L269-L280 in Go
+  # SDK
   do <- function(method, path, body = NULL, query = NULL) {
     visitor <- authenticate()
     headers <- visitor()
@@ -139,22 +141,20 @@
       body <- jsonlite::toJSON(body, auto_unbox = TRUE, digits = 22, null = "null")
     }
     url <- paste0(cfg$host, path)
-    response <- httr::VERB(method, url,
-      httr::add_headers(headers),
-      httr::user_agent(user_agent()),
-      httr::config(verbose = FALSE, connecttimeout = 30),
-      httr::accept_json(),
-      httr::write_memory(),
-      query = base::Filter(length, query),
-      body = body)
+    response <- httr::VERB(method, url, httr::add_headers(headers), httr::user_agent(user_agent()),
+      httr::config(verbose = FALSE, connecttimeout = 30), httr::accept_json(),
+      httr::write_memory(), query = base::Filter(length, query), body = body)
     if (httr::http_error(response)) {
-      #httr::warn_for_status()
+      # httr::warn_for_status()
       json <- httr::content(response, as = "parsed", encoding = "UTF-8")
-      if (!is.null(json$message)) { # API 2.0 errors
+      if (!is.null(json$message)) {
+        # API 2.0 errors
         msg <- paste(json$error_code, json$message, sep = ": ")
-      } else if (!is.null(json$error)) { # API 1.2 errors
+      } else if (!is.null(json$error)) {
+        # API 1.2 errors
         msg <- json$error
-      } else if (!is.null(json$detail)) { # SCIM API erors
+      } else if (!is.null(json$detail)) {
+        # SCIM API erors
         msg <- json$detail
       } else {
         msg <- paste(json, collapse = " ")

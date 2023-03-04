@@ -31,13 +31,10 @@ shares <- list()
 #' @rdname shares_create
 #'
 #' @aliases shares_create
-shares_create <- function(name, comment = NULL, 
-    ...) {
-    body <- list(
-        comment = comment, 
-        name = name, ...)
-    
-    .api$do("POST", "/api/2.1/unity-catalog/shares", body = body)
+shares_create <- function(name, comment = NULL, ...) {
+  body <- list(comment = comment, name = name, ...)
+
+  .api$do("POST", "/api/2.1/unity-catalog/shares", body = body)
 }
 shares$create <- shares_create
 
@@ -54,9 +51,9 @@ shares$create <- shares_create
 #'
 #' @aliases shares_delete
 shares_delete <- function(name, ...) {
-    
-    
-    .api$do("DELETE", paste("/api/2.1/unity-catalog/shares/", name, sep = ""))
+
+
+  .api$do("DELETE", paste("/api/2.1/unity-catalog/shares/", name, sep = ""))
 }
 shares$delete <- shares_delete
 
@@ -73,12 +70,10 @@ shares$delete <- shares_delete
 #' @rdname shares_get
 #'
 #' @aliases shares_get
-shares_get <- function(name, include_shared_data = NULL, 
-    ...) {
-    query <- list(
-        include_shared_data = include_shared_data, ...)
-    
-    .api$do("GET", paste("/api/2.1/unity-catalog/shares/", name, sep = ""), query = query)
+shares_get <- function(name, include_shared_data = NULL, ...) {
+  query <- list(include_shared_data = include_shared_data, ...)
+
+  .api$do("GET", paste("/api/2.1/unity-catalog/shares/", name, sep = ""), query = query)
 }
 shares$get <- shares_get
 
@@ -95,11 +90,11 @@ shares$get <- shares_get
 #'
 #' @aliases shares_list
 shares_list <- function(...) {
-    
-    
-    json <- .api$do("GET", "/api/2.1/unity-catalog/shares")
-    return (json$shares)
-    
+
+
+  json <- .api$do("GET", "/api/2.1/unity-catalog/shares")
+  return(json$shares)
+
 }
 shares$list <- shares_list
 
@@ -116,9 +111,10 @@ shares$list <- shares_list
 #'
 #' @aliases shares_share_permissions
 shares_share_permissions <- function(name, ...) {
-    
-    
-    .api$do("GET", paste("/api/2.1/unity-catalog/shares/", name, "/permissions", , sep = ""))
+
+
+  .api$do("GET", paste("/api/2.1/unity-catalog/shares/", name, "/permissions",
+    , sep = ""))
 }
 shares$share_permissions <- shares_share_permissions
 
@@ -150,17 +146,11 @@ shares$share_permissions <- shares_share_permissions
 #' @rdname shares_update
 #'
 #' @aliases shares_update
-shares_update <- function(name, comment = NULL, 
-    owner = NULL, 
-    updates = NULL, 
-    ...) {
-    body <- list(
-        comment = comment, 
-        name = name, 
-        owner = owner, 
-        updates = updates, ...)
-    
-    .api$do("PATCH", paste("/api/2.1/unity-catalog/shares/", name, sep = ""), body = body)
+shares_update <- function(name, comment = NULL, owner = NULL, updates = NULL, ...) {
+  body <- list(comment = comment, name = name, owner = owner, updates = updates,
+    ...)
+
+  .api$do("PATCH", paste("/api/2.1/unity-catalog/shares/", name, sep = ""), body = body)
 }
 shares$update <- shares_update
 
@@ -180,12 +170,11 @@ shares$update <- shares_update
 #' @rdname shares_update_permissions
 #'
 #' @aliases shares_update_permissions
-shares_update_permissions <- function(name, changes = NULL, 
-    ...) {
-    body <- list(
-        changes = changes, ...)
-    
-    .api$do("PATCH", paste("/api/2.1/unity-catalog/shares/", name, "/permissions", , sep = ""), body = body)
+shares_update_permissions <- function(name, changes = NULL, ...) {
+  body <- list(changes = changes, ...)
+
+  .api$do("PATCH", paste("/api/2.1/unity-catalog/shares/", name, "/permissions",
+    , sep = ""), body = body)
 }
 shares$update_permissions <- shares_update_permissions
 

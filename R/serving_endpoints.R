@@ -46,9 +46,10 @@ serving_endpoints <- list()
 #'
 #' @aliases serving_endpoints_build_logs
 serving_endpoints_build_logs <- function(name, served_model_name, ...) {
-    
-    
-    .api$do("GET", paste("/api/2.0/serving-endpoints/", name, "/served-models/", served_model_name, "/build-logs", , sep = ""))
+
+
+  .api$do("GET", paste("/api/2.0/serving-endpoints/", name, "/served-models/",
+    served_model_name, "/build-logs", , sep = ""))
 }
 serving_endpoints$build_logs <- serving_endpoints_build_logs
 
@@ -68,46 +69,46 @@ serving_endpoints$build_logs <- serving_endpoints_build_logs
 #' @rdname serving_endpoints_create
 #'
 #' @aliases serving_endpoints_create
-serving_endpoints_create <- function(name, config, timeout=20, callback = cli_reporter, ...) {
-    body <- list(
-        config = config, 
-        name = name, ...)
-    
-    op_response <- .api$do("POST", "/api/2.0/serving-endpoints", body = body)
-    started <- as.numeric(Sys.time())
-    target_states <- c("NOT_UPDATING", c())
-    failure_states <- c("UPDATE_FAILED", c())
-    status_message <- 'polling...'
-    attempt <- 1
-    while ((started + (timeout*60)) > as.numeric(Sys.time())) {
-        poll <- serving_endpoints_get(name = op_response$name)
-        status <- poll$state$config_update
-        status_message <- paste("current status:", status)
-        if (status %in% target_states) {
-            if (!is.null(callback)) {
-                callback(paste0(status, ": ", status_message), done=TRUE)
-            }
-            return (poll)
-        }
-        if (status %in% failure_states) {
-            msg <- paste("failed to reach NOT_UPDATING, got ", status, "-", status_message)
-            rlang::abort(msg, call = rlang::caller_env())
-        }
-        prefix <- paste0("databricks::serving_endpoints_get(name=", op_response$name, ")")
-        sleep <- attempt
-        if (sleep > 10) {
-            # sleep 10s max per attempt
-            sleep <- 10
-        }
-        if (!is.null(callback)) {
-            callback(paste0(status, ": ", status_message), done=FALSE)
-        }
-        random_pause <- runif(1, min = 0.1, max = 0.5)
-        Sys.sleep(sleep + random_pause)
-        attempt <- attempt + 1
+serving_endpoints_create <- function(name, config, timeout = 20, callback = cli_reporter,
+  ...) {
+  body <- list(config = config, name = name, ...)
+
+  op_response <- .api$do("POST", "/api/2.0/serving-endpoints", body = body)
+  started <- as.numeric(Sys.time())
+  target_states <- c("NOT_UPDATING", c())
+  failure_states <- c("UPDATE_FAILED", c())
+  status_message <- "polling..."
+  attempt <- 1
+  while ((started + (timeout * 60)) > as.numeric(Sys.time())) {
+    poll <- serving_endpoints_get(name = op_response$name)
+    status <- poll$state$config_update
+    status_message <- paste("current status:", status)
+    if (status %in% target_states) {
+      if (!is.null(callback)) {
+        callback(paste0(status, ": ", status_message), done = TRUE)
+      }
+      return(poll)
     }
-    msg <- paste("timed out after", timeout, "minutes:", status_message)
-    rlang::abort(msg, call = rlang::caller_env())
+    if (status %in% failure_states) {
+      msg <- paste("failed to reach NOT_UPDATING, got ", status, "-", status_message)
+      rlang::abort(msg, call = rlang::caller_env())
+    }
+    prefix <- paste0("databricks::serving_endpoints_get(name=", op_response$name,
+      ")")
+    sleep <- attempt
+    if (sleep > 10) {
+      # sleep 10s max per attempt
+      sleep <- 10
+    }
+    if (!is.null(callback)) {
+      callback(paste0(status, ": ", status_message), done = FALSE)
+    }
+    random_pause <- runif(1, min = 0.1, max = 0.5)
+    Sys.sleep(sleep + random_pause)
+    attempt <- attempt + 1
+  }
+  msg <- paste("timed out after", timeout, "minutes:", status_message)
+  rlang::abort(msg, call = rlang::caller_env())
 }
 serving_endpoints$create <- serving_endpoints_create
 
@@ -121,9 +122,9 @@ serving_endpoints$create <- serving_endpoints_create
 #'
 #' @aliases serving_endpoints_delete
 serving_endpoints_delete <- function(name, ...) {
-    
-    
-    .api$do("DELETE", paste("/api/2.0/serving-endpoints/", name, sep = ""))
+
+
+  .api$do("DELETE", paste("/api/2.0/serving-endpoints/", name, sep = ""))
 }
 serving_endpoints$delete <- serving_endpoints_delete
 
@@ -142,9 +143,9 @@ serving_endpoints$delete <- serving_endpoints_delete
 #'
 #' @aliases serving_endpoints_export_metrics
 serving_endpoints_export_metrics <- function(name, ...) {
-    
-    
-    .api$do("GET", paste("/api/2.0/serving-endpoints/", name, "/metrics", , sep = ""))
+
+
+  .api$do("GET", paste("/api/2.0/serving-endpoints/", name, "/metrics", , sep = ""))
 }
 serving_endpoints$export_metrics <- serving_endpoints_export_metrics
 
@@ -160,9 +161,9 @@ serving_endpoints$export_metrics <- serving_endpoints_export_metrics
 #'
 #' @aliases serving_endpoints_get
 serving_endpoints_get <- function(name, ...) {
-    
-    
-    .api$do("GET", paste("/api/2.0/serving-endpoints/", name, sep = ""))
+
+
+  .api$do("GET", paste("/api/2.0/serving-endpoints/", name, sep = ""))
 }
 serving_endpoints$get <- serving_endpoints_get
 
@@ -173,8 +174,8 @@ serving_endpoints$get <- serving_endpoints_get
 #'
 #' @aliases serving_endpoints_list
 serving_endpoints_list <- function(...) {
-    
-    .api$do("GET", "/api/2.0/serving-endpoints")
+
+  .api$do("GET", "/api/2.0/serving-endpoints")
 }
 serving_endpoints$list <- serving_endpoints_list
 
@@ -193,9 +194,10 @@ serving_endpoints$list <- serving_endpoints_list
 #'
 #' @aliases serving_endpoints_logs
 serving_endpoints_logs <- function(name, served_model_name, ...) {
-    
-    
-    .api$do("GET", paste("/api/2.0/serving-endpoints/", name, "/served-models/", served_model_name, "/logs", , sep = ""))
+
+
+  .api$do("GET", paste("/api/2.0/serving-endpoints/", name, "/served-models/",
+    served_model_name, "/logs", , sep = ""))
 }
 serving_endpoints$logs <- serving_endpoints_logs
 
@@ -209,9 +211,9 @@ serving_endpoints$logs <- serving_endpoints_logs
 #'
 #' @aliases serving_endpoints_query
 serving_endpoints_query <- function(name, ...) {
-    
-    
-    .api$do("POST", paste("/serving-endpoints/", name, "/invocations", , sep = ""))
+
+
+  .api$do("POST", paste("/serving-endpoints/", name, "/invocations", , sep = ""))
 }
 serving_endpoints$query <- serving_endpoints_query
 
@@ -237,47 +239,48 @@ serving_endpoints$query <- serving_endpoints_query
 #' @rdname serving_endpoints_update_config
 #'
 #' @aliases serving_endpoints_update_config
-serving_endpoints_update_config <- function(served_models, name, traffic_config = NULL, 
-    timeout=20, callback = cli_reporter, ...) {
-    body <- list(
-        served_models = served_models, 
-        traffic_config = traffic_config, ...)
-    
-    op_response <- .api$do("PUT", paste("/api/2.0/serving-endpoints/", name, "/config", , sep = ""), body = body)
-    started <- as.numeric(Sys.time())
-    target_states <- c("NOT_UPDATING", c())
-    failure_states <- c("UPDATE_FAILED", c())
-    status_message <- 'polling...'
-    attempt <- 1
-    while ((started + (timeout*60)) > as.numeric(Sys.time())) {
-        poll <- serving_endpoints_get(name = op_response$name)
-        status <- poll$state$config_update
-        status_message <- paste("current status:", status)
-        if (status %in% target_states) {
-            if (!is.null(callback)) {
-                callback(paste0(status, ": ", status_message), done=TRUE)
-            }
-            return (poll)
-        }
-        if (status %in% failure_states) {
-            msg <- paste("failed to reach NOT_UPDATING, got ", status, "-", status_message)
-            rlang::abort(msg, call = rlang::caller_env())
-        }
-        prefix <- paste0("databricks::serving_endpoints_get(name=", op_response$name, ")")
-        sleep <- attempt
-        if (sleep > 10) {
-            # sleep 10s max per attempt
-            sleep <- 10
-        }
-        if (!is.null(callback)) {
-            callback(paste0(status, ": ", status_message), done=FALSE)
-        }
-        random_pause <- runif(1, min = 0.1, max = 0.5)
-        Sys.sleep(sleep + random_pause)
-        attempt <- attempt + 1
+serving_endpoints_update_config <- function(served_models, name, traffic_config = NULL,
+  timeout = 20, callback = cli_reporter, ...) {
+  body <- list(served_models = served_models, traffic_config = traffic_config,
+    ...)
+
+  op_response <- .api$do("PUT", paste("/api/2.0/serving-endpoints/", name, "/config",
+    , sep = ""), body = body)
+  started <- as.numeric(Sys.time())
+  target_states <- c("NOT_UPDATING", c())
+  failure_states <- c("UPDATE_FAILED", c())
+  status_message <- "polling..."
+  attempt <- 1
+  while ((started + (timeout * 60)) > as.numeric(Sys.time())) {
+    poll <- serving_endpoints_get(name = op_response$name)
+    status <- poll$state$config_update
+    status_message <- paste("current status:", status)
+    if (status %in% target_states) {
+      if (!is.null(callback)) {
+        callback(paste0(status, ": ", status_message), done = TRUE)
+      }
+      return(poll)
     }
-    msg <- paste("timed out after", timeout, "minutes:", status_message)
-    rlang::abort(msg, call = rlang::caller_env())
+    if (status %in% failure_states) {
+      msg <- paste("failed to reach NOT_UPDATING, got ", status, "-", status_message)
+      rlang::abort(msg, call = rlang::caller_env())
+    }
+    prefix <- paste0("databricks::serving_endpoints_get(name=", op_response$name,
+      ")")
+    sleep <- attempt
+    if (sleep > 10) {
+      # sleep 10s max per attempt
+      sleep <- 10
+    }
+    if (!is.null(callback)) {
+      callback(paste0(status, ": ", status_message), done = FALSE)
+    }
+    random_pause <- runif(1, min = 0.1, max = 0.5)
+    Sys.sleep(sleep + random_pause)
+    attempt <- attempt + 1
+  }
+  msg <- paste("timed out after", timeout, "minutes:", status_message)
+  rlang::abort(msg, call = rlang::caller_env())
 }
 serving_endpoints$update_config <- serving_endpoints_update_config
 

@@ -35,20 +35,12 @@ model_versions <- list()
 #' @rdname model_versions_create
 #'
 #' @aliases model_versions_create
-model_versions_create <- function(name, source, description = NULL, 
-    run_id = NULL, 
-    run_link = NULL, 
-    tags = NULL, 
-    ...) {
-    body <- list(
-        description = description, 
-        name = name, 
-        run_id = run_id, 
-        run_link = run_link, 
-        source = source, 
-        tags = tags, ...)
-    
-    .api$do("POST", "/api/2.0/mlflow/model-versions/create", body = body)
+model_versions_create <- function(name, source, description = NULL, run_id = NULL,
+  run_link = NULL, tags = NULL, ...) {
+  body <- list(description = description, name = name, run_id = run_id, run_link = run_link,
+    source = source, tags = tags, ...)
+
+  .api$do("POST", "/api/2.0/mlflow/model-versions/create", body = body)
 }
 model_versions$create <- model_versions_create
 
@@ -65,11 +57,9 @@ model_versions$create <- model_versions_create
 #'
 #' @aliases model_versions_delete
 model_versions_delete <- function(name, version, ...) {
-    query <- list(
-        name = name, 
-        version = version, ...)
-    
-    .api$do("DELETE", "/api/2.0/mlflow/model-versions/delete", query = query)
+  query <- list(name = name, version = version, ...)
+
+  .api$do("DELETE", "/api/2.0/mlflow/model-versions/delete", query = query)
 }
 model_versions$delete <- model_versions_delete
 
@@ -87,12 +77,9 @@ model_versions$delete <- model_versions_delete
 #'
 #' @aliases model_versions_delete_tag
 model_versions_delete_tag <- function(name, version, key, ...) {
-    query <- list(
-        key = key, 
-        name = name, 
-        version = version, ...)
-    
-    .api$do("DELETE", "/api/2.0/mlflow/model-versions/delete-tag", query = query)
+  query <- list(key = key, name = name, version = version, ...)
+
+  .api$do("DELETE", "/api/2.0/mlflow/model-versions/delete-tag", query = query)
 }
 model_versions$delete_tag <- model_versions_delete_tag
 
@@ -109,11 +96,9 @@ model_versions$delete_tag <- model_versions_delete_tag
 #'
 #' @aliases model_versions_get
 model_versions_get <- function(name, version, ...) {
-    query <- list(
-        name = name, 
-        version = version, ...)
-    
-    .api$do("GET", "/api/2.0/mlflow/model-versions/get", query = query)
+  query <- list(name = name, version = version, ...)
+
+  .api$do("GET", "/api/2.0/mlflow/model-versions/get", query = query)
 }
 model_versions$get <- model_versions_get
 
@@ -130,11 +115,9 @@ model_versions$get <- model_versions_get
 #'
 #' @aliases model_versions_get_download_uri
 model_versions_get_download_uri <- function(name, version, ...) {
-    query <- list(
-        name = name, 
-        version = version, ...)
-    
-    .api$do("GET", "/api/2.0/mlflow/model-versions/get-download-uri", query = query)
+  query <- list(name = name, version = version, ...)
+
+  .api$do("GET", "/api/2.0/mlflow/model-versions/get-download-uri", query = query)
 }
 model_versions$get_download_uri <- model_versions_get_download_uri
 
@@ -142,9 +125,9 @@ model_versions$get_download_uri <- model_versions_get_download_uri
 #' 
 #' Searches for specific model versions based on the supplied __filter__.
 #'
-#' @param filter String filter condition, like "name='my-model-name'".
+#' @param filter String filter condition, like 'name='my-model-name''.
 #' @param max_results Maximum number of models desired.
-#' @param order_by List of columns to be ordered by including model name, version, stage with an optional "DESC" or "ASC" annotation, where "ASC" is the default.
+#' @param order_by List of columns to be ordered by including model name, version, stage with an optional 'DESC' or 'ASC' annotation, where 'ASC' is the default.
 #' @param page_token Pagination token to go to next page based on previous search query.
 #' 
 #' @return `data.frame` with all of the response pages.
@@ -154,34 +137,28 @@ model_versions$get_download_uri <- model_versions_get_download_uri
 #' @rdname model_versions_search
 #'
 #' @aliases model_versions_search
-model_versions_search <- function(filter = NULL, 
-    max_results = NULL, 
-    order_by = NULL, 
-    page_token = NULL, 
-    ...) {
-    query <- list(
-        filter = filter, 
-        max_results = max_results, 
-        order_by = order_by, 
-        page_token = page_token, ...)
-    
-    
-    
-    results <- data.frame()
-    while (TRUE) {
-        json <- .api$do("GET", "/api/2.0/mlflow/model-versions/search", query = query)
-        if (is.null(nrow(json$model_versions))) {
-            break
-        }
-        # append this page of results to one results data.frame
-        results <- dplyr::bind_rows(results, json$model_versions)
-        if (is.null(json$next_page_token)) {
-            break
-        }
-        query$page_token <- json$next_page_token
+model_versions_search <- function(filter = NULL, max_results = NULL, order_by = NULL,
+  page_token = NULL, ...) {
+  query <- list(filter = filter, max_results = max_results, order_by = order_by,
+    page_token = page_token, ...)
+
+
+
+  results <- data.frame()
+  while (TRUE) {
+    json <- .api$do("GET", "/api/2.0/mlflow/model-versions/search", query = query)
+    if (is.null(nrow(json$model_versions))) {
+      break
     }
-    return (results)
-    
+    # append this page of results to one results data.frame
+    results <- dplyr::bind_rows(results, json$model_versions)
+    if (is.null(json$next_page_token)) {
+      break
+    }
+    query$page_token <- json$next_page_token
+  }
+  return(results)
+
 }
 model_versions$search <- model_versions_search
 
@@ -200,13 +177,9 @@ model_versions$search <- model_versions_search
 #'
 #' @aliases model_versions_set_tag
 model_versions_set_tag <- function(name, version, key, value, ...) {
-    body <- list(
-        key = key, 
-        name = name, 
-        value = value, 
-        version = version, ...)
-    
-    .api$do("POST", "/api/2.0/mlflow/model-versions/set-tag", body = body)
+  body <- list(key = key, name = name, value = value, version = version, ...)
+
+  .api$do("POST", "/api/2.0/mlflow/model-versions/set-tag", body = body)
 }
 model_versions$set_tag <- model_versions_set_tag
 
@@ -214,7 +187,7 @@ model_versions$set_tag <- model_versions_set_tag
 #' 
 #' Transition to the next model stage.
 #'
-#' @param archive_existing_versions [required] When transitioning a model version to a particular stage, this flag dictates whether all existing model versions in that stage should be atomically moved to the "archived" stage.
+#' @param archive_existing_versions [required] When transitioning a model version to a particular stage, this flag dictates whether all existing model versions in that stage should be atomically moved to the 'archived' stage.
 #' @param name [required] Name of the registered model.
 #' @param stage [required] Transition `model_version` to new stage.
 #' @param version [required] Model version number.
@@ -224,14 +197,12 @@ model_versions$set_tag <- model_versions_set_tag
 #' @rdname model_versions_transition_stage
 #'
 #' @aliases model_versions_transition_stage
-model_versions_transition_stage <- function(name, version, stage, archive_existing_versions, ...) {
-    body <- list(
-        archive_existing_versions = archive_existing_versions, 
-        name = name, 
-        stage = stage, 
-        version = version, ...)
-    
-    .api$do("POST", "/api/2.0/mlflow/model-versions/transition-stage", body = body)
+model_versions_transition_stage <- function(name, version, stage, archive_existing_versions,
+  ...) {
+  body <- list(archive_existing_versions = archive_existing_versions, name = name,
+    stage = stage, version = version, ...)
+
+  .api$do("POST", "/api/2.0/mlflow/model-versions/transition-stage", body = body)
 }
 model_versions$transition_stage <- model_versions_transition_stage
 
@@ -248,14 +219,10 @@ model_versions$transition_stage <- model_versions_transition_stage
 #' @rdname model_versions_update
 #'
 #' @aliases model_versions_update
-model_versions_update <- function(name, version, description = NULL, 
-    ...) {
-    body <- list(
-        description = description, 
-        name = name, 
-        version = version, ...)
-    
-    .api$do("PATCH", "/api/2.0/mlflow/model-versions/update", body = body)
+model_versions_update <- function(name, version, description = NULL, ...) {
+  body <- list(description = description, name = name, version = version, ...)
+
+  .api$do("PATCH", "/api/2.0/mlflow/model-versions/update", body = body)
 }
 model_versions$update <- model_versions_update
 

@@ -21,8 +21,8 @@ current_user <- list()
 #'
 #' @aliases current_user_me
 current_user_me <- function(...) {
-    
-    .api$do("GET", "/api/2.0/preview/scim/v2/Me")
+
+  .api$do("GET", "/api/2.0/preview/scim/v2/Me")
 }
 current_user$me <- current_user_me
 

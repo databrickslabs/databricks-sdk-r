@@ -54,21 +54,14 @@ cluster_policies <- list()
 #' @rdname cluster_policies_create
 #'
 #' @aliases cluster_policies_create
-cluster_policies_create <- function(name, definition = NULL, 
-    description = NULL, 
-    max_clusters_per_user = NULL, 
-    policy_family_definition_overrides = NULL, 
-    policy_family_id = NULL, 
-    ...) {
-    body <- list(
-        definition = definition, 
-        description = description, 
-        max_clusters_per_user = max_clusters_per_user, 
-        name = name, 
-        policy_family_definition_overrides = policy_family_definition_overrides, 
-        policy_family_id = policy_family_id, ...)
-    
-    .api$do("POST", "/api/2.0/policies/clusters/create", body = body)
+cluster_policies_create <- function(name, definition = NULL, description = NULL,
+  max_clusters_per_user = NULL, policy_family_definition_overrides = NULL, policy_family_id = NULL,
+  ...) {
+  body <- list(definition = definition, description = description, max_clusters_per_user = max_clusters_per_user,
+    name = name, policy_family_definition_overrides = policy_family_definition_overrides,
+    policy_family_id = policy_family_id, ...)
+
+  .api$do("POST", "/api/2.0/policies/clusters/create", body = body)
 }
 cluster_policies$create <- cluster_policies_create
 
@@ -85,10 +78,9 @@ cluster_policies$create <- cluster_policies_create
 #'
 #' @aliases cluster_policies_delete
 cluster_policies_delete <- function(policy_id, ...) {
-    body <- list(
-        policy_id = policy_id, ...)
-    
-    .api$do("POST", "/api/2.0/policies/clusters/delete", body = body)
+  body <- list(policy_id = policy_id, ...)
+
+  .api$do("POST", "/api/2.0/policies/clusters/delete", body = body)
 }
 cluster_policies$delete <- cluster_policies_delete
 
@@ -110,22 +102,14 @@ cluster_policies$delete <- cluster_policies_delete
 #' @rdname cluster_policies_edit
 #'
 #' @aliases cluster_policies_edit
-cluster_policies_edit <- function(policy_id, name, definition = NULL, 
-    description = NULL, 
-    max_clusters_per_user = NULL, 
-    policy_family_definition_overrides = NULL, 
-    policy_family_id = NULL, 
-    ...) {
-    body <- list(
-        definition = definition, 
-        description = description, 
-        max_clusters_per_user = max_clusters_per_user, 
-        name = name, 
-        policy_family_definition_overrides = policy_family_definition_overrides, 
-        policy_family_id = policy_family_id, 
-        policy_id = policy_id, ...)
-    
-    .api$do("POST", "/api/2.0/policies/clusters/edit", body = body)
+cluster_policies_edit <- function(policy_id, name, definition = NULL, description = NULL,
+  max_clusters_per_user = NULL, policy_family_definition_overrides = NULL, policy_family_id = NULL,
+  ...) {
+  body <- list(definition = definition, description = description, max_clusters_per_user = max_clusters_per_user,
+    name = name, policy_family_definition_overrides = policy_family_definition_overrides,
+    policy_family_id = policy_family_id, policy_id = policy_id, ...)
+
+  .api$do("POST", "/api/2.0/policies/clusters/edit", body = body)
 }
 cluster_policies$edit <- cluster_policies_edit
 
@@ -142,10 +126,9 @@ cluster_policies$edit <- cluster_policies_edit
 #'
 #' @aliases cluster_policies_get
 cluster_policies_get <- function(policy_id, ...) {
-    query <- list(
-        policy_id = policy_id, ...)
-    
-    .api$do("GET", "/api/2.0/policies/clusters/get", query = query)
+  query <- list(policy_id = policy_id, ...)
+
+  .api$do("GET", "/api/2.0/policies/clusters/get", query = query)
 }
 cluster_policies$get <- cluster_policies_get
 
@@ -163,17 +146,13 @@ cluster_policies$get <- cluster_policies_get
 #' @rdname cluster_policies_list
 #'
 #' @aliases cluster_policies_list
-cluster_policies_list <- function(sort_column = NULL, 
-    sort_order = NULL, 
-    ...) {
-    query <- list(
-        sort_column = sort_column, 
-        sort_order = sort_order, ...)
-    
-    
-    json <- .api$do("GET", "/api/2.0/policies/clusters/list", query = query)
-    return (json$policies)
-    
+cluster_policies_list <- function(sort_column = NULL, sort_order = NULL, ...) {
+  query <- list(sort_column = sort_column, sort_order = sort_order, ...)
+
+
+  json <- .api$do("GET", "/api/2.0/policies/clusters/list", query = query)
+  return(json$policies)
+
 }
 cluster_policies$list <- cluster_policies_list
 

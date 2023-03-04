@@ -55,34 +55,20 @@ instance_pools <- list()
 #' @rdname instance_pools_create
 #'
 #' @aliases instance_pools_create
-instance_pools_create <- function(instance_pool_name, node_type_id, aws_attributes = NULL, 
-    azure_attributes = NULL, 
-    custom_tags = NULL, 
-    disk_spec = NULL, 
-    enable_elastic_disk = NULL, 
-    idle_instance_autotermination_minutes = NULL, 
-    instance_pool_fleet_attributes = NULL, 
-    max_capacity = NULL, 
-    min_idle_instances = NULL, 
-    preloaded_docker_images = NULL, 
-    preloaded_spark_versions = NULL, 
-    ...) {
-    body <- list(
-        aws_attributes = aws_attributes, 
-        azure_attributes = azure_attributes, 
-        custom_tags = custom_tags, 
-        disk_spec = disk_spec, 
-        enable_elastic_disk = enable_elastic_disk, 
-        idle_instance_autotermination_minutes = idle_instance_autotermination_minutes, 
-        instance_pool_fleet_attributes = instance_pool_fleet_attributes, 
-        instance_pool_name = instance_pool_name, 
-        max_capacity = max_capacity, 
-        min_idle_instances = min_idle_instances, 
-        node_type_id = node_type_id, 
-        preloaded_docker_images = preloaded_docker_images, 
-        preloaded_spark_versions = preloaded_spark_versions, ...)
-    
-    .api$do("POST", "/api/2.0/instance-pools/create", body = body)
+instance_pools_create <- function(instance_pool_name, node_type_id, aws_attributes = NULL,
+  azure_attributes = NULL, custom_tags = NULL, disk_spec = NULL, enable_elastic_disk = NULL,
+  idle_instance_autotermination_minutes = NULL, instance_pool_fleet_attributes = NULL,
+  max_capacity = NULL, min_idle_instances = NULL, preloaded_docker_images = NULL,
+  preloaded_spark_versions = NULL, ...) {
+  body <- list(aws_attributes = aws_attributes, azure_attributes = azure_attributes,
+    custom_tags = custom_tags, disk_spec = disk_spec, enable_elastic_disk = enable_elastic_disk,
+    idle_instance_autotermination_minutes = idle_instance_autotermination_minutes,
+    instance_pool_fleet_attributes = instance_pool_fleet_attributes, instance_pool_name = instance_pool_name,
+    max_capacity = max_capacity, min_idle_instances = min_idle_instances, node_type_id = node_type_id,
+    preloaded_docker_images = preloaded_docker_images, preloaded_spark_versions = preloaded_spark_versions,
+    ...)
+
+  .api$do("POST", "/api/2.0/instance-pools/create", body = body)
 }
 instance_pools$create <- instance_pools_create
 
@@ -99,10 +85,9 @@ instance_pools$create <- instance_pools_create
 #'
 #' @aliases instance_pools_delete
 instance_pools_delete <- function(instance_pool_id, ...) {
-    body <- list(
-        instance_pool_id = instance_pool_id, ...)
-    
-    .api$do("POST", "/api/2.0/instance-pools/delete", body = body)
+  body <- list(instance_pool_id = instance_pool_id, ...)
+
+  .api$do("POST", "/api/2.0/instance-pools/delete", body = body)
 }
 instance_pools$delete <- instance_pools_delete
 
@@ -130,35 +115,20 @@ instance_pools$delete <- instance_pools_delete
 #' @rdname instance_pools_edit
 #'
 #' @aliases instance_pools_edit
-instance_pools_edit <- function(instance_pool_id, instance_pool_name, node_type_id, aws_attributes = NULL, 
-    azure_attributes = NULL, 
-    custom_tags = NULL, 
-    disk_spec = NULL, 
-    enable_elastic_disk = NULL, 
-    idle_instance_autotermination_minutes = NULL, 
-    instance_pool_fleet_attributes = NULL, 
-    max_capacity = NULL, 
-    min_idle_instances = NULL, 
-    preloaded_docker_images = NULL, 
-    preloaded_spark_versions = NULL, 
-    ...) {
-    body <- list(
-        aws_attributes = aws_attributes, 
-        azure_attributes = azure_attributes, 
-        custom_tags = custom_tags, 
-        disk_spec = disk_spec, 
-        enable_elastic_disk = enable_elastic_disk, 
-        idle_instance_autotermination_minutes = idle_instance_autotermination_minutes, 
-        instance_pool_fleet_attributes = instance_pool_fleet_attributes, 
-        instance_pool_id = instance_pool_id, 
-        instance_pool_name = instance_pool_name, 
-        max_capacity = max_capacity, 
-        min_idle_instances = min_idle_instances, 
-        node_type_id = node_type_id, 
-        preloaded_docker_images = preloaded_docker_images, 
-        preloaded_spark_versions = preloaded_spark_versions, ...)
-    
-    .api$do("POST", "/api/2.0/instance-pools/edit", body = body)
+instance_pools_edit <- function(instance_pool_id, instance_pool_name, node_type_id,
+  aws_attributes = NULL, azure_attributes = NULL, custom_tags = NULL, disk_spec = NULL,
+  enable_elastic_disk = NULL, idle_instance_autotermination_minutes = NULL, instance_pool_fleet_attributes = NULL,
+  max_capacity = NULL, min_idle_instances = NULL, preloaded_docker_images = NULL,
+  preloaded_spark_versions = NULL, ...) {
+  body <- list(aws_attributes = aws_attributes, azure_attributes = azure_attributes,
+    custom_tags = custom_tags, disk_spec = disk_spec, enable_elastic_disk = enable_elastic_disk,
+    idle_instance_autotermination_minutes = idle_instance_autotermination_minutes,
+    instance_pool_fleet_attributes = instance_pool_fleet_attributes, instance_pool_id = instance_pool_id,
+    instance_pool_name = instance_pool_name, max_capacity = max_capacity, min_idle_instances = min_idle_instances,
+    node_type_id = node_type_id, preloaded_docker_images = preloaded_docker_images,
+    preloaded_spark_versions = preloaded_spark_versions, ...)
+
+  .api$do("POST", "/api/2.0/instance-pools/edit", body = body)
 }
 instance_pools$edit <- instance_pools_edit
 
@@ -174,10 +144,9 @@ instance_pools$edit <- instance_pools_edit
 #'
 #' @aliases instance_pools_get
 instance_pools_get <- function(instance_pool_id, ...) {
-    query <- list(
-        instance_pool_id = instance_pool_id, ...)
-    
-    .api$do("GET", "/api/2.0/instance-pools/get", query = query)
+  query <- list(instance_pool_id = instance_pool_id, ...)
+
+  .api$do("GET", "/api/2.0/instance-pools/get", query = query)
 }
 instance_pools$get <- instance_pools_get
 
@@ -192,11 +161,11 @@ instance_pools$get <- instance_pools_get
 #'
 #' @aliases instance_pools_list
 instance_pools_list <- function(...) {
-    
-    
-    json <- .api$do("GET", "/api/2.0/instance-pools/list")
-    return (json$instance_pools)
-    
+
+
+  json <- .api$do("GET", "/api/2.0/instance-pools/list")
+  return(json$instance_pools)
+
 }
 instance_pools$list <- instance_pools_list
 

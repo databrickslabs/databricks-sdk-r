@@ -38,16 +38,12 @@ global_init_scripts <- list()
 #' @rdname global_init_scripts_create
 #'
 #' @aliases global_init_scripts_create
-global_init_scripts_create <- function(name, script, enabled = NULL, 
-    position = NULL, 
-    ...) {
-    body <- list(
-        enabled = enabled, 
-        name = name, 
-        position = position, 
-        script = script, ...)
-    
-    .api$do("POST", "/api/2.0/global-init-scripts", body = body)
+global_init_scripts_create <- function(name, script, enabled = NULL, position = NULL,
+  ...) {
+  body <- list(enabled = enabled, name = name, position = position, script = script,
+    ...)
+
+  .api$do("POST", "/api/2.0/global-init-scripts", body = body)
 }
 global_init_scripts$create <- global_init_scripts_create
 
@@ -63,9 +59,9 @@ global_init_scripts$create <- global_init_scripts_create
 #'
 #' @aliases global_init_scripts_delete
 global_init_scripts_delete <- function(script_id, ...) {
-    
-    
-    .api$do("DELETE", paste("/api/2.0/global-init-scripts/", script_id, sep = ""))
+
+
+  .api$do("DELETE", paste("/api/2.0/global-init-scripts/", script_id, sep = ""))
 }
 global_init_scripts$delete <- global_init_scripts_delete
 
@@ -81,15 +77,15 @@ global_init_scripts$delete <- global_init_scripts_delete
 #'
 #' @aliases global_init_scripts_get
 global_init_scripts_get <- function(script_id, ...) {
-    
-    
-    .api$do("GET", paste("/api/2.0/global-init-scripts/", script_id, sep = ""))
+
+
+  .api$do("GET", paste("/api/2.0/global-init-scripts/", script_id, sep = ""))
 }
 global_init_scripts$get <- global_init_scripts_get
 
 #' Get init scripts.
 #' 
-#' "Get a list of all global init scripts for this workspace. This returns all
+#' 'Get a list of all global init scripts for this workspace. This returns all
 #' properties for each script but **not** the script contents. To retrieve the
 #' contents of a script, use the [get a global init
 #' script](#operation/get-script) operation.#' 
@@ -101,11 +97,11 @@ global_init_scripts$get <- global_init_scripts_get
 #'
 #' @aliases global_init_scripts_list
 global_init_scripts_list <- function(...) {
-    
-    
-    json <- .api$do("GET", "/api/2.0/global-init-scripts")
-    return (json$scripts)
-    
+
+
+  json <- .api$do("GET", "/api/2.0/global-init-scripts")
+  return(json$scripts)
+
 }
 global_init_scripts$list <- global_init_scripts_list
 
@@ -125,16 +121,13 @@ global_init_scripts$list <- global_init_scripts_list
 #' @rdname global_init_scripts_update
 #'
 #' @aliases global_init_scripts_update
-global_init_scripts_update <- function(name, script, script_id, enabled = NULL, 
-    position = NULL, 
-    ...) {
-    body <- list(
-        enabled = enabled, 
-        name = name, 
-        position = position, 
-        script = script, ...)
-    
-    .api$do("PATCH", paste("/api/2.0/global-init-scripts/", script_id, sep = ""), body = body)
+global_init_scripts_update <- function(name, script, script_id, enabled = NULL, position = NULL,
+  ...) {
+  body <- list(enabled = enabled, name = name, position = position, script = script,
+    ...)
+
+  .api$do("PATCH", paste("/api/2.0/global-init-scripts/", script_id, sep = ""),
+    body = body)
 }
 global_init_scripts$update <- global_init_scripts_update
 

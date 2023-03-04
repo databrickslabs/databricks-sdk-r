@@ -39,9 +39,9 @@ tables <- list()
 #'
 #' @aliases tables_delete
 tables_delete <- function(full_name, ...) {
-    
-    
-    .api$do("DELETE", paste("/api/2.1/unity-catalog/tables/", full_name, sep = ""))
+
+
+  .api$do("DELETE", paste("/api/2.1/unity-catalog/tables/", full_name, sep = ""))
 }
 tables$delete <- tables_delete
 
@@ -61,12 +61,11 @@ tables$delete <- tables_delete
 #' @rdname tables_get
 #'
 #' @aliases tables_get
-tables_get <- function(full_name, include_delta_metadata = NULL, 
-    ...) {
-    query <- list(
-        include_delta_metadata = include_delta_metadata, ...)
-    
-    .api$do("GET", paste("/api/2.1/unity-catalog/tables/", full_name, sep = ""), query = query)
+tables_get <- function(full_name, include_delta_metadata = NULL, ...) {
+  query <- list(include_delta_metadata = include_delta_metadata, ...)
+
+  .api$do("GET", paste("/api/2.1/unity-catalog/tables/", full_name, sep = ""),
+    query = query)
 }
 tables$get <- tables_get
 
@@ -90,17 +89,15 @@ tables$get <- tables_get
 #' @rdname tables_list
 #'
 #' @aliases tables_list
-tables_list <- function(catalog_name, schema_name, include_delta_metadata = NULL, 
-    ...) {
-    query <- list(
-        catalog_name = catalog_name, 
-        include_delta_metadata = include_delta_metadata, 
-        schema_name = schema_name, ...)
-    
-    
-    json <- .api$do("GET", "/api/2.1/unity-catalog/tables", query = query)
-    return (json$tables)
-    
+tables_list <- function(catalog_name, schema_name, include_delta_metadata = NULL,
+  ...) {
+  query <- list(catalog_name = catalog_name, include_delta_metadata = include_delta_metadata,
+    schema_name = schema_name, ...)
+
+
+  json <- .api$do("GET", "/api/2.1/unity-catalog/tables", query = query)
+  return(json$tables)
+
 }
 tables$list <- tables_list
 
@@ -129,19 +126,13 @@ tables$list <- tables_list
 #' @rdname tables_list_summaries
 #'
 #' @aliases tables_list_summaries
-tables_list_summaries <- function(catalog_name, max_results = NULL, 
-    page_token = NULL, 
-    schema_name_pattern = NULL, 
-    table_name_pattern = NULL, 
-    ...) {
-    query <- list(
-        catalog_name = catalog_name, 
-        max_results = max_results, 
-        page_token = page_token, 
-        schema_name_pattern = schema_name_pattern, 
-        table_name_pattern = table_name_pattern, ...)
-    
-    .api$do("GET", "/api/2.1/unity-catalog/table-summaries", query = query)
+tables_list_summaries <- function(catalog_name, max_results = NULL, page_token = NULL,
+  schema_name_pattern = NULL, table_name_pattern = NULL, ...) {
+  query <- list(catalog_name = catalog_name, max_results = max_results, page_token = page_token,
+    schema_name_pattern = schema_name_pattern, table_name_pattern = table_name_pattern,
+    ...)
+
+  .api$do("GET", "/api/2.1/unity-catalog/table-summaries", query = query)
 }
 tables$list_summaries <- tables_list_summaries
 

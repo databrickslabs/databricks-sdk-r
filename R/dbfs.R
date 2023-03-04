@@ -39,11 +39,9 @@ dbfs <- list()
 #'
 #' @aliases dbfs_add_block
 dbfs_add_block <- function(handle, data, ...) {
-    body <- list(
-        data = data, 
-        handle = handle, ...)
-    
-    .api$do("POST", "/api/2.0/dbfs/add-block", body = body)
+  body <- list(data = data, handle = handle, ...)
+
+  .api$do("POST", "/api/2.0/dbfs/add-block", body = body)
 }
 dbfs$add_block <- dbfs_add_block
 
@@ -60,16 +58,15 @@ dbfs$add_block <- dbfs_add_block
 #'
 #' @aliases dbfs_close
 dbfs_close <- function(handle, ...) {
-    body <- list(
-        handle = handle, ...)
-    
-    .api$do("POST", "/api/2.0/dbfs/close", body = body)
+  body <- list(handle = handle, ...)
+
+  .api$do("POST", "/api/2.0/dbfs/close", body = body)
 }
 dbfs$close <- dbfs_close
 
 #' Open a stream.
 #' 
-#' "Opens a stream to write to a file and returns a handle to this stream. There
+#' 'Opens a stream to write to a file and returns a handle to this stream. There
 #' is a 10 minute idle timeout on this handle. If a file or directory already
 #' exists on the given path and __overwrite__ is set to `false`, this call
 #' throws an exception with `RESOURCE_ALREADY_EXISTS`.
@@ -88,13 +85,10 @@ dbfs$close <- dbfs_close
 #' @rdname dbfs_create
 #'
 #' @aliases dbfs_create
-dbfs_create <- function(path, overwrite = NULL, 
-    ...) {
-    body <- list(
-        overwrite = overwrite, 
-        path = path, ...)
-    
-    .api$do("POST", "/api/2.0/dbfs/create", body = body)
+dbfs_create <- function(path, overwrite = NULL, ...) {
+  body <- list(overwrite = overwrite, path = path, ...)
+
+  .api$do("POST", "/api/2.0/dbfs/create", body = body)
 }
 dbfs$create <- dbfs_create
 
@@ -127,13 +121,10 @@ dbfs$create <- dbfs_create
 #' @rdname dbfs_delete
 #'
 #' @aliases dbfs_delete
-dbfs_delete <- function(path, recursive = NULL, 
-    ...) {
-    body <- list(
-        path = path, 
-        recursive = recursive, ...)
-    
-    .api$do("POST", "/api/2.0/dbfs/delete", body = body)
+dbfs_delete <- function(path, recursive = NULL, ...) {
+  body <- list(path = path, recursive = recursive, ...)
+
+  .api$do("POST", "/api/2.0/dbfs/delete", body = body)
 }
 dbfs$delete <- dbfs_delete
 
@@ -150,10 +141,9 @@ dbfs$delete <- dbfs_delete
 #'
 #' @aliases dbfs_get_status
 dbfs_get_status <- function(path, ...) {
-    query <- list(
-        path = path, ...)
-    
-    .api$do("GET", "/api/2.0/dbfs/get-status", query = query)
+  query <- list(path = path, ...)
+
+  .api$do("GET", "/api/2.0/dbfs/get-status", query = query)
 }
 dbfs$get_status <- dbfs_get_status
 
@@ -181,13 +171,12 @@ dbfs$get_status <- dbfs_get_status
 #'
 #' @aliases dbfs_list
 dbfs_list <- function(path, ...) {
-    query <- list(
-        path = path, ...)
-    
-    
-    json <- .api$do("GET", "/api/2.0/dbfs/list", query = query)
-    return (json$files)
-    
+  query <- list(path = path, ...)
+
+
+  json <- .api$do("GET", "/api/2.0/dbfs/list", query = query)
+  return(json$files)
+
 }
 dbfs$list <- dbfs_list
 
@@ -207,10 +196,9 @@ dbfs$list <- dbfs_list
 #'
 #' @aliases dbfs_mkdirs
 dbfs_mkdirs <- function(path, ...) {
-    body <- list(
-        path = path, ...)
-    
-    .api$do("POST", "/api/2.0/dbfs/mkdirs", body = body)
+  body <- list(path = path, ...)
+
+  .api$do("POST", "/api/2.0/dbfs/mkdirs", body = body)
 }
 dbfs$mkdirs <- dbfs_mkdirs
 
@@ -220,7 +208,7 @@ dbfs$mkdirs <- dbfs_mkdirs
 #' file does not exist, this call throws an exception with
 #' `RESOURCE_DOES_NOT_EXIST`. If a file already exists in the destination path,
 #' this call throws an exception with `RESOURCE_ALREADY_EXISTS`. If the given
-#' source path is a directory, this call always recursively moves all files.",
+#' source path is a directory, this call always recursively moves all files.',
 #'
 #' @param destination_path [required] The destination path of the file or directory.
 #' @param source_path [required] The source path of the file or directory.
@@ -231,11 +219,10 @@ dbfs$mkdirs <- dbfs_mkdirs
 #'
 #' @aliases dbfs_move
 dbfs_move <- function(source_path, destination_path, ...) {
-    body <- list(
-        destination_path = destination_path, 
-        source_path = source_path, ...)
-    
-    .api$do("POST", "/api/2.0/dbfs/move", body = body)
+  body <- list(destination_path = destination_path, source_path = source_path,
+    ...)
+
+  .api$do("POST", "/api/2.0/dbfs/move", body = body)
 }
 dbfs$move <- dbfs_move
 
@@ -263,28 +250,23 @@ dbfs$move <- dbfs_move
 #' @rdname dbfs_put
 #'
 #' @aliases dbfs_put
-dbfs_put <- function(path, contents = NULL, 
-    overwrite = NULL, 
-    ...) {
-    body <- list(
-        contents = contents, 
-        overwrite = overwrite, 
-        path = path, ...)
-    
-    .api$do("POST", "/api/2.0/dbfs/put", body = body)
+dbfs_put <- function(path, contents = NULL, overwrite = NULL, ...) {
+  body <- list(contents = contents, overwrite = overwrite, path = path, ...)
+
+  .api$do("POST", "/api/2.0/dbfs/put", body = body)
 }
 dbfs$put <- dbfs_put
 
 #' Get the contents of a file.
 #' 
-#' "Returns the contents of a file. If the file does not exist, this call throws
+#' 'Returns the contents of a file. If the file does not exist, this call throws
 #' an exception with `RESOURCE_DOES_NOT_EXIST`. If the path is a directory, the
 #' read length is negative, or if the offset is negative, this call throws an
 #' exception with `INVALID_PARAMETER_VALUE`. If the read length exceeds 1 MB,
 #' this call throws an\nexception with `MAX_READ_SIZE_EXCEEDED`.
 #' 
 #' If `offset + length` exceeds the number of bytes in a file, it reads the
-#' contents until the end of file.",
+#' contents until the end of file.',
 #'
 #' @param length The number of bytes to read starting from the offset.
 #' @param offset The offset to read from in bytes.
@@ -295,15 +277,10 @@ dbfs$put <- dbfs_put
 #' @rdname dbfs_read
 #'
 #' @aliases dbfs_read
-dbfs_read <- function(path, length = NULL, 
-    offset = NULL, 
-    ...) {
-    query <- list(
-        length = length, 
-        offset = offset, 
-        path = path, ...)
-    
-    .api$do("GET", "/api/2.0/dbfs/read", query = query)
+dbfs_read <- function(path, length = NULL, offset = NULL, ...) {
+  query <- list(length = length, offset = offset, path = path, ...)
+
+  .api$do("GET", "/api/2.0/dbfs/read", query = query)
 }
 dbfs$read <- dbfs_read
 

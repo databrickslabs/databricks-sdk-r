@@ -39,9 +39,10 @@ dbsql_permissions <- list()
 #'
 #' @aliases dbsql_permissions_get
 dbsql_permissions_get <- function(object_type, object_id, ...) {
-    
-    
-    .api$do("GET", paste("/api/2.0/preview/sql/permissions/", object_type, "/", object_id, sep = ""))
+
+
+  .api$do("GET", paste("/api/2.0/preview/sql/permissions/", object_type, "/", object_id,
+    sep = ""))
 }
 dbsql_permissions$get <- dbsql_permissions_get
 
@@ -59,12 +60,12 @@ dbsql_permissions$get <- dbsql_permissions_get
 #' @rdname dbsql_permissions_set
 #'
 #' @aliases dbsql_permissions_set
-dbsql_permissions_set <- function(object_type, object_id, access_control_list = NULL, 
-    ...) {
-    body <- list(
-        access_control_list = access_control_list, ...)
-    
-    .api$do("POST", paste("/api/2.0/preview/sql/permissions/", object_type, "/", object_id, sep = ""), body = body)
+dbsql_permissions_set <- function(object_type, object_id, access_control_list = NULL,
+  ...) {
+  body <- list(access_control_list = access_control_list, ...)
+
+  .api$do("POST", paste("/api/2.0/preview/sql/permissions/", object_type, "/",
+    object_id, sep = ""), body = body)
 }
 dbsql_permissions$set <- dbsql_permissions_set
 
@@ -82,12 +83,12 @@ dbsql_permissions$set <- dbsql_permissions_set
 #' @rdname dbsql_permissions_transfer_ownership
 #'
 #' @aliases dbsql_permissions_transfer_ownership
-dbsql_permissions_transfer_ownership <- function(object_type, object_id, new_owner = NULL, 
-    ...) {
-    body <- list(
-        new_owner = new_owner, ...)
-    
-    .api$do("POST", paste("/api/2.0/preview/sql/permissions/", object_type, "/", object_id, "/transfer", , sep = ""), body = body)
+dbsql_permissions_transfer_ownership <- function(object_type, object_id, new_owner = NULL,
+  ...) {
+  body <- list(new_owner = new_owner, ...)
+
+  .api$do("POST", paste("/api/2.0/preview/sql/permissions/", object_type, "/",
+    object_id, "/transfer", , sep = ""), body = body)
 }
 dbsql_permissions$transfer_ownership <- dbsql_permissions_transfer_ownership
 

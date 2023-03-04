@@ -37,24 +37,14 @@ recipients <- list()
 #' @rdname recipients_create
 #'
 #' @aliases recipients_create
-recipients_create <- function(name, authentication_type, comment = NULL, 
-    data_recipient_global_metastore_id = NULL, 
-    ip_access_list = NULL, 
-    owner = NULL, 
-    properties_kvpairs = NULL, 
-    sharing_code = NULL, 
-    ...) {
-    body <- list(
-        authentication_type = authentication_type, 
-        comment = comment, 
-        data_recipient_global_metastore_id = data_recipient_global_metastore_id, 
-        ip_access_list = ip_access_list, 
-        name = name, 
-        owner = owner, 
-        properties_kvpairs = properties_kvpairs, 
-        sharing_code = sharing_code, ...)
-    
-    .api$do("POST", "/api/2.1/unity-catalog/recipients", body = body)
+recipients_create <- function(name, authentication_type, comment = NULL, data_recipient_global_metastore_id = NULL,
+  ip_access_list = NULL, owner = NULL, properties_kvpairs = NULL, sharing_code = NULL,
+  ...) {
+  body <- list(authentication_type = authentication_type, comment = comment, data_recipient_global_metastore_id = data_recipient_global_metastore_id,
+    ip_access_list = ip_access_list, name = name, owner = owner, properties_kvpairs = properties_kvpairs,
+    sharing_code = sharing_code, ...)
+
+  .api$do("POST", "/api/2.1/unity-catalog/recipients", body = body)
 }
 recipients$create <- recipients_create
 
@@ -71,9 +61,9 @@ recipients$create <- recipients_create
 #'
 #' @aliases recipients_delete
 recipients_delete <- function(name, ...) {
-    
-    
-    .api$do("DELETE", paste("/api/2.1/unity-catalog/recipients/", name, sep = ""))
+
+
+  .api$do("DELETE", paste("/api/2.1/unity-catalog/recipients/", name, sep = ""))
 }
 recipients$delete <- recipients_delete
 
@@ -91,9 +81,9 @@ recipients$delete <- recipients_delete
 #'
 #' @aliases recipients_get
 recipients_get <- function(name, ...) {
-    
-    
-    .api$do("GET", paste("/api/2.1/unity-catalog/recipients/", name, sep = ""))
+
+
+  .api$do("GET", paste("/api/2.1/unity-catalog/recipients/", name, sep = ""))
 }
 recipients$get <- recipients_get
 
@@ -113,15 +103,14 @@ recipients$get <- recipients_get
 #' @rdname recipients_list
 #'
 #' @aliases recipients_list
-recipients_list <- function(data_recipient_global_metastore_id = NULL, 
-    ...) {
-    query <- list(
-        data_recipient_global_metastore_id = data_recipient_global_metastore_id, ...)
-    
-    
-    json <- .api$do("GET", "/api/2.1/unity-catalog/recipients", query = query)
-    return (json$recipients)
-    
+recipients_list <- function(data_recipient_global_metastore_id = NULL, ...) {
+  query <- list(data_recipient_global_metastore_id = data_recipient_global_metastore_id,
+    ...)
+
+
+  json <- .api$do("GET", "/api/2.1/unity-catalog/recipients", query = query)
+  return(json$recipients)
+
 }
 recipients$list <- recipients_list
 
@@ -139,10 +128,11 @@ recipients$list <- recipients_list
 #'
 #' @aliases recipients_rotate_token
 recipients_rotate_token <- function(existing_token_expire_in_seconds, name, ...) {
-    body <- list(
-        existing_token_expire_in_seconds = existing_token_expire_in_seconds, ...)
-    
-    .api$do("POST", paste("/api/2.1/unity-catalog/recipients/", name, "/rotate-token", , sep = ""), body = body)
+  body <- list(existing_token_expire_in_seconds = existing_token_expire_in_seconds,
+    ...)
+
+  .api$do("POST", paste("/api/2.1/unity-catalog/recipients/", name, "/rotate-token",
+    , sep = ""), body = body)
 }
 recipients$rotate_token <- recipients_rotate_token
 
@@ -159,9 +149,10 @@ recipients$rotate_token <- recipients_rotate_token
 #'
 #' @aliases recipients_share_permissions
 recipients_share_permissions <- function(name, ...) {
-    
-    
-    .api$do("GET", paste("/api/2.1/unity-catalog/recipients/", name, "/share-permissions", , sep = ""))
+
+
+  .api$do("GET", paste("/api/2.1/unity-catalog/recipients/", name, "/share-permissions",
+    , sep = ""))
 }
 recipients$share_permissions <- recipients_share_permissions
 
@@ -183,19 +174,13 @@ recipients$share_permissions <- recipients_share_permissions
 #' @rdname recipients_update
 #'
 #' @aliases recipients_update
-recipients_update <- function(name, comment = NULL, 
-    ip_access_list = NULL, 
-    owner = NULL, 
-    properties_kvpairs = NULL, 
-    ...) {
-    body <- list(
-        comment = comment, 
-        ip_access_list = ip_access_list, 
-        name = name, 
-        owner = owner, 
-        properties_kvpairs = properties_kvpairs, ...)
-    
-    .api$do("PATCH", paste("/api/2.1/unity-catalog/recipients/", name, sep = ""), body = body)
+recipients_update <- function(name, comment = NULL, ip_access_list = NULL, owner = NULL,
+  properties_kvpairs = NULL, ...) {
+  body <- list(comment = comment, ip_access_list = ip_access_list, name = name,
+    owner = owner, properties_kvpairs = properties_kvpairs, ...)
+
+  .api$do("PATCH", paste("/api/2.1/unity-catalog/recipients/", name, sep = ""),
+    body = body)
 }
 recipients$update <- recipients_update
 

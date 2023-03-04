@@ -65,12 +65,10 @@ ip_access_lists <- list()
 #'
 #' @aliases ip_access_lists_create
 ip_access_lists_create <- function(label, list_type, ip_addresses, ...) {
-    body <- list(
-        ip_addresses = ip_addresses, 
-        label = label, 
-        list_type = list_type, ...)
-    
-    .api$do("POST", "/api/2.0/ip-access-lists", body = body)
+  body <- list(ip_addresses = ip_addresses, label = label, list_type = list_type,
+    ...)
+
+  .api$do("POST", "/api/2.0/ip-access-lists", body = body)
 }
 ip_access_lists$create <- ip_access_lists_create
 
@@ -86,9 +84,9 @@ ip_access_lists$create <- ip_access_lists_create
 #'
 #' @aliases ip_access_lists_delete
 ip_access_lists_delete <- function(ip_access_list_id, ...) {
-    
-    
-    .api$do("DELETE", paste("/api/2.0/ip-access-lists/", ip_access_list_id, sep = ""))
+
+
+  .api$do("DELETE", paste("/api/2.0/ip-access-lists/", ip_access_list_id, sep = ""))
 }
 ip_access_lists$delete <- ip_access_lists_delete
 
@@ -104,9 +102,9 @@ ip_access_lists$delete <- ip_access_lists_delete
 #'
 #' @aliases ip_access_lists_get
 ip_access_lists_get <- function(ip_access_list_id, ...) {
-    
-    
-    .api$do("GET", paste("/api/2.0/ip-access-lists/", ip_access_list_id, sep = ""))
+
+
+  .api$do("GET", paste("/api/2.0/ip-access-lists/", ip_access_list_id, sep = ""))
 }
 ip_access_lists$get <- ip_access_lists_get
 
@@ -121,11 +119,11 @@ ip_access_lists$get <- ip_access_lists_get
 #'
 #' @aliases ip_access_lists_list
 ip_access_lists_list <- function(...) {
-    
-    
-    json <- .api$do("GET", "/api/2.0/ip-access-lists")
-    return (json$ip_access_lists)
-    
+
+
+  json <- .api$do("GET", "/api/2.0/ip-access-lists")
+  return(json$ip_access_lists)
+
 }
 ip_access_lists$list <- ip_access_lists_list
 
@@ -156,16 +154,13 @@ ip_access_lists$list <- ip_access_lists_list
 #' @rdname ip_access_lists_replace
 #'
 #' @aliases ip_access_lists_replace
-ip_access_lists_replace <- function(label, list_type, ip_addresses, enabled, ip_access_list_id, list_id = NULL, 
-    ...) {
-    body <- list(
-        enabled = enabled, 
-        ip_addresses = ip_addresses, 
-        label = label, 
-        list_id = list_id, 
-        list_type = list_type, ...)
-    
-    .api$do("PUT", paste("/api/2.0/ip-access-lists/", ip_access_list_id, sep = ""), body = body)
+ip_access_lists_replace <- function(label, list_type, ip_addresses, enabled, ip_access_list_id,
+  list_id = NULL, ...) {
+  body <- list(enabled = enabled, ip_addresses = ip_addresses, label = label, list_id = list_id,
+    list_type = list_type, ...)
+
+  .api$do("PUT", paste("/api/2.0/ip-access-lists/", ip_access_list_id, sep = ""),
+    body = body)
 }
 ip_access_lists$replace <- ip_access_lists_replace
 
@@ -201,16 +196,13 @@ ip_access_lists$replace <- ip_access_lists_replace
 #' @rdname ip_access_lists_update
 #'
 #' @aliases ip_access_lists_update
-ip_access_lists_update <- function(label, list_type, ip_addresses, enabled, ip_access_list_id, list_id = NULL, 
-    ...) {
-    body <- list(
-        enabled = enabled, 
-        ip_addresses = ip_addresses, 
-        label = label, 
-        list_id = list_id, 
-        list_type = list_type, ...)
-    
-    .api$do("PATCH", paste("/api/2.0/ip-access-lists/", ip_access_list_id, sep = ""), body = body)
+ip_access_lists_update <- function(label, list_type, ip_addresses, enabled, ip_access_list_id,
+  list_id = NULL, ...) {
+  body <- list(enabled = enabled, ip_addresses = ip_addresses, label = label, list_id = list_id,
+    list_type = list_type, ...)
+
+  .api$do("PATCH", paste("/api/2.0/ip-access-lists/", ip_access_list_id, sep = ""),
+    body = body)
 }
 ip_access_lists$update <- ip_access_lists_update
 
