@@ -7,7 +7,7 @@
 libraries_cluster_status(cluster_id, ...)
 }
 \arguments{
-\item{cluster_id}{\link{required} Unique identifier of the cluster whose status should be retrieved.}
+\item{cluster_id}{Required. Unique identifier of the cluster whose status should be retrieved.}
 }
 \description{
 Get the status of libraries on a cluster. A status will be available for all

@@ -7,7 +7,7 @@
 workspace_conf_get_status(keys, ...)
 }
 \arguments{
-\item{keys}{\link{required}}
+\item{keys}{Required.}
 }
 \description{
 Gets the configuration status for a workspace.

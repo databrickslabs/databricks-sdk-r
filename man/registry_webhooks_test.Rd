@@ -7,7 +7,7 @@
 registry_webhooks_test(id, event = NULL, ...)
 }
 \arguments{
-\item{id}{\link{required} Webhook ID.}
+\item{id}{Required. Webhook ID.}
 
 \item{event}{If \code{event} is specified, the test trigger uses the specified event.}
 }

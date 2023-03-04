@@ -7,7 +7,7 @@
 schemas_delete(full_name, ...)
 }
 \arguments{
-\item{full_name}{\link{required} Full name of the schema.}
+\item{full_name}{Required. Full name of the schema.}
 }
 \description{
 Deletes the specified schema from the parent catalog. The caller must be the

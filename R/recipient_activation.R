@@ -1,5 +1,9 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
+#' @include api_client.R
+#' @importFrom stats runif
+NULL
+
 #' Databricks Delta Sharing: Recipient Activation REST API
 #' 
 #' @section Operations:
@@ -16,7 +20,7 @@ recipient_activation <- list()
 #' 
 #' Gets an activation URL for a share.
 #'
-#' @param activation_url [required] The one time activation url.
+#' @param activation_url Required. The one time activation url.
 #'
 #' @keywords internal
 #'
@@ -36,7 +40,7 @@ recipient_activation$get_activation_url_info <- recipient_activation_get_activat
 #' Retrieve access token with an activation url. This is a public API without
 #' any authentication.
 #'
-#' @param activation_url [required] The one time activation url.
+#' @param activation_url Required. The one time activation url.
 #'
 #' @keywords internal
 #'
@@ -50,16 +54,4 @@ recipient_activation_retrieve_token <- function(activation_url, ...) {
     activation_url, sep = ""))
 }
 recipient_activation$retrieve_token <- recipient_activation_retrieve_token
-
-
-
-
-
-
-
-
-
-
-
-
 

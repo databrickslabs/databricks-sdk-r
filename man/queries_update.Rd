@@ -16,7 +16,7 @@ queries_update(
 )
 }
 \arguments{
-\item{query_id}{\link{required}}
+\item{query_id}{Required.}
 
 \item{data_source_id}{The ID of the data source / SQL warehouse where this query will run.}
 

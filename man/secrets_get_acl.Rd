@@ -7,9 +7,9 @@
 secrets_get_acl(scope, principal, ...)
 }
 \arguments{
-\item{scope}{\link{required} The name of the scope to fetch ACL information from.}
+\item{scope}{Required. The name of the scope to fetch ACL information from.}
 
-\item{principal}{\link{required} The principal to fetch ACL information for.}
+\item{principal}{Required. The principal to fetch ACL information for.}
 }
 \description{
 Gets the details about the given ACL, such as the group and permission. Users

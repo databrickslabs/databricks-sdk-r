@@ -7,9 +7,9 @@
 recipients_rotate_token(existing_token_expire_in_seconds, name, ...)
 }
 \arguments{
-\item{existing_token_expire_in_seconds}{\link{required} The expiration time of the bearer token in ISO 8601 format.}
+\item{existing_token_expire_in_seconds}{Required. The expiration time of the bearer token in ISO 8601 format.}
 
-\item{name}{\link{required} The name of the recipient.}
+\item{name}{Required. The name of the recipient.}
 }
 \description{
 Refreshes the specified recipient's delta sharing authentication token with

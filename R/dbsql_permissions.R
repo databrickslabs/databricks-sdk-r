@@ -1,5 +1,9 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
+#' @include api_client.R
+#' @importFrom stats runif
+NULL
+
 #' The SQL Permissions API is similar to the endpoints of the
 #' :method:permissions/set. However, this exposes only one endpoint, which gets
 #' the Access Control List for a given object. You cannot modify any permissions
@@ -30,8 +34,8 @@ dbsql_permissions <- list()
 #' Gets a JSON representation of the access control list (ACL) for a specified
 #' object.
 #'
-#' @param object_id [required] Object ID.
-#' @param object_type [required] The type of object permissions to check.
+#' @param object_id Required. Object ID.
+#' @param object_type Required. The type of object permissions to check.
 #'
 #' @keywords internal
 #'
@@ -52,8 +56,8 @@ dbsql_permissions$get <- dbsql_permissions_get
 #' will complete rewrite the ACL.
 #'
 #' @param access_control_list 
-#' @param object_id [required] Object ID.
-#' @param object_type [required] The type of object permission to set.
+#' @param object_id Required. Object ID.
+#' @param object_type Required. The type of object permission to set.
 #'
 #' @keywords internal
 #'
@@ -75,8 +79,8 @@ dbsql_permissions$set <- dbsql_permissions_set
 #' Requires an admin API key.
 #'
 #' @param new_owner Email address for the new owner, who must exist in the workspace.
-#' @param object_id [required] The ID of the object on which to change ownership.
-#' @param object_type [required] The type of object on which to change ownership.
+#' @param object_id Required. The ID of the object on which to change ownership.
+#' @param object_type Required. The type of object on which to change ownership.
 #'
 #' @keywords internal
 #'
@@ -91,16 +95,4 @@ dbsql_permissions_transfer_ownership <- function(object_type, object_id, new_own
     object_id, "/transfer", , sep = ""), body = body)
 }
 dbsql_permissions$transfer_ownership <- dbsql_permissions_transfer_ownership
-
-
-
-
-
-
-
-
-
-
-
-
 

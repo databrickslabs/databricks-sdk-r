@@ -8,9 +8,9 @@ served model.}
 serving_endpoints_logs(name, served_model_name, ...)
 }
 \arguments{
-\item{name}{\link{required} The name of the serving endpoint that the served model belongs to.}
+\item{name}{Required. The name of the serving endpoint that the served model belongs to.}
 
-\item{served_model_name}{\link{required} The name of the served model that logs will be retrieved for.}
+\item{served_model_name}{Required. The name of the served model that logs will be retrieved for.}
 }
 \description{
 Retrieves the service logs associated with the provided served model. Please

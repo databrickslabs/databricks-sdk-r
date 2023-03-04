@@ -7,7 +7,7 @@
 statement_execution_cancel_execution(statement_id, ...)
 }
 \arguments{
-\item{statement_id}{\link{required}}
+\item{statement_id}{Required.}
 }
 \description{
 Requests that an executing statement be canceled. Callers must poll for

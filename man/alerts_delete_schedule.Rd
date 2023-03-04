@@ -7,9 +7,9 @@
 alerts_delete_schedule(alert_id, schedule_id, ...)
 }
 \arguments{
-\item{alert_id}{\link{required}}
+\item{alert_id}{Required.}
 
-\item{schedule_id}{\link{required}}
+\item{schedule_id}{Required.}
 }
 \description{
 Deletes an alert's refresh schedule. The refresh schedule specifies when to

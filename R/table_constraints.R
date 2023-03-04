@@ -1,5 +1,9 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
+#' @include api_client.R
+#' @importFrom stats runif
+NULL
+
 #' Primary key and foreign key constraints encode relationships between fields
 #' in tables.
 #' 
@@ -37,8 +41,8 @@ table_constraints <- list()
 #' referenced parent table's schema, and be the owner of the referenced parent
 #' table.
 #'
-#' @param constraint [required] A table constraint, as defined by *one* of the following fields being set: __primary_key_constraint__, __foreign_key_constraint__, __named_table_constraint__.
-#' @param full_name_arg [required] The full name of the table referenced by the constraint.
+#' @param constraint Required. A table constraint, as defined by *one* of the following fields being set: __primary_key_constraint__, __foreign_key_constraint__, __named_table_constraint__.
+#' @param full_name_arg Required. The full name of the table referenced by the constraint.
 #'
 #' @keywords internal
 #'
@@ -64,9 +68,9 @@ table_constraints$create <- table_constraints_create
 #' **USE_CATALOG** privilege on the table's catalog, the **USE_SCHEMA**
 #' privilege on the table's schema, and be the owner of the table.
 #'
-#' @param cascade [required] If true, try deleting all child constraints of the current constraint.\n If false, reject this operation if the current constraint has any child constraints.
-#' @param constraint_name [required] The name of the constraint to delete.
-#' @param full_name [required] Full name of the table referenced by the constraint.
+#' @param cascade Required. If true, try deleting all child constraints of the current constraint.\n If false, reject this operation if the current constraint has any child constraints.
+#' @param constraint_name Required. The name of the constraint to delete.
+#' @param full_name Required. Full name of the table referenced by the constraint.
 #'
 #' @keywords internal
 #'
@@ -80,16 +84,4 @@ table_constraints_delete <- function(full_name, constraint_name, cascade, ...) {
     query = query)
 }
 table_constraints$delete <- table_constraints_delete
-
-
-
-
-
-
-
-
-
-
-
-
 

@@ -7,9 +7,9 @@
 jobs_reset(job_id, new_settings, ...)
 }
 \arguments{
-\item{job_id}{\link{required} The canonical identifier of the job to reset.}
+\item{job_id}{Required. The canonical identifier of the job to reset.}
 
-\item{new_settings}{\link{required} The new settings of the job.}
+\item{new_settings}{Required. The new settings of the job.}
 }
 \description{
 Overwrites all the settings for a specific job. Use the Update endpoint to

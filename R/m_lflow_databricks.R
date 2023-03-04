@@ -1,5 +1,9 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
+#' @include api_client.R
+#' @importFrom stats runif
+NULL
+
 #' These endpoints are modified versions of the MLflow API that accept
 #' additional input parameters or return additional information.
 #' 
@@ -21,7 +25,7 @@ m_lflow_databricks <- list()
 #' 
 #' [MLflow endpoint]: https://www.mlflow.org/docs/latest/rest-api.html#get-registeredmodel
 #'
-#' @param name [required] Name of the model.
+#' @param name Required. Name of the model.
 #'
 #' @keywords internal
 #'
@@ -43,11 +47,11 @@ m_lflow_databricks$get <- m_lflow_databricks_get
 #' 
 #' [MLflow endpoint]: https://www.mlflow.org/docs/latest/rest-api.html#transition-modelversion-stage
 #'
-#' @param archive_existing_versions [required] Specifies whether to archive all current model versions in the target stage.
+#' @param archive_existing_versions Required. Specifies whether to archive all current model versions in the target stage.
 #' @param comment User-provided comment on the action.
-#' @param name [required] Name of the model.
-#' @param stage [required] Target stage of the transition.
-#' @param version [required] Version of the model.
+#' @param name Required. Name of the model.
+#' @param stage Required. Target stage of the transition.
+#' @param version Required. Version of the model.
 #'
 #' @keywords internal
 #'
@@ -63,16 +67,4 @@ m_lflow_databricks_transition_stage <- function(name, version, stage, archive_ex
     body = body)
 }
 m_lflow_databricks$transition_stage <- m_lflow_databricks_transition_stage
-
-
-
-
-
-
-
-
-
-
-
-
 

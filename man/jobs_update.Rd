@@ -7,7 +7,7 @@
 jobs_update(job_id, fields_to_remove = NULL, new_settings = NULL, ...)
 }
 \arguments{
-\item{job_id}{\link{required} The canonical identifier of the job to update.}
+\item{job_id}{Required. The canonical identifier of the job to update.}
 
 \item{fields_to_remove}{Remove top-level fields in the job settings.}
 

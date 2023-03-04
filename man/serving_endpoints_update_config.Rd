@@ -14,9 +14,9 @@ serving_endpoints_update_config(
 )
 }
 \arguments{
-\item{served_models}{\link{required} A list of served models for the endpoint to serve.}
+\item{served_models}{Required. A list of served models for the endpoint to serve.}
 
-\item{name}{\link{required} The name of the serving endpoint to update.}
+\item{name}{Required. The name of the serving endpoint to update.}
 
 \item{traffic_config}{The traffic config defining how invocations to the serving endpoint should be routed.}
 }

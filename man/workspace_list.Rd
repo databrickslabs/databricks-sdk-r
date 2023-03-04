@@ -7,7 +7,7 @@
 workspace_list(path, notebooks_modified_after = NULL, ...)
 }
 \arguments{
-\item{path}{\link{required} The absolute path of the notebook or directory.}
+\item{path}{Required. The absolute path of the notebook or directory.}
 
 \item{notebooks_modified_after}{\if{html}{\out{<content needed>}}.}
 }

@@ -15,7 +15,7 @@ registry_webhooks_update(
 )
 }
 \arguments{
-\item{id}{\link{required} Webhook ID.}
+\item{id}{Required. Webhook ID.}
 
 \item{description}{User-specified description for the webhook.}
 

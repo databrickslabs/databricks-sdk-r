@@ -1,5 +1,9 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
+#' @include api_client.R
+#' @importFrom stats runif
+NULL
+
 #' A catalog is the first layer of Unity Catalog’s three-level namespace.
 #' It’s used to organize your data assets. Users can see all catalogs on which
 #' they have been assigned the USE_CATALOG data permission.
@@ -28,7 +32,7 @@ catalogs <- list()
 #' metastore admin or has the **CREATE_CATALOG** privilege.
 #'
 #' @param comment User-provided free-form text description.
-#' @param name [required] Name of catalog.
+#' @param name Required. Name of catalog.
 #' @param properties A map of key-value properties attached to the securable.
 #' @param provider_name The name of delta sharing provider.
 #' @param share_name The name of the share under the share provider.
@@ -54,7 +58,7 @@ catalogs$create <- catalogs_create
 #' metastore admin or the owner of the catalog.
 #'
 #' @param force Force deletion even if the catalog is not empty.
-#' @param name [required] The name of the catalog.
+#' @param name Required. The name of the catalog.
 #'
 #' @keywords internal
 #'
@@ -75,7 +79,7 @@ catalogs$delete <- catalogs_delete
 #' admin, the owner of the catalog, or a user that has the **USE_CATALOG**
 #' privilege set for their account.
 #'
-#' @param name [required] The name of the catalog.
+#' @param name Required. The name of the catalog.
 #'
 #' @keywords internal
 #'
@@ -136,16 +140,4 @@ catalogs_update <- function(name, comment = NULL, owner = NULL, properties = NUL
   .api$do("PATCH", paste("/api/2.1/unity-catalog/catalogs/", name, sep = ""), body = body)
 }
 catalogs$update <- catalogs_update
-
-
-
-
-
-
-
-
-
-
-
-
 

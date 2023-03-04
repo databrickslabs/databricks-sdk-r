@@ -14,7 +14,7 @@ schemas_update(
 )
 }
 \arguments{
-\item{full_name}{\link{required} Full name of the schema.}
+\item{full_name}{Required. Full name of the schema.}
 
 \item{comment}{User-provided free-form text description.}
 

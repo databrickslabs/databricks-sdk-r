@@ -16,9 +16,9 @@ cluster_policies_edit(
 )
 }
 \arguments{
-\item{policy_id}{\link{required} The ID of the policy to update.}
+\item{policy_id}{Required. The ID of the policy to update.}
 
-\item{name}{\link{required} Cluster Policy name requested by the user.}
+\item{name}{Required. Cluster Policy name requested by the user.}
 
 \item{definition}{Policy definition document expressed in Databricks Cluster Policy Definition Language.}
 

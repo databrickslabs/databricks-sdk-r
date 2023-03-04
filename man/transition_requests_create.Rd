@@ -7,11 +7,11 @@
 transition_requests_create(name, version, stage, comment = NULL, ...)
 }
 \arguments{
-\item{name}{\link{required} Name of the model.}
+\item{name}{Required. Name of the model.}
 
-\item{version}{\link{required} Version of the model.}
+\item{version}{Required. Version of the model.}
 
-\item{stage}{\link{required} Target stage of the transition.}
+\item{stage}{Required. Target stage of the transition.}
 
 \item{comment}{User-provided comment on the action.}
 }

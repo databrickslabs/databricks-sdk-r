@@ -7,7 +7,7 @@
 schemas_list(catalog_name, ...)
 }
 \arguments{
-\item{catalog_name}{\link{required} Parent catalog for schemas of interest.}
+\item{catalog_name}{Required. Parent catalog for schemas of interest.}
 }
 \value{
 \code{data.frame} with all of the response pages.

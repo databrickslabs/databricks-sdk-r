@@ -7,7 +7,7 @@
 instance_profiles_remove(instance_profile_arn, ...)
 }
 \arguments{
-\item{instance_profile_arn}{\link{required} The ARN of the instance profile to remove.}
+\item{instance_profile_arn}{Required. The ARN of the instance profile to remove.}
 }
 \description{
 Remove the instance profile with the provided ARN. Existing clusters with

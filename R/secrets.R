@@ -1,5 +1,9 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
+#' @include api_client.R
+#' @importFrom stats runif
+NULL
+
 #' The Secrets API allows you to manage secrets, secret scopes, and access
 #' permissions.
 #' 
@@ -39,7 +43,7 @@ secrets <- list()
 #'
 #' @param initial_manage_principal The principal that is initially granted `MANAGE` permission to the created scope.
 #' @param keyvault_metadata The metadata for the secret scope if the type is `AZURE_KEYVAULT`.
-#' @param scope [required] Scope name requested by the user.
+#' @param scope Required. Scope name requested by the user.
 #' @param scope_backend_type The backend type the scope will be created with.
 #'
 #' @keywords internal
@@ -65,8 +69,8 @@ secrets$create_scope <- secrets_create_scope
 #' Throws `PERMISSION_DENIED` if the user does not have permission to make this
 #' API call.
 #'
-#' @param principal [required] The principal to remove an existing ACL from.
-#' @param scope [required] The name of the scope to remove permissions from.
+#' @param principal Required. The principal to remove an existing ACL from.
+#' @param scope Required. The name of the scope to remove permissions from.
 #'
 #' @keywords internal
 #'
@@ -88,7 +92,7 @@ secrets$delete_acl <- secrets_delete_acl
 #' `PERMISSION_DENIED` if the user does not have permission to make this API
 #' call.
 #'
-#' @param scope [required] Name of the scope to delete.
+#' @param scope Required. Name of the scope to delete.
 #'
 #' @keywords internal
 #'
@@ -111,8 +115,8 @@ secrets$delete_scope <- secrets_delete_scope
 #' Throws `PERMISSION_DENIED` if the user does not have permission to make this
 #' API call.
 #'
-#' @param key [required] Name of the secret to delete.
-#' @param scope [required] The name of the scope that contains the secret to delete.
+#' @param key Required. Name of the secret to delete.
+#' @param scope Required. The name of the scope that contains the secret to delete.
 #'
 #' @keywords internal
 #'
@@ -135,8 +139,8 @@ secrets$delete_secret <- secrets_delete_secret
 #' `PERMISSION_DENIED` if the user does not have permission to make this API
 #' call.
 #'
-#' @param principal [required] The principal to fetch ACL information for.
-#' @param scope [required] The name of the scope to fetch ACL information from.
+#' @param principal Required. The principal to fetch ACL information for.
+#' @param scope Required. The name of the scope to fetch ACL information from.
 #'
 #' @keywords internal
 #'
@@ -159,7 +163,7 @@ secrets$get_acl <- secrets_get_acl
 #' `PERMISSION_DENIED` if the user does not have permission to make this API
 #' call.
 #'
-#' @param scope [required] The name of the scope to fetch ACL information from.
+#' @param scope Required. The name of the scope to fetch ACL information from.
 #' 
 #' @return `data.frame` with all of the response pages.
 #'
@@ -211,7 +215,7 @@ secrets$list_scopes <- secrets_list_scopes
 #' `PERMISSION_DENIED` if the user does not have permission to make this API
 #' call.
 #'
-#' @param scope [required] The name of the scope to list secrets within.
+#' @param scope Required. The name of the scope to list secrets within.
 #' 
 #' @return `data.frame` with all of the response pages.
 #'
@@ -242,11 +246,11 @@ secrets$list_secrets <- secrets_list_secrets
 #' * `WRITE` - Allowed to read and write to this secret scope. * `READ` -
 #' Allowed to read this secret scope and list what secrets are available.
 #' 
-#' Note that in general, secret values can only be read from within a
-#' command\non a cluster (for example, through a notebook). There is no API to
-#' read the actual secret value material outside of a cluster. However, the
-#' user's permission will be applied based on who is executing the command, and
-#' they must have at least READ permission.
+#' Note that in general, secret values can only be read from within a command on
+#' a cluster (for example, through a notebook). There is no API to read the
+#' actual secret value material outside of a cluster. However, the user's
+#' permission will be applied based on who is executing the command, and they
+#' must have at least READ permission.
 #' 
 #' Users must have the `MANAGE` permission to invoke this API.
 #' 
@@ -259,9 +263,9 @@ secrets$list_secrets <- secrets_list_secrets
 #' `PERMISSION_DENIED` if the user does not have permission to make this API
 #' call.
 #'
-#' @param permission [required] The permission level applied to the principal.
-#' @param principal [required] The principal in which the permission is applied.
-#' @param scope [required] The name of the scope to apply permissions to.
+#' @param permission Required. The permission level applied to the principal.
+#' @param principal Required. The principal in which the permission is applied.
+#' @param scope Required. The name of the scope to apply permissions to.
 #'
 #' @keywords internal
 #'
@@ -298,8 +302,8 @@ secrets$put_acl <- secrets_put_acl
 #' API call.
 #'
 #' @param bytes_value If specified, value will be stored as bytes.
-#' @param key [required] A unique name to identify the secret.
-#' @param scope [required] The name of the scope to which the secret will be associated with.
+#' @param key Required. A unique name to identify the secret.
+#' @param scope Required. The name of the scope to which the secret will be associated with.
 #' @param string_value If specified, note that the value will be stored in UTF-8 (MB4) form.
 #'
 #' @keywords internal
@@ -315,16 +319,4 @@ secrets_put_secret <- function(scope, key, bytes_value = NULL, string_value = NU
   .api$do("POST", "/api/2.0/secrets/put", body = body)
 }
 secrets$put_secret <- secrets_put_secret
-
-
-
-
-
-
-
-
-
-
-
-
 

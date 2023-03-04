@@ -1,5 +1,9 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.{{if .IsAccounts}}{{skipThisFile}}{{end}}
 
+#' @include api_client.R
+#' @importFrom stats runif
+NULL
+
 {{.Comment "#' " 80}}
 #' 
 #' @section Operations:
@@ -19,7 +23,7 @@
 #' By default, the state of Databricks {{.Service.TitleName}} is reported to console. You can change this behavior 
 #' by changing the `callback` parameter.
 {{end}}#'{{range .Request.Fields}}
-#' @param {{.SnakeName}} {{if .Required}}[required] {{end}}{{.Summary}}{{end}}
+#' @param {{.SnakeName}} {{if .Required}}Required. {{end}}{{.Summary}}{{end}}
 {{end}}{{if .Pagination}}#' 
 #' @return `data.frame` with all of the response pages.
 {{end}}#'
@@ -39,22 +43,22 @@
 
 {{end}}
 
-{{define "method-serialize" -}}
+{{- define "method-serialize" -}}
     {{if .Request}}
     {{- if .Request.HasQueryField}}query <- list({{range .Request.Fields}}{{if .IsQuery}}
         {{.Name}} = {{.SnakeName}}, {{end}}{{end}}...){{end}}
     {{- if .Request.HasJsonField}}body <- list({{range .Request.Fields}}{{if .IsJson}}
         {{.Name}} = {{.SnakeName}}, {{end}}{{end}}...){{end}}
     {{end -}}
-{{- end}}
+{{- end -}}
 
-{{define "method-call" -}}
+{{- define "method-call" -}}
     {{if .Pagination -}}{{template "method-call-paginated" .}}
     {{- else if and .Wait (not .IsCrudRead) -}}{{template "method-call-retried" .}}
     {{- else}}{{template "method-call-default" .}}{{end}}
-{{- end}}
+{{- end -}}
 
-{{define "method-call-paginated" -}}
+{{- define "method-call-paginated" -}}
     {{if .Pagination.MultiRequest}}
     {{if and .Pagination.Offset (not (eq .Path "/api/2.0/clusters/events")) }}
     query${{.Pagination.Offset.Name}} = {{if eq .Pagination.Increment 1}}1{{else}}0{{end}}{{end}}
@@ -91,9 +95,9 @@
     json <- {{template "method-do" .}}
     return (json{{if .Pagination.Results}}${{.Pagination.Results.Name}}{{end}})
     {{end}}
-{{- end}}
+{{- end -}}
 
-{{define "method-call-retried" -}}
+{{- define "method-call-retried" -}}
     {{if .Response}}op_response <- {{end}}{{template "method-do" .}}
     started <- as.numeric(Sys.time())
     target_states <- c({{range .Wait.Success}}"{{.Content}}", {{end}}c()){{if .Wait.Failure}}
@@ -143,13 +147,13 @@
     }
     msg <- paste("timed out after", timeout, "minutes:", status_message)
     rlang::abort(msg, call = rlang::caller_env())
-{{- end}}
+{{- end -}}
 
-{{define "method-call-default" -}}
+{{- define "method-call-default" -}}
     {{template "method-do" .}}
-{{- end}}
+{{- end -}}
 
-{{define "method-do" -}}
+{{- define "method-do" -}}
 .api$do("{{.Verb}}", {{if .PathParts -}}paste({{range  .PathParts}}"{{.Prefix}}", {{if .Field}}{{.Field.SnakeName}}{{else if .IsAccountId}}.api$account_id{{end}}, {{ end }}sep = "")
     {{- else}}"{{.Path}}"{{end}}{{if .Request}}{{if .Request.HasQueryField}}, query = query{{end}}{{if .Request.HasJsonField}}, body = body{{end}}{{end}})
-{{- end}}
+{{- end -}}

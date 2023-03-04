@@ -15,7 +15,7 @@ cluster_policies_create(
 )
 }
 \arguments{
-\item{name}{\link{required} Cluster Policy name requested by the user.}
+\item{name}{Required. Cluster Policy name requested by the user.}
 
 \item{definition}{Policy definition document expressed in Databricks Cluster Policy Definition Language.}
 

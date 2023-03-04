@@ -14,7 +14,7 @@ pipelines_start_update(
 )
 }
 \arguments{
-\item{pipeline_id}{\link{required}}
+\item{pipeline_id}{Required.}
 
 \item{cause}{}
 

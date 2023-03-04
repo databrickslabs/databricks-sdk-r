@@ -7,7 +7,7 @@
 alerts_subscribe(alert_id, destination_id = NULL, user_id = NULL, ...)
 }
 \arguments{
-\item{alert_id}{\link{required} ID of the alert.}
+\item{alert_id}{Required. ID of the alert.}
 
 \item{destination_id}{ID of the alert subscriber (if subscribing an alert destination).}
 

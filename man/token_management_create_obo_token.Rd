@@ -12,9 +12,9 @@ token_management_create_obo_token(
 )
 }
 \arguments{
-\item{application_id}{\link{required} Application ID of the service principal.}
+\item{application_id}{Required. Application ID of the service principal.}
 
-\item{lifetime_seconds}{\link{required} The number of seconds before the token expires.}
+\item{lifetime_seconds}{Required. The number of seconds before the token expires.}
 
 \item{comment}{Comment that describes the purpose of the token.}
 }

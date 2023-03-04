@@ -7,7 +7,7 @@
 clusters_start(cluster_id, timeout = 20, callback = cli_reporter, ...)
 }
 \arguments{
-\item{cluster_id}{\link{required} The cluster to be started.}
+\item{cluster_id}{Required. The cluster to be started.}
 }
 \description{
 This is a long-running operation, which blocks until Clusters on Databricks reach

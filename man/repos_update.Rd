@@ -7,7 +7,7 @@
 repos_update(repo_id, branch = NULL, sparse_checkout = NULL, tag = NULL, ...)
 }
 \arguments{
-\item{repo_id}{\link{required} The ID for the corresponding repo to access.}
+\item{repo_id}{Required. The ID for the corresponding repo to access.}
 
 \item{branch}{Branch that the local version of the repo is checked out to.}
 

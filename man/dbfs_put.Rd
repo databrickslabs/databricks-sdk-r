@@ -7,7 +7,7 @@
 dbfs_put(path, contents = NULL, overwrite = NULL, ...)
 }
 \arguments{
-\item{path}{\link{required} The path of the new file.}
+\item{path}{Required. The path of the new file.}
 
 \item{contents}{This parameter might be absent, and instead a posted file will be used.}
 

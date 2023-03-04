@@ -1,5 +1,9 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
+#' @include api_client.R
+#' @importFrom stats runif
+NULL
+
 #' DBFS API makes it simple to interact with various data sources without having
 #' to include a users credentials every time to read a file.
 #' 
@@ -30,8 +34,8 @@ dbfs <- list()
 #' If the block of data exceeds 1 MB, this call will throw an exception with
 #' `MAX_BLOCK_SIZE_EXCEEDED`.
 #'
-#' @param data [required] The base64-encoded data to append to the stream.
-#' @param handle [required] The handle on an open stream.
+#' @param data Required. The base64-encoded data to append to the stream.
+#' @param handle Required. The handle on an open stream.
 #'
 #' @keywords internal
 #'
@@ -50,7 +54,7 @@ dbfs$add_block <- dbfs_add_block
 #' Closes the stream specified by the input handle. If the handle does not
 #' exist, this call throws an exception with `RESOURCE_DOES_NOT_EXIST`.
 #'
-#' @param handle [required] The handle on an open stream.
+#' @param handle Required. The handle on an open stream.
 #'
 #' @keywords internal
 #'
@@ -78,7 +82,7 @@ dbfs$close <- dbfs_close
 #' have.
 #'
 #' @param overwrite The flag that specifies whether to overwrite existing file/files.
-#' @param path [required] The path of the new file.
+#' @param path Required. The path of the new file.
 #'
 #' @keywords internal
 #'
@@ -113,7 +117,7 @@ dbfs$create <- dbfs_create
 #' such as selective deletes, and the possibility to automate periodic delete
 #' jobs.
 #'
-#' @param path [required] The path of the file or directory to delete.
+#' @param path Required. The path of the file or directory to delete.
 #' @param recursive Whether or not to recursively delete the directory's contents.
 #'
 #' @keywords internal
@@ -133,7 +137,7 @@ dbfs$delete <- dbfs_delete
 #' Gets the file information for a file or directory. If the file or directory
 #' does not exist, this call throws an exception with `RESOURCE_DOES_NOT_EXIST`.
 #'
-#' @param path [required] The path of the file or directory.
+#' @param path Required. The path of the file or directory.
 #'
 #' @keywords internal
 #'
@@ -161,7 +165,7 @@ dbfs$get_status <- dbfs_get_status
 #' system utility (dbutils.fs)](/dev-tools/databricks-utils.html#dbutils-fs),
 #' which provides the same functionality without timing out.
 #'
-#' @param path [required] The path of the file or directory.
+#' @param path Required. The path of the file or directory.
 #' 
 #' @return `data.frame` with all of the response pages.
 #'
@@ -188,7 +192,7 @@ dbfs$list <- dbfs_list
 #' this operation fails, it might have succeeded in creating some of the
 #' necessary parent directories.
 #'
-#' @param path [required] The path of the new directory.
+#' @param path Required. The path of the new directory.
 #'
 #' @keywords internal
 #'
@@ -210,8 +214,8 @@ dbfs$mkdirs <- dbfs_mkdirs
 #' this call throws an exception with `RESOURCE_ALREADY_EXISTS`. If the given
 #' source path is a directory, this call always recursively moves all files.',
 #'
-#' @param destination_path [required] The destination path of the file or directory.
-#' @param source_path [required] The source path of the file or directory.
+#' @param destination_path Required. The destination path of the file or directory.
+#' @param source_path Required. The source path of the file or directory.
 #'
 #' @keywords internal
 #'
@@ -243,7 +247,7 @@ dbfs$move <- dbfs_move
 #'
 #' @param contents This parameter might be absent, and instead a posted file will be used.
 #' @param overwrite The flag that specifies whether to overwrite existing file/files.
-#' @param path [required] The path of the new file.
+#' @param path Required. The path of the new file.
 #'
 #' @keywords internal
 #'
@@ -263,14 +267,14 @@ dbfs$put <- dbfs_put
 #' an exception with `RESOURCE_DOES_NOT_EXIST`. If the path is a directory, the
 #' read length is negative, or if the offset is negative, this call throws an
 #' exception with `INVALID_PARAMETER_VALUE`. If the read length exceeds 1 MB,
-#' this call throws an\nexception with `MAX_READ_SIZE_EXCEEDED`.
+#' this call throws an exception with `MAX_READ_SIZE_EXCEEDED`.
 #' 
 #' If `offset + length` exceeds the number of bytes in a file, it reads the
 #' contents until the end of file.',
 #'
 #' @param length The number of bytes to read starting from the offset.
 #' @param offset The offset to read from in bytes.
-#' @param path [required] The path of the file to read.
+#' @param path Required. The path of the file to read.
 #'
 #' @keywords internal
 #'
@@ -283,16 +287,4 @@ dbfs_read <- function(path, length = NULL, offset = NULL, ...) {
   .api$do("GET", "/api/2.0/dbfs/read", query = query)
 }
 dbfs$read <- dbfs_read
-
-
-
-
-
-
-
-
-
-
-
-
 

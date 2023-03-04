@@ -7,7 +7,7 @@
 alerts_list_schedules(alert_id, ...)
 }
 \arguments{
-\item{alert_id}{\link{required}}
+\item{alert_id}{Required.}
 }
 \description{
 Gets the refresh schedules for the specified alert. Alerts can have refresh

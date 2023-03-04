@@ -1,7 +1,7 @@
 Package: databricks
 Type: Package
 Title: Databricks SDK for R
-Version: 0.0.2
+Version: 0.0.1
 Authors@R: c(
     person("Serge", "Smertin", email = "serge.smertin@databricks.com", role = c("aut", "cre")),
     person("Databricks", role = c("cph", "fnd"))
@@ -16,3 +16,63 @@ ByteCompile: false
 StagedInstall: no 
 Imports: httr, ini, jsonlite, dplyr
 Suggests: knitr, testthat, formatR, covr
+Collate: 
+    'version.R'
+    'api_client.R'
+    'alerts.R'
+    'catalogs.R'
+    'cli_reporter.R'
+    'cluster_policies.R'
+    'clusters.R'
+    'command_execution.R'
+    'current_user.R'
+    'dashboards.R'
+    'data_sources.R'
+    'dbfs.R'
+    'dbsql_permissions.R'
+    'experiments.R'
+    'external_locations.R'
+    'functions.R'
+    'git_credentials.R'
+    'global_init_scripts.R'
+    'grants.R'
+    'groups.R'
+    'instance_pools.R'
+    'instance_profiles.R'
+    'ip_access_lists.R'
+    'jobs.R'
+    'libraries.R'
+    'm_lflow_artifacts.R'
+    'm_lflow_databricks.R'
+    'm_lflow_metrics.R'
+    'm_lflow_runs.R'
+    'metastores.R'
+    'model_version_comments.R'
+    'model_versions.R'
+    'permissions.R'
+    'pipelines.R'
+    'policy_families.R'
+    'providers.R'
+    'queries.R'
+    'query_history.R'
+    'recipient_activation.R'
+    'recipients.R'
+    'registered_models.R'
+    'registry_webhooks.R'
+    'repos.R'
+    'schemas.R'
+    'secrets.R'
+    'service_principals.R'
+    'serving_endpoints.R'
+    'shares.R'
+    'statement_execution.R'
+    'storage_credentials.R'
+    'table_constraints.R'
+    'tables.R'
+    'token_management.R'
+    'tokens.R'
+    'transition_requests.R'
+    'users.R'
+    'warehouses.R'
+    'workspace.R'
+    'workspace_conf.R'

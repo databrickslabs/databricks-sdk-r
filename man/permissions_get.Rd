@@ -7,9 +7,9 @@
 permissions_get(request_object_type, request_object_id, ...)
 }
 \arguments{
-\item{request_object_type}{\link{required} \if{html}{\out{<needs content>}}.}
+\item{request_object_type}{Required. \if{html}{\out{<needs content>}}.}
 
-\item{request_object_id}{\link{required}}
+\item{request_object_id}{Required.}
 }
 \description{
 Gets the permission of an object. Objects can inherit permissions from their

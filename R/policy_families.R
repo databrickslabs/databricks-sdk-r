@@ -1,5 +1,9 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
+#' @include api_client.R
+#' @importFrom stats runif
+NULL
+
 #' View available policy families. A policy family contains a policy definition
 #' providing best practices for configuring clusters for a particular use case.
 #' 
@@ -22,7 +26,7 @@ policy_families <- list()
 
 
 #'
-#' @param policy_family_id [required] 
+#' @param policy_family_id Required. 
 #'
 #' @keywords internal
 #'
@@ -70,16 +74,4 @@ policy_families_list <- function(max_results = NULL, page_token = NULL, ...) {
 
 }
 policy_families$list <- policy_families_list
-
-
-
-
-
-
-
-
-
-
-
-
 

@@ -7,9 +7,9 @@
 alerts_create_schedule(cron, alert_id, data_source_id = NULL, ...)
 }
 \arguments{
-\item{cron}{\link{required} Cron string representing the refresh schedule.}
+\item{cron}{Required. Cron string representing the refresh schedule.}
 
-\item{alert_id}{\link{required}}
+\item{alert_id}{Required.}
 
 \item{data_source_id}{ID of the SQL warehouse to refresh with.}
 }

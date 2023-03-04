@@ -7,11 +7,11 @@
 registered_models_set_tag(name, key, value, ...)
 }
 \arguments{
-\item{name}{\link{required} Unique name of the model.}
+\item{name}{Required. Unique name of the model.}
 
-\item{key}{\link{required} Name of the tag.}
+\item{key}{Required. Name of the tag.}
 
-\item{value}{\link{required} String value of the tag being logged.}
+\item{value}{Required. String value of the tag being logged.}
 }
 \description{
 Sets a tag on a registered model.

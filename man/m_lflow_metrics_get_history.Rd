@@ -14,7 +14,7 @@ m_lflow_metrics_get_history(
 )
 }
 \arguments{
-\item{metric_key}{\link{required} Name of the metric.}
+\item{metric_key}{Required. Name of the metric.}
 
 \item{max_results}{Maximum number of Metric records to return per paginated request.}
 

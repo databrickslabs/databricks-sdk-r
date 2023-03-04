@@ -7,7 +7,7 @@
 external_locations_get(name, ...)
 }
 \arguments{
-\item{name}{\link{required} Name of the external location.}
+\item{name}{Required. Name of the external location.}
 }
 \description{
 Gets an external location from the metastore. The caller must be either a

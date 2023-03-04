@@ -7,9 +7,9 @@
 clusters_change_owner(cluster_id, owner_username, ...)
 }
 \arguments{
-\item{cluster_id}{\link{required} \if{html}{\out{<needs content added>}}.}
+\item{cluster_id}{Required. \if{html}{\out{<needs content added>}}.}
 
-\item{owner_username}{\link{required} New owner of the cluster_id after this RPC.}
+\item{owner_username}{Required. New owner of the cluster_id after this RPC.}
 }
 \description{
 Change the owner of the cluster. You must be an admin to perform this

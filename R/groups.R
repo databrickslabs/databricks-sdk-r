@@ -1,5 +1,9 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
+#' @include api_client.R
+#' @importFrom stats runif
+NULL
+
 #' Groups simplify identity management, making it easier to assign access to
 #' Databricks Workspace, data, and other securable objects.
 #' 
@@ -53,7 +57,7 @@ groups$create <- groups_create
 #' 
 #' Deletes a group from the Databricks Workspace.
 #'
-#' @param id [required] Unique ID for a group in the Databricks Workspace.
+#' @param id Required. Unique ID for a group in the Databricks Workspace.
 #'
 #' @keywords internal
 #'
@@ -71,7 +75,7 @@ groups$delete <- groups_delete
 #' 
 #' Gets the information for a specific group in the Databricks Workspace.
 #'
-#' @param id [required] Unique ID for a group in the Databricks Workspace.
+#' @param id Required. Unique ID for a group in the Databricks Workspace.
 #'
 #' @keywords internal
 #'
@@ -121,7 +125,7 @@ groups$list <- groups_list
 #' 
 #' Partially updates the details of a group.
 #'
-#' @param id [required] Unique ID for a group in the Databricks Account.
+#' @param id Required. Unique ID for a group in the Databricks Account.
 #' @param operations 
 #'
 #' @keywords internal
@@ -161,16 +165,4 @@ groups_update <- function(id, display_name = NULL, entitlements = NULL, external
   .api$do("PUT", paste("/api/2.0/preview/scim/v2/Groups/", id, sep = ""), body = body)
 }
 groups$update <- groups_update
-
-
-
-
-
-
-
-
-
-
-
-
 

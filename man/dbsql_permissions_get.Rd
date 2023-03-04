@@ -7,9 +7,9 @@
 dbsql_permissions_get(object_type, object_id, ...)
 }
 \arguments{
-\item{object_type}{\link{required} The type of object permissions to check.}
+\item{object_type}{Required. The type of object permissions to check.}
 
-\item{object_id}{\link{required} Object ID.}
+\item{object_id}{Required. Object ID.}
 }
 \description{
 Gets a JSON representation of the access control list (ACL) for a specified

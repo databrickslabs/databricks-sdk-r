@@ -7,7 +7,7 @@
 serving_endpoints_delete(name, ...)
 }
 \arguments{
-\item{name}{\link{required} The name of the serving endpoint.}
+\item{name}{Required. The name of the serving endpoint.}
 }
 \description{
 Delete a serving endpoint.

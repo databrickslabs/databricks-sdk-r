@@ -7,7 +7,7 @@
 queries_get(query_id, ...)
 }
 \arguments{
-\item{query_id}{\link{required}}
+\item{query_id}{Required.}
 }
 \description{
 Retrieve a query object definition along with contextual permissions

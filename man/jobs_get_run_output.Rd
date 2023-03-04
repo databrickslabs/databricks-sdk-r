@@ -7,7 +7,7 @@
 jobs_get_run_output(run_id, ...)
 }
 \arguments{
-\item{run_id}{\link{required} The canonical identifier for the run.}
+\item{run_id}{Required. The canonical identifier for the run.}
 }
 \description{
 Retrieve the output and metadata of a single task run. When a notebook task

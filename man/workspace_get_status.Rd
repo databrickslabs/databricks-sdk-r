@@ -7,7 +7,7 @@
 workspace_get_status(path, ...)
 }
 \arguments{
-\item{path}{\link{required} The absolute path of the notebook or directory.}
+\item{path}{Required. The absolute path of the notebook or directory.}
 }
 \description{
 Gets the status of an object or a directory. If \code{path} does not exist, this

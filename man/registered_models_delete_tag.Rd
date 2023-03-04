@@ -7,9 +7,9 @@
 registered_models_delete_tag(name, key, ...)
 }
 \arguments{
-\item{name}{\link{required} Name of the registered model that the tag was logged under.}
+\item{name}{Required. Name of the registered model that the tag was logged under.}
 
-\item{key}{\link{required} Name of the tag.}
+\item{key}{Required. Name of the tag.}
 }
 \description{
 Deletes the tag for a registered model.

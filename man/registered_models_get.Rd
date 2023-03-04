@@ -7,7 +7,7 @@
 registered_models_get(name, ...)
 }
 \arguments{
-\item{name}{\link{required} Registered model unique name identifier.}
+\item{name}{Required. Registered model unique name identifier.}
 }
 \description{
 Gets the registered model that matches the specified ID.

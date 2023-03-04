@@ -13,7 +13,7 @@ secrets_create_scope(
 )
 }
 \arguments{
-\item{scope}{\link{required} Scope name requested by the user.}
+\item{scope}{Required. Scope name requested by the user.}
 
 \item{initial_manage_principal}{The principal that is initially granted \code{MANAGE} permission to the created scope.}
 

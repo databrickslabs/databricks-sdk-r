@@ -7,7 +7,7 @@
 pipelines_reset(pipeline_id, timeout = 20, callback = cli_reporter, ...)
 }
 \arguments{
-\item{pipeline_id}{\link{required}}
+\item{pipeline_id}{Required.}
 }
 \description{
 This is a long-running operation, which blocks until Pipelines on Databricks reach

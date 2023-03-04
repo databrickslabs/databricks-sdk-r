@@ -7,7 +7,7 @@
 recipient_activation_retrieve_token(activation_url, ...)
 }
 \arguments{
-\item{activation_url}{\link{required} The one time activation url.}
+\item{activation_url}{Required. The one time activation url.}
 }
 \description{
 Retrieve access token with an activation url. This is a public API without

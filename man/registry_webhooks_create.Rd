@@ -15,7 +15,7 @@ registry_webhooks_create(
 )
 }
 \arguments{
-\item{events}{\link{required} Events that can trigger a registry webhook: * \code{MODEL_VERSION_CREATED}: A new model version was created for the associated model.}
+\item{events}{Required. Events that can trigger a registry webhook: * \code{MODEL_VERSION_CREATED}: A new model version was created for the associated model.}
 
 \item{description}{User-specified description for the webhook.}
 

@@ -7,7 +7,7 @@
 cluster_policies_delete(policy_id, ...)
 }
 \arguments{
-\item{policy_id}{\link{required} The ID of the policy to delete.}
+\item{policy_id}{Required. The ID of the policy to delete.}
 }
 \description{
 Delete a policy for a cluster. Clusters governed by this policy can still

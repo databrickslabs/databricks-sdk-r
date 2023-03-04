@@ -30,37 +30,37 @@ functions_create(
 )
 }
 \arguments{
-\item{name}{\link{required} Name of function, relative to parent schema.}
+\item{name}{Required. Name of function, relative to parent schema.}
 
-\item{catalog_name}{\link{required} Name of parent catalog.}
+\item{catalog_name}{Required. Name of parent catalog.}
 
-\item{schema_name}{\link{required} Name of parent schema relative to its parent catalog.}
+\item{schema_name}{Required. Name of parent schema relative to its parent catalog.}
 
-\item{input_params}{\link{required} The array of \strong{FunctionParameterInfo} definitions of the function's parameters.}
+\item{input_params}{Required. The array of \strong{FunctionParameterInfo} definitions of the function's parameters.}
 
-\item{data_type}{\link{required} Scalar function return data type.}
+\item{data_type}{Required. Scalar function return data type.}
 
-\item{full_data_type}{\link{required} Pretty printed function data type.}
+\item{full_data_type}{Required. Pretty printed function data type.}
 
-\item{return_params}{\link{required} Table function return parameters.}
+\item{return_params}{Required. Table function return parameters.}
 
-\item{routine_body}{\link{required} Function language.}
+\item{routine_body}{Required. Function language.}
 
-\item{routine_definition}{\link{required} Function body.}
+\item{routine_definition}{Required. Function body.}
 
-\item{routine_dependencies}{\link{required} Function dependencies.}
+\item{routine_dependencies}{Required. Function dependencies.}
 
-\item{parameter_style}{\link{required} Function parameter style.}
+\item{parameter_style}{Required. Function parameter style.}
 
-\item{is_deterministic}{\link{required} Whether the function is deterministic.}
+\item{is_deterministic}{Required. Whether the function is deterministic.}
 
-\item{sql_data_access}{\link{required} Function SQL data access.}
+\item{sql_data_access}{Required. Function SQL data access.}
 
-\item{is_null_call}{\link{required} Function null call.}
+\item{is_null_call}{Required. Function null call.}
 
-\item{security_type}{\link{required} Function security type.}
+\item{security_type}{Required. Function security type.}
 
-\item{specific_name}{\link{required} Specific name of the function; Reserved for future use.}
+\item{specific_name}{Required. Specific name of the function; Reserved for future use.}
 
 \item{comment}{User-provided free-form text description.}
 

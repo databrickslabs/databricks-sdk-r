@@ -1,5 +1,9 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
+#' @include api_client.R
+#' @importFrom stats runif
+NULL
+
 
 #' 
 #' @section Operations:
@@ -19,9 +23,9 @@ model_version_comments <- list()
 #' user or programmatically to display relevant information about the model. For
 #' example, test results or deployment errors.
 #'
-#' @param comment [required] User-provided comment on the action.
-#' @param name [required] Name of the model.
-#' @param version [required] Version of the model.
+#' @param comment Required. User-provided comment on the action.
+#' @param name Required. Name of the model.
+#' @param version Required. Version of the model.
 #'
 #' @keywords internal
 #'
@@ -39,7 +43,7 @@ model_version_comments$create <- model_version_comments_create
 #' 
 #' Deletes a comment on a model version.
 #'
-#' @param id [required] 
+#' @param id Required. 
 #'
 #' @keywords internal
 #'
@@ -57,8 +61,8 @@ model_version_comments$delete <- model_version_comments_delete
 #' 
 #' Post an edit to a comment on a model version.
 #'
-#' @param comment [required] User-provided comment on the action.
-#' @param id [required] Unique identifier of an activity.
+#' @param comment Required. User-provided comment on the action.
+#' @param id Required. Unique identifier of an activity.
 #'
 #' @keywords internal
 #'
@@ -71,16 +75,4 @@ model_version_comments_update <- function(id, comment, ...) {
   .api$do("POST", "/api/2.0/mlflow/comments/update", body = body)
 }
 model_version_comments$update <- model_version_comments_update
-
-
-
-
-
-
-
-
-
-
-
-
 

@@ -1,5 +1,9 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
+#' @include api_client.R
+#' @importFrom stats runif
+NULL
+
 #' The Instance Profiles API allows admins to add, list, and remove instance
 #' profiles that users can launch clusters with. Regular users can list the
 #' instance profiles available to them. See [Secure access to S3 buckets] using
@@ -25,7 +29,7 @@ instance_profiles <- list()
 #' API is only available to admin users.
 #'
 #' @param iam_role_arn The AWS IAM role ARN of the role associated with the instance profile.
-#' @param instance_profile_arn [required] The AWS ARN of the instance profile to register with Databricks.
+#' @param instance_profile_arn Required. The AWS ARN of the instance profile to register with Databricks.
 #' @param is_meta_instance_profile By default, Databricks validates that it has sufficient permissions to launch instances with the instance profile.
 #' @param skip_validation By default, Databricks validates that it has sufficient permissions to launch instances with the instance profile.
 #'
@@ -63,7 +67,7 @@ instance_profiles$add <- instance_profiles_add
 #' [Enable serverless SQL warehouses]: https://docs.databricks.com/sql/admin/serverless.html
 #'
 #' @param iam_role_arn The AWS IAM role ARN of the role associated with the instance profile.
-#' @param instance_profile_arn [required] The AWS ARN of the instance profile to register with Databricks.
+#' @param instance_profile_arn Required. The AWS ARN of the instance profile to register with Databricks.
 #' @param is_meta_instance_profile By default, Databricks validates that it has sufficient permissions to launch instances with the instance profile.
 #'
 #' @keywords internal
@@ -108,7 +112,7 @@ instance_profiles$list <- instance_profiles_list
 #' 
 #' This API is only accessible to admin users.
 #'
-#' @param instance_profile_arn [required] The ARN of the instance profile to remove.
+#' @param instance_profile_arn Required. The ARN of the instance profile to remove.
 #'
 #' @keywords internal
 #'
@@ -121,16 +125,4 @@ instance_profiles_remove <- function(instance_profile_arn, ...) {
   .api$do("POST", "/api/2.0/instance-profiles/remove", body = body)
 }
 instance_profiles$remove <- instance_profiles_remove
-
-
-
-
-
-
-
-
-
-
-
-
 

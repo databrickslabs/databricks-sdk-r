@@ -7,7 +7,7 @@
 tables_delete(full_name, ...)
 }
 \arguments{
-\item{full_name}{\link{required} Full name of the table.}
+\item{full_name}{Required. Full name of the table.}
 }
 \description{
 Deletes a table from the specified parent catalog and schema. The caller must

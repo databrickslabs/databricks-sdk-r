@@ -1,5 +1,9 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
+#' @include api_client.R
+#' @importFrom stats runif
+NULL
+
 #' Permissions API are used to create read, write, edit, update and manage
 #' access for various users on different objects and endpoints.
 #' 
@@ -20,8 +24,8 @@ permissions <- list()
 #' Gets the permission of an object. Objects can inherit permissions from their
 #' parent objects or root objects.
 #'
-#' @param request_object_id [required] 
-#' @param request_object_type [required] <needs content>.
+#' @param request_object_id Required. 
+#' @param request_object_type Required. <needs content>.
 #'
 #' @keywords internal
 #'
@@ -40,8 +44,8 @@ permissions$get <- permissions_get
 #' 
 #' Gets the permission levels that a user can have on an object.
 #'
-#' @param request_object_id [required] <needs content>.
-#' @param request_object_type [required] <needs content>.
+#' @param request_object_id Required. <needs content>.
+#' @param request_object_type Required. <needs content>.
 #'
 #' @keywords internal
 #'
@@ -63,8 +67,8 @@ permissions$get_permission_levels <- permissions_get_permission_levels
 #' objects and root objects.
 #'
 #' @param access_control_list 
-#' @param request_object_id [required] 
-#' @param request_object_type [required] <needs content>.
+#' @param request_object_id Required. 
+#' @param request_object_type Required. <needs content>.
 #'
 #' @keywords internal
 #'
@@ -85,8 +89,8 @@ permissions$set <- permissions_set
 #' Updates the permissions on an object.
 #'
 #' @param access_control_list 
-#' @param request_object_id [required] 
-#' @param request_object_type [required] <needs content>.
+#' @param request_object_id Required. 
+#' @param request_object_type Required. <needs content>.
 #'
 #' @keywords internal
 #'
@@ -101,16 +105,4 @@ permissions_update <- function(request_object_type, request_object_id, access_co
     sep = ""), body = body)
 }
 permissions$update <- permissions_update
-
-
-
-
-
-
-
-
-
-
-
-
 

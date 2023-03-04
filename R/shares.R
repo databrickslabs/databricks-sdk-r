@@ -1,5 +1,9 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
+#' @include api_client.R
+#' @importFrom stats runif
+NULL
+
 #' Databricks Delta Sharing: Shares REST API
 #' 
 #' @section Operations:
@@ -24,7 +28,7 @@ shares <- list()
 #' have the **CREATE_SHARE** privilege on the metastore.
 #'
 #' @param comment User-provided free-form text description.
-#' @param name [required] Name of the share.
+#' @param name Required. Name of the share.
 #'
 #' @keywords internal
 #'
@@ -43,7 +47,7 @@ shares$create <- shares_create
 #' Deletes a data object share from the metastore. The caller must be an owner
 #' of the share.
 #'
-#' @param name [required] The name of the share.
+#' @param name Required. The name of the share.
 #'
 #' @keywords internal
 #'
@@ -63,7 +67,7 @@ shares$delete <- shares_delete
 #' admin or the owner of the share.
 #'
 #' @param include_shared_data Query for data to include in the share.
-#' @param name [required] The name of the share.
+#' @param name Required. The name of the share.
 #'
 #' @keywords internal
 #'
@@ -103,7 +107,7 @@ shares$list <- shares_list
 #' Gets the permissions for a data share from the metastore. The caller must be
 #' a metastore admin or the owner of the share.
 #'
-#' @param name [required] The name of the share.
+#' @param name Required. The name of the share.
 #'
 #' @keywords internal
 #'
@@ -163,7 +167,7 @@ shares$update <- shares_update
 #' recipient revocations do not require additional privileges.
 #'
 #' @param changes Array of permission changes.
-#' @param name [required] The name of the share.
+#' @param name Required. The name of the share.
 #'
 #' @keywords internal
 #'
@@ -177,16 +181,4 @@ shares_update_permissions <- function(name, changes = NULL, ...) {
     , sep = ""), body = body)
 }
 shares$update_permissions <- shares_update_permissions
-
-
-
-
-
-
-
-
-
-
-
-
 

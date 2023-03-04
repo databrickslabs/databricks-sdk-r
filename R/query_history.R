@@ -1,5 +1,9 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
+#' @include api_client.R
+#' @importFrom stats runif
+NULL
+
 #' Access the history of queries through SQL warehouses.
 #' 
 #' @section Operations:
@@ -53,16 +57,4 @@ query_history_list <- function(filter_by = NULL, include_metrics = NULL, max_res
 
 }
 query_history$list <- query_history_list
-
-
-
-
-
-
-
-
-
-
-
-
 

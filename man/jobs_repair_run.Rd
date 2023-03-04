@@ -23,7 +23,7 @@ jobs_repair_run(
 )
 }
 \arguments{
-\item{run_id}{\link{required} The job run ID of the run to repair.}
+\item{run_id}{Required. The job run ID of the run to repair.}
 
 \item{dbt_commands}{An array of commands to execute for jobs with the dbt task, for example \verb{'dbt_commands': ['dbt deps', 'dbt seed', 'dbt run']}.}
 

@@ -7,9 +7,9 @@
 transition_requests_list(name, version, ...)
 }
 \arguments{
-\item{name}{\link{required} Name of the model.}
+\item{name}{Required. Name of the model.}
 
-\item{version}{\link{required} Version of the model.}
+\item{version}{Required. Version of the model.}
 }
 \value{
 \code{data.frame} with all of the response pages.

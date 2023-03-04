@@ -7,7 +7,7 @@
 catalogs_get(name, ...)
 }
 \arguments{
-\item{name}{\link{required} The name of the catalog.}
+\item{name}{Required. The name of the catalog.}
 }
 \description{
 Gets the specified catalog in a metastore. The caller must be a metastore

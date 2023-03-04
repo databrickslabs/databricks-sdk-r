@@ -4,6 +4,8 @@ Contributing guidelines
 
 # Developing SDK
 
+Please read the [Writing R Extensions](https://cran.r-project.org/doc/manuals/R-exts.html) manual in case of having any difficulties with `make check`.
+
 ## Installing tools
 
 ```

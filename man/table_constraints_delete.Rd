@@ -7,11 +7,11 @@
 table_constraints_delete(full_name, constraint_name, cascade, ...)
 }
 \arguments{
-\item{full_name}{\link{required} Full name of the table referenced by the constraint.}
+\item{full_name}{Required. Full name of the table referenced by the constraint.}
 
-\item{constraint_name}{\link{required} The name of the constraint to delete.}
+\item{constraint_name}{Required. The name of the constraint to delete.}
 
-\item{cascade}{\link{required} If true, try deleting all child constraints of the current constraint.\n If false, reject this operation if the current constraint has any child constraints.}
+\item{cascade}{Required. If true, try deleting all child constraints of the current constraint.\n If false, reject this operation if the current constraint has any child constraints.}
 }
 \description{
 Deletes a table constraint.

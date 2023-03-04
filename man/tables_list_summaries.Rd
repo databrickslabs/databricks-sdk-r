@@ -14,7 +14,7 @@ tables_list_summaries(
 )
 }
 \arguments{
-\item{catalog_name}{\link{required} Name of parent catalog for tables of interest.}
+\item{catalog_name}{Required. Name of parent catalog for tables of interest.}
 
 \item{max_results}{Maximum number of tables to return (page length).}
 

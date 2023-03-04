@@ -7,9 +7,9 @@
 command_execution_context_status(cluster_id, context_id, ...)
 }
 \arguments{
-\item{cluster_id}{\link{required}}
+\item{cluster_id}{Required.}
 
-\item{context_id}{\link{required}}
+\item{context_id}{Required.}
 }
 \description{
 Gets the status for an execution context.

@@ -14,13 +14,13 @@ m_lflow_databricks_transition_stage(
 )
 }
 \arguments{
-\item{name}{\link{required} Name of the model.}
+\item{name}{Required. Name of the model.}
 
-\item{version}{\link{required} Version of the model.}
+\item{version}{Required. Version of the model.}
 
-\item{stage}{\link{required} Target stage of the transition.}
+\item{stage}{Required. Target stage of the transition.}
 
-\item{archive_existing_versions}{\link{required} Specifies whether to archive all current model versions in the target stage.}
+\item{archive_existing_versions}{Required. Specifies whether to archive all current model versions in the target stage.}
 
 \item{comment}{User-provided comment on the action.}
 }

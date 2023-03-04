@@ -12,9 +12,9 @@ permissions_update(
 )
 }
 \arguments{
-\item{request_object_type}{\link{required} \if{html}{\out{<needs content>}}.}
+\item{request_object_type}{Required. \if{html}{\out{<needs content>}}.}
 
-\item{request_object_id}{\link{required}}
+\item{request_object_id}{Required.}
 
 \item{access_control_list}{}
 }

@@ -7,7 +7,7 @@
 clusters_permanent_delete(cluster_id, ...)
 }
 \arguments{
-\item{cluster_id}{\link{required} The cluster to be deleted.}
+\item{cluster_id}{Required. The cluster to be deleted.}
 }
 \description{
 Permanently deletes a Spark cluster. This cluster is terminated and resources

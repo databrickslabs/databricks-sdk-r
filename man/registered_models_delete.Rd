@@ -7,7 +7,7 @@
 registered_models_delete(name, ...)
 }
 \arguments{
-\item{name}{\link{required} Registered model unique name identifier.}
+\item{name}{Required. Registered model unique name identifier.}
 }
 \description{
 Deletes a registered model.

@@ -1,5 +1,9 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
+#' @include api_client.R
+#' @importFrom stats runif
+NULL
+
 
 #' 
 #' @section Operations:
@@ -28,7 +32,7 @@ registered_models <- list()
 #' exists.
 #'
 #' @param description Optional description for registered model.
-#' @param name [required] Register models under this name.
+#' @param name Required. Register models under this name.
 #' @param tags Additional metadata for registered model.
 #'
 #' @keywords internal
@@ -47,7 +51,7 @@ registered_models$create <- registered_models_create
 #' 
 #' Deletes a registered model.
 #'
-#' @param name [required] Registered model unique name identifier.
+#' @param name Required. Registered model unique name identifier.
 #'
 #' @keywords internal
 #'
@@ -65,8 +69,8 @@ registered_models$delete <- registered_models_delete
 #' 
 #' Deletes the tag for a registered model.
 #'
-#' @param key [required] Name of the tag.
-#' @param name [required] Name of the registered model that the tag was logged under.
+#' @param key Required. Name of the tag.
+#' @param name Required. Name of the registered model that the tag was logged under.
 #'
 #' @keywords internal
 #'
@@ -84,7 +88,7 @@ registered_models$delete_tag <- registered_models_delete_tag
 #' 
 #' Gets the registered model that matches the specified ID.
 #'
-#' @param name [required] Registered model unique name identifier.
+#' @param name Required. Registered model unique name identifier.
 #'
 #' @keywords internal
 #'
@@ -102,7 +106,7 @@ registered_models$get <- registered_models_get
 #' 
 #' Gets the latest version of a registered model.
 #'
-#' @param name [required] Registered model unique name identifier.
+#' @param name Required. Registered model unique name identifier.
 #' @param stages List of stages.
 #' 
 #' @return `data.frame` with all of the response pages.
@@ -165,7 +169,7 @@ registered_models$list <- registered_models_list
 #' 
 #' Renames a registered model.
 #'
-#' @param name [required] Registered model unique name identifier.
+#' @param name Required. Registered model unique name identifier.
 #' @param new_name If provided, updates the name for this `registered_model`.
 #'
 #' @keywords internal
@@ -225,9 +229,9 @@ registered_models$search <- registered_models_search
 #' 
 #' Sets a tag on a registered model.
 #'
-#' @param key [required] Name of the tag.
-#' @param name [required] Unique name of the model.
-#' @param value [required] String value of the tag being logged.
+#' @param key Required. Name of the tag.
+#' @param name Required. Unique name of the model.
+#' @param value Required. String value of the tag being logged.
 #'
 #' @keywords internal
 #'
@@ -246,7 +250,7 @@ registered_models$set_tag <- registered_models_set_tag
 #' Updates a registered model.
 #'
 #' @param description If provided, updates the description for this `registered_model`.
-#' @param name [required] Registered model unique name identifier.
+#' @param name Required. Registered model unique name identifier.
 #'
 #' @keywords internal
 #'
@@ -259,16 +263,4 @@ registered_models_update <- function(name, description = NULL, ...) {
   .api$do("PATCH", "/api/2.0/mlflow/registered-models/update", body = body)
 }
 registered_models$update <- registered_models_update
-
-
-
-
-
-
-
-
-
-
-
-
 

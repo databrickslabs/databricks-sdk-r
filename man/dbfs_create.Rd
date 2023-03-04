@@ -7,7 +7,7 @@
 dbfs_create(path, overwrite = NULL, ...)
 }
 \arguments{
-\item{path}{\link{required} The path of the new file.}
+\item{path}{Required. The path of the new file.}
 
 \item{overwrite}{The flag that specifies whether to overwrite existing file/files.}
 }

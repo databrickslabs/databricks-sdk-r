@@ -7,7 +7,7 @@
 providers_list_shares(name, ...)
 }
 \arguments{
-\item{name}{\link{required} Name of the provider in which to list shares.}
+\item{name}{Required. Name of the provider in which to list shares.}
 }
 \description{
 Gets an array of a specified provider's shares within the metastore where:

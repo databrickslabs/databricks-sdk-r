@@ -1,5 +1,9 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
+#' @include api_client.R
+#' @importFrom stats runif
+NULL
+
 #' This API allows retrieving information about currently authenticated user or
 #' service principal.
 #' 
@@ -25,16 +29,4 @@ current_user_me <- function(...) {
   .api$do("GET", "/api/2.0/preview/scim/v2/Me")
 }
 current_user$me <- current_user_me
-
-
-
-
-
-
-
-
-
-
-
-
 

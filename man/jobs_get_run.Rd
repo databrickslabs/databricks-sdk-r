@@ -13,7 +13,7 @@ jobs_get_run(
 )
 }
 \arguments{
-\item{run_id}{\link{required} The canonical identifier of the run for which to retrieve the metadata.}
+\item{run_id}{Required. The canonical identifier of the run for which to retrieve the metadata.}
 
 \item{include_history}{Whether to include the repair history in the response.}
 }

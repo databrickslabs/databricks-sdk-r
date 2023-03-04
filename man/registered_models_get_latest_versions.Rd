@@ -7,7 +7,7 @@
 registered_models_get_latest_versions(name, stages = NULL, ...)
 }
 \arguments{
-\item{name}{\link{required} Registered model unique name identifier.}
+\item{name}{Required. Registered model unique name identifier.}
 
 \item{stages}{List of stages.}
 }

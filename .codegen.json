@@ -1,5 +1,5 @@
 {
-  "formatter": "echo 1",
+  "formatter": "Rscript .codegen/format.R",
   "services": {
     ".codegen/service.R.tmpl": "R/{{.SnakeName}}.R"
   }

@@ -7,7 +7,7 @@
 recipients_share_permissions(name, ...)
 }
 \arguments{
-\item{name}{\link{required} The name of the Recipient.}
+\item{name}{Required. The name of the Recipient.}
 }
 \description{
 Gets the share permissions for the specified Recipient. The caller must be a

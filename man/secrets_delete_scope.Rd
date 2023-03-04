@@ -7,7 +7,7 @@
 secrets_delete_scope(scope, ...)
 }
 \arguments{
-\item{scope}{\link{required} Name of the scope to delete.}
+\item{scope}{Required. Name of the scope to delete.}
 }
 \description{
 Deletes a secret scope.

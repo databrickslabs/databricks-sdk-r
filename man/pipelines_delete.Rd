@@ -7,7 +7,7 @@
 pipelines_delete(pipeline_id, ...)
 }
 \arguments{
-\item{pipeline_id}{\link{required}}
+\item{pipeline_id}{Required.}
 }
 \description{
 Deletes a pipeline.

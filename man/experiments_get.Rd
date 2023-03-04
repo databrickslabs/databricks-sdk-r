@@ -7,7 +7,7 @@
 experiments_get(experiment_id, ...)
 }
 \arguments{
-\item{experiment_id}{\link{required} ID of the associated experiment.}
+\item{experiment_id}{Required. ID of the associated experiment.}
 }
 \description{
 Gets metadata for an experiment. This method works on deleted experiments.

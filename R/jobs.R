@@ -1,5 +1,9 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
+#' @include api_client.R
+#' @importFrom stats runif
+NULL
+
 #' The Jobs API allows you to create, edit, and delete jobs.
 #' 
 #' You can use a Databricks job to run a data processing or data analysis task
@@ -47,7 +51,7 @@ jobs <- list()
 #' Cancels all active runs of a job. The runs are canceled asynchronously, so it
 #' doesn't prevent new runs from being started.
 #'
-#' @param job_id [required] The canonical identifier of the job to cancel all runs of.
+#' @param job_id Required. The canonical identifier of the job to cancel all runs of.
 #'
 #' @keywords internal
 #'
@@ -72,7 +76,7 @@ jobs$cancel_all_runs <- jobs_cancel_all_runs
 #' By default, the state of Databricks Jobs is reported to console. You can change this behavior 
 #' by changing the `callback` parameter.
 #'
-#' @param run_id [required] This field is required.
+#' @param run_id Required. This field is required.
 #'
 #' @keywords internal
 #'
@@ -165,7 +169,7 @@ jobs$create <- jobs_create
 #' 
 #' Deletes a job.
 #'
-#' @param job_id [required] The canonical identifier of the job to delete.
+#' @param job_id Required. The canonical identifier of the job to delete.
 #'
 #' @keywords internal
 #'
@@ -183,7 +187,7 @@ jobs$delete <- jobs_delete
 #' 
 #' Deletes a non-active run. Returns an error if the run is active.
 #'
-#' @param run_id [required] The canonical identifier of the run for which to retrieve the metadata.
+#' @param run_id Required. The canonical identifier of the run for which to retrieve the metadata.
 #'
 #' @keywords internal
 #'
@@ -201,7 +205,7 @@ jobs$delete_run <- jobs_delete_run
 #' 
 #' Export and retrieve the job run task.
 #'
-#' @param run_id [required] The canonical identifier for the run.
+#' @param run_id Required. The canonical identifier for the run.
 #' @param views_to_export Which views to export (CODE, DASHBOARDS, or ALL).
 #'
 #' @keywords internal
@@ -220,7 +224,7 @@ jobs$export_run <- jobs_export_run
 #' 
 #' Retrieves the details for a single job.
 #'
-#' @param job_id [required] The canonical identifier of the job to retrieve information about.
+#' @param job_id Required. The canonical identifier of the job to retrieve information about.
 #'
 #' @keywords internal
 #'
@@ -245,7 +249,7 @@ jobs$get <- jobs_get
 #' by changing the `callback` parameter.
 #'
 #' @param include_history Whether to include the repair history in the response.
-#' @param run_id [required] The canonical identifier of the run for which to retrieve the metadata.
+#' @param run_id Required. The canonical identifier of the run for which to retrieve the metadata.
 #'
 #' @keywords internal
 #'
@@ -312,7 +316,7 @@ jobs$get_run <- jobs_get_run
 #' automatically removed after 60 days. If you to want to reference them beyond
 #' 60 days, you must save old run results before they expire.
 #'
-#' @param run_id [required] The canonical identifier for the run.
+#' @param run_id Required. The canonical identifier for the run.
 #'
 #' @keywords internal
 #'
@@ -436,7 +440,7 @@ jobs$list_runs <- jobs_list_runs
 #' @param python_params A list of parameters for jobs with Python tasks, for example `\'python_params\': [\'john doe\', \'35\']`.
 #' @param rerun_all_failed_tasks If true, repair all failed tasks.
 #' @param rerun_tasks The task keys of the task runs to repair.
-#' @param run_id [required] The job run ID of the run to repair.
+#' @param run_id Required. The job run ID of the run to repair.
 #' @param spark_submit_params A list of parameters for jobs with spark submit task, for example `\'spark_submit_params\': [\'--class\', \'org.apache.spark.examples.SparkPi\']`.
 #' @param sql_params A map from keys to values for jobs with SQL task, for example `'sql_params': {'name': 'john doe', 'age': '35'}`.
 #'
@@ -502,8 +506,8 @@ jobs$repair_run <- jobs_repair_run
 #' Overwrites all the settings for a specific job. Use the Update endpoint to
 #' update job settings partially.
 #'
-#' @param job_id [required] The canonical identifier of the job to reset.
-#' @param new_settings [required] The new settings of the job.
+#' @param job_id Required. The canonical identifier of the job to reset.
+#' @param new_settings Required. The new settings of the job.
 #'
 #' @keywords internal
 #'
@@ -530,7 +534,7 @@ jobs$reset <- jobs_reset
 #' @param dbt_commands An array of commands to execute for jobs with the dbt task, for example `'dbt_commands': ['dbt deps', 'dbt seed', 'dbt run']`.
 #' @param idempotency_token An optional token to guarantee the idempotency of job run requests.
 #' @param jar_params A list of parameters for jobs with Spark JAR tasks, for example `\'jar_params\': [\'john doe\', \'35\']`.
-#' @param job_id [required] The ID of the job to be executed.
+#' @param job_id Required. The ID of the job to be executed.
 #' @param notebook_params A map from keys to values for jobs with notebook task, for example `\'notebook_params\': {\'name\': \'john doe\', \'age\': \'35\'}`.
 #' @param pipeline_params 
 #' @param python_named_params A map from keys to values for jobs with Python wheel task, for example `'python_named_params': {'name': 'task', 'data': 'dbfs:/path/to/data.json'}`.
@@ -679,7 +683,7 @@ jobs$submit <- jobs_submit
 #' to overwrite all job settings.
 #'
 #' @param fields_to_remove Remove top-level fields in the job settings.
-#' @param job_id [required] The canonical identifier of the job to update.
+#' @param job_id Required. The canonical identifier of the job to update.
 #' @param new_settings The new settings for the job.
 #'
 #' @keywords internal
@@ -694,16 +698,4 @@ jobs_update <- function(job_id, fields_to_remove = NULL, new_settings = NULL, ..
   .api$do("POST", "/api/2.1/jobs/update", body = body)
 }
 jobs$update <- jobs_update
-
-
-
-
-
-
-
-
-
-
-
-
 

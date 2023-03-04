@@ -7,7 +7,7 @@
 functions_get(name, ...)
 }
 \arguments{
-\item{name}{\link{required} The fully-qualified name of the function (of the form \strong{catalog_name}.\strong{schema_name}.\strong{function__name}).}
+\item{name}{Required. The fully-qualified name of the function (of the form \strong{catalog_name}.\strong{schema_name}.\strong{function__name}).}
 }
 \description{
 Gets a function from within a parent catalog and schema. For the fetch to

@@ -7,7 +7,7 @@
 functions_delete(name, force = NULL, ...)
 }
 \arguments{
-\item{name}{\link{required} The fully-qualified name of the function (of the form \strong{catalog_name}.\strong{schema_name}.\strong{function__name}).}
+\item{name}{Required. The fully-qualified name of the function (of the form \strong{catalog_name}.\strong{schema_name}.\strong{function__name}).}
 
 \item{force}{Force deletion even if the function is notempty.}
 }

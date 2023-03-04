@@ -1,5 +1,9 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
+#' @include api_client.R
+#' @importFrom stats runif
+NULL
+
 #' The Delta Live Tables API allows you to create, edit, delete, start, and view
 #' details about pipelines.
 #' 
@@ -79,7 +83,7 @@ pipelines$create <- pipelines_create
 #' 
 #' Deletes a pipeline.
 #'
-#' @param pipeline_id [required] 
+#' @param pipeline_id Required. 
 #'
 #' @keywords internal
 #'
@@ -95,7 +99,7 @@ pipelines$delete <- pipelines_delete
 
 #' Get a pipeline.
 #'
-#' @param pipeline_id [required] 
+#' @param pipeline_id Required. 
 #'
 #' @keywords internal
 #'
@@ -113,8 +117,8 @@ pipelines$get <- pipelines_get
 #' 
 #' Gets an update from an active pipeline.
 #'
-#' @param pipeline_id [required] The ID of the pipeline.
-#' @param update_id [required] The ID of the update.
+#' @param pipeline_id Required. The ID of the pipeline.
+#' @param update_id Required. The ID of the update.
 #'
 #' @keywords internal
 #'
@@ -176,7 +180,7 @@ pipelines$list_pipelines <- pipelines_list_pipelines
 #'
 #' @param max_results Max number of entries to return in a single page.
 #' @param page_token Page token returned by previous call.
-#' @param pipeline_id [required] The pipeline to return updates for.
+#' @param pipeline_id Required. The pipeline to return updates for.
 #' @param until_update_id If present, returns updates until and including this update_id.
 #'
 #' @keywords internal
@@ -204,7 +208,7 @@ pipelines$list_updates <- pipelines_list_updates
 #' By default, the state of Databricks Pipelines is reported to console. You can change this behavior 
 #' by changing the `callback` parameter.
 #'
-#' @param pipeline_id [required] 
+#' @param pipeline_id Required. 
 #'
 #' @keywords internal
 #'
@@ -259,7 +263,7 @@ pipelines$reset <- pipelines_reset
 #' @param cause 
 #' @param full_refresh If true, this update will reset all tables before running.
 #' @param full_refresh_selection A list of tables to update with fullRefresh.
-#' @param pipeline_id [required] 
+#' @param pipeline_id Required. 
 #' @param refresh_selection A list of tables to update without fullRefresh.
 #'
 #' @keywords internal
@@ -287,7 +291,7 @@ pipelines$start_update <- pipelines_start_update
 #' By default, the state of Databricks Pipelines is reported to console. You can change this behavior 
 #' by changing the `callback` parameter.
 #'
-#' @param pipeline_id [required] 
+#' @param pipeline_id Required. 
 #'
 #' @keywords internal
 #'
@@ -377,16 +381,4 @@ pipelines_update <- function(pipeline_id, allow_duplicate_names = NULL, catalog 
   .api$do("PUT", paste("/api/2.0/pipelines/", pipeline_id, sep = ""), body = body)
 }
 pipelines$update <- pipelines_update
-
-
-
-
-
-
-
-
-
-
-
-
 

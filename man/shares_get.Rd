@@ -7,7 +7,7 @@
 shares_get(name, include_shared_data = NULL, ...)
 }
 \arguments{
-\item{name}{\link{required} The name of the share.}
+\item{name}{Required. The name of the share.}
 
 \item{include_shared_data}{Query for data to include in the share.}
 }

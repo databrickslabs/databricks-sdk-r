@@ -7,7 +7,7 @@
 dbfs_delete(path, recursive = NULL, ...)
 }
 \arguments{
-\item{path}{\link{required} The path of the file or directory to delete.}
+\item{path}{Required. The path of the file or directory to delete.}
 
 \item{recursive}{Whether or not to recursively delete the directory's contents.}
 }

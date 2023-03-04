@@ -7,7 +7,7 @@
 dashboards_get(dashboard_id, ...)
 }
 \arguments{
-\item{dashboard_id}{\link{required}}
+\item{dashboard_id}{Required.}
 }
 \description{
 Returns a JSON representation of a dashboard object, including its

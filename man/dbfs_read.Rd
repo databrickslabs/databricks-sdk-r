@@ -7,7 +7,7 @@
 dbfs_read(path, length = NULL, offset = NULL, ...)
 }
 \arguments{
-\item{path}{\link{required} The path of the file to read.}
+\item{path}{Required. The path of the file to read.}
 
 \item{length}{The number of bytes to read starting from the offset.}
 
@@ -18,7 +18,7 @@ dbfs_read(path, length = NULL, offset = NULL, ...)
 an exception with \code{RESOURCE_DOES_NOT_EXIST}. If the path is a directory, the
 read length is negative, or if the offset is negative, this call throws an
 exception with \code{INVALID_PARAMETER_VALUE}. If the read length exceeds 1 MB,
-this call throws an\nexception with \code{MAX_READ_SIZE_EXCEEDED}.
+this call throws an exception with \code{MAX_READ_SIZE_EXCEEDED}.
 }
 \details{
 If \code{offset + length} exceeds the number of bytes in a file, it reads the

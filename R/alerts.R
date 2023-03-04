@@ -1,5 +1,9 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
+#' @include api_client.R
+#' @importFrom stats runif
+NULL
+
 #' The alerts API can be used to perform CRUD operations on alerts. An alert is
 #' a Databricks SQL object that periodically runs a query, evaluates a condition
 #' of its result, and notifies one or more users and/or alert destinations if
@@ -34,10 +38,10 @@ alerts <- list()
 #' a query, evaluates a condition of its result, and notifies users or alert
 #' destinations if the condition was met.
 #'
-#' @param name [required] Name of the alert.
-#' @param options [required] Alert configuration options.
+#' @param name Required. Name of the alert.
+#' @param options Required. Alert configuration options.
 #' @param parent The identifier of the workspace folder containing the alert.
-#' @param query_id [required] ID of the query evaluated by the alert.
+#' @param query_id Required. ID of the query evaluated by the alert.
 #' @param rearm Number of seconds after being triggered before the alert rearms itself and can be triggered again.
 #'
 #' @keywords internal
@@ -62,8 +66,8 @@ alerts$create <- alerts_create
 #' **Note:** This API is deprecated: Use :method:jobs/create to create a job
 #' with the alert.
 #'
-#' @param alert_id [required] 
-#' @param cron [required] Cron string representing the refresh schedule.
+#' @param alert_id Required. 
+#' @param cron Required. Cron string representing the refresh schedule.
 #' @param data_source_id ID of the SQL warehouse to refresh with.
 #'
 #' @keywords internal
@@ -85,7 +89,7 @@ alerts$create_schedule <- alerts_create_schedule
 #' restored. **Note:** Unlike queries and dashboards, alerts cannot be moved to
 #' the trash.
 #'
-#' @param alert_id [required] 
+#' @param alert_id Required. 
 #'
 #' @keywords internal
 #'
@@ -107,8 +111,8 @@ alerts$delete <- alerts_delete
 #' **Note:** This API is deprecated: Use :method:jobs/delete to delete a job for
 #' the alert.
 #'
-#' @param alert_id [required] 
-#' @param schedule_id [required] 
+#' @param alert_id Required. 
+#' @param schedule_id Required. 
 #'
 #' @keywords internal
 #'
@@ -127,7 +131,7 @@ alerts$delete_schedule <- alerts_delete_schedule
 #' 
 #' Gets an alert.
 #'
-#' @param alert_id [required] 
+#' @param alert_id Required. 
 #'
 #' @keywords internal
 #'
@@ -151,7 +155,7 @@ alerts$get <- alerts_get
 #' **Note:** This API is deprecated: Use :method:jobs/get to get the
 #' subscriptions associated with a job for an alert.
 #'
-#' @param alert_id [required] 
+#' @param alert_id Required. 
 #'
 #' @keywords internal
 #'
@@ -193,7 +197,7 @@ alerts$list <- alerts_list
 #' **Note:** This API is deprecated: Use :method:jobs/list to list jobs and
 #' filter by the alert.
 #'
-#' @param alert_id [required] 
+#' @param alert_id Required. 
 #'
 #' @keywords internal
 #'
@@ -213,7 +217,7 @@ alerts$list_schedules <- alerts_list_schedules
 #' **Note:** This API is deprecated: Use :method:jobs/update to subscribe to a
 #' job for an alert.
 #'
-#' @param alert_id [required] ID of the alert.
+#' @param alert_id Required. ID of the alert.
 #' @param destination_id ID of the alert subscriber (if subscribing an alert destination).
 #' @param user_id ID of the alert subscriber (if subscribing a user).
 #'
@@ -238,8 +242,8 @@ alerts$subscribe <- alerts_subscribe
 #' **Note:** This API is deprecated: Use :method:jobs/update to unsubscribe to a
 #' job for an alert.
 #'
-#' @param alert_id [required] 
-#' @param subscription_id [required] 
+#' @param alert_id Required. 
+#' @param subscription_id Required. 
 #'
 #' @keywords internal
 #'
@@ -258,10 +262,10 @@ alerts$unsubscribe <- alerts_unsubscribe
 #' 
 #' Updates an alert.
 #'
-#' @param alert_id [required] 
-#' @param name [required] Name of the alert.
-#' @param options [required] Alert configuration options.
-#' @param query_id [required] ID of the query evaluated by the alert.
+#' @param alert_id Required. 
+#' @param name Required. Name of the alert.
+#' @param options Required. Alert configuration options.
+#' @param query_id Required. ID of the query evaluated by the alert.
 #' @param rearm Number of seconds after being triggered before the alert rearms itself and can be triggered again.
 #'
 #' @keywords internal
@@ -276,16 +280,4 @@ alerts_update <- function(name, options, query_id, alert_id, rearm = NULL, ...) 
   .api$do("PUT", paste("/api/2.0/preview/sql/alerts/", alert_id, sep = ""), body = body)
 }
 alerts$update <- alerts_update
-
-
-
-
-
-
-
-
-
-
-
-
 

@@ -7,7 +7,7 @@
 jobs_cancel_run(run_id, timeout = 20, callback = cli_reporter, ...)
 }
 \arguments{
-\item{run_id}{\link{required} This field is required.}
+\item{run_id}{Required. This field is required.}
 }
 \description{
 This is a long-running operation, which blocks until Jobs on Databricks reach

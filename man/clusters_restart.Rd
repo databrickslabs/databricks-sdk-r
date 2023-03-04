@@ -13,7 +13,7 @@ clusters_restart(
 )
 }
 \arguments{
-\item{cluster_id}{\link{required} The cluster to be started.}
+\item{cluster_id}{Required. The cluster to be started.}
 
 \item{restart_user}{\if{html}{\out{<needs content added>}}.}
 }

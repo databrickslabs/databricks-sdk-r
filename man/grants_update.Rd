@@ -7,9 +7,9 @@
 grants_update(securable_type, full_name, changes = NULL, ...)
 }
 \arguments{
-\item{securable_type}{\link{required} Type of securable.}
+\item{securable_type}{Required. Type of securable.}
 
-\item{full_name}{\link{required} Full name of securable.}
+\item{full_name}{Required. Full name of securable.}
 
 \item{changes}{Array of permissions change objects.}
 }

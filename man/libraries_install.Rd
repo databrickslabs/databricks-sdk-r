@@ -7,9 +7,9 @@
 libraries_install(cluster_id, libraries, ...)
 }
 \arguments{
-\item{cluster_id}{\link{required} Unique identifier for the cluster on which to install these libraries.}
+\item{cluster_id}{Required. Unique identifier for the cluster on which to install these libraries.}
 
-\item{libraries}{\link{required} The libraries to install.}
+\item{libraries}{Required. The libraries to install.}
 }
 \description{
 Add libraries to be installed on a cluster. The installation is asynchronous;

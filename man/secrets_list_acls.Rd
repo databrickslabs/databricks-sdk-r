@@ -7,7 +7,7 @@
 secrets_list_acls(scope, ...)
 }
 \arguments{
-\item{scope}{\link{required} The name of the scope to fetch ACL information from.}
+\item{scope}{Required. The name of the scope to fetch ACL information from.}
 }
 \value{
 \code{data.frame} with all of the response pages.

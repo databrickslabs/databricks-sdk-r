@@ -7,9 +7,9 @@
 secrets_delete_acl(scope, principal, ...)
 }
 \arguments{
-\item{scope}{\link{required} The name of the scope to remove permissions from.}
+\item{scope}{Required. The name of the scope to remove permissions from.}
 
-\item{principal}{\link{required} The principal to remove an existing ACL from.}
+\item{principal}{Required. The principal to remove an existing ACL from.}
 }
 \description{
 Deletes the given ACL on the given scope.

@@ -7,11 +7,11 @@
 model_version_comments_create(name, version, comment, ...)
 }
 \arguments{
-\item{name}{\link{required} Name of the model.}
+\item{name}{Required. Name of the model.}
 
-\item{version}{\link{required} Version of the model.}
+\item{version}{Required. Version of the model.}
 
-\item{comment}{\link{required} User-provided comment on the action.}
+\item{comment}{Required. User-provided comment on the action.}
 }
 \description{
 Posts a comment on a model version. A comment can be submitted either by a

@@ -7,7 +7,7 @@
 m_lflow_runs_restore(run_id, ...)
 }
 \arguments{
-\item{run_id}{\link{required} ID of the run to restore.}
+\item{run_id}{Required. ID of the run to restore.}
 }
 \description{
 Restores a deleted run.

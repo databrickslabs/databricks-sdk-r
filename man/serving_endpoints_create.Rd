@@ -13,9 +13,9 @@ serving_endpoints_create(
 )
 }
 \arguments{
-\item{name}{\link{required} The name of the serving endpoint.}
+\item{name}{Required. The name of the serving endpoint.}
 
-\item{config}{\link{required} The core config of the serving endpoint.}
+\item{config}{Required. The core config of the serving endpoint.}
 }
 \description{
 This is a long-running operation, which blocks until Serving Endpoints on Databricks reach

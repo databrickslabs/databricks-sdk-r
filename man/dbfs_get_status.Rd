@@ -7,7 +7,7 @@
 dbfs_get_status(path, ...)
 }
 \arguments{
-\item{path}{\link{required} The path of the file or directory.}
+\item{path}{Required. The path of the file or directory.}
 }
 \description{
 Gets the file information for a file or directory. If the file or directory

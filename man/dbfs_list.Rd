@@ -7,7 +7,7 @@
 dbfs_list(path, ...)
 }
 \arguments{
-\item{path}{\link{required} The path of the file or directory.}
+\item{path}{Required. The path of the file or directory.}
 }
 \value{
 \code{data.frame} with all of the response pages.

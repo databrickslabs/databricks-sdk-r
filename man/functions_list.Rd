@@ -7,9 +7,9 @@
 functions_list(catalog_name, schema_name, ...)
 }
 \arguments{
-\item{catalog_name}{\link{required} Name of parent catalog for functions of interest.}
+\item{catalog_name}{Required. Name of parent catalog for functions of interest.}
 
-\item{schema_name}{\link{required} Parent schema of functions.}
+\item{schema_name}{Required. Parent schema of functions.}
 }
 \description{
 List functions within the specified parent catalog and schema. If the user is

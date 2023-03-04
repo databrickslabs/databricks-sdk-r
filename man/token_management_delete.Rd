@@ -7,7 +7,7 @@
 token_management_delete(token_id, ...)
 }
 \arguments{
-\item{token_id}{\link{required} The ID of the token to get.}
+\item{token_id}{Required. The ID of the token to get.}
 }
 \description{
 Deletes a token, specified by its ID.

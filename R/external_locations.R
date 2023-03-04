@@ -1,5 +1,9 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
+#' @include api_client.R
+#' @importFrom stats runif
+NULL
+
 #' An external location is an object that combines a cloud storage path with a
 #' storage credential that authorizes access to the cloud storage path. Each
 #' external location is subject to Unity Catalog access-control policies that
@@ -34,11 +38,11 @@ external_locations <- list()
 #' the metastore and the associated storage credential.
 #'
 #' @param comment User-provided free-form text description.
-#' @param credential_name [required] Name of the storage credential used with this location.
-#' @param name [required] Name of the external location.
+#' @param credential_name Required. Name of the storage credential used with this location.
+#' @param name Required. Name of the external location.
 #' @param read_only Indicates whether the external location is read-only.
 #' @param skip_validation Skips validation of the storage credential associated with the external location.
-#' @param url [required] Path URL of the external location.
+#' @param url Required. Path URL of the external location.
 #'
 #' @keywords internal
 #'
@@ -60,7 +64,7 @@ external_locations$create <- external_locations_create
 #' be the owner of the external location.
 #'
 #' @param force Force deletion even if there are dependent external tables or mounts.
-#' @param name [required] Name of the external location.
+#' @param name Required. Name of the external location.
 #'
 #' @keywords internal
 #'
@@ -81,7 +85,7 @@ external_locations$delete <- external_locations_delete
 #' metastore admin, the owner of the external location, or a user that has some
 #' privilege on the external location.
 #'
-#' @param name [required] Name of the external location.
+#' @param name Required. Name of the external location.
 #'
 #' @keywords internal
 #'
@@ -146,16 +150,4 @@ external_locations_update <- function(name, comment = NULL, credential_name = NU
     body = body)
 }
 external_locations$update <- external_locations_update
-
-
-
-
-
-
-
-
-
-
-
-
 

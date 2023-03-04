@@ -7,7 +7,7 @@
 queries_restore(query_id, ...)
 }
 \arguments{
-\item{query_id}{\link{required}}
+\item{query_id}{Required.}
 }
 \description{
 Restore a query that has been moved to the trash. A restored query appears in

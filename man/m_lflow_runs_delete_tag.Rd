@@ -7,9 +7,9 @@
 m_lflow_runs_delete_tag(run_id, key, ...)
 }
 \arguments{
-\item{run_id}{\link{required} ID of the run that the tag was logged under.}
+\item{run_id}{Required. ID of the run that the tag was logged under.}
 
-\item{key}{\link{required} Name of the tag.}
+\item{key}{Required. Name of the tag.}
 }
 \description{
 Deletes a tag on a run. Tags are run metadata that can be updated during a

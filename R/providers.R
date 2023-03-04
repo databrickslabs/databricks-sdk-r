@@ -1,5 +1,9 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
+#' @include api_client.R
+#' @importFrom stats runif
+NULL
+
 #' Databricks Delta Sharing: Providers REST API
 #' 
 #' @section Operations:
@@ -21,9 +25,9 @@ providers <- list()
 #' Creates a new authentication provider minimally based on a name and
 #' authentication type. The caller must be an admin on the metastore.
 #'
-#' @param authentication_type [required] The delta sharing authentication type.
+#' @param authentication_type Required. The delta sharing authentication type.
 #' @param comment Description about the provider.
-#' @param name [required] The name of the Provider.
+#' @param name Required. The name of the Provider.
 #' @param recipient_profile_str This field is required when the __authentication_type__ is **TOKEN** or not provided.
 #'
 #' @keywords internal
@@ -45,7 +49,7 @@ providers$create <- providers_create
 #' Deletes an authentication provider, if the caller is a metastore admin or is
 #' the owner of the provider.
 #'
-#' @param name [required] Name of the provider.
+#' @param name Required. Name of the provider.
 #'
 #' @keywords internal
 #'
@@ -65,7 +69,7 @@ providers$delete <- providers_delete
 #' the provider, and must either be a metastore admin or the owner of the
 #' provider.
 #'
-#' @param name [required] Name of the provider.
+#' @param name Required. Name of the provider.
 #'
 #' @keywords internal
 #'
@@ -112,7 +116,7 @@ providers$list <- providers_list
 #' 
 #' * the caller is a metastore admin, or * the caller is the owner.
 #'
-#' @param name [required] Name of the provider in which to list shares.
+#' @param name Required. Name of the provider in which to list shares.
 #'
 #' @keywords internal
 #'
@@ -153,16 +157,4 @@ providers_update <- function(name, comment = NULL, owner = NULL, recipient_profi
     body = body)
 }
 providers$update <- providers_update
-
-
-
-
-
-
-
-
-
-
-
-
 

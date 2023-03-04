@@ -7,13 +7,13 @@
 alerts_update(name, options, query_id, alert_id, rearm = NULL, ...)
 }
 \arguments{
-\item{name}{\link{required} Name of the alert.}
+\item{name}{Required. Name of the alert.}
 
-\item{options}{\link{required} Alert configuration options.}
+\item{options}{Required. Alert configuration options.}
 
-\item{query_id}{\link{required} ID of the query evaluated by the alert.}
+\item{query_id}{Required. ID of the query evaluated by the alert.}
 
-\item{alert_id}{\link{required}}
+\item{alert_id}{Required.}
 
 \item{rearm}{Number of seconds after being triggered before the alert rearms itself and can be triggered again.}
 }

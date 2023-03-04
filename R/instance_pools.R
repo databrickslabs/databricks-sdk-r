@@ -1,5 +1,9 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
+#' @include api_client.R
+#' @importFrom stats runif
+NULL
+
 #' Instance Pools API are used to create, edit, delete and list instance pools
 #' by using ready-to-use cloud instances which reduces a cluster start and
 #' auto-scaling times.
@@ -43,10 +47,10 @@ instance_pools <- list()
 #' @param enable_elastic_disk Autoscaling Local Storage: when enabled, this instances in this pool will dynamically acquire additional disk space when its Spark workers are running low on disk space.
 #' @param idle_instance_autotermination_minutes Automatically terminates the extra instances in the pool cache after they are inactive for this time in minutes if min_idle_instances requirement is already met.
 #' @param instance_pool_fleet_attributes The fleet related setting to power the instance pool.
-#' @param instance_pool_name [required] Pool name requested by the user.
+#' @param instance_pool_name Required. Pool name requested by the user.
 #' @param max_capacity Maximum number of outstanding instances to keep in the pool, including both instances used by clusters and idle instances.
 #' @param min_idle_instances Minimum number of idle instances to keep in the instance pool.
-#' @param node_type_id [required] This field encodes, through a single value, the resources available to each of the Spark nodes in this cluster.
+#' @param node_type_id Required. This field encodes, through a single value, the resources available to each of the Spark nodes in this cluster.
 #' @param preloaded_docker_images Custom Docker Image BYOC.
 #' @param preloaded_spark_versions A list of preloaded Spark image versions for the pool.
 #'
@@ -77,7 +81,7 @@ instance_pools$create <- instance_pools_create
 #' Deletes the instance pool permanently. The idle instances in the pool are
 #' terminated asynchronously.
 #'
-#' @param instance_pool_id [required] The instance pool to be terminated.
+#' @param instance_pool_id Required. The instance pool to be terminated.
 #'
 #' @keywords internal
 #'
@@ -102,11 +106,11 @@ instance_pools$delete <- instance_pools_delete
 #' @param enable_elastic_disk Autoscaling Local Storage: when enabled, this instances in this pool will dynamically acquire additional disk space when its Spark workers are running low on disk space.
 #' @param idle_instance_autotermination_minutes Automatically terminates the extra instances in the pool cache after they are inactive for this time in minutes if min_idle_instances requirement is already met.
 #' @param instance_pool_fleet_attributes The fleet related setting to power the instance pool.
-#' @param instance_pool_id [required] Instance pool ID.
-#' @param instance_pool_name [required] Pool name requested by the user.
+#' @param instance_pool_id Required. Instance pool ID.
+#' @param instance_pool_name Required. Pool name requested by the user.
 #' @param max_capacity Maximum number of outstanding instances to keep in the pool, including both instances used by clusters and idle instances.
 #' @param min_idle_instances Minimum number of idle instances to keep in the instance pool.
-#' @param node_type_id [required] This field encodes, through a single value, the resources available to each of the Spark nodes in this cluster.
+#' @param node_type_id Required. This field encodes, through a single value, the resources available to each of the Spark nodes in this cluster.
 #' @param preloaded_docker_images Custom Docker Image BYOC.
 #' @param preloaded_spark_versions A list of preloaded Spark image versions for the pool.
 #'
@@ -136,7 +140,7 @@ instance_pools$edit <- instance_pools_edit
 #' 
 #' Retrieve the information for an instance pool based on its identifier.
 #'
-#' @param instance_pool_id [required] The canonical unique identifier for the instance pool.
+#' @param instance_pool_id Required. The canonical unique identifier for the instance pool.
 #'
 #' @keywords internal
 #'
@@ -168,16 +172,4 @@ instance_pools_list <- function(...) {
 
 }
 instance_pools$list <- instance_pools_list
-
-
-
-
-
-
-
-
-
-
-
-
 

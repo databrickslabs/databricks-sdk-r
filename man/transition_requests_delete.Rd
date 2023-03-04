@@ -7,13 +7,13 @@
 transition_requests_delete(name, version, stage, creator, comment = NULL, ...)
 }
 \arguments{
-\item{name}{\link{required} Name of the model.}
+\item{name}{Required. Name of the model.}
 
-\item{version}{\link{required} Version of the model.}
+\item{version}{Required. Version of the model.}
 
-\item{stage}{\link{required} Target stage of the transition request.}
+\item{stage}{Required. Target stage of the transition request.}
 
-\item{creator}{\link{required} Username of the user who created this request.}
+\item{creator}{Required. Username of the user who created this request.}
 
 \item{comment}{User-provided comment on the action.}
 }

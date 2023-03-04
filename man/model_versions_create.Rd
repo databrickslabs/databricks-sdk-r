@@ -15,9 +15,9 @@ model_versions_create(
 )
 }
 \arguments{
-\item{name}{\link{required} Register model under this name.}
+\item{name}{Required. Register model under this name.}
 
-\item{source}{\link{required} URI indicating the location of the model artifacts.}
+\item{source}{Required. URI indicating the location of the model artifacts.}
 
 \item{description}{Optional description for model version.}
 

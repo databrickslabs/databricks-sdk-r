@@ -7,7 +7,7 @@
 alerts_get(alert_id, ...)
 }
 \arguments{
-\item{alert_id}{\link{required}}
+\item{alert_id}{Required.}
 }
 \description{
 Gets an alert.

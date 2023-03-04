@@ -7,11 +7,11 @@
 alerts_create(name, options, query_id, parent = NULL, rearm = NULL, ...)
 }
 \arguments{
-\item{name}{\link{required} Name of the alert.}
+\item{name}{Required. Name of the alert.}
 
-\item{options}{\link{required} Alert configuration options.}
+\item{options}{Required. Alert configuration options.}
 
-\item{query_id}{\link{required} ID of the query evaluated by the alert.}
+\item{query_id}{Required. ID of the query evaluated by the alert.}
 
 \item{parent}{The identifier of the workspace folder containing the alert.}
 

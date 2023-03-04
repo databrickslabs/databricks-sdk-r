@@ -7,7 +7,7 @@
 jobs_get(job_id, ...)
 }
 \arguments{
-\item{job_id}{\link{required} The canonical identifier of the job to retrieve information about.}
+\item{job_id}{Required. The canonical identifier of the job to retrieve information about.}
 }
 \description{
 Retrieves the details for a single job.

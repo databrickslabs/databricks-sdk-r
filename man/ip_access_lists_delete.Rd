@@ -7,7 +7,7 @@
 ip_access_lists_delete(ip_access_list_id, ...)
 }
 \arguments{
-\item{ip_access_list_id}{\link{required} The ID for the corresponding IP access list to modify.}
+\item{ip_access_list_id}{Required. The ID for the corresponding IP access list to modify.}
 }
 \description{
 Deletes an IP access list, specified by its list ID.

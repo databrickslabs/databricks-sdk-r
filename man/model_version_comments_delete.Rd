@@ -7,7 +7,7 @@
 model_version_comments_delete(id, ...)
 }
 \arguments{
-\item{id}{\link{required}}
+\item{id}{Required.}
 }
 \description{
 Deletes a comment on a model version.

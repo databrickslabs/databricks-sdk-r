@@ -7,7 +7,7 @@
 alerts_get_subscriptions(alert_id, ...)
 }
 \arguments{
-\item{alert_id}{\link{required}}
+\item{alert_id}{Required.}
 }
 \description{
 Get the subscriptions for an alert. An alert subscription represents exactly

@@ -7,7 +7,7 @@
 catalogs_delete(name, force = NULL, ...)
 }
 \arguments{
-\item{name}{\link{required} The name of the catalog.}
+\item{name}{Required. The name of the catalog.}
 
 \item{force}{Force deletion even if the catalog is not empty.}
 }

@@ -16,7 +16,7 @@ clusters_events(
 )
 }
 \arguments{
-\item{cluster_id}{\link{required} The ID of the cluster to retrieve events about.}
+\item{cluster_id}{Required. The ID of the cluster to retrieve events about.}
 
 \item{end_time}{The end time in epoch milliseconds.}
 

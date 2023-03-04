@@ -7,7 +7,7 @@
 recipients_get(name, ...)
 }
 \arguments{
-\item{name}{\link{required} Name of the recipient.}
+\item{name}{Required. Name of the recipient.}
 }
 \description{
 Gets a share recipient from the metastore if:

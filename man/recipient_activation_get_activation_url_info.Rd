@@ -7,7 +7,7 @@
 recipient_activation_get_activation_url_info(activation_url, ...)
 }
 \arguments{
-\item{activation_url}{\link{required} The one time activation url.}
+\item{activation_url}{Required. The one time activation url.}
 }
 \description{
 Gets an activation URL for a share.

@@ -7,7 +7,7 @@
 dashboards_delete(dashboard_id, ...)
 }
 \arguments{
-\item{dashboard_id}{\link{required}}
+\item{dashboard_id}{Required.}
 }
 \description{
 Moves a dashboard to the trash. Trashed dashboards do not appear in list

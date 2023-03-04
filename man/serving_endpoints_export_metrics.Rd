@@ -8,7 +8,7 @@ in Prometheus or OpenMetrics exposition format.}
 serving_endpoints_export_metrics(name, ...)
 }
 \arguments{
-\item{name}{\link{required} The name of the serving endpoint to retrieve metrics for.}
+\item{name}{Required. The name of the serving endpoint to retrieve metrics for.}
 }
 \description{
 Retrieves the metrics associated with the provided serving endpoint in either

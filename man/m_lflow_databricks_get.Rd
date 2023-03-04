@@ -7,7 +7,7 @@
 m_lflow_databricks_get(name, ...)
 }
 \arguments{
-\item{name}{\link{required} Name of the model.}
+\item{name}{Required. Name of the model.}
 }
 \description{
 Get the details of a model. This is a Databricks Workspace version of the

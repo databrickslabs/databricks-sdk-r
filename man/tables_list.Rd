@@ -7,9 +7,9 @@
 tables_list(catalog_name, schema_name, include_delta_metadata = NULL, ...)
 }
 \arguments{
-\item{catalog_name}{\link{required} Name of parent catalog for tables of interest.}
+\item{catalog_name}{Required. Name of parent catalog for tables of interest.}
 
-\item{schema_name}{\link{required} Parent schema of tables.}
+\item{schema_name}{Required. Parent schema of tables.}
 
 \item{include_delta_metadata}{Whether delta metadata should be included in the response.}
 }

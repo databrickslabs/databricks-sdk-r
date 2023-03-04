@@ -7,9 +7,9 @@
 permissions_get_permission_levels(request_object_type, request_object_id, ...)
 }
 \arguments{
-\item{request_object_type}{\link{required} \if{html}{\out{<needs content>}}.}
+\item{request_object_type}{Required. \if{html}{\out{<needs content>}}.}
 
-\item{request_object_id}{\link{required} \if{html}{\out{<needs content>}}.}
+\item{request_object_id}{Required. \if{html}{\out{<needs content>}}.}
 }
 \description{
 Gets the permission levels that a user can have on an object.

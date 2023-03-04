@@ -7,9 +7,9 @@
 model_version_comments_update(id, comment, ...)
 }
 \arguments{
-\item{id}{\link{required} Unique identifier of an activity.}
+\item{id}{Required. Unique identifier of an activity.}
 
-\item{comment}{\link{required} User-provided comment on the action.}
+\item{comment}{Required. User-provided comment on the action.}
 }
 \description{
 Post an edit to a comment on a model version.

@@ -1,5 +1,9 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
+#' @include api_client.R
+#' @importFrom stats runif
+NULL
+
 #' This API allows updating known workspace settings for advanced users.
 #' 
 #' @section Operations:
@@ -16,7 +20,7 @@ workspace_conf <- list()
 #' 
 #' Gets the configuration status for a workspace.
 #'
-#' @param keys [required] 
+#' @param keys Required. 
 #'
 #' @keywords internal
 #'
@@ -47,16 +51,4 @@ workspace_conf_set_status <- function(...) {
   .api$do("PATCH", "/api/2.0/workspace-conf")
 }
 workspace_conf$set_status <- workspace_conf_set_status
-
-
-
-
-
-
-
-
-
-
-
-
 

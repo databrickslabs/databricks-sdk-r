@@ -7,7 +7,7 @@
 storage_credentials_get(name, ...)
 }
 \arguments{
-\item{name}{\link{required} Name of the storage credential.}
+\item{name}{Required. Name of the storage credential.}
 }
 \description{
 Gets a storage credential from the metastore. The caller must be a metastore

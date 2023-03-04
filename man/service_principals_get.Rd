@@ -7,7 +7,7 @@
 service_principals_get(id, ...)
 }
 \arguments{
-\item{id}{\link{required} Unique ID for a service principal in the Databricks Workspace.}
+\item{id}{Required. Unique ID for a service principal in the Databricks Workspace.}
 }
 \description{
 Gets the details for a single service principal define in the Databricks

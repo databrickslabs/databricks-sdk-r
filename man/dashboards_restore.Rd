@@ -7,7 +7,7 @@
 dashboards_restore(dashboard_id, ...)
 }
 \arguments{
-\item{dashboard_id}{\link{required}}
+\item{dashboard_id}{Required.}
 }
 \description{
 A restored dashboard appears in list views and searches and can be shared.

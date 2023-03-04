@@ -7,7 +7,7 @@
 queries_delete(query_id, ...)
 }
 \arguments{
-\item{query_id}{\link{required}}
+\item{query_id}{Required.}
 }
 \description{
 Moves a query to the trash. Trashed queries immediately disappear from

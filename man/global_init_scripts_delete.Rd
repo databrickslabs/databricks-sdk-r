@@ -7,7 +7,7 @@
 global_init_scripts_delete(script_id, ...)
 }
 \arguments{
-\item{script_id}{\link{required} The ID of the global init script.}
+\item{script_id}{Required. The ID of the global init script.}
 }
 \description{
 Deletes a global init script.

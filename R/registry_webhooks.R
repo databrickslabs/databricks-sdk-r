@@ -1,5 +1,9 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
+#' @include api_client.R
+#' @importFrom stats runif
+NULL
+
 
 #' 
 #' @section Operations:
@@ -22,7 +26,7 @@ registry_webhooks <- list()
 #' Creates a registry webhook.
 #'
 #' @param description User-specified description for the webhook.
-#' @param events [required] Events that can trigger a registry webhook: * `MODEL_VERSION_CREATED`: A new model version was created for the associated model.
+#' @param events Required. Events that can trigger a registry webhook: * `MODEL_VERSION_CREATED`: A new model version was created for the associated model.
 #' @param http_url_spec 
 #' @param job_spec 
 #' @param model_name Name of the model whose events would trigger this webhook.
@@ -111,7 +115,7 @@ registry_webhooks$list <- registry_webhooks_list
 #' Tests a registry webhook.
 #'
 #' @param event If `event` is specified, the test trigger uses the specified event.
-#' @param id [required] Webhook ID.
+#' @param id Required. Webhook ID.
 #'
 #' @keywords internal
 #'
@@ -134,7 +138,7 @@ registry_webhooks$test <- registry_webhooks_test
 #' @param description User-specified description for the webhook.
 #' @param events Events that can trigger a registry webhook: * `MODEL_VERSION_CREATED`: A new model version was created for the associated model.
 #' @param http_url_spec 
-#' @param id [required] Webhook ID.
+#' @param id Required. Webhook ID.
 #' @param job_spec 
 #' @param status This describes an enum.
 #'
@@ -151,16 +155,4 @@ registry_webhooks_update <- function(id, description = NULL, events = NULL, http
   .api$do("PATCH", "/api/2.0/mlflow/registry-webhooks/update", body = body)
 }
 registry_webhooks$update <- registry_webhooks_update
-
-
-
-
-
-
-
-
-
-
-
-
 

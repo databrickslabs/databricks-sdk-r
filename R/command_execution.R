@@ -1,5 +1,9 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
+#' @include api_client.R
+#' @importFrom stats runif
+NULL
+
 #' This API allows execution of Python, Scala, SQL, or R commands on running
 #' Databricks Clusters.
 #' 
@@ -93,9 +97,9 @@ command_execution$cancel <- command_execution_cancel
 #' 
 #' The command ID is obtained from a prior successful call to __execute__.
 #'
-#' @param cluster_id [required] 
-#' @param command_id [required] 
-#' @param context_id [required] 
+#' @param cluster_id Required. 
+#' @param command_id Required. 
+#' @param context_id Required. 
 #'
 #' @keywords internal
 #'
@@ -115,8 +119,8 @@ command_execution$command_status <- command_execution_command_status
 #' 
 #' Gets the status for an execution context.
 #'
-#' @param cluster_id [required] 
-#' @param context_id [required] 
+#' @param cluster_id Required. 
+#' @param context_id Required. 
 #'
 #' @keywords internal
 #'
@@ -197,8 +201,8 @@ command_execution$create <- command_execution_create
 #' 
 #' Deletes an execution context.
 #'
-#' @param cluster_id [required] 
-#' @param context_id [required] 
+#' @param cluster_id Required. 
+#' @param context_id Required. 
 #'
 #' @keywords internal
 #'
@@ -282,16 +286,4 @@ command_execution_execute <- function(cluster_id = NULL, command = NULL, context
   rlang::abort(msg, call = rlang::caller_env())
 }
 command_execution$execute <- command_execution_execute
-
-
-
-
-
-
-
-
-
-
-
-
 

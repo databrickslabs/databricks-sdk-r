@@ -7,7 +7,7 @@
 jobs_cancel_all_runs(job_id, ...)
 }
 \arguments{
-\item{job_id}{\link{required} The canonical identifier of the job to cancel all runs of.}
+\item{job_id}{Required. The canonical identifier of the job to cancel all runs of.}
 }
 \description{
 Cancels all active runs of a job. The runs are canceled asynchronously, so it

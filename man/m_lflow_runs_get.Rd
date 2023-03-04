@@ -7,7 +7,7 @@
 m_lflow_runs_get(run_id, run_uuid = NULL, ...)
 }
 \arguments{
-\item{run_id}{\link{required} ID of the run to fetch.}
+\item{run_id}{Required. ID of the run to fetch.}
 
 \item{run_uuid}{\link{Deprecated, use run_id instead} ID of the run to fetch.}
 }

@@ -26,7 +26,7 @@ warehouses_edit(
 )
 }
 \arguments{
-\item{id}{\link{required} Required.}
+\item{id}{Required. Required.}
 
 \item{auto_stop_mins}{The amount of time in minutes that a SQL Endpoint must be idle (i.e., no RUNNING queries) before it is automatically stopped.}
 

@@ -49,8 +49,8 @@ param (key, value) is permitted. Specifically, logging a param is idempotent.
 Request Limits ------------------------------- A single JSON-serialized API
 request may be up to 1 MB in size and contain:
 \itemize{
-\item No more than 1000 metrics, params, and tags in total * Up to 1000
-metrics\n- Up to 100 params * Up to 100 tags
+\item No more than 1000 metrics, params, and tags in total * Up to 1000 metrics -
+Up to 100 params * Up to 100 tags
 }
 
 For example, a valid request might contain 900 metrics, 50 params, and 50

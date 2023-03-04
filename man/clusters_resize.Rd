@@ -14,7 +14,7 @@ clusters_resize(
 )
 }
 \arguments{
-\item{cluster_id}{\link{required} The cluster to be resized.}
+\item{cluster_id}{Required. The cluster to be resized.}
 
 \item{autoscale}{Parameters needed in order to automatically scale clusters up and down based on load.}
 

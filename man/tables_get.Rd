@@ -7,7 +7,7 @@
 tables_get(full_name, include_delta_metadata = NULL, ...)
 }
 \arguments{
-\item{full_name}{\link{required} Full name of the table.}
+\item{full_name}{Required. Full name of the table.}
 
 \item{include_delta_metadata}{Whether delta metadata should be included in the response.}
 }

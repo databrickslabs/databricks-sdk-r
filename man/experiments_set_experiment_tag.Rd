@@ -7,11 +7,11 @@
 experiments_set_experiment_tag(experiment_id, key, value, ...)
 }
 \arguments{
-\item{experiment_id}{\link{required} ID of the experiment under which to log the tag.}
+\item{experiment_id}{Required. ID of the experiment under which to log the tag.}
 
-\item{key}{\link{required} Name of the tag.}
+\item{key}{Required. Name of the tag.}
 
-\item{value}{\link{required} String value of the tag being logged.}
+\item{value}{Required. String value of the tag being logged.}
 }
 \description{
 Sets a tag on an experiment. Experiment tags are metadata that can be

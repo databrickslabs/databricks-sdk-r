@@ -7,7 +7,7 @@
 tokens_delete(token_id, ...)
 }
 \arguments{
-\item{token_id}{\link{required} The ID of the token to be revoked.}
+\item{token_id}{Required. The ID of the token to be revoked.}
 }
 \description{
 Revokes an access token.

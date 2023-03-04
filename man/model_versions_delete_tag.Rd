@@ -7,11 +7,11 @@
 model_versions_delete_tag(name, version, key, ...)
 }
 \arguments{
-\item{name}{\link{required} Name of the registered model that the tag was logged under.}
+\item{name}{Required. Name of the registered model that the tag was logged under.}
 
-\item{version}{\link{required} Model version number that the tag was logged under.}
+\item{version}{Required. Model version number that the tag was logged under.}
 
-\item{key}{\link{required} Name of the tag.}
+\item{key}{Required. Name of the tag.}
 }
 \description{
 Deletes a model version tag.

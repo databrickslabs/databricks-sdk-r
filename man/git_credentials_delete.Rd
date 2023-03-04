@@ -7,7 +7,7 @@
 git_credentials_delete(credential_id, ...)
 }
 \arguments{
-\item{credential_id}{\link{required} The ID for the corresponding credential to access.}
+\item{credential_id}{Required. The ID for the corresponding credential to access.}
 }
 \description{
 Deletes the specified Git credential.

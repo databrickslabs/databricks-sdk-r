@@ -36,9 +36,9 @@ clusters_edit(
 )
 }
 \arguments{
-\item{cluster_id}{\link{required} ID of the cluser.}
+\item{cluster_id}{Required. ID of the cluser.}
 
-\item{spark_version}{\link{required} The Spark version of the cluster, e.g.}
+\item{spark_version}{Required. The Spark version of the cluster, e.g.}
 
 \item{apply_policy_default_values}{Note: This field won't be true for webapp requests.}
 

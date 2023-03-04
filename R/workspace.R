@@ -1,5 +1,9 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
+#' @include api_client.R
+#' @importFrom stats runif
+NULL
+
 #' The Workspace API allows you to list, import, export, and delete notebooks
 #' and folders.
 #' 
@@ -31,7 +35,7 @@ workspace <- list()
 #' Object deletion cannot be undone and deleting a directory recursively is not
 #' atomic.
 #'
-#' @param path [required] The absolute path of the notebook or directory.
+#' @param path Required. The absolute path of the notebook or directory.
 #' @param recursive The flag that specifies whether to delete the object recursively.
 #'
 #' @keywords internal
@@ -59,7 +63,7 @@ workspace$delete <- workspace_delete
 #'
 #' @param direct_download Flag to enable direct download.
 #' @param format This specifies the format of the exported file.
-#' @param path [required] The absolute path of the notebook or directory.
+#' @param path Required. The absolute path of the notebook or directory.
 #'
 #' @keywords internal
 #'
@@ -79,7 +83,7 @@ workspace$export <- workspace_export
 #' Gets the status of an object or a directory. If `path` does not exist, this
 #' call returns an error `RESOURCE_DOES_NOT_EXIST`.
 #'
-#' @param path [required] The absolute path of the notebook or directory.
+#' @param path Required. The absolute path of the notebook or directory.
 #'
 #' @keywords internal
 #'
@@ -104,7 +108,7 @@ workspace$get_status <- workspace_get_status
 #' @param format This specifies the format of the file to be imported.
 #' @param language The language of the object.
 #' @param overwrite The flag that specifies whether to overwrite existing object.
-#' @param path [required] The absolute path of the notebook or directory.
+#' @param path Required. The absolute path of the notebook or directory.
 #'
 #' @keywords internal
 #'
@@ -127,7 +131,7 @@ workspace$import <- workspace_import
 #' `RESOURCE_DOES_NOT_EXIST`.
 #'
 #' @param notebooks_modified_after <content needed>.
-#' @param path [required] The absolute path of the notebook or directory.
+#' @param path Required. The absolute path of the notebook or directory.
 #' 
 #' @return `data.frame` with all of the response pages.
 #'
@@ -154,9 +158,9 @@ workspace$list <- workspace_list
 #' input path, this call returns an error `RESOURCE_ALREADY_EXISTS`.
 #' 
 #' Note that if this operation fails it may have succeeded in creating some of
-#' the necessary\nparrent directories.
+#' the necessary parrent directories.
 #'
-#' @param path [required] The absolute path of the directory.
+#' @param path Required. The absolute path of the directory.
 #'
 #' @keywords internal
 #'
@@ -169,16 +173,4 @@ workspace_mkdirs <- function(path, ...) {
   .api$do("POST", "/api/2.0/workspace/mkdirs", body = body)
 }
 workspace$mkdirs <- workspace_mkdirs
-
-
-
-
-
-
-
-
-
-
-
-
 

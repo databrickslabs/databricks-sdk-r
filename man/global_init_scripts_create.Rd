@@ -7,9 +7,9 @@
 global_init_scripts_create(name, script, enabled = NULL, position = NULL, ...)
 }
 \arguments{
-\item{name}{\link{required} The name of the script.}
+\item{name}{Required. The name of the script.}
 
-\item{script}{\link{required} The Base64-encoded content of the script.}
+\item{script}{Required. The Base64-encoded content of the script.}
 
 \item{enabled}{Specifies whether the script is enabled.}
 

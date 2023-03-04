@@ -12,7 +12,7 @@ metastores_update_assignment(
 )
 }
 \arguments{
-\item{workspace_id}{\link{required} Workspace ID.}
+\item{workspace_id}{Required. Workspace ID.}
 
 \item{metastore_id}{The unique ID of the metastore.}
 

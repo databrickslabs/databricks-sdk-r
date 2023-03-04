@@ -7,7 +7,7 @@
 jobs_export_run(run_id, views_to_export = NULL, ...)
 }
 \arguments{
-\item{run_id}{\link{required} The canonical identifier for the run.}
+\item{run_id}{Required. The canonical identifier for the run.}
 
 \item{views_to_export}{Which views to export (CODE, DASHBOARDS, or ALL).}
 }

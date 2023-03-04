@@ -12,7 +12,7 @@ instance_profiles_edit(
 )
 }
 \arguments{
-\item{instance_profile_arn}{\link{required} The AWS ARN of the instance profile to register with Databricks.}
+\item{instance_profile_arn}{Required. The AWS ARN of the instance profile to register with Databricks.}
 
 \item{iam_role_arn}{The AWS IAM role ARN of the role associated with the instance profile.}
 

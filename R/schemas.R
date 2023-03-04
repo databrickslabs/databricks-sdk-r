@@ -1,5 +1,9 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
+#' @include api_client.R
+#' @importFrom stats runif
+NULL
+
 #' A schema (also called a database) is the second layer of Unity Catalog’s
 #' three-level namespace. A schema organizes tables, views and functions. To
 #' access (or list) a table or view in a schema, users must have the USE_SCHEMA
@@ -25,9 +29,9 @@ schemas <- list()
 #' metastore admin, or have the **CREATE_SCHEMA** privilege in the parent
 #' catalog.
 #'
-#' @param catalog_name [required] Name of parent catalog.
+#' @param catalog_name Required. Name of parent catalog.
 #' @param comment User-provided free-form text description.
-#' @param name [required] Name of schema, relative to parent catalog.
+#' @param name Required. Name of schema, relative to parent catalog.
 #' @param properties A map of key-value properties attached to the securable.
 #' @param storage_root Storage root URL for managed tables within schema.
 #'
@@ -50,7 +54,7 @@ schemas$create <- schemas_create
 #' Deletes the specified schema from the parent catalog. The caller must be the
 #' owner of the schema or an owner of the parent catalog.
 #'
-#' @param full_name [required] Full name of the schema.
+#' @param full_name Required. Full name of the schema.
 #'
 #' @keywords internal
 #'
@@ -70,7 +74,7 @@ schemas$delete <- schemas_delete
 #' metastore admin, the owner of the schema, or a user that has the
 #' **USE_SCHEMA** privilege on the schema.
 #'
-#' @param full_name [required] Full name of the schema.
+#' @param full_name Required. Full name of the schema.
 #'
 #' @keywords internal
 #'
@@ -92,7 +96,7 @@ schemas$get <- schemas_get
 #' for which the caller has the **USE_SCHEMA** privilege) will be retrieved.
 #' There is no guarantee of a specific ordering of the elements in the array.
 #'
-#' @param catalog_name [required] Parent catalog for schemas of interest.
+#' @param catalog_name Required. Parent catalog for schemas of interest.
 #' 
 #' @return `data.frame` with all of the response pages.
 #'
@@ -120,7 +124,7 @@ schemas$list <- schemas_list
 #' on the parent catalog.
 #'
 #' @param comment User-provided free-form text description.
-#' @param full_name [required] Full name of the schema.
+#' @param full_name Required. Full name of the schema.
 #' @param name Name of schema, relative to parent catalog.
 #' @param owner Username of current owner of schema.
 #' @param properties A map of key-value properties attached to the securable.
@@ -139,16 +143,4 @@ schemas_update <- function(full_name, comment = NULL, name = NULL, owner = NULL,
     body = body)
 }
 schemas$update <- schemas_update
-
-
-
-
-
-
-
-
-
-
-
-
 

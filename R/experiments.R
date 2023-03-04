@@ -1,5 +1,9 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
+#' @include api_client.R
+#' @importFrom stats runif
+NULL
+
 
 #' 
 #' @section Operations:
@@ -29,7 +33,7 @@ experiments <- list()
 #' Throws `RESOURCE_ALREADY_EXISTS` if a experiment with the given name exists.
 #'
 #' @param artifact_location Location where all artifacts for the experiment are stored.
-#' @param name [required] Experiment name.
+#' @param name Required. Experiment name.
 #' @param tags A collection of tags to set on the experiment.
 #'
 #' @keywords internal
@@ -51,7 +55,7 @@ experiments$create <- experiments_create
 #' for deletion. If the experiment uses FileStore, artifacts associated with
 #' experiment are also deleted.
 #'
-#' @param experiment_id [required] ID of the associated experiment.
+#' @param experiment_id Required. ID of the associated experiment.
 #'
 #' @keywords internal
 #'
@@ -69,7 +73,7 @@ experiments$delete <- experiments_delete
 #' 
 #' Gets metadata for an experiment. This method works on deleted experiments.
 #'
-#' @param experiment_id [required] ID of the associated experiment.
+#' @param experiment_id Required. ID of the associated experiment.
 #'
 #' @keywords internal
 #'
@@ -89,13 +93,13 @@ experiments$get <- experiments_get
 #' 
 #' This endpoint will return deleted experiments, but prefers the active
 #' experiment if an active and deleted experiment share the same name. If
-#' multiple deleted\nexperiments share the same name, the API will return one of
+#' multiple deleted experiments share the same name, the API will return one of
 #' them.
 #' 
 #' Throws `RESOURCE_DOES_NOT_EXIST` if no experiment with the specified name
 #' exists.S
 #'
-#' @param experiment_name [required] Name of the associated experiment.
+#' @param experiment_name Required. Name of the associated experiment.
 #'
 #' @keywords internal
 #'
@@ -151,13 +155,14 @@ experiments$list <- experiments_list
 
 #' Restores an experiment.
 #' 
-#' 'Restore an experiment marked for deletion. This also restores\nassociated
+#' 'Restore an experiment marked for deletion. This also restores associated
 #' metadata, runs, metrics, params, and tags. If experiment uses FileStore,
-#' underlying\nartifacts associated with experiment are also restored.\n\nThrows
-#' `RESOURCE_DOES_NOT_EXIST` if experiment was never created or was permanently
-#' deleted.',
+#' underlying artifacts associated with experiment are also restored.
+#' 
+#' Throws `RESOURCE_DOES_NOT_EXIST` if experiment was never created or was
+#' permanently deleted.',
 #'
-#' @param experiment_id [required] ID of the associated experiment.
+#' @param experiment_id Required. ID of the associated experiment.
 #'
 #' @keywords internal
 #'
@@ -218,9 +223,9 @@ experiments$search <- experiments_search
 #' Sets a tag on an experiment. Experiment tags are metadata that can be
 #' updated.
 #'
-#' @param experiment_id [required] ID of the experiment under which to log the tag.
-#' @param key [required] Name of the tag.
-#' @param value [required] String value of the tag being logged.
+#' @param experiment_id Required. ID of the experiment under which to log the tag.
+#' @param key Required. Name of the tag.
+#' @param value Required. String value of the tag being logged.
 #'
 #' @keywords internal
 #'
@@ -238,7 +243,7 @@ experiments$set_experiment_tag <- experiments_set_experiment_tag
 #' 
 #' Updates experiment metadata.
 #'
-#' @param experiment_id [required] ID of the associated experiment.
+#' @param experiment_id Required. ID of the associated experiment.
 #' @param new_name If provided, the experiment's name is changed to the new name.
 #'
 #' @keywords internal
@@ -252,16 +257,4 @@ experiments_update <- function(experiment_id, new_name = NULL, ...) {
   .api$do("POST", "/api/2.0/mlflow/experiments/update", body = body)
 }
 experiments$update <- experiments_update
-
-
-
-
-
-
-
-
-
-
-
-
 

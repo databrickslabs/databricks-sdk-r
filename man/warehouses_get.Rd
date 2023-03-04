@@ -7,7 +7,7 @@
 warehouses_get(id, ...)
 }
 \arguments{
-\item{id}{\link{required} Required.}
+\item{id}{Required. Required.}
 }
 \description{
 Gets the information for a single SQL warehouse.

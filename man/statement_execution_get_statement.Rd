@@ -7,7 +7,7 @@
 statement_execution_get_statement(statement_id, ...)
 }
 \arguments{
-\item{statement_id}{\link{required}}
+\item{statement_id}{Required.}
 }
 \description{
 Polls for statement status; when status.state=SUCCEEDED will also return the

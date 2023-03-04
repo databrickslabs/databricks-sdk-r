@@ -7,13 +7,15 @@
 experiments_restore(experiment_id, ...)
 }
 \arguments{
-\item{experiment_id}{\link{required} ID of the associated experiment.}
+\item{experiment_id}{Required. ID of the associated experiment.}
 }
 \description{
-'Restore an experiment marked for deletion. This also restores\nassociated
+'Restore an experiment marked for deletion. This also restores associated
 metadata, runs, metrics, params, and tags. If experiment uses FileStore,
-underlying\nartifacts associated with experiment are also restored.\n\nThrows
-\code{RESOURCE_DOES_NOT_EXIST} if experiment was never created or was permanently
-deleted.',
+underlying artifacts associated with experiment are also restored.
+}
+\details{
+Throws \code{RESOURCE_DOES_NOT_EXIST} if experiment was never created or was
+permanently deleted.',
 }
 \keyword{internal}

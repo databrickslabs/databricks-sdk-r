@@ -7,11 +7,11 @@
 command_execution_command_status(cluster_id, context_id, command_id, ...)
 }
 \arguments{
-\item{cluster_id}{\link{required}}
+\item{cluster_id}{Required.}
 
-\item{context_id}{\link{required}}
+\item{context_id}{Required.}
 
-\item{command_id}{\link{required}}
+\item{command_id}{Required.}
 }
 \description{
 Gets the status of and, if available, the results from a currently executing

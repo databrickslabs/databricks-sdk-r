@@ -15,11 +15,11 @@ external_locations_create(
 )
 }
 \arguments{
-\item{name}{\link{required} Name of the external location.}
+\item{name}{Required. Name of the external location.}
 
-\item{url}{\link{required} Path URL of the external location.}
+\item{url}{Required. Path URL of the external location.}
 
-\item{credential_name}{\link{required} Name of the storage credential used with this location.}
+\item{credential_name}{Required. Name of the storage credential used with this location.}
 
 \item{comment}{User-provided free-form text description.}
 

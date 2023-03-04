@@ -7,9 +7,9 @@
 m_lflow_runs_set_tag(key, value, run_id = NULL, run_uuid = NULL, ...)
 }
 \arguments{
-\item{key}{\link{required} Name of the tag.}
+\item{key}{Required. Name of the tag.}
 
-\item{value}{\link{required} String value of the tag being logged.}
+\item{value}{Required. String value of the tag being logged.}
 
 \item{run_id}{ID of the run under which to log the tag.}
 

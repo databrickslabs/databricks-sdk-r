@@ -7,9 +7,9 @@
 libraries_uninstall(cluster_id, libraries, ...)
 }
 \arguments{
-\item{cluster_id}{\link{required} Unique identifier for the cluster on which to uninstall these libraries.}
+\item{cluster_id}{Required. Unique identifier for the cluster on which to uninstall these libraries.}
 
-\item{libraries}{\link{required} The libraries to uninstall.}
+\item{libraries}{Required. The libraries to uninstall.}
 }
 \description{
 Set libraries to be uninstalled on a cluster. The libraries won't be

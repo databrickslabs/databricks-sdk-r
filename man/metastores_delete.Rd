@@ -7,7 +7,7 @@
 metastores_delete(id, force = NULL, ...)
 }
 \arguments{
-\item{id}{\link{required} Unique ID of the metastore.}
+\item{id}{Required. Unique ID of the metastore.}
 
 \item{force}{Force deletion even if the metastore is not empty.}
 }

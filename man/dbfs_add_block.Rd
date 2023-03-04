@@ -7,9 +7,9 @@
 dbfs_add_block(handle, data, ...)
 }
 \arguments{
-\item{handle}{\link{required} The handle on an open stream.}
+\item{handle}{Required. The handle on an open stream.}
 
-\item{data}{\link{required} The base64-encoded data to append to the stream.}
+\item{data}{Required. The base64-encoded data to append to the stream.}
 }
 \description{
 Appends a block of data to the stream specified by the input handle. If the

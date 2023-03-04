@@ -35,7 +35,7 @@ clusters_create(
 )
 }
 \arguments{
-\item{spark_version}{\link{required} The Spark version of the cluster, e.g.}
+\item{spark_version}{Required. The Spark version of the cluster, e.g.}
 
 \item{apply_policy_default_values}{Note: This field won't be true for webapp requests.}
 
@@ -93,8 +93,8 @@ by changing the \code{callback} parameter.
 Creates a new Spark cluster. This method will acquire new instances from the
 cloud provider if necessary. This method is asynchronous; the returned
 \code{cluster_id} can be used to poll the cluster status. When this method
-returns, the cluster will be in\na \code{PENDING} state. The cluster will be
-usable once it enters a \code{RUNNING} state.
+returns, the cluster will be in a \code{PENDING} state. The cluster will be usable
+once it enters a \code{RUNNING} state.
 
 Note: Databricks may not be able to acquire some of the requested nodes, due
 to cloud provider limitations (account limits, spot price, etc.) or transient

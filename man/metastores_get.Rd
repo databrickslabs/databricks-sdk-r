@@ -7,7 +7,7 @@
 metastores_get(id, ...)
 }
 \arguments{
-\item{id}{\link{required} Unique ID of the metastore.}
+\item{id}{Required. Unique ID of the metastore.}
 }
 \description{
 Gets a metastore that matches the supplied ID. The caller must be a metastore

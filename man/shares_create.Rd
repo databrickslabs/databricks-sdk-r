@@ -7,7 +7,7 @@
 shares_create(name, comment = NULL, ...)
 }
 \arguments{
-\item{name}{\link{required} Name of the share.}
+\item{name}{Required. Name of the share.}
 
 \item{comment}{User-provided free-form text description.}
 }

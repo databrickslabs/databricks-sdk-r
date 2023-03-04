@@ -20,7 +20,7 @@ days.
 }
 \details{
 For example, if there is 1 pinned cluster, 4 active clusters, 45 terminated
-interactive clusters in the past 7 days, and 50 terminated job clusters\nin
+interactive clusters in the past 7 days, and 50 terminated job clusters in
 the past 7 days, then this API returns the 1 pinned cluster, 4 active
 clusters, all 45 terminated interactive clusters, and the 30 most recently
 terminated job clusters.

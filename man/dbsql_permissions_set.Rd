@@ -7,9 +7,9 @@
 dbsql_permissions_set(object_type, object_id, access_control_list = NULL, ...)
 }
 \arguments{
-\item{object_type}{\link{required} The type of object permission to set.}
+\item{object_type}{Required. The type of object permission to set.}
 
-\item{object_id}{\link{required} Object ID.}
+\item{object_id}{Required. Object ID.}
 
 \item{access_control_list}{}
 }

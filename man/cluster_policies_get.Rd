@@ -7,7 +7,7 @@
 cluster_policies_get(policy_id, ...)
 }
 \arguments{
-\item{policy_id}{\link{required} Canonical unique identifier for the cluster policy.}
+\item{policy_id}{Required. Canonical unique identifier for the cluster policy.}
 }
 \description{
 Get a cluster policy entity. Creation and editing is available to admins

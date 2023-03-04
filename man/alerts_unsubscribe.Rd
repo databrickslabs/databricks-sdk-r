@@ -7,9 +7,9 @@
 alerts_unsubscribe(alert_id, subscription_id, ...)
 }
 \arguments{
-\item{alert_id}{\link{required}}
+\item{alert_id}{Required.}
 
-\item{subscription_id}{\link{required}}
+\item{subscription_id}{Required.}
 }
 \description{
 Unsubscribes a user or a destination to an alert.

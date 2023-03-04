@@ -7,7 +7,7 @@
 storage_credentials_delete(name, force = NULL, ...)
 }
 \arguments{
-\item{name}{\link{required} Name of the storage credential.}
+\item{name}{Required. Name of the storage credential.}
 
 \item{force}{Force deletion even if there are dependent external locations or external tables.}
 }

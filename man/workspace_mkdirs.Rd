@@ -7,7 +7,7 @@
 workspace_mkdirs(path, ...)
 }
 \arguments{
-\item{path}{\link{required} The absolute path of the directory.}
+\item{path}{Required. The absolute path of the directory.}
 }
 \description{
 Creates the specified directory (and necessary parent directories if they do
@@ -16,6 +16,6 @@ input path, this call returns an error \code{RESOURCE_ALREADY_EXISTS}.
 }
 \details{
 Note that if this operation fails it may have succeeded in creating some of
-the necessary\nparrent directories.
+the necessary parrent directories.
 }
 \keyword{internal}

@@ -22,9 +22,9 @@ instance_pools_create(
 )
 }
 \arguments{
-\item{instance_pool_name}{\link{required} Pool name requested by the user.}
+\item{instance_pool_name}{Required. Pool name requested by the user.}
 
-\item{node_type_id}{\link{required} This field encodes, through a single value, the resources available to each of the Spark nodes in this cluster.}
+\item{node_type_id}{Required. This field encodes, through a single value, the resources available to each of the Spark nodes in this cluster.}
 
 \item{aws_attributes}{Attributes related to pool running on Amazon Web Services.}
 

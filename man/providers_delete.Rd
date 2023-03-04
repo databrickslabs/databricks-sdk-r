@@ -7,7 +7,7 @@
 providers_delete(name, ...)
 }
 \arguments{
-\item{name}{\link{required} Name of the provider.}
+\item{name}{Required. Name of the provider.}
 }
 \description{
 Deletes an authentication provider, if the caller is a metastore admin or is

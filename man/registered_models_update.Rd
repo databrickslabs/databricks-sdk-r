@@ -7,7 +7,7 @@
 registered_models_update(name, description = NULL, ...)
 }
 \arguments{
-\item{name}{\link{required} Registered model unique name identifier.}
+\item{name}{Required. Registered model unique name identifier.}
 
 \item{description}{If provided, updates the description for this \code{registered_model}.}
 }

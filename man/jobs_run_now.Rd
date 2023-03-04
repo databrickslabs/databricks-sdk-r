@@ -21,7 +21,7 @@ jobs_run_now(
 )
 }
 \arguments{
-\item{job_id}{\link{required} The ID of the job to be executed.}
+\item{job_id}{Required. The ID of the job to be executed.}
 
 \item{dbt_commands}{An array of commands to execute for jobs with the dbt task, for example \verb{'dbt_commands': ['dbt deps', 'dbt seed', 'dbt run']}.}
 

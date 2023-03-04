@@ -1,3 +1,6 @@
+#' @include version.R
+NULL
+
 .productInfo <- tryCatch({
   v <- RStudio.Version()
   c("rstudio", v$long_version)

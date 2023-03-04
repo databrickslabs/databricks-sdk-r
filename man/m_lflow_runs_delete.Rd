@@ -7,7 +7,7 @@
 m_lflow_runs_delete(run_id, ...)
 }
 \arguments{
-\item{run_id}{\link{required} ID of the run to delete.}
+\item{run_id}{Required. ID of the run to delete.}
 }
 \description{
 Marks a run for deletion.

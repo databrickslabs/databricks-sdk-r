@@ -7,7 +7,7 @@
 instance_pools_get(instance_pool_id, ...)
 }
 \arguments{
-\item{instance_pool_id}{\link{required} The canonical unique identifier for the instance pool.}
+\item{instance_pool_id}{Required. The canonical unique identifier for the instance pool.}
 }
 \description{
 Retrieve the information for an instance pool based on its identifier.

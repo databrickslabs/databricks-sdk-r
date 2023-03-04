@@ -1,5 +1,9 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
+#' @include api_client.R
+#' @importFrom stats runif
+NULL
+
 #' A storage credential represents an authentication and authorization mechanism
 #' for accessing data stored on your cloud tenant. Each storage credential is
 #' subject to Unity Catalog access-control policies that control which users and
@@ -43,8 +47,8 @@ storage_credentials <- list()
 #' @param azure_service_principal The Azure service principal configuration.
 #' @param comment Comment associated with the credential.
 #' @param gcp_service_account_key The GCP service account key configuration.
-#' @param metastore_id [required] Databricks Unity Catalog metastore ID.
-#' @param name [required] The credential name.
+#' @param metastore_id Required. Databricks Unity Catalog metastore ID.
+#' @param name Required. The credential name.
 #' @param read_only Whether the storage credential is only usable for read operations.
 #' @param skip_validation Supplying true to this argument skips validation of the created credential.
 #'
@@ -70,7 +74,7 @@ storage_credentials$create <- storage_credentials_create
 #' of the storage credential.
 #'
 #' @param force Force deletion even if there are dependent external locations or external tables.
-#' @param name [required] Name of the storage credential.
+#' @param name Required. Name of the storage credential.
 #'
 #' @keywords internal
 #'
@@ -91,7 +95,7 @@ storage_credentials$delete <- storage_credentials_delete
 #' admin, the owner of the storage credential, or have some permission on the
 #' storage credential.
 #'
-#' @param name [required] Name of the storage credential.
+#' @param name Required. Name of the storage credential.
 #'
 #' @keywords internal
 #'
@@ -196,16 +200,4 @@ storage_credentials_validate <- function(aws_iam_role = NULL, azure_service_prin
   .api$do("POST", "/api/2.1/unity-catalog/validate-storage-credentials", body = body)
 }
 storage_credentials$validate <- storage_credentials_validate
-
-
-
-
-
-
-
-
-
-
-
-
 

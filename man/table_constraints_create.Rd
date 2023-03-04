@@ -7,9 +7,9 @@
 table_constraints_create(full_name_arg, constraint, ...)
 }
 \arguments{
-\item{full_name_arg}{\link{required} The full name of the table referenced by the constraint.}
+\item{full_name_arg}{Required. The full name of the table referenced by the constraint.}
 
-\item{constraint}{\link{required} A table constraint, as defined by \emph{one} of the following fields being set: \strong{primary_key_constraint}, \strong{foreign_key_constraint}, \strong{named_table_constraint}.}
+\item{constraint}{Required. A table constraint, as defined by \emph{one} of the following fields being set: \strong{primary_key_constraint}, \strong{foreign_key_constraint}, \strong{named_table_constraint}.}
 }
 \description{
 Creates a new table constraint.

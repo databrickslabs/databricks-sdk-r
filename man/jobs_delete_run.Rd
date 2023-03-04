@@ -7,7 +7,7 @@
 jobs_delete_run(run_id, ...)
 }
 \arguments{
-\item{run_id}{\link{required} The canonical identifier of the run for which to retrieve the metadata.}
+\item{run_id}{Required. The canonical identifier of the run for which to retrieve the metadata.}
 }
 \description{
 Deletes a non-active run. Returns an error if the run is active.

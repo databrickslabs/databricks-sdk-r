@@ -7,7 +7,7 @@
 alerts_delete(alert_id, ...)
 }
 \arguments{
-\item{alert_id}{\link{required}}
+\item{alert_id}{Required.}
 }
 \description{
 Deletes an alert. Deleted alerts are no longer accessible and cannot be

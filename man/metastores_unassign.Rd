@@ -7,9 +7,9 @@
 metastores_unassign(workspace_id, metastore_id, ...)
 }
 \arguments{
-\item{workspace_id}{\link{required} A workspace ID.}
+\item{workspace_id}{Required. A workspace ID.}
 
-\item{metastore_id}{\link{required} Query for the ID of the metastore to delete.}
+\item{metastore_id}{Required. Query for the ID of the metastore to delete.}
 }
 \description{
 Deletes a metastore assignment. The caller must be an account administrator.

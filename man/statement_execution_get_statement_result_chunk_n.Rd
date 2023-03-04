@@ -11,9 +11,9 @@ statement_execution_get_statement_result_chunk_n(
 )
 }
 \arguments{
-\item{statement_id}{\link{required}}
+\item{statement_id}{Required.}
 
-\item{chunk_index}{\link{required}}
+\item{chunk_index}{Required.}
 }
 \description{
 After statement execution has SUCCEEDED, result data can be fetched by

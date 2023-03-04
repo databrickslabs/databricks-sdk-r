@@ -1,5 +1,9 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
+#' @include api_client.R
+#' @importFrom stats runif
+NULL
+
 #' The Clusters API allows you to create, start, edit, list, terminate, and
 #' delete clusters.
 #' 
@@ -57,8 +61,8 @@ clusters <- list()
 #' Change the owner of the cluster. You must be an admin to perform this
 #' operation.
 #'
-#' @param cluster_id [required] <needs content added>.
-#' @param owner_username [required] New owner of the cluster_id after this RPC.
+#' @param cluster_id Required. <needs content added>.
+#' @param owner_username Required. New owner of the cluster_id after this RPC.
 #'
 #' @keywords internal
 #'
@@ -77,8 +81,8 @@ clusters$change_owner <- clusters_change_owner
 #' Creates a new Spark cluster. This method will acquire new instances from the
 #' cloud provider if necessary. This method is asynchronous; the returned
 #' `cluster_id` can be used to poll the cluster status. When this method
-#' returns, the cluster will be in\na `PENDING` state. The cluster will be
-#' usable once it enters a `RUNNING` state.
+#' returns, the cluster will be in a `PENDING` state. The cluster will be usable
+#' once it enters a `RUNNING` state.
 #' 
 #' Note: Databricks may not be able to acquire some of the requested nodes, due
 #' to cloud provider limitations (account limits, spot price, etc.) or transient
@@ -115,7 +119,7 @@ clusters$change_owner <- clusters_change_owner
 #' @param runtime_engine Decides which runtime engine to be use, e.g.
 #' @param spark_conf An object containing a set of optional, user-specified Spark configuration key-value pairs.
 #' @param spark_env_vars An object containing a set of optional, user-specified environment variable key-value pairs.
-#' @param spark_version [required] The Spark version of the cluster, e.g.
+#' @param spark_version Required. The Spark version of the cluster, e.g.
 #' @param ssh_public_keys SSH public key contents that will be added to each Spark node in this cluster.
 #' @param workload_type 
 #'
@@ -195,7 +199,7 @@ clusters$create <- clusters_create
 #' By default, the state of Databricks Clusters is reported to console. You can change this behavior 
 #' by changing the `callback` parameter.
 #'
-#' @param cluster_id [required] The cluster to be terminated.
+#' @param cluster_id Required. The cluster to be terminated.
 #'
 #' @keywords internal
 #'
@@ -269,7 +273,7 @@ clusters$delete <- clusters_delete
 #' @param autotermination_minutes Automatically terminates the cluster after it is inactive for this time in minutes.
 #' @param aws_attributes Attributes related to clusters running on Amazon Web Services.
 #' @param azure_attributes Attributes related to clusters running on Microsoft Azure.
-#' @param cluster_id [required] ID of the cluser.
+#' @param cluster_id Required. ID of the cluser.
 #' @param cluster_log_conf The configuration for delivering spark logs to a long-term storage destination.
 #' @param cluster_name Cluster name requested by the user.
 #' @param cluster_source Determines whether the cluster was created by a user through the UI, created by the Databricks Jobs Scheduler, or through an API request.
@@ -286,7 +290,7 @@ clusters$delete <- clusters_delete
 #' @param runtime_engine Decides which runtime engine to be use, e.g.
 #' @param spark_conf An object containing a set of optional, user-specified Spark configuration key-value pairs.
 #' @param spark_env_vars An object containing a set of optional, user-specified environment variable key-value pairs.
-#' @param spark_version [required] The Spark version of the cluster, e.g.
+#' @param spark_version Required. The Spark version of the cluster, e.g.
 #' @param ssh_public_keys SSH public key contents that will be added to each Spark node in this cluster.
 #' @param workload_type 
 #'
@@ -358,7 +362,7 @@ clusters$edit <- clusters_edit
 #' paginated. If there are more events to read, the response includes all the
 #' nparameters necessary to request the next page of events.
 #'
-#' @param cluster_id [required] The ID of the cluster to retrieve events about.
+#' @param cluster_id Required. The ID of the cluster to retrieve events about.
 #' @param end_time The end time in epoch milliseconds.
 #' @param event_types An optional set of event types to filter on.
 #' @param limit The maximum number of events to include in a page of events.
@@ -404,7 +408,7 @@ clusters$events <- clusters_events
 #' be described while they are running, or up to 60 days after they are
 #' terminated.
 #'
-#' @param cluster_id [required] The cluster about which to retrieve information.
+#' @param cluster_id Required. The cluster about which to retrieve information.
 #'
 #' @keywords internal
 #'
@@ -426,7 +430,7 @@ clusters$get <- clusters_get
 #' days.
 #' 
 #' For example, if there is 1 pinned cluster, 4 active clusters, 45 terminated
-#' interactive clusters in the past 7 days, and 50 terminated job clusters\nin
+#' interactive clusters in the past 7 days, and 50 terminated job clusters in
 #' the past 7 days, then this API returns the 1 pinned cluster, 4 active
 #' clusters, all 45 terminated interactive clusters, and the 30 most recently
 #' terminated job clusters.
@@ -489,7 +493,7 @@ clusters$list_zones <- clusters_list_zones
 #' cluster list, and API users can no longer perform any action on permanently
 #' deleted clusters.
 #'
-#' @param cluster_id [required] The cluster to be deleted.
+#' @param cluster_id Required. The cluster to be deleted.
 #'
 #' @keywords internal
 #'
@@ -509,7 +513,7 @@ clusters$permanent_delete <- clusters_permanent_delete
 #' ListClusters API. Pinning a cluster that is already pinned will have no
 #' effect. This API can only be called by workspace admins.
 #'
-#' @param cluster_id [required] <needs content added>.
+#' @param cluster_id Required. <needs content added>.
 #'
 #' @keywords internal
 #'
@@ -535,7 +539,7 @@ clusters$pin <- clusters_pin
 #' by changing the `callback` parameter.
 #'
 #' @param autoscale Parameters needed in order to automatically scale clusters up and down based on load.
-#' @param cluster_id [required] The cluster to be resized.
+#' @param cluster_id Required. The cluster to be resized.
 #' @param num_workers Number of worker nodes that this cluster should have.
 #'
 #' @keywords internal
@@ -597,7 +601,7 @@ clusters$resize <- clusters_resize
 #' By default, the state of Databricks Clusters is reported to console. You can change this behavior 
 #' by changing the `callback` parameter.
 #'
-#' @param cluster_id [required] The cluster to be started.
+#' @param cluster_id Required. The cluster to be started.
 #' @param restart_user <needs content added>.
 #'
 #' @keywords internal
@@ -679,7 +683,7 @@ clusters$spark_versions <- clusters_spark_versions
 #' By default, the state of Databricks Clusters is reported to console. You can change this behavior 
 #' by changing the `callback` parameter.
 #'
-#' @param cluster_id [required] The cluster to be started.
+#' @param cluster_id Required. The cluster to be started.
 #'
 #' @keywords internal
 #'
@@ -733,7 +737,7 @@ clusters$start <- clusters_start
 #' ListClusters API. Unpinning a cluster that is not pinned will have no effect.
 #' This API can only be called by workspace admins.
 #'
-#' @param cluster_id [required] <needs content added>.
+#' @param cluster_id Required. <needs content added>.
 #'
 #' @keywords internal
 #'
@@ -746,16 +750,4 @@ clusters_unpin <- function(cluster_id, ...) {
   .api$do("POST", "/api/2.0/clusters/unpin", body = body)
 }
 clusters$unpin <- clusters_unpin
-
-
-
-
-
-
-
-
-
-
-
-
 

@@ -7,7 +7,7 @@
 groups_patch(id, operations = NULL, ...)
 }
 \arguments{
-\item{id}{\link{required} Unique ID for a group in the Databricks Account.}
+\item{id}{Required. Unique ID for a group in the Databricks Account.}
 
 \item{operations}{}
 }

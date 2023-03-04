@@ -1,5 +1,9 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
+#' @include api_client.R
+#' @importFrom stats runif
+NULL
+
 #' The Libraries API allows you to install and uninstall libraries and get the
 #' status of libraries on a cluster.
 #' 
@@ -68,7 +72,7 @@ libraries$all_cluster_statuses <- libraries_all_cluster_statuses
 #' clusters, but now marked for removal. Within this group there is no order
 #' guarantee.
 #'
-#' @param cluster_id [required] Unique identifier of the cluster whose status should be retrieved.
+#' @param cluster_id Required. Unique identifier of the cluster whose status should be retrieved.
 #'
 #' @keywords internal
 #'
@@ -91,8 +95,8 @@ libraries$cluster_status <- libraries_cluster_status
 #' union of the libraries specified via this method and the libraries set to be
 #' installed on all clusters via the libraries UI.
 #'
-#' @param cluster_id [required] Unique identifier for the cluster on which to install these libraries.
-#' @param libraries [required] The libraries to install.
+#' @param cluster_id Required. Unique identifier for the cluster on which to install these libraries.
+#' @param libraries Required. The libraries to install.
 #'
 #' @keywords internal
 #'
@@ -112,8 +116,8 @@ libraries$install <- libraries_install
 #' uninstalled until the cluster is restarted. Uninstalling libraries that are
 #' not installed on the cluster will have no impact but is not an error.
 #'
-#' @param cluster_id [required] Unique identifier for the cluster on which to uninstall these libraries.
-#' @param libraries [required] The libraries to uninstall.
+#' @param cluster_id Required. Unique identifier for the cluster on which to uninstall these libraries.
+#' @param libraries Required. The libraries to uninstall.
 #'
 #' @keywords internal
 #'
@@ -126,16 +130,4 @@ libraries_uninstall <- function(cluster_id, libraries, ...) {
   .api$do("POST", "/api/2.0/libraries/uninstall", body = body)
 }
 libraries$uninstall <- libraries_uninstall
-
-
-
-
-
-
-
-
-
-
-
-
 

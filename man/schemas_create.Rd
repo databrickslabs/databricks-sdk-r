@@ -14,9 +14,9 @@ schemas_create(
 )
 }
 \arguments{
-\item{name}{\link{required} Name of schema, relative to parent catalog.}
+\item{name}{Required. Name of schema, relative to parent catalog.}
 
-\item{catalog_name}{\link{required} Name of parent catalog.}
+\item{catalog_name}{Required. Name of parent catalog.}
 
 \item{comment}{User-provided free-form text description.}
 

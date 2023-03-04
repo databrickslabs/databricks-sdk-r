@@ -7,7 +7,7 @@
 jobs_delete(job_id, ...)
 }
 \arguments{
-\item{job_id}{\link{required} The canonical identifier of the job to delete.}
+\item{job_id}{Required. The canonical identifier of the job to delete.}
 }
 \description{
 Deletes a job.

@@ -7,11 +7,11 @@
 metastores_assign(metastore_id, default_catalog_name, workspace_id, ...)
 }
 \arguments{
-\item{metastore_id}{\link{required} The unique ID of the metastore.}
+\item{metastore_id}{Required. The unique ID of the metastore.}
 
-\item{default_catalog_name}{\link{required} The name of the default catalog in the metastore.}
+\item{default_catalog_name}{Required. The name of the default catalog in the metastore.}
 
-\item{workspace_id}{\link{required} Workspace ID.}
+\item{workspace_id}{Required. Workspace ID.}
 }
 \description{
 Creates a new metastore assignment. If an assignment for the same

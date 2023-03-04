@@ -18,9 +18,9 @@ metastores_update(
 )
 }
 \arguments{
-\item{metastore_id}{\link{required} Databricks Unity Catalog metastore ID.}
+\item{metastore_id}{Required. Databricks Unity Catalog metastore ID.}
 
-\item{id}{\link{required} Unique ID of the metastore.}
+\item{id}{Required. Unique ID of the metastore.}
 
 \item{delta_sharing_organization_name}{The organization name of a Delta Sharing entity, to be used in Databricks-to-Databricks Delta Sharing as the official name.}
 

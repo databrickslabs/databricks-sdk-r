@@ -1,5 +1,9 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
+#' @include api_client.R
+#' @importFrom stats runif
+NULL
+
 #' Cluster policy limits the ability to configure clusters based on a set of
 #' rules. The policy rules limit the attributes or attribute values available
 #' for cluster creation. Cluster policies have ACLs that limit their use to
@@ -45,7 +49,7 @@ cluster_policies <- list()
 #' @param definition Policy definition document expressed in Databricks Cluster Policy Definition Language.
 #' @param description Additional human-readable description of the cluster policy.
 #' @param max_clusters_per_user Max number of clusters per user that can be active using this policy.
-#' @param name [required] Cluster Policy name requested by the user.
+#' @param name Required. Cluster Policy name requested by the user.
 #' @param policy_family_definition_overrides Policy definition JSON document expressed in Databricks Policy Definition Language.
 #' @param policy_family_id ID of the policy family.
 #'
@@ -70,7 +74,7 @@ cluster_policies$create <- cluster_policies_create
 #' Delete a policy for a cluster. Clusters governed by this policy can still
 #' run, but cannot be edited.
 #'
-#' @param policy_id [required] The ID of the policy to delete.
+#' @param policy_id Required. The ID of the policy to delete.
 #'
 #' @keywords internal
 #'
@@ -92,10 +96,10 @@ cluster_policies$delete <- cluster_policies_delete
 #' @param definition Policy definition document expressed in Databricks Cluster Policy Definition Language.
 #' @param description Additional human-readable description of the cluster policy.
 #' @param max_clusters_per_user Max number of clusters per user that can be active using this policy.
-#' @param name [required] Cluster Policy name requested by the user.
+#' @param name Required. Cluster Policy name requested by the user.
 #' @param policy_family_definition_overrides Policy definition JSON document expressed in Databricks Policy Definition Language.
 #' @param policy_family_id ID of the policy family.
-#' @param policy_id [required] The ID of the policy to update.
+#' @param policy_id Required. The ID of the policy to update.
 #'
 #' @keywords internal
 #'
@@ -118,7 +122,7 @@ cluster_policies$edit <- cluster_policies_edit
 #' Get a cluster policy entity. Creation and editing is available to admins
 #' only.
 #'
-#' @param policy_id [required] Canonical unique identifier for the cluster policy.
+#' @param policy_id Required. Canonical unique identifier for the cluster policy.
 #'
 #' @keywords internal
 #'
@@ -155,16 +159,4 @@ cluster_policies_list <- function(sort_column = NULL, sort_order = NULL, ...) {
 
 }
 cluster_policies$list <- cluster_policies_list
-
-
-
-
-
-
-
-
-
-
-
-
 

@@ -1,5 +1,9 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
+#' @include api_client.R
+#' @importFrom stats runif
+NULL
+
 #' IP Access List enables admins to configure IP access lists.
 #' 
 #' IP access lists affect web application access and REST API access to this
@@ -55,9 +59,9 @@ ip_access_lists <- list()
 #' IP access list has no effect until you enable the feature. See
 #' :method:workspaceconf/setStatus
 #'
-#' @param ip_addresses [required] Array of IP addresses or CIDR values to be added to the IP access list.
-#' @param label [required] Label for the IP access list.
-#' @param list_type [required] This describes an enum.
+#' @param ip_addresses Required. Array of IP addresses or CIDR values to be added to the IP access list.
+#' @param label Required. Label for the IP access list.
+#' @param list_type Required. This describes an enum.
 #'
 #' @keywords internal
 #'
@@ -76,7 +80,7 @@ ip_access_lists$create <- ip_access_lists_create
 #' 
 #' Deletes an IP access list, specified by its list ID.
 #'
-#' @param ip_access_list_id [required] The ID for the corresponding IP access list to modify.
+#' @param ip_access_list_id Required. The ID for the corresponding IP access list to modify.
 #'
 #' @keywords internal
 #'
@@ -94,7 +98,7 @@ ip_access_lists$delete <- ip_access_lists_delete
 #' 
 #' Gets an IP access list, specified by its list ID.
 #'
-#' @param ip_access_list_id [required] The ID for the corresponding IP access list to modify.
+#' @param ip_access_list_id Required. The ID for the corresponding IP access list to modify.
 #'
 #' @keywords internal
 #'
@@ -142,12 +146,12 @@ ip_access_lists$list <- ip_access_lists_list
 #' Note that your resulting IP access list has no effect until you enable the
 #' feature. See :method:workspaceconf/setStatus.
 #'
-#' @param enabled [required] Specifies whether this IP access list is enabled.
-#' @param ip_access_list_id [required] The ID for the corresponding IP access list to modify.
-#' @param ip_addresses [required] Array of IP addresses or CIDR values to be added to the IP access list.
-#' @param label [required] Label for the IP access list.
+#' @param enabled Required. Specifies whether this IP access list is enabled.
+#' @param ip_access_list_id Required. The ID for the corresponding IP access list to modify.
+#' @param ip_addresses Required. Array of IP addresses or CIDR values to be added to the IP access list.
+#' @param label Required. Label for the IP access list.
 #' @param list_id Universally unique identifier(UUID) of the IP access list.
-#' @param list_type [required] This describes an enum.
+#' @param list_type Required. This describes an enum.
 #'
 #' @keywords internal
 #'
@@ -184,12 +188,12 @@ ip_access_lists$replace <- ip_access_lists_replace
 #' resulting IP access list has no effect until you enable the feature. See
 #' :method:workspaceconf/setStatus.
 #'
-#' @param enabled [required] Specifies whether this IP access list is enabled.
-#' @param ip_access_list_id [required] The ID for the corresponding IP access list to modify.
-#' @param ip_addresses [required] Array of IP addresses or CIDR values to be added to the IP access list.
-#' @param label [required] Label for the IP access list.
+#' @param enabled Required. Specifies whether this IP access list is enabled.
+#' @param ip_access_list_id Required. The ID for the corresponding IP access list to modify.
+#' @param ip_addresses Required. Array of IP addresses or CIDR values to be added to the IP access list.
+#' @param label Required. Label for the IP access list.
 #' @param list_id Universally unique identifier(UUID) of the IP access list.
-#' @param list_type [required] This describes an enum.
+#' @param list_type Required. This describes an enum.
 #'
 #' @keywords internal
 #'
@@ -205,16 +209,4 @@ ip_access_lists_update <- function(label, list_type, ip_addresses, enabled, ip_a
     body = body)
 }
 ip_access_lists$update <- ip_access_lists_update
-
-
-
-
-
-
-
-
-
-
-
-
 

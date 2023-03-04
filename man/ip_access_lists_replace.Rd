@@ -15,15 +15,15 @@ ip_access_lists_replace(
 )
 }
 \arguments{
-\item{label}{\link{required} Label for the IP access list.}
+\item{label}{Required. Label for the IP access list.}
 
-\item{list_type}{\link{required} This describes an enum.}
+\item{list_type}{Required. This describes an enum.}
 
-\item{ip_addresses}{\link{required} Array of IP addresses or CIDR values to be added to the IP access list.}
+\item{ip_addresses}{Required. Array of IP addresses or CIDR values to be added to the IP access list.}
 
-\item{enabled}{\link{required} Specifies whether this IP access list is enabled.}
+\item{enabled}{Required. Specifies whether this IP access list is enabled.}
 
-\item{ip_access_list_id}{\link{required} The ID for the corresponding IP access list to modify.}
+\item{ip_access_list_id}{Required. The ID for the corresponding IP access list to modify.}
 
 \item{list_id}{Universally unique identifier(UUID) of the IP access list.}
 }

@@ -17,9 +17,9 @@ storage_credentials_create(
 )
 }
 \arguments{
-\item{name}{\link{required} The credential name.}
+\item{name}{Required. The credential name.}
 
-\item{metastore_id}{\link{required} Databricks Unity Catalog metastore ID.}
+\item{metastore_id}{Required. Databricks Unity Catalog metastore ID.}
 
 \item{aws_iam_role}{The AWS IAM role configuration.}
 

@@ -7,13 +7,13 @@
 model_versions_set_tag(name, version, key, value, ...)
 }
 \arguments{
-\item{name}{\link{required} Unique name of the model.}
+\item{name}{Required. Unique name of the model.}
 
-\item{version}{\link{required} Model version number.}
+\item{version}{Required. Model version number.}
 
-\item{key}{\link{required} Name of the tag.}
+\item{key}{Required. Name of the tag.}
 
-\item{value}{\link{required} String value of the tag being logged.}
+\item{value}{Required. String value of the tag being logged.}
 }
 \description{
 Sets a model version tag.

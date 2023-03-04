@@ -1,5 +1,9 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
+#' @include api_client.R
+#' @importFrom stats runif
+NULL
+
 #' The Global Init Scripts API enables Workspace administrators to configure
 #' global initialization scripts for their workspace. These scripts run on every
 #' node in every cluster in the workspace.
@@ -29,9 +33,9 @@ global_init_scripts <- list()
 #' Creates a new global init script in this workspace.
 #'
 #' @param enabled Specifies whether the script is enabled.
-#' @param name [required] The name of the script.
+#' @param name Required. The name of the script.
 #' @param position The position of a global init script, where 0 represents the first script to run, 1 is the second script to run, in ascending order.
-#' @param script [required] The Base64-encoded content of the script.
+#' @param script Required. The Base64-encoded content of the script.
 #'
 #' @keywords internal
 #'
@@ -51,7 +55,7 @@ global_init_scripts$create <- global_init_scripts_create
 #' 
 #' Deletes a global init script.
 #'
-#' @param script_id [required] The ID of the global init script.
+#' @param script_id Required. The ID of the global init script.
 #'
 #' @keywords internal
 #'
@@ -69,7 +73,7 @@ global_init_scripts$delete <- global_init_scripts_delete
 #' 
 #' Gets all the details of a script, including its Base64-encoded contents.
 #'
-#' @param script_id [required] The ID of the global init script.
+#' @param script_id Required. The ID of the global init script.
 #'
 #' @keywords internal
 #'
@@ -111,10 +115,10 @@ global_init_scripts$list <- global_init_scripts_list
 #' fields are optional. Unspecified fields retain their current value.
 #'
 #' @param enabled Specifies whether the script is enabled.
-#' @param name [required] The name of the script.
+#' @param name Required. The name of the script.
 #' @param position The position of a script, where 0 represents the first script to run, 1 is the second script to run, in ascending order.
-#' @param script [required] The Base64-encoded content of the script.
-#' @param script_id [required] The ID of the global init script.
+#' @param script Required. The Base64-encoded content of the script.
+#' @param script_id Required. The ID of the global init script.
 #'
 #' @keywords internal
 #'
@@ -130,16 +134,4 @@ global_init_scripts_update <- function(name, script, script_id, enabled = NULL, 
     body = body)
 }
 global_init_scripts$update <- global_init_scripts_update
-
-
-
-
-
-
-
-
-
-
-
-
 

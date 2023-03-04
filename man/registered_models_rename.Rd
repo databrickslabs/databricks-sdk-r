@@ -7,7 +7,7 @@
 registered_models_rename(name, new_name = NULL, ...)
 }
 \arguments{
-\item{name}{\link{required} Registered model unique name identifier.}
+\item{name}{Required. Registered model unique name identifier.}
 
 \item{new_name}{If provided, updates the name for this \code{registered_model}.}
 }

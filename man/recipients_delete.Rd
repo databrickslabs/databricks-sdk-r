@@ -7,7 +7,7 @@
 recipients_delete(name, ...)
 }
 \arguments{
-\item{name}{\link{required} Name of the recipient.}
+\item{name}{Required. Name of the recipient.}
 }
 \description{
 Deletes the specified recipient from the metastore. The caller must be the

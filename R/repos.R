@@ -1,5 +1,9 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
+#' @include api_client.R
+#' @importFrom stats runif
+NULL
+
 #' The Repos API allows users to manage their git repos. Users can use the API
 #' to access all repos that they have manage permissions on.
 #' 
@@ -31,9 +35,9 @@ repos <- list()
 #' remote Git repo, unlike repos created in the browser.
 #'
 #' @param path Desired path for the repo in the workspace.
-#' @param provider [required] Git provider.
+#' @param provider Required. Git provider.
 #' @param sparse_checkout If specified, the repo will be created with sparse checkout enabled.
-#' @param url [required] URL of the Git repository to be linked.
+#' @param url Required. URL of the Git repository to be linked.
 #'
 #' @keywords internal
 #'
@@ -52,7 +56,7 @@ repos$create <- repos_create
 #' 
 #' Deletes the specified repo.
 #'
-#' @param repo_id [required] The ID for the corresponding repo to access.
+#' @param repo_id Required. The ID for the corresponding repo to access.
 #'
 #' @keywords internal
 #'
@@ -70,7 +74,7 @@ repos$delete <- repos_delete
 #' 
 #' Returns the repo with the given repo ID.
 #'
-#' @param repo_id [required] The ID for the corresponding repo to access.
+#' @param repo_id Required. The ID for the corresponding repo to access.
 #'
 #' @keywords internal
 #'
@@ -128,7 +132,7 @@ repos$list <- repos_list
 #' latest commit on the same branch.
 #'
 #' @param branch Branch that the local version of the repo is checked out to.
-#' @param repo_id [required] The ID for the corresponding repo to access.
+#' @param repo_id Required. The ID for the corresponding repo to access.
 #' @param sparse_checkout If specified, update the sparse checkout settings.
 #' @param tag Tag that the local version of the repo is checked out to.
 #'
@@ -144,16 +148,4 @@ repos_update <- function(repo_id, branch = NULL, sparse_checkout = NULL, tag = N
   .api$do("PATCH", paste("/api/2.0/repos/", repo_id, sep = ""), body = body)
 }
 repos$update <- repos_update
-
-
-
-
-
-
-
-
-
-
-
-
 

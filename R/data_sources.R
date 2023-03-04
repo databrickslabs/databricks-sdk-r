@@ -1,5 +1,9 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
+#' @include api_client.R
+#' @importFrom stats runif
+NULL
+
 #' This API is provided to assist you in making new query objects. When creating
 #' a query object, you may optionally specify a `data_source_id` for the SQL
 #' warehouse against which it will run. If you don't already know the
@@ -35,16 +39,4 @@ data_sources_list <- function(...) {
   .api$do("GET", "/api/2.0/preview/sql/data_sources")
 }
 data_sources$list <- data_sources_list
-
-
-
-
-
-
-
-
-
-
-
-
 

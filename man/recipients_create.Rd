@@ -17,9 +17,9 @@ recipients_create(
 )
 }
 \arguments{
-\item{name}{\link{required} Name of Recipient.}
+\item{name}{Required. Name of Recipient.}
 
-\item{authentication_type}{\link{required} The delta sharing authentication type.}
+\item{authentication_type}{Required. The delta sharing authentication type.}
 
 \item{comment}{Description about the recipient.}
 

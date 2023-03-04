@@ -7,9 +7,9 @@
 repos_create(url, provider, path = NULL, sparse_checkout = NULL, ...)
 }
 \arguments{
-\item{url}{\link{required} URL of the Git repository to be linked.}
+\item{url}{Required. URL of the Git repository to be linked.}
 
-\item{provider}{\link{required} Git provider.}
+\item{provider}{Required. Git provider.}
 
 \item{path}{Desired path for the repo in the workspace.}
 

@@ -7,11 +7,11 @@
 secrets_put_acl(scope, principal, permission, ...)
 }
 \arguments{
-\item{scope}{\link{required} The name of the scope to apply permissions to.}
+\item{scope}{Required. The name of the scope to apply permissions to.}
 
-\item{principal}{\link{required} The principal in which the permission is applied.}
+\item{principal}{Required. The principal in which the permission is applied.}
 
-\item{permission}{\link{required} The permission level applied to the principal.}
+\item{permission}{Required. The permission level applied to the principal.}
 }
 \description{
 Creates or overwrites the Access Control List (ACL) associated with the given
@@ -26,11 +26,11 @@ to them, and permissions are ordered as follows:
 Allowed to read this secret scope and list what secrets are available.
 }
 
-Note that in general, secret values can only be read from within a
-command\non a cluster (for example, through a notebook). There is no API to
-read the actual secret value material outside of a cluster. However, the
-user's permission will be applied based on who is executing the command, and
-they must have at least READ permission.
+Note that in general, secret values can only be read from within a command on
+a cluster (for example, through a notebook). There is no API to read the
+actual secret value material outside of a cluster. However, the user's
+permission will be applied based on who is executing the command, and they
+must have at least READ permission.
 
 Users must have the \code{MANAGE} permission to invoke this API.
 

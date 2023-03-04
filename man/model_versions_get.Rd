@@ -7,9 +7,9 @@
 model_versions_get(name, version, ...)
 }
 \arguments{
-\item{name}{\link{required} Name of the registered model.}
+\item{name}{Required. Name of the registered model.}
 
-\item{version}{\link{required} Model version number.}
+\item{version}{Required. Model version number.}
 }
 \description{
 Get a model version.

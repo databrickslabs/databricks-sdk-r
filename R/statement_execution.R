@@ -1,5 +1,9 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
+#' @include api_client.R
+#' @importFrom stats runif
+NULL
+
 #' The SQL Statement Execution API manages the execution of arbitrary SQL
 #' statements and the fetching of result data.
 #' 
@@ -195,7 +199,7 @@ statement_execution <- list()
 #' Requests that an executing statement be canceled. Callers must poll for
 #' status to see the terminal state.
 #'
-#' @param statement_id [required] 
+#' @param statement_id Required. 
 #'
 #' @keywords internal
 #'
@@ -251,7 +255,7 @@ statement_execution$execute_statement <- statement_execution_execute_statement
 #' **NOTE** This call currently may take up to 5 seconds to get the latest
 #' status and result.
 #'
-#' @param statement_id [required] 
+#' @param statement_id Required. 
 #'
 #' @keywords internal
 #'
@@ -276,8 +280,8 @@ statement_execution$get_statement <- statement_execution_get_statement
 #' getStatementResult, and similarly includes `next_chunk_index` and
 #' `next_chunk_internal_link` for simple iteration through the result set.
 #'
-#' @param chunk_index [required] 
-#' @param statement_id [required] 
+#' @param chunk_index Required. 
+#' @param statement_id Required. 
 #'
 #' @keywords internal
 #'
@@ -292,16 +296,4 @@ statement_execution_get_statement_result_chunk_n <- function(statement_id, chunk
     chunk_index, sep = ""))
 }
 statement_execution$get_statement_result_chunk_n <- statement_execution_get_statement_result_chunk_n
-
-
-
-
-
-
-
-
-
-
-
-
 

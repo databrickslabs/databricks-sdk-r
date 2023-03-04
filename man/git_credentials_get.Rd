@@ -7,7 +7,7 @@
 git_credentials_get(credential_id, ...)
 }
 \arguments{
-\item{credential_id}{\link{required} The ID for the corresponding credential to access.}
+\item{credential_id}{Required. The ID for the corresponding credential to access.}
 }
 \description{
 Gets the Git credential with the specified credential ID.

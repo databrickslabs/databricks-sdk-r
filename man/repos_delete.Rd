@@ -7,7 +7,7 @@
 repos_delete(repo_id, ...)
 }
 \arguments{
-\item{repo_id}{\link{required} The ID for the corresponding repo to access.}
+\item{repo_id}{Required. The ID for the corresponding repo to access.}
 }
 \description{
 Deletes the specified repo.

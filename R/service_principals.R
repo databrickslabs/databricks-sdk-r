@@ -1,5 +1,9 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
+#' @include api_client.R
+#' @importFrom stats runif
+NULL
+
 #' Identities for use with jobs, automated tools, and systems such as scripts,
 #' apps, and CI/CD platforms. Databricks recommends creating service principals
 #' to run production jobs or modify production data. If all processes that act
@@ -53,7 +57,7 @@ service_principals$create <- service_principals_create
 #' 
 #' Delete a single service principal in the Databricks Workspace.
 #'
-#' @param id [required] Unique ID for a service principal in the Databricks Workspace.
+#' @param id Required. Unique ID for a service principal in the Databricks Workspace.
 #'
 #' @keywords internal
 #'
@@ -72,7 +76,7 @@ service_principals$delete <- service_principals_delete
 #' Gets the details for a single service principal define in the Databricks
 #' Workspace.
 #'
-#' @param id [required] Unique ID for a service principal in the Databricks Workspace.
+#' @param id Required. Unique ID for a service principal in the Databricks Workspace.
 #'
 #' @keywords internal
 #'
@@ -123,7 +127,7 @@ service_principals$list <- service_principals_list
 #' Partially updates the details of a single service principal in the Databricks
 #' Workspace.
 #'
-#' @param id [required] Unique ID for a group in the Databricks Account.
+#' @param id Required. Unique ID for a group in the Databricks Account.
 #' @param operations 
 #'
 #' @keywords internal
@@ -169,16 +173,4 @@ service_principals_update <- function(id, active = NULL, application_id = NULL, 
     body = body)
 }
 service_principals$update <- service_principals_update
-
-
-
-
-
-
-
-
-
-
-
-
 

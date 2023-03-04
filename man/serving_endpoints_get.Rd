@@ -7,7 +7,7 @@
 serving_endpoints_get(name, ...)
 }
 \arguments{
-\item{name}{\link{required} The name of the serving endpoint.}
+\item{name}{Required. The name of the serving endpoint.}
 }
 \description{
 Retrieves the details for a single serving endpoint.

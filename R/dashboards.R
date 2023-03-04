@@ -1,5 +1,9 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
+#' @include api_client.R
+#' @importFrom stats runif
+NULL
+
 #' In general, there is little need to modify dashboards using the API. However,
 #' it can be useful to use dashboard objects to look-up a collection of related
 #' query IDs. The API can also be used to duplicate multiple dashboards at once
@@ -53,7 +57,7 @@ dashboards$create <- dashboards_create
 #' Moves a dashboard to the trash. Trashed dashboards do not appear in list
 #' views or searches, and cannot be shared.
 #'
-#' @param dashboard_id [required] 
+#' @param dashboard_id Required. 
 #'
 #' @keywords internal
 #'
@@ -72,7 +76,7 @@ dashboards$delete <- dashboards_delete
 #' Returns a JSON representation of a dashboard object, including its
 #' visualization and query objects.
 #'
-#' @param dashboard_id [required] 
+#' @param dashboard_id Required. 
 #'
 #' @keywords internal
 #'
@@ -130,7 +134,7 @@ dashboards$list <- dashboards_list
 #' 
 #' A restored dashboard appears in list views and searches and can be shared.
 #'
-#' @param dashboard_id [required] 
+#' @param dashboard_id Required. 
 #'
 #' @keywords internal
 #'
@@ -144,16 +148,4 @@ dashboards_restore <- function(dashboard_id, ...) {
     sep = ""))
 }
 dashboards$restore <- dashboards_restore
-
-
-
-
-
-
-
-
-
-
-
-
 

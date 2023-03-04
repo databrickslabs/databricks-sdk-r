@@ -7,7 +7,7 @@
 experiments_delete(experiment_id, ...)
 }
 \arguments{
-\item{experiment_id}{\link{required} ID of the associated experiment.}
+\item{experiment_id}{Required. ID of the associated experiment.}
 }
 \description{
 Marks an experiment and associated metadata, runs, metrics, params, and tags

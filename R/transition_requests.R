@@ -1,5 +1,9 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
+#' @include api_client.R
+#' @importFrom stats runif
+NULL
+
 
 #' 
 #' @section Operations:
@@ -19,11 +23,11 @@ transition_requests <- list()
 #' 
 #' Approves a model version stage transition request.
 #'
-#' @param archive_existing_versions [required] Specifies whether to archive all current model versions in the target stage.
+#' @param archive_existing_versions Required. Specifies whether to archive all current model versions in the target stage.
 #' @param comment User-provided comment on the action.
-#' @param name [required] Name of the model.
-#' @param stage [required] Target stage of the transition.
-#' @param version [required] Version of the model.
+#' @param name Required. Name of the model.
+#' @param stage Required. Target stage of the transition.
+#' @param version Required. Version of the model.
 #'
 #' @keywords internal
 #'
@@ -44,9 +48,9 @@ transition_requests$approve <- transition_requests_approve
 #' Creates a model version stage transition request.
 #'
 #' @param comment User-provided comment on the action.
-#' @param name [required] Name of the model.
-#' @param stage [required] Target stage of the transition.
-#' @param version [required] Version of the model.
+#' @param name Required. Name of the model.
+#' @param stage Required. Target stage of the transition.
+#' @param version Required. Version of the model.
 #'
 #' @keywords internal
 #'
@@ -66,10 +70,10 @@ transition_requests$create <- transition_requests_create
 #' Cancels a model version stage transition request.
 #'
 #' @param comment User-provided comment on the action.
-#' @param creator [required] Username of the user who created this request.
-#' @param name [required] Name of the model.
-#' @param stage [required] Target stage of the transition request.
-#' @param version [required] Version of the model.
+#' @param creator Required. Username of the user who created this request.
+#' @param name Required. Name of the model.
+#' @param stage Required. Target stage of the transition request.
+#' @param version Required. Version of the model.
 #'
 #' @keywords internal
 #'
@@ -89,8 +93,8 @@ transition_requests$delete <- transition_requests_delete
 #' 
 #' Gets a list of all open stage transition requests for the model version.
 #'
-#' @param name [required] Name of the model.
-#' @param version [required] Version of the model.
+#' @param name Required. Name of the model.
+#' @param version Required. Version of the model.
 #' 
 #' @return `data.frame` with all of the response pages.
 #'
@@ -114,9 +118,9 @@ transition_requests$list <- transition_requests_list
 #' Rejects a model version stage transition request.
 #'
 #' @param comment User-provided comment on the action.
-#' @param name [required] Name of the model.
-#' @param stage [required] Target stage of the transition.
-#' @param version [required] Version of the model.
+#' @param name Required. Name of the model.
+#' @param stage Required. Target stage of the transition.
+#' @param version Required. Version of the model.
 #'
 #' @keywords internal
 #'
@@ -130,16 +134,4 @@ transition_requests_reject <- function(name, version, stage, comment = NULL, ...
   .api$do("POST", "/api/2.0/mlflow/transition-requests/reject", body = body)
 }
 transition_requests$reject <- transition_requests_reject
-
-
-
-
-
-
-
-
-
-
-
-
 

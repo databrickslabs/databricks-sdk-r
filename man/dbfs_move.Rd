@@ -7,9 +7,9 @@
 dbfs_move(source_path, destination_path, ...)
 }
 \arguments{
-\item{source_path}{\link{required} The source path of the file or directory.}
+\item{source_path}{Required. The source path of the file or directory.}
 
-\item{destination_path}{\link{required} The destination path of the file or directory.}
+\item{destination_path}{Required. The destination path of the file or directory.}
 }
 \description{
 Moves a file from one location to another location within DBFS. If the source

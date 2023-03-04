@@ -7,7 +7,7 @@
 experiments_create(name, artifact_location = NULL, tags = NULL, ...)
 }
 \arguments{
-\item{name}{\link{required} Experiment name.}
+\item{name}{Required. Experiment name.}
 
 \item{artifact_location}{Location where all artifacts for the experiment are stored.}
 

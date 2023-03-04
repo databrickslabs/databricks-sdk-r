@@ -1,5 +1,9 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
+#' @include api_client.R
+#' @importFrom stats runif
+NULL
+
 #' User identities recognized by Databricks and represented by email addresses.
 #' 
 #' Databricks recommends using SCIM provisioning to sync users and groups
@@ -63,7 +67,7 @@ users$create <- users_create
 #' Deletes a user. Deleting a user from a Databricks Workspace also removes
 #' objects associated with the user.
 #'
-#' @param id [required] Unique ID for a user in the Databricks Workspace.
+#' @param id Required. Unique ID for a user in the Databricks Workspace.
 #'
 #' @keywords internal
 #'
@@ -81,7 +85,7 @@ users$delete <- users_delete
 #' 
 #' Gets information for a specific user in Databricks Workspace.
 #'
-#' @param id [required] Unique ID for a user in the Databricks Workspace.
+#' @param id Required. Unique ID for a user in the Databricks Workspace.
 #'
 #' @keywords internal
 #'
@@ -132,7 +136,7 @@ users$list <- users_list
 #' Partially updates a user resource by applying the supplied operations on
 #' specific user attributes.
 #'
-#' @param id [required] Unique ID for a group in the Databricks Account.
+#' @param id Required. Unique ID for a group in the Databricks Account.
 #' @param operations 
 #'
 #' @keywords internal
@@ -177,16 +181,4 @@ users_update <- function(id, active = NULL, display_name = NULL, emails = NULL, 
   .api$do("PUT", paste("/api/2.0/preview/scim/v2/Users/", id, sep = ""), body = body)
 }
 users$update <- users_update
-
-
-
-
-
-
-
-
-
-
-
-
 

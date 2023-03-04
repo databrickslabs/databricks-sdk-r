@@ -15,11 +15,11 @@ m_lflow_runs_log_metric(
 )
 }
 \arguments{
-\item{key}{\link{required} Name of the metric.}
+\item{key}{Required. Name of the metric.}
 
-\item{value}{\link{required} Double value of the metric being logged.}
+\item{value}{Required. Double value of the metric being logged.}
 
-\item{timestamp}{\link{required} Unix timestamp in milliseconds at the time metric was logged.}
+\item{timestamp}{Required. Unix timestamp in milliseconds at the time metric was logged.}
 
 \item{run_id}{ID of the run under which to log the metric.}
 

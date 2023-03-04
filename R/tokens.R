@@ -1,5 +1,9 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
+#' @include api_client.R
+#' @importFrom stats runif
+NULL
+
 #' The Token API allows you to create, list, and revoke tokens that can be used
 #' to authenticate and access Databricks REST APIs.
 #' 
@@ -43,7 +47,7 @@ tokens$create <- tokens_create
 #' If a token with the specified ID is not valid, this call returns an error
 #' **RESOURCE_DOES_NOT_EXIST**.
 #'
-#' @param token_id [required] The ID of the token to be revoked.
+#' @param token_id Required. The ID of the token to be revoked.
 #'
 #' @keywords internal
 #'
@@ -75,16 +79,4 @@ tokens_list <- function(...) {
 
 }
 tokens$list <- tokens_list
-
-
-
-
-
-
-
-
-
-
-
-
 

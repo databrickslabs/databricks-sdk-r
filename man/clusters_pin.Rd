@@ -7,7 +7,7 @@
 clusters_pin(cluster_id, ...)
 }
 \arguments{
-\item{cluster_id}{\link{required} \if{html}{\out{<needs content added>}}.}
+\item{cluster_id}{Required. \if{html}{\out{<needs content added>}}.}
 }
 \description{
 Pinning a cluster ensures that the cluster will always be returned by the

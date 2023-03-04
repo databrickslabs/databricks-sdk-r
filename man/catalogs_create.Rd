@@ -15,7 +15,7 @@ catalogs_create(
 )
 }
 \arguments{
-\item{name}{\link{required} Name of catalog.}
+\item{name}{Required. Name of catalog.}
 
 \item{comment}{User-provided free-form text description.}
 

@@ -14,11 +14,11 @@ global_init_scripts_update(
 )
 }
 \arguments{
-\item{name}{\link{required} The name of the script.}
+\item{name}{Required. The name of the script.}
 
-\item{script}{\link{required} The Base64-encoded content of the script.}
+\item{script}{Required. The Base64-encoded content of the script.}
 
-\item{script_id}{\link{required} The ID of the global init script.}
+\item{script_id}{Required. The ID of the global init script.}
 
 \item{enabled}{Specifies whether the script is enabled.}
 

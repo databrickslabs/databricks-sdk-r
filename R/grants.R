@@ -1,5 +1,9 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
+#' @include api_client.R
+#' @importFrom stats runif
+NULL
+
 #' In Unity Catalog, data is secure by default. Initially, users have no access
 #' to data in a metastore. Access can be granted by either a metastore admin,
 #' the owner of an object, or the owner of the catalog or schema that contains
@@ -27,9 +31,9 @@ grants <- list()
 #' 
 #' Gets the permissions for a securable.
 #'
-#' @param full_name [required] Full name of securable.
+#' @param full_name Required. Full name of securable.
 #' @param principal If provided, only the permissions for the specified principal (user or group) are returned.
-#' @param securable_type [required] Type of securable.
+#' @param securable_type Required. Type of securable.
 #'
 #' @keywords internal
 #'
@@ -48,9 +52,9 @@ grants$get <- grants_get
 #' 
 #' Gets the effective permissions for a securable.
 #'
-#' @param full_name [required] Full name of securable.
+#' @param full_name Required. Full name of securable.
 #' @param principal If provided, only the effective permissions for the specified principal (user or group) are returned.
-#' @param securable_type [required] Type of securable.
+#' @param securable_type Required. Type of securable.
 #'
 #' @keywords internal
 #'
@@ -70,8 +74,8 @@ grants$get_effective <- grants_get_effective
 #' Updates the permissions for a securable.
 #'
 #' @param changes Array of permissions change objects.
-#' @param full_name [required] Full name of securable.
-#' @param securable_type [required] Type of securable.
+#' @param full_name Required. Full name of securable.
+#' @param securable_type Required. Type of securable.
 #'
 #' @keywords internal
 #'
@@ -85,16 +89,4 @@ grants_update <- function(securable_type, full_name, changes = NULL, ...) {
     "/", full_name, sep = ""), body = body)
 }
 grants$update <- grants_update
-
-
-
-
-
-
-
-
-
-
-
-
 

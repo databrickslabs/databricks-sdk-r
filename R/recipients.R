@@ -1,5 +1,9 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
+#' @include api_client.R
+#' @importFrom stats runif
+NULL
+
 #' Databricks Delta Sharing: Recipients REST API
 #' 
 #' @section Operations:
@@ -23,11 +27,11 @@ recipients <- list()
 #' metastore. The caller must be a metastore admin or has the
 #' **CREATE_RECIPIENT** privilege on the metastore.
 #'
-#' @param authentication_type [required] The delta sharing authentication type.
+#' @param authentication_type Required. The delta sharing authentication type.
 #' @param comment Description about the recipient.
 #' @param data_recipient_global_metastore_id The global Unity Catalog metastore id provided by the data recipient.\n This field is required when the __authentication_type__ is **DATABRICKS**.\n The identifier is of format __cloud__:__region__:__metastore-uuid__.
 #' @param ip_access_list IP Access List.
-#' @param name [required] Name of Recipient.
+#' @param name Required. Name of Recipient.
 #' @param owner Username of the recipient owner.
 #' @param properties_kvpairs Recipient properties as map of string key-value pairs.\n.
 #' @param sharing_code The one-time sharing code provided by the data recipient.
@@ -53,7 +57,7 @@ recipients$create <- recipients_create
 #' Deletes the specified recipient from the metastore. The caller must be the
 #' owner of the recipient.
 #'
-#' @param name [required] Name of the recipient.
+#' @param name Required. Name of the recipient.
 #'
 #' @keywords internal
 #'
@@ -73,7 +77,7 @@ recipients$delete <- recipients_delete
 #' 
 #' * the caller is the owner of the share recipient, or: * is a metastore admin
 #'
-#' @param name [required] Name of the recipient.
+#' @param name Required. Name of the recipient.
 #'
 #' @keywords internal
 #'
@@ -119,8 +123,8 @@ recipients$list <- recipients_list
 #' Refreshes the specified recipient's delta sharing authentication token with
 #' the provided token info. The caller must be the owner of the recipient.
 #'
-#' @param existing_token_expire_in_seconds [required] The expiration time of the bearer token in ISO 8601 format.
-#' @param name [required] The name of the recipient.
+#' @param existing_token_expire_in_seconds Required. The expiration time of the bearer token in ISO 8601 format.
+#' @param name Required. The name of the recipient.
 #'
 #' @keywords internal
 #'
@@ -141,7 +145,7 @@ recipients$rotate_token <- recipients_rotate_token
 #' Gets the share permissions for the specified Recipient. The caller must be a
 #' metastore admin or the owner of the Recipient.
 #'
-#' @param name [required] The name of the Recipient.
+#' @param name Required. The name of the Recipient.
 #'
 #' @keywords internal
 #'
@@ -183,16 +187,4 @@ recipients_update <- function(name, comment = NULL, ip_access_list = NULL, owner
     body = body)
 }
 recipients$update <- recipients_update
-
-
-
-
-
-
-
-
-
-
-
-
 

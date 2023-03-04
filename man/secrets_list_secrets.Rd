@@ -7,7 +7,7 @@
 secrets_list_secrets(scope, ...)
 }
 \arguments{
-\item{scope}{\link{required} The name of the scope to list secrets within.}
+\item{scope}{Required. The name of the scope to list secrets within.}
 }
 \value{
 \code{data.frame} with all of the response pages.

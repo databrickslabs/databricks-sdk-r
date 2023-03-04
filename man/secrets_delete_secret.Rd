@@ -7,9 +7,9 @@
 secrets_delete_secret(scope, key, ...)
 }
 \arguments{
-\item{scope}{\link{required} The name of the scope that contains the secret to delete.}
+\item{scope}{Required. The name of the scope that contains the secret to delete.}
 
-\item{key}{\link{required} Name of the secret to delete.}
+\item{key}{Required. Name of the secret to delete.}
 }
 \description{
 Deletes the secret stored in this secret scope. You must have \code{WRITE} or

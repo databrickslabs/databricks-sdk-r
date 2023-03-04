@@ -1,5 +1,9 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
+#' @include api_client.R
+#' @importFrom stats runif
+NULL
+
 #' A table resides in the third layer of Unity Catalog’s three-level
 #' namespace. It contains rows of data. To create a table, users must have
 #' CREATE_TABLE and USE_SCHEMA permissions on the schema, and they must have the
@@ -31,7 +35,7 @@ tables <- list()
 #' table and have the **USE_CATALOG** privilege on the parent catalog and the
 #' **USE_SCHEMA** privilege on the parent schema.
 #'
-#' @param full_name [required] Full name of the table.
+#' @param full_name Required. Full name of the table.
 #'
 #' @keywords internal
 #'
@@ -53,7 +57,7 @@ tables$delete <- tables_delete
 #' privilege on the parent schema, or be the owner of the table and have the
 #' **SELECT** privilege on it as well.
 #'
-#' @param full_name [required] Full name of the table.
+#' @param full_name Required. Full name of the table.
 #' @param include_delta_metadata Whether delta metadata should be included in the response.
 #'
 #' @keywords internal
@@ -78,9 +82,9 @@ tables$get <- tables_get
 #' catalog and the **USE_SCHEMA** privilege on the parent schema. There is no
 #' guarantee of a specific ordering of the elements in the array.
 #'
-#' @param catalog_name [required] Name of parent catalog for tables of interest.
+#' @param catalog_name Required. Name of parent catalog for tables of interest.
 #' @param include_delta_metadata Whether delta metadata should be included in the response.
-#' @param schema_name [required] Parent schema of tables.
+#' @param schema_name Required. Parent schema of tables.
 #' 
 #' @return `data.frame` with all of the response pages.
 #'
@@ -115,7 +119,7 @@ tables$list <- tables_list
 #' 
 #' There is no guarantee of a specific ordering of the elements in the array.
 #'
-#' @param catalog_name [required] Name of parent catalog for tables of interest.
+#' @param catalog_name Required. Name of parent catalog for tables of interest.
 #' @param max_results Maximum number of tables to return (page length).
 #' @param page_token Opaque token to send for the next page of results (pagination).
 #' @param schema_name_pattern A sql LIKE pattern (% and _) for schema names.
@@ -135,16 +139,4 @@ tables_list_summaries <- function(catalog_name, max_results = NULL, page_token =
   .api$do("GET", "/api/2.1/unity-catalog/table-summaries", query = query)
 }
 tables$list_summaries <- tables_list_summaries
-
-
-
-
-
-
-
-
-
-
-
-
 

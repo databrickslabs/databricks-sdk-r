@@ -7,9 +7,9 @@
 pipelines_get_update(pipeline_id, update_id, ...)
 }
 \arguments{
-\item{pipeline_id}{\link{required} The ID of the pipeline.}
+\item{pipeline_id}{Required. The ID of the pipeline.}
 
-\item{update_id}{\link{required} The ID of the update.}
+\item{update_id}{Required. The ID of the update.}
 }
 \description{
 Gets an update from an active pipeline.

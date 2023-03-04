@@ -13,7 +13,7 @@ git_credentials_update(
 )
 }
 \arguments{
-\item{credential_id}{\link{required} The ID for the corresponding credential to access.}
+\item{credential_id}{Required. The ID for the corresponding credential to access.}
 
 \item{git_provider}{Git provider.}
 

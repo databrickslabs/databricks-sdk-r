@@ -14,7 +14,7 @@ workspace_import(
 )
 }
 \arguments{
-\item{path}{\link{required} The absolute path of the notebook or directory.}
+\item{path}{Required. The absolute path of the notebook or directory.}
 
 \item{content}{The base64-encoded content.}
 

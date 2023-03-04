@@ -7,7 +7,7 @@
 clusters_unpin(cluster_id, ...)
 }
 \arguments{
-\item{cluster_id}{\link{required} \if{html}{\out{<needs content added>}}.}
+\item{cluster_id}{Required. \if{html}{\out{<needs content added>}}.}
 }
 \description{
 Unpinning a cluster will allow the cluster to eventually be removed from the

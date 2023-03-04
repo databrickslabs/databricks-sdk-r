@@ -7,7 +7,7 @@
 registered_models_create(name, description = NULL, tags = NULL, ...)
 }
 \arguments{
-\item{name}{\link{required} Register models under this name.}
+\item{name}{Required. Register models under this name.}
 
 \item{description}{Optional description for registered model.}
 

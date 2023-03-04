@@ -7,7 +7,7 @@
 experiments_get_by_name(experiment_name, ...)
 }
 \arguments{
-\item{experiment_name}{\link{required} Name of the associated experiment.}
+\item{experiment_name}{Required. Name of the associated experiment.}
 }
 \description{
 'Gets metadata for an experiment.
@@ -15,7 +15,7 @@ experiments_get_by_name(experiment_name, ...)
 \details{
 This endpoint will return deleted experiments, but prefers the active
 experiment if an active and deleted experiment share the same name. If
-multiple deleted\nexperiments share the same name, the API will return one of
+multiple deleted experiments share the same name, the API will return one of
 them.
 
 Throws \code{RESOURCE_DOES_NOT_EXIST} if no experiment with the specified name

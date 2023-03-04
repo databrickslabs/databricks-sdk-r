@@ -1,5 +1,9 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
+#' @include api_client.R
+#' @importFrom stats runif
+NULL
+
 #' The Serverless Real-Time Inference Serving Endpoints API allows you to
 #' create, update, and delete model serving endpoints.
 #' 
@@ -37,8 +41,8 @@ serving_endpoints <- list()
 #' Retrieves the build logs associated with the provided served model. Please
 #' note that this API is in preview and may change in the future.
 #'
-#' @param name [required] The name of the serving endpoint that the served model belongs to.
-#' @param served_model_name [required] The name of the served model that build logs will be retrieved for.
+#' @param name Required. The name of the serving endpoint that the served model belongs to.
+#' @param served_model_name Required. The name of the served model that build logs will be retrieved for.
 #'
 #' @keywords internal
 #'
@@ -61,8 +65,8 @@ serving_endpoints$build_logs <- serving_endpoints_build_logs
 #' By default, the state of Databricks Serving Endpoints is reported to console. You can change this behavior 
 #' by changing the `callback` parameter.
 #'
-#' @param config [required] The core config of the serving endpoint.
-#' @param name [required] The name of the serving endpoint.
+#' @param config Required. The core config of the serving endpoint.
+#' @param name Required. The name of the serving endpoint.
 #'
 #' @keywords internal
 #'
@@ -114,7 +118,7 @@ serving_endpoints$create <- serving_endpoints_create
 
 #' Delete a serving endpoint.
 #'
-#' @param name [required] The name of the serving endpoint.
+#' @param name Required. The name of the serving endpoint.
 #'
 #' @keywords internal
 #'
@@ -135,7 +139,7 @@ serving_endpoints$delete <- serving_endpoints_delete
 #' Prometheus or OpenMetrics exposition format. Please note that this API is in
 #' preview and may change in the future.
 #'
-#' @param name [required] The name of the serving endpoint to retrieve metrics for.
+#' @param name Required. The name of the serving endpoint to retrieve metrics for.
 #'
 #' @keywords internal
 #'
@@ -153,7 +157,7 @@ serving_endpoints$export_metrics <- serving_endpoints_export_metrics
 #' 
 #' Retrieves the details for a single serving endpoint.
 #'
-#' @param name [required] The name of the serving endpoint.
+#' @param name Required. The name of the serving endpoint.
 #'
 #' @keywords internal
 #'
@@ -185,8 +189,8 @@ serving_endpoints$list <- serving_endpoints_list
 #' Retrieves the service logs associated with the provided served model. Please
 #' note that this API is in preview and may change in the future.
 #'
-#' @param name [required] The name of the serving endpoint that the served model belongs to.
-#' @param served_model_name [required] The name of the served model that logs will be retrieved for.
+#' @param name Required. The name of the serving endpoint that the served model belongs to.
+#' @param served_model_name Required. The name of the served model that logs will be retrieved for.
 #'
 #' @keywords internal
 #'
@@ -203,7 +207,7 @@ serving_endpoints$logs <- serving_endpoints_logs
 
 #' Query a serving endpoint with provided model input.
 #'
-#' @param name [required] The name of the serving endpoint.
+#' @param name Required. The name of the serving endpoint.
 #'
 #' @keywords internal
 #'
@@ -230,8 +234,8 @@ serving_endpoints$query <- serving_endpoints_query
 #' By default, the state of Databricks Serving Endpoints is reported to console. You can change this behavior 
 #' by changing the `callback` parameter.
 #'
-#' @param name [required] The name of the serving endpoint to update.
-#' @param served_models [required] A list of served models for the endpoint to serve.
+#' @param name Required. The name of the serving endpoint to update.
+#' @param served_models Required. A list of served models for the endpoint to serve.
 #' @param traffic_config The traffic config defining how invocations to the serving endpoint should be routed.
 #'
 #' @keywords internal
@@ -283,16 +287,4 @@ serving_endpoints_update_config <- function(served_models, name, traffic_config 
   rlang::abort(msg, call = rlang::caller_env())
 }
 serving_endpoints$update_config <- serving_endpoints_update_config
-
-
-
-
-
-
-
-
-
-
-
-
 

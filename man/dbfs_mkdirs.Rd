@@ -7,7 +7,7 @@
 dbfs_mkdirs(path, ...)
 }
 \arguments{
-\item{path}{\link{required} The path of the new directory.}
+\item{path}{Required. The path of the new directory.}
 }
 \description{
 Creates the given directory and necessary parent directories if they do not

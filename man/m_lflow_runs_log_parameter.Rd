@@ -7,9 +7,9 @@
 m_lflow_runs_log_parameter(key, value, run_id = NULL, run_uuid = NULL, ...)
 }
 \arguments{
-\item{key}{\link{required} Name of the param.}
+\item{key}{Required. Name of the param.}
 
-\item{value}{\link{required} String value of the param being logged.}
+\item{value}{Required. String value of the param being logged.}
 
 \item{run_id}{ID of the run under which to log the param.}
 

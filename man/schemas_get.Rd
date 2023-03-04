@@ -7,7 +7,7 @@
 schemas_get(full_name, ...)
 }
 \arguments{
-\item{full_name}{\link{required} Full name of the schema.}
+\item{full_name}{Required. Full name of the schema.}
 }
 \description{
 Gets the specified schema within the metastore. The caller must be a

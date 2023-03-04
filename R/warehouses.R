@@ -1,5 +1,9 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
+#' @include api_client.R
+#' @importFrom stats runif
+NULL
+
 #' A SQL warehouse is a compute resource that lets you run SQL commands on data
 #' objects within Databricks SQL. Compute resources are infrastructure resources
 #' that provide processing capabilities in the cloud.
@@ -112,7 +116,7 @@ warehouses$create <- warehouses_create
 #' By default, the state of Databricks Warehouses is reported to console. You can change this behavior 
 #' by changing the `callback` parameter.
 #'
-#' @param id [required] Required.
+#' @param id Required. Required.
 #'
 #' @keywords internal
 #'
@@ -175,7 +179,7 @@ warehouses$delete <- warehouses_delete
 #' @param enable_databricks_compute Configures whether the endpoint should use Databricks Compute (aka Nephos) Deprecated: Use enable_serverless_compute.
 #' @param enable_photon Configures whether the endpoint should use Photon optimized clusters.
 #' @param enable_serverless_compute Configures whether the endpoint should use Serverless Compute (aka Nephos) Defaults to value in global endpoint settings.
-#' @param id [required] Required.
+#' @param id Required. Required.
 #' @param instance_profile_arn Deprecated.
 #' @param max_num_clusters Maximum number of clusters that the autoscaler will create to handle concurrent queries.
 #' @param min_num_clusters Minimum number of available clusters that will be maintained for this SQL Endpoint.
@@ -246,7 +250,7 @@ warehouses$edit <- warehouses_edit
 #' 
 #' Gets the information for a single SQL warehouse.
 #'
-#' @param id [required] Required.
+#' @param id Required. Required.
 #'
 #' @keywords internal
 #'
@@ -347,7 +351,7 @@ warehouses$set_workspace_warehouse_config <- warehouses_set_workspace_warehouse_
 #' By default, the state of Databricks Warehouses is reported to console. You can change this behavior 
 #' by changing the `callback` parameter.
 #'
-#' @param id [required] Required.
+#' @param id Required. Required.
 #'
 #' @keywords internal
 #'
@@ -408,7 +412,7 @@ warehouses$start <- warehouses_start
 #' By default, the state of Databricks Warehouses is reported to console. You can change this behavior 
 #' by changing the `callback` parameter.
 #'
-#' @param id [required] Required.
+#' @param id Required. Required.
 #'
 #' @keywords internal
 #'
@@ -453,16 +457,4 @@ warehouses_stop <- function(id, timeout = 20, callback = cli_reporter, ...) {
   rlang::abort(msg, call = rlang::caller_env())
 }
 warehouses$stop <- warehouses_stop
-
-
-
-
-
-
-
-
-
-
-
-
 

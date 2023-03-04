@@ -7,11 +7,11 @@
 ip_access_lists_create(label, list_type, ip_addresses, ...)
 }
 \arguments{
-\item{label}{\link{required} Label for the IP access list.}
+\item{label}{Required. Label for the IP access list.}
 
-\item{list_type}{\link{required} This describes an enum.}
+\item{list_type}{Required. This describes an enum.}
 
-\item{ip_addresses}{\link{required} Array of IP addresses or CIDR values to be added to the IP access list.}
+\item{ip_addresses}{Required. Array of IP addresses or CIDR values to be added to the IP access list.}
 }
 \description{
 Creates an IP access list for this workspace.

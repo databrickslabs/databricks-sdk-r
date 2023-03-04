@@ -12,9 +12,9 @@ dbsql_permissions_transfer_ownership(
 )
 }
 \arguments{
-\item{object_type}{\link{required} The type of object on which to change ownership.}
+\item{object_type}{Required. The type of object on which to change ownership.}
 
-\item{object_id}{\link{required} The ID of the object on which to change ownership.}
+\item{object_id}{Required. The ID of the object on which to change ownership.}
 
 \item{new_owner}{Email address for the new owner, who must exist in the workspace.}
 }

@@ -7,9 +7,9 @@
 secrets_put_secret(scope, key, bytes_value = NULL, string_value = NULL, ...)
 }
 \arguments{
-\item{scope}{\link{required} The name of the scope to which the secret will be associated with.}
+\item{scope}{Required. The name of the scope to which the secret will be associated with.}
 
-\item{key}{\link{required} A unique name to identify the secret.}
+\item{key}{Required. A unique name to identify the secret.}
 
 \item{bytes_value}{If specified, value will be stored as bytes.}
 

@@ -7,7 +7,7 @@
 warehouses_delete(id, timeout = 20, callback = cli_reporter, ...)
 }
 \arguments{
-\item{id}{\link{required} Required.}
+\item{id}{Required. Required.}
 }
 \description{
 This is a long-running operation, which blocks until Warehouses on Databricks reach

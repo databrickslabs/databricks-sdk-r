@@ -13,13 +13,13 @@ model_versions_transition_stage(
 )
 }
 \arguments{
-\item{name}{\link{required} Name of the registered model.}
+\item{name}{Required. Name of the registered model.}
 
-\item{version}{\link{required} Model version number.}
+\item{version}{Required. Model version number.}
 
-\item{stage}{\link{required} Transition \code{model_version} to new stage.}
+\item{stage}{Required. Transition \code{model_version} to new stage.}
 
-\item{archive_existing_versions}{\link{required} When transitioning a model version to a particular stage, this flag dictates whether all existing model versions in that stage should be atomically moved to the 'archived' stage.}
+\item{archive_existing_versions}{Required. When transitioning a model version to a particular stage, this flag dictates whether all existing model versions in that stage should be atomically moved to the 'archived' stage.}
 }
 \description{
 Transition to the next model stage.

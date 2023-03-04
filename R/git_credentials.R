@@ -1,5 +1,9 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
+#' @include api_client.R
+#' @importFrom stats runif
+NULL
+
 #' Registers personal access token for Databricks to do operations on behalf of
 #' the user.
 #' 
@@ -27,7 +31,7 @@ git_credentials <- list()
 #' exists will fail. Use the PATCH endpoint to update existing credentials, or
 #' the DELETE endpoint to delete existing credentials.
 #'
-#' @param git_provider [required] Git provider.
+#' @param git_provider Required. Git provider.
 #' @param git_username Git username.
 #' @param personal_access_token The personal access token used to authenticate to the corresponding Git provider.
 #'
@@ -49,7 +53,7 @@ git_credentials$create <- git_credentials_create
 #' 
 #' Deletes the specified Git credential.
 #'
-#' @param credential_id [required] The ID for the corresponding credential to access.
+#' @param credential_id Required. The ID for the corresponding credential to access.
 #'
 #' @keywords internal
 #'
@@ -67,7 +71,7 @@ git_credentials$delete <- git_credentials_delete
 #' 
 #' Gets the Git credential with the specified credential ID.
 #'
-#' @param credential_id [required] The ID for the corresponding credential to access.
+#' @param credential_id Required. The ID for the corresponding credential to access.
 #'
 #' @keywords internal
 #'
@@ -105,7 +109,7 @@ git_credentials$list <- git_credentials_list
 #' 
 #' Updates the specified Git credential.
 #'
-#' @param credential_id [required] The ID for the corresponding credential to access.
+#' @param credential_id Required. The ID for the corresponding credential to access.
 #' @param git_provider Git provider.
 #' @param git_username Git username.
 #' @param personal_access_token The personal access token used to authenticate to the corresponding Git provider.
@@ -124,16 +128,4 @@ git_credentials_update <- function(credential_id, git_provider = NULL, git_usern
     body = body)
 }
 git_credentials$update <- git_credentials_update
-
-
-
-
-
-
-
-
-
-
-
-
 

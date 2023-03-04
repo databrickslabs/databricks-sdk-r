@@ -1,5 +1,9 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
+#' @include api_client.R
+#' @importFrom stats runif
+NULL
+
 #' These endpoints are used for CRUD operations on query definitions. Query
 #' definitions include the target SQL warehouse, query text, name, description,
 #' tags, execution schedule, parameters, and visualizations.
@@ -62,7 +66,7 @@ queries$create <- queries_create
 #' searches and list views, and they cannot be used for alerts. The trash is
 #' deleted after 30 days.
 #'
-#' @param query_id [required] 
+#' @param query_id Required. 
 #'
 #' @keywords internal
 #'
@@ -81,7 +85,7 @@ queries$delete <- queries_delete
 #' Retrieve a query object definition along with contextual permissions
 #' information about the currently authenticated user.
 #'
-#' @param query_id [required] 
+#' @param query_id Required. 
 #'
 #' @keywords internal
 #'
@@ -140,7 +144,7 @@ queries$list <- queries_list
 #' Restore a query that has been moved to the trash. A restored query appears in
 #' list views and searches. You can use restored queries for alerts.
 #'
-#' @param query_id [required] 
+#' @param query_id Required. 
 #'
 #' @keywords internal
 #'
@@ -165,7 +169,7 @@ queries$restore <- queries_restore
 #' @param name The name or title of this query to display in list views.
 #' @param options Exclusively used for storing a list parameter definitions.
 #' @param query The text of the query.
-#' @param query_id [required] 
+#' @param query_id Required. 
 #' @param schedule JSON object that describes the scheduled execution frequency.
 #'
 #' @keywords internal
@@ -181,16 +185,4 @@ queries_update <- function(query_id, data_source_id = NULL, description = NULL, 
   .api$do("POST", paste("/api/2.0/preview/sql/queries/", query_id, sep = ""), body = body)
 }
 queries$update <- queries_update
-
-
-
-
-
-
-
-
-
-
-
-
 

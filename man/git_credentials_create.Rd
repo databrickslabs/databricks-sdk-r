@@ -12,7 +12,7 @@ git_credentials_create(
 )
 }
 \arguments{
-\item{git_provider}{\link{required} Git provider.}
+\item{git_provider}{Required. Git provider.}
 
 \item{git_username}{Git username.}
 

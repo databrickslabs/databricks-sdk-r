@@ -7,7 +7,7 @@
 shares_update_permissions(name, changes = NULL, ...)
 }
 \arguments{
-\item{name}{\link{required} The name of the share.}
+\item{name}{Required. The name of the share.}
 
 \item{changes}{Array of permission changes.}
 }

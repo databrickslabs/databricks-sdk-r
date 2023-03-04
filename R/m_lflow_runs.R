@@ -1,5 +1,9 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
+#' @include api_client.R
+#' @importFrom stats runif
+NULL
+
 
 #' 
 #' @section Operations:
@@ -52,7 +56,7 @@ m_lflow_runs$create <- m_lflow_runs_create
 #' 
 #' Marks a run for deletion.
 #'
-#' @param run_id [required] ID of the run to delete.
+#' @param run_id Required. ID of the run to delete.
 #'
 #' @keywords internal
 #'
@@ -71,8 +75,8 @@ m_lflow_runs$delete <- m_lflow_runs_delete
 #' Deletes a tag on a run. Tags are run metadata that can be updated during a
 #' run and after a run completes.
 #'
-#' @param key [required] Name of the tag.
-#' @param run_id [required] ID of the run that the tag was logged under.
+#' @param key Required. Name of the tag.
+#' @param run_id Required. ID of the run that the tag was logged under.
 #'
 #' @keywords internal
 #'
@@ -95,7 +99,7 @@ m_lflow_runs$delete_tag <- m_lflow_runs_delete_tag
 #' If there are multiple values with the latest timestamp, return the maximum of
 #' these values.
 #'
-#' @param run_id [required] ID of the run to fetch.
+#' @param run_id Required. ID of the run to fetch.
 #' @param run_uuid [Deprecated, use run_id instead] ID of the run to fetch.
 #'
 #' @keywords internal
@@ -139,8 +143,8 @@ m_lflow_runs$get <- m_lflow_runs_get
 #' Request Limits ------------------------------- A single JSON-serialized API
 #' request may be up to 1 MB in size and contain:
 #' 
-#' * No more than 1000 metrics, params, and tags in total * Up to 1000
-#' metrics\n- Up to 100 params * Up to 100 tags
+#' * No more than 1000 metrics, params, and tags in total * Up to 1000 metrics -
+#' Up to 100 params * Up to 100 tags
 #' 
 #' For example, a valid request might contain 900 metrics, 50 params, and 50
 #' tags, but logging 900 metrics, 50 params, and 51 tags is invalid.
@@ -175,12 +179,12 @@ m_lflow_runs$log_batch <- m_lflow_runs_log_batch
 #' value) with an associated timestamp. Examples include the various metrics
 #' that represent ML model accuracy. A metric can be logged multiple times.
 #'
-#' @param key [required] Name of the metric.
+#' @param key Required. Name of the metric.
 #' @param run_id ID of the run under which to log the metric.
 #' @param run_uuid [Deprecated, use run_id instead] ID of the run under which to log the metric.
 #' @param step Step at which to log the metric.
-#' @param timestamp [required] Unix timestamp in milliseconds at the time metric was logged.
-#' @param value [required] Double value of the metric being logged.
+#' @param timestamp Required. Unix timestamp in milliseconds at the time metric was logged.
+#' @param value Required. Double value of the metric being logged.
 #'
 #' @keywords internal
 #'
@@ -223,10 +227,10 @@ m_lflow_runs$log_model <- m_lflow_runs_log_model
 #' constant dates and values used in an ETL pipeline. A param can be logged only
 #' once for a run.
 #'
-#' @param key [required] Name of the param.
+#' @param key Required. Name of the param.
 #' @param run_id ID of the run under which to log the param.
 #' @param run_uuid [Deprecated, use run_id instead] ID of the run under which to log the param.
-#' @param value [required] String value of the param being logged.
+#' @param value Required. String value of the param being logged.
 #'
 #' @keywords internal
 #'
@@ -246,7 +250,7 @@ m_lflow_runs$log_parameter <- m_lflow_runs_log_parameter
 #' 
 #' Restores a deleted run.
 #'
-#' @param run_id [required] ID of the run to restore.
+#' @param run_id Required. ID of the run to restore.
 #'
 #' @keywords internal
 #'
@@ -311,10 +315,10 @@ m_lflow_runs$search <- m_lflow_runs_search
 #' Sets a tag on a run. Tags are run metadata that can be updated during a run
 #' and after a run completes.
 #'
-#' @param key [required] Name of the tag.
+#' @param key Required. Name of the tag.
 #' @param run_id ID of the run under which to log the tag.
 #' @param run_uuid [Deprecated, use run_id instead] ID of the run under which to log the tag.
-#' @param value [required] String value of the tag being logged.
+#' @param value Required. String value of the tag being logged.
 #'
 #' @keywords internal
 #'
@@ -351,16 +355,4 @@ m_lflow_runs_update <- function(end_time = NULL, run_id = NULL, run_uuid = NULL,
   .api$do("POST", "/api/2.0/mlflow/runs/update", body = body)
 }
 m_lflow_runs$update <- m_lflow_runs_update
-
-
-
-
-
-
-
-
-
-
-
-
 

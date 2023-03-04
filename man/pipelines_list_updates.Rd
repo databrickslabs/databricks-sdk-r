@@ -13,7 +13,7 @@ pipelines_list_updates(
 )
 }
 \arguments{
-\item{pipeline_id}{\link{required} The pipeline to return updates for.}
+\item{pipeline_id}{Required. The pipeline to return updates for.}
 
 \item{max_results}{Max number of entries to return in a single page.}
 

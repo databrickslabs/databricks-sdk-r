@@ -7,9 +7,9 @@
 metastores_create(name, storage_root, region = NULL, ...)
 }
 \arguments{
-\item{name}{\link{required} The user-specified name of the metastore.}
+\item{name}{Required. The user-specified name of the metastore.}
 
-\item{storage_root}{\link{required} The storage root URL for metastore.}
+\item{storage_root}{Required. The storage root URL for metastore.}
 
 \item{region}{Cloud region which the metastore serves (e.g., \code{us-west-2}, \code{westus}).}
 }

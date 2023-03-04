@@ -7,7 +7,7 @@
 shares_delete(name, ...)
 }
 \arguments{
-\item{name}{\link{required} The name of the share.}
+\item{name}{Required. The name of the share.}
 }
 \description{
 Deletes a data object share from the metastore. The caller must be an owner

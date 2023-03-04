@@ -13,9 +13,9 @@ providers_create(
 )
 }
 \arguments{
-\item{name}{\link{required} The name of the Provider.}
+\item{name}{Required. The name of the Provider.}
 
-\item{authentication_type}{\link{required} The delta sharing authentication type.}
+\item{authentication_type}{Required. The delta sharing authentication type.}
 
 \item{comment}{Description about the provider.}
 

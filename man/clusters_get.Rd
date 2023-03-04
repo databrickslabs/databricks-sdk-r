@@ -7,7 +7,7 @@
 clusters_get(cluster_id, ...)
 }
 \arguments{
-\item{cluster_id}{\link{required} The cluster about which to retrieve information.}
+\item{cluster_id}{Required. The cluster about which to retrieve information.}
 }
 \description{
 'Retrieves the information for a cluster given its identifier. Clusters can

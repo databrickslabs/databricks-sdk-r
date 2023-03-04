@@ -7,7 +7,7 @@
 experiments_update(experiment_id, new_name = NULL, ...)
 }
 \arguments{
-\item{experiment_id}{\link{required} ID of the associated experiment.}
+\item{experiment_id}{Required. ID of the associated experiment.}
 
 \item{new_name}{If provided, the experiment's name is changed to the new name.}
 }

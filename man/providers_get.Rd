@@ -7,7 +7,7 @@
 providers_get(name, ...)
 }
 \arguments{
-\item{name}{\link{required} Name of the provider.}
+\item{name}{Required. Name of the provider.}
 }
 \description{
 Gets a specific authentication provider. The caller must supply the name of

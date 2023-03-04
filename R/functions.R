@@ -1,5 +1,9 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
+#' @include api_client.R
+#' @importFrom stats runif
+NULL
+
 #' Functions implement User-Defined Functions (UDFs) in Unity Catalog.
 #' 
 #' The function implementation can be any SQL expression or Query, and it can be
@@ -28,26 +32,26 @@ functions <- list()
 #' created: - **USE_CATALOG** on the function's parent catalog - **USE_SCHEMA**
 #' and **CREATE_FUNCTION** on the function's parent schema
 #'
-#' @param catalog_name [required] Name of parent catalog.
+#' @param catalog_name Required. Name of parent catalog.
 #' @param comment User-provided free-form text description.
-#' @param data_type [required] Scalar function return data type.
+#' @param data_type Required. Scalar function return data type.
 #' @param external_language External function language.
 #' @param external_name External function name.
-#' @param full_data_type [required] Pretty printed function data type.
-#' @param input_params [required] The array of __FunctionParameterInfo__ definitions of the function's parameters.
-#' @param is_deterministic [required] Whether the function is deterministic.
-#' @param is_null_call [required] Function null call.
-#' @param name [required] Name of function, relative to parent schema.
-#' @param parameter_style [required] Function parameter style.
+#' @param full_data_type Required. Pretty printed function data type.
+#' @param input_params Required. The array of __FunctionParameterInfo__ definitions of the function's parameters.
+#' @param is_deterministic Required. Whether the function is deterministic.
+#' @param is_null_call Required. Function null call.
+#' @param name Required. Name of function, relative to parent schema.
+#' @param parameter_style Required. Function parameter style.
 #' @param properties A map of key-value properties attached to the securable.
-#' @param return_params [required] Table function return parameters.
-#' @param routine_body [required] Function language.
-#' @param routine_definition [required] Function body.
-#' @param routine_dependencies [required] Function dependencies.
-#' @param schema_name [required] Name of parent schema relative to its parent catalog.
-#' @param security_type [required] Function security type.
-#' @param specific_name [required] Specific name of the function; Reserved for future use.
-#' @param sql_data_access [required] Function SQL data access.
+#' @param return_params Required. Table function return parameters.
+#' @param routine_body Required. Function language.
+#' @param routine_definition Required. Function body.
+#' @param routine_dependencies Required. Function dependencies.
+#' @param schema_name Required. Name of parent schema relative to its parent catalog.
+#' @param security_type Required. Function security type.
+#' @param specific_name Required. Specific name of the function; Reserved for future use.
+#' @param sql_data_access Required. Function SQL data access.
 #' @param sql_path List of schemes whose objects can be referenced without qualification.
 #'
 #' @keywords internal
@@ -84,7 +88,7 @@ functions$create <- functions_create
 #' parent schema
 #'
 #' @param force Force deletion even if the function is notempty.
-#' @param name [required] The fully-qualified name of the function (of the form __catalog_name__.__schema_name__.__function__name__).
+#' @param name Required. The fully-qualified name of the function (of the form __catalog_name__.__schema_name__.__function__name__).
 #'
 #' @keywords internal
 #'
@@ -109,7 +113,7 @@ functions$delete <- functions_delete
 #' catalog, the **USE_SCHEMA** privilege on the function's parent schema, and
 #' the **EXECUTE** privilege on the function itself
 #'
-#' @param name [required] The fully-qualified name of the function (of the form __catalog_name__.__schema_name__.__function__name__).
+#' @param name Required. The fully-qualified name of the function (of the form __catalog_name__.__schema_name__.__function__name__).
 #'
 #' @keywords internal
 #'
@@ -133,8 +137,8 @@ functions$get <- functions_get
 #' is the owner. There is no guarantee of a specific ordering of the elements in
 #' the array.
 #'
-#' @param catalog_name [required] Name of parent catalog for functions of interest.
-#' @param schema_name [required] Parent schema of functions.
+#' @param catalog_name Required. Name of parent catalog for functions of interest.
+#' @param schema_name Required. Parent schema of functions.
 #'
 #' @keywords internal
 #'
@@ -159,7 +163,7 @@ functions$list <- functions_list
 #' privilege on its parent catalog as well as the **USE_SCHEMA** privilege on
 #' the function's parent schema.
 #'
-#' @param name [required] The fully-qualified name of the function (of the form __catalog_name__.__schema_name__.__function__name__).
+#' @param name Required. The fully-qualified name of the function (of the form __catalog_name__.__schema_name__.__function__name__).
 #' @param owner Username of current owner of function.
 #'
 #' @keywords internal
@@ -174,16 +178,4 @@ functions_update <- function(name, owner = NULL, ...) {
     body = body)
 }
 functions$update <- functions_update
-
-
-
-
-
-
-
-
-
-
-
-
 

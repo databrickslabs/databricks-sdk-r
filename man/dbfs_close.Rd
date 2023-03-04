@@ -7,7 +7,7 @@
 dbfs_close(handle, ...)
 }
 \arguments{
-\item{handle}{\link{required} The handle on an open stream.}
+\item{handle}{Required. The handle on an open stream.}
 }
 \description{
 Closes the stream specified by the input handle. If the handle does not
