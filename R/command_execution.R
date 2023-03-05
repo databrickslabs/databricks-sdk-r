@@ -45,7 +45,7 @@ command_execution <- list()
 command_execution_cancel <- function(cluster_id = NULL, command_id = NULL, context_id = NULL,
   timeout = 20, callback = cli_reporter) {
   body <- list(clusterId = cluster_id, commandId = command_id, contextId = context_id)
-  .api$do("POST", "/api/1.2/commands/cancel", body = body)
+  .state$api$do("POST", "/api/1.2/commands/cancel", body = body)
   started <- as.numeric(Sys.time())
   target_states <- c("Cancelled", c())
   failure_states <- c("Error", c())
@@ -106,7 +106,7 @@ command_execution$cancel <- command_execution_cancel
 #' @aliases command_execution_command_status
 command_execution_command_status <- function(cluster_id, context_id, command_id) {
   query <- list(clusterId = cluster_id, commandId = command_id, contextId = context_id)
-  .api$do("GET", "/api/1.2/commands/status", query = query)
+  .state$api$do("GET", "/api/1.2/commands/status", query = query)
 }
 command_execution$command_status <- command_execution_command_status
 
@@ -124,7 +124,7 @@ command_execution$command_status <- command_execution_command_status
 #' @aliases command_execution_context_status
 command_execution_context_status <- function(cluster_id, context_id) {
   query <- list(clusterId = cluster_id, contextId = context_id)
-  .api$do("GET", "/api/1.2/contexts/status", query = query)
+  .state$api$do("GET", "/api/1.2/contexts/status", query = query)
 }
 command_execution$context_status <- command_execution_context_status
 
@@ -151,7 +151,7 @@ command_execution$context_status <- command_execution_context_status
 command_execution_create <- function(cluster_id = NULL, language = NULL, timeout = 20,
   callback = cli_reporter) {
   body <- list(clusterId = cluster_id, language = language)
-  op_response <- .api$do("POST", "/api/1.2/contexts/create", body = body)
+  op_response <- .state$api$do("POST", "/api/1.2/contexts/create", body = body)
   started <- as.numeric(Sys.time())
   target_states <- c("Running", c())
   failure_states <- c("Error", c())
@@ -204,7 +204,7 @@ command_execution$create <- command_execution_create
 #' @aliases command_execution_destroy
 command_execution_destroy <- function(cluster_id, context_id) {
   body <- list(clusterId = cluster_id, contextId = context_id)
-  .api$do("POST", "/api/1.2/contexts/destroy", body = body)
+  .state$api$do("POST", "/api/1.2/contexts/destroy", body = body)
 }
 command_execution$destroy <- command_execution_destroy
 
@@ -236,7 +236,7 @@ command_execution_execute <- function(cluster_id = NULL, command = NULL, context
   language = NULL, timeout = 20, callback = cli_reporter) {
   body <- list(clusterId = cluster_id, command = command, contextId = context_id,
     language = language)
-  op_response <- .api$do("POST", "/api/1.2/commands/execute", body = body)
+  op_response <- .state$api$do("POST", "/api/1.2/commands/execute", body = body)
   started <- as.numeric(Sys.time())
   target_states <- c("Finished", "Error", c())
   failure_states <- c("Cancelled", "Cancelling", c())

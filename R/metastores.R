@@ -54,8 +54,8 @@ metastores <- list()
 #' @aliases metastores_assign
 metastores_assign <- function(metastore_id, default_catalog_name, workspace_id) {
   body <- list(default_catalog_name = default_catalog_name, metastore_id = metastore_id)
-  .api$do("PUT", paste("/api/2.1/unity-catalog/workspaces/", workspace_id, "/metastore",
-    , sep = ""), body = body)
+  .state$api$do("PUT", paste("/api/2.1/unity-catalog/workspaces/", workspace_id,
+    "/metastore", , sep = ""), body = body)
 }
 metastores$assign <- metastores_assign
 
@@ -74,7 +74,7 @@ metastores$assign <- metastores_assign
 #' @aliases metastores_create
 metastores_create <- function(name, storage_root, region = NULL) {
   body <- list(name = name, region = region, storage_root = storage_root)
-  .api$do("POST", "/api/2.1/unity-catalog/metastores", body = body)
+  .state$api$do("POST", "/api/2.1/unity-catalog/metastores", body = body)
 }
 metastores$create <- metastores_create
 
@@ -87,7 +87,7 @@ metastores$create <- metastores_create
 #'
 #' @aliases metastores_current
 metastores_current <- function() {
-  .api$do("GET", "/api/2.1/unity-catalog/current-metastore-assignment")
+  .state$api$do("GET", "/api/2.1/unity-catalog/current-metastore-assignment")
 }
 metastores$current <- metastores_current
 
@@ -105,7 +105,7 @@ metastores$current <- metastores_current
 #' @aliases metastores_delete
 metastores_delete <- function(id, force = NULL) {
   query <- list(force = force)
-  .api$do("DELETE", paste("/api/2.1/unity-catalog/metastores/", id, sep = ""),
+  .state$api$do("DELETE", paste("/api/2.1/unity-catalog/metastores/", id, sep = ""),
     query = query)
 }
 metastores$delete <- metastores_delete
@@ -124,7 +124,7 @@ metastores$delete <- metastores_delete
 #' @aliases metastores_get
 metastores_get <- function(id) {
 
-  .api$do("GET", paste("/api/2.1/unity-catalog/metastores/", id, sep = ""))
+  .state$api$do("GET", paste("/api/2.1/unity-catalog/metastores/", id, sep = ""))
 }
 metastores$get <- metastores_get
 
@@ -142,7 +142,7 @@ metastores$get <- metastores_get
 #' @aliases metastores_list
 metastores_list <- function() {
 
-  json <- .api$do("GET", "/api/2.1/unity-catalog/metastores")
+  json <- .state$api$do("GET", "/api/2.1/unity-catalog/metastores")
   return(json$metastores)
 
 }
@@ -158,7 +158,7 @@ metastores$list <- metastores_list
 #'
 #' @aliases metastores_summary
 metastores_summary <- function() {
-  .api$do("GET", "/api/2.1/unity-catalog/metastore_summary")
+  .state$api$do("GET", "/api/2.1/unity-catalog/metastore_summary")
 }
 metastores$summary <- metastores_summary
 
@@ -176,8 +176,8 @@ metastores$summary <- metastores_summary
 #' @aliases metastores_unassign
 metastores_unassign <- function(workspace_id, metastore_id) {
   query <- list(metastore_id = metastore_id)
-  .api$do("DELETE", paste("/api/2.1/unity-catalog/workspaces/", workspace_id, "/metastore",
-    , sep = ""), query = query)
+  .state$api$do("DELETE", paste("/api/2.1/unity-catalog/workspaces/", workspace_id,
+    "/metastore", , sep = ""), query = query)
 }
 metastores$unassign <- metastores_unassign
 
@@ -208,7 +208,8 @@ metastores_update <- function(metastore_id, id, delta_sharing_organization_name 
     delta_sharing_recipient_token_lifetime_in_seconds = delta_sharing_recipient_token_lifetime_in_seconds,
     delta_sharing_scope = delta_sharing_scope, name = name, owner = owner, privilege_model_version = privilege_model_version,
     storage_root_credential_id = storage_root_credential_id)
-  .api$do("PATCH", paste("/api/2.1/unity-catalog/metastores/", id, sep = ""), body = body)
+  .state$api$do("PATCH", paste("/api/2.1/unity-catalog/metastores/", id, sep = ""),
+    body = body)
 }
 metastores$update <- metastores_update
 
@@ -231,8 +232,8 @@ metastores$update <- metastores_update
 #' @aliases metastores_update_assignment
 metastores_update_assignment <- function(workspace_id, metastore_id, default_catalog_name = NULL) {
   body <- list(default_catalog_name = default_catalog_name, metastore_id = metastore_id)
-  .api$do("PATCH", paste("/api/2.1/unity-catalog/workspaces/", workspace_id, "/metastore",
-    , sep = ""), body = body)
+  .state$api$do("PATCH", paste("/api/2.1/unity-catalog/workspaces/", workspace_id,
+    "/metastore", , sep = ""), body = body)
 }
 metastores$update_assignment <- metastores_update_assignment
 

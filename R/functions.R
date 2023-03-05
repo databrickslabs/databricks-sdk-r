@@ -71,7 +71,7 @@ functions_create <- function(name, catalog_name, schema_name, input_params, data
     return_params = return_params, routine_body = routine_body, routine_definition = routine_definition,
     routine_dependencies = routine_dependencies, schema_name = schema_name, security_type = security_type,
     specific_name = specific_name, sql_data_access = sql_data_access, sql_path = sql_path)
-  .api$do("POST", "/api/2.1/unity-catalog/functions", body = body)
+  .state$api$do("POST", "/api/2.1/unity-catalog/functions", body = body)
 }
 functions$create <- functions_create
 
@@ -95,7 +95,7 @@ functions$create <- functions_create
 #' @aliases functions_delete
 functions_delete <- function(name, force = NULL) {
   query <- list(force = force)
-  .api$do("DELETE", paste("/api/2.1/unity-catalog/functions/", name, sep = ""),
+  .state$api$do("DELETE", paste("/api/2.1/unity-catalog/functions/", name, sep = ""),
     query = query)
 }
 functions$delete <- functions_delete
@@ -119,7 +119,7 @@ functions$delete <- functions_delete
 #' @aliases functions_get
 functions_get <- function(name) {
 
-  .api$do("GET", paste("/api/2.1/unity-catalog/functions/", name, sep = ""))
+  .state$api$do("GET", paste("/api/2.1/unity-catalog/functions/", name, sep = ""))
 }
 functions$get <- functions_get
 
@@ -143,7 +143,7 @@ functions$get <- functions_get
 #' @aliases functions_list
 functions_list <- function(catalog_name, schema_name) {
   query <- list(catalog_name = catalog_name, schema_name = schema_name)
-  .api$do("GET", "/api/2.1/unity-catalog/functions", query = query)
+  .state$api$do("GET", "/api/2.1/unity-catalog/functions", query = query)
 }
 functions$list <- functions_list
 
@@ -168,7 +168,7 @@ functions$list <- functions_list
 #' @aliases functions_update
 functions_update <- function(name, owner = NULL) {
   body <- list(, owner = owner)
-  .api$do("PATCH", paste("/api/2.1/unity-catalog/functions/", name, sep = ""),
+  .state$api$do("PATCH", paste("/api/2.1/unity-catalog/functions/", name, sep = ""),
     body = body)
 }
 functions$update <- functions_update

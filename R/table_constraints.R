@@ -51,7 +51,7 @@ table_constraints <- list()
 #' @aliases table_constraints_create
 table_constraints_create <- function(full_name_arg, constraint) {
   body <- list(constraint = constraint, full_name_arg = full_name_arg)
-  .api$do("POST", "/api/2.1/unity-catalog/constraints", body = body)
+  .state$api$do("POST", "/api/2.1/unity-catalog/constraints", body = body)
 }
 table_constraints$create <- table_constraints_create
 
@@ -78,8 +78,8 @@ table_constraints$create <- table_constraints_create
 #' @aliases table_constraints_delete
 table_constraints_delete <- function(full_name, constraint_name, cascade) {
   query <- list(cascade = cascade, constraint_name = constraint_name)
-  .api$do("DELETE", paste("/api/2.1/unity-catalog/constraints/", full_name, sep = ""),
-    query = query)
+  .state$api$do("DELETE", paste("/api/2.1/unity-catalog/constraints/", full_name,
+    sep = ""), query = query)
 }
 table_constraints$delete <- table_constraints_delete
 

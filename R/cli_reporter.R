@@ -1,4 +1,4 @@
 cli_reporter <- function(status, done = FALSE) {
-    cat(status)
-    cat("\n")
+  cat(status)
+  cat("\n")
 }

@@ -55,7 +55,7 @@ queries_create <- function(data_source_id = NULL, description = NULL, name = NUL
   options = NULL, parent = NULL, query = NULL, schedule = NULL) {
   body <- list(data_source_id = data_source_id, description = description, name = name,
     options = options, parent = parent, query = query, schedule = schedule)
-  .api$do("POST", "/api/2.0/preview/sql/queries", body = body)
+  .state$api$do("POST", "/api/2.0/preview/sql/queries", body = body)
 }
 queries$create <- queries_create
 
@@ -74,7 +74,7 @@ queries$create <- queries_create
 #' @aliases queries_delete
 queries_delete <- function(query_id) {
 
-  .api$do("DELETE", paste("/api/2.0/preview/sql/queries/", query_id, sep = ""))
+  .state$api$do("DELETE", paste("/api/2.0/preview/sql/queries/", query_id, sep = ""))
 }
 queries$delete <- queries_delete
 
@@ -92,7 +92,7 @@ queries$delete <- queries_delete
 #' @aliases queries_get
 queries_get <- function(query_id) {
 
-  .api$do("GET", paste("/api/2.0/preview/sql/queries/", query_id, sep = ""))
+  .state$api$do("GET", paste("/api/2.0/preview/sql/queries/", query_id, sep = ""))
 }
 queries$get <- queries_get
 
@@ -119,7 +119,7 @@ queries_list <- function(order = NULL, page = NULL, page_size = NULL, q = NULL) 
   query$page = 1
   results <- data.frame()
   while (TRUE) {
-    json <- .api$do("GET", "/api/2.0/preview/sql/queries", query = query)
+    json <- .state$api$do("GET", "/api/2.0/preview/sql/queries", query = query)
     if (is.null(nrow(json$results))) {
       break
     }
@@ -148,7 +148,8 @@ queries$list <- queries_list
 #' @aliases queries_restore
 queries_restore <- function(query_id) {
 
-  .api$do("POST", paste("/api/2.0/preview/sql/queries/trash/", query_id, sep = ""))
+  .state$api$do("POST", paste("/api/2.0/preview/sql/queries/trash/", query_id,
+    sep = ""))
 }
 queries$restore <- queries_restore
 
@@ -175,7 +176,8 @@ queries_update <- function(query_id, data_source_id = NULL, description = NULL, 
   options = NULL, query = NULL, schedule = NULL) {
   body <- list(data_source_id = data_source_id, description = description, name = name,
     options = options, query = query, schedule = schedule)
-  .api$do("POST", paste("/api/2.0/preview/sql/queries/", query_id, sep = ""), body = body)
+  .state$api$do("POST", paste("/api/2.0/preview/sql/queries/", query_id, sep = ""),
+    body = body)
 }
 queries$update <- queries_update
 

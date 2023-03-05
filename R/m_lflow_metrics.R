@@ -34,7 +34,7 @@ m_lflow_metrics_get_history <- function(metric_key, max_results = NULL, page_tok
   run_id = NULL, run_uuid = NULL) {
   query <- list(max_results = max_results, metric_key = metric_key, page_token = page_token,
     run_id = run_id, run_uuid = run_uuid)
-  .api$do("GET", "/api/2.0/mlflow/metrics/get-history", query = query)
+  .state$api$do("GET", "/api/2.0/mlflow/metrics/get-history", query = query)
 }
 m_lflow_metrics$get_history <- m_lflow_metrics_get_history
 

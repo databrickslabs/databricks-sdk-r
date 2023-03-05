@@ -44,7 +44,7 @@ schemas_create <- function(name, catalog_name, comment = NULL, properties = NULL
   storage_root = NULL) {
   body <- list(catalog_name = catalog_name, comment = comment, name = name, properties = properties,
     storage_root = storage_root)
-  .api$do("POST", "/api/2.1/unity-catalog/schemas", body = body)
+  .state$api$do("POST", "/api/2.1/unity-catalog/schemas", body = body)
 }
 schemas$create <- schemas_create
 
@@ -62,7 +62,7 @@ schemas$create <- schemas_create
 #' @aliases schemas_delete
 schemas_delete <- function(full_name) {
 
-  .api$do("DELETE", paste("/api/2.1/unity-catalog/schemas/", full_name, sep = ""))
+  .state$api$do("DELETE", paste("/api/2.1/unity-catalog/schemas/", full_name, sep = ""))
 }
 schemas$delete <- schemas_delete
 
@@ -81,7 +81,7 @@ schemas$delete <- schemas_delete
 #' @aliases schemas_get
 schemas_get <- function(full_name) {
 
-  .api$do("GET", paste("/api/2.1/unity-catalog/schemas/", full_name, sep = ""))
+  .state$api$do("GET", paste("/api/2.1/unity-catalog/schemas/", full_name, sep = ""))
 }
 schemas$get <- schemas_get
 
@@ -105,7 +105,7 @@ schemas$get <- schemas_get
 schemas_list <- function(catalog_name) {
   query <- list(catalog_name = catalog_name)
 
-  json <- .api$do("GET", "/api/2.1/unity-catalog/schemas", query = query)
+  json <- .state$api$do("GET", "/api/2.1/unity-catalog/schemas", query = query)
   return(json$schemas)
 
 }
@@ -133,7 +133,7 @@ schemas$list <- schemas_list
 schemas_update <- function(full_name, comment = NULL, name = NULL, owner = NULL,
   properties = NULL) {
   body <- list(comment = comment, name = name, owner = owner, properties = properties)
-  .api$do("PATCH", paste("/api/2.1/unity-catalog/schemas/", full_name, sep = ""),
+  .state$api$do("PATCH", paste("/api/2.1/unity-catalog/schemas/", full_name, sep = ""),
     body = body)
 }
 schemas$update <- schemas_update

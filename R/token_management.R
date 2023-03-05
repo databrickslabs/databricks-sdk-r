@@ -35,7 +35,7 @@ token_management <- list()
 #' @aliases token_management_create_obo_token
 token_management_create_obo_token <- function(application_id, lifetime_seconds, comment = NULL) {
   body <- list(application_id = application_id, comment = comment, lifetime_seconds = lifetime_seconds)
-  .api$do("POST", "/api/2.0/token-management/on-behalf-of/tokens", body = body)
+  .state$api$do("POST", "/api/2.0/token-management/on-behalf-of/tokens", body = body)
 }
 token_management$create_obo_token <- token_management_create_obo_token
 
@@ -52,7 +52,8 @@ token_management$create_obo_token <- token_management_create_obo_token
 #' @aliases token_management_delete
 token_management_delete <- function(token_id) {
 
-  .api$do("DELETE", paste("/api/2.0/token-management/tokens/", token_id, sep = ""))
+  .state$api$do("DELETE", paste("/api/2.0/token-management/tokens/", token_id,
+    sep = ""))
 }
 token_management$delete <- token_management_delete
 
@@ -69,7 +70,7 @@ token_management$delete <- token_management_delete
 #' @aliases token_management_get
 token_management_get <- function(token_id) {
 
-  .api$do("GET", paste("/api/2.0/token-management/tokens/", token_id, sep = ""))
+  .state$api$do("GET", paste("/api/2.0/token-management/tokens/", token_id, sep = ""))
 }
 token_management$get <- token_management_get
 
@@ -90,7 +91,7 @@ token_management$get <- token_management_get
 token_management_list <- function(created_by_id = NULL, created_by_username = NULL) {
   query <- list(created_by_id = created_by_id, created_by_username = created_by_username)
 
-  json <- .api$do("GET", "/api/2.0/token-management/tokens", query = query)
+  json <- .state$api$do("GET", "/api/2.0/token-management/tokens", query = query)
   return(json$token_infos)
 
 }

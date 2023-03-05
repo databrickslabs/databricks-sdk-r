@@ -47,7 +47,7 @@ catalogs_create <- function(name, comment = NULL, properties = NULL, provider_na
   share_name = NULL, storage_root = NULL) {
   body <- list(comment = comment, name = name, properties = properties, provider_name = provider_name,
     share_name = share_name, storage_root = storage_root)
-  .api$do("POST", "/api/2.1/unity-catalog/catalogs", body = body)
+  .state$api$do("POST", "/api/2.1/unity-catalog/catalogs", body = body)
 }
 catalogs$create <- catalogs_create
 
@@ -66,7 +66,7 @@ catalogs$create <- catalogs_create
 #' @aliases catalogs_delete
 catalogs_delete <- function(name, force = NULL) {
   query <- list(force = force)
-  .api$do("DELETE", paste("/api/2.1/unity-catalog/catalogs/", name, sep = ""),
+  .state$api$do("DELETE", paste("/api/2.1/unity-catalog/catalogs/", name, sep = ""),
     query = query)
 }
 catalogs$delete <- catalogs_delete
@@ -86,7 +86,7 @@ catalogs$delete <- catalogs_delete
 #' @aliases catalogs_get
 catalogs_get <- function(name) {
 
-  .api$do("GET", paste("/api/2.1/unity-catalog/catalogs/", name, sep = ""))
+  .state$api$do("GET", paste("/api/2.1/unity-catalog/catalogs/", name, sep = ""))
 }
 catalogs$get <- catalogs_get
 
@@ -106,7 +106,7 @@ catalogs$get <- catalogs_get
 #' @aliases catalogs_list
 catalogs_list <- function() {
 
-  json <- .api$do("GET", "/api/2.1/unity-catalog/catalogs")
+  json <- .state$api$do("GET", "/api/2.1/unity-catalog/catalogs")
   return(json$catalogs)
 
 }
@@ -130,7 +130,8 @@ catalogs$list <- catalogs_list
 #' @aliases catalogs_update
 catalogs_update <- function(name, comment = NULL, owner = NULL, properties = NULL) {
   body <- list(comment = comment, name = name, owner = owner, properties = properties)
-  .api$do("PATCH", paste("/api/2.1/unity-catalog/catalogs/", name, sep = ""), body = body)
+  .state$api$do("PATCH", paste("/api/2.1/unity-catalog/catalogs/", name, sep = ""),
+    body = body)
 }
 catalogs$update <- catalogs_update
 

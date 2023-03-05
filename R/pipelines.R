@@ -74,7 +74,7 @@ pipelines_create <- function(allow_duplicate_names = NULL, catalog = NULL, chann
     development = development, dry_run = dry_run, edition = edition, filters = filters,
     id = id, libraries = libraries, name = name, photon = photon, storage = storage,
     target = target, trigger = trigger)
-  .api$do("POST", "/api/2.0/pipelines", body = body)
+  .state$api$do("POST", "/api/2.0/pipelines", body = body)
 }
 pipelines$create <- pipelines_create
 
@@ -91,7 +91,7 @@ pipelines$create <- pipelines_create
 #' @aliases pipelines_delete
 pipelines_delete <- function(pipeline_id) {
 
-  .api$do("DELETE", paste("/api/2.0/pipelines/", pipeline_id, sep = ""))
+  .state$api$do("DELETE", paste("/api/2.0/pipelines/", pipeline_id, sep = ""))
 }
 pipelines$delete <- pipelines_delete
 
@@ -106,7 +106,7 @@ pipelines$delete <- pipelines_delete
 #' @aliases pipelines_get
 pipelines_get <- function(pipeline_id) {
 
-  .api$do("GET", paste("/api/2.0/pipelines/", pipeline_id, sep = ""))
+  .state$api$do("GET", paste("/api/2.0/pipelines/", pipeline_id, sep = ""))
 }
 pipelines$get <- pipelines_get
 
@@ -124,7 +124,7 @@ pipelines$get <- pipelines_get
 #' @aliases pipelines_get_update
 pipelines_get_update <- function(pipeline_id, update_id) {
 
-  .api$do("GET", paste("/api/2.0/pipelines/", pipeline_id, "/updates/", update_id,
+  .state$api$do("GET", paste("/api/2.0/pipelines/", pipeline_id, "/updates/", update_id,
     sep = ""))
 }
 pipelines$get_update <- pipelines_get_update
@@ -152,7 +152,7 @@ pipelines_list_pipelines <- function(filter = NULL, max_results = NULL, order_by
 
   results <- data.frame()
   while (TRUE) {
-    json <- .api$do("GET", "/api/2.0/pipelines", query = query)
+    json <- .state$api$do("GET", "/api/2.0/pipelines", query = query)
     if (is.null(nrow(json$statuses))) {
       break
     }
@@ -185,8 +185,8 @@ pipelines$list_pipelines <- pipelines_list_pipelines
 pipelines_list_updates <- function(pipeline_id, max_results = NULL, page_token = NULL,
   until_update_id = NULL) {
   query <- list(max_results = max_results, page_token = page_token, until_update_id = until_update_id)
-  .api$do("GET", paste("/api/2.0/pipelines/", pipeline_id, "/updates", , sep = ""),
-    query = query)
+  .state$api$do("GET", paste("/api/2.0/pipelines/", pipeline_id, "/updates", ,
+    sep = ""), query = query)
 }
 pipelines$list_updates <- pipelines_list_updates
 
@@ -209,7 +209,7 @@ pipelines$list_updates <- pipelines_list_updates
 #' @aliases pipelines_reset
 pipelines_reset <- function(pipeline_id, timeout = 20, callback = cli_reporter) {
 
-  .api$do("POST", paste("/api/2.0/pipelines/", pipeline_id, "/reset", , sep = ""))
+  .state$api$do("POST", paste("/api/2.0/pipelines/", pipeline_id, "/reset", , sep = ""))
   started <- as.numeric(Sys.time())
   target_states <- c("RUNNING", c())
   failure_states <- c("FAILED", c())
@@ -266,8 +266,8 @@ pipelines_start_update <- function(pipeline_id, cause = NULL, full_refresh = NUL
   full_refresh_selection = NULL, refresh_selection = NULL) {
   body <- list(cause = cause, full_refresh = full_refresh, full_refresh_selection = full_refresh_selection,
     refresh_selection = refresh_selection)
-  .api$do("POST", paste("/api/2.0/pipelines/", pipeline_id, "/updates", , sep = ""),
-    body = body)
+  .state$api$do("POST", paste("/api/2.0/pipelines/", pipeline_id, "/updates", ,
+    sep = ""), body = body)
 }
 pipelines$start_update <- pipelines_start_update
 
@@ -290,7 +290,7 @@ pipelines$start_update <- pipelines_start_update
 #' @aliases pipelines_stop
 pipelines_stop <- function(pipeline_id, timeout = 20, callback = cli_reporter) {
 
-  .api$do("POST", paste("/api/2.0/pipelines/", pipeline_id, "/stop", , sep = ""))
+  .state$api$do("POST", paste("/api/2.0/pipelines/", pipeline_id, "/stop", , sep = ""))
   started <- as.numeric(Sys.time())
   target_states <- c("IDLE", c())
   failure_states <- c("FAILED", c())
@@ -365,7 +365,7 @@ pipelines_update <- function(pipeline_id, allow_duplicate_names = NULL, catalog 
     development = development, edition = edition, expected_last_modified = expected_last_modified,
     filters = filters, id = id, libraries = libraries, name = name, photon = photon,
     pipeline_id = pipeline_id, storage = storage, target = target, trigger = trigger)
-  .api$do("PUT", paste("/api/2.0/pipelines/", pipeline_id, sep = ""), body = body)
+  .state$api$do("PUT", paste("/api/2.0/pipelines/", pipeline_id, sep = ""), body = body)
 }
 pipelines$update <- pipelines_update
 

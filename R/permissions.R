@@ -34,8 +34,8 @@ permissions <- list()
 #' @aliases permissions_get
 permissions_get <- function(request_object_type, request_object_id) {
 
-  .api$do("GET", paste("/api/2.0/permissions/", request_object_type, "/", request_object_id,
-    sep = ""))
+  .state$api$do("GET", paste("/api/2.0/permissions/", request_object_type, "/",
+    request_object_id, sep = ""))
 }
 permissions$get <- permissions_get
 
@@ -53,8 +53,8 @@ permissions$get <- permissions_get
 #' @aliases permissions_get_permission_levels
 permissions_get_permission_levels <- function(request_object_type, request_object_id) {
 
-  .api$do("GET", paste("/api/2.0/permissions/", request_object_type, "/", request_object_id,
-    "/permissionLevels", , sep = ""))
+  .state$api$do("GET", paste("/api/2.0/permissions/", request_object_type, "/",
+    request_object_id, "/permissionLevels", , sep = ""))
 }
 permissions$get_permission_levels <- permissions_get_permission_levels
 
@@ -74,8 +74,8 @@ permissions$get_permission_levels <- permissions_get_permission_levels
 #' @aliases permissions_set
 permissions_set <- function(request_object_type, request_object_id, access_control_list = NULL) {
   body <- list(access_control_list = access_control_list)
-  .api$do("PUT", paste("/api/2.0/permissions/", request_object_type, "/", request_object_id,
-    sep = ""), body = body)
+  .state$api$do("PUT", paste("/api/2.0/permissions/", request_object_type, "/",
+    request_object_id, sep = ""), body = body)
 }
 permissions$set <- permissions_set
 
@@ -94,8 +94,8 @@ permissions$set <- permissions_set
 #' @aliases permissions_update
 permissions_update <- function(request_object_type, request_object_id, access_control_list = NULL) {
   body <- list(access_control_list = access_control_list)
-  .api$do("PATCH", paste("/api/2.0/permissions/", request_object_type, "/", request_object_id,
-    sep = ""), body = body)
+  .state$api$do("PATCH", paste("/api/2.0/permissions/", request_object_type, "/",
+    request_object_id, sep = ""), body = body)
 }
 permissions$update <- permissions_update
 

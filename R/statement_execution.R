@@ -208,8 +208,8 @@ statement_execution <- list()
 #' @aliases statement_execution_cancel_execution
 statement_execution_cancel_execution <- function(statement_id) {
 
-  .api$do("POST", paste("/api/2.0/sql/statements/", statement_id, "/cancel", ,
-    sep = ""))
+  .state$api$do("POST", paste("/api/2.0/sql/statements/", statement_id, "/cancel",
+    , sep = ""))
 }
 statement_execution$cancel_execution <- statement_execution_cancel_execution
 
@@ -240,7 +240,7 @@ statement_execution_execute_statement <- function(byte_limit = NULL, catalog = N
   body <- list(byte_limit = byte_limit, catalog = catalog, disposition = disposition,
     format = format, on_wait_timeout = on_wait_timeout, row_limit = row_limit,
     schema = schema, statement = statement, wait_timeout = wait_timeout, warehouse_id = warehouse_id)
-  .api$do("POST", "/api/2.0/sql/statements/", body = body)
+  .state$api$do("POST", "/api/2.0/sql/statements/", body = body)
 }
 statement_execution$execute_statement <- statement_execution_execute_statement
 
@@ -261,7 +261,7 @@ statement_execution$execute_statement <- statement_execution_execute_statement
 #' @aliases statement_execution_get_statement
 statement_execution_get_statement <- function(statement_id) {
 
-  .api$do("GET", paste("/api/2.0/sql/statements/", statement_id, sep = ""))
+  .state$api$do("GET", paste("/api/2.0/sql/statements/", statement_id, sep = ""))
 }
 statement_execution$get_statement <- statement_execution_get_statement
 
@@ -286,7 +286,7 @@ statement_execution$get_statement <- statement_execution_get_statement
 #' @aliases statement_execution_get_statement_result_chunk_n
 statement_execution_get_statement_result_chunk_n <- function(statement_id, chunk_index) {
 
-  .api$do("GET", paste("/api/2.0/sql/statements/", statement_id, "/result/chunks/",
+  .state$api$do("GET", paste("/api/2.0/sql/statements/", statement_id, "/result/chunks/",
     chunk_index, sep = ""))
 }
 statement_execution$get_statement_result_chunk_n <- statement_execution_get_statement_result_chunk_n

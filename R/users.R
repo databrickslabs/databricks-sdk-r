@@ -56,7 +56,7 @@ users_create <- function(id, active = NULL, display_name = NULL, emails = NULL, 
   body <- list(active = active, displayName = display_name, emails = emails, entitlements = entitlements,
     externalId = external_id, groups = groups, id = id, name = name, roles = roles,
     userName = user_name)
-  .api$do("POST", "/api/2.0/preview/scim/v2/Users", body = body)
+  .state$api$do("POST", "/api/2.0/preview/scim/v2/Users", body = body)
 }
 users$create <- users_create
 
@@ -74,7 +74,7 @@ users$create <- users_create
 #' @aliases users_delete
 users_delete <- function(id) {
 
-  .api$do("DELETE", paste("/api/2.0/preview/scim/v2/Users/", id, sep = ""))
+  .state$api$do("DELETE", paste("/api/2.0/preview/scim/v2/Users/", id, sep = ""))
 }
 users$delete <- users_delete
 
@@ -91,7 +91,7 @@ users$delete <- users_delete
 #' @aliases users_get
 users_get <- function(id) {
 
-  .api$do("GET", paste("/api/2.0/preview/scim/v2/Users/", id, sep = ""))
+  .state$api$do("GET", paste("/api/2.0/preview/scim/v2/Users/", id, sep = ""))
 }
 users$get <- users_get
 
@@ -119,7 +119,7 @@ users_list <- function(attributes = NULL, count = NULL, excluded_attributes = NU
   query <- list(attributes = attributes, count = count, excludedAttributes = excluded_attributes,
     filter = filter, sortBy = sort_by, sortOrder = sort_order, startIndex = start_index)
 
-  json <- .api$do("GET", "/api/2.0/preview/scim/v2/Users", query = query)
+  json <- .state$api$do("GET", "/api/2.0/preview/scim/v2/Users", query = query)
   return(json$Resources)
 
 }
@@ -140,7 +140,8 @@ users$list <- users_list
 #' @aliases users_patch
 users_patch <- function(id, operations = NULL) {
   body <- list(, operations = operations)
-  .api$do("PATCH", paste("/api/2.0/preview/scim/v2/Users/", id, sep = ""), body = body)
+  .state$api$do("PATCH", paste("/api/2.0/preview/scim/v2/Users/", id, sep = ""),
+    body = body)
 }
 users$patch <- users_patch
 
@@ -169,7 +170,8 @@ users_update <- function(id, active = NULL, display_name = NULL, emails = NULL, 
   body <- list(active = active, displayName = display_name, emails = emails, entitlements = entitlements,
     externalId = external_id, groups = groups, id = id, name = name, roles = roles,
     userName = user_name)
-  .api$do("PUT", paste("/api/2.0/preview/scim/v2/Users/", id, sep = ""), body = body)
+  .state$api$do("PUT", paste("/api/2.0/preview/scim/v2/Users/", id, sep = ""),
+    body = body)
 }
 users$update <- users_update
 

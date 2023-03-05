@@ -38,7 +38,7 @@ transition_requests_approve <- function(name, version, stage, archive_existing_v
   comment = NULL) {
   body <- list(archive_existing_versions = archive_existing_versions, comment = comment,
     name = name, stage = stage, version = version)
-  .api$do("POST", "/api/2.0/mlflow/transition-requests/approve", body = body)
+  .state$api$do("POST", "/api/2.0/mlflow/transition-requests/approve", body = body)
 }
 transition_requests$approve <- transition_requests_approve
 
@@ -58,7 +58,7 @@ transition_requests$approve <- transition_requests_approve
 #' @aliases transition_requests_create
 transition_requests_create <- function(name, version, stage, comment = NULL) {
   body <- list(comment = comment, name = name, stage = stage, version = version)
-  .api$do("POST", "/api/2.0/mlflow/transition-requests/create", body = body)
+  .state$api$do("POST", "/api/2.0/mlflow/transition-requests/create", body = body)
 }
 transition_requests$create <- transition_requests_create
 
@@ -80,7 +80,7 @@ transition_requests$create <- transition_requests_create
 transition_requests_delete <- function(name, version, stage, creator, comment = NULL) {
   query <- list(comment = comment, creator = creator, name = name, stage = stage,
     version = version)
-  .api$do("DELETE", "/api/2.0/mlflow/transition-requests/delete", query = query)
+  .state$api$do("DELETE", "/api/2.0/mlflow/transition-requests/delete", query = query)
 }
 transition_requests$delete <- transition_requests_delete
 
@@ -101,7 +101,7 @@ transition_requests$delete <- transition_requests_delete
 transition_requests_list <- function(name, version) {
   query <- list(name = name, version = version)
 
-  json <- .api$do("GET", "/api/2.0/mlflow/transition-requests/list", query = query)
+  json <- .state$api$do("GET", "/api/2.0/mlflow/transition-requests/list", query = query)
   return(json$requests)
 
 }
@@ -123,7 +123,7 @@ transition_requests$list <- transition_requests_list
 #' @aliases transition_requests_reject
 transition_requests_reject <- function(name, version, stage, comment = NULL) {
   body <- list(comment = comment, name = name, stage = stage, version = version)
-  .api$do("POST", "/api/2.0/mlflow/transition-requests/reject", body = body)
+  .state$api$do("POST", "/api/2.0/mlflow/transition-requests/reject", body = body)
 }
 transition_requests$reject <- transition_requests_reject
 

@@ -35,7 +35,7 @@ policy_families <- list()
 #' @aliases policy_families_get
 policy_families_get <- function(policy_family_id) {
 
-  .api$do("GET", paste("/api/2.0/policy-families/", policy_family_id, sep = ""))
+  .state$api$do("GET", paste("/api/2.0/policy-families/", policy_family_id, sep = ""))
 }
 policy_families$get <- policy_families_get
 
@@ -56,7 +56,7 @@ policy_families_list <- function(max_results = NULL, page_token = NULL) {
 
   results <- data.frame()
   while (TRUE) {
-    json <- .api$do("GET", "/api/2.0/policy-families", query = query)
+    json <- .state$api$do("GET", "/api/2.0/policy-families", query = query)
     if (is.null(nrow(json$policy_families))) {
       break
     }

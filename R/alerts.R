@@ -52,7 +52,7 @@ alerts <- list()
 alerts_create <- function(name, options, query_id, parent = NULL, rearm = NULL) {
   body <- list(name = name, options = options, parent = parent, query_id = query_id,
     rearm = rearm)
-  .api$do("POST", "/api/2.0/preview/sql/alerts", body = body)
+  .state$api$do("POST", "/api/2.0/preview/sql/alerts", body = body)
 }
 alerts$create <- alerts_create
 
@@ -76,7 +76,7 @@ alerts$create <- alerts_create
 #' @aliases alerts_create_schedule
 alerts_create_schedule <- function(cron, alert_id, data_source_id = NULL) {
   body <- list(, cron = cron, data_source_id = data_source_id)
-  .api$do("POST", paste("/api/2.0/preview/sql/alerts/", alert_id, "/refresh-schedules",
+  .state$api$do("POST", paste("/api/2.0/preview/sql/alerts/", alert_id, "/refresh-schedules",
     , sep = ""), body = body)
 }
 alerts$create_schedule <- alerts_create_schedule
@@ -96,7 +96,7 @@ alerts$create_schedule <- alerts_create_schedule
 #' @aliases alerts_delete
 alerts_delete <- function(alert_id) {
 
-  .api$do("DELETE", paste("/api/2.0/preview/sql/alerts/", alert_id, sep = ""))
+  .state$api$do("DELETE", paste("/api/2.0/preview/sql/alerts/", alert_id, sep = ""))
 }
 alerts$delete <- alerts_delete
 
@@ -118,7 +118,7 @@ alerts$delete <- alerts_delete
 #' @aliases alerts_delete_schedule
 alerts_delete_schedule <- function(alert_id, schedule_id) {
 
-  .api$do("DELETE", paste("/api/2.0/preview/sql/alerts/", alert_id, "/refresh-schedules/",
+  .state$api$do("DELETE", paste("/api/2.0/preview/sql/alerts/", alert_id, "/refresh-schedules/",
     schedule_id, sep = ""))
 }
 alerts$delete_schedule <- alerts_delete_schedule
@@ -136,7 +136,7 @@ alerts$delete_schedule <- alerts_delete_schedule
 #' @aliases alerts_get
 alerts_get <- function(alert_id) {
 
-  .api$do("GET", paste("/api/2.0/preview/sql/alerts/", alert_id, sep = ""))
+  .state$api$do("GET", paste("/api/2.0/preview/sql/alerts/", alert_id, sep = ""))
 }
 alerts$get <- alerts_get
 
@@ -159,7 +159,7 @@ alerts$get <- alerts_get
 #' @aliases alerts_get_subscriptions
 alerts_get_subscriptions <- function(alert_id) {
 
-  .api$do("GET", paste("/api/2.0/preview/sql/alerts/", alert_id, "/subscriptions",
+  .state$api$do("GET", paste("/api/2.0/preview/sql/alerts/", alert_id, "/subscriptions",
     , sep = ""))
 }
 alerts$get_subscriptions <- alerts_get_subscriptions
@@ -173,7 +173,7 @@ alerts$get_subscriptions <- alerts_get_subscriptions
 #'
 #' @aliases alerts_list
 alerts_list <- function() {
-  .api$do("GET", "/api/2.0/preview/sql/alerts")
+  .state$api$do("GET", "/api/2.0/preview/sql/alerts")
 }
 alerts$list <- alerts_list
 
@@ -199,7 +199,7 @@ alerts$list <- alerts_list
 #' @aliases alerts_list_schedules
 alerts_list_schedules <- function(alert_id) {
 
-  .api$do("GET", paste("/api/2.0/preview/sql/alerts/", alert_id, "/refresh-schedules",
+  .state$api$do("GET", paste("/api/2.0/preview/sql/alerts/", alert_id, "/refresh-schedules",
     , sep = ""))
 }
 alerts$list_schedules <- alerts_list_schedules
@@ -220,7 +220,7 @@ alerts$list_schedules <- alerts_list_schedules
 #' @aliases alerts_subscribe
 alerts_subscribe <- function(alert_id, destination_id = NULL, user_id = NULL) {
   body <- list(alert_id = alert_id, destination_id = destination_id, user_id = user_id)
-  .api$do("POST", paste("/api/2.0/preview/sql/alerts/", alert_id, "/subscriptions",
+  .state$api$do("POST", paste("/api/2.0/preview/sql/alerts/", alert_id, "/subscriptions",
     , sep = ""), body = body)
 }
 alerts$subscribe <- alerts_subscribe
@@ -242,7 +242,7 @@ alerts$subscribe <- alerts_subscribe
 #' @aliases alerts_unsubscribe
 alerts_unsubscribe <- function(alert_id, subscription_id) {
 
-  .api$do("DELETE", paste("/api/2.0/preview/sql/alerts/", alert_id, "/subscriptions/",
+  .state$api$do("DELETE", paste("/api/2.0/preview/sql/alerts/", alert_id, "/subscriptions/",
     subscription_id, sep = ""))
 }
 alerts$unsubscribe <- alerts_unsubscribe
@@ -264,7 +264,8 @@ alerts$unsubscribe <- alerts_unsubscribe
 #' @aliases alerts_update
 alerts_update <- function(name, options, query_id, alert_id, rearm = NULL) {
   body <- list(, name = name, options = options, query_id = query_id, rearm = rearm)
-  .api$do("PUT", paste("/api/2.0/preview/sql/alerts/", alert_id, sep = ""), body = body)
+  .state$api$do("PUT", paste("/api/2.0/preview/sql/alerts/", alert_id, sep = ""),
+    body = body)
 }
 alerts$update <- alerts_update
 

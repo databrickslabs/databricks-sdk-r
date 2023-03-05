@@ -60,7 +60,7 @@ jobs <- list()
 #' @aliases jobs_cancel_all_runs
 jobs_cancel_all_runs <- function(job_id) {
   body <- list(job_id = job_id)
-  .api$do("POST", "/api/2.1/jobs/runs/cancel-all", body = body)
+  .state$api$do("POST", "/api/2.1/jobs/runs/cancel-all", body = body)
 }
 jobs$cancel_all_runs <- jobs_cancel_all_runs
 
@@ -84,7 +84,7 @@ jobs$cancel_all_runs <- jobs_cancel_all_runs
 #' @aliases jobs_cancel_run
 jobs_cancel_run <- function(run_id, timeout = 20, callback = cli_reporter) {
   body <- list(run_id = run_id)
-  .api$do("POST", "/api/2.1/jobs/runs/cancel", body = body)
+  .state$api$do("POST", "/api/2.1/jobs/runs/cancel", body = body)
   started <- as.numeric(Sys.time())
   target_states <- c("TERMINATED", "SKIPPED", c())
   failure_states <- c("INTERNAL_ERROR", c())
@@ -158,7 +158,7 @@ jobs_create <- function(access_control_list = NULL, continuous = NULL, email_not
     job_clusters = job_clusters, max_concurrent_runs = max_concurrent_runs, name = name,
     schedule = schedule, tags = tags, tasks = tasks, timeout_seconds = timeout_seconds,
     webhook_notifications = webhook_notifications)
-  .api$do("POST", "/api/2.1/jobs/create", body = body)
+  .state$api$do("POST", "/api/2.1/jobs/create", body = body)
 }
 jobs$create <- jobs_create
 
@@ -175,7 +175,7 @@ jobs$create <- jobs_create
 #' @aliases jobs_delete
 jobs_delete <- function(job_id) {
   body <- list(job_id = job_id)
-  .api$do("POST", "/api/2.1/jobs/delete", body = body)
+  .state$api$do("POST", "/api/2.1/jobs/delete", body = body)
 }
 jobs$delete <- jobs_delete
 
@@ -192,7 +192,7 @@ jobs$delete <- jobs_delete
 #' @aliases jobs_delete_run
 jobs_delete_run <- function(run_id) {
   body <- list(run_id = run_id)
-  .api$do("POST", "/api/2.1/jobs/runs/delete", body = body)
+  .state$api$do("POST", "/api/2.1/jobs/runs/delete", body = body)
 }
 jobs$delete_run <- jobs_delete_run
 
@@ -210,7 +210,7 @@ jobs$delete_run <- jobs_delete_run
 #' @aliases jobs_export_run
 jobs_export_run <- function(run_id, views_to_export = NULL) {
   query <- list(run_id = run_id, views_to_export = views_to_export)
-  .api$do("GET", "/api/2.1/jobs/runs/export", query = query)
+  .state$api$do("GET", "/api/2.1/jobs/runs/export", query = query)
 }
 jobs$export_run <- jobs_export_run
 
@@ -227,7 +227,7 @@ jobs$export_run <- jobs_export_run
 #' @aliases jobs_get
 jobs_get <- function(job_id) {
   query <- list(job_id = job_id)
-  .api$do("GET", "/api/2.1/jobs/get", query = query)
+  .state$api$do("GET", "/api/2.1/jobs/get", query = query)
 }
 jobs$get <- jobs_get
 
@@ -251,7 +251,7 @@ jobs$get <- jobs_get
 #' @aliases jobs_get_run
 jobs_get_run <- function(run_id, include_history = NULL, timeout = 20, callback = cli_reporter) {
   query <- list(include_history = include_history, run_id = run_id)
-  op_response <- .api$do("GET", "/api/2.1/jobs/runs/get", query = query)
+  op_response <- .state$api$do("GET", "/api/2.1/jobs/runs/get", query = query)
   started <- as.numeric(Sys.time())
   target_states <- c("TERMINATED", "SKIPPED", c())
   failure_states <- c("INTERNAL_ERROR", c())
@@ -316,7 +316,7 @@ jobs$get_run <- jobs_get_run
 #' @aliases jobs_get_run_output
 jobs_get_run_output <- function(run_id) {
   query <- list(run_id = run_id)
-  .api$do("GET", "/api/2.1/jobs/runs/get-output", query = query)
+  .state$api$do("GET", "/api/2.1/jobs/runs/get-output", query = query)
 }
 jobs$get_run_output <- jobs_get_run_output
 
@@ -342,7 +342,7 @@ jobs_list <- function(expand_tasks = NULL, limit = NULL, name = NULL, offset = N
   query$offset = 0
   results <- data.frame()
   while (TRUE) {
-    json <- .api$do("GET", "/api/2.1/jobs/list", query = query)
+    json <- .state$api$do("GET", "/api/2.1/jobs/list", query = query)
     if (is.null(nrow(json$jobs))) {
       break
     }
@@ -388,7 +388,7 @@ jobs_list_runs <- function(active_only = NULL, completed_only = NULL, expand_tas
   query$offset = 0
   results <- data.frame()
   while (TRUE) {
-    json <- .api$do("GET", "/api/2.1/jobs/runs/list", query = query)
+    json <- .state$api$do("GET", "/api/2.1/jobs/runs/list", query = query)
     if (is.null(nrow(json$runs))) {
       break
     }
@@ -442,7 +442,7 @@ jobs_repair_run <- function(run_id, dbt_commands = NULL, jar_params = NULL, late
     python_params = python_params, rerun_all_failed_tasks = rerun_all_failed_tasks,
     rerun_tasks = rerun_tasks, run_id = run_id, spark_submit_params = spark_submit_params,
     sql_params = sql_params)
-  op_response <- .api$do("POST", "/api/2.1/jobs/runs/repair", body = body)
+  op_response <- .state$api$do("POST", "/api/2.1/jobs/runs/repair", body = body)
   started <- as.numeric(Sys.time())
   target_states <- c("TERMINATED", "SKIPPED", c())
   failure_states <- c("INTERNAL_ERROR", c())
@@ -499,7 +499,7 @@ jobs$repair_run <- jobs_repair_run
 #' @aliases jobs_reset
 jobs_reset <- function(job_id, new_settings) {
   body <- list(job_id = job_id, new_settings = new_settings)
-  .api$do("POST", "/api/2.1/jobs/reset", body = body)
+  .state$api$do("POST", "/api/2.1/jobs/reset", body = body)
 }
 jobs$reset <- jobs_reset
 
@@ -537,7 +537,7 @@ jobs_run_now <- function(job_id, dbt_commands = NULL, idempotency_token = NULL, 
     pipeline_params = pipeline_params, python_named_params = python_named_params,
     python_params = python_params, spark_submit_params = spark_submit_params,
     sql_params = sql_params)
-  op_response <- .api$do("POST", "/api/2.1/jobs/run-now", body = body)
+  op_response <- .state$api$do("POST", "/api/2.1/jobs/run-now", body = body)
   started <- as.numeric(Sys.time())
   target_states <- c("TERMINATED", "SKIPPED", c())
   failure_states <- c("INTERNAL_ERROR", c())
@@ -612,7 +612,7 @@ jobs_submit <- function(access_control_list = NULL, git_source = NULL, idempoten
   body <- list(access_control_list = access_control_list, git_source = git_source,
     idempotency_token = idempotency_token, run_name = run_name, tasks = tasks,
     timeout_seconds = timeout_seconds, webhook_notifications = webhook_notifications)
-  op_response <- .api$do("POST", "/api/2.1/jobs/runs/submit", body = body)
+  op_response <- .state$api$do("POST", "/api/2.1/jobs/runs/submit", body = body)
   started <- as.numeric(Sys.time())
   target_states <- c("TERMINATED", "SKIPPED", c())
   failure_states <- c("INTERNAL_ERROR", c())
@@ -671,7 +671,7 @@ jobs$submit <- jobs_submit
 #' @aliases jobs_update
 jobs_update <- function(job_id, fields_to_remove = NULL, new_settings = NULL) {
   body <- list(fields_to_remove = fields_to_remove, job_id = job_id, new_settings = new_settings)
-  .api$do("POST", "/api/2.1/jobs/update", body = body)
+  .state$api$do("POST", "/api/2.1/jobs/update", body = body)
 }
 jobs$update <- jobs_update
 

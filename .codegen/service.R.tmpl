@@ -154,6 +154,6 @@ NULL
 {{- end -}}
 
 {{- define "method-do" -}}
-.api$do("{{.Verb}}", {{if .PathParts -}}paste({{range  .PathParts}}"{{.Prefix}}", {{if .Field}}{{.Field.SnakeName}}{{else if .IsAccountId}}.api$account_id{{end}}, {{ end }}sep = "")
+.state$api$do("{{.Verb}}", {{if .PathParts -}}paste({{range  .PathParts}}"{{.Prefix}}", {{if .Field}}{{.Field.SnakeName}}{{else if .IsAccountId}}.state$api$account_id{{end}}, {{ end }}sep = "")
     {{- else}}"{{.Path}}"{{end}}{{if .Request}}{{if .Request.HasQueryField}}, query = query{{end}}{{if .Request.HasJsonField}}, body = body{{end}}{{end}})
 {{- end -}}

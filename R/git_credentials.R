@@ -42,7 +42,7 @@ git_credentials <- list()
 #' @aliases git_credentials_create
 git_credentials_create <- function(git_provider, git_username = NULL, personal_access_token = NULL) {
   body <- list(git_provider = git_provider, git_username = git_username, personal_access_token = personal_access_token)
-  .api$do("POST", "/api/2.0/git-credentials", body = body)
+  .state$api$do("POST", "/api/2.0/git-credentials", body = body)
 }
 git_credentials$create <- git_credentials_create
 
@@ -59,7 +59,7 @@ git_credentials$create <- git_credentials_create
 #' @aliases git_credentials_delete
 git_credentials_delete <- function(credential_id) {
 
-  .api$do("DELETE", paste("/api/2.0/git-credentials/", credential_id, sep = ""))
+  .state$api$do("DELETE", paste("/api/2.0/git-credentials/", credential_id, sep = ""))
 }
 git_credentials$delete <- git_credentials_delete
 
@@ -76,7 +76,7 @@ git_credentials$delete <- git_credentials_delete
 #' @aliases git_credentials_get
 git_credentials_get <- function(credential_id) {
 
-  .api$do("GET", paste("/api/2.0/git-credentials/", credential_id, sep = ""))
+  .state$api$do("GET", paste("/api/2.0/git-credentials/", credential_id, sep = ""))
 }
 git_credentials$get <- git_credentials_get
 
@@ -93,7 +93,7 @@ git_credentials$get <- git_credentials_get
 #' @aliases git_credentials_list
 git_credentials_list <- function() {
 
-  json <- .api$do("GET", "/api/2.0/git-credentials")
+  json <- .state$api$do("GET", "/api/2.0/git-credentials")
   return(json$credentials)
 
 }
@@ -116,7 +116,7 @@ git_credentials$list <- git_credentials_list
 git_credentials_update <- function(credential_id, git_provider = NULL, git_username = NULL,
   personal_access_token = NULL) {
   body <- list(, git_provider = git_provider, git_username = git_username, personal_access_token = personal_access_token)
-  .api$do("PATCH", paste("/api/2.0/git-credentials/", credential_id, sep = ""),
+  .state$api$do("PATCH", paste("/api/2.0/git-credentials/", credential_id, sep = ""),
     body = body)
 }
 git_credentials$update <- git_credentials_update

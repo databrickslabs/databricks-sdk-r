@@ -35,7 +35,7 @@ tokens <- list()
 #' @aliases tokens_create
 tokens_create <- function(comment = NULL, lifetime_seconds = NULL) {
   body <- list(comment = comment, lifetime_seconds = lifetime_seconds)
-  .api$do("POST", "/api/2.0/token/create", body = body)
+  .state$api$do("POST", "/api/2.0/token/create", body = body)
 }
 tokens$create <- tokens_create
 
@@ -55,7 +55,7 @@ tokens$create <- tokens_create
 #' @aliases tokens_delete
 tokens_delete <- function(token_id) {
   body <- list(token_id = token_id)
-  .api$do("POST", "/api/2.0/token/delete", body = body)
+  .state$api$do("POST", "/api/2.0/token/delete", body = body)
 }
 tokens$delete <- tokens_delete
 
@@ -71,7 +71,7 @@ tokens$delete <- tokens_delete
 #' @aliases tokens_list
 tokens_list <- function() {
 
-  json <- .api$do("GET", "/api/2.0/token/list")
+  json <- .state$api$do("GET", "/api/2.0/token/list")
   return(json$token_infos)
 
 }

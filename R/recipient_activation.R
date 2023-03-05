@@ -29,7 +29,7 @@ recipient_activation <- list()
 #' @aliases recipient_activation_get_activation_url_info
 recipient_activation_get_activation_url_info <- function(activation_url) {
 
-  .api$do("GET", paste("/api/2.1/unity-catalog/public/data_sharing_activation_info/",
+  .state$api$do("GET", paste("/api/2.1/unity-catalog/public/data_sharing_activation_info/",
     activation_url, sep = ""))
 }
 recipient_activation$get_activation_url_info <- recipient_activation_get_activation_url_info
@@ -48,7 +48,7 @@ recipient_activation$get_activation_url_info <- recipient_activation_get_activat
 #' @aliases recipient_activation_retrieve_token
 recipient_activation_retrieve_token <- function(activation_url) {
 
-  .api$do("GET", paste("/api/2.1/unity-catalog/public/data_sharing_activation/",
+  .state$api$do("GET", paste("/api/2.1/unity-catalog/public/data_sharing_activation/",
     activation_url, sep = ""))
 }
 recipient_activation$retrieve_token <- recipient_activation_retrieve_token

@@ -42,7 +42,7 @@ instance_profiles_add <- function(instance_profile_arn, iam_role_arn = NULL, is_
   skip_validation = NULL) {
   body <- list(iam_role_arn = iam_role_arn, instance_profile_arn = instance_profile_arn,
     is_meta_instance_profile = is_meta_instance_profile, skip_validation = skip_validation)
-  .api$do("POST", "/api/2.0/instance-profiles/add", body = body)
+  .state$api$do("POST", "/api/2.0/instance-profiles/add", body = body)
 }
 instance_profiles$add <- instance_profiles_add
 
@@ -76,7 +76,7 @@ instance_profiles$add <- instance_profiles_add
 instance_profiles_edit <- function(instance_profile_arn, iam_role_arn = NULL, is_meta_instance_profile = NULL) {
   body <- list(iam_role_arn = iam_role_arn, instance_profile_arn = instance_profile_arn,
     is_meta_instance_profile = is_meta_instance_profile)
-  .api$do("POST", "/api/2.0/instance-profiles/edit", body = body)
+  .state$api$do("POST", "/api/2.0/instance-profiles/edit", body = body)
 }
 instance_profiles$edit <- instance_profiles_edit
 
@@ -94,7 +94,7 @@ instance_profiles$edit <- instance_profiles_edit
 #' @aliases instance_profiles_list
 instance_profiles_list <- function() {
 
-  json <- .api$do("GET", "/api/2.0/instance-profiles/list")
+  json <- .state$api$do("GET", "/api/2.0/instance-profiles/list")
   return(json$instance_profiles)
 
 }
@@ -116,7 +116,7 @@ instance_profiles$list <- instance_profiles_list
 #' @aliases instance_profiles_remove
 instance_profiles_remove <- function(instance_profile_arn) {
   body <- list(instance_profile_arn = instance_profile_arn)
-  .api$do("POST", "/api/2.0/instance-profiles/remove", body = body)
+  .state$api$do("POST", "/api/2.0/instance-profiles/remove", body = body)
 }
 instance_profiles$remove <- instance_profiles_remove
 

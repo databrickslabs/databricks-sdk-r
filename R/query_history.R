@@ -40,7 +40,7 @@ query_history_list <- function(filter_by = NULL, include_metrics = NULL, max_res
 
   results <- data.frame()
   while (TRUE) {
-    json <- .api$do("GET", "/api/2.0/sql/history/queries", query = query)
+    json <- .state$api$do("GET", "/api/2.0/sql/history/queries", query = query)
     if (is.null(nrow(json$res))) {
       break
     }

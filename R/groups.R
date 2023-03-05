@@ -48,7 +48,7 @@ groups_create <- function(id, display_name = NULL, entitlements = NULL, external
   groups = NULL, members = NULL, roles = NULL) {
   body <- list(displayName = display_name, entitlements = entitlements, externalId = external_id,
     groups = groups, id = id, members = members, roles = roles)
-  .api$do("POST", "/api/2.0/preview/scim/v2/Groups", body = body)
+  .state$api$do("POST", "/api/2.0/preview/scim/v2/Groups", body = body)
 }
 groups$create <- groups_create
 
@@ -65,7 +65,7 @@ groups$create <- groups_create
 #' @aliases groups_delete
 groups_delete <- function(id) {
 
-  .api$do("DELETE", paste("/api/2.0/preview/scim/v2/Groups/", id, sep = ""))
+  .state$api$do("DELETE", paste("/api/2.0/preview/scim/v2/Groups/", id, sep = ""))
 }
 groups$delete <- groups_delete
 
@@ -82,7 +82,7 @@ groups$delete <- groups_delete
 #' @aliases groups_get
 groups_get <- function(id) {
 
-  .api$do("GET", paste("/api/2.0/preview/scim/v2/Groups/", id, sep = ""))
+  .state$api$do("GET", paste("/api/2.0/preview/scim/v2/Groups/", id, sep = ""))
 }
 groups$get <- groups_get
 
@@ -110,7 +110,7 @@ groups_list <- function(attributes = NULL, count = NULL, excluded_attributes = N
   query <- list(attributes = attributes, count = count, excludedAttributes = excluded_attributes,
     filter = filter, sortBy = sort_by, sortOrder = sort_order, startIndex = start_index)
 
-  json <- .api$do("GET", "/api/2.0/preview/scim/v2/Groups", query = query)
+  json <- .state$api$do("GET", "/api/2.0/preview/scim/v2/Groups", query = query)
   return(json$Resources)
 
 }
@@ -130,7 +130,8 @@ groups$list <- groups_list
 #' @aliases groups_patch
 groups_patch <- function(id, operations = NULL) {
   body <- list(, operations = operations)
-  .api$do("PATCH", paste("/api/2.0/preview/scim/v2/Groups/", id, sep = ""), body = body)
+  .state$api$do("PATCH", paste("/api/2.0/preview/scim/v2/Groups/", id, sep = ""),
+    body = body)
 }
 groups$patch <- groups_patch
 
@@ -155,7 +156,8 @@ groups_update <- function(id, display_name = NULL, entitlements = NULL, external
   groups = NULL, members = NULL, roles = NULL) {
   body <- list(displayName = display_name, entitlements = entitlements, externalId = external_id,
     groups = groups, id = id, members = members, roles = roles)
-  .api$do("PUT", paste("/api/2.0/preview/scim/v2/Groups/", id, sep = ""), body = body)
+  .state$api$do("PUT", paste("/api/2.0/preview/scim/v2/Groups/", id, sep = ""),
+    body = body)
 }
 groups$update <- groups_update
 

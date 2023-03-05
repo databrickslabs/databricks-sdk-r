@@ -38,7 +38,7 @@ m_lflow_artifacts_list <- function(page_token = NULL, path = NULL, run_id = NULL
 
   results <- data.frame()
   while (TRUE) {
-    json <- .api$do("GET", "/api/2.0/mlflow/artifacts/list", query = query)
+    json <- .state$api$do("GET", "/api/2.0/mlflow/artifacts/list", query = query)
     if (is.null(nrow(json$files))) {
       break
     }

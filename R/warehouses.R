@@ -64,7 +64,7 @@ warehouses_create <- function(auto_stop_mins = NULL, channel = NULL, cluster_siz
     instance_profile_arn = instance_profile_arn, max_num_clusters = max_num_clusters,
     min_num_clusters = min_num_clusters, name = name, spot_instance_policy = spot_instance_policy,
     tags = tags, warehouse_type = warehouse_type)
-  op_response <- .api$do("POST", "/api/2.0/sql/warehouses", body = body)
+  op_response <- .state$api$do("POST", "/api/2.0/sql/warehouses", body = body)
   started <- as.numeric(Sys.time())
   target_states <- c("RUNNING", c())
   failure_states <- c("STOPPED", "DELETED", c())
@@ -124,7 +124,7 @@ warehouses$create <- warehouses_create
 #' @aliases warehouses_delete
 warehouses_delete <- function(id, timeout = 20, callback = cli_reporter) {
 
-  .api$do("DELETE", paste("/api/2.0/sql/warehouses/", id, sep = ""))
+  .state$api$do("DELETE", paste("/api/2.0/sql/warehouses/", id, sep = ""))
   started <- as.numeric(Sys.time())
   target_states <- c("DELETED", c())
   status_message <- "polling..."
@@ -202,7 +202,8 @@ warehouses_edit <- function(id, auto_stop_mins = NULL, channel = NULL, cluster_s
     instance_profile_arn = instance_profile_arn, max_num_clusters = max_num_clusters,
     min_num_clusters = min_num_clusters, name = name, spot_instance_policy = spot_instance_policy,
     tags = tags, warehouse_type = warehouse_type)
-  .api$do("POST", paste("/api/2.0/sql/warehouses/", id, "/edit", , sep = ""), body = body)
+  .state$api$do("POST", paste("/api/2.0/sql/warehouses/", id, "/edit", , sep = ""),
+    body = body)
   started <- as.numeric(Sys.time())
   target_states <- c("RUNNING", c())
   failure_states <- c("STOPPED", "DELETED", c())
@@ -256,7 +257,7 @@ warehouses$edit <- warehouses_edit
 #' @aliases warehouses_get
 warehouses_get <- function(id) {
 
-  .api$do("GET", paste("/api/2.0/sql/warehouses/", id, sep = ""))
+  .state$api$do("GET", paste("/api/2.0/sql/warehouses/", id, sep = ""))
 }
 warehouses$get <- warehouses_get
 
@@ -270,7 +271,7 @@ warehouses$get <- warehouses_get
 #'
 #' @aliases warehouses_get_workspace_warehouse_config
 warehouses_get_workspace_warehouse_config <- function() {
-  .api$do("GET", "/api/2.0/sql/config/warehouses")
+  .state$api$do("GET", "/api/2.0/sql/config/warehouses")
 }
 warehouses$get_workspace_warehouse_config <- warehouses_get_workspace_warehouse_config
 
@@ -290,7 +291,7 @@ warehouses$get_workspace_warehouse_config <- warehouses_get_workspace_warehouse_
 warehouses_list <- function(run_as_user_id = NULL) {
   query <- list(run_as_user_id = run_as_user_id)
 
-  json <- .api$do("GET", "/api/2.0/sql/warehouses", query = query)
+  json <- .state$api$do("GET", "/api/2.0/sql/warehouses", query = query)
   return(json$warehouses)
 
 }
@@ -330,7 +331,7 @@ warehouses_set_workspace_warehouse_config <- function(channel = NULL, config_par
     google_service_account = google_service_account, instance_profile_arn = instance_profile_arn,
     security_policy = security_policy, serverless_agreement = serverless_agreement,
     sql_configuration_parameters = sql_configuration_parameters)
-  .api$do("PUT", "/api/2.0/sql/config/warehouses", body = body)
+  .state$api$do("PUT", "/api/2.0/sql/config/warehouses", body = body)
 }
 warehouses$set_workspace_warehouse_config <- warehouses_set_workspace_warehouse_config
 
@@ -353,7 +354,7 @@ warehouses$set_workspace_warehouse_config <- warehouses_set_workspace_warehouse_
 #' @aliases warehouses_start
 warehouses_start <- function(id, timeout = 20, callback = cli_reporter) {
 
-  .api$do("POST", paste("/api/2.0/sql/warehouses/", id, "/start", , sep = ""))
+  .state$api$do("POST", paste("/api/2.0/sql/warehouses/", id, "/start", , sep = ""))
   started <- as.numeric(Sys.time())
   target_states <- c("RUNNING", c())
   failure_states <- c("STOPPED", "DELETED", c())
@@ -413,7 +414,7 @@ warehouses$start <- warehouses_start
 #' @aliases warehouses_stop
 warehouses_stop <- function(id, timeout = 20, callback = cli_reporter) {
 
-  .api$do("POST", paste("/api/2.0/sql/warehouses/", id, "/stop", , sep = ""))
+  .state$api$do("POST", paste("/api/2.0/sql/warehouses/", id, "/stop", , sep = ""))
   started <- as.numeric(Sys.time())
   target_states <- c("STOPPED", c())
   status_message <- "polling..."

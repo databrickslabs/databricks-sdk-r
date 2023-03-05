@@ -41,7 +41,7 @@ registry_webhooks_create <- function(events, description = NULL, http_url_spec =
   job_spec = NULL, model_name = NULL, status = NULL) {
   body <- list(description = description, events = events, http_url_spec = http_url_spec,
     job_spec = job_spec, model_name = model_name, status = status)
-  .api$do("POST", "/api/2.0/mlflow/registry-webhooks/create", body = body)
+  .state$api$do("POST", "/api/2.0/mlflow/registry-webhooks/create", body = body)
 }
 registry_webhooks$create <- registry_webhooks_create
 
@@ -60,7 +60,7 @@ registry_webhooks$create <- registry_webhooks_create
 #' @aliases registry_webhooks_delete
 registry_webhooks_delete <- function(id = NULL) {
   query <- list(id = id)
-  .api$do("DELETE", "/api/2.0/mlflow/registry-webhooks/delete", query = query)
+  .state$api$do("DELETE", "/api/2.0/mlflow/registry-webhooks/delete", query = query)
 }
 registry_webhooks$delete <- registry_webhooks_delete
 
@@ -86,7 +86,7 @@ registry_webhooks_list <- function(events = NULL, model_name = NULL, page_token 
 
   results <- data.frame()
   while (TRUE) {
-    json <- .api$do("GET", "/api/2.0/mlflow/registry-webhooks/list", query = query)
+    json <- .state$api$do("GET", "/api/2.0/mlflow/registry-webhooks/list", query = query)
     if (is.null(nrow(json$webhooks))) {
       break
     }
@@ -118,7 +118,7 @@ registry_webhooks$list <- registry_webhooks_list
 #' @aliases registry_webhooks_test
 registry_webhooks_test <- function(id, event = NULL) {
   body <- list(event = event, id = id)
-  .api$do("POST", "/api/2.0/mlflow/registry-webhooks/test", body = body)
+  .state$api$do("POST", "/api/2.0/mlflow/registry-webhooks/test", body = body)
 }
 registry_webhooks$test <- registry_webhooks_test
 
@@ -144,7 +144,7 @@ registry_webhooks_update <- function(id, description = NULL, events = NULL, http
   job_spec = NULL, status = NULL) {
   body <- list(description = description, events = events, http_url_spec = http_url_spec,
     id = id, job_spec = job_spec, status = status)
-  .api$do("PATCH", "/api/2.0/mlflow/registry-webhooks/update", body = body)
+  .state$api$do("PATCH", "/api/2.0/mlflow/registry-webhooks/update", body = body)
 }
 registry_webhooks$update <- registry_webhooks_update
 
