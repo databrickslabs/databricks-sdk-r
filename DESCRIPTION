@@ -15,7 +15,11 @@ Roxygen: list(markdown = TRUE, roclets = c("rd", "namespace", "collate"))
 ByteCompile: false
 StagedInstall: no 
 Imports: httr, ini, jsonlite, dplyr
-Suggests: knitr, testthat, formatR, covr
+Suggests: 
+    covr,
+    formatR,
+    knitr,
+    testthat (>= 3.0.0)
 Collate: 
     'version.R'
     'api_client.R'
@@ -76,3 +80,4 @@ Collate:
     'warehouses.R'
     'workspace.R'
     'workspace_conf.R'
+Config/testthat/edition: 3

@@ -14,6 +14,9 @@ tarball:
 	@echo "✅ Building tarball"
 	@R CMD build .
 
+test:
+	@Rscript -e "devtools::test()"
+
 check: gen
 	@echo "✅ run R CMD check on packages"
 	@set -e ; \
