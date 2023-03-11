@@ -23,5 +23,10 @@ jobs:
         run: |
           sudo apt-get install -y libcurl4-openssl-dev libssl-dev libxml2-dev libgit2-dev libharfbuzz-dev libfribidi-dev
 
+      - uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          extra-packages: |
+            any::devtools
+
       - name: Run tests
         run: make test

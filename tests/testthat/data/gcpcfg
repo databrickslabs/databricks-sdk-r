@@ -1,0 +1,5 @@
+[DEFAULT]
+host = https://test.gcp.databricks.com/
+token = testtoken
+jobs-api-version = 2.0
+
