@@ -17,6 +17,9 @@ tarball:
 test:
 	@Rscript -e "devtools::test()"
 
+fmt:
+	@Rscript .codegen/format.R
+
 check: gen
 	@echo "✅ run R CMD check on packages"
 	@set -e ; \

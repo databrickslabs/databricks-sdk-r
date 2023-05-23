@@ -28,6 +28,34 @@ NULL
     return(NULL)
   }
 
+  # simplified INI file parsing to read the contents of ~/.databrickscfg file.
+  # this implementation does not yet handle comments.
+  parse_ini_file <- function(file_path) {
+    ini_data <- list()
+    current_section <- ""
+    for (line in readLines(file_path)) {
+      # Remove leading/trailing whitespace
+      line <- trimws(line)
+      # Skip empty lines and comments
+      if (nchar(line) == 0 || substr(line, 1, 1) == "#")
+        next
+      # Check for section headers
+      if (substr(line, 1, 1) == "[") {
+        section <- trimws(substr(line, 2, nchar(line) - 1))
+        current_section <- section
+        ini_data[[section]] <- list()
+        next
+      }
+      # Split key-value pairs
+      parts <- strsplit(line, "=")[[1]]
+      key <- trimws(parts[1])
+      value <- trimws(parts[2])
+      # Store key-value pair in the current section
+      ini_data[[current_section]][[key]] <- value
+    }
+    return(ini_data)
+  }
+
   # load_profile returns configuration properties of a well-known configuration
   # file or sensible defaults otherwise.
   load_profile <- function(config_path, profile_name) {
@@ -36,7 +64,7 @@ NULL
       return(list())
     }
     # Parse ~/.databrickscfg as the INI file
-    parsed_file <- ini::read.ini(config_path)
+    parsed_file <- parse_ini_file(config_path)
     profile_exists <- profile_name %in% names(parsed_file)
     if (!profile_exists & profile_name == "DEFAULT") {
       # return empty config in case no default profile found
@@ -58,7 +86,6 @@ NULL
   cfg <- list(host = coalesce(host, Sys.getenv("DATABRICKS_HOST"), from_cli$host),
     token = coalesce(token, Sys.getenv("DATABRICKS_TOKEN"), from_cli$token),
     account_id = coalesce(account_id, Sys.getenv("DATABRICKS_ACCOUNT_ID"), from_cli$account_id),
-    token = coalesce(token, Sys.getenv("DATABRICKS_TOKEN"), from_cli$token),
     username = coalesce(username, Sys.getenv("DATABRICKS_USERNAME"), from_cli$username),
     password = coalesce(password, Sys.getenv("DATABRICKS_PASSWORD"), from_cli$password),
     client_id = coalesce(client_id, Sys.getenv("DATABRICKS_CLIENT_ID"), from_cli$client_id),
@@ -76,7 +103,29 @@ NULL
       Sys.getenv("ARM_ENVIRONMENT"), from_cli$azure_environment), azure_login_app_id = coalesce(azure_login_app_id,
       Sys.getenv("DATABRICKS_AZURE_LOGIN_APP_ID"), from_cli$azure_login_app_id))
 
-  # IsAzure returns true if client is configured for Azure Databricks
+  # debug_string iterates over currently resolved configuration and returns a
+  # single string with all config key-value pairs that are effective in the
+  # current state. Sensitive values are redated. Unlike Go, Python, or Java
+  # SDK, this SDK does not distinguish between environment-variable supplied
+  # configs.
+  debug_string <- function() {
+    used <- c()
+    sensitive <- c("token", "password", "client_secret", "google_credentials",
+      "azure_client_secret")
+    for (attr in names(cfg)) {
+      value <- cfg[[attr]]
+      if (is.null(value)) {
+        next
+      }
+      if (attr %in% sensitive) {
+        value <- "***"
+      }
+      used <- c(used, paste0(attr, "=", value))
+    }
+    return(paste(used, collapse = ", "))
+  }
+
+  # is_azure returns true if client is configured for Azure Databricks
   is_azure <- function() {
     grepl(".azuredatabricks.net", cfg$host)
   }
@@ -168,7 +217,7 @@ NULL
     jsonlite::fromJSON(json_string)
   }
 
-  return(list(is_aws = is_aws, is_azure = is_azure, is_gcp = is_gcp, do = do))
+  return(list(is_aws = is_aws, is_azure = is_azure, is_gcp = is_gcp, do = do, debug_string = debug_string))
 }
 
 .api <- .DatabricksClient()

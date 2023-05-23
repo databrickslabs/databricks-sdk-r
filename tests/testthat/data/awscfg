@@ -3,3 +3,7 @@ host = https://test.databricks.com/
 token = testtoken
 jobs-api-version = 2.0
 
+[client-secret]
+host = https://another.cloud.databricks.com/
+client_id = xxx
+client_secret = yyy
