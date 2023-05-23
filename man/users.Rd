@@ -12,13 +12,13 @@ users
 }
 \description{
 Databricks recommends using SCIM provisioning to sync users and groups
-automatically from your identity provider to your Databricks Workspace. SCIM
+automatically from your identity provider to your Databricks workspace. SCIM
 streamlines onboarding a new employee or team by using your identity provider
-to create users and groups in Databricks Workspace and give them the proper
+to create users and groups in Databricks workspace and give them the proper
 level of access. When a user leaves your organization or no longer needs
-access to Databricks Workspace, admins can terminate the user in your
+access to Databricks workspace, admins can terminate the user in your
 identity provider and that user’s account will also be removed from
-Databricks Workspace. This ensures a consistent offboarding process and
+Databricks workspace. This ensures a consistent offboarding process and
 prevents unauthorized users from accessing sensitive data.
 }
 \section{Operations}{

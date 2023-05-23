@@ -19,7 +19,7 @@ alerts_create(name, options, query_id, parent = NULL, rearm = NULL)
 }
 \description{
 Creates an alert. An alert is a Databricks SQL object that periodically runs
-a query, evaluates a condition of its result, and notifies users or alert
-destinations if the condition was met.
+a query, evaluates a condition of its result, and notifies users or
+notification destinations if the condition was met.
 }
 \keyword{internal}

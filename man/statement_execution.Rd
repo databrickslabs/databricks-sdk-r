@@ -32,8 +32,8 @@ When submitting the statement, the call can behave synchronously or
 asynchronously, based on the \code{wait_timeout} setting. When set between 5-50
 seconds (default: 10) the call behaves synchronously and waits for results up
 to the specified timeout; when set to \verb{0s}, the call is asynchronous and
-responds immediately with a statement ID that can be used to fetch the
-results in a separate call.
+responds immediately with a statement ID that can be used to poll for status
+or fetch the results in a separate call.
 
 \strong{Call mode: synchronous}
 
@@ -78,16 +78,23 @@ field, and iteratively \code{GET} those paths until that field is unset: \verb{G
 
 \strong{Fetching result data: format and disposition}
 
-Result data from statement execution is available in two formats: JSON, and
-\href{https://arrow.apache.org/overview/}{Apache Arrow Columnar}. Statements producing a result set smaller than 16
-MiB can be fetched as \code{format=JSON_ARRAY}, using the \code{disposition=INLINE}.
-When a statement executed in \code{INLINE} disposition exceeds this limit, the
-execution is aborted, and no result can be fetched. Using
-\code{format=ARROW_STREAM} and \code{disposition=EXTERNAL_LINKS} allows large result
-sets, and with higher throughput.
+To specify the result data format, set the \code{format} field to \code{JSON_ARRAY}
+(JSON) or \code{ARROW_STREAM} (\href{https://arrow.apache.org/overview/}{Apache Arrow Columnar}).
 
-The API uses defaults of \code{format=JSON_ARRAY} and \code{disposition=INLINE}. `We
-advise explicitly setting format and disposition in all production use cases.
+You can also configure how to fetch the result data in two different modes by
+setting the \code{disposition} field to \code{INLINE} or \code{EXTERNAL_LINKS}.
+
+The \code{INLINE} disposition can only be used with the \code{JSON_ARRAY} format and
+allows results up to 16 MiB. When a statement executed with \code{INLINE}
+disposition exceeds this limit, the execution is aborted, and no result can
+be fetched.
+
+The \code{EXTERNAL_LINKS} disposition allows fetching large result sets in both
+\code{JSON_ARRAY} and \code{ARROW_STREAM} formats, and with higher throughput.
+
+The API uses defaults of \code{format=JSON_ARRAY} and \code{disposition=INLINE}.
+Databricks recommends that you explicit setting the format and the
+disposition for all production use cases.
 
 \strong{Statement response: statement_id, status, manifest, and result}
 
@@ -117,8 +124,8 @@ next chunk can be fetched by issuing a
 :method:statementexecution/getStatementResultChunkN request.
 
 When using this mode, each chunk may be fetched once, and in order. A chunk
-without a field \code{next_chunk_internal_link} indicates we reached the last
-chunk and all chunks have been fetched from the result set.
+without a field \code{next_chunk_internal_link} indicates the last chunk was
+reached and all chunks have been fetched from the result set.
 
 \strong{Use case: large result sets with EXTERNAL_LINKS + ARROW_STREAM}
 
@@ -134,12 +141,15 @@ the form of a presigned URL. The URLs are valid for only a short period, <=
 15 minutes. Alongside each \code{external_link} is an expiration field indicating
 the time at which the URL is no longer valid. In \code{EXTERNAL_LINKS} mode,
 chunks can be resolved and fetched multiple times and in parallel.
-\subsection{**Warning: drop the authorization header when fetching data through}{
+\subsection{\strong{Warning: We recommend you protect the URLs in the EXTERNAL_LINKS.}}{
 
-external links**
+When using the EXTERNAL_LINKS disposition, a short-lived pre-signed URL is
+generated, which the client can use to download the result chunk directly
+from cloud storage. As the short-lived credential is embedded in a pre-signed
+URL, this URL should be protected.
 
-External link URLs do not require an Authorization header or token, and thus
-all calls to fetch external links must remove the Authorization header.
+Since pre-signed URLs are generated with embedded temporary credentials, you
+need to remove the authorization header from the fetch requests.
 
 Similar to \code{INLINE} mode, callers can iterate through the result set, by
 using the \code{next_chunk_internal_link} field. Each internal link response will
@@ -167,16 +177,11 @@ approximate, occur server-side, and cannot account for caller delays, network
 latency from caller to service, and similarly. - After a statement has been
 submitted and a statement_id is returned, that statement's status and result
 will automatically close after either of 2 conditions: - The last result
-chunk is fetched (or resolved to an external link). - Ten (10) minutes pass
-with no calls to get status or fetch result data. Best practice: in
-asynchronous clients, poll for status regularly (and with backoff) to keep
-the statement open and alive. - After a \code{CANCEL} or \code{CLOSE} operation, the
-statement will no longer be visible from the API which means that a
-subsequent poll request may return an HTTP 404 NOT FOUND error. - After
-fetching the last result chunk (including chunk_index=0), the statement is
-closed; shortly after closure the statement will no longer be visible to the
-API and so, further calls such as :method:statementexecution/getStatement may
-return an HTTP 404 NOT FOUND error.
+chunk is fetched (or resolved to an external link). - One hour passes with no
+calls to get the status or fetch the result. Best practice: in asynchronous
+clients, poll for status regularly (and with backoff) to keep the statement
+open and alive. - After fetching the last result chunk (including
+chunk_index=0) the statement is automatically closed.
 }
 }
 }
@@ -184,7 +189,7 @@ return an HTTP 404 NOT FOUND error.
 
 \tabular{ll}{
 \link[=statement_execution_cancel_execution]{cancel_execution} \tab Cancel statement execution.\cr
-\link[=statement_execution_execute_statement]{execute_statement} \tab Execute an SQL statement.\cr
+\link[=statement_execution_execute_statement]{execute_statement} \tab Execute a SQL statement.\cr
 \link[=statement_execution_get_statement]{get_statement} \tab Get status, manifest, and result first chunk.\cr
 \link[=statement_execution_get_statement_result_chunk_n]{get_statement_result_chunk_n} \tab Get result chunk by index.\cr
 }

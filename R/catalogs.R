@@ -119,6 +119,7 @@ catalogs$list <- catalogs_list
 #' of the catalog).
 #'
 #' @param comment User-provided free-form text description.
+#' @param isolation_mode Whether the current securable is accessible from all workspaces or a specific set of workspaces.
 #' @param name Name of catalog.
 #' @param owner Username of current owner of catalog.
 #' @param properties A map of key-value properties attached to the securable.
@@ -128,8 +129,10 @@ catalogs$list <- catalogs_list
 #' @rdname catalogs_update
 #'
 #' @aliases catalogs_update
-catalogs_update <- function(name, comment = NULL, owner = NULL, properties = NULL) {
-  body <- list(comment = comment, name = name, owner = owner, properties = properties)
+catalogs_update <- function(name, comment = NULL, isolation_mode = NULL, owner = NULL,
+  properties = NULL) {
+  body <- list(comment = comment, isolation_mode = isolation_mode, name = name,
+    owner = owner, properties = properties)
   .state$api$do("PATCH", paste("/api/2.1/unity-catalog/catalogs/", name, sep = ""),
     body = body)
 }

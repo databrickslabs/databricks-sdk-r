@@ -14,7 +14,7 @@ dbfs_read(path, length = NULL, offset = NULL)
 \item{offset}{The offset to read from in bytes.}
 }
 \description{
-'Returns the contents of a file. If the file does not exist, this call throws
+Returns the contents of a file. If the file does not exist, this call throws
 an exception with \code{RESOURCE_DOES_NOT_EXIST}. If the path is a directory, the
 read length is negative, or if the offset is negative, this call throws an
 exception with \code{INVALID_PARAMETER_VALUE}. If the read length exceeds 1 MB,

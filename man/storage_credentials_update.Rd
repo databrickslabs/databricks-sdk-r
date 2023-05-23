@@ -5,6 +5,7 @@
 \title{Update a credential.}
 \usage{
 storage_credentials_update(
+  metastore_id,
   name,
   aws_iam_role = NULL,
   azure_service_principal = NULL,
@@ -17,6 +18,8 @@ storage_credentials_update(
 )
 }
 \arguments{
+\item{metastore_id}{Required. Unity Catalog metastore ID.}
+
 \item{name}{The credential name.}
 
 \item{aws_iam_role}{The AWS IAM role configuration.}

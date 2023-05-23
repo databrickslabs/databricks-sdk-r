@@ -22,7 +22,7 @@ Scala, Spark submit, and Java applications.
 }
 \details{
 You should never hard code secrets or store them in plain text. Use the
-:service:secrets to manage secrets in the \href{https://docs.databricks.com/dev-tools/cli/index.html}{Databricks CLI}. Use the \href{https://docs.databricks.com/dev-tools/databricks-utils.html#dbutils-secrets}{Secrets utility} to reference secrets in notebooks and jobs.
+\href{https://docs.databricks.com/dev-tools/cli/secrets-cli.html}{Secrets CLI} to manage secrets in the \href{https://docs.databricks.com/dev-tools/cli/index.html}{Databricks CLI}. Use the \href{https://docs.databricks.com/dev-tools/databricks-utils.html#dbutils-secrets}{Secrets utility} to reference secrets in notebooks and jobs.
 }
 \section{Operations}{
 
@@ -42,7 +42,7 @@ You should never hard code secrets or store them in plain text. Use the
 \link[=jobs_reset]{reset} \tab Overwrites all settings for a job.\cr
 \link[=jobs_run_now]{run_now} \tab Trigger a new job run.\cr
 \link[=jobs_submit]{submit} \tab Create and trigger a one-time run.\cr
-\link[=jobs_update]{update} \tab Partially updates a job.\cr
+\link[=jobs_update]{update} \tab Partially update a job.\cr
 }
 }
 

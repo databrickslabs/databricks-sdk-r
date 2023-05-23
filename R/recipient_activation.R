@@ -4,7 +4,7 @@
 #' @importFrom stats runif
 NULL
 
-#' Databricks Delta Sharing: Recipient Activation REST API
+#' Databricks Recipient Activation REST API
 #' 
 #' @section Operations:
 #' \tabular{ll}{

@@ -21,6 +21,7 @@ clusters_edit(
   enable_elastic_disk = NULL,
   enable_local_disk_encryption = NULL,
   gcp_attributes = NULL,
+  init_scripts = NULL,
   instance_pool_id = NULL,
   node_type_id = NULL,
   num_workers = NULL,
@@ -66,6 +67,8 @@ clusters_edit(
 \item{enable_local_disk_encryption}{Whether to enable LUKS on cluster VMs' local disks.}
 
 \item{gcp_attributes}{Attributes related to clusters running on Google Cloud Platform.}
+
+\item{init_scripts}{The configuration for storing init scripts.}
 
 \item{instance_pool_id}{The optional ID of the instance pool to which the cluster belongs.}
 

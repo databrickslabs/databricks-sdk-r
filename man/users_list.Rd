@@ -33,6 +33,6 @@ users_list(
 \code{data.frame} with all of the response pages.
 }
 \description{
-Gets details for all the users associated with a Databricks Workspace.
+Gets details for all the users associated with a Databricks workspace.
 }
 \keyword{internal}

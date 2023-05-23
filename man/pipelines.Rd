@@ -6,7 +6,7 @@
 \title{The Delta Live Tables API allows you to create, edit, delete, start, and view
 details about pipelines.}
 \format{
-An object of class \code{list} of length 10.
+An object of class \code{list} of length 11.
 }
 \usage{
 pipelines
@@ -32,6 +32,7 @@ those expectations.
 \link[=pipelines_delete]{delete} \tab Delete a pipeline.\cr
 \link[=pipelines_get]{get} \tab Get a pipeline.\cr
 \link[=pipelines_get_update]{get_update} \tab Get a pipeline update.\cr
+\link[=pipelines_list_pipeline_events]{list_pipeline_events} \tab List pipeline events.\cr
 \link[=pipelines_list_pipelines]{list_pipelines} \tab List pipelines.\cr
 \link[=pipelines_list_updates]{list_updates} \tab List pipeline updates.\cr
 \link[=pipelines_reset]{reset} \tab Reset a pipeline.\cr

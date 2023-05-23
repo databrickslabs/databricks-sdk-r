@@ -8,11 +8,8 @@ NULL
 #' it can be useful to use dashboard objects to look-up a collection of related
 #' query IDs. The API can also be used to duplicate multiple dashboards at once
 #' since you can get a dashboard definition with a GET request and then POST it
-#' to create a new one.
-#' 
-#' **Note**: Programmatic operations on refresh schedules via the Databricks SQL
-#' API are deprecated. Dashboard refresh schedules can be created, updated,
-#' fetched and deleted using Jobs API, e.g. :method:jobs/create.
+#' to create a new one. Dashboards can be scheduled using the `sql_task` type of
+#' the Jobs API, e.g. :method:jobs/create.
 #' 
 #' @section Operations:
 #' \tabular{ll}{
@@ -29,23 +26,18 @@ dashboards <- list()
 
 #' Create a dashboard object.
 #'
-#' @param dashboard_filters_enabled In the web application, query filters that share a name are coupled to a single selection box if this value is true.
-#' @param is_draft Draft dashboards only appear in list views for their owners.
-#' @param is_trashed Indicates whether the dashboard is trashed.
+#' @param is_favorite Indicates whether this query object should appear in the current user's favorites list.
 #' @param name The title of this dashboard that appears in list views and at the top of the dashboard page.
 #' @param parent The identifier of the workspace folder containing the dashboard.
 #' @param tags 
-#' @param widgets An array of widget objects.
 #'
 #' @keywords internal
 #'
 #' @rdname dashboards_create
 #'
 #' @aliases dashboards_create
-dashboards_create <- function(dashboard_filters_enabled = NULL, is_draft = NULL,
-  is_trashed = NULL, name = NULL, parent = NULL, tags = NULL, widgets = NULL) {
-  body <- list(dashboard_filters_enabled = dashboard_filters_enabled, is_draft = is_draft,
-    is_trashed = is_trashed, name = name, parent = parent, tags = tags, widgets = widgets)
+dashboards_create <- function(is_favorite = NULL, name = NULL, parent = NULL, tags = NULL) {
+  body <- list(is_favorite = is_favorite, name = name, parent = parent, tags = tags)
   .state$api$do("POST", "/api/2.0/preview/sql/dashboards", body = body)
 }
 dashboards$create <- dashboards_create

@@ -26,8 +26,8 @@ NULL
 #' asynchronously, based on the `wait_timeout` setting. When set between 5-50
 #' seconds (default: 10) the call behaves synchronously and waits for results up
 #' to the specified timeout; when set to `0s`, the call is asynchronous and
-#' responds immediately with a statement ID that can be used to fetch the
-#' results in a separate call.
+#' responds immediately with a statement ID that can be used to poll for status
+#' or fetch the results in a separate call.
 #' 
 #' **Call mode: synchronous**
 #' 
@@ -74,16 +74,23 @@ NULL
 #' 
 #' **Fetching result data: format and disposition**
 #' 
-#' Result data from statement execution is available in two formats: JSON, and
-#' [Apache Arrow Columnar]. Statements producing a result set smaller than 16
-#' MiB can be fetched as `format=JSON_ARRAY`, using the `disposition=INLINE`.
-#' When a statement executed in `INLINE` disposition exceeds this limit, the
-#' execution is aborted, and no result can be fetched. Using
-#' `format=ARROW_STREAM` and `disposition=EXTERNAL_LINKS` allows large result
-#' sets, and with higher throughput.
+#' To specify the result data format, set the `format` field to `JSON_ARRAY`
+#' (JSON) or `ARROW_STREAM` ([Apache Arrow Columnar]).
 #' 
-#' The API uses defaults of `format=JSON_ARRAY` and `disposition=INLINE`. `We
-#' advise explicitly setting format and disposition in all production use cases.
+#' You can also configure how to fetch the result data in two different modes by
+#' setting the `disposition` field to `INLINE` or `EXTERNAL_LINKS`.
+#' 
+#' The `INLINE` disposition can only be used with the `JSON_ARRAY` format and
+#' allows results up to 16 MiB. When a statement executed with `INLINE`
+#' disposition exceeds this limit, the execution is aborted, and no result can
+#' be fetched.
+#' 
+#' The `EXTERNAL_LINKS` disposition allows fetching large result sets in both
+#' `JSON_ARRAY` and `ARROW_STREAM` formats, and with higher throughput.
+#' 
+#' The API uses defaults of `format=JSON_ARRAY` and `disposition=INLINE`.
+#' Databricks recommends that you explicit setting the format and the
+#' disposition for all production use cases.
 #' 
 #' **Statement response: statement_id, status, manifest, and result**
 #' 
@@ -113,8 +120,8 @@ NULL
 #' :method:statementexecution/getStatementResultChunkN request.
 #' 
 #' When using this mode, each chunk may be fetched once, and in order. A chunk
-#' without a field `next_chunk_internal_link` indicates we reached the last
-#' chunk and all chunks have been fetched from the result set.
+#' without a field `next_chunk_internal_link` indicates the last chunk was
+#' reached and all chunks have been fetched from the result set.
 #' 
 #' **Use case: large result sets with EXTERNAL_LINKS + ARROW_STREAM**
 #' 
@@ -133,11 +140,15 @@ NULL
 #' 
 #' ----
 #' 
-#' ### **Warning: drop the authorization header when fetching data through
-#' external links**
+#' ### **Warning: We recommend you protect the URLs in the EXTERNAL_LINKS.**
 #' 
-#' External link URLs do not require an Authorization header or token, and thus
-#' all calls to fetch external links must remove the Authorization header.
+#' When using the EXTERNAL_LINKS disposition, a short-lived pre-signed URL is
+#' generated, which the client can use to download the result chunk directly
+#' from cloud storage. As the short-lived credential is embedded in a pre-signed
+#' URL, this URL should be protected.
+#' 
+#' Since pre-signed URLs are generated with embedded temporary credentials, you
+#' need to remove the authorization header from the fetch requests.
 #' 
 #' ----
 #' 
@@ -167,16 +178,11 @@ NULL
 #' latency from caller to service, and similarly. - After a statement has been
 #' submitted and a statement_id is returned, that statement's status and result
 #' will automatically close after either of 2 conditions: - The last result
-#' chunk is fetched (or resolved to an external link). - Ten (10) minutes pass
-#' with no calls to get status or fetch result data. Best practice: in
-#' asynchronous clients, poll for status regularly (and with backoff) to keep
-#' the statement open and alive. - After a `CANCEL` or `CLOSE` operation, the
-#' statement will no longer be visible from the API which means that a
-#' subsequent poll request may return an HTTP 404 NOT FOUND error. - After
-#' fetching the last result chunk (including chunk_index=0), the statement is
-#' closed; shortly after closure the statement will no longer be visible to the
-#' API and so, further calls such as :method:statementexecution/getStatement may
-#' return an HTTP 404 NOT FOUND error.
+#' chunk is fetched (or resolved to an external link). - One hour passes with no
+#' calls to get the status or fetch the result. Best practice: in asynchronous
+#' clients, poll for status regularly (and with backoff) to keep the statement
+#' open and alive. - After fetching the last result chunk (including
+#' chunk_index=0) the statement is automatically closed.
 #' 
 #' [Apache Arrow Columnar]: https://arrow.apache.org/overview/
 #' [Public Preview]: https://docs.databricks.com/release-notes/release-types.html
@@ -185,7 +191,7 @@ NULL
 #' @section Operations:
 #' \tabular{ll}{
 #'  \link[=statement_execution_cancel_execution]{cancel_execution} \tab Cancel statement execution.\cr
-#'  \link[=statement_execution_execute_statement]{execute_statement} \tab Execute an SQL statement.\cr
+#'  \link[=statement_execution_execute_statement]{execute_statement} \tab Execute a SQL statement.\cr
 #'  \link[=statement_execution_get_statement]{get_statement} \tab Get status, manifest, and result first chunk.\cr
 #'  \link[=statement_execution_get_statement_result_chunk_n]{get_statement_result_chunk_n} \tab Get result chunk by index.\cr
 #' }
@@ -213,20 +219,19 @@ statement_execution_cancel_execution <- function(statement_id) {
 }
 statement_execution$cancel_execution <- statement_execution_cancel_execution
 
-#' Execute an SQL statement.
+#' Execute a SQL statement.
 #' 
-#' Execute an SQL statement, and if flagged as such, await its result for a
+#' Execute a SQL statement, and if flagged as such, await its result for a
 #' specified time.
 #'
-#' @param byte_limit Applies given byte limit to execution and result size; byte counts based upon internal representations, and may not match measureable sizes in requested `format`.
+#' @param byte_limit Applies the given byte limit to the statement's result size.
 #' @param catalog Sets default catalog for statement execution, similar to [`USE CATALOG`](https://docs.databricks.com/sql/language-manual/sql-ref-syntax-ddl-use-catalog.html) in SQL.
-#' @param disposition The fetch disposition provides for two modes of fetching results: `INLINE`, and `EXTERNAL_LINKS`.
+#' @param disposition The fetch disposition provides two modes of fetching results: `INLINE` and `EXTERNAL_LINKS`.
 #' @param format Statement execution supports two result formats: `JSON_ARRAY` (default), and `ARROW_STREAM`.
-#' @param on_wait_timeout When called in synchronous mode (`wait_timeout > 0s`), determines action when timeout reached: `CONTINUE` → statement execution continues asynchronously; the call returns a statement ID immediately.
-#' @param row_limit Applies given row limit to execution and result set, identical in semantics to SQL term `LIMIT $N`.
+#' @param on_wait_timeout When in synchronous mode with `wait_timeout > 0s` it determines the action taken when the timeout is reached: `CONTINUE` → the statement execution continues asynchronously and the call returns a statement ID immediately.
 #' @param schema Sets default schema for statement execution, similar to [`USE SCHEMA`](https://docs.databricks.com/sql/language-manual/sql-ref-syntax-ddl-use-schema.html) in SQL.
 #' @param statement SQL statement to execute.
-#' @param wait_timeout Time that the API service will wait for the statement result, in format '{N}s'.
+#' @param wait_timeout The time in seconds the API service will wait for the statement's result set as `Ns`, where `N` can be set to 0 or to a value between 5 and 50.
 #' @param warehouse_id Warehouse upon which to execute a statement.
 #'
 #' @keywords internal
@@ -235,19 +240,23 @@ statement_execution$cancel_execution <- statement_execution_cancel_execution
 #'
 #' @aliases statement_execution_execute_statement
 statement_execution_execute_statement <- function(byte_limit = NULL, catalog = NULL,
-  disposition = NULL, format = NULL, on_wait_timeout = NULL, row_limit = NULL,
-  schema = NULL, statement = NULL, wait_timeout = NULL, warehouse_id = NULL) {
+  disposition = NULL, format = NULL, on_wait_timeout = NULL, schema = NULL, statement = NULL,
+  wait_timeout = NULL, warehouse_id = NULL) {
   body <- list(byte_limit = byte_limit, catalog = catalog, disposition = disposition,
-    format = format, on_wait_timeout = on_wait_timeout, row_limit = row_limit,
-    schema = schema, statement = statement, wait_timeout = wait_timeout, warehouse_id = warehouse_id)
+    format = format, on_wait_timeout = on_wait_timeout, schema = schema, statement = statement,
+    wait_timeout = wait_timeout, warehouse_id = warehouse_id)
   .state$api$do("POST", "/api/2.0/sql/statements/", body = body)
 }
 statement_execution$execute_statement <- statement_execution_execute_statement
 
 #' Get status, manifest, and result first chunk.
 #' 
-#' Polls for statement status; when status.state=SUCCEEDED will also return the
-#' result manifest, and the first chunk of result data.
+#' This request can be used to poll for the statement's status. When the
+#' `status.state` field is `SUCCEEDED` it will also return the result manifest
+#' and the first chunk of the result data. When the statement is in the terminal
+#' states `CANCELED`, `CLOSED` or `FAILED`, it returns HTTP 200 with the state
+#' set. After at least 12 hours in terminal state, the statement is removed from
+#' the warehouse and further calls will receive an HTTP 404 response.
 #' 
 #' **NOTE** This call currently may take up to 5 seconds to get the latest
 #' status and result.
@@ -267,14 +276,13 @@ statement_execution$get_statement <- statement_execution_get_statement
 
 #' Get result chunk by index.
 #' 
-#' After statement execution has SUCCEEDED, result data can be fetched by
-#' chunks.
-#' 
-#' The first chunk (`chunk_index=0`) is typically fetched through
-#' `getStatementResult`, and subsequent chunks with this call. The response
-#' structure is identical to the nested `result` element described in
-#' getStatementResult, and similarly includes `next_chunk_index` and
-#' `next_chunk_internal_link` for simple iteration through the result set.
+#' After the statement execution has `SUCCEEDED`, the result data can be fetched
+#' by chunks. Whereas the first chuck with `chunk_index=0` is typically fetched
+#' through a `get status` request, subsequent chunks can be fetched using a `get
+#' result` request. The response structure is identical to the nested `result`
+#' element described in the `get status` request, and similarly includes the
+#' `next_chunk_index` and `next_chunk_internal_link` fields for simple iteration
+#' through the result set.
 #'
 #' @param chunk_index Required. 
 #' @param statement_id Required. 

@@ -8,6 +8,7 @@ jobs_submit(
   access_control_list = NULL,
   git_source = NULL,
   idempotency_token = NULL,
+  notification_settings = NULL,
   run_name = NULL,
   tasks = NULL,
   timeout_seconds = NULL,
@@ -22,6 +23,8 @@ jobs_submit(
 \item{git_source}{An optional specification for a remote repository containing the notebooks used by this job's notebook tasks.}
 
 \item{idempotency_token}{An optional token that can be used to guarantee the idempotency of job run requests.}
+
+\item{notification_settings}{Optional notification settings that are used when sending notifications to each of the \code{webhook_notifications} for this run.}
 
 \item{run_name}{An optional name for the run.}
 

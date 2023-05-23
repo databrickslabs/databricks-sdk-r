@@ -25,6 +25,7 @@ NULL
 #'  \link[=pipelines_delete]{delete} \tab Delete a pipeline.\cr
 #'  \link[=pipelines_get]{get} \tab Get a pipeline.\cr
 #'  \link[=pipelines_get_update]{get_update} \tab Get a pipeline update.\cr
+#'  \link[=pipelines_list_pipeline_events]{list_pipeline_events} \tab List pipeline events.\cr
 #'  \link[=pipelines_list_pipelines]{list_pipelines} \tab List pipelines.\cr
 #'  \link[=pipelines_list_updates]{list_updates} \tab List pipeline updates.\cr
 #'  \link[=pipelines_reset]{reset} \tab Reset a pipeline.\cr
@@ -43,7 +44,7 @@ pipelines <- list()
 #' If successful, this method returns the ID of the new pipeline.
 #'
 #' @param allow_duplicate_names If false, deployment will fail if name conflicts with that of another pipeline.
-#' @param catalog Catalog in UC to add tables to.
+#' @param catalog A catalog in Unity Catalog to publish data from this pipeline to.
 #' @param channel DLT Release Channel that specifies which version to use.
 #' @param clusters Cluster settings for this pipeline deployment.
 #' @param configuration String-String configuration for this pipeline execution.
@@ -56,6 +57,7 @@ pipelines <- list()
 #' @param libraries Libraries or code needed by this deployment.
 #' @param name Friendly identifier for this pipeline.
 #' @param photon Whether Photon is enabled for this pipeline.
+#' @param serverless Whether serverless compute is enabled for this pipeline.
 #' @param storage DBFS root directory for storing checkpoints and tables.
 #' @param target Target schema (database) to add tables in this pipeline to.
 #' @param trigger Which pipeline trigger to use.
@@ -68,12 +70,13 @@ pipelines <- list()
 pipelines_create <- function(allow_duplicate_names = NULL, catalog = NULL, channel = NULL,
   clusters = NULL, configuration = NULL, continuous = NULL, development = NULL,
   dry_run = NULL, edition = NULL, filters = NULL, id = NULL, libraries = NULL,
-  name = NULL, photon = NULL, storage = NULL, target = NULL, trigger = NULL) {
+  name = NULL, photon = NULL, serverless = NULL, storage = NULL, target = NULL,
+  trigger = NULL) {
   body <- list(allow_duplicate_names = allow_duplicate_names, catalog = catalog,
     channel = channel, clusters = clusters, configuration = configuration, continuous = continuous,
     development = development, dry_run = dry_run, edition = edition, filters = filters,
-    id = id, libraries = libraries, name = name, photon = photon, storage = storage,
-    target = target, trigger = trigger)
+    id = id, libraries = libraries, name = name, photon = photon, serverless = serverless,
+    storage = storage, target = target, trigger = trigger)
   .state$api$do("POST", "/api/2.0/pipelines", body = body)
 }
 pipelines$create <- pipelines_create
@@ -128,6 +131,47 @@ pipelines_get_update <- function(pipeline_id, update_id) {
     sep = ""))
 }
 pipelines$get_update <- pipelines_get_update
+
+#' List pipeline events.
+#' 
+#' Retrieves events for a pipeline.
+#'
+#' @param filter Criteria to select a subset of results, expressed using a SQL-like syntax.
+#' @param max_results Max number of entries to return in a single page.
+#' @param order_by A string indicating a sort order by timestamp for the results, for example, ['timestamp asc'].
+#' @param page_token Page token returned by previous call.
+#' @param pipeline_id Required. 
+#' 
+#' @return `data.frame` with all of the response pages.
+#'
+#' @keywords internal
+#'
+#' @rdname pipelines_list_pipeline_events
+#'
+#' @aliases pipelines_list_pipeline_events
+pipelines_list_pipeline_events <- function(pipeline_id, filter = NULL, max_results = NULL,
+  order_by = NULL, page_token = NULL) {
+  query <- list(filter = filter, max_results = max_results, order_by = order_by,
+    page_token = page_token)
+
+  results <- data.frame()
+  while (TRUE) {
+    json <- .state$api$do("GET", paste("/api/2.0/pipelines/", pipeline_id, "/events",
+      , sep = ""), query = query)
+    if (is.null(nrow(json$events))) {
+      break
+    }
+    # append this page of results to one results data.frame
+    results <- dplyr::bind_rows(results, json$events)
+    if (is.null(json$next_page_token)) {
+      break
+    }
+    query$page_token <- json$next_page_token
+  }
+  return(results)
+
+}
+pipelines$list_pipeline_events <- pipelines_list_pipeline_events
 
 #' List pipelines.
 #' 
@@ -333,7 +377,7 @@ pipelines$stop <- pipelines_stop
 #' Updates a pipeline with the supplied configuration.
 #'
 #' @param allow_duplicate_names If false, deployment will fail if name has changed and conflicts the name of another pipeline.
-#' @param catalog Catalog in UC to add tables to.
+#' @param catalog A catalog in Unity Catalog to publish data from this pipeline to.
 #' @param channel DLT Release Channel that specifies which version to use.
 #' @param clusters Cluster settings for this pipeline deployment.
 #' @param configuration String-String configuration for this pipeline execution.
@@ -347,6 +391,7 @@ pipelines$stop <- pipelines_stop
 #' @param name Friendly identifier for this pipeline.
 #' @param photon Whether Photon is enabled for this pipeline.
 #' @param pipeline_id Unique identifier for this pipeline.
+#' @param serverless Whether serverless compute is enabled for this pipeline.
 #' @param storage DBFS root directory for storing checkpoints and tables.
 #' @param target Target schema (database) to add tables in this pipeline to.
 #' @param trigger Which pipeline trigger to use.
@@ -359,12 +404,14 @@ pipelines$stop <- pipelines_stop
 pipelines_update <- function(pipeline_id, allow_duplicate_names = NULL, catalog = NULL,
   channel = NULL, clusters = NULL, configuration = NULL, continuous = NULL, development = NULL,
   edition = NULL, expected_last_modified = NULL, filters = NULL, id = NULL, libraries = NULL,
-  name = NULL, photon = NULL, storage = NULL, target = NULL, trigger = NULL) {
+  name = NULL, photon = NULL, serverless = NULL, storage = NULL, target = NULL,
+  trigger = NULL) {
   body <- list(allow_duplicate_names = allow_duplicate_names, catalog = catalog,
     channel = channel, clusters = clusters, configuration = configuration, continuous = continuous,
     development = development, edition = edition, expected_last_modified = expected_last_modified,
     filters = filters, id = id, libraries = libraries, name = name, photon = photon,
-    pipeline_id = pipeline_id, storage = storage, target = target, trigger = trigger)
+    pipeline_id = pipeline_id, serverless = serverless, storage = storage, target = target,
+    trigger = trigger)
   .state$api$do("PUT", paste("/api/2.0/pipelines/", pipeline_id, sep = ""), body = body)
 }
 pipelines$update <- pipelines_update

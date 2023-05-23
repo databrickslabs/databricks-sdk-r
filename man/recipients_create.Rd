@@ -22,13 +22,13 @@ recipients_create(
 
 \item{comment}{Description about the recipient.}
 
-\item{data_recipient_global_metastore_id}{The global Unity Catalog metastore id provided by the data recipient.\n This field is required when the \strong{authentication_type} is \strong{DATABRICKS}.\n The identifier is of format \strong{cloud}:\strong{region}:\strong{metastore-uuid}.}
+\item{data_recipient_global_metastore_id}{The global Unity Catalog metastore id provided by the data recipient.}
 
 \item{ip_access_list}{IP Access List.}
 
 \item{owner}{Username of the recipient owner.}
 
-\item{properties_kvpairs}{Recipient properties as map of string key-value pairs.\n.}
+\item{properties_kvpairs}{Recipient properties as map of string key-value pairs.}
 
 \item{sharing_code}{The one-time sharing code provided by the data recipient.}
 }

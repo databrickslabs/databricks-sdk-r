@@ -13,7 +13,6 @@ serving_endpoints_logs(name, served_model_name)
 \item{served_model_name}{Required. The name of the served model that logs will be retrieved for.}
 }
 \description{
-Retrieves the service logs associated with the provided served model. Please
-note that this API is in preview and may change in the future.
+Retrieves the service logs associated with the provided served model.
 }
 \keyword{internal}

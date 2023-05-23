@@ -13,9 +13,9 @@ NULL
 #' @section Operations:
 #' \tabular{ll}{
 #'  \link[=workspace_delete]{delete} \tab Delete a workspace object.\cr
-#'  \link[=workspace_export]{export} \tab Export a notebook.\cr
+#'  \link[=workspace_export]{export} \tab Export a workspace object.\cr
 #'  \link[=workspace_get_status]{get_status} \tab Get status.\cr
-#'  \link[=workspace_import]{import} \tab Import a notebook.\cr
+#'  \link[=workspace_import]{import} \tab Import a workspace object.\cr
 #'  \link[=workspace_list]{list} \tab List contents.\cr
 #'  \link[=workspace_mkdirs]{mkdirs} \tab Create a directory.\cr
 #' }
@@ -49,9 +49,9 @@ workspace_delete <- function(path, recursive = NULL) {
 }
 workspace$delete <- workspace_delete
 
-#' Export a notebook.
+#' Export a workspace object.
 #' 
-#' Exports a notebook or the contents of an entire directory.
+#' Exports an object or the contents of an entire directory.
 #' 
 #' If `path` does not exist, this call returns an error
 #' `RESOURCE_DOES_NOT_EXIST`.
@@ -62,7 +62,7 @@ workspace$delete <- workspace_delete
 #'
 #' @param direct_download Flag to enable direct download.
 #' @param format This specifies the format of the exported file.
-#' @param path Required. The absolute path of the notebook or directory.
+#' @param path Required. The absolute path of the object or directory.
 #'
 #' @keywords internal
 #'
@@ -93,18 +93,18 @@ workspace_get_status <- function(path) {
 }
 workspace$get_status <- workspace_get_status
 
-#' Import a notebook.
+#' Import a workspace object.
 #' 
-#' Imports a notebook or the contents of an entire directory. If `path` already
-#' exists and `overwrite` is set to `false`, this call returns an error
-#' `RESOURCE_ALREADY_EXISTS`. One can only use `DBC` format to import a
-#' directory.
+#' Imports a workspace object (for example, a notebook or file) or the contents
+#' of an entire directory. If `path` already exists and `overwrite` is set to
+#' `false`, this call returns an error `RESOURCE_ALREADY_EXISTS`. One can only
+#' use `DBC` format to import a directory.
 #'
 #' @param content The base64-encoded content.
 #' @param format This specifies the format of the file to be imported.
 #' @param language The language of the object.
 #' @param overwrite The flag that specifies whether to overwrite existing object.
-#' @param path Required. The absolute path of the notebook or directory.
+#' @param path Required. The absolute path of the object or directory.
 #'
 #' @keywords internal
 #'

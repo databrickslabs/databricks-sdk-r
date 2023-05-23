@@ -10,7 +10,6 @@ warehouses_edit(
   channel = NULL,
   cluster_size = NULL,
   creator_name = NULL,
-  enable_databricks_compute = NULL,
   enable_photon = NULL,
   enable_serverless_compute = NULL,
   instance_profile_arn = NULL,
@@ -27,33 +26,31 @@ warehouses_edit(
 \arguments{
 \item{id}{Required. Required.}
 
-\item{auto_stop_mins}{The amount of time in minutes that a SQL Endpoint must be idle (i.e., no RUNNING queries) before it is automatically stopped.}
+\item{auto_stop_mins}{The amount of time in minutes that a SQL warehouse must be idle (i.e., no RUNNING queries) before it is automatically stopped.}
 
 \item{channel}{Channel Details.}
 
-\item{cluster_size}{Size of the clusters allocated for this endpoint.}
+\item{cluster_size}{Size of the clusters allocated for this warehouse.}
 
-\item{creator_name}{endpoint creator name.}
+\item{creator_name}{warehouse creator name.}
 
-\item{enable_databricks_compute}{Configures whether the endpoint should use Databricks Compute (aka Nephos) Deprecated: Use enable_serverless_compute.}
+\item{enable_photon}{Configures whether the warehouse should use Photon optimized clusters.}
 
-\item{enable_photon}{Configures whether the endpoint should use Photon optimized clusters.}
-
-\item{enable_serverless_compute}{Configures whether the endpoint should use Serverless Compute (aka Nephos) Defaults to value in global endpoint settings.}
+\item{enable_serverless_compute}{Configures whether the warehouse should use serverless compute.}
 
 \item{instance_profile_arn}{Deprecated.}
 
 \item{max_num_clusters}{Maximum number of clusters that the autoscaler will create to handle concurrent queries.}
 
-\item{min_num_clusters}{Minimum number of available clusters that will be maintained for this SQL Endpoint.}
+\item{min_num_clusters}{Minimum number of available clusters that will be maintained for this SQL warehouse.}
 
 \item{name}{Logical name for the cluster.}
 
 \item{spot_instance_policy}{Configurations whether the warehouse should use spot instances.}
 
-\item{tags}{A set of key-value pairs that will be tagged on all resources (e.g., AWS instances and EBS volumes) associated with this SQL Endpoints.}
+\item{tags}{A set of key-value pairs that will be tagged on all resources (e.g., AWS instances and EBS volumes) associated with this SQL warehouse.}
 
-\item{warehouse_type}{}
+\item{warehouse_type}{Warehouse type: \code{PRO} or \code{CLASSIC}.}
 }
 \description{
 This is a long-running operation, which blocks until Warehouses on Databricks reach

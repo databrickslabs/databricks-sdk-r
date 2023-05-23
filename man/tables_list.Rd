@@ -4,7 +4,13 @@
 \alias{tables_list}
 \title{List tables.}
 \usage{
-tables_list(catalog_name, schema_name, include_delta_metadata = NULL)
+tables_list(
+  catalog_name,
+  schema_name,
+  include_delta_metadata = NULL,
+  max_results = NULL,
+  page_token = NULL
+)
 }
 \arguments{
 \item{catalog_name}{Required. Name of parent catalog for tables of interest.}
@@ -12,6 +18,10 @@ tables_list(catalog_name, schema_name, include_delta_metadata = NULL)
 \item{schema_name}{Required. Parent schema of tables.}
 
 \item{include_delta_metadata}{Whether delta metadata should be included in the response.}
+
+\item{max_results}{Maximum number of tables to return (page length).}
+
+\item{page_token}{Opaque token to send for the next page of results (pagination).}
 }
 \value{
 \code{data.frame} with all of the response pages.

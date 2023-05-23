@@ -5,11 +5,11 @@
 NULL
 
 #' Groups simplify identity management, making it easier to assign access to
-#' Databricks Workspace, data, and other securable objects.
+#' Databricks workspace, data, and other securable objects.
 #' 
 #' It is best practice to assign access to workspaces and access-control
 #' policies in Unity Catalog to groups, instead of to users individually. All
-#' Databricks Workspace identities can be assigned as members of groups, and
+#' Databricks workspace identities can be assigned as members of groups, and
 #' members inherit permissions that are assigned to their group.
 #' 
 #' @section Operations:
@@ -28,7 +28,7 @@ groups <- list()
 
 #' Create a new group.
 #' 
-#' Creates a group in the Databricks Workspace with a unique name, using the
+#' Creates a group in the Databricks workspace with a unique name, using the
 #' supplied group details.
 #'
 #' @param display_name String that represents a human-readable group name.
@@ -54,9 +54,9 @@ groups$create <- groups_create
 
 #' Delete a group.
 #' 
-#' Deletes a group from the Databricks Workspace.
+#' Deletes a group from the Databricks workspace.
 #'
-#' @param id Required. Unique ID for a group in the Databricks Workspace.
+#' @param id Required. Unique ID for a group in the Databricks workspace.
 #'
 #' @keywords internal
 #'
@@ -71,9 +71,9 @@ groups$delete <- groups_delete
 
 #' Get group details.
 #' 
-#' Gets the information for a specific group in the Databricks Workspace.
+#' Gets the information for a specific group in the Databricks workspace.
 #'
-#' @param id Required. Unique ID for a group in the Databricks Workspace.
+#' @param id Required. Unique ID for a group in the Databricks workspace.
 #'
 #' @keywords internal
 #'
@@ -88,7 +88,7 @@ groups$get <- groups_get
 
 #' List group details.
 #' 
-#' Gets all details of the groups associated with the Databricks Workspace.
+#' Gets all details of the groups associated with the Databricks workspace.
 #'
 #' @param attributes Comma-separated list of attributes to return in response.
 #' @param count Desired number of results per page.
@@ -120,7 +120,7 @@ groups$list <- groups_list
 #' 
 #' Partially updates the details of a group.
 #'
-#' @param id Required. Unique ID for a group in the Databricks Account.
+#' @param id Required. Unique ID for a group in the Databricks account.
 #' @param operations 
 #'
 #' @keywords internal

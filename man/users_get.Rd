@@ -7,9 +7,9 @@
 users_get(id)
 }
 \arguments{
-\item{id}{Required. Unique ID for a user in the Databricks Workspace.}
+\item{id}{Required. Unique ID for a user in the Databricks workspace.}
 }
 \description{
-Gets information for a specific user in Databricks Workspace.
+Gets information for a specific user in Databricks workspace.
 }
 \keyword{internal}

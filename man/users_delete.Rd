@@ -7,10 +7,10 @@
 users_delete(id)
 }
 \arguments{
-\item{id}{Required. Unique ID for a user in the Databricks Workspace.}
+\item{id}{Required. Unique ID for a user in the Databricks workspace.}
 }
 \description{
-Deletes a user. Deleting a user from a Databricks Workspace also removes
+Deletes a user. Deleting a user from a Databricks workspace also removes
 objects associated with the user.
 }
 \keyword{internal}

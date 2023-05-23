@@ -2,7 +2,7 @@
 % Please edit documentation in R/statement_execution.R
 \name{statement_execution_execute_statement}
 \alias{statement_execution_execute_statement}
-\title{Execute an SQL statement.}
+\title{Execute a SQL statement.}
 \usage{
 statement_execution_execute_statement(
   byte_limit = NULL,
@@ -10,7 +10,6 @@ statement_execution_execute_statement(
   disposition = NULL,
   format = NULL,
   on_wait_timeout = NULL,
-  row_limit = NULL,
   schema = NULL,
   statement = NULL,
   wait_timeout = NULL,
@@ -18,28 +17,26 @@ statement_execution_execute_statement(
 )
 }
 \arguments{
-\item{byte_limit}{Applies given byte limit to execution and result size; byte counts based upon internal representations, and may not match measureable sizes in requested \code{format}.}
+\item{byte_limit}{Applies the given byte limit to the statement's result size.}
 
 \item{catalog}{Sets default catalog for statement execution, similar to \href{https://docs.databricks.com/sql/language-manual/sql-ref-syntax-ddl-use-catalog.html}{\verb{USE CATALOG}} in SQL.}
 
-\item{disposition}{The fetch disposition provides for two modes of fetching results: \code{INLINE}, and \code{EXTERNAL_LINKS}.}
+\item{disposition}{The fetch disposition provides two modes of fetching results: \code{INLINE} and \code{EXTERNAL_LINKS}.}
 
 \item{format}{Statement execution supports two result formats: \code{JSON_ARRAY} (default), and \code{ARROW_STREAM}.}
 
-\item{on_wait_timeout}{When called in synchronous mode (\verb{wait_timeout > 0s}), determines action when timeout reached: \code{CONTINUE} → statement execution continues asynchronously; the call returns a statement ID immediately.}
-
-\item{row_limit}{Applies given row limit to execution and result set, identical in semantics to SQL term \code{LIMIT $N}.}
+\item{on_wait_timeout}{When in synchronous mode with \verb{wait_timeout > 0s} it determines the action taken when the timeout is reached: \code{CONTINUE} → the statement execution continues asynchronously and the call returns a statement ID immediately.}
 
 \item{schema}{Sets default schema for statement execution, similar to \href{https://docs.databricks.com/sql/language-manual/sql-ref-syntax-ddl-use-schema.html}{\verb{USE SCHEMA}} in SQL.}
 
 \item{statement}{SQL statement to execute.}
 
-\item{wait_timeout}{Time that the API service will wait for the statement result, in format '{N}s'.}
+\item{wait_timeout}{The time in seconds the API service will wait for the statement's result set as \code{Ns}, where \code{N} can be set to 0 or to a value between 5 and 50.}
 
 \item{warehouse_id}{Warehouse upon which to execute a statement.}
 }
 \description{
-Execute an SQL statement, and if flagged as such, await its result for a
+Execute a SQL statement, and if flagged as such, await its result for a
 specified time.
 }
 \keyword{internal}

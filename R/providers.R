@@ -4,7 +4,7 @@
 #' @importFrom stats runif
 NULL
 
-#' Databricks Delta Sharing: Providers REST API
+#' Databricks Providers REST API
 #' 
 #' @section Operations:
 #' \tabular{ll}{

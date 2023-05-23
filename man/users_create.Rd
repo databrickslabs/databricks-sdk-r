@@ -39,7 +39,7 @@ users_create(
 \item{user_name}{Email address of the Databricks user.}
 }
 \description{
-Creates a new user in the Databricks Workspace. This new user will also be
+Creates a new user in the Databricks workspace. This new user will also be
 added to the Databricks account.
 }
 \keyword{internal}

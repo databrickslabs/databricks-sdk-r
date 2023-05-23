@@ -4,7 +4,7 @@
 #' @importFrom stats runif
 NULL
 
-#' Databricks Delta Sharing: Shares REST API
+#' Databricks Shares REST API
 #' 
 #' @section Operations:
 #' \tabular{ll}{
@@ -23,9 +23,9 @@ shares <- list()
 
 #' Create a share.
 #' 
-#' Creates a new share for data objects. Data objects can be added at this time
-#' or after creation with **update**. The caller must be a metastore admin or
-#' have the **CREATE_SHARE** privilege on the metastore.
+#' Creates a new share for data objects. Data objects can be added after
+#' creation with **update**. The caller must be a metastore admin or have the
+#' **CREATE_SHARE** privilege on the metastore.
 #'
 #' @param comment User-provided free-form text description.
 #' @param name Required. Name of the share.

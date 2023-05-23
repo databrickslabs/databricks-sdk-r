@@ -67,7 +67,7 @@ table_constraints$create <- table_constraints_create
 #' **USE_CATALOG** privilege on the table's catalog, the **USE_SCHEMA**
 #' privilege on the table's schema, and be the owner of the table.
 #'
-#' @param cascade Required. If true, try deleting all child constraints of the current constraint.\n If false, reject this operation if the current constraint has any child constraints.
+#' @param cascade Required. If true, try deleting all child constraints of the current constraint.
 #' @param constraint_name Required. The name of the constraint to delete.
 #' @param full_name Required. Full name of the table referenced by the constraint.
 #'

@@ -13,16 +13,15 @@ clusters_list(can_use_client = NULL)
 \code{data.frame} with all of the response pages.
 }
 \description{
-Returns information about all pinned clusters, currently active clusters, up
-to 70 of the most recently terminated interactive clusters in the past 7
-days, and up to 30 of the most recently terminated job clusters in the past 7
-days.
+Return information about all pinned clusters, active clusters, up to 200 of
+the most recently terminated all-purpose clusters in the past 30 days, and up
+to 30 of the most recently terminated job clusters in the past 30 days.
 }
 \details{
 For example, if there is 1 pinned cluster, 4 active clusters, 45 terminated
-interactive clusters in the past 7 days, and 50 terminated job clusters in
-the past 7 days, then this API returns the 1 pinned cluster, 4 active
-clusters, all 45 terminated interactive clusters, and the 30 most recently
+all-purpose clusters in the past 30 days, and 50 terminated job clusters in
+the past 30 days, then this API returns the 1 pinned cluster, 4 active
+clusters, all 45 terminated all-purpose clusters, and the 30 most recently
 terminated job clusters.
 }
 \keyword{internal}

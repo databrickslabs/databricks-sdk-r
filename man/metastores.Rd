@@ -10,7 +10,7 @@ Databricks workspaces to control which workloads use each metastore. For a
 workspace to use Unity Catalog, it must have a Unity Catalog metastore
 attached.}
 \format{
-An object of class \code{list} of length 10.
+An object of class \code{list} of length 11.
 }
 \usage{
 metastores
@@ -34,6 +34,7 @@ a catalog named hive_metastore.
 \link[=metastores_delete]{delete} \tab Delete a metastore.\cr
 \link[=metastores_get]{get} \tab Get a metastore.\cr
 \link[=metastores_list]{list} \tab List metastores.\cr
+\link[=metastores_maintenance]{maintenance} \tab Enables or disables auto maintenance on the metastore.\cr
 \link[=metastores_summary]{summary} \tab Get a metastore summary.\cr
 \link[=metastores_unassign]{unassign} \tab Delete an assignment.\cr
 \link[=metastores_update]{update} \tab Update a metastore.\cr

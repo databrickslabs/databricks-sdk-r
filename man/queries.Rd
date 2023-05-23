@@ -5,7 +5,8 @@
 \alias{queries}
 \title{These endpoints are used for CRUD operations on query definitions. Query
 definitions include the target SQL warehouse, query text, name, description,
-tags, execution schedule, parameters, and visualizations.}
+tags, parameters, and visualizations. Queries can be scheduled using the
+\code{sql_task} type of the Jobs API, e.g. :method:jobs/create.}
 \format{
 An object of class \code{list} of length 6.
 }
@@ -13,9 +14,10 @@ An object of class \code{list} of length 6.
 queries
 }
 \description{
-\strong{Note}: Programmatic operations on refresh schedules via the Databricks SQL
-API are deprecated. Query refresh schedules can be created, updated, fetched
-and deleted using Jobs API, e.g. :method:jobs/create.
+These endpoints are used for CRUD operations on query definitions. Query
+definitions include the target SQL warehouse, query text, name, description,
+tags, parameters, and visualizations. Queries can be scheduled using the
+\code{sql_task} type of the Jobs API, e.g. :method:jobs/create.
 }
 \section{Operations}{
 

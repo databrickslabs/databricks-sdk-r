@@ -68,7 +68,7 @@ dbfs$close <- dbfs_close
 
 #' Open a stream.
 #' 
-#' 'Opens a stream to write to a file and returns a handle to this stream. There
+#' Opens a stream to write to a file and returns a handle to this stream. There
 #' is a 10 minute idle timeout on this handle. If a file or directory already
 #' exists on the given path and __overwrite__ is set to `false`, this call
 #' throws an exception with `RESOURCE_ALREADY_EXISTS`.
@@ -253,7 +253,7 @@ dbfs$put <- dbfs_put
 
 #' Get the contents of a file.
 #' 
-#' 'Returns the contents of a file. If the file does not exist, this call throws
+#' Returns the contents of a file. If the file does not exist, this call throws
 #' an exception with `RESOURCE_DOES_NOT_EXIST`. If the path is a directory, the
 #' read length is negative, or if the offset is negative, this call throws an
 #' exception with `INVALID_PARAMETER_VALUE`. If the read length exceeds 1 MB,

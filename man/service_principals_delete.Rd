@@ -7,9 +7,9 @@
 service_principals_delete(id)
 }
 \arguments{
-\item{id}{Required. Unique ID for a service principal in the Databricks Workspace.}
+\item{id}{Required. Unique ID for a service principal in the Databricks workspace.}
 }
 \description{
-Delete a single service principal in the Databricks Workspace.
+Delete a single service principal in the Databricks workspace.
 }
 \keyword{internal}

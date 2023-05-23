@@ -21,7 +21,7 @@ recipients_update(
 
 \item{owner}{Username of the recipient owner.}
 
-\item{properties_kvpairs}{Recipient properties as map of string key-value pairs.\n When provided in update request, the specified properties will override the existing properties.}
+\item{properties_kvpairs}{Recipient properties as map of string key-value pairs.}
 }
 \description{
 Updates an existing recipient in the metastore. The caller must be a

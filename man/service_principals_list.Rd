@@ -33,6 +33,6 @@ service_principals_list(
 \code{data.frame} with all of the response pages.
 }
 \description{
-Gets the set of service principals associated with a Databricks Workspace.
+Gets the set of service principals associated with a Databricks workspace.
 }
 \keyword{internal}

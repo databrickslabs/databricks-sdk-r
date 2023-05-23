@@ -27,6 +27,7 @@ NULL
 #'  \link[=metastores_delete]{delete} \tab Delete a metastore.\cr
 #'  \link[=metastores_get]{get} \tab Get a metastore.\cr
 #'  \link[=metastores_list]{list} \tab List metastores.\cr
+#'  \link[=metastores_maintenance]{maintenance} \tab Enables or disables auto maintenance on the metastore.\cr
 #'  \link[=metastores_summary]{summary} \tab Get a metastore summary.\cr
 #'  \link[=metastores_unassign]{unassign} \tab Delete an assignment.\cr
 #'  \link[=metastores_update]{update} \tab Update a metastore.\cr
@@ -148,6 +149,24 @@ metastores_list <- function() {
 }
 metastores$list <- metastores_list
 
+#' Enables or disables auto maintenance on the metastore.
+#' 
+#' Enables or disables auto maintenance on the metastore.
+#'
+#' @param enable Required. Whether to enable auto maintenance on the metastore.
+#' @param metastore_id Required. Unique identifier of metastore.
+#'
+#' @keywords internal
+#'
+#' @rdname metastores_maintenance
+#'
+#' @aliases metastores_maintenance
+metastores_maintenance <- function(metastore_id, enable) {
+  body <- list(enable = enable, metastore_id = metastore_id)
+  .state$api$do("PATCH", "/api/2.0/auto-maintenance/service", body = body)
+}
+metastores$maintenance <- metastores_maintenance
+
 #' Get a metastore summary.
 #' 
 #' Gets information about a metastore. This summary includes the storage
@@ -190,7 +209,7 @@ metastores$unassign <- metastores_unassign
 #' @param delta_sharing_recipient_token_lifetime_in_seconds The lifetime of delta sharing recipient token in seconds.
 #' @param delta_sharing_scope The scope of Delta Sharing enabled for the metastore.
 #' @param id Required. Unique ID of the metastore.
-#' @param metastore_id Required. Databricks Unity Catalog metastore ID.
+#' @param metastore_id Required. Unity Catalog metastore ID.
 #' @param name The user-specified name of the metastore.
 #' @param owner The owner of the metastore.
 #' @param privilege_model_version Privilege model version of the metastore, of the form `major.minor` (e.g., `1.0`).

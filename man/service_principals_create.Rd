@@ -33,6 +33,6 @@ service_principals_create(
 \item{roles}{}
 }
 \description{
-Creates a new service principal in the Databricks Workspace.
+Creates a new service principal in the Databricks workspace.
 }
 \keyword{internal}

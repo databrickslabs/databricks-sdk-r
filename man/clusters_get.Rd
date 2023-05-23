@@ -10,8 +10,7 @@ clusters_get(cluster_id)
 \item{cluster_id}{Required. The cluster about which to retrieve information.}
 }
 \description{
-'Retrieves the information for a cluster given its identifier. Clusters can
-be described while they are running, or up to 60 days after they are
-terminated.
+Retrieves the information for a cluster given its identifier. Clusters can be
+described while they are running, or up to 60 days after they are terminated.
 }
 \keyword{internal}

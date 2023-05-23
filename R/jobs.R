@@ -16,10 +16,11 @@ NULL
 #' Scala, Spark submit, and Java applications.
 #' 
 #' You should never hard code secrets or store them in plain text. Use the
-#' :service:secrets to manage secrets in the [Databricks CLI]. Use the [Secrets
+#' [Secrets CLI] to manage secrets in the [Databricks CLI]. Use the [Secrets
 #' utility] to reference secrets in notebooks and jobs.
 #' 
 #' [Databricks CLI]: https://docs.databricks.com/dev-tools/cli/index.html
+#' [Secrets CLI]: https://docs.databricks.com/dev-tools/cli/secrets-cli.html
 #' [Secrets utility]: https://docs.databricks.com/dev-tools/databricks-utils.html#dbutils-secrets
 #' 
 #' @section Operations:
@@ -39,7 +40,7 @@ NULL
 #'  \link[=jobs_reset]{reset} \tab Overwrites all settings for a job.\cr
 #'  \link[=jobs_run_now]{run_now} \tab Trigger a new job run.\cr
 #'  \link[=jobs_submit]{submit} \tab Create and trigger a one-time run.\cr
-#'  \link[=jobs_update]{update} \tab Partially updates a job.\cr
+#'  \link[=jobs_update]{update} \tab Partially update a job.\cr
 #' }
 #'
 #' @rdname jobs
@@ -138,10 +139,12 @@ jobs$cancel_run <- jobs_cancel_run
 #' @param job_clusters A list of job cluster specifications that can be shared and reused by tasks of this job.
 #' @param max_concurrent_runs An optional maximum allowed number of concurrent runs of the job.
 #' @param name An optional name for the job.
+#' @param notification_settings Optional notification settings that are used when sending notifications to each of the `email_notifications` and `webhook_notifications` for this job.
 #' @param schedule An optional periodic schedule for this job.
 #' @param tags A map of tags associated with the job.
 #' @param tasks A list of task specifications to be executed by this job.
 #' @param timeout_seconds An optional timeout applied to each run of this job.
+#' @param trigger Trigger settings for the job.
 #' @param webhook_notifications A collection of system notification IDs to notify when the run begins or completes.
 #'
 #' @keywords internal
@@ -151,13 +154,13 @@ jobs$cancel_run <- jobs_cancel_run
 #' @aliases jobs_create
 jobs_create <- function(access_control_list = NULL, continuous = NULL, email_notifications = NULL,
   format = NULL, git_source = NULL, job_clusters = NULL, max_concurrent_runs = NULL,
-  name = NULL, schedule = NULL, tags = NULL, tasks = NULL, timeout_seconds = NULL,
-  webhook_notifications = NULL) {
+  name = NULL, notification_settings = NULL, schedule = NULL, tags = NULL, tasks = NULL,
+  timeout_seconds = NULL, trigger = NULL, webhook_notifications = NULL) {
   body <- list(access_control_list = access_control_list, continuous = continuous,
     email_notifications = email_notifications, format = format, git_source = git_source,
     job_clusters = job_clusters, max_concurrent_runs = max_concurrent_runs, name = name,
-    schedule = schedule, tags = tags, tasks = tasks, timeout_seconds = timeout_seconds,
-    webhook_notifications = webhook_notifications)
+    notification_settings = notification_settings, schedule = schedule, tags = tags,
+    tasks = tasks, timeout_seconds = timeout_seconds, trigger = trigger, webhook_notifications = webhook_notifications)
   .state$api$do("POST", "/api/2.1/jobs/create", body = body)
 }
 jobs$create <- jobs_create
@@ -596,6 +599,7 @@ jobs$run_now <- jobs_run_now
 #' @param access_control_list List of permissions to set on the job.
 #' @param git_source An optional specification for a remote repository containing the notebooks used by this job's notebook tasks.
 #' @param idempotency_token An optional token that can be used to guarantee the idempotency of job run requests.
+#' @param notification_settings Optional notification settings that are used when sending notifications to each of the `webhook_notifications` for this run.
 #' @param run_name An optional name for the run.
 #' @param tasks 
 #' @param timeout_seconds An optional timeout applied to each run of this job.
@@ -607,11 +611,11 @@ jobs$run_now <- jobs_run_now
 #'
 #' @aliases jobs_submit
 jobs_submit <- function(access_control_list = NULL, git_source = NULL, idempotency_token = NULL,
-  run_name = NULL, tasks = NULL, timeout_seconds = NULL, webhook_notifications = NULL,
-  timeout = 20, callback = cli_reporter) {
+  notification_settings = NULL, run_name = NULL, tasks = NULL, timeout_seconds = NULL,
+  webhook_notifications = NULL, timeout = 20, callback = cli_reporter) {
   body <- list(access_control_list = access_control_list, git_source = git_source,
-    idempotency_token = idempotency_token, run_name = run_name, tasks = tasks,
-    timeout_seconds = timeout_seconds, webhook_notifications = webhook_notifications)
+    idempotency_token = idempotency_token, notification_settings = notification_settings,
+    run_name = run_name, tasks = tasks, timeout_seconds = timeout_seconds, webhook_notifications = webhook_notifications)
   op_response <- .state$api$do("POST", "/api/2.1/jobs/runs/submit", body = body)
   started <- as.numeric(Sys.time())
   target_states <- c("TERMINATED", "SKIPPED", c())
@@ -655,7 +659,7 @@ jobs_submit <- function(access_control_list = NULL, git_source = NULL, idempoten
 }
 jobs$submit <- jobs_submit
 
-#' Partially updates a job.
+#' Partially update a job.
 #' 
 #' Add, update, or remove specific settings of an existing job. Use the ResetJob
 #' to overwrite all job settings.

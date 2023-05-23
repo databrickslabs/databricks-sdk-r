@@ -22,9 +22,9 @@ ip_access_lists_replace(
 
 \item{enabled}{Required. Specifies whether this IP access list is enabled.}
 
-\item{ip_access_list_id}{Required. The ID for the corresponding IP access list to modify.}
+\item{ip_access_list_id}{Required. The ID for the corresponding IP access list.}
 
-\item{list_id}{Universally unique identifier(UUID) of the IP access list.}
+\item{list_id}{Universally unique identifier (UUID) of the IP access list.}
 }
 \description{
 Replaces an IP access list, specified by its ID.

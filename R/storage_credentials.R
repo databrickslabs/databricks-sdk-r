@@ -47,7 +47,7 @@ storage_credentials <- list()
 #' @param azure_service_principal The Azure service principal configuration.
 #' @param comment Comment associated with the credential.
 #' @param gcp_service_account_key The GCP service account key configuration.
-#' @param metastore_id Required. Databricks Unity Catalog metastore ID.
+#' @param metastore_id Required. Unity Catalog metastore ID.
 #' @param name Required. The credential name.
 #' @param read_only Whether the storage credential is only usable for read operations.
 #' @param skip_validation Supplying true to this argument skips validation of the created credential.
@@ -112,14 +112,19 @@ storage_credentials$get <- storage_credentials_get
 #' The array is limited to only those storage credentials the caller has
 #' permission to access. If the caller is a metastore admin, all storage
 #' credentials will be retrieved. There is no guarantee of a specific ordering
-#' of the elements in the array.#'
+#' of the elements in the array.#' 
+#' @return `data.frame` with all of the response pages.
+#'
 #' @keywords internal
 #'
 #' @rdname storage_credentials_list
 #'
 #' @aliases storage_credentials_list
 storage_credentials_list <- function() {
-  .state$api$do("GET", "/api/2.1/unity-catalog/storage-credentials")
+
+  json <- .state$api$do("GET", "/api/2.1/unity-catalog/storage-credentials")
+  return(json$storage_credentials)
+
 }
 storage_credentials$list <- storage_credentials_list
 
@@ -134,6 +139,7 @@ storage_credentials$list <- storage_credentials_list
 #' @param comment Comment associated with the credential.
 #' @param force Force update even if there are dependent external locations or external tables.
 #' @param gcp_service_account_key The GCP service account key configuration.
+#' @param metastore_id Required. Unity Catalog metastore ID.
 #' @param name The credential name.
 #' @param owner Username of current owner of credential.
 #' @param read_only Whether the storage credential is only usable for read operations.
@@ -144,7 +150,7 @@ storage_credentials$list <- storage_credentials_list
 #' @rdname storage_credentials_update
 #'
 #' @aliases storage_credentials_update
-storage_credentials_update <- function(name, aws_iam_role = NULL, azure_service_principal = NULL,
+storage_credentials_update <- function(metastore_id, name, aws_iam_role = NULL, azure_service_principal = NULL,
   comment = NULL, force = NULL, gcp_service_account_key = NULL, owner = NULL, read_only = NULL,
   skip_validation = NULL) {
   body <- list(aws_iam_role = aws_iam_role, azure_service_principal = azure_service_principal,

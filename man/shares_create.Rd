@@ -12,8 +12,8 @@ shares_create(name, comment = NULL)
 \item{comment}{User-provided free-form text description.}
 }
 \description{
-Creates a new share for data objects. Data objects can be added at this time
-or after creation with \strong{update}. The caller must be a metastore admin or
-have the \strong{CREATE_SHARE} privilege on the metastore.
+Creates a new share for data objects. Data objects can be added after
+creation with \strong{update}. The caller must be a metastore admin or have the
+\strong{CREATE_SHARE} privilege on the metastore.
 }
 \keyword{internal}

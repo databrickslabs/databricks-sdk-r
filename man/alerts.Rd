@@ -5,32 +5,29 @@
 \alias{alerts}
 \title{The alerts API can be used to perform CRUD operations on alerts. An alert is
 a Databricks SQL object that periodically runs a query, evaluates a condition
-of its result, and notifies one or more users and/or alert destinations if
-the condition was met.}
+of its result, and notifies one or more users and/or notification
+destinations if the condition was met. Alerts can be scheduled using the
+\code{sql_task} type of the Jobs API, e.g. :method:jobs/create.}
 \format{
-An object of class \code{list} of length 11.
+An object of class \code{list} of length 5.
 }
 \usage{
 alerts
 }
 \description{
-\strong{Note}: Programmatic operations on refresh schedules via the Databricks SQL
-API are deprecated. Alert refresh schedules can be created, updated, fetched
-and deleted using Jobs API, e.g. :method:jobs/create.
+The alerts API can be used to perform CRUD operations on alerts. An alert is
+a Databricks SQL object that periodically runs a query, evaluates a condition
+of its result, and notifies one or more users and/or notification
+destinations if the condition was met. Alerts can be scheduled using the
+\code{sql_task} type of the Jobs API, e.g. :method:jobs/create.
 }
 \section{Operations}{
 
 \tabular{ll}{
 \link[=alerts_create]{create} \tab Create an alert.\cr
-\link[=alerts_create_schedule]{create_schedule} \tab \link{DEPRECATED} Create a refresh schedule.\cr
 \link[=alerts_delete]{delete} \tab Delete an alert.\cr
-\link[=alerts_delete_schedule]{delete_schedule} \tab \link{DEPRECATED} Delete a refresh schedule.\cr
 \link[=alerts_get]{get} \tab Get an alert.\cr
-\link[=alerts_get_subscriptions]{get_subscriptions} \tab \link{DEPRECATED} Get an alert's subscriptions.\cr
 \link[=alerts_list]{list} \tab Get alerts.\cr
-\link[=alerts_list_schedules]{list_schedules} \tab \link{DEPRECATED} Get refresh schedules.\cr
-\link[=alerts_subscribe]{subscribe} \tab \link{DEPRECATED} Subscribe to an alert.\cr
-\link[=alerts_unsubscribe]{unsubscribe} \tab \link{DEPRECATED} Unsubscribe to an alert.\cr
 \link[=alerts_update]{update} \tab Update an alert.\cr
 }
 }

@@ -10,8 +10,12 @@ statement_execution_get_statement(statement_id)
 \item{statement_id}{Required.}
 }
 \description{
-Polls for statement status; when status.state=SUCCEEDED will also return the
-result manifest, and the first chunk of result data.
+This request can be used to poll for the statement's status. When the
+\code{status.state} field is \code{SUCCEEDED} it will also return the result manifest
+and the first chunk of the result data. When the statement is in the terminal
+states \code{CANCELED}, \code{CLOSED} or \code{FAILED}, it returns HTTP 200 with the state
+set. After at least 12 hours in terminal state, the statement is removed from
+the warehouse and further calls will receive an HTTP 404 response.
 }
 \details{
 \strong{NOTE} This call currently may take up to 5 seconds to get the latest

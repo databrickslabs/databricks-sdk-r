@@ -33,6 +33,6 @@ groups_list(
 \code{data.frame} with all of the response pages.
 }
 \description{
-Gets all details of the groups associated with the Databricks Workspace.
+Gets all details of the groups associated with the Databricks workspace.
 }
 \keyword{internal}

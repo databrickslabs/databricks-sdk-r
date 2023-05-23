@@ -19,9 +19,9 @@ code, visualizations, and explanatory text.
 
 \tabular{ll}{
 \link[=workspace_delete]{delete} \tab Delete a workspace object.\cr
-\link[=workspace_export]{export} \tab Export a notebook.\cr
+\link[=workspace_export]{export} \tab Export a workspace object.\cr
 \link[=workspace_get_status]{get_status} \tab Get status.\cr
-\link[=workspace_import]{import} \tab Import a notebook.\cr
+\link[=workspace_import]{import} \tab Import a workspace object.\cr
 \link[=workspace_list]{list} \tab List contents.\cr
 \link[=workspace_mkdirs]{mkdirs} \tab Create a directory.\cr
 }

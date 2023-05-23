@@ -12,14 +12,11 @@ statement_execution_get_statement_result_chunk_n(statement_id, chunk_index)
 \item{chunk_index}{Required.}
 }
 \description{
-After statement execution has SUCCEEDED, result data can be fetched by
-chunks.
-}
-\details{
-The first chunk (\code{chunk_index=0}) is typically fetched through
-\code{getStatementResult}, and subsequent chunks with this call. The response
-structure is identical to the nested \code{result} element described in
-getStatementResult, and similarly includes \code{next_chunk_index} and
-\code{next_chunk_internal_link} for simple iteration through the result set.
+After the statement execution has \code{SUCCEEDED}, the result data can be fetched
+by chunks. Whereas the first chuck with \code{chunk_index=0} is typically fetched
+through a \verb{get status} request, subsequent chunks can be fetched using a \verb{get result} request. The response structure is identical to the nested \code{result}
+element described in the \verb{get status} request, and similarly includes the
+\code{next_chunk_index} and \code{next_chunk_internal_link} fields for simple iteration
+through the result set.
 }
 \keyword{internal}

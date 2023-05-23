@@ -35,19 +35,19 @@ warehouses <- list()
 #' By default, the state of Databricks Warehouses is reported to console. You can change this behavior 
 #' by changing the `callback` parameter.
 #'
-#' @param auto_stop_mins The amount of time in minutes that a SQL Endpoint must be idle (i.e., no RUNNING queries) before it is automatically stopped.
+#' @param auto_stop_mins The amount of time in minutes that a SQL warehouse must be idle (i.e., no RUNNING queries) before it is automatically stopped.
 #' @param channel Channel Details.
-#' @param cluster_size Size of the clusters allocated for this endpoint.
-#' @param creator_name endpoint creator name.
-#' @param enable_photon Configures whether the endpoint should use Photon optimized clusters.
-#' @param enable_serverless_compute Configures whether the endpoint should use Serverless Compute (aka Nephos) Defaults to value in global endpoint settings.
+#' @param cluster_size Size of the clusters allocated for this warehouse.
+#' @param creator_name warehouse creator name.
+#' @param enable_photon Configures whether the warehouse should use Photon optimized clusters.
+#' @param enable_serverless_compute Configures whether the warehouse should use serverless compute.
 #' @param instance_profile_arn Deprecated.
 #' @param max_num_clusters Maximum number of clusters that the autoscaler will create to handle concurrent queries.
-#' @param min_num_clusters Minimum number of available clusters that will be maintained for this SQL Endpoint.
+#' @param min_num_clusters Minimum number of available clusters that will be maintained for this SQL warehouse.
 #' @param name Logical name for the cluster.
 #' @param spot_instance_policy Configurations whether the warehouse should use spot instances.
-#' @param tags A set of key-value pairs that will be tagged on all resources (e.g., AWS instances and EBS volumes) associated with this SQL Endpoints.
-#' @param warehouse_type 
+#' @param tags A set of key-value pairs that will be tagged on all resources (e.g., AWS instances and EBS volumes) associated with this SQL warehouse.
+#' @param warehouse_type Warehouse type: `PRO` or `CLASSIC`.
 #'
 #' @keywords internal
 #'
@@ -170,21 +170,20 @@ warehouses$delete <- warehouses_delete
 #' By default, the state of Databricks Warehouses is reported to console. You can change this behavior 
 #' by changing the `callback` parameter.
 #'
-#' @param auto_stop_mins The amount of time in minutes that a SQL Endpoint must be idle (i.e., no RUNNING queries) before it is automatically stopped.
+#' @param auto_stop_mins The amount of time in minutes that a SQL warehouse must be idle (i.e., no RUNNING queries) before it is automatically stopped.
 #' @param channel Channel Details.
-#' @param cluster_size Size of the clusters allocated for this endpoint.
-#' @param creator_name endpoint creator name.
-#' @param enable_databricks_compute Configures whether the endpoint should use Databricks Compute (aka Nephos) Deprecated: Use enable_serverless_compute.
-#' @param enable_photon Configures whether the endpoint should use Photon optimized clusters.
-#' @param enable_serverless_compute Configures whether the endpoint should use Serverless Compute (aka Nephos) Defaults to value in global endpoint settings.
+#' @param cluster_size Size of the clusters allocated for this warehouse.
+#' @param creator_name warehouse creator name.
+#' @param enable_photon Configures whether the warehouse should use Photon optimized clusters.
+#' @param enable_serverless_compute Configures whether the warehouse should use serverless compute.
 #' @param id Required. Required.
 #' @param instance_profile_arn Deprecated.
 #' @param max_num_clusters Maximum number of clusters that the autoscaler will create to handle concurrent queries.
-#' @param min_num_clusters Minimum number of available clusters that will be maintained for this SQL Endpoint.
+#' @param min_num_clusters Minimum number of available clusters that will be maintained for this SQL warehouse.
 #' @param name Logical name for the cluster.
 #' @param spot_instance_policy Configurations whether the warehouse should use spot instances.
-#' @param tags A set of key-value pairs that will be tagged on all resources (e.g., AWS instances and EBS volumes) associated with this SQL Endpoints.
-#' @param warehouse_type 
+#' @param tags A set of key-value pairs that will be tagged on all resources (e.g., AWS instances and EBS volumes) associated with this SQL warehouse.
+#' @param warehouse_type Warehouse type: `PRO` or `CLASSIC`.
 #'
 #' @keywords internal
 #'
@@ -192,13 +191,12 @@ warehouses$delete <- warehouses_delete
 #'
 #' @aliases warehouses_edit
 warehouses_edit <- function(id, auto_stop_mins = NULL, channel = NULL, cluster_size = NULL,
-  creator_name = NULL, enable_databricks_compute = NULL, enable_photon = NULL,
-  enable_serverless_compute = NULL, instance_profile_arn = NULL, max_num_clusters = NULL,
-  min_num_clusters = NULL, name = NULL, spot_instance_policy = NULL, tags = NULL,
-  warehouse_type = NULL, timeout = 20, callback = cli_reporter) {
+  creator_name = NULL, enable_photon = NULL, enable_serverless_compute = NULL,
+  instance_profile_arn = NULL, max_num_clusters = NULL, min_num_clusters = NULL,
+  name = NULL, spot_instance_policy = NULL, tags = NULL, warehouse_type = NULL,
+  timeout = 20, callback = cli_reporter) {
   body <- list(auto_stop_mins = auto_stop_mins, channel = channel, cluster_size = cluster_size,
-    creator_name = creator_name, enable_databricks_compute = enable_databricks_compute,
-    enable_photon = enable_photon, enable_serverless_compute = enable_serverless_compute,
+    creator_name = creator_name, enable_photon = enable_photon, enable_serverless_compute = enable_serverless_compute,
     instance_profile_arn = instance_profile_arn, max_num_clusters = max_num_clusters,
     min_num_clusters = min_num_clusters, name = name, spot_instance_policy = spot_instance_policy,
     tags = tags, warehouse_type = warehouse_type)
@@ -279,7 +277,7 @@ warehouses$get_workspace_warehouse_config <- warehouses_get_workspace_warehouse_
 #' 
 #' Lists all SQL warehouses that a user has manager permissions on.
 #'
-#' @param run_as_user_id Service Principal which will be used to fetch the list of endpoints.
+#' @param run_as_user_id Service Principal which will be used to fetch the list of warehouses.
 #' 
 #' @return `data.frame` with all of the response pages.
 #'
@@ -305,14 +303,11 @@ warehouses$list <- warehouses_list
 #' @param channel Optional: Channel selection details.
 #' @param config_param Deprecated: Use sql_configuration_parameters.
 #' @param data_access_config Spark confs for external hive metastore configuration JSON serialized size must be less than <= 512K.
-#' @param enable_databricks_compute Enable Serverless compute for SQL Endpoints Deprecated: Use enable_serverless_compute.
-#' @param enable_serverless_compute Enable Serverless compute for SQL Endpoints.
 #' @param enabled_warehouse_types List of Warehouse Types allowed in this workspace (limits allowed value of the type field in CreateWarehouse and EditWarehouse).
 #' @param global_param Deprecated: Use sql_configuration_parameters.
 #' @param google_service_account GCP only: Google Service Account used to pass to cluster to access Google Cloud Storage.
 #' @param instance_profile_arn AWS Only: Instance profile used to pass IAM role to the cluster.
-#' @param security_policy Security policy for endpoints.
-#' @param serverless_agreement Internal.
+#' @param security_policy Security policy for warehouses.
 #' @param sql_configuration_parameters SQL configuration parameters.
 #'
 #' @keywords internal
@@ -321,16 +316,13 @@ warehouses$list <- warehouses_list
 #'
 #' @aliases warehouses_set_workspace_warehouse_config
 warehouses_set_workspace_warehouse_config <- function(channel = NULL, config_param = NULL,
-  data_access_config = NULL, enable_databricks_compute = NULL, enable_serverless_compute = NULL,
-  enabled_warehouse_types = NULL, global_param = NULL, google_service_account = NULL,
-  instance_profile_arn = NULL, security_policy = NULL, serverless_agreement = NULL,
+  data_access_config = NULL, enabled_warehouse_types = NULL, global_param = NULL,
+  google_service_account = NULL, instance_profile_arn = NULL, security_policy = NULL,
   sql_configuration_parameters = NULL) {
   body <- list(channel = channel, config_param = config_param, data_access_config = data_access_config,
-    enable_databricks_compute = enable_databricks_compute, enable_serverless_compute = enable_serverless_compute,
     enabled_warehouse_types = enabled_warehouse_types, global_param = global_param,
     google_service_account = google_service_account, instance_profile_arn = instance_profile_arn,
-    security_policy = security_policy, serverless_agreement = serverless_agreement,
-    sql_configuration_parameters = sql_configuration_parameters)
+    security_policy = security_policy, sql_configuration_parameters = sql_configuration_parameters)
   .state$api$do("PUT", "/api/2.0/sql/config/warehouses", body = body)
 }
 warehouses$set_workspace_warehouse_config <- warehouses_set_workspace_warehouse_config

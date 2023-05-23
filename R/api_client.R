@@ -223,6 +223,13 @@ NULL
 .api <- .DatabricksClient()
 
 #' Override default authentication credentials for Databricks SDK for R
+#' 
+#' @param config_file path to Databricks CLI configuration file. Defaults to ~/.databrickscfg
+#' @param profile configuration profile from ~/.databrickscfg. Defaults to DEFAULT
+#' @param host URL of Databricks Workspace
+#' @param token Personal Access Token
+#' 
+#' @keywords internal
 #'
 #' @export
 configure <- function(...) {

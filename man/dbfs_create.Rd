@@ -12,7 +12,7 @@ dbfs_create(path, overwrite = NULL)
 \item{overwrite}{The flag that specifies whether to overwrite existing file/files.}
 }
 \description{
-'Opens a stream to write to a file and returns a handle to this stream. There
+Opens a stream to write to a file and returns a handle to this stream. There
 is a 10 minute idle timeout on this handle. If a file or directory already
 exists on the given path and \strong{overwrite} is set to \code{false}, this call
 throws an exception with \code{RESOURCE_ALREADY_EXISTS}.

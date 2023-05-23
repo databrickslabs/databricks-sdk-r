@@ -10,8 +10,7 @@ queries_update(
   description = NULL,
   name = NULL,
   options = NULL,
-  query = NULL,
-  schedule = NULL
+  query = NULL
 )
 }
 \arguments{
@@ -26,8 +25,6 @@ queries_update(
 \item{options}{Exclusively used for storing a list parameter definitions.}
 
 \item{query}{The text of the query.}
-
-\item{schedule}{JSON object that describes the scheduled execution frequency.}
 }
 \description{
 Modify this query definition.

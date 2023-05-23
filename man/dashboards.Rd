@@ -7,7 +7,8 @@
 it can be useful to use dashboard objects to look-up a collection of related
 query IDs. The API can also be used to duplicate multiple dashboards at once
 since you can get a dashboard definition with a GET request and then POST it
-to create a new one.}
+to create a new one. Dashboards can be scheduled using the \code{sql_task} type of
+the Jobs API, e.g. :method:jobs/create.}
 \format{
 An object of class \code{list} of length 5.
 }
@@ -15,9 +16,12 @@ An object of class \code{list} of length 5.
 dashboards
 }
 \description{
-\strong{Note}: Programmatic operations on refresh schedules via the Databricks SQL
-API are deprecated. Dashboard refresh schedules can be created, updated,
-fetched and deleted using Jobs API, e.g. :method:jobs/create.
+In general, there is little need to modify dashboards using the API. However,
+it can be useful to use dashboard objects to look-up a collection of related
+query IDs. The API can also be used to duplicate multiple dashboards at once
+since you can get a dashboard definition with a GET request and then POST it
+to create a new one. Dashboards can be scheduled using the \code{sql_task} type of
+the Jobs API, e.g. :method:jobs/create.
 }
 \section{Operations}{
 

@@ -13,10 +13,12 @@ jobs_create(
   job_clusters = NULL,
   max_concurrent_runs = NULL,
   name = NULL,
+  notification_settings = NULL,
   schedule = NULL,
   tags = NULL,
   tasks = NULL,
   timeout_seconds = NULL,
+  trigger = NULL,
   webhook_notifications = NULL
 )
 }
@@ -37,6 +39,8 @@ jobs_create(
 
 \item{name}{An optional name for the job.}
 
+\item{notification_settings}{Optional notification settings that are used when sending notifications to each of the \code{email_notifications} and \code{webhook_notifications} for this job.}
+
 \item{schedule}{An optional periodic schedule for this job.}
 
 \item{tags}{A map of tags associated with the job.}
@@ -44,6 +48,8 @@ jobs_create(
 \item{tasks}{A list of task specifications to be executed by this job.}
 
 \item{timeout_seconds}{An optional timeout applied to each run of this job.}
+
+\item{trigger}{Trigger settings for the job.}
 
 \item{webhook_notifications}{A collection of system notification IDs to notify when the run begins or completes.}
 }

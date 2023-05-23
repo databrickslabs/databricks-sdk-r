@@ -2,7 +2,7 @@
 % Please edit documentation in R/jobs.R
 \name{jobs_update}
 \alias{jobs_update}
-\title{Partially updates a job.}
+\title{Partially update a job.}
 \usage{
 jobs_update(job_id, fields_to_remove = NULL, new_settings = NULL)
 }

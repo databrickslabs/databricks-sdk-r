@@ -2,7 +2,7 @@
 % Please edit documentation in R/workspace.R
 \name{workspace_import}
 \alias{workspace_import}
-\title{Import a notebook.}
+\title{Import a workspace object.}
 \usage{
 workspace_import(
   path,
@@ -13,7 +13,7 @@ workspace_import(
 )
 }
 \arguments{
-\item{path}{Required. The absolute path of the notebook or directory.}
+\item{path}{Required. The absolute path of the object or directory.}
 
 \item{content}{The base64-encoded content.}
 
@@ -24,9 +24,9 @@ workspace_import(
 \item{overwrite}{The flag that specifies whether to overwrite existing object.}
 }
 \description{
-Imports a notebook or the contents of an entire directory. If \code{path} already
-exists and \code{overwrite} is set to \code{false}, this call returns an error
-\code{RESOURCE_ALREADY_EXISTS}. One can only use \code{DBC} format to import a
-directory.
+Imports a workspace object (for example, a notebook or file) or the contents
+of an entire directory. If \code{path} already exists and \code{overwrite} is set to
+\code{false}, this call returns an error \code{RESOURCE_ALREADY_EXISTS}. One can only
+use \code{DBC} format to import a directory.
 }
 \keyword{internal}

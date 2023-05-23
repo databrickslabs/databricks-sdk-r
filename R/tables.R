@@ -82,6 +82,8 @@ tables$get <- tables_get
 #'
 #' @param catalog_name Required. Name of parent catalog for tables of interest.
 #' @param include_delta_metadata Whether delta metadata should be included in the response.
+#' @param max_results Maximum number of tables to return (page length).
+#' @param page_token Opaque token to send for the next page of results (pagination).
 #' @param schema_name Required. Parent schema of tables.
 #' 
 #' @return `data.frame` with all of the response pages.
@@ -91,12 +93,25 @@ tables$get <- tables_get
 #' @rdname tables_list
 #'
 #' @aliases tables_list
-tables_list <- function(catalog_name, schema_name, include_delta_metadata = NULL) {
+tables_list <- function(catalog_name, schema_name, include_delta_metadata = NULL,
+  max_results = NULL, page_token = NULL) {
   query <- list(catalog_name = catalog_name, include_delta_metadata = include_delta_metadata,
-    schema_name = schema_name)
+    max_results = max_results, page_token = page_token, schema_name = schema_name)
 
-  json <- .state$api$do("GET", "/api/2.1/unity-catalog/tables", query = query)
-  return(json$tables)
+  results <- data.frame()
+  while (TRUE) {
+    json <- .state$api$do("GET", "/api/2.1/unity-catalog/tables", query = query)
+    if (is.null(nrow(json$tables))) {
+      break
+    }
+    # append this page of results to one results data.frame
+    results <- dplyr::bind_rows(results, json$tables)
+    if (is.null(json$next_page_token)) {
+      break
+    }
+    query$page_token <- json$next_page_token
+  }
+  return(results)
 
 }
 tables$list <- tables_list

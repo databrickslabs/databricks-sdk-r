@@ -3,7 +3,7 @@
 \docType{data}
 \name{recipients}
 \alias{recipients}
-\title{Databricks Delta Sharing: Recipients REST API}
+\title{Databricks Recipients REST API}
 \format{
 An object of class \code{list} of length 7.
 }
@@ -11,7 +11,7 @@ An object of class \code{list} of length 7.
 recipients
 }
 \description{
-Databricks Delta Sharing: Recipients REST API
+Databricks Recipients REST API
 }
 \section{Operations}{
 

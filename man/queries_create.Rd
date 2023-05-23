@@ -10,8 +10,7 @@ queries_create(
   name = NULL,
   options = NULL,
   parent = NULL,
-  query = NULL,
-  schedule = NULL
+  query = NULL
 )
 }
 \arguments{
@@ -26,8 +25,6 @@ queries_create(
 \item{parent}{The identifier of the workspace folder containing the query.}
 
 \item{query}{The text of the query.}
-
-\item{schedule}{JSON object that describes the scheduled execution frequency.}
 }
 \description{
 Creates a new query definition. Queries created with this endpoint belong to

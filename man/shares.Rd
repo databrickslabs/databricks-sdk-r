@@ -3,7 +3,7 @@
 \docType{data}
 \name{shares}
 \alias{shares}
-\title{Databricks Delta Sharing: Shares REST API}
+\title{Databricks Shares REST API}
 \format{
 An object of class \code{list} of length 7.
 }
@@ -11,7 +11,7 @@ An object of class \code{list} of length 7.
 shares
 }
 \description{
-Databricks Delta Sharing: Shares REST API
+Databricks Shares REST API
 }
 \section{Operations}{
 

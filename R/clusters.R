@@ -111,6 +111,7 @@ clusters$change_owner <- clusters_change_owner
 #' @param enable_elastic_disk Autoscaling Local Storage: when enabled, this cluster will dynamically acquire additional disk space when its Spark workers are running low on disk space.
 #' @param enable_local_disk_encryption Whether to enable LUKS on cluster VMs' local disks.
 #' @param gcp_attributes Attributes related to clusters running on Google Cloud Platform.
+#' @param init_scripts The configuration for storing init scripts.
 #' @param instance_pool_id The optional ID of the instance pool to which the cluster belongs.
 #' @param node_type_id This field encodes, through a single value, the resources available to each of the Spark nodes in this cluster.
 #' @param num_workers Number of worker nodes that this cluster should have.
@@ -131,20 +132,20 @@ clusters_create <- function(spark_version, apply_policy_default_values = NULL, a
   autotermination_minutes = NULL, aws_attributes = NULL, azure_attributes = NULL,
   cluster_log_conf = NULL, cluster_name = NULL, cluster_source = NULL, custom_tags = NULL,
   driver_instance_pool_id = NULL, driver_node_type_id = NULL, enable_elastic_disk = NULL,
-  enable_local_disk_encryption = NULL, gcp_attributes = NULL, instance_pool_id = NULL,
-  node_type_id = NULL, num_workers = NULL, policy_id = NULL, runtime_engine = NULL,
-  spark_conf = NULL, spark_env_vars = NULL, ssh_public_keys = NULL, workload_type = NULL,
-  timeout = 20, callback = cli_reporter) {
+  enable_local_disk_encryption = NULL, gcp_attributes = NULL, init_scripts = NULL,
+  instance_pool_id = NULL, node_type_id = NULL, num_workers = NULL, policy_id = NULL,
+  runtime_engine = NULL, spark_conf = NULL, spark_env_vars = NULL, ssh_public_keys = NULL,
+  workload_type = NULL, timeout = 20, callback = cli_reporter) {
   body <- list(apply_policy_default_values = apply_policy_default_values, autoscale = autoscale,
     autotermination_minutes = autotermination_minutes, aws_attributes = aws_attributes,
     azure_attributes = azure_attributes, cluster_log_conf = cluster_log_conf,
     cluster_name = cluster_name, cluster_source = cluster_source, custom_tags = custom_tags,
     driver_instance_pool_id = driver_instance_pool_id, driver_node_type_id = driver_node_type_id,
     enable_elastic_disk = enable_elastic_disk, enable_local_disk_encryption = enable_local_disk_encryption,
-    gcp_attributes = gcp_attributes, instance_pool_id = instance_pool_id, node_type_id = node_type_id,
-    num_workers = num_workers, policy_id = policy_id, runtime_engine = runtime_engine,
-    spark_conf = spark_conf, spark_env_vars = spark_env_vars, spark_version = spark_version,
-    ssh_public_keys = ssh_public_keys, workload_type = workload_type)
+    gcp_attributes = gcp_attributes, init_scripts = init_scripts, instance_pool_id = instance_pool_id,
+    node_type_id = node_type_id, num_workers = num_workers, policy_id = policy_id,
+    runtime_engine = runtime_engine, spark_conf = spark_conf, spark_env_vars = spark_env_vars,
+    spark_version = spark_version, ssh_public_keys = ssh_public_keys, workload_type = workload_type)
   op_response <- .state$api$do("POST", "/api/2.0/clusters/create", body = body)
   started <- as.numeric(Sys.time())
   target_states <- c("RUNNING", c())
@@ -280,6 +281,7 @@ clusters$delete <- clusters_delete
 #' @param enable_elastic_disk Autoscaling Local Storage: when enabled, this cluster will dynamically acquire additional disk space when its Spark workers are running low on disk space.
 #' @param enable_local_disk_encryption Whether to enable LUKS on cluster VMs' local disks.
 #' @param gcp_attributes Attributes related to clusters running on Google Cloud Platform.
+#' @param init_scripts The configuration for storing init scripts.
 #' @param instance_pool_id The optional ID of the instance pool to which the cluster belongs.
 #' @param node_type_id This field encodes, through a single value, the resources available to each of the Spark nodes in this cluster.
 #' @param num_workers Number of worker nodes that this cluster should have.
@@ -300,20 +302,20 @@ clusters_edit <- function(cluster_id, spark_version, apply_policy_default_values
   autoscale = NULL, autotermination_minutes = NULL, aws_attributes = NULL, azure_attributes = NULL,
   cluster_log_conf = NULL, cluster_name = NULL, cluster_source = NULL, custom_tags = NULL,
   driver_instance_pool_id = NULL, driver_node_type_id = NULL, enable_elastic_disk = NULL,
-  enable_local_disk_encryption = NULL, gcp_attributes = NULL, instance_pool_id = NULL,
-  node_type_id = NULL, num_workers = NULL, policy_id = NULL, runtime_engine = NULL,
-  spark_conf = NULL, spark_env_vars = NULL, ssh_public_keys = NULL, workload_type = NULL,
-  timeout = 20, callback = cli_reporter) {
+  enable_local_disk_encryption = NULL, gcp_attributes = NULL, init_scripts = NULL,
+  instance_pool_id = NULL, node_type_id = NULL, num_workers = NULL, policy_id = NULL,
+  runtime_engine = NULL, spark_conf = NULL, spark_env_vars = NULL, ssh_public_keys = NULL,
+  workload_type = NULL, timeout = 20, callback = cli_reporter) {
   body <- list(apply_policy_default_values = apply_policy_default_values, autoscale = autoscale,
     autotermination_minutes = autotermination_minutes, aws_attributes = aws_attributes,
     azure_attributes = azure_attributes, cluster_id = cluster_id, cluster_log_conf = cluster_log_conf,
     cluster_name = cluster_name, cluster_source = cluster_source, custom_tags = custom_tags,
     driver_instance_pool_id = driver_instance_pool_id, driver_node_type_id = driver_node_type_id,
     enable_elastic_disk = enable_elastic_disk, enable_local_disk_encryption = enable_local_disk_encryption,
-    gcp_attributes = gcp_attributes, instance_pool_id = instance_pool_id, node_type_id = node_type_id,
-    num_workers = num_workers, policy_id = policy_id, runtime_engine = runtime_engine,
-    spark_conf = spark_conf, spark_env_vars = spark_env_vars, spark_version = spark_version,
-    ssh_public_keys = ssh_public_keys, workload_type = workload_type)
+    gcp_attributes = gcp_attributes, init_scripts = init_scripts, instance_pool_id = instance_pool_id,
+    node_type_id = node_type_id, num_workers = num_workers, policy_id = policy_id,
+    runtime_engine = runtime_engine, spark_conf = spark_conf, spark_env_vars = spark_env_vars,
+    spark_version = spark_version, ssh_public_keys = ssh_public_keys, workload_type = workload_type)
   .state$api$do("POST", "/api/2.0/clusters/edit", body = body)
   started <- as.numeric(Sys.time())
   target_states <- c("RUNNING", c())
@@ -398,9 +400,8 @@ clusters$events <- clusters_events
 
 #' Get cluster info.
 #' 
-#' 'Retrieves the information for a cluster given its identifier. Clusters can
-#' be described while they are running, or up to 60 days after they are
-#' terminated.
+#' Retrieves the information for a cluster given its identifier. Clusters can be
+#' described while they are running, or up to 60 days after they are terminated.
 #'
 #' @param cluster_id Required. The cluster about which to retrieve information.
 #'
@@ -417,15 +418,14 @@ clusters$get <- clusters_get
 
 #' List all clusters.
 #' 
-#' Returns information about all pinned clusters, currently active clusters, up
-#' to 70 of the most recently terminated interactive clusters in the past 7
-#' days, and up to 30 of the most recently terminated job clusters in the past 7
-#' days.
+#' Return information about all pinned clusters, active clusters, up to 200 of
+#' the most recently terminated all-purpose clusters in the past 30 days, and up
+#' to 30 of the most recently terminated job clusters in the past 30 days.
 #' 
 #' For example, if there is 1 pinned cluster, 4 active clusters, 45 terminated
-#' interactive clusters in the past 7 days, and 50 terminated job clusters in
-#' the past 7 days, then this API returns the 1 pinned cluster, 4 active
-#' clusters, all 45 terminated interactive clusters, and the 30 most recently
+#' all-purpose clusters in the past 30 days, and 50 terminated job clusters in
+#' the past 30 days, then this API returns the 1 pinned cluster, 4 active
+#' clusters, all 45 terminated all-purpose clusters, and the 30 most recently
 #' terminated job clusters.
 #'
 #' @param can_use_client Filter clusters based on what type of client it can be used for.

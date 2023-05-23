@@ -6,11 +6,8 @@ NULL
 
 #' These endpoints are used for CRUD operations on query definitions. Query
 #' definitions include the target SQL warehouse, query text, name, description,
-#' tags, execution schedule, parameters, and visualizations.
-#' 
-#' **Note**: Programmatic operations on refresh schedules via the Databricks SQL
-#' API are deprecated. Query refresh schedules can be created, updated, fetched
-#' and deleted using Jobs API, e.g. :method:jobs/create.
+#' tags, parameters, and visualizations. Queries can be scheduled using the
+#' `sql_task` type of the Jobs API, e.g. :method:jobs/create.
 #' 
 #' @section Operations:
 #' \tabular{ll}{
@@ -44,7 +41,6 @@ queries <- list()
 #' @param options Exclusively used for storing a list parameter definitions.
 #' @param parent The identifier of the workspace folder containing the query.
 #' @param query The text of the query.
-#' @param schedule JSON object that describes the scheduled execution frequency.
 #'
 #' @keywords internal
 #'
@@ -52,9 +48,9 @@ queries <- list()
 #'
 #' @aliases queries_create
 queries_create <- function(data_source_id = NULL, description = NULL, name = NULL,
-  options = NULL, parent = NULL, query = NULL, schedule = NULL) {
+  options = NULL, parent = NULL, query = NULL) {
   body <- list(data_source_id = data_source_id, description = description, name = name,
-    options = options, parent = parent, query = query, schedule = schedule)
+    options = options, parent = parent, query = query)
   .state$api$do("POST", "/api/2.0/preview/sql/queries", body = body)
 }
 queries$create <- queries_create
@@ -165,7 +161,6 @@ queries$restore <- queries_restore
 #' @param options Exclusively used for storing a list parameter definitions.
 #' @param query The text of the query.
 #' @param query_id Required. 
-#' @param schedule JSON object that describes the scheduled execution frequency.
 #'
 #' @keywords internal
 #'
@@ -173,9 +168,9 @@ queries$restore <- queries_restore
 #'
 #' @aliases queries_update
 queries_update <- function(query_id, data_source_id = NULL, description = NULL, name = NULL,
-  options = NULL, query = NULL, schedule = NULL) {
+  options = NULL, query = NULL) {
   body <- list(data_source_id = data_source_id, description = description, name = name,
-    options = options, query = query, schedule = schedule)
+    options = options, query = query)
   .state$api$do("POST", paste("/api/2.0/preview/sql/queries/", query_id, sep = ""),
     body = body)
 }

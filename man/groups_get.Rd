@@ -7,9 +7,9 @@
 groups_get(id)
 }
 \arguments{
-\item{id}{Required. Unique ID for a group in the Databricks Workspace.}
+\item{id}{Required. Unique ID for a group in the Databricks workspace.}
 }
 \description{
-Gets the information for a specific group in the Databricks Workspace.
+Gets the information for a specific group in the Databricks workspace.
 }
 \keyword{internal}

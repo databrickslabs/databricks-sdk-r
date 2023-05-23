@@ -7,7 +7,7 @@
 warehouses_list(run_as_user_id = NULL)
 }
 \arguments{
-\item{run_as_user_id}{Service Principal which will be used to fetch the list of endpoints.}
+\item{run_as_user_id}{Service Principal which will be used to fetch the list of warehouses.}
 }
 \value{
 \code{data.frame} with all of the response pages.

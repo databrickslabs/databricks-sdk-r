@@ -6,6 +6,9 @@
 \usage{
 storage_credentials_list()
 }
+\value{
+\code{data.frame} with all of the response pages.
+}
 \description{
 Gets an array of storage credentials (as \strong{StorageCredentialInfo} objects).
 The array is limited to only those storage credentials the caller has

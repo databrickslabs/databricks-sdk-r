@@ -17,7 +17,7 @@ metastores_update(
 )
 }
 \arguments{
-\item{metastore_id}{Required. Databricks Unity Catalog metastore ID.}
+\item{metastore_id}{Required. Unity Catalog metastore ID.}
 
 \item{id}{Required. Unique ID of the metastore.}
 

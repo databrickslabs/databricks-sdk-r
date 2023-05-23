@@ -4,7 +4,7 @@
 \name{groups}
 \alias{groups}
 \title{Groups simplify identity management, making it easier to assign access to
-Databricks Workspace, data, and other securable objects.}
+Databricks workspace, data, and other securable objects.}
 \format{
 An object of class \code{list} of length 6.
 }
@@ -14,7 +14,7 @@ groups
 \description{
 It is best practice to assign access to workspaces and access-control
 policies in Unity Catalog to groups, instead of to users individually. All
-Databricks Workspace identities can be assigned as members of groups, and
+Databricks workspace identities can be assigned as members of groups, and
 members inherit permissions that are assigned to their group.
 }
 \section{Operations}{

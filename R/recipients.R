@@ -4,7 +4,7 @@
 #' @importFrom stats runif
 NULL
 
-#' Databricks Delta Sharing: Recipients REST API
+#' Databricks Recipients REST API
 #' 
 #' @section Operations:
 #' \tabular{ll}{
@@ -29,11 +29,11 @@ recipients <- list()
 #'
 #' @param authentication_type Required. The delta sharing authentication type.
 #' @param comment Description about the recipient.
-#' @param data_recipient_global_metastore_id The global Unity Catalog metastore id provided by the data recipient.\n This field is required when the __authentication_type__ is **DATABRICKS**.\n The identifier is of format __cloud__:__region__:__metastore-uuid__.
+#' @param data_recipient_global_metastore_id The global Unity Catalog metastore id provided by the data recipient.
 #' @param ip_access_list IP Access List.
 #' @param name Required. Name of Recipient.
 #' @param owner Username of the recipient owner.
-#' @param properties_kvpairs Recipient properties as map of string key-value pairs.\n.
+#' @param properties_kvpairs Recipient properties as map of string key-value pairs.
 #' @param sharing_code The one-time sharing code provided by the data recipient.
 #'
 #' @keywords internal
@@ -162,7 +162,7 @@ recipients$share_permissions <- recipients_share_permissions
 #' @param ip_access_list IP Access List.
 #' @param name Name of Recipient.
 #' @param owner Username of the recipient owner.
-#' @param properties_kvpairs Recipient properties as map of string key-value pairs.\n When provided in update request, the specified properties will override the existing properties.
+#' @param properties_kvpairs Recipient properties as map of string key-value pairs.
 #'
 #' @keywords internal
 #'

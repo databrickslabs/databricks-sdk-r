@@ -4,8 +4,8 @@
 #' @importFrom stats runif
 NULL
 
-#' The Serverless Real-Time Inference Serving Endpoints API allows you to
-#' create, update, and delete model serving endpoints.
+#' The Serving Endpoints API allows you to create, update, and delete model
+#' serving endpoints.
 #' 
 #' You can use a serving endpoint to serve models from the Databricks Model
 #' Registry. Endpoints expose the underlying models as scalable REST API
@@ -38,8 +38,7 @@ serving_endpoints <- list()
 #' Retrieve the logs associated with building the model's environment for a
 #' given serving endpoint's served model.
 #' 
-#' Retrieves the build logs associated with the provided served model. Please
-#' note that this API is in preview and may change in the future.
+#' Retrieves the build logs associated with the provided served model.
 #'
 #' @param name Required. The name of the serving endpoint that the served model belongs to.
 #' @param served_model_name Required. The name of the served model that build logs will be retrieved for.
@@ -132,8 +131,7 @@ serving_endpoints$delete <- serving_endpoints_delete
 #' in Prometheus or OpenMetrics exposition format.
 #' 
 #' Retrieves the metrics associated with the provided serving endpoint in either
-#' Prometheus or OpenMetrics exposition format. Please note that this API is in
-#' preview and may change in the future.
+#' Prometheus or OpenMetrics exposition format.
 #'
 #' @param name Required. The name of the serving endpoint to retrieve metrics for.
 #'
@@ -180,8 +178,7 @@ serving_endpoints$list <- serving_endpoints_list
 #' Retrieve the most recent log lines associated with a given serving endpoint's
 #' served model.
 #' 
-#' Retrieves the service logs associated with the provided served model. Please
-#' note that this API is in preview and may change in the future.
+#' Retrieves the service logs associated with the provided served model.
 #'
 #' @param name Required. The name of the serving endpoint that the served model belongs to.
 #' @param served_model_name Required. The name of the served model that logs will be retrieved for.

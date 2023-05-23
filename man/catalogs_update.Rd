@@ -4,12 +4,20 @@
 \alias{catalogs_update}
 \title{Update a catalog.}
 \usage{
-catalogs_update(name, comment = NULL, owner = NULL, properties = NULL)
+catalogs_update(
+  name,
+  comment = NULL,
+  isolation_mode = NULL,
+  owner = NULL,
+  properties = NULL
+)
 }
 \arguments{
 \item{name}{Name of catalog.}
 
 \item{comment}{User-provided free-form text description.}
+
+\item{isolation_mode}{Whether the current securable is accessible from all workspaces or a specific set of workspaces.}
 
 \item{owner}{Username of current owner of catalog.}
 

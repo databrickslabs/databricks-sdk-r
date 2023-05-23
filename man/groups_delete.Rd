@@ -7,9 +7,9 @@
 groups_delete(id)
 }
 \arguments{
-\item{id}{Required. Unique ID for a group in the Databricks Workspace.}
+\item{id}{Required. Unique ID for a group in the Databricks workspace.}
 }
 \description{
-Deletes a group from the Databricks Workspace.
+Deletes a group from the Databricks workspace.
 }
 \keyword{internal}

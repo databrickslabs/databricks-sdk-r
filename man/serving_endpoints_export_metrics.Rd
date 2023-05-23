@@ -12,7 +12,6 @@ serving_endpoints_export_metrics(name)
 }
 \description{
 Retrieves the metrics associated with the provided serving endpoint in either
-Prometheus or OpenMetrics exposition format. Please note that this API is in
-preview and may change in the future.
+Prometheus or OpenMetrics exposition format.
 }
 \keyword{internal}

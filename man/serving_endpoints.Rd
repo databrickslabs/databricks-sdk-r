@@ -3,8 +3,8 @@
 \docType{data}
 \name{serving_endpoints}
 \alias{serving_endpoints}
-\title{The Serverless Real-Time Inference Serving Endpoints API allows you to
-create, update, and delete model serving endpoints.}
+\title{The Serving Endpoints API allows you to create, update, and delete model
+serving endpoints.}
 \format{
 An object of class \code{list} of length 9.
 }

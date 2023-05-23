@@ -27,7 +27,7 @@ service_principals <- list()
 
 #' Create a service principal.
 #' 
-#' Creates a new service principal in the Databricks Workspace.
+#' Creates a new service principal in the Databricks workspace.
 #'
 #' @param active If this user is active.
 #' @param application_id UUID relating to the service principal.
@@ -54,9 +54,9 @@ service_principals$create <- service_principals_create
 
 #' Delete a service principal.
 #' 
-#' Delete a single service principal in the Databricks Workspace.
+#' Delete a single service principal in the Databricks workspace.
 #'
-#' @param id Required. Unique ID for a service principal in the Databricks Workspace.
+#' @param id Required. Unique ID for a service principal in the Databricks workspace.
 #'
 #' @keywords internal
 #'
@@ -73,9 +73,9 @@ service_principals$delete <- service_principals_delete
 #' Get service principal details.
 #' 
 #' Gets the details for a single service principal define in the Databricks
-#' Workspace.
+#' workspace.
 #'
-#' @param id Required. Unique ID for a service principal in the Databricks Workspace.
+#' @param id Required. Unique ID for a service principal in the Databricks workspace.
 #'
 #' @keywords internal
 #'
@@ -91,7 +91,7 @@ service_principals$get <- service_principals_get
 
 #' List service principals.
 #' 
-#' Gets the set of service principals associated with a Databricks Workspace.
+#' Gets the set of service principals associated with a Databricks workspace.
 #'
 #' @param attributes Comma-separated list of attributes to return in response.
 #' @param count Desired number of results per page.
@@ -122,9 +122,9 @@ service_principals$list <- service_principals_list
 #' Update service principal details.
 #' 
 #' Partially updates the details of a single service principal in the Databricks
-#' Workspace.
+#' workspace.
 #'
-#' @param id Required. Unique ID for a group in the Databricks Account.
+#' @param id Required. Unique ID for a group in the Databricks account.
 #' @param operations 
 #'
 #' @keywords internal

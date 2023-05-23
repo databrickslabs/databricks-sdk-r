@@ -20,6 +20,7 @@ pipelines_update(
   libraries = NULL,
   name = NULL,
   photon = NULL,
+  serverless = NULL,
   storage = NULL,
   target = NULL,
   trigger = NULL
@@ -30,7 +31,7 @@ pipelines_update(
 
 \item{allow_duplicate_names}{If false, deployment will fail if name has changed and conflicts the name of another pipeline.}
 
-\item{catalog}{Catalog in UC to add tables to.}
+\item{catalog}{A catalog in Unity Catalog to publish data from this pipeline to.}
 
 \item{channel}{DLT Release Channel that specifies which version to use.}
 
@@ -55,6 +56,8 @@ pipelines_update(
 \item{name}{Friendly identifier for this pipeline.}
 
 \item{photon}{Whether Photon is enabled for this pipeline.}
+
+\item{serverless}{Whether serverless compute is enabled for this pipeline.}
 
 \item{storage}{DBFS root directory for storing checkpoints and tables.}
 

@@ -6,6 +6,16 @@
 \usage{
 configure(...)
 }
+\arguments{
+\item{config_file}{path to Databricks CLI configuration file. Defaults to ~/.databrickscfg}
+
+\item{profile}{configuration profile from ~/.databrickscfg. Defaults to DEFAULT}
+
+\item{host}{URL of Databricks Workspace}
+
+\item{token}{Personal Access Token}
+}
 \description{
 Override default authentication credentials for Databricks SDK for R
 }
+\keyword{internal}

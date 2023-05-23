@@ -7,13 +7,13 @@ NULL
 #' User identities recognized by Databricks and represented by email addresses.
 #' 
 #' Databricks recommends using SCIM provisioning to sync users and groups
-#' automatically from your identity provider to your Databricks Workspace. SCIM
+#' automatically from your identity provider to your Databricks workspace. SCIM
 #' streamlines onboarding a new employee or team by using your identity provider
-#' to create users and groups in Databricks Workspace and give them the proper
+#' to create users and groups in Databricks workspace and give them the proper
 #' level of access. When a user leaves your organization or no longer needs
-#' access to Databricks Workspace, admins can terminate the user in your
+#' access to Databricks workspace, admins can terminate the user in your
 #' identity provider and that user’s account will also be removed from
-#' Databricks Workspace. This ensures a consistent offboarding process and
+#' Databricks workspace. This ensures a consistent offboarding process and
 #' prevents unauthorized users from accessing sensitive data.
 #' 
 #' @section Operations:
@@ -32,7 +32,7 @@ users <- list()
 
 #' Create a new user.
 #' 
-#' Creates a new user in the Databricks Workspace. This new user will also be
+#' Creates a new user in the Databricks workspace. This new user will also be
 #' added to the Databricks account.
 #'
 #' @param active If this user is active.
@@ -62,10 +62,10 @@ users$create <- users_create
 
 #' Delete a user.
 #' 
-#' Deletes a user. Deleting a user from a Databricks Workspace also removes
+#' Deletes a user. Deleting a user from a Databricks workspace also removes
 #' objects associated with the user.
 #'
-#' @param id Required. Unique ID for a user in the Databricks Workspace.
+#' @param id Required. Unique ID for a user in the Databricks workspace.
 #'
 #' @keywords internal
 #'
@@ -80,9 +80,9 @@ users$delete <- users_delete
 
 #' Get user details.
 #' 
-#' Gets information for a specific user in Databricks Workspace.
+#' Gets information for a specific user in Databricks workspace.
 #'
-#' @param id Required. Unique ID for a user in the Databricks Workspace.
+#' @param id Required. Unique ID for a user in the Databricks workspace.
 #'
 #' @keywords internal
 #'
@@ -97,7 +97,7 @@ users$get <- users_get
 
 #' List users.
 #' 
-#' Gets details for all the users associated with a Databricks Workspace.
+#' Gets details for all the users associated with a Databricks workspace.
 #'
 #' @param attributes Comma-separated list of attributes to return in response.
 #' @param count Desired number of results per page.
@@ -130,7 +130,7 @@ users$list <- users_list
 #' Partially updates a user resource by applying the supplied operations on
 #' specific user attributes.
 #'
-#' @param id Required. Unique ID for a group in the Databricks Account.
+#' @param id Required. Unique ID for a group in the Databricks account.
 #' @param operations 
 #'
 #' @keywords internal

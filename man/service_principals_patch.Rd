@@ -7,12 +7,12 @@
 service_principals_patch(id, operations = NULL)
 }
 \arguments{
-\item{id}{Required. Unique ID for a group in the Databricks Account.}
+\item{id}{Required. Unique ID for a group in the Databricks account.}
 
 \item{operations}{}
 }
 \description{
 Partially updates the details of a single service principal in the Databricks
-Workspace.
+workspace.
 }
 \keyword{internal}

@@ -30,7 +30,7 @@ groups_create(
 \item{roles}{}
 }
 \description{
-Creates a group in the Databricks Workspace with a unique name, using the
+Creates a group in the Databricks workspace with a unique name, using the
 supplied group details.
 }
 \keyword{internal}

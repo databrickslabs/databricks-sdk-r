@@ -2,19 +2,19 @@
 % Please edit documentation in R/workspace.R
 \name{workspace_export}
 \alias{workspace_export}
-\title{Export a notebook.}
+\title{Export a workspace object.}
 \usage{
 workspace_export(path, direct_download = NULL, format = NULL)
 }
 \arguments{
-\item{path}{Required. The absolute path of the notebook or directory.}
+\item{path}{Required. The absolute path of the object or directory.}
 
 \item{direct_download}{Flag to enable direct download.}
 
 \item{format}{This specifies the format of the exported file.}
 }
 \description{
-Exports a notebook or the contents of an entire directory.
+Exports an object or the contents of an entire directory.
 }
 \details{
 If \code{path} does not exist, this call returns an error

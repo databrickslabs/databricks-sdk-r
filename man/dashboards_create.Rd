@@ -4,30 +4,16 @@
 \alias{dashboards_create}
 \title{Create a dashboard object.}
 \usage{
-dashboards_create(
-  dashboard_filters_enabled = NULL,
-  is_draft = NULL,
-  is_trashed = NULL,
-  name = NULL,
-  parent = NULL,
-  tags = NULL,
-  widgets = NULL
-)
+dashboards_create(is_favorite = NULL, name = NULL, parent = NULL, tags = NULL)
 }
 \arguments{
-\item{dashboard_filters_enabled}{In the web application, query filters that share a name are coupled to a single selection box if this value is true.}
-
-\item{is_draft}{Draft dashboards only appear in list views for their owners.}
-
-\item{is_trashed}{Indicates whether the dashboard is trashed.}
+\item{is_favorite}{Indicates whether this query object should appear in the current user's favorites list.}
 
 \item{name}{The title of this dashboard that appears in list views and at the top of the dashboard page.}
 
 \item{parent}{The identifier of the workspace folder containing the dashboard.}
 
 \item{tags}{}
-
-\item{widgets}{An array of widget objects.}
 }
 \description{
 Create a dashboard object.

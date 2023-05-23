@@ -8,14 +8,11 @@ warehouses_set_workspace_warehouse_config(
   channel = NULL,
   config_param = NULL,
   data_access_config = NULL,
-  enable_databricks_compute = NULL,
-  enable_serverless_compute = NULL,
   enabled_warehouse_types = NULL,
   global_param = NULL,
   google_service_account = NULL,
   instance_profile_arn = NULL,
   security_policy = NULL,
-  serverless_agreement = NULL,
   sql_configuration_parameters = NULL
 )
 }
@@ -26,10 +23,6 @@ warehouses_set_workspace_warehouse_config(
 
 \item{data_access_config}{Spark confs for external hive metastore configuration JSON serialized size must be less than <= 512K.}
 
-\item{enable_databricks_compute}{Enable Serverless compute for SQL Endpoints Deprecated: Use enable_serverless_compute.}
-
-\item{enable_serverless_compute}{Enable Serverless compute for SQL Endpoints.}
-
 \item{enabled_warehouse_types}{List of Warehouse Types allowed in this workspace (limits allowed value of the type field in CreateWarehouse and EditWarehouse).}
 
 \item{global_param}{Deprecated: Use sql_configuration_parameters.}
@@ -38,9 +31,7 @@ warehouses_set_workspace_warehouse_config(
 
 \item{instance_profile_arn}{AWS Only: Instance profile used to pass IAM role to the cluster.}
 
-\item{security_policy}{Security policy for endpoints.}
-
-\item{serverless_agreement}{Internal.}
+\item{security_policy}{Security policy for warehouses.}
 
 \item{sql_configuration_parameters}{SQL configuration parameters.}
 }
