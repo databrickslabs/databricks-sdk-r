@@ -1,17 +1,17 @@
-Copyright (2023) Databricks, Inc.
+Copyright (2022) Databricks, Inc.
 
 This Software includes software developed at Databricks (https://www.databricks.com/) and its use is subject to the included LICENSE file.
 
 This Software contains code from the following open source projects, licensed under the MIT license:
 
-httr - https://httr.r-lib.org/
-Copyright (c) 2023 httr authors
-License - https://httr.r-lib.org/LICENSE.html
+r-lib/httr - https://github.com/r-lib/httr
+Copyright 2023 httr authors
+License - https://github.com/r-lib/httr/blob/main/LICENSE.md
 
-jsonlite - https://cran.r-project.org/web/packages/jsonlite/index.html
-Copyright (c) 2017 Jeroen Ooms
-License - https://cran.r-project.org/web/licenses/MIT + https://cran.r-project.org/web/packages/jsonlite/LICENSE
+jeroen/jsonlite - https://github.com/jeroen/jsonlite
+Copyright 2020 Jeroen Ooms
+License - https://github.com/jeroen/jsonlite/blob/master/COPYING
 
-dplyr - https://cran.r-project.org/web/packages/dplyr/index.html
-Copyright (c) 2023 dplyr authors
+tidyverse/dplyr - https://github.com/tidyverse/dplyr
+Copyright 2023 dplyr authors
 License - https://github.com/tidyverse/dplyr/blob/main/LICENSE.md
