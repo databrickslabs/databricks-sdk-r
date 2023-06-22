@@ -276,6 +276,8 @@ clusters$delete <- clusters_delete
 #' @param cluster_name Cluster name requested by the user.
 #' @param cluster_source Determines whether the cluster was created by a user through the UI, created by the Databricks Jobs Scheduler, or through an API request.
 #' @param custom_tags Additional tags for cluster resources.
+#' @param data_security_mode This describes an enum.
+#' @param docker_image 
 #' @param driver_instance_pool_id The optional ID of the instance pool for the driver of the cluster belongs.
 #' @param driver_node_type_id The node type of the Spark driver.
 #' @param enable_elastic_disk Autoscaling Local Storage: when enabled, this cluster will dynamically acquire additional disk space when its Spark workers are running low on disk space.
@@ -287,6 +289,7 @@ clusters$delete <- clusters_delete
 #' @param num_workers Number of worker nodes that this cluster should have.
 #' @param policy_id The ID of the cluster policy used to create the cluster if applicable.
 #' @param runtime_engine Decides which runtime engine to be use, e.g.
+#' @param single_user_name Single user name if data_security_mode is `SINGLE_USER`.
 #' @param spark_conf An object containing a set of optional, user-specified Spark configuration key-value pairs.
 #' @param spark_env_vars An object containing a set of optional, user-specified environment variable key-value pairs.
 #' @param spark_version Required. The Spark version of the cluster, e.g.
@@ -301,20 +304,22 @@ clusters$delete <- clusters_delete
 clusters_edit <- function(cluster_id, spark_version, apply_policy_default_values = NULL,
   autoscale = NULL, autotermination_minutes = NULL, aws_attributes = NULL, azure_attributes = NULL,
   cluster_log_conf = NULL, cluster_name = NULL, cluster_source = NULL, custom_tags = NULL,
-  driver_instance_pool_id = NULL, driver_node_type_id = NULL, enable_elastic_disk = NULL,
-  enable_local_disk_encryption = NULL, gcp_attributes = NULL, init_scripts = NULL,
-  instance_pool_id = NULL, node_type_id = NULL, num_workers = NULL, policy_id = NULL,
-  runtime_engine = NULL, spark_conf = NULL, spark_env_vars = NULL, ssh_public_keys = NULL,
-  workload_type = NULL, timeout = 20, callback = cli_reporter) {
+  data_security_mode = NULL, docker_image = NULL, driver_instance_pool_id = NULL,
+  driver_node_type_id = NULL, enable_elastic_disk = NULL, enable_local_disk_encryption = NULL,
+  gcp_attributes = NULL, init_scripts = NULL, instance_pool_id = NULL, node_type_id = NULL,
+  num_workers = NULL, policy_id = NULL, runtime_engine = NULL, single_user_name = NULL,
+  spark_conf = NULL, spark_env_vars = NULL, ssh_public_keys = NULL, workload_type = NULL,
+  timeout = 20, callback = cli_reporter) {
   body <- list(apply_policy_default_values = apply_policy_default_values, autoscale = autoscale,
     autotermination_minutes = autotermination_minutes, aws_attributes = aws_attributes,
     azure_attributes = azure_attributes, cluster_id = cluster_id, cluster_log_conf = cluster_log_conf,
     cluster_name = cluster_name, cluster_source = cluster_source, custom_tags = custom_tags,
-    driver_instance_pool_id = driver_instance_pool_id, driver_node_type_id = driver_node_type_id,
-    enable_elastic_disk = enable_elastic_disk, enable_local_disk_encryption = enable_local_disk_encryption,
-    gcp_attributes = gcp_attributes, init_scripts = init_scripts, instance_pool_id = instance_pool_id,
-    node_type_id = node_type_id, num_workers = num_workers, policy_id = policy_id,
-    runtime_engine = runtime_engine, spark_conf = spark_conf, spark_env_vars = spark_env_vars,
+    data_security_mode = data_security_mode, docker_image = docker_image, driver_instance_pool_id = driver_instance_pool_id,
+    driver_node_type_id = driver_node_type_id, enable_elastic_disk = enable_elastic_disk,
+    enable_local_disk_encryption = enable_local_disk_encryption, gcp_attributes = gcp_attributes,
+    init_scripts = init_scripts, instance_pool_id = instance_pool_id, node_type_id = node_type_id,
+    num_workers = num_workers, policy_id = policy_id, runtime_engine = runtime_engine,
+    single_user_name = single_user_name, spark_conf = spark_conf, spark_env_vars = spark_env_vars,
     spark_version = spark_version, ssh_public_keys = ssh_public_keys, workload_type = workload_type)
   .state$api$do("POST", "/api/2.0/clusters/edit", body = body)
   started <- as.numeric(Sys.time())

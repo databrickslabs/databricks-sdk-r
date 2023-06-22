@@ -75,7 +75,7 @@ NULL
 #' **Fetching result data: format and disposition**
 #' 
 #' To specify the result data format, set the `format` field to `JSON_ARRAY`
-#' (JSON) or `ARROW_STREAM` ([Apache Arrow Columnar]).
+#' (JSON), `ARROW_STREAM` ([Apache Arrow Columnar]), or `CSV`.
 #' 
 #' You can also configure how to fetch the result data in two different modes by
 #' setting the `disposition` field to `INLINE` or `EXTERNAL_LINKS`.
@@ -85,8 +85,8 @@ NULL
 #' disposition exceeds this limit, the execution is aborted, and no result can
 #' be fetched.
 #' 
-#' The `EXTERNAL_LINKS` disposition allows fetching large result sets in both
-#' `JSON_ARRAY` and `ARROW_STREAM` formats, and with higher throughput.
+#' The `EXTERNAL_LINKS` disposition allows fetching large result sets in
+#' `JSON_ARRAY`, `ARROW_STREAM` and `CSV` formats, and with higher throughput.
 #' 
 #' The API uses defaults of `format=JSON_ARRAY` and `disposition=INLINE`.
 #' Databricks recommends that you explicit setting the format and the
@@ -227,7 +227,7 @@ statement_execution$cancel_execution <- statement_execution_cancel_execution
 #' @param byte_limit Applies the given byte limit to the statement's result size.
 #' @param catalog Sets default catalog for statement execution, similar to [`USE CATALOG`](https://docs.databricks.com/sql/language-manual/sql-ref-syntax-ddl-use-catalog.html) in SQL.
 #' @param disposition The fetch disposition provides two modes of fetching results: `INLINE` and `EXTERNAL_LINKS`.
-#' @param format Statement execution supports two result formats: `JSON_ARRAY` (default), and `ARROW_STREAM`.
+#' @param format Statement execution supports three result formats: `JSON_ARRAY` (default), `ARROW_STREAM`, and `CSV`.
 #' @param on_wait_timeout When in synchronous mode with `wait_timeout > 0s` it determines the action taken when the timeout is reached: `CONTINUE` → the statement execution continues asynchronously and the call returns a statement ID immediately.
 #' @param schema Sets default schema for statement execution, similar to [`USE SCHEMA`](https://docs.databricks.com/sql/language-manual/sql-ref-syntax-ddl-use-schema.html) in SQL.
 #' @param statement SQL statement to execute.

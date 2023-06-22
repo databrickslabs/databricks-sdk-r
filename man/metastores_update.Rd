@@ -5,7 +5,6 @@
 \title{Update a metastore.}
 \usage{
 metastores_update(
-  metastore_id,
   id,
   delta_sharing_organization_name = NULL,
   delta_sharing_recipient_token_lifetime_in_seconds = NULL,
@@ -17,8 +16,6 @@ metastores_update(
 )
 }
 \arguments{
-\item{metastore_id}{Required. Unity Catalog metastore ID.}
-
 \item{id}{Required. Unique ID of the metastore.}
 
 \item{delta_sharing_organization_name}{The organization name of a Delta Sharing entity, to be used in Databricks-to-Databricks Delta Sharing as the official name.}

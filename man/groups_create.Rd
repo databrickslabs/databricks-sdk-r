@@ -5,18 +5,16 @@
 \title{Create a new group.}
 \usage{
 groups_create(
-  id,
   display_name = NULL,
   entitlements = NULL,
   external_id = NULL,
   groups = NULL,
+  id = NULL,
   members = NULL,
   roles = NULL
 )
 }
 \arguments{
-\item{id}{Databricks group ID.}
-
 \item{display_name}{String that represents a human-readable group name.}
 
 \item{entitlements}{}
@@ -24,6 +22,8 @@ groups_create(
 \item{external_id}{}
 
 \item{groups}{}
+
+\item{id}{Databricks group ID.}
 
 \item{members}{}
 

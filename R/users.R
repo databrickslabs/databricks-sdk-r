@@ -51,8 +51,8 @@ users <- list()
 #' @rdname users_create
 #'
 #' @aliases users_create
-users_create <- function(id, active = NULL, display_name = NULL, emails = NULL, entitlements = NULL,
-  external_id = NULL, groups = NULL, name = NULL, roles = NULL, user_name = NULL) {
+users_create <- function(active = NULL, display_name = NULL, emails = NULL, entitlements = NULL,
+  external_id = NULL, groups = NULL, id = NULL, name = NULL, roles = NULL, user_name = NULL) {
   body <- list(active = active, displayName = display_name, emails = emails, entitlements = entitlements,
     externalId = external_id, groups = groups, id = id, name = name, roles = roles,
     userName = user_name)
@@ -130,7 +130,7 @@ users$list <- users_list
 #' Partially updates a user resource by applying the supplied operations on
 #' specific user attributes.
 #'
-#' @param id Required. Unique ID for a group in the Databricks account.
+#' @param id Required. Unique ID for a user in the Databricks workspace.
 #' @param operations 
 #'
 #' @keywords internal

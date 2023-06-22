@@ -79,7 +79,7 @@ field, and iteratively \code{GET} those paths until that field is unset: \verb{G
 \strong{Fetching result data: format and disposition}
 
 To specify the result data format, set the \code{format} field to \code{JSON_ARRAY}
-(JSON) or \code{ARROW_STREAM} (\href{https://arrow.apache.org/overview/}{Apache Arrow Columnar}).
+(JSON), \code{ARROW_STREAM} (\href{https://arrow.apache.org/overview/}{Apache Arrow Columnar}), or \code{CSV}.
 
 You can also configure how to fetch the result data in two different modes by
 setting the \code{disposition} field to \code{INLINE} or \code{EXTERNAL_LINKS}.
@@ -89,8 +89,8 @@ allows results up to 16 MiB. When a statement executed with \code{INLINE}
 disposition exceeds this limit, the execution is aborted, and no result can
 be fetched.
 
-The \code{EXTERNAL_LINKS} disposition allows fetching large result sets in both
-\code{JSON_ARRAY} and \code{ARROW_STREAM} formats, and with higher throughput.
+The \code{EXTERNAL_LINKS} disposition allows fetching large result sets in
+\code{JSON_ARRAY}, \code{ARROW_STREAM} and \code{CSV} formats, and with higher throughput.
 
 The API uses defaults of \code{format=JSON_ARRAY} and \code{disposition=INLINE}.
 Databricks recommends that you explicit setting the format and the

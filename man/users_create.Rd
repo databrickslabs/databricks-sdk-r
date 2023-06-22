@@ -5,21 +5,19 @@
 \title{Create a new user.}
 \usage{
 users_create(
-  id,
   active = NULL,
   display_name = NULL,
   emails = NULL,
   entitlements = NULL,
   external_id = NULL,
   groups = NULL,
+  id = NULL,
   name = NULL,
   roles = NULL,
   user_name = NULL
 )
 }
 \arguments{
-\item{id}{Databricks user ID.}
-
 \item{active}{If this user is active.}
 
 \item{display_name}{String that represents a concatenation of given and family names.}
@@ -31,6 +29,8 @@ users_create(
 \item{external_id}{}
 
 \item{groups}{}
+
+\item{id}{Databricks user ID.}
 
 \item{name}{}
 

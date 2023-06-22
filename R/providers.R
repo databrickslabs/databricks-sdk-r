@@ -111,6 +111,8 @@ providers$list <- providers_list
 #' * the caller is a metastore admin, or * the caller is the owner.
 #'
 #' @param name Required. Name of the provider in which to list shares.
+#' 
+#' @return `data.frame` with all of the response pages.
 #'
 #' @keywords internal
 #'
@@ -119,8 +121,11 @@ providers$list <- providers_list
 #' @aliases providers_list_shares
 providers_list_shares <- function(name) {
 
-  .state$api$do("GET", paste("/api/2.1/unity-catalog/providers/", name, "/shares",
-    , sep = ""))
+
+  json <- .state$api$do("GET", paste("/api/2.1/unity-catalog/providers/", name,
+    "/shares", , sep = ""))
+  return(json$shares)
+
 }
 providers$list_shares <- providers_list_shares
 

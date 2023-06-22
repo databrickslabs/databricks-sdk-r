@@ -40,11 +40,12 @@ instance_pools <- list()
 #' 
 #' Creates a new instance pool using idle and ready-to-use cloud instances.
 #'
-#' @param aws_attributes Attributes related to pool running on Amazon Web Services.
-#' @param azure_attributes Attributes related to pool running on Azure.
+#' @param aws_attributes Attributes related to instance pools running on Amazon Web Services.
+#' @param azure_attributes Attributes related to instance pools running on Azure.
 #' @param custom_tags Additional tags for pool resources.
 #' @param disk_spec Defines the specification of the disks that will be attached to all spark containers.
 #' @param enable_elastic_disk Autoscaling Local Storage: when enabled, this instances in this pool will dynamically acquire additional disk space when its Spark workers are running low on disk space.
+#' @param gcp_attributes Attributes related to instance pools running on Google Cloud Platform.
 #' @param idle_instance_autotermination_minutes Automatically terminates the extra instances in the pool cache after they are inactive for this time in minutes if min_idle_instances requirement is already met.
 #' @param instance_pool_fleet_attributes The fleet related setting to power the instance pool.
 #' @param instance_pool_name Required. Pool name requested by the user.
@@ -61,12 +62,12 @@ instance_pools <- list()
 #' @aliases instance_pools_create
 instance_pools_create <- function(instance_pool_name, node_type_id, aws_attributes = NULL,
   azure_attributes = NULL, custom_tags = NULL, disk_spec = NULL, enable_elastic_disk = NULL,
-  idle_instance_autotermination_minutes = NULL, instance_pool_fleet_attributes = NULL,
+  gcp_attributes = NULL, idle_instance_autotermination_minutes = NULL, instance_pool_fleet_attributes = NULL,
   max_capacity = NULL, min_idle_instances = NULL, preloaded_docker_images = NULL,
   preloaded_spark_versions = NULL) {
   body <- list(aws_attributes = aws_attributes, azure_attributes = azure_attributes,
     custom_tags = custom_tags, disk_spec = disk_spec, enable_elastic_disk = enable_elastic_disk,
-    idle_instance_autotermination_minutes = idle_instance_autotermination_minutes,
+    gcp_attributes = gcp_attributes, idle_instance_autotermination_minutes = idle_instance_autotermination_minutes,
     instance_pool_fleet_attributes = instance_pool_fleet_attributes, instance_pool_name = instance_pool_name,
     max_capacity = max_capacity, min_idle_instances = min_idle_instances, node_type_id = node_type_id,
     preloaded_docker_images = preloaded_docker_images, preloaded_spark_versions = preloaded_spark_versions)
@@ -96,11 +97,12 @@ instance_pools$delete <- instance_pools_delete
 #' 
 #' Modifies the configuration of an existing instance pool.
 #'
-#' @param aws_attributes Attributes related to pool running on Amazon Web Services.
-#' @param azure_attributes Attributes related to pool running on Azure.
+#' @param aws_attributes Attributes related to instance pools running on Amazon Web Services.
+#' @param azure_attributes Attributes related to instance pools running on Azure.
 #' @param custom_tags Additional tags for pool resources.
 #' @param disk_spec Defines the specification of the disks that will be attached to all spark containers.
 #' @param enable_elastic_disk Autoscaling Local Storage: when enabled, this instances in this pool will dynamically acquire additional disk space when its Spark workers are running low on disk space.
+#' @param gcp_attributes Attributes related to instance pools running on Google Cloud Platform.
 #' @param idle_instance_autotermination_minutes Automatically terminates the extra instances in the pool cache after they are inactive for this time in minutes if min_idle_instances requirement is already met.
 #' @param instance_pool_fleet_attributes The fleet related setting to power the instance pool.
 #' @param instance_pool_id Required. Instance pool ID.
@@ -118,12 +120,12 @@ instance_pools$delete <- instance_pools_delete
 #' @aliases instance_pools_edit
 instance_pools_edit <- function(instance_pool_id, instance_pool_name, node_type_id,
   aws_attributes = NULL, azure_attributes = NULL, custom_tags = NULL, disk_spec = NULL,
-  enable_elastic_disk = NULL, idle_instance_autotermination_minutes = NULL, instance_pool_fleet_attributes = NULL,
-  max_capacity = NULL, min_idle_instances = NULL, preloaded_docker_images = NULL,
-  preloaded_spark_versions = NULL) {
+  enable_elastic_disk = NULL, gcp_attributes = NULL, idle_instance_autotermination_minutes = NULL,
+  instance_pool_fleet_attributes = NULL, max_capacity = NULL, min_idle_instances = NULL,
+  preloaded_docker_images = NULL, preloaded_spark_versions = NULL) {
   body <- list(aws_attributes = aws_attributes, azure_attributes = azure_attributes,
     custom_tags = custom_tags, disk_spec = disk_spec, enable_elastic_disk = enable_elastic_disk,
-    idle_instance_autotermination_minutes = idle_instance_autotermination_minutes,
+    gcp_attributes = gcp_attributes, idle_instance_autotermination_minutes = idle_instance_autotermination_minutes,
     instance_pool_fleet_attributes = instance_pool_fleet_attributes, instance_pool_id = instance_pool_id,
     instance_pool_name = instance_pool_name, max_capacity = max_capacity, min_idle_instances = min_idle_instances,
     node_type_id = node_type_id, preloaded_docker_images = preloaded_docker_images,

@@ -56,11 +56,10 @@ workspace$delete <- workspace_delete
 #' If `path` does not exist, this call returns an error
 #' `RESOURCE_DOES_NOT_EXIST`.
 #' 
-#' One can only export a directory in `DBC` format. If the exported data would
-#' exceed size limit, this call returns `MAX_NOTEBOOK_SIZE_EXCEEDED`. Currently,
-#' this API does not support exporting a library.
+#' If the exported data would exceed size limit, this call returns
+#' `MAX_NOTEBOOK_SIZE_EXCEEDED`. Currently, this API does not support exporting
+#' a library.
 #'
-#' @param direct_download Flag to enable direct download.
 #' @param format This specifies the format of the exported file.
 #' @param path Required. The absolute path of the object or directory.
 #'
@@ -69,8 +68,8 @@ workspace$delete <- workspace_delete
 #' @rdname workspace_export
 #'
 #' @aliases workspace_export
-workspace_export <- function(path, direct_download = NULL, format = NULL) {
-  query <- list(direct_download = direct_download, format = format, path = path)
+workspace_export <- function(path, format = NULL) {
+  query <- list(format = format, path = path)
   .state$api$do("GET", "/api/2.0/workspace/export", query = query)
 }
 workspace$export <- workspace_export
@@ -121,11 +120,11 @@ workspace$import <- workspace_import
 
 #' List contents.
 #' 
-#' Lists the contents of a directory, or the object if it is not a directory.If
+#' Lists the contents of a directory, or the object if it is not a directory. If
 #' the input path does not exist, this call returns an error
 #' `RESOURCE_DOES_NOT_EXIST`.
 #'
-#' @param notebooks_modified_after <content needed>.
+#' @param notebooks_modified_after UTC timestamp in milliseconds.
 #' @param path Required. The absolute path of the notebook or directory.
 #' 
 #' @return `data.frame` with all of the response pages.
@@ -151,7 +150,7 @@ workspace$list <- workspace_list
 #' input path, this call returns an error `RESOURCE_ALREADY_EXISTS`.
 #' 
 #' Note that if this operation fails it may have succeeded in creating some of
-#' the necessary parrent directories.
+#' the necessary parent directories.
 #'
 #' @param path Required. The absolute path of the directory.
 #'

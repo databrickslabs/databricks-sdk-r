@@ -23,6 +23,9 @@ tables_list_summaries(
 
 \item{table_name_pattern}{A sql LIKE pattern (\% and _) for table names.}
 }
+\value{
+\code{data.frame} with all of the response pages.
+}
 \description{
 Gets an array of summaries for tables for a schema and catalog within the
 metastore. The table summaries returned are either:

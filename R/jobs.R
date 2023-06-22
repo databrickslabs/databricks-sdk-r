@@ -140,6 +140,7 @@ jobs$cancel_run <- jobs_cancel_run
 #' @param max_concurrent_runs An optional maximum allowed number of concurrent runs of the job.
 #' @param name An optional name for the job.
 #' @param notification_settings Optional notification settings that are used when sending notifications to each of the `email_notifications` and `webhook_notifications` for this job.
+#' @param run_as Write-only setting, available only in Create/Update/Reset and Submit calls.
 #' @param schedule An optional periodic schedule for this job.
 #' @param tags A map of tags associated with the job.
 #' @param tasks A list of task specifications to be executed by this job.
@@ -154,13 +155,14 @@ jobs$cancel_run <- jobs_cancel_run
 #' @aliases jobs_create
 jobs_create <- function(access_control_list = NULL, continuous = NULL, email_notifications = NULL,
   format = NULL, git_source = NULL, job_clusters = NULL, max_concurrent_runs = NULL,
-  name = NULL, notification_settings = NULL, schedule = NULL, tags = NULL, tasks = NULL,
-  timeout_seconds = NULL, trigger = NULL, webhook_notifications = NULL) {
+  name = NULL, notification_settings = NULL, run_as = NULL, schedule = NULL, tags = NULL,
+  tasks = NULL, timeout_seconds = NULL, trigger = NULL, webhook_notifications = NULL) {
   body <- list(access_control_list = access_control_list, continuous = continuous,
     email_notifications = email_notifications, format = format, git_source = git_source,
     job_clusters = job_clusters, max_concurrent_runs = max_concurrent_runs, name = name,
-    notification_settings = notification_settings, schedule = schedule, tags = tags,
-    tasks = tasks, timeout_seconds = timeout_seconds, trigger = trigger, webhook_notifications = webhook_notifications)
+    notification_settings = notification_settings, run_as = run_as, schedule = schedule,
+    tags = tags, tasks = tasks, timeout_seconds = timeout_seconds, trigger = trigger,
+    webhook_notifications = webhook_notifications)
   .state$api$do("POST", "/api/2.1/jobs/create", body = body)
 }
 jobs$create <- jobs_create
@@ -331,6 +333,7 @@ jobs$get_run_output <- jobs_get_run_output
 #' @param limit The number of jobs to return.
 #' @param name A filter on the list based on the exact (case insensitive) job name.
 #' @param offset The offset of the first job to return, relative to the most recently created job.
+#' @param page_token Use `next_page_token` or `prev_page_token` returned from the previous request to list the next or previous page of jobs respectively.
 #' 
 #' @return `data.frame` with all of the response pages.
 #'
@@ -339,10 +342,11 @@ jobs$get_run_output <- jobs_get_run_output
 #' @rdname jobs_list
 #'
 #' @aliases jobs_list
-jobs_list <- function(expand_tasks = NULL, limit = NULL, name = NULL, offset = NULL) {
-  query <- list(expand_tasks = expand_tasks, limit = limit, name = name, offset = offset)
+jobs_list <- function(expand_tasks = NULL, limit = NULL, name = NULL, offset = NULL,
+  page_token = NULL) {
+  query <- list(expand_tasks = expand_tasks, limit = limit, name = name, offset = offset,
+    page_token = page_token)
 
-  query$offset = 0
   results <- data.frame()
   while (TRUE) {
     json <- .state$api$do("GET", "/api/2.1/jobs/list", query = query)
@@ -351,10 +355,11 @@ jobs_list <- function(expand_tasks = NULL, limit = NULL, name = NULL, offset = N
     }
     # append this page of results to one results data.frame
     results <- dplyr::bind_rows(results, json$jobs)
-    query$offset <- query$offset + nrow(json$jobs)
+    if (is.null(json$next_page_token)) {
+      break
+    }
+    query$page_token <- json$next_page_token
   }
-  # de-duplicate any records via job_id column
-  results <- results[!duplicated(results$job_id), ]
   return(results)
 
 }
@@ -370,6 +375,7 @@ jobs$list <- jobs_list
 #' @param job_id The job for which to list runs.
 #' @param limit The number of runs to return.
 #' @param offset The offset of the first run to return, relative to the most recent run.
+#' @param page_token Use `next_page_token` or `prev_page_token` returned from the previous request to list the next or previous page of runs respectively.
 #' @param run_type The type of runs to return.
 #' @param start_time_from Show runs that started _at or after_ this value.
 #' @param start_time_to Show runs that started _at or before_ this value.
@@ -382,13 +388,12 @@ jobs$list <- jobs_list
 #'
 #' @aliases jobs_list_runs
 jobs_list_runs <- function(active_only = NULL, completed_only = NULL, expand_tasks = NULL,
-  job_id = NULL, limit = NULL, offset = NULL, run_type = NULL, start_time_from = NULL,
-  start_time_to = NULL) {
+  job_id = NULL, limit = NULL, offset = NULL, page_token = NULL, run_type = NULL,
+  start_time_from = NULL, start_time_to = NULL) {
   query <- list(active_only = active_only, completed_only = completed_only, expand_tasks = expand_tasks,
-    job_id = job_id, limit = limit, offset = offset, run_type = run_type, start_time_from = start_time_from,
-    start_time_to = start_time_to)
+    job_id = job_id, limit = limit, offset = offset, page_token = page_token,
+    run_type = run_type, start_time_from = start_time_from, start_time_to = start_time_to)
 
-  query$offset = 0
   results <- data.frame()
   while (TRUE) {
     json <- .state$api$do("GET", "/api/2.1/jobs/runs/list", query = query)
@@ -397,10 +402,11 @@ jobs_list_runs <- function(active_only = NULL, completed_only = NULL, expand_tas
     }
     # append this page of results to one results data.frame
     results <- dplyr::bind_rows(results, json$runs)
-    query$offset <- query$offset + nrow(json$runs)
+    if (is.null(json$next_page_token)) {
+      break
+    }
+    query$page_token <- json$next_page_token
   }
-  # de-duplicate any records via run_id column
-  results <- results[!duplicated(results$run_id), ]
   return(results)
 
 }

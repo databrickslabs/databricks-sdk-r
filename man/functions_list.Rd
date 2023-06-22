@@ -11,6 +11,9 @@ functions_list(catalog_name, schema_name)
 
 \item{schema_name}{Required. Parent schema of functions.}
 }
+\value{
+\code{data.frame} with all of the response pages.
+}
 \description{
 List functions within the specified parent catalog and schema. If the user is
 a metastore admin, all functions are returned in the output list. Otherwise,

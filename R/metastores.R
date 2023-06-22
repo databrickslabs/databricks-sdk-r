@@ -46,7 +46,7 @@ metastores <- list()
 #'
 #' @param default_catalog_name Required. The name of the default catalog in the metastore.
 #' @param metastore_id Required. The unique ID of the metastore.
-#' @param workspace_id Required. Workspace ID.
+#' @param workspace_id Required. A workspace ID.
 #'
 #' @keywords internal
 #'
@@ -209,7 +209,6 @@ metastores$unassign <- metastores_unassign
 #' @param delta_sharing_recipient_token_lifetime_in_seconds The lifetime of delta sharing recipient token in seconds.
 #' @param delta_sharing_scope The scope of Delta Sharing enabled for the metastore.
 #' @param id Required. Unique ID of the metastore.
-#' @param metastore_id Required. Unity Catalog metastore ID.
 #' @param name The user-specified name of the metastore.
 #' @param owner The owner of the metastore.
 #' @param privilege_model_version Privilege model version of the metastore, of the form `major.minor` (e.g., `1.0`).
@@ -220,9 +219,9 @@ metastores$unassign <- metastores_unassign
 #' @rdname metastores_update
 #'
 #' @aliases metastores_update
-metastores_update <- function(metastore_id, id, delta_sharing_organization_name = NULL,
-  delta_sharing_recipient_token_lifetime_in_seconds = NULL, delta_sharing_scope = NULL,
-  name = NULL, owner = NULL, privilege_model_version = NULL, storage_root_credential_id = NULL) {
+metastores_update <- function(id, delta_sharing_organization_name = NULL, delta_sharing_recipient_token_lifetime_in_seconds = NULL,
+  delta_sharing_scope = NULL, name = NULL, owner = NULL, privilege_model_version = NULL,
+  storage_root_credential_id = NULL) {
   body <- list(delta_sharing_organization_name = delta_sharing_organization_name,
     delta_sharing_recipient_token_lifetime_in_seconds = delta_sharing_recipient_token_lifetime_in_seconds,
     delta_sharing_scope = delta_sharing_scope, name = name, owner = owner, privilege_model_version = privilege_model_version,
@@ -242,14 +241,15 @@ metastores$update <- metastores_update
 #'
 #' @param default_catalog_name The name of the default catalog for the metastore.
 #' @param metastore_id The unique ID of the metastore.
-#' @param workspace_id Required. Workspace ID.
+#' @param workspace_id Required. A workspace ID.
 #'
 #' @keywords internal
 #'
 #' @rdname metastores_update_assignment
 #'
 #' @aliases metastores_update_assignment
-metastores_update_assignment <- function(workspace_id, metastore_id, default_catalog_name = NULL) {
+metastores_update_assignment <- function(workspace_id, default_catalog_name = NULL,
+  metastore_id = NULL) {
   body <- list(default_catalog_name = default_catalog_name, metastore_id = metastore_id)
   .state$api$do("PATCH", paste("/api/2.1/unity-catalog/workspaces/", workspace_id,
     "/metastore", , sep = ""), body = body)

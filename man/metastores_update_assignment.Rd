@@ -6,16 +6,16 @@
 \usage{
 metastores_update_assignment(
   workspace_id,
-  metastore_id,
-  default_catalog_name = NULL
+  default_catalog_name = NULL,
+  metastore_id = NULL
 )
 }
 \arguments{
-\item{workspace_id}{Required. Workspace ID.}
-
-\item{metastore_id}{The unique ID of the metastore.}
+\item{workspace_id}{Required. A workspace ID.}
 
 \item{default_catalog_name}{The name of the default catalog for the metastore.}
+
+\item{metastore_id}{The unique ID of the metastore.}
 }
 \description{
 Updates a metastore assignment. This operation can be used to update

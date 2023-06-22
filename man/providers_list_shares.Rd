@@ -9,6 +9,9 @@ providers_list_shares(name)
 \arguments{
 \item{name}{Required. Name of the provider in which to list shares.}
 }
+\value{
+\code{data.frame} with all of the response pages.
+}
 \description{
 Gets an array of a specified provider's shares within the metastore where:
 }

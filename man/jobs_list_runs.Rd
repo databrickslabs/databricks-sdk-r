@@ -11,6 +11,7 @@ jobs_list_runs(
   job_id = NULL,
   limit = NULL,
   offset = NULL,
+  page_token = NULL,
   run_type = NULL,
   start_time_from = NULL,
   start_time_to = NULL
@@ -28,6 +29,8 @@ jobs_list_runs(
 \item{limit}{The number of runs to return.}
 
 \item{offset}{The offset of the first run to return, relative to the most recent run.}
+
+\item{page_token}{Use \code{next_page_token} or \code{prev_page_token} returned from the previous request to list the next or previous page of runs respectively.}
 
 \item{run_type}{The type of runs to return.}
 

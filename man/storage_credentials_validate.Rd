@@ -6,9 +6,10 @@
 \usage{
 storage_credentials_validate(
   aws_iam_role = NULL,
+  azure_managed_identity = NULL,
   azure_service_principal = NULL,
+  databricks_gcp_service_account = NULL,
   external_location_name = NULL,
-  gcp_service_account_key = NULL,
   read_only = NULL,
   storage_credential_name = NULL,
   url = NULL
@@ -17,11 +18,13 @@ storage_credentials_validate(
 \arguments{
 \item{aws_iam_role}{The AWS IAM role configuration.}
 
+\item{azure_managed_identity}{The Azure managed identity configuration.}
+
 \item{azure_service_principal}{The Azure service principal configuration.}
 
-\item{external_location_name}{The name of an existing external location to validate.}
+\item{databricks_gcp_service_account}{The Databricks created GCP service account configuration.}
 
-\item{gcp_service_account_key}{The GCP service account key configuration.}
+\item{external_location_name}{The name of an existing external location to validate.}
 
 \item{read_only}{Whether the storage credential is only usable for read operations.}
 

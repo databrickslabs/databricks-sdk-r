@@ -4,12 +4,10 @@
 \alias{workspace_export}
 \title{Export a workspace object.}
 \usage{
-workspace_export(path, direct_download = NULL, format = NULL)
+workspace_export(path, format = NULL)
 }
 \arguments{
 \item{path}{Required. The absolute path of the object or directory.}
-
-\item{direct_download}{Flag to enable direct download.}
 
 \item{format}{This specifies the format of the exported file.}
 }
@@ -20,8 +18,8 @@ Exports an object or the contents of an entire directory.
 If \code{path} does not exist, this call returns an error
 \code{RESOURCE_DOES_NOT_EXIST}.
 
-One can only export a directory in \code{DBC} format. If the exported data would
-exceed size limit, this call returns \code{MAX_NOTEBOOK_SIZE_EXCEEDED}. Currently,
-this API does not support exporting a library.
+If the exported data would exceed size limit, this call returns
+\code{MAX_NOTEBOOK_SIZE_EXCEEDED}. Currently, this API does not support exporting
+a library.
 }
 \keyword{internal}
