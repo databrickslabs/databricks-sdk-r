@@ -2,7 +2,7 @@
 % Please edit documentation in R/model_registry.R
 \name{model_registry_delete_transition_request}
 \alias{model_registry_delete_transition_request}
-\title{Delete a ransition request.}
+\title{Delete a transition request.}
 \usage{
 model_registry_delete_transition_request(
   name,

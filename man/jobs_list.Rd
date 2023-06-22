@@ -4,7 +4,13 @@
 \alias{jobs_list}
 \title{List all jobs.}
 \usage{
-jobs_list(expand_tasks = NULL, limit = NULL, name = NULL, offset = NULL)
+jobs_list(
+  expand_tasks = NULL,
+  limit = NULL,
+  name = NULL,
+  offset = NULL,
+  page_token = NULL
+)
 }
 \arguments{
 \item{expand_tasks}{Whether to include task and cluster details in the response.}
@@ -14,6 +20,8 @@ jobs_list(expand_tasks = NULL, limit = NULL, name = NULL, offset = NULL)
 \item{name}{A filter on the list based on the exact (case insensitive) job name.}
 
 \item{offset}{The offset of the first job to return, relative to the most recently created job.}
+
+\item{page_token}{Use \code{next_page_token} or \code{prev_page_token} returned from the previous request to list the next or previous page of jobs respectively.}
 }
 \value{
 \code{data.frame} with all of the response pages.

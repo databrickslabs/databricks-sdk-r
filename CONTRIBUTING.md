@@ -8,6 +8,8 @@ Please read the [Writing R Extensions](https://cran.r-project.org/doc/manuals/R-
 
 ## Installing tools
 
+Start with `make deps` if you're running a clean checkout.
+
 ```
 pip3 install -U radian
 

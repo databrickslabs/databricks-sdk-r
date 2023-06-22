@@ -44,8 +44,8 @@ groups <- list()
 #' @rdname groups_create
 #'
 #' @aliases groups_create
-groups_create <- function(id, display_name = NULL, entitlements = NULL, external_id = NULL,
-  groups = NULL, members = NULL, roles = NULL) {
+groups_create <- function(display_name = NULL, entitlements = NULL, external_id = NULL,
+  groups = NULL, id = NULL, members = NULL, roles = NULL) {
   body <- list(displayName = display_name, entitlements = entitlements, externalId = external_id,
     groups = groups, id = id, members = members, roles = roles)
   .state$api$do("POST", "/api/2.0/preview/scim/v2/Groups", body = body)
@@ -120,7 +120,7 @@ groups$list <- groups_list
 #' 
 #' Partially updates the details of a group.
 #'
-#' @param id Required. Unique ID for a group in the Databricks account.
+#' @param id Required. Unique ID for a group in the Databricks workspace.
 #' @param operations 
 #'
 #' @keywords internal

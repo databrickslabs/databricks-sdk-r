@@ -43,8 +43,8 @@ service_principals <- list()
 #' @rdname service_principals_create
 #'
 #' @aliases service_principals_create
-service_principals_create <- function(id, active = NULL, application_id = NULL, display_name = NULL,
-  entitlements = NULL, external_id = NULL, groups = NULL, roles = NULL) {
+service_principals_create <- function(active = NULL, application_id = NULL, display_name = NULL,
+  entitlements = NULL, external_id = NULL, groups = NULL, id = NULL, roles = NULL) {
   body <- list(active = active, applicationId = application_id, displayName = display_name,
     entitlements = entitlements, externalId = external_id, groups = groups, id = id,
     roles = roles)
@@ -124,7 +124,7 @@ service_principals$list <- service_principals_list
 #' Partially updates the details of a single service principal in the Databricks
 #' workspace.
 #'
-#' @param id Required. Unique ID for a group in the Databricks account.
+#' @param id Required. Unique ID for a service principal in the Databricks workspace.
 #' @param operations 
 #'
 #' @keywords internal

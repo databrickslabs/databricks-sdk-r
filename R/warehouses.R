@@ -109,12 +109,6 @@ warehouses$create <- warehouses_create
 #' 
 #' Deletes a SQL warehouse.
 #'
-#' @description
-#' This is a long-running operation, which blocks until Warehouses on Databricks reach  
-#' DELETED state with the timeout of 20 minutes, that you can change via `timeout` parameter. 
-#' By default, the state of Databricks Warehouses is reported to console. You can change this behavior 
-#' by changing the `callback` parameter.
-#'
 #' @param id Required. Required.
 #'
 #' @keywords internal
@@ -122,41 +116,9 @@ warehouses$create <- warehouses_create
 #' @rdname warehouses_delete
 #'
 #' @aliases warehouses_delete
-warehouses_delete <- function(id, timeout = 20, callback = cli_reporter) {
+warehouses_delete <- function(id) {
 
   .state$api$do("DELETE", paste("/api/2.0/sql/warehouses/", id, sep = ""))
-  started <- as.numeric(Sys.time())
-  target_states <- c("DELETED", c())
-  status_message <- "polling..."
-  attempt <- 1
-  while ((started + (timeout * 60)) > as.numeric(Sys.time())) {
-    poll <- warehouses_get(id = id)
-    status <- poll$state
-    status_message <- paste("current status:", status)
-    if (!is.null(poll$health)) {
-      status_message <- poll$health$summary
-    }
-    if (status %in% target_states) {
-      if (!is.null(callback)) {
-        callback(paste0(status, ": ", status_message), done = TRUE)
-      }
-      return(poll)
-    }
-    prefix <- paste0("databricks::warehouses_get(id=", id, ")")
-    sleep <- attempt
-    if (sleep > 10) {
-      # sleep 10s max per attempt
-      sleep <- 10
-    }
-    if (!is.null(callback)) {
-      callback(paste0(status, ": ", status_message), done = FALSE)
-    }
-    random_pause <- runif(1, min = 0.1, max = 0.5)
-    Sys.sleep(sleep + random_pause)
-    attempt <- attempt + 1
-  }
-  msg <- paste("timed out after", timeout, "minutes:", status_message)
-  rlang::abort(msg, call = rlang::caller_env())
 }
 warehouses$delete <- warehouses_delete
 

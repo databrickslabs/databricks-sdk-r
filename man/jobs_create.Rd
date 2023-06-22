@@ -14,6 +14,7 @@ jobs_create(
   max_concurrent_runs = NULL,
   name = NULL,
   notification_settings = NULL,
+  run_as = NULL,
   schedule = NULL,
   tags = NULL,
   tasks = NULL,
@@ -40,6 +41,8 @@ jobs_create(
 \item{name}{An optional name for the job.}
 
 \item{notification_settings}{Optional notification settings that are used when sending notifications to each of the \code{email_notifications} and \code{webhook_notifications} for this job.}
+
+\item{run_as}{Write-only setting, available only in Create/Update/Reset and Submit calls.}
 
 \item{schedule}{An optional periodic schedule for this job.}
 

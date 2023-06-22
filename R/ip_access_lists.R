@@ -143,7 +143,7 @@ ip_access_lists$list <- ip_access_lists_list
 #' feature. See :method:workspaceconf/setStatus.
 #'
 #' @param enabled Required. Specifies whether this IP access list is enabled.
-#' @param ip_access_list_id Required. The ID for the corresponding IP access list.
+#' @param ip_access_list_id Required. The ID for the corresponding IP access list to modify.
 #' @param ip_addresses Required. Array of IP addresses or CIDR values to be added to the IP access list.
 #' @param label Required. Label for the IP access list.
 #' @param list_id Universally unique identifier (UUID) of the IP access list.
@@ -184,7 +184,7 @@ ip_access_lists$replace <- ip_access_lists_replace
 #' :method:workspaceconf/setStatus.
 #'
 #' @param enabled Required. Specifies whether this IP access list is enabled.
-#' @param ip_access_list_id Required. The ID for the corresponding IP access list.
+#' @param ip_access_list_id Required. The ID for the corresponding IP access list to modify.
 #' @param ip_addresses Required. Array of IP addresses or CIDR values to be added to the IP access list.
 #' @param label Required. Label for the IP access list.
 #' @param list_id Universally unique identifier (UUID) of the IP access list.

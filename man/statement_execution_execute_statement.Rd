@@ -23,7 +23,7 @@ statement_execution_execute_statement(
 
 \item{disposition}{The fetch disposition provides two modes of fetching results: \code{INLINE} and \code{EXTERNAL_LINKS}.}
 
-\item{format}{Statement execution supports two result formats: \code{JSON_ARRAY} (default), and \code{ARROW_STREAM}.}
+\item{format}{Statement execution supports three result formats: \code{JSON_ARRAY} (default), \code{ARROW_STREAM}, and \code{CSV}.}
 
 \item{on_wait_timeout}{When in synchronous mode with \verb{wait_timeout > 0s} it determines the action taken when the timeout is reached: \code{CONTINUE} → the statement execution continues asynchronously and the call returns a statement ID immediately.}
 

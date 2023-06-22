@@ -16,6 +16,8 @@ clusters_edit(
   cluster_name = NULL,
   cluster_source = NULL,
   custom_tags = NULL,
+  data_security_mode = NULL,
+  docker_image = NULL,
   driver_instance_pool_id = NULL,
   driver_node_type_id = NULL,
   enable_elastic_disk = NULL,
@@ -27,6 +29,7 @@ clusters_edit(
   num_workers = NULL,
   policy_id = NULL,
   runtime_engine = NULL,
+  single_user_name = NULL,
   spark_conf = NULL,
   spark_env_vars = NULL,
   ssh_public_keys = NULL,
@@ -58,6 +61,10 @@ clusters_edit(
 
 \item{custom_tags}{Additional tags for cluster resources.}
 
+\item{data_security_mode}{This describes an enum.}
+
+\item{docker_image}{}
+
 \item{driver_instance_pool_id}{The optional ID of the instance pool for the driver of the cluster belongs.}
 
 \item{driver_node_type_id}{The node type of the Spark driver.}
@@ -79,6 +86,8 @@ clusters_edit(
 \item{policy_id}{The ID of the cluster policy used to create the cluster if applicable.}
 
 \item{runtime_engine}{Decides which runtime engine to be use, e.g.}
+
+\item{single_user_name}{Single user name if data_security_mode is \code{SINGLE_USER}.}
 
 \item{spark_conf}{An object containing a set of optional, user-specified Spark configuration key-value pairs.}
 

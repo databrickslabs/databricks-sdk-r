@@ -6,11 +6,11 @@
 \usage{
 storage_credentials_create(
   name,
-  metastore_id,
   aws_iam_role = NULL,
+  azure_managed_identity = NULL,
   azure_service_principal = NULL,
   comment = NULL,
-  gcp_service_account_key = NULL,
+  databricks_gcp_service_account = NULL,
   read_only = NULL,
   skip_validation = NULL
 )
@@ -18,15 +18,15 @@ storage_credentials_create(
 \arguments{
 \item{name}{Required. The credential name.}
 
-\item{metastore_id}{Required. Unity Catalog metastore ID.}
-
 \item{aws_iam_role}{The AWS IAM role configuration.}
+
+\item{azure_managed_identity}{The Azure managed identity configuration.}
 
 \item{azure_service_principal}{The Azure service principal configuration.}
 
 \item{comment}{Comment associated with the credential.}
 
-\item{gcp_service_account_key}{The GCP service account key configuration.}
+\item{databricks_gcp_service_account}{The \if{html}{\out{<Databricks>}} managed GCP service account configuration.}
 
 \item{read_only}{Whether the storage credential is only usable for read operations.}
 
@@ -38,8 +38,9 @@ cloud:
 }
 \details{
 \itemize{
-\item \strong{AwsIamRole} for AWS credentials * \strong{AzureServicePrincipal} for Azure
-credentials * \strong{GcpServiceAcountKey} for GCP credentials.
+\item \strong{AwsIamRole} for AWS credentials. * \strong{AzureServicePrincipal} for Azure
+credentials. * \strong{AzureManagedIdentity} for Azure managed credentials. *
+\strong{DatabricksGcpServiceAccount} for GCP managed credentials.
 }
 
 The caller must be a metastore admin and have the

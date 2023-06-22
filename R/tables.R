@@ -135,6 +135,8 @@ tables$list <- tables_list
 #' @param page_token Opaque token to send for the next page of results (pagination).
 #' @param schema_name_pattern A sql LIKE pattern (% and _) for schema names.
 #' @param table_name_pattern A sql LIKE pattern (% and _) for table names.
+#' 
+#' @return `data.frame` with all of the response pages.
 #'
 #' @keywords internal
 #'
@@ -145,7 +147,22 @@ tables_list_summaries <- function(catalog_name, max_results = NULL, page_token =
   schema_name_pattern = NULL, table_name_pattern = NULL) {
   query <- list(catalog_name = catalog_name, max_results = max_results, page_token = page_token,
     schema_name_pattern = schema_name_pattern, table_name_pattern = table_name_pattern)
-  .state$api$do("GET", "/api/2.1/unity-catalog/table-summaries", query = query)
+
+  results <- data.frame()
+  while (TRUE) {
+    json <- .state$api$do("GET", "/api/2.1/unity-catalog/table-summaries", query = query)
+    if (is.null(nrow(json$tables))) {
+      break
+    }
+    # append this page of results to one results data.frame
+    results <- dplyr::bind_rows(results, json$tables)
+    if (is.null(json$next_page_token)) {
+      break
+    }
+    query$page_token <- json$next_page_token
+  }
+  return(results)
+
 }
 tables$list_summaries <- tables_list_summaries
 

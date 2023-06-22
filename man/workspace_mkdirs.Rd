@@ -16,6 +16,6 @@ input path, this call returns an error \code{RESOURCE_ALREADY_EXISTS}.
 }
 \details{
 Note that if this operation fails it may have succeeded in creating some of
-the necessary parrent directories.
+the necessary parent directories.
 }
 \keyword{internal}

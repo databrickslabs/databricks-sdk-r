@@ -13,6 +13,7 @@ instance_pools_edit(
   custom_tags = NULL,
   disk_spec = NULL,
   enable_elastic_disk = NULL,
+  gcp_attributes = NULL,
   idle_instance_autotermination_minutes = NULL,
   instance_pool_fleet_attributes = NULL,
   max_capacity = NULL,
@@ -28,15 +29,17 @@ instance_pools_edit(
 
 \item{node_type_id}{Required. This field encodes, through a single value, the resources available to each of the Spark nodes in this cluster.}
 
-\item{aws_attributes}{Attributes related to pool running on Amazon Web Services.}
+\item{aws_attributes}{Attributes related to instance pools running on Amazon Web Services.}
 
-\item{azure_attributes}{Attributes related to pool running on Azure.}
+\item{azure_attributes}{Attributes related to instance pools running on Azure.}
 
 \item{custom_tags}{Additional tags for pool resources.}
 
 \item{disk_spec}{Defines the specification of the disks that will be attached to all spark containers.}
 
 \item{enable_elastic_disk}{Autoscaling Local Storage: when enabled, this instances in this pool will dynamically acquire additional disk space when its Spark workers are running low on disk space.}
+
+\item{gcp_attributes}{Attributes related to instance pools running on Google Cloud Platform.}
 
 \item{idle_instance_autotermination_minutes}{Automatically terminates the extra instances in the pool cache after they are inactive for this time in minutes if min_idle_instances requirement is already met.}
 

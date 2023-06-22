@@ -29,7 +29,7 @@ APIs that enable you to manage the full lifecycle of MLflow Models.
 \link[=model_registry_delete_model_tag]{delete_model_tag} \tab Delete a model tag.\cr
 \link[=model_registry_delete_model_version]{delete_model_version} \tab Delete a model version.\cr
 \link[=model_registry_delete_model_version_tag]{delete_model_version_tag} \tab Delete a model version tag.\cr
-\link[=model_registry_delete_transition_request]{delete_transition_request} \tab Delete a ransition request.\cr
+\link[=model_registry_delete_transition_request]{delete_transition_request} \tab Delete a transition request.\cr
 \link[=model_registry_delete_webhook]{delete_webhook} \tab Delete a webhook.\cr
 \link[=model_registry_get_latest_versions]{get_latest_versions} \tab Get the latest version.\cr
 \link[=model_registry_get_model]{get_model} \tab Get model.\cr

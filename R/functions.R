@@ -135,6 +135,8 @@ functions$get <- functions_get
 #'
 #' @param catalog_name Required. Name of parent catalog for functions of interest.
 #' @param schema_name Required. Parent schema of functions.
+#' 
+#' @return `data.frame` with all of the response pages.
 #'
 #' @keywords internal
 #'
@@ -143,7 +145,10 @@ functions$get <- functions_get
 #' @aliases functions_list
 functions_list <- function(catalog_name, schema_name) {
   query <- list(catalog_name = catalog_name, schema_name = schema_name)
-  .state$api$do("GET", "/api/2.1/unity-catalog/functions", query = query)
+
+  json <- .state$api$do("GET", "/api/2.1/unity-catalog/functions", query = query)
+  return(json$functions)
+
 }
 functions$list <- functions_list
 

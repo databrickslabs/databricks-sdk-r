@@ -4,18 +4,12 @@
 \alias{warehouses_delete}
 \title{Delete a warehouse.}
 \usage{
-warehouses_delete(id, timeout = 20, callback = cli_reporter)
+warehouses_delete(id)
 }
 \arguments{
 \item{id}{Required. Required.}
 }
 \description{
-This is a long-running operation, which blocks until Warehouses on Databricks reach
-DELETED state with the timeout of 20 minutes, that you can change via \code{timeout} parameter.
-By default, the state of Databricks Warehouses is reported to console. You can change this behavior
-by changing the \code{callback} parameter.
-}
-\details{
 Deletes a SQL warehouse.
 }
 \keyword{internal}

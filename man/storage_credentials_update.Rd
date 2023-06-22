@@ -5,32 +5,32 @@
 \title{Update a credential.}
 \usage{
 storage_credentials_update(
-  metastore_id,
   name,
   aws_iam_role = NULL,
+  azure_managed_identity = NULL,
   azure_service_principal = NULL,
   comment = NULL,
+  databricks_gcp_service_account = NULL,
   force = NULL,
-  gcp_service_account_key = NULL,
   owner = NULL,
   read_only = NULL,
   skip_validation = NULL
 )
 }
 \arguments{
-\item{metastore_id}{Required. Unity Catalog metastore ID.}
-
 \item{name}{The credential name.}
 
 \item{aws_iam_role}{The AWS IAM role configuration.}
+
+\item{azure_managed_identity}{The Azure managed identity configuration.}
 
 \item{azure_service_principal}{The Azure service principal configuration.}
 
 \item{comment}{Comment associated with the credential.}
 
-\item{force}{Force update even if there are dependent external locations or external tables.}
+\item{databricks_gcp_service_account}{The \if{html}{\out{<Databricks>}} managed GCP service account configuration.}
 
-\item{gcp_service_account_key}{The GCP service account key configuration.}
+\item{force}{Force update even if there are dependent external locations or external tables.}
 
 \item{owner}{Username of current owner of credential.}
 

@@ -11,7 +11,7 @@ metastores_assign(metastore_id, default_catalog_name, workspace_id)
 
 \item{default_catalog_name}{Required. The name of the default catalog in the metastore.}
 
-\item{workspace_id}{Required. Workspace ID.}
+\item{workspace_id}{Required. A workspace ID.}
 }
 \description{
 Creates a new metastore assignment. If an assignment for the same

@@ -5,19 +5,17 @@
 \title{Create a service principal.}
 \usage{
 service_principals_create(
-  id,
   active = NULL,
   application_id = NULL,
   display_name = NULL,
   entitlements = NULL,
   external_id = NULL,
   groups = NULL,
+  id = NULL,
   roles = NULL
 )
 }
 \arguments{
-\item{id}{Databricks service principal ID.}
-
 \item{active}{If this user is active.}
 
 \item{application_id}{UUID relating to the service principal.}
@@ -29,6 +27,8 @@ service_principals_create(
 \item{external_id}{}
 
 \item{groups}{}
+
+\item{id}{Databricks service principal ID.}
 
 \item{roles}{}
 }

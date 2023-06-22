@@ -9,13 +9,13 @@ workspace_list(path, notebooks_modified_after = NULL)
 \arguments{
 \item{path}{Required. The absolute path of the notebook or directory.}
 
-\item{notebooks_modified_after}{\if{html}{\out{<content needed>}}.}
+\item{notebooks_modified_after}{UTC timestamp in milliseconds.}
 }
 \value{
 \code{data.frame} with all of the response pages.
 }
 \description{
-Lists the contents of a directory, or the object if it is not a directory.If
+Lists the contents of a directory, or the object if it is not a directory. If
 the input path does not exist, this call returns an error
 \code{RESOURCE_DOES_NOT_EXIST}.
 }

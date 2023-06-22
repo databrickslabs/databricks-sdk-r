@@ -164,14 +164,19 @@ serving_endpoints_get <- function(name) {
 }
 serving_endpoints$get <- serving_endpoints_get
 
-#' Retrieve all serving endpoints.#'
+#' Retrieve all serving endpoints.#' 
+#' @return `data.frame` with all of the response pages.
+#'
 #' @keywords internal
 #'
 #' @rdname serving_endpoints_list
 #'
 #' @aliases serving_endpoints_list
 serving_endpoints_list <- function() {
-  .state$api$do("GET", "/api/2.0/serving-endpoints")
+
+  json <- .state$api$do("GET", "/api/2.0/serving-endpoints")
+  return(json$endpoints)
+
 }
 serving_endpoints$list <- serving_endpoints_list
 
