@@ -34,6 +34,7 @@ Collate:
     'current_user.R'
     'dashboards.R'
     'data_sources.R'
+    'databricks-package.R'
     'dbfs.R'
     'dbsql_permissions.R'
     'experiments.R'
