@@ -6,7 +6,7 @@
 \alias{databricks-package}
 \title{databricks: Databricks SDK for R (Experimental)}
 \description{
-Call all Databricks REST APIs via R
+Call all Databricks REST APIs from R.
 }
 \author{
 \strong{Maintainer}: Serge Smertin \email{serge.smertin@databricks.com}
