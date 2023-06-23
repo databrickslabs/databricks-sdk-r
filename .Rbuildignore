@@ -8,3 +8,6 @@
 ^\.codegen\.json$
 ^\.vscode$
 ^LICENSE\.md$
+^CONTRIBUTING\.md$
+^Makefile$
+^NOTICE$
