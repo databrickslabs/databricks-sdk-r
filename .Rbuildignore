@@ -7,3 +7,4 @@
 ^\.codegen$
 ^\.codegen\.json$
 ^\.vscode$
+^LICENSE\.md$
