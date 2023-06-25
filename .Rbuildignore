@@ -7,7 +7,7 @@
 ^\.codegen$
 ^\.codegen\.json$
 ^\.vscode$
-^LICENSE\.md$
+^LICENSE$
 ^CONTRIBUTING\.md$
 ^Makefile$
 ^NOTICE$
