@@ -1,6 +1,5 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
-#' @include api_client.R
 #' @importFrom stats runif
 NULL
 
@@ -17,7 +16,7 @@ NULL
 #' 
 #' To create external locations, you must be a metastore admin or a user with
 #' the **CREATE_EXTERNAL_LOCATION** privilege.
-#' 
+#'
 #' @section Operations:
 #' \tabular{ll}{
 #'  \link[=external_locations_create]{create} \tab Create an external location.\cr
@@ -103,7 +102,7 @@ external_locations$get <- external_locations_get
 #' the metastore. The caller must be a metastore admin, the owner of the
 #' external location, or a user that has some privilege on the external
 #' location. There is no guarantee of a specific ordering of the elements in the
-#' array.#' 
+#' array.#'
 #' @return `data.frame` with all of the response pages.
 #'
 #' @keywords internal

@@ -1,6 +1,5 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
-#' @include api_client.R
 #' @importFrom stats runif
 NULL
 
@@ -9,7 +8,7 @@ NULL
 #' access (or list) a table or view in a schema, users must have the USE_SCHEMA
 #' data permission on the schema and its parent catalog, and they must have the
 #' SELECT permission on the table or view.
-#' 
+#'
 #' @section Operations:
 #' \tabular{ll}{
 #'  \link[=schemas_create]{create} \tab Create a schema.\cr
@@ -94,7 +93,7 @@ schemas$get <- schemas_get
 #' There is no guarantee of a specific ordering of the elements in the array.
 #'
 #' @param catalog_name Required. Parent catalog for schemas of interest.
-#' 
+#'
 #' @return `data.frame` with all of the response pages.
 #'
 #' @keywords internal

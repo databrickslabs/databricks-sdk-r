@@ -1,6 +1,5 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
-#' @include api_client.R
 #' @importFrom stats runif
 NULL
 
@@ -10,7 +9,7 @@ NULL
 #' 
 #' A catalog's workspace bindings can be configured by a metastore admin or the
 #' owner of the catalog.
-#' 
+#'
 #' @section Operations:
 #' \tabular{ll}{
 #'  \link[=workspace_bindings_get]{get} \tab Get catalog workspace bindings.\cr

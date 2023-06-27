@@ -1,6 +1,5 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
-#' @include api_client.R
 #' @importFrom stats runif
 NULL
 
@@ -10,7 +9,7 @@ NULL
 #' since you can get a dashboard definition with a GET request and then POST it
 #' to create a new one. Dashboards can be scheduled using the `sql_task` type of
 #' the Jobs API, e.g. :method:jobs/create.
-#' 
+#'
 #' @section Operations:
 #' \tabular{ll}{
 #'  \link[=dashboards_create]{create} \tab Create a dashboard object.\cr
@@ -88,7 +87,7 @@ dashboards$get <- dashboards_get
 #' @param page Page number to retrieve.
 #' @param page_size Number of dashboards to return per page.
 #' @param q Full text search term.
-#' 
+#'
 #' @return `data.frame` with all of the response pages.
 #'
 #' @keywords internal

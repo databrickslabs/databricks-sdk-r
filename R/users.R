@@ -1,6 +1,5 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
-#' @include api_client.R
 #' @importFrom stats runif
 NULL
 
@@ -15,7 +14,7 @@ NULL
 #' identity provider and that user’s account will also be removed from
 #' Databricks workspace. This ensures a consistent offboarding process and
 #' prevents unauthorized users from accessing sensitive data.
-#' 
+#'
 #' @section Operations:
 #' \tabular{ll}{
 #'  \link[=users_create]{create} \tab Create a new user.\cr
@@ -106,7 +105,7 @@ users$get <- users_get
 #' @param sort_by Attribute to sort the results.
 #' @param sort_order The order to sort the results.
 #' @param start_index Specifies the index of the first result.
-#' 
+#'
 #' @return `data.frame` with all of the response pages.
 #'
 #' @keywords internal

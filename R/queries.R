@@ -1,6 +1,5 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
-#' @include api_client.R
 #' @importFrom stats runif
 NULL
 
@@ -8,7 +7,7 @@ NULL
 #' definitions include the target SQL warehouse, query text, name, description,
 #' tags, parameters, and visualizations. Queries can be scheduled using the
 #' `sql_task` type of the Jobs API, e.g. :method:jobs/create.
-#' 
+#'
 #' @section Operations:
 #' \tabular{ll}{
 #'  \link[=queries_create]{create} \tab Create a new query definition.\cr
@@ -101,7 +100,7 @@ queries$get <- queries_get
 #' @param page Page number to retrieve.
 #' @param page_size Number of queries to return per page.
 #' @param q Full text search term.
-#' 
+#'
 #' @return `data.frame` with all of the response pages.
 #'
 #' @keywords internal

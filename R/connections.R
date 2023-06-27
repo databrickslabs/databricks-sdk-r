@@ -1,6 +1,5 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
-#' @include api_client.R
 #' @importFrom stats runif
 NULL
 
@@ -15,7 +14,7 @@ NULL
 #' Users may create different types of connections with each connection having a
 #' unique set of configuration options to support credential management and
 #' other settings.
-#' 
+#'
 #' @section Operations:
 #' \tabular{ll}{
 #'  \link[=connections_create]{create} \tab Create a connection.\cr
@@ -96,7 +95,7 @@ connections$get <- connections_get
 
 #' List connections.
 #' 
-#' List all connections.#' 
+#' List all connections.#'
 #' @return `data.frame` with all of the response pages.
 #'
 #' @keywords internal

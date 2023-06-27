@@ -1,6 +1,5 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
-#' @include api_client.R
 #' @importFrom stats runif
 NULL
 
@@ -10,7 +9,7 @@ NULL
 #' See [more info].
 #' 
 #' [more info]: https://docs.databricks.com/repos/get-access-tokens-from-git-provider.html
-#' 
+#'
 #' @section Operations:
 #' \tabular{ll}{
 #'  \link[=git_credentials_create]{create} \tab Create a credential entry.\cr
@@ -83,7 +82,7 @@ git_credentials$get <- git_credentials_get
 #' Get Git credentials.
 #' 
 #' Lists the calling user's Git credentials. One credential per user is
-#' supported.#' 
+#' supported.#'
 #' @return `data.frame` with all of the response pages.
 #'
 #' @keywords internal

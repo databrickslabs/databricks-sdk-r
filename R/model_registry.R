@@ -1,12 +1,11 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
-#' @include api_client.R
 #' @importFrom stats runif
 NULL
 
 #' MLflow Model Registry is a centralized model repository and a UI and set of
 #' APIs that enable you to manage the full lifecycle of MLflow Models.
-#' 
+#'
 #' @section Operations:
 #' \tabular{ll}{
 #'  \link[=model_registry_approve_transition_request]{approve_transition_request} \tab Approve transition request.\cr
@@ -320,7 +319,7 @@ model_registry$delete_webhook <- model_registry_delete_webhook
 #'
 #' @param name Required. Registered model unique name identifier.
 #' @param stages List of stages.
-#' 
+#'
 #' @return `data.frame` with all of the response pages.
 #'
 #' @keywords internal
@@ -402,7 +401,7 @@ model_registry$get_model_version_download_uri <- model_registry_get_model_versio
 #'
 #' @param max_results Maximum number of registered models desired.
 #' @param page_token Pagination token to go to the next page based on a previous query.
-#' 
+#'
 #' @return `data.frame` with all of the response pages.
 #'
 #' @keywords internal
@@ -437,7 +436,7 @@ model_registry$list_models <- model_registry_list_models
 #'
 #' @param name Required. Name of the model.
 #' @param version Required. Version of the model.
-#' 
+#'
 #' @return `data.frame` with all of the response pages.
 #'
 #' @keywords internal
@@ -463,7 +462,7 @@ model_registry$list_transition_requests <- model_registry_list_transition_reques
 #' @param events If `events` is specified, any webhook with one or more of the specified trigger events is included in the output.
 #' @param model_name If not specified, all webhooks associated with the specified events are listed, regardless of their associated model.
 #' @param page_token Token indicating the page of artifact results to fetch.
-#' 
+#'
 #' @return `data.frame` with all of the response pages.
 #'
 #' @keywords internal
@@ -538,7 +537,7 @@ model_registry$rename_model <- model_registry_rename_model
 #' @param max_results Maximum number of models desired.
 #' @param order_by List of columns to be ordered by including model name, version, stage with an optional 'DESC' or 'ASC' annotation, where 'ASC' is the default.
 #' @param page_token Pagination token to go to next page based on previous search query.
-#' 
+#'
 #' @return `data.frame` with all of the response pages.
 #'
 #' @keywords internal
@@ -577,7 +576,7 @@ model_registry$search_model_versions <- model_registry_search_model_versions
 #' @param max_results Maximum number of models desired.
 #' @param order_by List of columns for ordering search results, which can include model name and last updated timestamp with an optional 'DESC' or 'ASC' annotation, where 'ASC' is the default.
 #' @param page_token Pagination token to go to the next page based on a previous search query.
-#' 
+#'
 #' @return `data.frame` with all of the response pages.
 #'
 #' @keywords internal

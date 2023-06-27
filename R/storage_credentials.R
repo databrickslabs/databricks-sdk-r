@@ -1,6 +1,5 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
-#' @include api_client.R
 #' @importFrom stats runif
 NULL
 
@@ -17,7 +16,7 @@ NULL
 #' To create storage credentials, you must be a Databricks account admin. The
 #' account admin who creates the storage credential can delegate ownership to
 #' another user or group to manage permissions on it.
-#' 
+#'
 #' @section Operations:
 #' \tabular{ll}{
 #'  \link[=storage_credentials_create]{create} \tab Create a storage credential.\cr
@@ -114,7 +113,7 @@ storage_credentials$get <- storage_credentials_get
 #' The array is limited to only those storage credentials the caller has
 #' permission to access. If the caller is a metastore admin, all storage
 #' credentials will be retrieved. There is no guarantee of a specific ordering
-#' of the elements in the array.#' 
+#' of the elements in the array.#'
 #' @return `data.frame` with all of the response pages.
 #'
 #' @keywords internal

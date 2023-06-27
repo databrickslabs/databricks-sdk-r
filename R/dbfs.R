@@ -1,12 +1,11 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
-#' @include api_client.R
 #' @importFrom stats runif
 NULL
 
 #' DBFS API makes it simple to interact with various data sources without having
 #' to include a users credentials every time to read a file.
-#' 
+#'
 #' @section Operations:
 #' \tabular{ll}{
 #'  \link[=dbfs_add_block]{add_block} \tab Append data block.\cr
@@ -161,7 +160,7 @@ dbfs$get_status <- dbfs_get_status
 #' which provides the same functionality without timing out.
 #'
 #' @param path Required. The path of the file or directory.
-#' 
+#'
 #' @return `data.frame` with all of the response pages.
 #'
 #' @keywords internal

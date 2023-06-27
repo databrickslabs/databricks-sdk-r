@@ -1,12 +1,11 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
-#' @include api_client.R
 #' @importFrom stats runif
 NULL
 
 #' This API allows execution of Python, Scala, SQL, or R commands on running
 #' Databricks Clusters.
-#' 
+#'
 #' @section Operations:
 #' \tabular{ll}{
 #'  \link[=command_execution_cancel]{cancel} \tab Cancel a command.\cr
@@ -28,9 +27,9 @@ command_execution <- list()
 #' The command ID is obtained from a prior successful call to __execute__.
 #'
 #' @description
-#' This is a long-running operation, which blocks until Command Execution on Databricks reach  
-#' Cancelled state with the timeout of 20 minutes, that you can change via `timeout` parameter. 
-#' By default, the state of Databricks Command Execution is reported to console. You can change this behavior 
+#' This is a long-running operation, which blocks until Command Execution on Databricks reach
+#' Cancelled state with the timeout of 20 minutes, that you can change via `timeout` parameter.
+#' By default, the state of Databricks Command Execution is reported to console. You can change this behavior
 #' by changing the `callback` parameter.
 #'
 #' @param cluster_id 
@@ -135,9 +134,9 @@ command_execution$context_status <- command_execution_context_status
 #' If successful, this method returns the ID of the new execution context.
 #'
 #' @description
-#' This is a long-running operation, which blocks until Command Execution on Databricks reach  
-#' Running state with the timeout of 20 minutes, that you can change via `timeout` parameter. 
-#' By default, the state of Databricks Command Execution is reported to console. You can change this behavior 
+#' This is a long-running operation, which blocks until Command Execution on Databricks reach
+#' Running state with the timeout of 20 minutes, that you can change via `timeout` parameter.
+#' By default, the state of Databricks Command Execution is reported to console. You can change this behavior
 #' by changing the `callback` parameter.
 #'
 #' @param cluster_id Running cluster id.
@@ -217,9 +216,9 @@ command_execution$destroy <- command_execution_destroy
 #' execution.
 #'
 #' @description
-#' This is a long-running operation, which blocks until Command Execution on Databricks reach  
-#' Finished or Error state with the timeout of 20 minutes, that you can change via `timeout` parameter. 
-#' By default, the state of Databricks Command Execution is reported to console. You can change this behavior 
+#' This is a long-running operation, which blocks until Command Execution on Databricks reach
+#' Finished or Error state with the timeout of 20 minutes, that you can change via `timeout` parameter.
+#' By default, the state of Databricks Command Execution is reported to console. You can change this behavior
 #' by changing the `callback` parameter.
 #'
 #' @param cluster_id Running cluster id.

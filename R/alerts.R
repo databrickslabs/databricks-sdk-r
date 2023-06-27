@@ -1,6 +1,5 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
-#' @include api_client.R
 #' @importFrom stats runif
 NULL
 
@@ -9,7 +8,7 @@ NULL
 #' of its result, and notifies one or more users and/or notification
 #' destinations if the condition was met. Alerts can be scheduled using the
 #' `sql_task` type of the Jobs API, e.g. :method:jobs/create.
-#' 
+#'
 #' @section Operations:
 #' \tabular{ll}{
 #'  \link[=alerts_create]{create} \tab Create an alert.\cr

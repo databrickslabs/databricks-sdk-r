@@ -1,6 +1,5 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
-#' @include api_client.R
 #' @importFrom stats runif
 NULL
 
@@ -13,7 +12,7 @@ NULL
 #' Policy families cannot be used directly to create clusters. Instead, you
 #' create cluster policies using a policy family. Cluster policies created using
 #' a policy family inherit the policy family's policy definition.
-#' 
+#'
 #' @section Operations:
 #' \tabular{ll}{
 #'  \link[=policy_families_get]{get} \tab \cr
@@ -43,7 +42,7 @@ policy_families$get <- policy_families_get
 #'
 #' @param max_results The max number of policy families to return.
 #' @param page_token A token that can be used to get the next page of results.
-#' 
+#'
 #' @return `data.frame` with all of the response pages.
 #'
 #' @keywords internal

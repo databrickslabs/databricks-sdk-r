@@ -1,12 +1,11 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
-#' @include api_client.R
 #' @importFrom stats runif
 NULL
 
 #' The Token API allows you to create, list, and revoke tokens that can be used
 #' to authenticate and access Databricks REST APIs.
-#' 
+#'
 #' @section Operations:
 #' \tabular{ll}{
 #'  \link[=tokens_create]{create} \tab Create a user token.\cr
@@ -61,7 +60,7 @@ tokens$delete <- tokens_delete
 
 #' List tokens.
 #' 
-#' Lists all the valid tokens for a user-workspace pair.#' 
+#' Lists all the valid tokens for a user-workspace pair.#'
 #' @return `data.frame` with all of the response pages.
 #'
 #' @keywords internal

@@ -1,6 +1,5 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
-#' @include api_client.R
 #' @importFrom stats runif
 NULL
 
@@ -11,7 +10,7 @@ NULL
 #' policies in Unity Catalog to groups, instead of to users individually. All
 #' Databricks workspace identities can be assigned as members of groups, and
 #' members inherit permissions that are assigned to their group.
-#' 
+#'
 #' @section Operations:
 #' \tabular{ll}{
 #'  \link[=groups_create]{create} \tab Create a new group.\cr
@@ -97,7 +96,7 @@ groups$get <- groups_get
 #' @param sort_by Attribute to sort the results.
 #' @param sort_order The order to sort the results.
 #' @param start_index Specifies the index of the first result.
-#' 
+#'
 #' @return `data.frame` with all of the response pages.
 #'
 #' @keywords internal

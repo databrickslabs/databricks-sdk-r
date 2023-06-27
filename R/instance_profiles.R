@@ -1,6 +1,5 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
-#' @include api_client.R
 #' @importFrom stats runif
 NULL
 
@@ -10,7 +9,7 @@ NULL
 #' instance profiles for more information.
 #' 
 #' [Secure access to S3 buckets]: https://docs.databricks.com/administration-guide/cloud-configurations/aws/instance-profiles.html
-#' 
+#'
 #' @section Operations:
 #' \tabular{ll}{
 #'  \link[=instance_profiles_add]{add} \tab Register an instance profile.\cr
@@ -84,7 +83,7 @@ instance_profiles$edit <- instance_profiles_edit
 #' 
 #' List the instance profiles that the calling user can use to launch a cluster.
 #' 
-#' This API is available to all users.#' 
+#' This API is available to all users.#'
 #' @return `data.frame` with all of the response pages.
 #'
 #' @keywords internal

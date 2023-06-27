@@ -1,6 +1,5 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
-#' @include api_client.R
 #' @importFrom stats runif
 NULL
 
@@ -14,7 +13,7 @@ NULL
 #' warehouses in your workspace. We advise you to use any text editor, REST
 #' client, or `grep` to search the response from this API for the name of your
 #' SQL warehouse as it appears in Databricks SQL.
-#' 
+#'
 #' @section Operations:
 #' \tabular{ll}{
 #'  \link[=data_sources_list]{list} \tab Get a list of SQL warehouses.\cr

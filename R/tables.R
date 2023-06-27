@@ -1,6 +1,5 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
-#' @include api_client.R
 #' @importFrom stats runif
 NULL
 
@@ -14,7 +13,7 @@ NULL
 #' 
 #' A table can be managed or external. From an API perspective, a __VIEW__ is a
 #' particular kind of table (rather than a managed or external table).
-#' 
+#'
 #' @section Operations:
 #' \tabular{ll}{
 #'  \link[=tables_delete]{delete} \tab Delete a table.\cr
@@ -85,7 +84,7 @@ tables$get <- tables_get
 #' @param max_results Maximum number of tables to return (page length).
 #' @param page_token Opaque token to send for the next page of results (pagination).
 #' @param schema_name Required. Parent schema of tables.
-#' 
+#'
 #' @return `data.frame` with all of the response pages.
 #'
 #' @keywords internal
@@ -135,7 +134,7 @@ tables$list <- tables_list
 #' @param page_token Opaque token to send for the next page of results (pagination).
 #' @param schema_name_pattern A sql LIKE pattern (% and _) for schema names.
 #' @param table_name_pattern A sql LIKE pattern (% and _) for table names.
-#' 
+#'
 #' @return `data.frame` with all of the response pages.
 #'
 #' @keywords internal

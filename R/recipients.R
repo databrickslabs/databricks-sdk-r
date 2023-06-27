@@ -1,11 +1,10 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
-#' @include api_client.R
 #' @importFrom stats runif
 NULL
 
 #' Databricks Recipients REST API
-#' 
+#'
 #' @section Operations:
 #' \tabular{ll}{
 #'  \link[=recipients_create]{create} \tab Create a share recipient.\cr
@@ -95,7 +94,7 @@ recipients$get <- recipients_get
 #' guarantee of a specific ordering of the elements in the array.
 #'
 #' @param data_recipient_global_metastore_id If not provided, all recipients will be returned.
-#' 
+#'
 #' @return `data.frame` with all of the response pages.
 #'
 #' @keywords internal

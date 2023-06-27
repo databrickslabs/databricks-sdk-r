@@ -1,6 +1,5 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
-#' @include api_client.R
 #' @importFrom stats runif
 NULL
 
@@ -10,7 +9,7 @@ NULL
 #' on production data run with service principals, interactive users do not need
 #' any write, delete, or modify privileges in production. This eliminates the
 #' risk of a user overwriting production data by accident.
-#' 
+#'
 #' @section Operations:
 #' \tabular{ll}{
 #'  \link[=service_principals_create]{create} \tab Create a service principal.\cr
@@ -100,7 +99,7 @@ service_principals$get <- service_principals_get
 #' @param sort_by Attribute to sort the results.
 #' @param sort_order The order to sort the results.
 #' @param start_index Specifies the index of the first result.
-#' 
+#'
 #' @return `data.frame` with all of the response pages.
 #'
 #' @keywords internal
