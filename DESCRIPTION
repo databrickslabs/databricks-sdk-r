@@ -6,15 +6,14 @@ Authors@R: c(
     person("Serge", "Smertin", email = "serge.smertin@databricks.com", role = c("aut", "cre")),
     person("Databricks", role = c("cph", "fnd"))
     )
-Description: Call all Databricks REST APIs via R
-License: Apache 2.0
+Description: Call all Databricks REST APIs from R.
+License: Apache License (>= 2)
 Encoding: UTF-8
-LazyData: true
 RoxygenNote: 7.2.3
 Roxygen: list(markdown = TRUE, roclets = c("rd", "namespace", "collate"))
 ByteCompile: false
 StagedInstall: no 
-Imports: httr, jsonlite, dplyr
+Imports: httr, jsonlite, dplyr, rlang
 Suggests: 
     covr,
     formatR,
@@ -34,6 +33,7 @@ Collate:
     'current_user.R'
     'dashboards.R'
     'data_sources.R'
+    'databricks-package.R'
     'dbfs.R'
     'dbsql_permissions.R'
     'experiments.R'

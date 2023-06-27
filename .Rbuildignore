@@ -3,3 +3,11 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
 ^cran-comments.md$
+^\.github$
+^\.codegen$
+^\.codegen\.json$
+^\.vscode$
+^LICENSE$
+^CONTRIBUTING\.md$
+^Makefile$
+^NOTICE$

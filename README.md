@@ -1,5 +1,9 @@
 # Databricks SDK for R (Experimental)
 
+<!-- badges: start -->
+[![R-CMD-check](https://github.com/databrickslabs/databricks-sdk-r/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/databrickslabs/databricks-sdk-r/actions/workflows/R-CMD-check.yaml)
+<!-- badges: end -->
+
 ## Authentication
 
 It's recommended that you authenticate via the `.Renviron` file using `DATABRICKS_HOST` and `DATABRICKS_TOKEN` environment variables. You can also use [Databricks CLI Configuration Profiles](https://docs.databricks.com/dev-tools/auth.html#databricks-configuration-profiles) and `DATABRICKS_CONFIG_FILE` or `DATABRICKS_CONFIG_PROFILE` environment variables, but only the [PAT Authentication](https://docs.databricks.com/dev-tools/auth.html#databricks-personal-access-token-authentication) works at the moment. If you need more authentication methods, please fork this GitHub repository and send pull request with the feature suggestion.
