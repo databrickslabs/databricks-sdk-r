@@ -1,6 +1,5 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
-#' @include api_client.R
 #' @importFrom stats runif
 NULL
 
@@ -9,7 +8,7 @@ NULL
 #' 
 #' A notebook is a web-based interface to a document that contains runnable
 #' code, visualizations, and explanatory text.
-#' 
+#'
 #' @section Operations:
 #' \tabular{ll}{
 #'  \link[=workspace_delete]{delete} \tab Delete a workspace object.\cr
@@ -126,7 +125,7 @@ workspace$import <- workspace_import
 #'
 #' @param notebooks_modified_after UTC timestamp in milliseconds.
 #' @param path Required. The absolute path of the notebook or directory.
-#' 
+#'
 #' @return `data.frame` with all of the response pages.
 #'
 #' @keywords internal

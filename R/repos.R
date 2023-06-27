@@ -1,6 +1,5 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
-#' @include api_client.R
 #' @importFrom stats runif
 NULL
 
@@ -14,7 +13,7 @@ NULL
 #' Within Repos you can develop code in notebooks or other files and follow data
 #' science and engineering code development best practices using Git for version
 #' control, collaboration, and CI/CD.
-#' 
+#'
 #' @section Operations:
 #' \tabular{ll}{
 #'  \link[=repos_create]{create} \tab Create a repo.\cr
@@ -92,7 +91,7 @@ repos$get <- repos_get
 #'
 #' @param next_page_token Token used to get the next page of results.
 #' @param path_prefix Filters repos that have paths starting with the given path prefix.
-#' 
+#'
 #' @return `data.frame` with all of the response pages.
 #'
 #' @keywords internal

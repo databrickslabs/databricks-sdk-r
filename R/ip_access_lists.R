@@ -1,6 +1,5 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
-#' @include api_client.R
 #' @importFrom stats runif
 NULL
 
@@ -25,7 +24,7 @@ NULL
 #' 
 #' After changes to the IP access list feature, it can take a few minutes for
 #' changes to take effect.
-#' 
+#'
 #' @section Operations:
 #' \tabular{ll}{
 #'  \link[=ip_access_lists_create]{create} \tab Create access list.\cr
@@ -111,7 +110,7 @@ ip_access_lists$get <- ip_access_lists_get
 
 #' Get access lists.
 #' 
-#' Gets all IP access lists for the specified workspace.#' 
+#' Gets all IP access lists for the specified workspace.#'
 #' @return `data.frame` with all of the response pages.
 #'
 #' @keywords internal

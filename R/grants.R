@@ -1,6 +1,5 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
-#' @include api_client.R
 #' @importFrom stats runif
 NULL
 
@@ -15,7 +14,7 @@ NULL
 #' automatically grants the privilege to all current and future objects within
 #' the catalog. Similarly, privileges granted on a schema are inherited by all
 #' current and future objects within that schema.
-#' 
+#'
 #' @section Operations:
 #' \tabular{ll}{
 #'  \link[=grants_get]{get} \tab Get permissions.\cr

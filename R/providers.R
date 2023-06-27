@@ -1,11 +1,10 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
-#' @include api_client.R
 #' @importFrom stats runif
 NULL
 
 #' Databricks Providers REST API
-#' 
+#'
 #' @section Operations:
 #' \tabular{ll}{
 #'  \link[=providers_create]{create} \tab Create an auth provider.\cr
@@ -87,7 +86,7 @@ providers$get <- providers_get
 #' specific ordering of the elements in the array.
 #'
 #' @param data_provider_global_metastore_id If not provided, all providers will be returned.
-#' 
+#'
 #' @return `data.frame` with all of the response pages.
 #'
 #' @keywords internal
@@ -111,7 +110,7 @@ providers$list <- providers_list
 #' * the caller is a metastore admin, or * the caller is the owner.
 #'
 #' @param name Required. Name of the provider in which to list shares.
-#' 
+#'
 #' @return `data.frame` with all of the response pages.
 #'
 #' @keywords internal

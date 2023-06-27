@@ -1,6 +1,5 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
-#' @include api_client.R
 #' @importFrom stats runif
 NULL
 
@@ -13,7 +12,7 @@ NULL
 #' Experiments are located in the workspace file tree. You manage experiments
 #' using the same tools you use to manage other workspace objects such as
 #' folders, notebooks, and libraries.
-#' 
+#'
 #' @section Operations:
 #' \tabular{ll}{
 #'  \link[=experiments_create_experiment]{create_experiment} \tab Create experiment.\cr
@@ -247,7 +246,7 @@ experiments$get_run <- experiments_get_run
 #' @param path Filter artifacts matching this path (a relative path from the root artifact directory).
 #' @param run_id ID of the run whose artifacts to list.
 #' @param run_uuid [Deprecated, use run_id instead] ID of the run whose artifacts to list.
-#' 
+#'
 #' @return `data.frame` with all of the response pages.
 #'
 #' @keywords internal
@@ -284,7 +283,7 @@ experiments$list_artifacts <- experiments_list_artifacts
 #' @param max_results Maximum number of experiments desired.
 #' @param page_token Token indicating the page of experiments to fetch.
 #' @param view_type Qualifier for type of experiments to be returned.
-#' 
+#'
 #' @return `data.frame` with all of the response pages.
 #'
 #' @keywords internal
@@ -504,7 +503,7 @@ experiments$restore_run <- experiments_restore_run
 #' @param order_by List of columns for ordering search results, which can include experiment name and last updated timestamp with an optional 'DESC' or 'ASC' annotation, where 'ASC' is the default.
 #' @param page_token Token indicating the page of experiments to fetch.
 #' @param view_type Qualifier for type of experiments to be returned.
-#' 
+#'
 #' @return `data.frame` with all of the response pages.
 #'
 #' @keywords internal
@@ -547,7 +546,7 @@ experiments$search_experiments <- experiments_search_experiments
 #' @param order_by List of columns to be ordered by, including attributes, params, metrics, and tags with an optional 'DESC' or 'ASC' annotation, where 'ASC' is the default.
 #' @param page_token Token for the current page of runs.
 #' @param run_view_type Whether to display only active, only deleted, or all runs.
-#' 
+#'
 #' @return `data.frame` with all of the response pages.
 #'
 #' @keywords internal

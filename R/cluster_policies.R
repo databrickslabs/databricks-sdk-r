@@ -1,6 +1,5 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
-#' @include api_client.R
 #' @importFrom stats runif
 NULL
 
@@ -28,7 +27,7 @@ NULL
 #' 
 #' Only admin users can create, edit, and delete policies. Admin users also have
 #' access to all policies.
-#' 
+#'
 #' @section Operations:
 #' \tabular{ll}{
 #'  \link[=cluster_policies_create]{create} \tab Create a new policy.\cr
@@ -136,7 +135,7 @@ cluster_policies$get <- cluster_policies_get
 #'
 #' @param sort_column The cluster policy attribute to sort by.
 #' @param sort_order The order in which the policies get listed.
-#' 
+#'
 #' @return `data.frame` with all of the response pages.
 #'
 #' @keywords internal

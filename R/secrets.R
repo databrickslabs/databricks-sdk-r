@@ -1,6 +1,5 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
-#' @include api_client.R
 #' @importFrom stats runif
 NULL
 
@@ -16,7 +15,7 @@ NULL
 #' Databricks secrets. While Databricks makes an effort to redact secret values
 #' that might be displayed in notebooks, it is not possible to prevent such
 #' users from reading secrets.
-#' 
+#'
 #' @section Operations:
 #' \tabular{ll}{
 #'  \link[=secrets_create_scope]{create_scope} \tab Create a new secret scope.\cr
@@ -159,7 +158,7 @@ secrets$get_acl <- secrets_get_acl
 #' call.
 #'
 #' @param scope Required. The name of the scope to fetch ACL information from.
-#' 
+#'
 #' @return `data.frame` with all of the response pages.
 #'
 #' @keywords internal
@@ -181,7 +180,7 @@ secrets$list_acls <- secrets_list_acls
 #' Lists all secret scopes available in the workspace.
 #' 
 #' Throws `PERMISSION_DENIED` if the user does not have permission to make this
-#' API call.#' 
+#' API call.#'
 #' @return `data.frame` with all of the response pages.
 #'
 #' @keywords internal
@@ -209,7 +208,7 @@ secrets$list_scopes <- secrets_list_scopes
 #' call.
 #'
 #' @param scope Required. The name of the scope to list secrets within.
-#' 
+#'
 #' @return `data.frame` with all of the response pages.
 #'
 #' @keywords internal

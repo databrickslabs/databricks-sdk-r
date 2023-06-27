@@ -1,13 +1,12 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
-#' @include api_client.R
 #' @importFrom stats runif
 NULL
 
 #' Enables administrators to get all tokens and delete tokens for other users.
 #' Admins can either get every token, get a specific token by ID, or get all
 #' tokens for a particular user.
-#' 
+#'
 #' @section Operations:
 #' \tabular{ll}{
 #'  \link[=token_management_create_obo_token]{create_obo_token} \tab Create on-behalf token.\cr
@@ -80,7 +79,7 @@ token_management$get <- token_management_get
 #'
 #' @param created_by_id User ID of the user that created the token.
 #' @param created_by_username Username of the user that created the token.
-#' 
+#'
 #' @return `data.frame` with all of the response pages.
 #'
 #' @keywords internal

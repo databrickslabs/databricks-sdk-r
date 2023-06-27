@@ -1,6 +1,5 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
-#' @include api_client.R
 #' @importFrom stats runif
 NULL
 
@@ -187,7 +186,7 @@ NULL
 #' [Apache Arrow Columnar]: https://arrow.apache.org/overview/
 #' [Public Preview]: https://docs.databricks.com/release-notes/release-types.html
 #' [SQL Statement Execution API tutorial]: https://docs.databricks.com/sql/api/sql-execution-tutorial.html
-#' 
+#'
 #' @section Operations:
 #' \tabular{ll}{
 #'  \link[=statement_execution_cancel_execution]{cancel_execution} \tab Cancel statement execution.\cr

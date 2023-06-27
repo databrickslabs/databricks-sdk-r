@@ -1,6 +1,5 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
-#' @include api_client.R
 #' @importFrom stats runif
 NULL
 
@@ -12,7 +11,7 @@ NULL
 #' data centrally across all of the workspaces in a Databricks account. Users in
 #' different workspaces can share access to the same data, depending on
 #' privileges granted centrally in Unity Catalog.
-#' 
+#'
 #' @section Operations:
 #' \tabular{ll}{
 #'  \link[=catalogs_create]{create} \tab Create a catalog.\cr
@@ -96,7 +95,7 @@ catalogs$get <- catalogs_get
 #' admin, all catalogs will be retrieved. Otherwise, only catalogs owned by the
 #' caller (or for which the caller has the **USE_CATALOG** privilege) will be
 #' retrieved. There is no guarantee of a specific ordering of the elements in
-#' the array.#' 
+#' the array.#'
 #' @return `data.frame` with all of the response pages.
 #'
 #' @keywords internal

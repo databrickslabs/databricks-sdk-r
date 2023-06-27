@@ -1,6 +1,5 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
-#' @include api_client.R
 #' @importFrom stats runif
 NULL
 
@@ -17,7 +16,7 @@ NULL
 #' You can declare primary keys and foreign keys as part of the table
 #' specification during table creation. You can also add or drop constraints on
 #' existing tables.
-#' 
+#'
 #' @section Operations:
 #' \tabular{ll}{
 #'  \link[=table_constraints_create]{create} \tab Create a table constraint.\cr

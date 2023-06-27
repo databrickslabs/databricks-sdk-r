@@ -1,6 +1,5 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
-#' @include api_client.R
 #' @importFrom stats runif
 NULL
 
@@ -31,7 +30,7 @@ NULL
 #' recently terminated by the job scheduler. To keep an all-purpose cluster
 #' configuration even after it has been terminated for more than 30 days, an
 #' administrator can pin a cluster to the cluster list.
-#' 
+#'
 #' @section Operations:
 #' \tabular{ll}{
 #'  \link[=clusters_change_owner]{change_owner} \tab Change cluster owner.\cr
@@ -92,9 +91,9 @@ clusters$change_owner <- clusters_change_owner
 #' informative error message.
 #'
 #' @description
-#' This is a long-running operation, which blocks until Clusters on Databricks reach  
-#' RUNNING state with the timeout of 20 minutes, that you can change via `timeout` parameter. 
-#' By default, the state of Databricks Clusters is reported to console. You can change this behavior 
+#' This is a long-running operation, which blocks until Clusters on Databricks reach
+#' RUNNING state with the timeout of 20 minutes, that you can change via `timeout` parameter.
+#' By default, the state of Databricks Clusters is reported to console. You can change this behavior
 #' by changing the `callback` parameter.
 #'
 #' @param apply_policy_default_values Note: This field won't be true for webapp requests.
@@ -193,9 +192,9 @@ clusters$create <- clusters_create
 #' `TERMINATED` state, nothing will happen.
 #'
 #' @description
-#' This is a long-running operation, which blocks until Clusters on Databricks reach  
-#' TERMINATED state with the timeout of 20 minutes, that you can change via `timeout` parameter. 
-#' By default, the state of Databricks Clusters is reported to console. You can change this behavior 
+#' This is a long-running operation, which blocks until Clusters on Databricks reach
+#' TERMINATED state with the timeout of 20 minutes, that you can change via `timeout` parameter.
+#' By default, the state of Databricks Clusters is reported to console. You can change this behavior
 #' by changing the `callback` parameter.
 #'
 #' @param cluster_id Required. The cluster to be terminated.
@@ -261,9 +260,9 @@ clusters$delete <- clusters_delete
 #' Clusters created by the Databricks Jobs service cannot be edited.
 #'
 #' @description
-#' This is a long-running operation, which blocks until Clusters on Databricks reach  
-#' RUNNING state with the timeout of 20 minutes, that you can change via `timeout` parameter. 
-#' By default, the state of Databricks Clusters is reported to console. You can change this behavior 
+#' This is a long-running operation, which blocks until Clusters on Databricks reach
+#' RUNNING state with the timeout of 20 minutes, that you can change via `timeout` parameter.
+#' By default, the state of Databricks Clusters is reported to console. You can change this behavior
 #' by changing the `callback` parameter.
 #'
 #' @param apply_policy_default_values Note: This field won't be true for webapp requests.
@@ -372,7 +371,7 @@ clusters$edit <- clusters_edit
 #' @param offset The offset in the result set.
 #' @param order The order to list events in; either 'ASC' or 'DESC'.
 #' @param start_time The start time in epoch milliseconds.
-#' 
+#'
 #' @return `data.frame` with all of the response pages.
 #'
 #' @keywords internal
@@ -434,7 +433,7 @@ clusters$get <- clusters_get
 #' terminated job clusters.
 #'
 #' @param can_use_client Filter clusters based on what type of client it can be used for.
-#' 
+#'
 #' @return `data.frame` with all of the response pages.
 #'
 #' @keywords internal
@@ -526,9 +525,9 @@ clusters$pin <- clusters_pin
 #' the cluster is in a `RUNNING` state.
 #'
 #' @description
-#' This is a long-running operation, which blocks until Clusters on Databricks reach  
-#' RUNNING state with the timeout of 20 minutes, that you can change via `timeout` parameter. 
-#' By default, the state of Databricks Clusters is reported to console. You can change this behavior 
+#' This is a long-running operation, which blocks until Clusters on Databricks reach
+#' RUNNING state with the timeout of 20 minutes, that you can change via `timeout` parameter.
+#' By default, the state of Databricks Clusters is reported to console. You can change this behavior
 #' by changing the `callback` parameter.
 #'
 #' @param autoscale Parameters needed in order to automatically scale clusters up and down based on load.
@@ -587,9 +586,9 @@ clusters$resize <- clusters_resize
 #' currently in a `RUNNING` state, nothing will happen.
 #'
 #' @description
-#' This is a long-running operation, which blocks until Clusters on Databricks reach  
-#' RUNNING state with the timeout of 20 minutes, that you can change via `timeout` parameter. 
-#' By default, the state of Databricks Clusters is reported to console. You can change this behavior 
+#' This is a long-running operation, which blocks until Clusters on Databricks reach
+#' RUNNING state with the timeout of 20 minutes, that you can change via `timeout` parameter.
+#' By default, the state of Databricks Clusters is reported to console. You can change this behavior
 #' by changing the `callback` parameter.
 #'
 #' @param cluster_id Required. The cluster to be started.
@@ -666,9 +665,9 @@ clusters$spark_versions <- clusters_spark_versions
 #' will happen. * Clusters launched to run a job cannot be started.
 #'
 #' @description
-#' This is a long-running operation, which blocks until Clusters on Databricks reach  
-#' RUNNING state with the timeout of 20 minutes, that you can change via `timeout` parameter. 
-#' By default, the state of Databricks Clusters is reported to console. You can change this behavior 
+#' This is a long-running operation, which blocks until Clusters on Databricks reach
+#' RUNNING state with the timeout of 20 minutes, that you can change via `timeout` parameter.
+#' By default, the state of Databricks Clusters is reported to console. You can change this behavior
 #' by changing the `callback` parameter.
 #'
 #' @param cluster_id Required. The cluster to be started.

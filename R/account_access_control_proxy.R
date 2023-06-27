@@ -1,6 +1,5 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
-#' @include api_client.R
 #' @importFrom stats runif
 NULL
 
@@ -8,7 +7,7 @@ NULL
 #' grant rules are supported. A grant rule specifies a role assigned to a set of
 #' principals. A list of rules attached to a resource is called a rule set. A
 #' workspace must belong to an account for these APIs to work.
-#' 
+#'
 #' @section Operations:
 #' \tabular{ll}{
 #'  \link[=account_access_control_proxy_get_assignable_roles_for_resource]{get_assignable_roles_for_resource} \tab Get assignable roles for a resource.\cr

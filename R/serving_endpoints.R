@@ -1,6 +1,5 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
-#' @include api_client.R
 #' @importFrom stats runif
 NULL
 
@@ -17,7 +16,7 @@ NULL
 #' define how requests should be routed to your served models behind an
 #' endpoint. Additionally, you can configure the scale of resources that should
 #' be applied to each served model.
-#' 
+#'
 #' @section Operations:
 #' \tabular{ll}{
 #'  \link[=serving_endpoints_build_logs]{build_logs} \tab Retrieve the logs associated with building the model's environment for a given serving endpoint's served model.\cr
@@ -58,9 +57,9 @@ serving_endpoints$build_logs <- serving_endpoints_build_logs
 #' Create a new serving endpoint.
 #'
 #' @description
-#' This is a long-running operation, which blocks until Serving Endpoints on Databricks reach  
-#' NOT_UPDATING state with the timeout of 20 minutes, that you can change via `timeout` parameter. 
-#' By default, the state of Databricks Serving Endpoints is reported to console. You can change this behavior 
+#' This is a long-running operation, which blocks until Serving Endpoints on Databricks reach
+#' NOT_UPDATING state with the timeout of 20 minutes, that you can change via `timeout` parameter.
+#' By default, the state of Databricks Serving Endpoints is reported to console. You can change this behavior
 #' by changing the `callback` parameter.
 #'
 #' @param config Required. The core config of the serving endpoint.
@@ -164,7 +163,7 @@ serving_endpoints_get <- function(name) {
 }
 serving_endpoints$get <- serving_endpoints_get
 
-#' Retrieve all serving endpoints.#' 
+#' Retrieve all serving endpoints.#'
 #' @return `data.frame` with all of the response pages.
 #'
 #' @keywords internal
@@ -223,9 +222,9 @@ serving_endpoints$query <- serving_endpoints_query
 #' current update completes or fails.
 #'
 #' @description
-#' This is a long-running operation, which blocks until Serving Endpoints on Databricks reach  
-#' NOT_UPDATING state with the timeout of 20 minutes, that you can change via `timeout` parameter. 
-#' By default, the state of Databricks Serving Endpoints is reported to console. You can change this behavior 
+#' This is a long-running operation, which blocks until Serving Endpoints on Databricks reach
+#' NOT_UPDATING state with the timeout of 20 minutes, that you can change via `timeout` parameter.
+#' By default, the state of Databricks Serving Endpoints is reported to console. You can change this behavior
 #' by changing the `callback` parameter.
 #'
 #' @param name Required. The name of the serving endpoint to update.

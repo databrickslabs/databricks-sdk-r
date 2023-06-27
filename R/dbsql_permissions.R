@@ -1,6 +1,5 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
-#' @include api_client.R
 #' @importFrom stats runif
 NULL
 
@@ -17,7 +16,7 @@ NULL
 #' 
 #' - `CAN_MANAGE`: Allows all actions: read, run, edit, delete, modify
 #' permissions (superset of `CAN_RUN`)
-#' 
+#'
 #' @section Operations:
 #' \tabular{ll}{
 #'  \link[=dbsql_permissions_get]{get} \tab Get object ACL.\cr

@@ -1,6 +1,5 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
-#' @include api_client.R
 #' @importFrom stats runif
 NULL
 
@@ -12,7 +11,7 @@ NULL
 #' cluster machines, storing library and config files of arbitrary formats such
 #' as .whl or .txt centrally and providing secure access across workspaces to
 #' it, or transforming and querying non-tabular data files in ETL.
-#' 
+#'
 #' @section Operations:
 #' \tabular{ll}{
 #'  \link[=volumes_create]{create} \tab Create a Volume.\cr
@@ -106,7 +105,7 @@ volumes$delete <- volumes_delete
 #'
 #' @param catalog_name Required. The identifier of the catalog.
 #' @param schema_name Required. The identifier of the schema.
-#' 
+#'
 #' @return `data.frame` with all of the response pages.
 #'
 #' @keywords internal

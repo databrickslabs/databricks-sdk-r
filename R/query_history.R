@@ -1,11 +1,10 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
-#' @include api_client.R
 #' @importFrom stats runif
 NULL
 
 #' Access the history of queries through SQL warehouses.
-#' 
+#'
 #' @section Operations:
 #' \tabular{ll}{
 #'  \link[=query_history_list]{list} \tab List Queries.\cr
@@ -25,7 +24,7 @@ query_history <- list()
 #' @param include_metrics Whether to include metrics about query.
 #' @param max_results Limit the number of results returned in one page.
 #' @param page_token A token that can be used to get the next page of results.
-#' 
+#'
 #' @return `data.frame` with all of the response pages.
 #'
 #' @keywords internal

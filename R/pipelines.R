@@ -1,6 +1,5 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
-#' @include api_client.R
 #' @importFrom stats runif
 NULL
 
@@ -18,7 +17,7 @@ NULL
 #' data quality with Delta Live Tables expectations. Expectations allow you to
 #' define expected data quality and specify how to handle records that fail
 #' those expectations.
-#' 
+#'
 #' @section Operations:
 #' \tabular{ll}{
 #'  \link[=pipelines_create]{create} \tab Create a pipeline.\cr
@@ -141,7 +140,7 @@ pipelines$get_update <- pipelines_get_update
 #' @param order_by A string indicating a sort order by timestamp for the results, for example, ['timestamp asc'].
 #' @param page_token Page token returned by previous call.
 #' @param pipeline_id Required. 
-#' 
+#'
 #' @return `data.frame` with all of the response pages.
 #'
 #' @keywords internal
@@ -181,7 +180,7 @@ pipelines$list_pipeline_events <- pipelines_list_pipeline_events
 #' @param max_results The maximum number of entries to return in a single page.
 #' @param order_by A list of strings specifying the order of results.
 #' @param page_token Page token returned by previous call.
-#' 
+#'
 #' @return `data.frame` with all of the response pages.
 #'
 #' @keywords internal
@@ -239,9 +238,9 @@ pipelines$list_updates <- pipelines_list_updates
 #' Resets a pipeline.
 #'
 #' @description
-#' This is a long-running operation, which blocks until Pipelines on Databricks reach  
-#' RUNNING state with the timeout of 20 minutes, that you can change via `timeout` parameter. 
-#' By default, the state of Databricks Pipelines is reported to console. You can change this behavior 
+#' This is a long-running operation, which blocks until Pipelines on Databricks reach
+#' RUNNING state with the timeout of 20 minutes, that you can change via `timeout` parameter.
+#' By default, the state of Databricks Pipelines is reported to console. You can change this behavior
 #' by changing the `callback` parameter.
 #'
 #' @param pipeline_id Required. 
@@ -320,9 +319,9 @@ pipelines$start_update <- pipelines_start_update
 #' Stops a pipeline.
 #'
 #' @description
-#' This is a long-running operation, which blocks until Pipelines on Databricks reach  
-#' IDLE state with the timeout of 20 minutes, that you can change via `timeout` parameter. 
-#' By default, the state of Databricks Pipelines is reported to console. You can change this behavior 
+#' This is a long-running operation, which blocks until Pipelines on Databricks reach
+#' IDLE state with the timeout of 20 minutes, that you can change via `timeout` parameter.
+#' By default, the state of Databricks Pipelines is reported to console. You can change this behavior
 #' by changing the `callback` parameter.
 #'
 #' @param pipeline_id Required. 

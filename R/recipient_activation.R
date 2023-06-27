@@ -1,11 +1,10 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
-#' @include api_client.R
 #' @importFrom stats runif
 NULL
 
 #' Databricks Recipient Activation REST API
-#' 
+#'
 #' @section Operations:
 #' \tabular{ll}{
 #'  \link[=recipient_activation_get_activation_url_info]{get_activation_url_info} \tab Get a share activation URL.\cr

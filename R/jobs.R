@@ -1,6 +1,5 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
-#' @include api_client.R
 #' @importFrom stats runif
 NULL
 
@@ -22,7 +21,7 @@ NULL
 #' [Databricks CLI]: https://docs.databricks.com/dev-tools/cli/index.html
 #' [Secrets CLI]: https://docs.databricks.com/dev-tools/cli/secrets-cli.html
 #' [Secrets utility]: https://docs.databricks.com/dev-tools/databricks-utils.html#dbutils-secrets
-#' 
+#'
 #' @section Operations:
 #' \tabular{ll}{
 #'  \link[=jobs_cancel_all_runs]{cancel_all_runs} \tab Cancel all runs of a job.\cr
@@ -71,9 +70,9 @@ jobs$cancel_all_runs <- jobs_cancel_all_runs
 #' running when this request completes.
 #'
 #' @description
-#' This is a long-running operation, which blocks until Jobs on Databricks reach  
-#' TERMINATED or SKIPPED state with the timeout of 20 minutes, that you can change via `timeout` parameter. 
-#' By default, the state of Databricks Jobs is reported to console. You can change this behavior 
+#' This is a long-running operation, which blocks until Jobs on Databricks reach
+#' TERMINATED or SKIPPED state with the timeout of 20 minutes, that you can change via `timeout` parameter.
+#' By default, the state of Databricks Jobs is reported to console. You can change this behavior
 #' by changing the `callback` parameter.
 #'
 #' @param run_id Required. This field is required.
@@ -241,9 +240,9 @@ jobs$get <- jobs_get
 #' Retrieve the metadata of a run.
 #'
 #' @description
-#' This is a long-running operation, which blocks until Jobs on Databricks reach  
-#' TERMINATED or SKIPPED state with the timeout of 20 minutes, that you can change via `timeout` parameter. 
-#' By default, the state of Databricks Jobs is reported to console. You can change this behavior 
+#' This is a long-running operation, which blocks until Jobs on Databricks reach
+#' TERMINATED or SKIPPED state with the timeout of 20 minutes, that you can change via `timeout` parameter.
+#' By default, the state of Databricks Jobs is reported to console. You can change this behavior
 #' by changing the `callback` parameter.
 #'
 #' @param include_history Whether to include the repair history in the response.
@@ -334,7 +333,7 @@ jobs$get_run_output <- jobs_get_run_output
 #' @param name A filter on the list based on the exact (case insensitive) job name.
 #' @param offset The offset of the first job to return, relative to the most recently created job.
 #' @param page_token Use `next_page_token` or `prev_page_token` returned from the previous request to list the next or previous page of jobs respectively.
-#' 
+#'
 #' @return `data.frame` with all of the response pages.
 #'
 #' @keywords internal
@@ -379,7 +378,7 @@ jobs$list <- jobs_list
 #' @param run_type The type of runs to return.
 #' @param start_time_from Show runs that started _at or after_ this value.
 #' @param start_time_to Show runs that started _at or before_ this value.
-#' 
+#'
 #' @return `data.frame` with all of the response pages.
 #'
 #' @keywords internal
@@ -419,9 +418,9 @@ jobs$list_runs <- jobs_list_runs
 #' for the original job run.
 #'
 #' @description
-#' This is a long-running operation, which blocks until Jobs on Databricks reach  
-#' TERMINATED or SKIPPED state with the timeout of 20 minutes, that you can change via `timeout` parameter. 
-#' By default, the state of Databricks Jobs is reported to console. You can change this behavior 
+#' This is a long-running operation, which blocks until Jobs on Databricks reach
+#' TERMINATED or SKIPPED state with the timeout of 20 minutes, that you can change via `timeout` parameter.
+#' By default, the state of Databricks Jobs is reported to console. You can change this behavior
 #' by changing the `callback` parameter.
 #'
 #' @param dbt_commands An array of commands to execute for jobs with the dbt task, for example `'dbt_commands': ['dbt deps', 'dbt seed', 'dbt run']`.
@@ -517,9 +516,9 @@ jobs$reset <- jobs_reset
 #' Run a job and return the `run_id` of the triggered run.
 #'
 #' @description
-#' This is a long-running operation, which blocks until Jobs on Databricks reach  
-#' TERMINATED or SKIPPED state with the timeout of 20 minutes, that you can change via `timeout` parameter. 
-#' By default, the state of Databricks Jobs is reported to console. You can change this behavior 
+#' This is a long-running operation, which blocks until Jobs on Databricks reach
+#' TERMINATED or SKIPPED state with the timeout of 20 minutes, that you can change via `timeout` parameter.
+#' By default, the state of Databricks Jobs is reported to console. You can change this behavior
 #' by changing the `callback` parameter.
 #'
 #' @param dbt_commands An array of commands to execute for jobs with the dbt task, for example `'dbt_commands': ['dbt deps', 'dbt seed', 'dbt run']`.
@@ -597,9 +596,9 @@ jobs$run_now <- jobs_run_now
 #' submitted.
 #'
 #' @description
-#' This is a long-running operation, which blocks until Jobs on Databricks reach  
-#' TERMINATED or SKIPPED state with the timeout of 20 minutes, that you can change via `timeout` parameter. 
-#' By default, the state of Databricks Jobs is reported to console. You can change this behavior 
+#' This is a long-running operation, which blocks until Jobs on Databricks reach
+#' TERMINATED or SKIPPED state with the timeout of 20 minutes, that you can change via `timeout` parameter.
+#' By default, the state of Databricks Jobs is reported to console. You can change this behavior
 #' by changing the `callback` parameter.
 #'
 #' @param access_control_list List of permissions to set on the job.

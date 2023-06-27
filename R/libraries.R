@@ -1,6 +1,5 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
-#' @include api_client.R
 #' @importFrom stats runif
 NULL
 
@@ -24,7 +23,7 @@ NULL
 #' When you uninstall a library from a cluster, the library is removed only when
 #' you restart the cluster. Until you restart the cluster, the status of the
 #' uninstalled library appears as Uninstall pending restart.
-#' 
+#'
 #' @section Operations:
 #' \tabular{ll}{
 #'  \link[=libraries_all_cluster_statuses]{all_cluster_statuses} \tab Get all statuses.\cr

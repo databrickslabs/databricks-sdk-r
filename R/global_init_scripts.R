@@ -1,6 +1,5 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
-#' @include api_client.R
 #' @importFrom stats runif
 NULL
 
@@ -14,7 +13,7 @@ NULL
 #' launch and init scripts with later position are skipped. If enough containers
 #' fail, the entire cluster fails with a `GLOBAL_INIT_SCRIPT_FAILURE` error
 #' code.
-#' 
+#'
 #' @section Operations:
 #' \tabular{ll}{
 #'  \link[=global_init_scripts_create]{create} \tab Create init script.\cr
@@ -87,7 +86,7 @@ global_init_scripts$get <- global_init_scripts_get
 #' Get a list of all global init scripts for this workspace. This returns all
 #' properties for each script but **not** the script contents. To retrieve the
 #' contents of a script, use the [get a global init
-#' script](#operation/get-script) operation.#' 
+#' script](#operation/get-script) operation.#'
 #' @return `data.frame` with all of the response pages.
 #'
 #' @keywords internal

@@ -1,6 +1,5 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
-#' @include api_client.R
 #' @importFrom stats runif
 NULL
 
@@ -22,7 +21,7 @@ NULL
 #' 
 #' Databricks does not charge DBUs while instances are idle in the pool.
 #' Instance provider billing does apply. See pricing.
-#' 
+#'
 #' @section Operations:
 #' \tabular{ll}{
 #'  \link[=instance_pools_create]{create} \tab Create a new instance pool.\cr
@@ -153,7 +152,7 @@ instance_pools$get <- instance_pools_get
 
 #' List instance pool info.
 #' 
-#' Gets a list of instance pools with their statistics.#' 
+#' Gets a list of instance pools with their statistics.#'
 #' @return `data.frame` with all of the response pages.
 #'
 #' @keywords internal

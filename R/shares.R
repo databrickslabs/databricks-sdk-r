@@ -1,11 +1,10 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
-#' @include api_client.R
 #' @importFrom stats runif
 NULL
 
 #' Databricks Shares REST API
-#' 
+#'
 #' @section Operations:
 #' \tabular{ll}{
 #'  \link[=shares_create]{create} \tab Create a share.\cr
@@ -83,7 +82,7 @@ shares$get <- shares_get
 #' 
 #' Gets an array of data object shares from the metastore. The caller must be a
 #' metastore admin or the owner of the share. There is no guarantee of a
-#' specific ordering of the elements in the array.#' 
+#' specific ordering of the elements in the array.#'
 #' @return `data.frame` with all of the response pages.
 #'
 #' @keywords internal

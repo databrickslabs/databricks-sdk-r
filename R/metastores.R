@@ -1,6 +1,5 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
-#' @include api_client.R
 #' @importFrom stats runif
 NULL
 
@@ -18,7 +17,7 @@ NULL
 #' workspaces created before Unity Catalog was released. If your workspace
 #' includes a legacy Hive metastore, the data in that metastore is available in
 #' a catalog named hive_metastore.
-#' 
+#'
 #' @section Operations:
 #' \tabular{ll}{
 #'  \link[=metastores_assign]{assign} \tab Create an assignment.\cr
@@ -133,7 +132,7 @@ metastores$get <- metastores_get
 #' 
 #' Gets an array of the available metastores (as __MetastoreInfo__ objects). The
 #' caller must be an admin to retrieve this info. There is no guarantee of a
-#' specific ordering of the elements in the array.#' 
+#' specific ordering of the elements in the array.#'
 #' @return `data.frame` with all of the response pages.
 #'
 #' @keywords internal

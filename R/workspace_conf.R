@@ -1,11 +1,10 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
-#' @include api_client.R
 #' @importFrom stats runif
 NULL
 
 #' This API allows updating known workspace settings for advanced users.
-#' 
+#'
 #' @section Operations:
 #' \tabular{ll}{
 #'  \link[=workspace_conf_get_status]{get_status} \tab Check configuration status.\cr

@@ -19,11 +19,12 @@ Suggests:
     formatR,
     knitr,
     testthat (>= 3.0.0)
+Config/testthat/edition: 3
 Collate: 
-    'version.R'
-    'api_client.R'
     'account_access_control_proxy.R'
     'alerts.R'
+    'version.R'
+    'api_client.R'
     'catalogs.R'
     'cli_reporter.R'
     'cluster_policies.R'
@@ -77,4 +78,3 @@ Collate:
     'workspace.R'
     'workspace_bindings.R'
     'workspace_conf.R'
-Config/testthat/edition: 3

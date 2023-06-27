@@ -1,6 +1,5 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
-#' @include api_client.R
 #' @importFrom stats runif
 NULL
 
@@ -10,7 +9,7 @@ NULL
 #' invoked wherever a table reference is allowed in a query. In Unity Catalog, a
 #' function resides at the same level as a table, so it can be referenced with
 #' the form __catalog_name__.__schema_name__.__function_name__.
-#' 
+#'
 #' @section Operations:
 #' \tabular{ll}{
 #'  \link[=functions_create]{create} \tab Create a function.\cr
@@ -135,7 +134,7 @@ functions$get <- functions_get
 #'
 #' @param catalog_name Required. Name of parent catalog for functions of interest.
 #' @param schema_name Required. Parent schema of functions.
-#' 
+#'
 #' @return `data.frame` with all of the response pages.
 #'
 #' @keywords internal

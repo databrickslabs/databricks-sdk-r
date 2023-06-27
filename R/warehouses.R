@@ -1,13 +1,12 @@
 # Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
 
-#' @include api_client.R
 #' @importFrom stats runif
 NULL
 
 #' A SQL warehouse is a compute resource that lets you run SQL commands on data
 #' objects within Databricks SQL. Compute resources are infrastructure resources
 #' that provide processing capabilities in the cloud.
-#' 
+#'
 #' @section Operations:
 #' \tabular{ll}{
 #'  \link[=warehouses_create]{create} \tab Create a warehouse.\cr
@@ -30,9 +29,9 @@ warehouses <- list()
 #' Creates a new SQL warehouse.
 #'
 #' @description
-#' This is a long-running operation, which blocks until Warehouses on Databricks reach  
-#' RUNNING state with the timeout of 20 minutes, that you can change via `timeout` parameter. 
-#' By default, the state of Databricks Warehouses is reported to console. You can change this behavior 
+#' This is a long-running operation, which blocks until Warehouses on Databricks reach
+#' RUNNING state with the timeout of 20 minutes, that you can change via `timeout` parameter.
+#' By default, the state of Databricks Warehouses is reported to console. You can change this behavior
 #' by changing the `callback` parameter.
 #'
 #' @param auto_stop_mins The amount of time in minutes that a SQL warehouse must be idle (i.e., no RUNNING queries) before it is automatically stopped.
@@ -127,9 +126,9 @@ warehouses$delete <- warehouses_delete
 #' Updates the configuration for a SQL warehouse.
 #'
 #' @description
-#' This is a long-running operation, which blocks until Warehouses on Databricks reach  
-#' RUNNING state with the timeout of 20 minutes, that you can change via `timeout` parameter. 
-#' By default, the state of Databricks Warehouses is reported to console. You can change this behavior 
+#' This is a long-running operation, which blocks until Warehouses on Databricks reach
+#' RUNNING state with the timeout of 20 minutes, that you can change via `timeout` parameter.
+#' By default, the state of Databricks Warehouses is reported to console. You can change this behavior
 #' by changing the `callback` parameter.
 #'
 #' @param auto_stop_mins The amount of time in minutes that a SQL warehouse must be idle (i.e., no RUNNING queries) before it is automatically stopped.
@@ -240,7 +239,7 @@ warehouses$get_workspace_warehouse_config <- warehouses_get_workspace_warehouse_
 #' Lists all SQL warehouses that a user has manager permissions on.
 #'
 #' @param run_as_user_id Service Principal which will be used to fetch the list of warehouses.
-#' 
+#'
 #' @return `data.frame` with all of the response pages.
 #'
 #' @keywords internal
@@ -294,9 +293,9 @@ warehouses$set_workspace_warehouse_config <- warehouses_set_workspace_warehouse_
 #' Starts a SQL warehouse.
 #'
 #' @description
-#' This is a long-running operation, which blocks until Warehouses on Databricks reach  
-#' RUNNING state with the timeout of 20 minutes, that you can change via `timeout` parameter. 
-#' By default, the state of Databricks Warehouses is reported to console. You can change this behavior 
+#' This is a long-running operation, which blocks until Warehouses on Databricks reach
+#' RUNNING state with the timeout of 20 minutes, that you can change via `timeout` parameter.
+#' By default, the state of Databricks Warehouses is reported to console. You can change this behavior
 #' by changing the `callback` parameter.
 #'
 #' @param id Required. Required.
@@ -354,9 +353,9 @@ warehouses$start <- warehouses_start
 #' Stops a SQL warehouse.
 #'
 #' @description
-#' This is a long-running operation, which blocks until Warehouses on Databricks reach  
-#' STOPPED state with the timeout of 20 minutes, that you can change via `timeout` parameter. 
-#' By default, the state of Databricks Warehouses is reported to console. You can change this behavior 
+#' This is a long-running operation, which blocks until Warehouses on Databricks reach
+#' STOPPED state with the timeout of 20 minutes, that you can change via `timeout` parameter.
+#' By default, the state of Databricks Warehouses is reported to console. You can change this behavior
 #' by changing the `callback` parameter.
 #'
 #' @param id Required. Required.
