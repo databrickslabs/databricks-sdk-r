@@ -1,0 +1,27 @@
+# Version changelog
+
+## {{.Version}}
+
+{{range .Changes -}}
+ * {{.}}.
+{{end}}{{- if .ApiChanges}}
+API Changes:
+{{range .ApiChanges}}{{if and (eq .X "method") (not .Method.Service.IsAccounts)}}
+ * {{.Action}} {{template "what" .}}{{if .Extra}} {{.Extra}}{{with .Other}} {{template "what" .}}{{end}}{{end}}.
+{{- end}}{{- end}}
+
+OpenAPI SHA: {{.Sha}}, Date: {{.Changed}}
+{{- end}}{{if .DependencyUpdates}}
+Dependency updates:
+{{range .DependencyUpdates}}
+ * {{.}}.
+{{- end -}}
+{{end}}
+
+## {{.PrevVersion}}
+
+{{- define "what" -}}
+    {{if eq .X "method" -}}
+        `{{.Method.Service.CamelName}}{{.Method.PascalName}}()` function
+    {{- end}}
+{{- end -}}
