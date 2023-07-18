@@ -3,60 +3,25 @@
 #' @importFrom stats runif
 NULL
 
-#' The Secrets API allows you to manage secrets, secret scopes, and access
-#' permissions.
-#' 
-#' Sometimes accessing data requires that you authenticate to external data
-#' sources through JDBC. Instead of directly entering your credentials into a
-#' notebook, use Databricks secrets to store your credentials and reference them
-#' in notebooks and jobs.
-#' 
-#' Administrators, secret creators, and users granted permission can read
-#' Databricks secrets. While Databricks makes an effort to redact secret values
-#' that might be displayed in notebooks, it is not possible to prevent such
-#' users from reading secrets.
-#'
-#' @section Operations:
-#' \tabular{ll}{
-#'  \link[=secrets_create_scope]{create_scope} \tab Create a new secret scope.\cr
-#'  \link[=secrets_delete_acl]{delete_acl} \tab Delete an ACL.\cr
-#'  \link[=secrets_delete_scope]{delete_scope} \tab Delete a secret scope.\cr
-#'  \link[=secrets_delete_secret]{delete_secret} \tab Delete a secret.\cr
-#'  \link[=secrets_get_acl]{get_acl} \tab Get secret ACL details.\cr
-#'  \link[=secrets_list_acls]{list_acls} \tab Lists ACLs.\cr
-#'  \link[=secrets_list_scopes]{list_scopes} \tab List all scopes.\cr
-#'  \link[=secrets_list_secrets]{list_secrets} \tab List secret keys.\cr
-#'  \link[=secrets_put_acl]{put_acl} \tab Create/update an ACL.\cr
-#'  \link[=secrets_put_secret]{put_secret} \tab Add a secret.\cr
-#' }
-#'
-#' @rdname secrets
-#' @export
-secrets <- list()
-
 #' Create a new secret scope.
 #' 
 #' The scope name must consist of alphanumeric characters, dashes, underscores,
 #' and periods, and may not exceed 128 characters. The maximum number of scopes
 #' in a workspace is 100.
+#' @param client Required. Instance of DatabricksClient()
 #'
 #' @param initial_manage_principal The principal that is initially granted `MANAGE` permission to the created scope.
 #' @param keyvault_metadata The metadata for the secret scope if the type is `AZURE_KEYVAULT`.
 #' @param scope Required. Scope name requested by the user.
 #' @param scope_backend_type The backend type the scope will be created with.
 #'
-#' @keywords internal
-#'
-#' @rdname secrets_create_scope
-#'
-#' @aliases secrets_create_scope
-secrets_create_scope <- function(scope, initial_manage_principal = NULL, keyvault_metadata = NULL,
+#' @rdname secretsCreateScope
+secretsCreateScope <- function(client, scope, initial_manage_principal = NULL, keyvault_metadata = NULL,
   scope_backend_type = NULL) {
   body <- list(initial_manage_principal = initial_manage_principal, keyvault_metadata = keyvault_metadata,
     scope = scope, scope_backend_type = scope_backend_type)
-  .state$api$do("POST", "/api/2.0/secrets/scopes/create", body = body)
+  client$do("POST", "/api/2.0/secrets/scopes/create", body = body)
 }
-secrets$create_scope <- secrets_create_scope
 
 #' Delete an ACL.
 #' 
@@ -66,20 +31,16 @@ secrets$create_scope <- secrets_create_scope
 #' `RESOURCE_DOES_NOT_EXIST` if no such secret scope, principal, or ACL exists.
 #' Throws `PERMISSION_DENIED` if the user does not have permission to make this
 #' API call.
+#' @param client Required. Instance of DatabricksClient()
 #'
 #' @param principal Required. The principal to remove an existing ACL from.
 #' @param scope Required. The name of the scope to remove permissions from.
 #'
-#' @keywords internal
-#'
-#' @rdname secrets_delete_acl
-#'
-#' @aliases secrets_delete_acl
-secrets_delete_acl <- function(scope, principal) {
+#' @rdname secretsDeleteAcl
+secretsDeleteAcl <- function(client, scope, principal) {
   body <- list(principal = principal, scope = scope)
-  .state$api$do("POST", "/api/2.0/secrets/acls/delete", body = body)
+  client$do("POST", "/api/2.0/secrets/acls/delete", body = body)
 }
-secrets$delete_acl <- secrets_delete_acl
 
 #' Delete a secret scope.
 #' 
@@ -88,19 +49,15 @@ secrets$delete_acl <- secrets_delete_acl
 #' Throws `RESOURCE_DOES_NOT_EXIST` if the scope does not exist. Throws
 #' `PERMISSION_DENIED` if the user does not have permission to make this API
 #' call.
+#' @param client Required. Instance of DatabricksClient()
 #'
 #' @param scope Required. Name of the scope to delete.
 #'
-#' @keywords internal
-#'
-#' @rdname secrets_delete_scope
-#'
-#' @aliases secrets_delete_scope
-secrets_delete_scope <- function(scope) {
+#' @rdname secretsDeleteScope
+secretsDeleteScope <- function(client, scope) {
   body <- list(scope = scope)
-  .state$api$do("POST", "/api/2.0/secrets/scopes/delete", body = body)
+  client$do("POST", "/api/2.0/secrets/scopes/delete", body = body)
 }
-secrets$delete_scope <- secrets_delete_scope
 
 #' Delete a secret.
 #' 
@@ -110,20 +67,16 @@ secrets$delete_scope <- secrets_delete_scope
 #' Throws `RESOURCE_DOES_NOT_EXIST` if no such secret scope or secret exists.
 #' Throws `PERMISSION_DENIED` if the user does not have permission to make this
 #' API call.
+#' @param client Required. Instance of DatabricksClient()
 #'
 #' @param key Required. Name of the secret to delete.
 #' @param scope Required. The name of the scope that contains the secret to delete.
 #'
-#' @keywords internal
-#'
-#' @rdname secrets_delete_secret
-#'
-#' @aliases secrets_delete_secret
-secrets_delete_secret <- function(scope, key) {
+#' @rdname secretsDeleteSecret
+secretsDeleteSecret <- function(client, scope, key) {
   body <- list(key = key, scope = scope)
-  .state$api$do("POST", "/api/2.0/secrets/delete", body = body)
+  client$do("POST", "/api/2.0/secrets/delete", body = body)
 }
-secrets$delete_secret <- secrets_delete_secret
 
 #' Get secret ACL details.
 #' 
@@ -133,20 +86,16 @@ secrets$delete_secret <- secrets_delete_secret
 #' Throws `RESOURCE_DOES_NOT_EXIST` if no such secret scope exists. Throws
 #' `PERMISSION_DENIED` if the user does not have permission to make this API
 #' call.
+#' @param client Required. Instance of DatabricksClient()
 #'
 #' @param principal Required. The principal to fetch ACL information for.
 #' @param scope Required. The name of the scope to fetch ACL information from.
 #'
-#' @keywords internal
-#'
-#' @rdname secrets_get_acl
-#'
-#' @aliases secrets_get_acl
-secrets_get_acl <- function(scope, principal) {
+#' @rdname secretsGetAcl
+secretsGetAcl <- function(client, scope, principal) {
   query <- list(principal = principal, scope = scope)
-  .state$api$do("GET", "/api/2.0/secrets/acls/get", query = query)
+  client$do("GET", "/api/2.0/secrets/acls/get", query = query)
 }
-secrets$get_acl <- secrets_get_acl
 
 #' Lists ACLs.
 #' 
@@ -156,24 +105,20 @@ secrets$get_acl <- secrets_get_acl
 #' Throws `RESOURCE_DOES_NOT_EXIST` if no such secret scope exists. Throws
 #' `PERMISSION_DENIED` if the user does not have permission to make this API
 #' call.
+#' @param client Required. Instance of DatabricksClient()
 #'
 #' @param scope Required. The name of the scope to fetch ACL information from.
 #'
 #' @return `data.frame` with all of the response pages.
 #'
-#' @keywords internal
-#'
-#' @rdname secrets_list_acls
-#'
-#' @aliases secrets_list_acls
-secrets_list_acls <- function(scope) {
+#' @rdname secretsListAcls
+secretsListAcls <- function(client, scope) {
   query <- list(scope = scope)
 
-  json <- .state$api$do("GET", "/api/2.0/secrets/acls/list", query = query)
+  json <- client$do("GET", "/api/2.0/secrets/acls/list", query = query)
   return(json$items)
 
 }
-secrets$list_acls <- secrets_list_acls
 
 #' List all scopes.
 #' 
@@ -183,18 +128,13 @@ secrets$list_acls <- secrets_list_acls
 #' API call.#'
 #' @return `data.frame` with all of the response pages.
 #'
-#' @keywords internal
-#'
-#' @rdname secrets_list_scopes
-#'
-#' @aliases secrets_list_scopes
-secrets_list_scopes <- function() {
+#' @rdname secretsListScopes
+secretsListScopes <- function(client) {
 
-  json <- .state$api$do("GET", "/api/2.0/secrets/scopes/list")
+  json <- client$do("GET", "/api/2.0/secrets/scopes/list")
   return(json$scopes)
 
 }
-secrets$list_scopes <- secrets_list_scopes
 
 #' List secret keys.
 #' 
@@ -206,24 +146,20 @@ secrets$list_scopes <- secrets_list_scopes
 #' `RESOURCE_DOES_NOT_EXIST` if no such secret scope exists. Throws
 #' `PERMISSION_DENIED` if the user does not have permission to make this API
 #' call.
+#' @param client Required. Instance of DatabricksClient()
 #'
 #' @param scope Required. The name of the scope to list secrets within.
 #'
 #' @return `data.frame` with all of the response pages.
 #'
-#' @keywords internal
-#'
-#' @rdname secrets_list_secrets
-#'
-#' @aliases secrets_list_secrets
-secrets_list_secrets <- function(scope) {
+#' @rdname secretsListSecrets
+secretsListSecrets <- function(client, scope) {
   query <- list(scope = scope)
 
-  json <- .state$api$do("GET", "/api/2.0/secrets/list", query = query)
+  json <- client$do("GET", "/api/2.0/secrets/list", query = query)
   return(json$secrets)
 
 }
-secrets$list_secrets <- secrets_list_secrets
 
 #' Create/update an ACL.
 #' 
@@ -253,21 +189,17 @@ secrets$list_secrets <- secrets_list_secrets
 #' Throws `INVALID_PARAMETER_VALUE` if the permission is invalid. Throws
 #' `PERMISSION_DENIED` if the user does not have permission to make this API
 #' call.
+#' @param client Required. Instance of DatabricksClient()
 #'
 #' @param permission Required. The permission level applied to the principal.
 #' @param principal Required. The principal in which the permission is applied.
 #' @param scope Required. The name of the scope to apply permissions to.
 #'
-#' @keywords internal
-#'
-#' @rdname secrets_put_acl
-#'
-#' @aliases secrets_put_acl
-secrets_put_acl <- function(scope, principal, permission) {
+#' @rdname secretsPutAcl
+secretsPutAcl <- function(client, scope, principal, permission) {
   body <- list(permission = permission, principal = principal, scope = scope)
-  .state$api$do("POST", "/api/2.0/secrets/acls/put", body = body)
+  client$do("POST", "/api/2.0/secrets/acls/put", body = body)
 }
-secrets$put_acl <- secrets_put_acl
 
 #' Add a secret.
 #' 
@@ -290,20 +222,16 @@ secrets$put_acl <- secrets_put_acl
 #' Throws `INVALID_PARAMETER_VALUE` if the key name or value length is invalid.
 #' Throws `PERMISSION_DENIED` if the user does not have permission to make this
 #' API call.
+#' @param client Required. Instance of DatabricksClient()
 #'
 #' @param bytes_value If specified, value will be stored as bytes.
 #' @param key Required. A unique name to identify the secret.
 #' @param scope Required. The name of the scope to which the secret will be associated with.
 #' @param string_value If specified, note that the value will be stored in UTF-8 (MB4) form.
 #'
-#' @keywords internal
-#'
-#' @rdname secrets_put_secret
-#'
-#' @aliases secrets_put_secret
-secrets_put_secret <- function(scope, key, bytes_value = NULL, string_value = NULL) {
+#' @rdname secretsPutSecret
+secretsPutSecret <- function(client, scope, key, bytes_value = NULL, string_value = NULL) {
   body <- list(bytes_value = bytes_value, key = key, scope = scope, string_value = string_value)
-  .state$api$do("POST", "/api/2.0/secrets/put", body = body)
+  client$do("POST", "/api/2.0/secrets/put", body = body)
 }
-secrets$put_secret <- secrets_put_secret
 

@@ -3,29 +3,6 @@
 #' @importFrom stats runif
 NULL
 
-#' A table resides in the third layer of Unity Catalog’s three-level
-#' namespace. It contains rows of data. To create a table, users must have
-#' CREATE_TABLE and USE_SCHEMA permissions on the schema, and they must have the
-#' USE_CATALOG permission on its parent catalog. To query a table, users must
-#' have the SELECT permission on the table, and they must have the USE_CATALOG
-#' permission on its parent catalog and the USE_SCHEMA permission on its parent
-#' schema.
-#' 
-#' A table can be managed or external. From an API perspective, a __VIEW__ is a
-#' particular kind of table (rather than a managed or external table).
-#'
-#' @section Operations:
-#' \tabular{ll}{
-#'  \link[=tables_delete]{delete} \tab Delete a table.\cr
-#'  \link[=tables_get]{get} \tab Get a table.\cr
-#'  \link[=tables_list]{list} \tab List tables.\cr
-#'  \link[=tables_list_summaries]{list_summaries} \tab List table summaries.\cr
-#' }
-#'
-#' @rdname tables
-#' @export
-tables <- list()
-
 #' Delete a table.
 #' 
 #' Deletes a table from the specified parent catalog and schema. The caller must
@@ -33,19 +10,15 @@ tables <- list()
 #' parent catalog and be the owner of the parent schema, or be the owner of the
 #' table and have the **USE_CATALOG** privilege on the parent catalog and the
 #' **USE_SCHEMA** privilege on the parent schema.
+#' @param client Required. Instance of DatabricksClient()
 #'
 #' @param full_name Required. Full name of the table.
 #'
-#' @keywords internal
-#'
-#' @rdname tables_delete
-#'
-#' @aliases tables_delete
-tables_delete <- function(full_name) {
+#' @rdname tablesDelete
+tablesDelete <- function(client, full_name) {
 
-  .state$api$do("DELETE", paste("/api/2.1/unity-catalog/tables/", full_name, sep = ""))
+  client$do("DELETE", paste("/api/2.1/unity-catalog/tables/", full_name, sep = ""))
 }
-tables$delete <- tables_delete
 
 #' Get a table.
 #' 
@@ -54,21 +27,17 @@ tables$delete <- tables_delete
 #' **USE_CATALOG** privilege on the parent catalog and the **USE_SCHEMA**
 #' privilege on the parent schema, or be the owner of the table and have the
 #' **SELECT** privilege on it as well.
+#' @param client Required. Instance of DatabricksClient()
 #'
 #' @param full_name Required. Full name of the table.
 #' @param include_delta_metadata Whether delta metadata should be included in the response.
 #'
-#' @keywords internal
-#'
-#' @rdname tables_get
-#'
-#' @aliases tables_get
-tables_get <- function(full_name, include_delta_metadata = NULL) {
+#' @rdname tablesGet
+tablesGet <- function(client, full_name, include_delta_metadata = NULL) {
   query <- list(, include_delta_metadata = include_delta_metadata)
-  .state$api$do("GET", paste("/api/2.1/unity-catalog/tables/", full_name, sep = ""),
+  client$do("GET", paste("/api/2.1/unity-catalog/tables/", full_name, sep = ""),
     query = query)
 }
-tables$get <- tables_get
 
 #' List tables.
 #' 
@@ -78,6 +47,7 @@ tables$get <- tables_get
 #' must also be the owner or have the **USE_CATALOG** privilege on the parent
 #' catalog and the **USE_SCHEMA** privilege on the parent schema. There is no
 #' guarantee of a specific ordering of the elements in the array.
+#' @param client Required. Instance of DatabricksClient()
 #'
 #' @param catalog_name Required. Name of parent catalog for tables of interest.
 #' @param include_delta_metadata Whether delta metadata should be included in the response.
@@ -87,19 +57,15 @@ tables$get <- tables_get
 #'
 #' @return `data.frame` with all of the response pages.
 #'
-#' @keywords internal
-#'
-#' @rdname tables_list
-#'
-#' @aliases tables_list
-tables_list <- function(catalog_name, schema_name, include_delta_metadata = NULL,
+#' @rdname tablesList
+tablesList <- function(client, catalog_name, schema_name, include_delta_metadata = NULL,
   max_results = NULL, page_token = NULL) {
   query <- list(catalog_name = catalog_name, include_delta_metadata = include_delta_metadata,
     max_results = max_results, page_token = page_token, schema_name = schema_name)
 
   results <- data.frame()
   while (TRUE) {
-    json <- .state$api$do("GET", "/api/2.1/unity-catalog/tables", query = query)
+    json <- client$do("GET", "/api/2.1/unity-catalog/tables", query = query)
     if (is.null(nrow(json$tables))) {
       break
     }
@@ -113,7 +79,6 @@ tables_list <- function(catalog_name, schema_name, include_delta_metadata = NULL
   return(results)
 
 }
-tables$list <- tables_list
 
 #' List table summaries.
 #' 
@@ -128,6 +93,7 @@ tables$list <- tables_list
 #' also has ownership or the **USE_CATALOG** privilege on the parent catalog.
 #' 
 #' There is no guarantee of a specific ordering of the elements in the array.
+#' @param client Required. Instance of DatabricksClient()
 #'
 #' @param catalog_name Required. Name of parent catalog for tables of interest.
 #' @param max_results Maximum number of tables to return (page length).
@@ -137,19 +103,15 @@ tables$list <- tables_list
 #'
 #' @return `data.frame` with all of the response pages.
 #'
-#' @keywords internal
-#'
-#' @rdname tables_list_summaries
-#'
-#' @aliases tables_list_summaries
-tables_list_summaries <- function(catalog_name, max_results = NULL, page_token = NULL,
+#' @rdname tablesListSummaries
+tablesListSummaries <- function(client, catalog_name, max_results = NULL, page_token = NULL,
   schema_name_pattern = NULL, table_name_pattern = NULL) {
   query <- list(catalog_name = catalog_name, max_results = max_results, page_token = page_token,
     schema_name_pattern = schema_name_pattern, table_name_pattern = table_name_pattern)
 
   results <- data.frame()
   while (TRUE) {
-    json <- .state$api$do("GET", "/api/2.1/unity-catalog/table-summaries", query = query)
+    json <- client$do("GET", "/api/2.1/unity-catalog/table-summaries", query = query)
     if (is.null(nrow(json$tables))) {
       break
     }
@@ -163,5 +125,4 @@ tables_list_summaries <- function(catalog_name, max_results = NULL, page_token =
   return(results)
 
 }
-tables$list_summaries <- tables_list_summaries
 

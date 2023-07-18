@@ -3,22 +3,12 @@
 #' @importFrom stats runif
 NULL
 
-#' Access the history of queries through SQL warehouses.
-#'
-#' @section Operations:
-#' \tabular{ll}{
-#'  \link[=query_history_list]{list} \tab List Queries.\cr
-#' }
-#'
-#' @rdname query_history
-#' @export
-query_history <- list()
-
 #' List Queries.
 #' 
 #' List the history of queries through SQL warehouses.
 #' 
 #' You can filter by user ID, warehouse ID, status, and time range.
+#' @param client Required. Instance of DatabricksClient()
 #'
 #' @param filter_by A filter to limit query history results.
 #' @param include_metrics Whether to include metrics about query.
@@ -27,19 +17,15 @@ query_history <- list()
 #'
 #' @return `data.frame` with all of the response pages.
 #'
-#' @keywords internal
-#'
-#' @rdname query_history_list
-#'
-#' @aliases query_history_list
-query_history_list <- function(filter_by = NULL, include_metrics = NULL, max_results = NULL,
+#' @rdname queryHistoryList
+queryHistoryList <- function(client, filter_by = NULL, include_metrics = NULL, max_results = NULL,
   page_token = NULL) {
   query <- list(filter_by = filter_by, include_metrics = include_metrics, max_results = max_results,
     page_token = page_token)
 
   results <- data.frame()
   while (TRUE) {
-    json <- .state$api$do("GET", "/api/2.0/sql/history/queries", query = query)
+    json <- client$do("GET", "/api/2.0/sql/history/queries", query = query)
     if (is.null(nrow(json$res))) {
       break
     }
@@ -53,5 +39,4 @@ query_history_list <- function(filter_by = NULL, include_metrics = NULL, max_res
   return(results)
 
 }
-query_history$list <- query_history_list
 

@@ -9,5 +9,6 @@
 ^\.vscode$
 ^LICENSE$
 ^CONTRIBUTING\.md$
+^CHANGELOG\.md$
 ^Makefile$
 ^NOTICE$

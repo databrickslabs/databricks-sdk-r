@@ -3,28 +3,6 @@
 #' @importFrom stats runif
 NULL
 
-#' Volumes are a Unity Catalog (UC) capability for accessing, storing,
-#' governing, organizing and processing files. Use cases include running machine
-#' learning on unstructured data such as image, audio, video, or PDF files,
-#' organizing data sets during the data exploration stages in data science,
-#' working with libraries that require access to the local file system on
-#' cluster machines, storing library and config files of arbitrary formats such
-#' as .whl or .txt centrally and providing secure access across workspaces to
-#' it, or transforming and querying non-tabular data files in ETL.
-#'
-#' @section Operations:
-#' \tabular{ll}{
-#'  \link[=volumes_create]{create} \tab Create a Volume.\cr
-#'  \link[=volumes_delete]{delete} \tab Delete a Volume.\cr
-#'  \link[=volumes_list]{list} \tab List Volumes.\cr
-#'  \link[=volumes_read]{read} \tab Get a Volume.\cr
-#'  \link[=volumes_update]{update} \tab Update a Volume.\cr
-#' }
-#'
-#' @rdname volumes
-#' @export
-volumes <- list()
-
 #' Create a Volume.
 #' 
 #' Creates a new volume.
@@ -45,6 +23,7 @@ volumes <- list()
 #' location. - There are no other tables, nor volumes existing in the specified
 #' storage location. - The specified storage location is not under the location
 #' of other tables, nor volumes, or catalogs or schemas.
+#' @param client Required. Instance of DatabricksClient()
 #'
 #' @param catalog_name Required. The name of the catalog where the schema and the volume are.
 #' @param comment The comment attached to the volume.
@@ -53,18 +32,13 @@ volumes <- list()
 #' @param storage_location The storage location on the cloud.
 #' @param volume_type Required. 
 #'
-#' @keywords internal
-#'
-#' @rdname volumes_create
-#'
-#' @aliases volumes_create
-volumes_create <- function(catalog_name, name, schema_name, volume_type, comment = NULL,
+#' @rdname volumesCreate
+volumesCreate <- function(client, catalog_name, name, schema_name, volume_type, comment = NULL,
   storage_location = NULL) {
   body <- list(catalog_name = catalog_name, comment = comment, name = name, schema_name = schema_name,
     storage_location = storage_location, volume_type = volume_type)
-  .state$api$do("POST", "/api/2.1/unity-catalog/volumes", body = body)
+  client$do("POST", "/api/2.1/unity-catalog/volumes", body = body)
 }
-volumes$create <- volumes_create
 
 #' Delete a Volume.
 #' 
@@ -74,20 +48,15 @@ volumes$create <- volumes_create
 #' latter case, the caller must also be the owner or have the **USE_CATALOG**
 #' privilege on the parent catalog and the **USE_SCHEMA** privilege on the
 #' parent schema.
+#' @param client Required. Instance of DatabricksClient()
 #'
 #' @param full_name_arg Required. The three-level (fully qualified) name of the volume.
 #'
-#' @keywords internal
-#'
-#' @rdname volumes_delete
-#'
-#' @aliases volumes_delete
-volumes_delete <- function(full_name_arg) {
+#' @rdname volumesDelete
+volumesDelete <- function(client, full_name_arg) {
 
-  .state$api$do("DELETE", paste("/api/2.1/unity-catalog/volumes/", full_name_arg,
-    sep = ""))
+  client$do("DELETE", paste("/api/2.1/unity-catalog/volumes/", full_name_arg, sep = ""))
 }
-volumes$delete <- volumes_delete
 
 #' List Volumes.
 #' 
@@ -102,25 +71,21 @@ volumes$delete <- volumes_delete
 #' parent catalog and the **USE_SCHEMA** privilege on the parent schema.
 #' 
 #' There is no guarantee of a specific ordering of the elements in the array.
+#' @param client Required. Instance of DatabricksClient()
 #'
 #' @param catalog_name Required. The identifier of the catalog.
 #' @param schema_name Required. The identifier of the schema.
 #'
 #' @return `data.frame` with all of the response pages.
 #'
-#' @keywords internal
-#'
-#' @rdname volumes_list
-#'
-#' @aliases volumes_list
-volumes_list <- function(catalog_name, schema_name) {
+#' @rdname volumesList
+volumesList <- function(client, catalog_name, schema_name) {
   query <- list(catalog_name = catalog_name, schema_name = schema_name)
 
-  json <- .state$api$do("GET", "/api/2.1/unity-catalog/volumes", query = query)
+  json <- client$do("GET", "/api/2.1/unity-catalog/volumes", query = query)
   return(json$volumes)
 
 }
-volumes$list <- volumes_list
 
 #' Get a Volume.
 #' 
@@ -130,20 +95,15 @@ volumes$list <- volumes_list
 #' VOLUME** privilege on) the volume. For the latter case, the caller must also
 #' be the owner or have the **USE_CATALOG** privilege on the parent catalog and
 #' the **USE_SCHEMA** privilege on the parent schema.
+#' @param client Required. Instance of DatabricksClient()
 #'
 #' @param full_name_arg Required. The three-level (fully qualified) name of the volume.
 #'
-#' @keywords internal
-#'
-#' @rdname volumes_read
-#'
-#' @aliases volumes_read
-volumes_read <- function(full_name_arg) {
+#' @rdname volumesRead
+volumesRead <- function(client, full_name_arg) {
 
-  .state$api$do("GET", paste("/api/2.1/unity-catalog/volumes/", full_name_arg,
-    sep = ""))
+  client$do("GET", paste("/api/2.1/unity-catalog/volumes/", full_name_arg, sep = ""))
 }
-volumes$read <- volumes_read
 
 #' Update a Volume.
 #' 
@@ -156,21 +116,17 @@ volumes$read <- volumes_read
 #' 
 #' Currently only the name, the owner or the comment of the volume could be
 #' updated.
+#' @param client Required. Instance of DatabricksClient()
 #'
 #' @param comment The comment attached to the volume.
 #' @param full_name_arg Required. The three-level (fully qualified) name of the volume.
 #' @param name The name of the volume.
 #' @param owner The identifier of the user who owns the volume.
 #'
-#' @keywords internal
-#'
-#' @rdname volumes_update
-#'
-#' @aliases volumes_update
-volumes_update <- function(full_name_arg, comment = NULL, name = NULL, owner = NULL) {
+#' @rdname volumesUpdate
+volumesUpdate <- function(client, full_name_arg, comment = NULL, name = NULL, owner = NULL) {
   body <- list(comment = comment, name = name, owner = owner)
-  .state$api$do("PATCH", paste("/api/2.1/unity-catalog/volumes/", full_name_arg,
-    sep = ""), body = body)
+  client$do("PATCH", paste("/api/2.1/unity-catalog/volumes/", full_name_arg, sep = ""),
+    body = body)
 }
-volumes$update <- volumes_update
 
