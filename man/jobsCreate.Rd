@@ -7,14 +7,17 @@
 jobsCreate(
   client,
   access_control_list = NULL,
+  compute = NULL,
   continuous = NULL,
   email_notifications = NULL,
   format = NULL,
   git_source = NULL,
+  health = NULL,
   job_clusters = NULL,
   max_concurrent_runs = NULL,
   name = NULL,
   notification_settings = NULL,
+  parameters = NULL,
   run_as = NULL,
   schedule = NULL,
   tags = NULL,
@@ -29,6 +32,8 @@ jobsCreate(
 
 \item{access_control_list}{List of permissions to set on the job.}
 
+\item{compute}{A list of compute requirements that can be referenced by tasks of this job.}
+
 \item{continuous}{An optional continuous property for this job.}
 
 \item{email_notifications}{An optional set of email addresses that is notified when runs of this job begin or complete as well as when this job is deleted.}
@@ -37,6 +42,8 @@ jobsCreate(
 
 \item{git_source}{An optional specification for a remote repository containing the notebooks used by this job's notebook tasks.}
 
+\item{health}{An optional set of health rules that can be defined for this job.}
+
 \item{job_clusters}{A list of job cluster specifications that can be shared and reused by tasks of this job.}
 
 \item{max_concurrent_runs}{An optional maximum allowed number of concurrent runs of the job.}
@@ -44,6 +51,8 @@ jobsCreate(
 \item{name}{An optional name for the job.}
 
 \item{notification_settings}{Optional notification settings that are used when sending notifications to each of the \code{email_notifications} and \code{webhook_notifications} for this job.}
+
+\item{parameters}{Job-level parameter definitions.}
 
 \item{run_as}{Write-only setting, available only in Create/Update/Reset and Submit calls.}
 

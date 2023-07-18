@@ -60,7 +60,7 @@ tags, but logging 900 metrics, 50 params, and 51 tags is invalid.
 
 The following limits also apply to metric, param, and tag keys and values:
 \itemize{
-\item Metric keyes, param keys, and tag keys can be up to 250 characters in
-length * Parameter and tag values can be up to 250 characters in length
+\item Metric keys, param keys, and tag keys can be up to 250 characters in length
+\item Parameter and tag values can be up to 250 characters in length
 }
 }

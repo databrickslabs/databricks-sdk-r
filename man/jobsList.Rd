@@ -2,7 +2,7 @@
 % Please edit documentation in R/jobs.R
 \name{jobsList}
 \alias{jobsList}
-\title{List all jobs.}
+\title{List jobs.}
 \usage{
 jobsList(
   client,

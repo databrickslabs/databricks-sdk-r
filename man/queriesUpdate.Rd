@@ -19,15 +19,15 @@ queriesUpdate(
 
 \item{query_id}{Required.}
 
-\item{data_source_id}{The ID of the data source / SQL warehouse where this query will run.}
+\item{data_source_id}{Data source ID.}
 
-\item{description}{General description that can convey additional information about this query such as usage notes.}
+\item{description}{General description that conveys additional information about this query such as usage notes.}
 
-\item{name}{The name or title of this query to display in list views.}
+\item{name}{The title of this query that appears in list views, widget headings, and on the query page.}
 
 \item{options}{Exclusively used for storing a list parameter definitions.}
 
-\item{query}{The text of the query.}
+\item{query}{The text of the query to be run.}
 }
 \description{
 Modify this query definition.

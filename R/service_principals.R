@@ -89,10 +89,11 @@ servicePrincipalsList <- function(client, attributes = NULL, count = NULL, exclu
 #'
 #' @param id Required. Unique ID for a service principal in the Databricks workspace.
 #' @param operations 
+#' @param schema The schema of the patch request.
 #'
 #' @rdname servicePrincipalsPatch
-servicePrincipalsPatch <- function(client, id, operations = NULL) {
-  body <- list(, operations = operations)
+servicePrincipalsPatch <- function(client, id, operations = NULL, schema = NULL) {
+  body <- list(, Operations = operations, schema = schema)
   client$do("PATCH", paste("/api/2.0/preview/scim/v2/ServicePrincipals/", id, sep = ""),
     body = body)
 }

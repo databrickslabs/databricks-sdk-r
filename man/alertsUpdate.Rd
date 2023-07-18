@@ -13,7 +13,7 @@ alertsUpdate(client, name, options, query_id, alert_id, rearm = NULL)
 
 \item{options}{Required. Alert configuration options.}
 
-\item{query_id}{Required. ID of the query evaluated by the alert.}
+\item{query_id}{Required. Query ID.}
 
 \item{alert_id}{Required.}
 

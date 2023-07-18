@@ -11,7 +11,7 @@ NULL
 #'
 #' @param iam_role_arn The AWS IAM role ARN of the role associated with the instance profile.
 #' @param instance_profile_arn Required. The AWS ARN of the instance profile to register with Databricks.
-#' @param is_meta_instance_profile By default, Databricks validates that it has sufficient permissions to launch instances with the instance profile.
+#' @param is_meta_instance_profile Boolean flag indicating whether the instance profile should only be used in credential passthrough scenarios.
 #' @param skip_validation By default, Databricks validates that it has sufficient permissions to launch instances with the instance profile.
 #'
 #' @rdname instanceProfilesAdd
@@ -43,7 +43,7 @@ instanceProfilesAdd <- function(client, instance_profile_arn, iam_role_arn = NUL
 #'
 #' @param iam_role_arn The AWS IAM role ARN of the role associated with the instance profile.
 #' @param instance_profile_arn Required. The AWS ARN of the instance profile to register with Databricks.
-#' @param is_meta_instance_profile By default, Databricks validates that it has sufficient permissions to launch instances with the instance profile.
+#' @param is_meta_instance_profile Boolean flag indicating whether the instance profile should only be used in credential passthrough scenarios.
 #'
 #' @rdname instanceProfilesEdit
 instanceProfilesEdit <- function(client, instance_profile_arn, iam_role_arn = NULL,

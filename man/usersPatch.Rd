@@ -4,7 +4,7 @@
 \alias{usersPatch}
 \title{Update user details.}
 \usage{
-usersPatch(client, id, operations = NULL)
+usersPatch(client, id, operations = NULL, schema = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
@@ -12,6 +12,8 @@ usersPatch(client, id, operations = NULL)
 \item{id}{Required. Unique ID for a user in the Databricks workspace.}
 
 \item{operations}{}
+
+\item{schema}{The schema of the patch request.}
 }
 \description{
 Partially updates a user resource by applying the supplied operations on

@@ -1,6 +1,7 @@
 R/account_access_control_proxy.R linguist-generated=true
 R/alerts.R linguist-generated=true
 R/catalogs.R linguist-generated=true
+R/clean_rooms.R linguist-generated=true
 R/cluster_policies.R linguist-generated=true
 R/clusters.R linguist-generated=true
 R/command_execution.R linguist-generated=true

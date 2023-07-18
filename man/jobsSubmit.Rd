@@ -7,7 +7,9 @@
 jobsSubmit(
   client,
   access_control_list = NULL,
+  email_notifications = NULL,
   git_source = NULL,
+  health = NULL,
   idempotency_token = NULL,
   notification_settings = NULL,
   run_name = NULL,
@@ -23,7 +25,11 @@ jobsSubmit(
 
 \item{access_control_list}{List of permissions to set on the job.}
 
+\item{email_notifications}{An optional set of email addresses notified when the run begins or completes.}
+
 \item{git_source}{An optional specification for a remote repository containing the notebooks used by this job's notebook tasks.}
+
+\item{health}{An optional set of health rules that can be defined for this job.}
 
 \item{idempotency_token}{An optional token that can be used to guarantee the idempotency of job run requests.}
 

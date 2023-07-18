@@ -59,6 +59,20 @@ metastoresDelete <- function(client, id, force = NULL) {
     query = query)
 }
 
+#' Toggle predictive optimization on the metastore.
+#' 
+#' Enables or disables predictive optimization on the metastore.
+#' @param client Required. Instance of DatabricksClient()
+#'
+#' @param enable Required. Whether to enable predictive optimization on the metastore.
+#' @param metastore_id Required. Unique identifier of metastore.
+#'
+#' @rdname metastoresEnableOptimization
+metastoresEnableOptimization <- function(client, metastore_id, enable) {
+  body <- list(enable = enable, metastore_id = metastore_id)
+  client$do("PATCH", "/api/2.0/predictive-optimization/service", body = body)
+}
+
 #' Get a metastore.
 #' 
 #' Gets a metastore that matches the supplied ID. The caller must be a metastore
@@ -86,20 +100,6 @@ metastoresList <- function(client) {
   json <- client$do("GET", "/api/2.1/unity-catalog/metastores")
   return(json$metastores)
 
-}
-
-#' Enables or disables auto maintenance on the metastore.
-#' 
-#' Enables or disables auto maintenance on the metastore.
-#' @param client Required. Instance of DatabricksClient()
-#'
-#' @param enable Required. Whether to enable auto maintenance on the metastore.
-#' @param metastore_id Required. Unique identifier of metastore.
-#'
-#' @rdname metastoresMaintenance
-metastoresMaintenance <- function(client, metastore_id, enable) {
-  body <- list(enable = enable, metastore_id = metastore_id)
-  client$do("PATCH", "/api/2.0/auto-maintenance/service", body = body)
 }
 
 #' Get a metastore summary.

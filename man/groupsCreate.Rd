@@ -12,6 +12,7 @@ groupsCreate(
   groups = NULL,
   id = NULL,
   members = NULL,
+  meta = NULL,
   roles = NULL
 )
 }
@@ -29,6 +30,8 @@ groupsCreate(
 \item{id}{Databricks group ID.}
 
 \item{members}{}
+
+\item{meta}{Container for the group identifier.}
 
 \item{roles}{}
 }

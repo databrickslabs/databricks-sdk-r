@@ -11,7 +11,7 @@ connectionsUpdate(client, name, options_kvpairs, name_arg)
 
 \item{name}{Required. Name of the connection.}
 
-\item{options_kvpairs}{Required. Object properties as map of string key-value pairs.}
+\item{options_kvpairs}{Required. A map of key-value properties attached to the securable.}
 
 \item{name_arg}{Required. Name of the connection.}
 }

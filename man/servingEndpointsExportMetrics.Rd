@@ -2,8 +2,7 @@
 % Please edit documentation in R/serving_endpoints.R
 \name{servingEndpointsExportMetrics}
 \alias{servingEndpointsExportMetrics}
-\title{Retrieve the metrics corresponding to a serving endpoint for the current time
-in Prometheus or OpenMetrics exposition format.}
+\title{Retrieve the metrics associated with a serving endpoint.}
 \usage{
 servingEndpointsExportMetrics(client, name)
 }

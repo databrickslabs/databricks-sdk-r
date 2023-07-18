@@ -8,7 +8,7 @@ NULL
 #'
 #' @param is_favorite Indicates whether this query object should appear in the current user's favorites list.
 #' @param name The title of this dashboard that appears in list views and at the top of the dashboard page.
-#' @param parent The identifier of the workspace folder containing the dashboard.
+#' @param parent The identifier of the workspace folder containing the object.
 #' @param tags 
 #'
 #' @rdname dashboardsCreate

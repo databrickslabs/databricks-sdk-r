@@ -81,14 +81,17 @@ jobsCancelRun <- function(client, run_id, timeout = 20, callback = cli_reporter)
 #' @param client Required. Instance of DatabricksClient()
 #'
 #' @param access_control_list List of permissions to set on the job.
+#' @param compute A list of compute requirements that can be referenced by tasks of this job.
 #' @param continuous An optional continuous property for this job.
 #' @param email_notifications An optional set of email addresses that is notified when runs of this job begin or complete as well as when this job is deleted.
 #' @param format Used to tell what is the format of the job.
 #' @param git_source An optional specification for a remote repository containing the notebooks used by this job's notebook tasks.
+#' @param health An optional set of health rules that can be defined for this job.
 #' @param job_clusters A list of job cluster specifications that can be shared and reused by tasks of this job.
 #' @param max_concurrent_runs An optional maximum allowed number of concurrent runs of the job.
 #' @param name An optional name for the job.
 #' @param notification_settings Optional notification settings that are used when sending notifications to each of the `email_notifications` and `webhook_notifications` for this job.
+#' @param parameters Job-level parameter definitions.
 #' @param run_as Write-only setting, available only in Create/Update/Reset and Submit calls.
 #' @param schedule An optional periodic schedule for this job.
 #' @param tags A map of tags associated with the job.
@@ -98,16 +101,17 @@ jobsCancelRun <- function(client, run_id, timeout = 20, callback = cli_reporter)
 #' @param webhook_notifications A collection of system notification IDs to notify when the run begins or completes.
 #'
 #' @rdname jobsCreate
-jobsCreate <- function(client, access_control_list = NULL, continuous = NULL, email_notifications = NULL,
-  format = NULL, git_source = NULL, job_clusters = NULL, max_concurrent_runs = NULL,
-  name = NULL, notification_settings = NULL, run_as = NULL, schedule = NULL, tags = NULL,
-  tasks = NULL, timeout_seconds = NULL, trigger = NULL, webhook_notifications = NULL) {
-  body <- list(access_control_list = access_control_list, continuous = continuous,
+jobsCreate <- function(client, access_control_list = NULL, compute = NULL, continuous = NULL,
+  email_notifications = NULL, format = NULL, git_source = NULL, health = NULL,
+  job_clusters = NULL, max_concurrent_runs = NULL, name = NULL, notification_settings = NULL,
+  parameters = NULL, run_as = NULL, schedule = NULL, tags = NULL, tasks = NULL,
+  timeout_seconds = NULL, trigger = NULL, webhook_notifications = NULL) {
+  body <- list(access_control_list = access_control_list, compute = compute, continuous = continuous,
     email_notifications = email_notifications, format = format, git_source = git_source,
-    job_clusters = job_clusters, max_concurrent_runs = max_concurrent_runs, name = name,
-    notification_settings = notification_settings, run_as = run_as, schedule = schedule,
-    tags = tags, tasks = tasks, timeout_seconds = timeout_seconds, trigger = trigger,
-    webhook_notifications = webhook_notifications)
+    health = health, job_clusters = job_clusters, max_concurrent_runs = max_concurrent_runs,
+    name = name, notification_settings = notification_settings, parameters = parameters,
+    run_as = run_as, schedule = schedule, tags = tags, tasks = tasks, timeout_seconds = timeout_seconds,
+    trigger = trigger, webhook_notifications = webhook_notifications)
   client$do("POST", "/api/2.1/jobs/create", body = body)
 }
 
@@ -244,7 +248,7 @@ jobsGetRunOutput <- function(client, run_id) {
   client$do("GET", "/api/2.1/jobs/runs/get-output", query = query)
 }
 
-#' List all jobs.
+#' List jobs.
 #' 
 #' Retrieves a list of jobs.
 #' @param client Required. Instance of DatabricksClient()
@@ -280,7 +284,7 @@ jobsList <- function(client, expand_tasks = NULL, limit = NULL, name = NULL, off
 
 }
 
-#' List runs for a job.
+#' List job runs.
 #' 
 #' List runs in descending order by start time.
 #' @param client Required. Instance of DatabricksClient()
@@ -344,6 +348,7 @@ jobsListRuns <- function(client, active_only = NULL, completed_only = NULL, expa
 #' @param python_named_params A map from keys to values for jobs with Python wheel task, for example `'python_named_params': {'name': 'task', 'data': 'dbfs:/path/to/data.json'}`.
 #' @param python_params A list of parameters for jobs with Python tasks, for example `\'python_params\': [\'john doe\', \'35\']`.
 #' @param rerun_all_failed_tasks If true, repair all failed tasks.
+#' @param rerun_dependent_tasks If true, repair all tasks that depend on the tasks in `rerun_tasks`, even if they were previously successful.
 #' @param rerun_tasks The task keys of the task runs to repair.
 #' @param run_id Required. The job run ID of the run to repair.
 #' @param spark_submit_params A list of parameters for jobs with spark submit task, for example `\'spark_submit_params\': [\'--class\', \'org.apache.spark.examples.SparkPi\']`.
@@ -352,13 +357,14 @@ jobsListRuns <- function(client, active_only = NULL, completed_only = NULL, expa
 #' @rdname jobsRepairRun
 jobsRepairRun <- function(client, run_id, dbt_commands = NULL, jar_params = NULL,
   latest_repair_id = NULL, notebook_params = NULL, pipeline_params = NULL, python_named_params = NULL,
-  python_params = NULL, rerun_all_failed_tasks = NULL, rerun_tasks = NULL, spark_submit_params = NULL,
-  sql_params = NULL, timeout = 20, callback = cli_reporter) {
+  python_params = NULL, rerun_all_failed_tasks = NULL, rerun_dependent_tasks = NULL,
+  rerun_tasks = NULL, spark_submit_params = NULL, sql_params = NULL, timeout = 20,
+  callback = cli_reporter) {
   body <- list(dbt_commands = dbt_commands, jar_params = jar_params, latest_repair_id = latest_repair_id,
     notebook_params = notebook_params, pipeline_params = pipeline_params, python_named_params = python_named_params,
     python_params = python_params, rerun_all_failed_tasks = rerun_all_failed_tasks,
-    rerun_tasks = rerun_tasks, run_id = run_id, spark_submit_params = spark_submit_params,
-    sql_params = sql_params)
+    rerun_dependent_tasks = rerun_dependent_tasks, rerun_tasks = rerun_tasks,
+    run_id = run_id, spark_submit_params = spark_submit_params, sql_params = sql_params)
   op_response <- client$do("POST", "/api/2.1/jobs/runs/repair", body = body)
   started <- as.numeric(Sys.time())
   target_states <- c("TERMINATED", "SKIPPED", c())
@@ -430,6 +436,7 @@ jobsReset <- function(client, job_id, new_settings) {
 #' @param idempotency_token An optional token to guarantee the idempotency of job run requests.
 #' @param jar_params A list of parameters for jobs with Spark JAR tasks, for example `\'jar_params\': [\'john doe\', \'35\']`.
 #' @param job_id Required. The ID of the job to be executed.
+#' @param job_parameters Job-level parameters used in the run.
 #' @param notebook_params A map from keys to values for jobs with notebook task, for example `\'notebook_params\': {\'name\': \'john doe\', \'age\': \'35\'}`.
 #' @param pipeline_params 
 #' @param python_named_params A map from keys to values for jobs with Python wheel task, for example `'python_named_params': {'name': 'task', 'data': 'dbfs:/path/to/data.json'}`.
@@ -439,12 +446,12 @@ jobsReset <- function(client, job_id, new_settings) {
 #'
 #' @rdname jobsRunNow
 jobsRunNow <- function(client, job_id, dbt_commands = NULL, idempotency_token = NULL,
-  jar_params = NULL, notebook_params = NULL, pipeline_params = NULL, python_named_params = NULL,
-  python_params = NULL, spark_submit_params = NULL, sql_params = NULL, timeout = 20,
-  callback = cli_reporter) {
+  jar_params = NULL, job_parameters = NULL, notebook_params = NULL, pipeline_params = NULL,
+  python_named_params = NULL, python_params = NULL, spark_submit_params = NULL,
+  sql_params = NULL, timeout = 20, callback = cli_reporter) {
   body <- list(dbt_commands = dbt_commands, idempotency_token = idempotency_token,
-    jar_params = jar_params, job_id = job_id, notebook_params = notebook_params,
-    pipeline_params = pipeline_params, python_named_params = python_named_params,
+    jar_params = jar_params, job_id = job_id, job_parameters = job_parameters,
+    notebook_params = notebook_params, pipeline_params = pipeline_params, python_named_params = python_named_params,
     python_params = python_params, spark_submit_params = spark_submit_params,
     sql_params = sql_params)
   op_response <- client$do("POST", "/api/2.1/jobs/run-now", body = body)
@@ -503,7 +510,9 @@ jobsRunNow <- function(client, job_id, dbt_commands = NULL, idempotency_token = 
 #' @param client Required. Instance of DatabricksClient()
 #'
 #' @param access_control_list List of permissions to set on the job.
+#' @param email_notifications An optional set of email addresses notified when the run begins or completes.
 #' @param git_source An optional specification for a remote repository containing the notebooks used by this job's notebook tasks.
+#' @param health An optional set of health rules that can be defined for this job.
 #' @param idempotency_token An optional token that can be used to guarantee the idempotency of job run requests.
 #' @param notification_settings Optional notification settings that are used when sending notifications to each of the `webhook_notifications` for this run.
 #' @param run_name An optional name for the run.
@@ -512,12 +521,14 @@ jobsRunNow <- function(client, job_id, dbt_commands = NULL, idempotency_token = 
 #' @param webhook_notifications A collection of system notification IDs to notify when the run begins or completes.
 #'
 #' @rdname jobsSubmit
-jobsSubmit <- function(client, access_control_list = NULL, git_source = NULL, idempotency_token = NULL,
-  notification_settings = NULL, run_name = NULL, tasks = NULL, timeout_seconds = NULL,
-  webhook_notifications = NULL, timeout = 20, callback = cli_reporter) {
-  body <- list(access_control_list = access_control_list, git_source = git_source,
-    idempotency_token = idempotency_token, notification_settings = notification_settings,
-    run_name = run_name, tasks = tasks, timeout_seconds = timeout_seconds, webhook_notifications = webhook_notifications)
+jobsSubmit <- function(client, access_control_list = NULL, email_notifications = NULL,
+  git_source = NULL, health = NULL, idempotency_token = NULL, notification_settings = NULL,
+  run_name = NULL, tasks = NULL, timeout_seconds = NULL, webhook_notifications = NULL,
+  timeout = 20, callback = cli_reporter) {
+  body <- list(access_control_list = access_control_list, email_notifications = email_notifications,
+    git_source = git_source, health = health, idempotency_token = idempotency_token,
+    notification_settings = notification_settings, run_name = run_name, tasks = tasks,
+    timeout_seconds = timeout_seconds, webhook_notifications = webhook_notifications)
   op_response <- client$do("POST", "/api/2.1/jobs/runs/submit", body = body)
   started <- as.numeric(Sys.time())
   target_states <- c("TERMINATED", "SKIPPED", c())

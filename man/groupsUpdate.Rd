@@ -12,6 +12,7 @@ groupsUpdate(
   external_id = NULL,
   groups = NULL,
   members = NULL,
+  meta = NULL,
   roles = NULL
 )
 }
@@ -29,6 +30,8 @@ groupsUpdate(
 \item{groups}{}
 
 \item{members}{}
+
+\item{meta}{Container for the group identifier.}
 
 \item{roles}{}
 }

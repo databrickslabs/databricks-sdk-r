@@ -10,15 +10,15 @@ NULL
 #' in a workspace is 100.
 #' @param client Required. Instance of DatabricksClient()
 #'
+#' @param backend_azure_keyvault The metadata for the secret scope if the type is `AZURE_KEYVAULT`.
 #' @param initial_manage_principal The principal that is initially granted `MANAGE` permission to the created scope.
-#' @param keyvault_metadata The metadata for the secret scope if the type is `AZURE_KEYVAULT`.
 #' @param scope Required. Scope name requested by the user.
 #' @param scope_backend_type The backend type the scope will be created with.
 #'
 #' @rdname secretsCreateScope
-secretsCreateScope <- function(client, scope, initial_manage_principal = NULL, keyvault_metadata = NULL,
+secretsCreateScope <- function(client, scope, backend_azure_keyvault = NULL, initial_manage_principal = NULL,
   scope_backend_type = NULL) {
-  body <- list(initial_manage_principal = initial_manage_principal, keyvault_metadata = keyvault_metadata,
+  body <- list(backend_azure_keyvault = backend_azure_keyvault, initial_manage_principal = initial_manage_principal,
     scope = scope, scope_backend_type = scope_backend_type)
   client$do("POST", "/api/2.0/secrets/scopes/create", body = body)
 }
@@ -186,9 +186,9 @@ secretsListSecrets <- function(client, scope) {
 #' 
 #' Throws `RESOURCE_DOES_NOT_EXIST` if no such secret scope exists. Throws
 #' `RESOURCE_ALREADY_EXISTS` if a permission for the principal already exists.
-#' Throws `INVALID_PARAMETER_VALUE` if the permission is invalid. Throws
-#' `PERMISSION_DENIED` if the user does not have permission to make this API
-#' call.
+#' Throws `INVALID_PARAMETER_VALUE` if the permission or principal is invalid.
+#' Throws `PERMISSION_DENIED` if the user does not have permission to make this
+#' API call.
 #' @param client Required. Instance of DatabricksClient()
 #'
 #' @param permission Required. The permission level applied to the principal.

@@ -22,11 +22,17 @@ systemSchemasDisable <- function(client, metastore_id, schema_name) {
 #' Enable a system schema.
 #' 
 #' Enables the system schema and adds it to the system catalog. The caller must
-#' be an account admin or a metastore admin.#'
+#' be an account admin or a metastore admin.
+#' @param client Required. Instance of DatabricksClient()
+#'
+#' @param metastore_id Required. The metastore ID under which the system schema lives.
+#' @param schema_name Required. Full name of the system schema.
+#'
 #' @rdname systemSchemasEnable
-systemSchemasEnable <- function(client) {
-  client$do("POST", paste("/api/2.1/unity-catalog/metastores/", , "/systemschemas/",
-    , sep = ""))
+systemSchemasEnable <- function(client, metastore_id, schema_name) {
+
+  client$do("PUT", paste("/api/2.1/unity-catalog/metastores/", metastore_id, "/systemschemas/",
+    schema_name, sep = ""))
 }
 
 #' List system schemas.
