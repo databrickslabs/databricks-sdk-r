@@ -264,8 +264,8 @@ experimentsListExperiments <- function(client, max_results = NULL, page_token = 
 #' 
 #' The following limits also apply to metric, param, and tag keys and values:
 #' 
-#' * Metric keyes, param keys, and tag keys can be up to 250 characters in
-#' length * Parameter and tag values can be up to 250 characters in length
+#' * Metric keys, param keys, and tag keys can be up to 250 characters in length
+#' * Parameter and tag values can be up to 250 characters in length
 #' @param client Required. Instance of DatabricksClient()
 #'
 #' @param metrics Metrics to log.

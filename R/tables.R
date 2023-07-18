@@ -126,3 +126,22 @@ tablesListSummaries <- function(client, catalog_name, max_results = NULL, page_t
 
 }
 
+#' Update a table owner.
+#' 
+#' Change the owner of the table. The caller must be the owner of the parent
+#' catalog, have the **USE_CATALOG** privilege on the parent catalog and be the
+#' owner of the parent schema, or be the owner of the table and have the
+#' **USE_CATALOG** privilege on the parent catalog and the **USE_SCHEMA**
+#' privilege on the parent schema.
+#' @param client Required. Instance of DatabricksClient()
+#'
+#' @param full_name Required. Full name of the table.
+#' @param owner 
+#'
+#' @rdname tablesUpdate
+tablesUpdate <- function(client, full_name, owner = NULL) {
+  body <- list(, owner = owner)
+  client$do("PATCH", paste("/api/2.1/unity-catalog/tables/", full_name, sep = ""),
+    body = body)
+}
+

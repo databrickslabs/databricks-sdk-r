@@ -7,8 +7,8 @@
 secretsCreateScope(
   client,
   scope,
+  backend_azure_keyvault = NULL,
   initial_manage_principal = NULL,
-  keyvault_metadata = NULL,
   scope_backend_type = NULL
 )
 }
@@ -17,9 +17,9 @@ secretsCreateScope(
 
 \item{scope}{Required. Scope name requested by the user.}
 
-\item{initial_manage_principal}{The principal that is initially granted \code{MANAGE} permission to the created scope.}
+\item{backend_azure_keyvault}{The metadata for the secret scope if the type is \code{AZURE_KEYVAULT}.}
 
-\item{keyvault_metadata}{The metadata for the secret scope if the type is \code{AZURE_KEYVAULT}.}
+\item{initial_manage_principal}{The principal that is initially granted \code{MANAGE} permission to the created scope.}
 
 \item{scope_backend_type}{The backend type the scope will be created with.}
 }

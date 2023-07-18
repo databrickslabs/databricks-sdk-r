@@ -2,7 +2,7 @@
 % Please edit documentation in R/jobs.R
 \name{jobsListRuns}
 \alias{jobsListRuns}
-\title{List runs for a job.}
+\title{List job runs.}
 \usage{
 jobsListRuns(
   client,

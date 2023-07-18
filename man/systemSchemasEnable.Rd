@@ -4,9 +4,16 @@
 \alias{systemSchemasEnable}
 \title{Enable a system schema.}
 \usage{
-systemSchemasEnable(client)
+systemSchemasEnable(client, metastore_id, schema_name)
+}
+\arguments{
+\item{client}{Required. Instance of DatabricksClient()}
+
+\item{metastore_id}{Required. The metastore ID under which the system schema lives.}
+
+\item{schema_name}{Required. Full name of the system schema.}
 }
 \description{
 Enables the system schema and adds it to the system catalog. The caller must
-be an account admin or a metastore admin.#'
+be an account admin or a metastore admin.
 }

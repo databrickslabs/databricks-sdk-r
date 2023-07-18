@@ -15,13 +15,14 @@ NULL
 #' @param groups 
 #' @param id Databricks group ID.
 #' @param members 
+#' @param meta Container for the group identifier.
 #' @param roles 
 #'
 #' @rdname groupsCreate
 groupsCreate <- function(client, display_name = NULL, entitlements = NULL, external_id = NULL,
-  groups = NULL, id = NULL, members = NULL, roles = NULL) {
+  groups = NULL, id = NULL, members = NULL, meta = NULL, roles = NULL) {
   body <- list(displayName = display_name, entitlements = entitlements, externalId = external_id,
-    groups = groups, id = id, members = members, roles = roles)
+    groups = groups, id = id, members = members, meta = meta, roles = roles)
   client$do("POST", "/api/2.0/preview/scim/v2/Groups", body = body)
 }
 
@@ -84,10 +85,11 @@ groupsList <- function(client, attributes = NULL, count = NULL, excluded_attribu
 #'
 #' @param id Required. Unique ID for a group in the Databricks workspace.
 #' @param operations 
+#' @param schema The schema of the patch request.
 #'
 #' @rdname groupsPatch
-groupsPatch <- function(client, id, operations = NULL) {
-  body <- list(, operations = operations)
+groupsPatch <- function(client, id, operations = NULL, schema = NULL) {
+  body <- list(, Operations = operations, schema = schema)
   client$do("PATCH", paste("/api/2.0/preview/scim/v2/Groups/", id, sep = ""), body = body)
 }
 
@@ -102,13 +104,14 @@ groupsPatch <- function(client, id, operations = NULL) {
 #' @param groups 
 #' @param id Databricks group ID.
 #' @param members 
+#' @param meta Container for the group identifier.
 #' @param roles 
 #'
 #' @rdname groupsUpdate
 groupsUpdate <- function(client, id, display_name = NULL, entitlements = NULL, external_id = NULL,
-  groups = NULL, members = NULL, roles = NULL) {
+  groups = NULL, members = NULL, meta = NULL, roles = NULL) {
   body <- list(displayName = display_name, entitlements = entitlements, externalId = external_id,
-    groups = groups, id = id, members = members, roles = roles)
+    groups = groups, id = id, members = members, meta = meta, roles = roles)
   client$do("PUT", paste("/api/2.0/preview/scim/v2/Groups/", id, sep = ""), body = body)
 }
 

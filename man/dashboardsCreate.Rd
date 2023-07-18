@@ -19,7 +19,7 @@ dashboardsCreate(
 
 \item{name}{The title of this dashboard that appears in list views and at the top of the dashboard page.}
 
-\item{parent}{The identifier of the workspace folder containing the dashboard.}
+\item{parent}{The identifier of the workspace folder containing the object.}
 
 \item{tags}{}
 }

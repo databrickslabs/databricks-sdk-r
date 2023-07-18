@@ -18,7 +18,7 @@ instanceProfilesEdit(
 
 \item{iam_role_arn}{The AWS IAM role ARN of the role associated with the instance profile.}
 
-\item{is_meta_instance_profile}{By default, Databricks validates that it has sufficient permissions to launch instances with the instance profile.}
+\item{is_meta_instance_profile}{Boolean flag indicating whether the instance profile should only be used in credential passthrough scenarios.}
 }
 \description{
 The only supported field to change is the optional IAM role ARN associated

@@ -15,6 +15,7 @@ jobsRepairRun(
   python_named_params = NULL,
   python_params = NULL,
   rerun_all_failed_tasks = NULL,
+  rerun_dependent_tasks = NULL,
   rerun_tasks = NULL,
   spark_submit_params = NULL,
   sql_params = NULL,
@@ -42,6 +43,8 @@ jobsRepairRun(
 \item{python_params}{A list of parameters for jobs with Python tasks, for example \verb{\\'python_params\\': [\\'john doe\\', \\'35\\']}.}
 
 \item{rerun_all_failed_tasks}{If true, repair all failed tasks.}
+
+\item{rerun_dependent_tasks}{If true, repair all tasks that depend on the tasks in \code{rerun_tasks}, even if they were previously successful.}
 
 \item{rerun_tasks}{The task keys of the task runs to repair.}
 

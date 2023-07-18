@@ -41,7 +41,7 @@ principal to be granted or revoked access.
 
 Throws \code{RESOURCE_DOES_NOT_EXIST} if no such secret scope exists. Throws
 \code{RESOURCE_ALREADY_EXISTS} if a permission for the principal already exists.
-Throws \code{INVALID_PARAMETER_VALUE} if the permission is invalid. Throws
-\code{PERMISSION_DENIED} if the user does not have permission to make this API
-call.
+Throws \code{INVALID_PARAMETER_VALUE} if the permission or principal is invalid.
+Throws \code{PERMISSION_DENIED} if the user does not have permission to make this
+API call.
 }

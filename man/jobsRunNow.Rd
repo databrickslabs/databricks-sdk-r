@@ -10,6 +10,7 @@ jobsRunNow(
   dbt_commands = NULL,
   idempotency_token = NULL,
   jar_params = NULL,
+  job_parameters = NULL,
   notebook_params = NULL,
   pipeline_params = NULL,
   python_named_params = NULL,
@@ -30,6 +31,8 @@ jobsRunNow(
 \item{idempotency_token}{An optional token to guarantee the idempotency of job run requests.}
 
 \item{jar_params}{A list of parameters for jobs with Spark JAR tasks, for example \verb{\\'jar_params\\': [\\'john doe\\', \\'35\\']}.}
+
+\item{job_parameters}{Job-level parameters used in the run.}
 
 \item{notebook_params}{A map from keys to values for jobs with notebook task, for example \verb{\\'notebook_params\\': \{\\'name\\': \\'john doe\\', \\'age\\': \\'35\\'\}}.}
 

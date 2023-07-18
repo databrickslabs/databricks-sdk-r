@@ -12,8 +12,8 @@ NULL
 #'
 #' @param name Required. Name of the alert.
 #' @param options Required. Alert configuration options.
-#' @param parent The identifier of the workspace folder containing the alert.
-#' @param query_id Required. ID of the query evaluated by the alert.
+#' @param parent The identifier of the workspace folder containing the object.
+#' @param query_id Required. Query ID.
 #' @param rearm Number of seconds after being triggered before the alert rearms itself and can be triggered again.
 #'
 #' @rdname alertsCreate
@@ -67,7 +67,7 @@ alertsList <- function(client) {
 #' @param alert_id Required. 
 #' @param name Required. Name of the alert.
 #' @param options Required. Alert configuration options.
-#' @param query_id Required. ID of the query evaluated by the alert.
+#' @param query_id Required. Query ID.
 #' @param rearm Number of seconds after being triggered before the alert rearms itself and can be triggered again.
 #'
 #' @rdname alertsUpdate

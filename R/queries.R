@@ -16,12 +16,12 @@ NULL
 #' **Note**: You cannot add a visualization until you create the query.
 #' @param client Required. Instance of DatabricksClient()
 #'
-#' @param data_source_id The ID of the data source / SQL warehouse where this query will run.
-#' @param description General description that can convey additional information about this query such as usage notes.
-#' @param name The name or title of this query to display in list views.
+#' @param data_source_id Data source ID.
+#' @param description General description that conveys additional information about this query such as usage notes.
+#' @param name The title of this query that appears in list views, widget headings, and on the query page.
 #' @param options Exclusively used for storing a list parameter definitions.
-#' @param parent The identifier of the workspace folder containing the query.
-#' @param query The text of the query.
+#' @param parent The identifier of the workspace folder containing the object.
+#' @param query The text of the query to be run.
 #'
 #' @rdname queriesCreate
 queriesCreate <- function(client, data_source_id = NULL, description = NULL, name = NULL,
@@ -115,11 +115,11 @@ queriesRestore <- function(client, query_id) {
 #' **Note**: You cannot undo this operation.
 #' @param client Required. Instance of DatabricksClient()
 #'
-#' @param data_source_id The ID of the data source / SQL warehouse where this query will run.
-#' @param description General description that can convey additional information about this query such as usage notes.
-#' @param name The name or title of this query to display in list views.
+#' @param data_source_id Data source ID.
+#' @param description General description that conveys additional information about this query such as usage notes.
+#' @param name The title of this query that appears in list views, widget headings, and on the query page.
 #' @param options Exclusively used for storing a list parameter definitions.
-#' @param query The text of the query.
+#' @param query The text of the query to be run.
 #' @param query_id Required. 
 #'
 #' @rdname queriesUpdate

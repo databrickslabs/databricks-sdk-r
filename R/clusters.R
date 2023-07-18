@@ -21,14 +21,9 @@ clustersChangeOwner <- function(client, cluster_id, owner_username) {
 #' Create new cluster.
 #' 
 #' Creates a new Spark cluster. This method will acquire new instances from the
-#' cloud provider if necessary. This method is asynchronous; the returned
-#' `cluster_id` can be used to poll the cluster status. When this method
-#' returns, the cluster will be in a `PENDING` state. The cluster will be usable
-#' once it enters a `RUNNING` state.
-#' 
-#' Note: Databricks may not be able to acquire some of the requested nodes, due
-#' to cloud provider limitations (account limits, spot price, etc.) or transient
-#' network issues.
+#' cloud provider if necessary. Note: Databricks may not be able to acquire some
+#' of the requested nodes, due to cloud provider limitations (account limits,
+#' spot price, etc.) or transient network issues.
 #' 
 #' If Databricks acquires at least 85% of the requested on-demand nodes, cluster
 #' creation will succeed. Otherwise the cluster will terminate with an

@@ -15,7 +15,7 @@ NULL
 #' @param comment User-provided free-form text description.
 #' @param connection_type Required. The type of connection.
 #' @param name Required. Name of the connection.
-#' @param options_kvpairs Required. Object properties as map of string key-value pairs.
+#' @param options_kvpairs Required. A map of key-value properties attached to the securable.
 #' @param owner Username of current owner of the connection.
 #' @param properties_kvpairs An object containing map of key-value properties attached to the connection.
 #' @param read_only If the connection is read only.
@@ -75,7 +75,7 @@ connectionsList <- function(client) {
 #'
 #' @param name Required. Name of the connection.
 #' @param name_arg Required. Name of the connection.
-#' @param options_kvpairs Required. Object properties as map of string key-value pairs.
+#' @param options_kvpairs Required. A map of key-value properties attached to the securable.
 #'
 #' @rdname connectionsUpdate
 connectionsUpdate <- function(client, name, options_kvpairs, name_arg) {

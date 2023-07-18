@@ -22,7 +22,7 @@ connectionsCreate(
 
 \item{connection_type}{Required. The type of connection.}
 
-\item{options_kvpairs}{Required. Object properties as map of string key-value pairs.}
+\item{options_kvpairs}{Required. A map of key-value properties attached to the securable.}
 
 \item{comment}{User-provided free-form text description.}
 

@@ -13,9 +13,9 @@ alertsCreate(client, name, options, query_id, parent = NULL, rearm = NULL)
 
 \item{options}{Required. Alert configuration options.}
 
-\item{query_id}{Required. ID of the query evaluated by the alert.}
+\item{query_id}{Required. Query ID.}
 
-\item{parent}{The identifier of the workspace folder containing the alert.}
+\item{parent}{The identifier of the workspace folder containing the object.}
 
 \item{rearm}{Number of seconds after being triggered before the alert rearms itself and can be triggered again.}
 }
