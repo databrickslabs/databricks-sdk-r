@@ -70,9 +70,9 @@ NULL
         query${{.Pagination.Offset.Name}} <- query${{.Pagination.Offset.Name}} + nrow(json${{.Pagination.Results.Name}})
         {{- end}}
     }
-    {{if .Pagination.NeedsOffsetDedupe -}}
-    # de-duplicate any records via {{.Pagination.Entity.IdentifierField.Name}} column
-    results <- results[!duplicated(results${{.Pagination.Entity.IdentifierField.Name}}), ]
+    {{if .NeedsOffsetDedupe -}}
+    # de-duplicate any records via {{.IdentifierField.Name}} column
+    results <- results[!duplicated(results${{.IdentifierField.Name}}), ]
     {{end -}}
     return (results)
     {{else}}
