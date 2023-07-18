@@ -2,5 +2,19 @@
   "formatter": "Rscript .codegen/format.R",
   "services": {
     ".codegen/service.R.tmpl": "R/{{.SnakeName}}.R"
+  },
+  "version": {
+    "R/version.R": "VERSION = \"$VERSION\"",
+    "DESCRIPTION": "Version: $VERSION"
+  },
+  "toolchain": {
+    "required": ["Rscript"],
+    "setup": [
+      "Rscript -e \"if (!require(devtools)) install.packages('devtools', repos = 'https://cran.rstudio.com')\"",
+      "Rscript -e \"devtools::install_dev_deps('.')\""
+    ],
+    "post_generate": [
+      "Rscript -e \"devtools::document()\""
+    ]
   }
 }

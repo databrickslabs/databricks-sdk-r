@@ -36,7 +36,7 @@ if you get error on `#include <fribidi.h>`, do `brew install fribidi`.
 HTTP client devloop:
 
 ```
-load_all(); .ApiClient(profile = 'demo')$do('GET', '/api/2.0/scim/Me')
+load_all(); DatabricksClient(profile = 'demo')$do('GET', '/api/2.0/scim/Me')
 ```
 
 ### Debugging

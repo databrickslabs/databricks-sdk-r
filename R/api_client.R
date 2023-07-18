@@ -9,13 +9,16 @@ NULL
   c("unknown", "0.0.0")
 })
 
-# ApiClient is a constructor for class that performs any operations with
-# Databricks REST API and handle a subset of Unified Client Authentication.
-.DatabricksClient <- function(profile = NULL, host = NULL, token = NULL, account_id = NULL,
-  username = NULL, password = NULL, google_service_account = NULL, google_credentials = NULL,
-  azure_workspace_resource_id = NULL, azure_use_msi = NULL, azure_client_secret = NULL,
-  azure_client_id = NULL, azure_tenant_id = NULL, azure_environment = NULL, azure_login_app_id = NULL,
-  client_id = NULL, client_secret = NULL, config_file = NULL) {
+#' DatabricksClient is a constructor for class that performs any operations with
+#' Databricks REST API and handle a subset of Unified Client Authentication.
+#' 
+#' @param config_file path to Databricks CLI configuration file. Defaults to ~/.databrickscfg
+#' @param profile configuration profile from ~/.databrickscfg. Defaults to DEFAULT
+#' @param host URL of Databricks Workspace
+#' @param token Personal Access Token
+#'
+#' @export
+DatabricksClient <- function(profile = NULL, host = NULL, token = NULL, config_file = NULL) {
   # coalesce(a, b, c) takes any number of arguments using the ...  ellipsis,
   # loops over them, and returns the first non-null, non-missing, non-empty
   # string. If all arguments are null, missing, or empty, it returns NULL.
@@ -85,23 +88,8 @@ NULL
   # environment variables, and values loaded from ~/.databrickscfg file
   cfg <- list(host = coalesce(host, Sys.getenv("DATABRICKS_HOST"), from_cli$host),
     token = coalesce(token, Sys.getenv("DATABRICKS_TOKEN"), from_cli$token),
-    account_id = coalesce(account_id, Sys.getenv("DATABRICKS_ACCOUNT_ID"), from_cli$account_id),
-    username = coalesce(username, Sys.getenv("DATABRICKS_USERNAME"), from_cli$username),
-    password = coalesce(password, Sys.getenv("DATABRICKS_PASSWORD"), from_cli$password),
-    client_id = coalesce(client_id, Sys.getenv("DATABRICKS_CLIENT_ID"), from_cli$client_id),
-    client_secret = coalesce(client_secret, Sys.getenv("DATABRICKS_CLIENT_SECRET"),
-      from_cli$client_secret), google_service_account = coalesce(google_service_account,
-      Sys.getenv("DATABRICKS_GOOGLE_SERVICE_ACCOUNT"), from_cli$google_service_account),
-    google_credentials = coalesce(google_credentials, Sys.getenv("GOOGLE_CREDENTIALS"),
-      from_cli$google_credentials), azure_workspace_resource_id = coalesce(azure_workspace_resource_id,
-      Sys.getenv("DATABRICKS_AZURE_RESOURCE_ID"), from_cli$azure_workspace_resource_id),
-    azure_use_msi = coalesce(azure_use_msi, Sys.getenv("ARM_USE_MSI"), from_cli$azure_use_msi),
-    azure_client_secret = coalesce(azure_client_secret, Sys.getenv("ARM_CLIENT_SECRET"),
-      from_cli$azure_client_secret), azure_client_id = coalesce(azure_client_id,
-      Sys.getenv("ARM_CLIENT_ID"), from_cli$azure_client_id), azure_tenant_id = coalesce(azure_tenant_id,
-      Sys.getenv("ARM_TENANT_ID"), from_cli$azure_tenant_id), azure_environment = coalesce(azure_environment,
-      Sys.getenv("ARM_ENVIRONMENT"), from_cli$azure_environment), azure_login_app_id = coalesce(azure_login_app_id,
-      Sys.getenv("DATABRICKS_AZURE_LOGIN_APP_ID"), from_cli$azure_login_app_id))
+    client_id = coalesce(Sys.getenv("DATABRICKS_CLIENT_ID"), from_cli$client_id),
+    client_secret = coalesce(Sys.getenv("DATABRICKS_CLIENT_SECRET"), from_cli$client_secret))
 
   # debug_string iterates over currently resolved configuration and returns a
   # single string with all config key-value pairs that are effective in the
@@ -218,20 +206,4 @@ NULL
   }
 
   return(list(is_aws = is_aws, is_azure = is_azure, is_gcp = is_gcp, do = do, debug_string = debug_string))
-}
-
-.api <- .DatabricksClient()
-
-#' Override default authentication credentials for Databricks SDK for R
-#' 
-#' @param config_file path to Databricks CLI configuration file. Defaults to ~/.databrickscfg
-#' @param profile configuration profile from ~/.databrickscfg. Defaults to DEFAULT
-#' @param host URL of Databricks Workspace
-#' @param token Personal Access Token
-#' 
-#' @keywords internal
-#'
-#' @export
-configure <- function(...) {
-  .api <- .DatabricksClient(...)
 }

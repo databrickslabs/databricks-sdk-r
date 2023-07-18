@@ -3,17 +3,6 @@
 #' @importFrom stats runif
 NULL
 
-{{.Comment "#' " 80}}
-#'
-#' @section Operations:
-#' \tabular{ll}{{"{"}}{{range .Methods}}
-#'  \link[={{.Service.SnakeName}}_{{.SnakeName}}]{{"{"}}{{.SnakeName}}{{"}"}} \tab {{.Summary}}\cr{{end}}
-#' }
-#'
-#' @rdname {{.SnakeName}}
-#' @export
-{{.SnakeName}} <- list()
-
 {{range .Methods}}{{.Comment "#' " 80}}{{if .Request}}
 {{if and .Wait (not .IsCrudRead)}}#'
 #' @description
@@ -21,24 +10,20 @@ NULL
 #' {{range $i, $s := .Wait.Success}}{{if $i}} or {{end}}{{.Content}}{{end}} state with the timeout of {{.Wait.Timeout}} minutes, that you can change via `timeout` parameter.
 #' By default, the state of Databricks {{.Service.TitleName}} is reported to console. You can change this behavior
 #' by changing the `callback` parameter.
-{{end}}#'{{range .Request.Fields}}
+{{end}}#' @param client Required. Instance of DatabricksClient()
+#'{{range .Request.Fields}}
 #' @param {{.SnakeName}} {{if .Required}}Required. {{end}}{{.Summary}}{{end}}
 {{end}}{{if .Pagination}}#'
 #' @return `data.frame` with all of the response pages.
 {{end}}#'
-#' @keywords internal
-#'
-#' @rdname {{.Service.SnakeName}}_{{.SnakeName}}
-#'
-#' @aliases {{.Service.SnakeName}}_{{.SnakeName}}
+#' @rdname {{.Service.CamelName}}{{.PascalName}}
 {{- $hasRequiredFields := and .Request (gt (len .Request.RequiredFields) 0) }}
-{{.Service.SnakeName}}_{{.SnakeName}} <- function({{- if .Request}}{{range $i, $x := .Request.RequiredFields}}{{if $i}}, {{end}}{{.SnakeName}}{{end -}}
-    {{- range $i, $x := .Request.NonRequiredFields}}{{if or $i (and $hasRequiredFields (not $i))}}, {{end}}{{.SnakeName}}=NULL{{end}}
+{{.Service.CamelName}}{{.PascalName}} <- function(client{{- if .Request}}{{range .Request.RequiredFields}}, {{.SnakeName}}{{end -}}
+    {{- range .Request.NonRequiredFields}}, {{.SnakeName}}=NULL{{end}}
     {{- end}}{{if and .Wait (not .IsCrudRead)}}, timeout={{.Wait.Timeout}}, callback=cli_reporter{{end}}) {
     {{- template "method-serialize" .}}
     {{template "method-call" .}}
 }
-{{.Service.SnakeName}}${{.SnakeName}} <- {{.Service.SnakeName}}_{{.SnakeName}}
 
 {{end}}
 
@@ -104,7 +89,7 @@ NULL
     status_message <- 'polling...'
     attempt <- 1
     while ((started + (timeout*60)) > as.numeric(Sys.time())) {
-        poll <- {{.Service.SnakeName}}_{{.Wait.Poll.SnakeName}}({{range $i, $b := .Wait.Binding}}{{if $i}}, {{end -}}
+        poll <- {{.Service.CamelName}}{{.Wait.Poll.PascalName}}(client, {{range $i, $b := .Wait.Binding}}{{if $i}}, {{end -}}
             {{$b.PollField.SnakeName}} = {{if $b.IsResponseBind}}op_response${{$b.Bind.Name}}{{else}}{{$b.Bind.SnakeName}}{{end}}
         {{- end}})
         status <- poll{{range .Wait.StatusPath}}${{.SnakeName}}{{end}}
@@ -129,7 +114,7 @@ NULL
             msg <- paste("failed to reach {{range $i, $e := .Wait.Success}}{{if $i}} or {{end}}{{$e.Content}}{{end}}, got ", status, "-", status_message)
             rlang::abort(msg, call = rlang::caller_env())
         }
-        {{end}}prefix <- paste0("databricks::{{.Service.SnakeName}}_{{.Wait.Poll.SnakeName}}({{range $i, $b := .Wait.Binding}}{{if $i}}, "{{end -}}
+        {{end}}prefix <- paste0("databricks::{{.Service.CamelName}}{{.Wait.Poll.PascalName}}({{range $i, $b := .Wait.Binding}}{{if $i}}, "{{end -}}
             {{$b.PollField.SnakeName}}=", {{if $b.IsResponseBind}}op_response${{$b.Bind.Name}}{{else}}{{$b.Bind.SnakeName}}{{end}}
         {{- end}}, ")")
         sleep <- attempt
@@ -153,6 +138,6 @@ NULL
 {{- end -}}
 
 {{- define "method-do" -}}
-.state$api$do("{{.Verb}}", {{if .PathParts -}}paste({{range  .PathParts}}"{{.Prefix}}", {{if .Field}}{{.Field.SnakeName}}{{else if .IsAccountId}}.state$api$account_id{{end}}, {{ end }}sep = "")
+client$do("{{.Verb}}", {{if .PathParts -}}paste({{range  .PathParts}}"{{.Prefix}}", {{if .Field}}{{.Field.SnakeName}}{{else if .IsAccountId}}client$account_id{{end}}, {{ end }}sep = "")
     {{- else}}"{{.Path}}"{{end}}{{if .Request}}{{if .Request.HasQueryField}}, query = query{{end}}{{if .Request.HasJsonField}}, body = body{{end}}{{end}})
 {{- end -}}

@@ -3,44 +3,11 @@
 #' @importFrom stats runif
 NULL
 
-#' The Delta Live Tables API allows you to create, edit, delete, start, and view
-#' details about pipelines.
-#' 
-#' Delta Live Tables is a framework for building reliable, maintainable, and
-#' testable data processing pipelines. You define the transformations to perform
-#' on your data, and Delta Live Tables manages task orchestration, cluster
-#' management, monitoring, data quality, and error handling.
-#' 
-#' Instead of defining your data pipelines using a series of separate Apache
-#' Spark tasks, Delta Live Tables manages how your data is transformed based on
-#' a target schema you define for each processing step. You can also enforce
-#' data quality with Delta Live Tables expectations. Expectations allow you to
-#' define expected data quality and specify how to handle records that fail
-#' those expectations.
-#'
-#' @section Operations:
-#' \tabular{ll}{
-#'  \link[=pipelines_create]{create} \tab Create a pipeline.\cr
-#'  \link[=pipelines_delete]{delete} \tab Delete a pipeline.\cr
-#'  \link[=pipelines_get]{get} \tab Get a pipeline.\cr
-#'  \link[=pipelines_get_update]{get_update} \tab Get a pipeline update.\cr
-#'  \link[=pipelines_list_pipeline_events]{list_pipeline_events} \tab List pipeline events.\cr
-#'  \link[=pipelines_list_pipelines]{list_pipelines} \tab List pipelines.\cr
-#'  \link[=pipelines_list_updates]{list_updates} \tab List pipeline updates.\cr
-#'  \link[=pipelines_reset]{reset} \tab Reset a pipeline.\cr
-#'  \link[=pipelines_start_update]{start_update} \tab Queue a pipeline update.\cr
-#'  \link[=pipelines_stop]{stop} \tab Stop a pipeline.\cr
-#'  \link[=pipelines_update]{update} \tab Edit a pipeline.\cr
-#' }
-#'
-#' @rdname pipelines
-#' @export
-pipelines <- list()
-
 #' Create a pipeline.
 #' 
 #' Creates a new data processing pipeline based on the requested configuration.
 #' If successful, this method returns the ID of the new pipeline.
+#' @param client Required. Instance of DatabricksClient()
 #'
 #' @param allow_duplicate_names If false, deployment will fail if name conflicts with that of another pipeline.
 #' @param catalog A catalog in Unity Catalog to publish data from this pipeline to.
@@ -61,13 +28,9 @@ pipelines <- list()
 #' @param target Target schema (database) to add tables in this pipeline to.
 #' @param trigger Which pipeline trigger to use.
 #'
-#' @keywords internal
-#'
-#' @rdname pipelines_create
-#'
-#' @aliases pipelines_create
-pipelines_create <- function(allow_duplicate_names = NULL, catalog = NULL, channel = NULL,
-  clusters = NULL, configuration = NULL, continuous = NULL, development = NULL,
+#' @rdname pipelinesCreate
+pipelinesCreate <- function(client, allow_duplicate_names = NULL, catalog = NULL,
+  channel = NULL, clusters = NULL, configuration = NULL, continuous = NULL, development = NULL,
   dry_run = NULL, edition = NULL, filters = NULL, id = NULL, libraries = NULL,
   name = NULL, photon = NULL, serverless = NULL, storage = NULL, target = NULL,
   trigger = NULL) {
@@ -76,64 +39,52 @@ pipelines_create <- function(allow_duplicate_names = NULL, catalog = NULL, chann
     development = development, dry_run = dry_run, edition = edition, filters = filters,
     id = id, libraries = libraries, name = name, photon = photon, serverless = serverless,
     storage = storage, target = target, trigger = trigger)
-  .state$api$do("POST", "/api/2.0/pipelines", body = body)
+  client$do("POST", "/api/2.0/pipelines", body = body)
 }
-pipelines$create <- pipelines_create
 
 #' Delete a pipeline.
 #' 
 #' Deletes a pipeline.
+#' @param client Required. Instance of DatabricksClient()
 #'
 #' @param pipeline_id Required. 
 #'
-#' @keywords internal
-#'
-#' @rdname pipelines_delete
-#'
-#' @aliases pipelines_delete
-pipelines_delete <- function(pipeline_id) {
+#' @rdname pipelinesDelete
+pipelinesDelete <- function(client, pipeline_id) {
 
-  .state$api$do("DELETE", paste("/api/2.0/pipelines/", pipeline_id, sep = ""))
+  client$do("DELETE", paste("/api/2.0/pipelines/", pipeline_id, sep = ""))
 }
-pipelines$delete <- pipelines_delete
 
 #' Get a pipeline.
+#' @param client Required. Instance of DatabricksClient()
 #'
 #' @param pipeline_id Required. 
 #'
-#' @keywords internal
-#'
-#' @rdname pipelines_get
-#'
-#' @aliases pipelines_get
-pipelines_get <- function(pipeline_id) {
+#' @rdname pipelinesGet
+pipelinesGet <- function(client, pipeline_id) {
 
-  .state$api$do("GET", paste("/api/2.0/pipelines/", pipeline_id, sep = ""))
+  client$do("GET", paste("/api/2.0/pipelines/", pipeline_id, sep = ""))
 }
-pipelines$get <- pipelines_get
 
 #' Get a pipeline update.
 #' 
 #' Gets an update from an active pipeline.
+#' @param client Required. Instance of DatabricksClient()
 #'
 #' @param pipeline_id Required. The ID of the pipeline.
 #' @param update_id Required. The ID of the update.
 #'
-#' @keywords internal
-#'
-#' @rdname pipelines_get_update
-#'
-#' @aliases pipelines_get_update
-pipelines_get_update <- function(pipeline_id, update_id) {
+#' @rdname pipelinesGetUpdate
+pipelinesGetUpdate <- function(client, pipeline_id, update_id) {
 
-  .state$api$do("GET", paste("/api/2.0/pipelines/", pipeline_id, "/updates/", update_id,
+  client$do("GET", paste("/api/2.0/pipelines/", pipeline_id, "/updates/", update_id,
     sep = ""))
 }
-pipelines$get_update <- pipelines_get_update
 
 #' List pipeline events.
 #' 
 #' Retrieves events for a pipeline.
+#' @param client Required. Instance of DatabricksClient()
 #'
 #' @param filter Criteria to select a subset of results, expressed using a SQL-like syntax.
 #' @param max_results Max number of entries to return in a single page.
@@ -143,19 +94,15 @@ pipelines$get_update <- pipelines_get_update
 #'
 #' @return `data.frame` with all of the response pages.
 #'
-#' @keywords internal
-#'
-#' @rdname pipelines_list_pipeline_events
-#'
-#' @aliases pipelines_list_pipeline_events
-pipelines_list_pipeline_events <- function(pipeline_id, filter = NULL, max_results = NULL,
+#' @rdname pipelinesListPipelineEvents
+pipelinesListPipelineEvents <- function(client, pipeline_id, filter = NULL, max_results = NULL,
   order_by = NULL, page_token = NULL) {
   query <- list(filter = filter, max_results = max_results, order_by = order_by,
     page_token = page_token)
 
   results <- data.frame()
   while (TRUE) {
-    json <- .state$api$do("GET", paste("/api/2.0/pipelines/", pipeline_id, "/events",
+    json <- client$do("GET", paste("/api/2.0/pipelines/", pipeline_id, "/events",
       , sep = ""), query = query)
     if (is.null(nrow(json$events))) {
       break
@@ -170,11 +117,11 @@ pipelines_list_pipeline_events <- function(pipeline_id, filter = NULL, max_resul
   return(results)
 
 }
-pipelines$list_pipeline_events <- pipelines_list_pipeline_events
 
 #' List pipelines.
 #' 
 #' Lists pipelines defined in the Delta Live Tables system.
+#' @param client Required. Instance of DatabricksClient()
 #'
 #' @param filter Select a subset of results based on the specified criteria.
 #' @param max_results The maximum number of entries to return in a single page.
@@ -183,19 +130,15 @@ pipelines$list_pipeline_events <- pipelines_list_pipeline_events
 #'
 #' @return `data.frame` with all of the response pages.
 #'
-#' @keywords internal
-#'
-#' @rdname pipelines_list_pipelines
-#'
-#' @aliases pipelines_list_pipelines
-pipelines_list_pipelines <- function(filter = NULL, max_results = NULL, order_by = NULL,
+#' @rdname pipelinesListPipelines
+pipelinesListPipelines <- function(client, filter = NULL, max_results = NULL, order_by = NULL,
   page_token = NULL) {
   query <- list(filter = filter, max_results = max_results, order_by = order_by,
     page_token = page_token)
 
   results <- data.frame()
   while (TRUE) {
-    json <- .state$api$do("GET", "/api/2.0/pipelines", query = query)
+    json <- client$do("GET", "/api/2.0/pipelines", query = query)
     if (is.null(nrow(json$statuses))) {
       break
     }
@@ -209,29 +152,24 @@ pipelines_list_pipelines <- function(filter = NULL, max_results = NULL, order_by
   return(results)
 
 }
-pipelines$list_pipelines <- pipelines_list_pipelines
 
 #' List pipeline updates.
 #' 
 #' List updates for an active pipeline.
+#' @param client Required. Instance of DatabricksClient()
 #'
 #' @param max_results Max number of entries to return in a single page.
 #' @param page_token Page token returned by previous call.
 #' @param pipeline_id Required. The pipeline to return updates for.
 #' @param until_update_id If present, returns updates until and including this update_id.
 #'
-#' @keywords internal
-#'
-#' @rdname pipelines_list_updates
-#'
-#' @aliases pipelines_list_updates
-pipelines_list_updates <- function(pipeline_id, max_results = NULL, page_token = NULL,
+#' @rdname pipelinesListUpdates
+pipelinesListUpdates <- function(client, pipeline_id, max_results = NULL, page_token = NULL,
   until_update_id = NULL) {
   query <- list(max_results = max_results, page_token = page_token, until_update_id = until_update_id)
-  .state$api$do("GET", paste("/api/2.0/pipelines/", pipeline_id, "/updates", ,
-    sep = ""), query = query)
+  client$do("GET", paste("/api/2.0/pipelines/", pipeline_id, "/updates", , sep = ""),
+    query = query)
 }
-pipelines$list_updates <- pipelines_list_updates
 
 #' Reset a pipeline.
 #' 
@@ -242,24 +180,21 @@ pipelines$list_updates <- pipelines_list_updates
 #' RUNNING state with the timeout of 20 minutes, that you can change via `timeout` parameter.
 #' By default, the state of Databricks Pipelines is reported to console. You can change this behavior
 #' by changing the `callback` parameter.
+#' @param client Required. Instance of DatabricksClient()
 #'
 #' @param pipeline_id Required. 
 #'
-#' @keywords internal
-#'
-#' @rdname pipelines_reset
-#'
-#' @aliases pipelines_reset
-pipelines_reset <- function(pipeline_id, timeout = 20, callback = cli_reporter) {
+#' @rdname pipelinesReset
+pipelinesReset <- function(client, pipeline_id, timeout = 20, callback = cli_reporter) {
 
-  .state$api$do("POST", paste("/api/2.0/pipelines/", pipeline_id, "/reset", , sep = ""))
+  client$do("POST", paste("/api/2.0/pipelines/", pipeline_id, "/reset", , sep = ""))
   started <- as.numeric(Sys.time())
   target_states <- c("RUNNING", c())
   failure_states <- c("FAILED", c())
   status_message <- "polling..."
   attempt <- 1
   while ((started + (timeout * 60)) > as.numeric(Sys.time())) {
-    poll <- pipelines_get(pipeline_id = pipeline_id)
+    poll <- pipelinesGet(client, pipeline_id = pipeline_id)
     status <- poll$state
     status_message <- poll$cause
     if (status %in% target_states) {
@@ -272,7 +207,7 @@ pipelines_reset <- function(pipeline_id, timeout = 20, callback = cli_reporter) 
       msg <- paste("failed to reach RUNNING, got ", status, "-", status_message)
       rlang::abort(msg, call = rlang::caller_env())
     }
-    prefix <- paste0("databricks::pipelines_get(pipeline_id=", pipeline_id, ")")
+    prefix <- paste0("databricks::pipelinesGet(pipeline_id=", pipeline_id, ")")
     sleep <- attempt
     if (sleep > 10) {
       # sleep 10s max per attempt
@@ -288,11 +223,11 @@ pipelines_reset <- function(pipeline_id, timeout = 20, callback = cli_reporter) 
   msg <- paste("timed out after", timeout, "minutes:", status_message)
   rlang::abort(msg, call = rlang::caller_env())
 }
-pipelines$reset <- pipelines_reset
 
 #' Queue a pipeline update.
 #' 
 #' Starts or queues a pipeline update.
+#' @param client Required. Instance of DatabricksClient()
 #'
 #' @param cause 
 #' @param full_refresh If true, this update will reset all tables before running.
@@ -300,19 +235,14 @@ pipelines$reset <- pipelines_reset
 #' @param pipeline_id Required. 
 #' @param refresh_selection A list of tables to update without fullRefresh.
 #'
-#' @keywords internal
-#'
-#' @rdname pipelines_start_update
-#'
-#' @aliases pipelines_start_update
-pipelines_start_update <- function(pipeline_id, cause = NULL, full_refresh = NULL,
+#' @rdname pipelinesStartUpdate
+pipelinesStartUpdate <- function(client, pipeline_id, cause = NULL, full_refresh = NULL,
   full_refresh_selection = NULL, refresh_selection = NULL) {
   body <- list(cause = cause, full_refresh = full_refresh, full_refresh_selection = full_refresh_selection,
     refresh_selection = refresh_selection)
-  .state$api$do("POST", paste("/api/2.0/pipelines/", pipeline_id, "/updates", ,
-    sep = ""), body = body)
+  client$do("POST", paste("/api/2.0/pipelines/", pipeline_id, "/updates", , sep = ""),
+    body = body)
 }
-pipelines$start_update <- pipelines_start_update
 
 #' Stop a pipeline.
 #' 
@@ -323,24 +253,21 @@ pipelines$start_update <- pipelines_start_update
 #' IDLE state with the timeout of 20 minutes, that you can change via `timeout` parameter.
 #' By default, the state of Databricks Pipelines is reported to console. You can change this behavior
 #' by changing the `callback` parameter.
+#' @param client Required. Instance of DatabricksClient()
 #'
 #' @param pipeline_id Required. 
 #'
-#' @keywords internal
-#'
-#' @rdname pipelines_stop
-#'
-#' @aliases pipelines_stop
-pipelines_stop <- function(pipeline_id, timeout = 20, callback = cli_reporter) {
+#' @rdname pipelinesStop
+pipelinesStop <- function(client, pipeline_id, timeout = 20, callback = cli_reporter) {
 
-  .state$api$do("POST", paste("/api/2.0/pipelines/", pipeline_id, "/stop", , sep = ""))
+  client$do("POST", paste("/api/2.0/pipelines/", pipeline_id, "/stop", , sep = ""))
   started <- as.numeric(Sys.time())
   target_states <- c("IDLE", c())
   failure_states <- c("FAILED", c())
   status_message <- "polling..."
   attempt <- 1
   while ((started + (timeout * 60)) > as.numeric(Sys.time())) {
-    poll <- pipelines_get(pipeline_id = pipeline_id)
+    poll <- pipelinesGet(client, pipeline_id = pipeline_id)
     status <- poll$state
     status_message <- poll$cause
     if (status %in% target_states) {
@@ -353,7 +280,7 @@ pipelines_stop <- function(pipeline_id, timeout = 20, callback = cli_reporter) {
       msg <- paste("failed to reach IDLE, got ", status, "-", status_message)
       rlang::abort(msg, call = rlang::caller_env())
     }
-    prefix <- paste0("databricks::pipelines_get(pipeline_id=", pipeline_id, ")")
+    prefix <- paste0("databricks::pipelinesGet(pipeline_id=", pipeline_id, ")")
     sleep <- attempt
     if (sleep > 10) {
       # sleep 10s max per attempt
@@ -369,11 +296,11 @@ pipelines_stop <- function(pipeline_id, timeout = 20, callback = cli_reporter) {
   msg <- paste("timed out after", timeout, "minutes:", status_message)
   rlang::abort(msg, call = rlang::caller_env())
 }
-pipelines$stop <- pipelines_stop
 
 #' Edit a pipeline.
 #' 
 #' Updates a pipeline with the supplied configuration.
+#' @param client Required. Instance of DatabricksClient()
 #'
 #' @param allow_duplicate_names If false, deployment will fail if name has changed and conflicts the name of another pipeline.
 #' @param catalog A catalog in Unity Catalog to publish data from this pipeline to.
@@ -395,12 +322,8 @@ pipelines$stop <- pipelines_stop
 #' @param target Target schema (database) to add tables in this pipeline to.
 #' @param trigger Which pipeline trigger to use.
 #'
-#' @keywords internal
-#'
-#' @rdname pipelines_update
-#'
-#' @aliases pipelines_update
-pipelines_update <- function(pipeline_id, allow_duplicate_names = NULL, catalog = NULL,
+#' @rdname pipelinesUpdate
+pipelinesUpdate <- function(client, pipeline_id, allow_duplicate_names = NULL, catalog = NULL,
   channel = NULL, clusters = NULL, configuration = NULL, continuous = NULL, development = NULL,
   edition = NULL, expected_last_modified = NULL, filters = NULL, id = NULL, libraries = NULL,
   name = NULL, photon = NULL, serverless = NULL, storage = NULL, target = NULL,
@@ -411,7 +334,6 @@ pipelines_update <- function(pipeline_id, allow_duplicate_names = NULL, catalog 
     filters = filters, id = id, libraries = libraries, name = name, photon = photon,
     pipeline_id = pipeline_id, serverless = serverless, storage = storage, target = target,
     trigger = trigger)
-  .state$api$do("PUT", paste("/api/2.0/pipelines/", pipeline_id, sep = ""), body = body)
+  client$do("PUT", paste("/api/2.0/pipelines/", pipeline_id, sep = ""), body = body)
 }
-pipelines$update <- pipelines_update
 
