@@ -17,11 +17,16 @@ NULL
 #' @param storage_root Storage root URL for managed tables within catalog.
 #'
 #' @rdname catalogsCreate
-catalogsCreate <- function(client, name, comment = NULL, properties = NULL, provider_name = NULL,
-  share_name = NULL, storage_root = NULL) {
-  body <- list(comment = comment, name = name, properties = properties, provider_name = provider_name,
-    share_name = share_name, storage_root = storage_root)
-  client$do("POST", "/api/2.1/unity-catalog/catalogs", body = body)
+#' @export
+catalogsCreate <- function(client, name, comment=NULL, properties=NULL, provider_name=NULL, share_name=NULL, storage_root=NULL) {
+    body <- list(
+        comment = comment
+        , name = name
+        , properties = properties
+        , provider_name = provider_name
+        , share_name = share_name
+        , storage_root = storage_root)
+    client$do("POST", "/api/2.1/unity-catalog/catalogs", body = body)
 }
 
 #' Delete a catalog.
@@ -34,10 +39,11 @@ catalogsCreate <- function(client, name, comment = NULL, properties = NULL, prov
 #' @param name Required. The name of the catalog.
 #'
 #' @rdname catalogsDelete
-catalogsDelete <- function(client, name, force = NULL) {
-  query <- list(force = force)
-  client$do("DELETE", paste("/api/2.1/unity-catalog/catalogs/", name, sep = ""),
-    query = query)
+#' @export
+catalogsDelete <- function(client, name, force=NULL) {
+    query <- list(
+        force = force)
+    client$do("DELETE", paste("/api/2.1/unity-catalog/catalogs/", name, sep = ""), query = query)
 }
 
 #' Get a catalog.
@@ -50,9 +56,10 @@ catalogsDelete <- function(client, name, force = NULL) {
 #' @param name Required. The name of the catalog.
 #'
 #' @rdname catalogsGet
+#' @export
 catalogsGet <- function(client, name) {
-
-  client$do("GET", paste("/api/2.1/unity-catalog/catalogs/", name, sep = ""))
+    
+    client$do("GET", paste("/api/2.1/unity-catalog/catalogs/", name, sep = ""))
 }
 
 #' List catalogs.
@@ -65,11 +72,12 @@ catalogsGet <- function(client, name) {
 #' @return `data.frame` with all of the response pages.
 #'
 #' @rdname catalogsList
+#' @export
 catalogsList <- function(client) {
-
-  json <- client$do("GET", "/api/2.1/unity-catalog/catalogs")
-  return(json$catalogs)
-
+    
+    json <- client$do("GET", "/api/2.1/unity-catalog/catalogs")
+    return (json$catalogs)
+    
 }
 
 #' Update a catalog.
@@ -86,11 +94,14 @@ catalogsList <- function(client) {
 #' @param properties A map of key-value properties attached to the securable.
 #'
 #' @rdname catalogsUpdate
-catalogsUpdate <- function(client, name, comment = NULL, isolation_mode = NULL, owner = NULL,
-  properties = NULL) {
-  body <- list(comment = comment, isolation_mode = isolation_mode, name = name,
-    owner = owner, properties = properties)
-  client$do("PATCH", paste("/api/2.1/unity-catalog/catalogs/", name, sep = ""),
-    body = body)
+#' @export
+catalogsUpdate <- function(client, name, comment=NULL, isolation_mode=NULL, owner=NULL, properties=NULL) {
+    body <- list(
+        comment = comment
+        , isolation_mode = isolation_mode
+        , name = name
+        , owner = owner
+        , properties = properties)
+    client$do("PATCH", paste("/api/2.1/unity-catalog/catalogs/", name, sep = ""), body = body)
 }
 

@@ -14,9 +14,12 @@ NULL
 #' @param name Required. Name of the share.
 #'
 #' @rdname sharesCreate
-sharesCreate <- function(client, name, comment = NULL) {
-  body <- list(comment = comment, name = name)
-  client$do("POST", "/api/2.1/unity-catalog/shares", body = body)
+#' @export
+sharesCreate <- function(client, name, comment=NULL) {
+    body <- list(
+        comment = comment
+        , name = name)
+    client$do("POST", "/api/2.1/unity-catalog/shares", body = body)
 }
 
 #' Delete a share.
@@ -28,9 +31,10 @@ sharesCreate <- function(client, name, comment = NULL) {
 #' @param name Required. The name of the share.
 #'
 #' @rdname sharesDelete
+#' @export
 sharesDelete <- function(client, name) {
-
-  client$do("DELETE", paste("/api/2.1/unity-catalog/shares/", name, sep = ""))
+    
+    client$do("DELETE", paste("/api/2.1/unity-catalog/shares/", name, sep = ""))
 }
 
 #' Get a share.
@@ -43,9 +47,11 @@ sharesDelete <- function(client, name) {
 #' @param name Required. The name of the share.
 #'
 #' @rdname sharesGet
-sharesGet <- function(client, name, include_shared_data = NULL) {
-  query <- list(include_shared_data = include_shared_data)
-  client$do("GET", paste("/api/2.1/unity-catalog/shares/", name, sep = ""), query = query)
+#' @export
+sharesGet <- function(client, name, include_shared_data=NULL) {
+    query <- list(
+        include_shared_data = include_shared_data)
+    client$do("GET", paste("/api/2.1/unity-catalog/shares/", name, sep = ""), query = query)
 }
 
 #' List shares.
@@ -56,11 +62,12 @@ sharesGet <- function(client, name, include_shared_data = NULL) {
 #' @return `data.frame` with all of the response pages.
 #'
 #' @rdname sharesList
+#' @export
 sharesList <- function(client) {
-
-  json <- client$do("GET", "/api/2.1/unity-catalog/shares")
-  return(json$shares)
-
+    
+    json <- client$do("GET", "/api/2.1/unity-catalog/shares")
+    return (json$shares)
+    
 }
 
 #' Get permissions.
@@ -72,10 +79,10 @@ sharesList <- function(client) {
 #' @param name Required. The name of the share.
 #'
 #' @rdname sharesSharePermissions
+#' @export
 sharesSharePermissions <- function(client, name) {
-
-  client$do("GET", paste("/api/2.1/unity-catalog/shares/", name, "/permissions",
-    , sep = ""))
+    
+    client$do("GET", paste("/api/2.1/unity-catalog/shares/", name, "/permissions", , sep = ""))
 }
 
 #' Update a share.
@@ -103,9 +110,14 @@ sharesSharePermissions <- function(client, name) {
 #' @param updates Array of shared data object updates.
 #'
 #' @rdname sharesUpdate
-sharesUpdate <- function(client, name, comment = NULL, owner = NULL, updates = NULL) {
-  body <- list(comment = comment, name = name, owner = owner, updates = updates)
-  client$do("PATCH", paste("/api/2.1/unity-catalog/shares/", name, sep = ""), body = body)
+#' @export
+sharesUpdate <- function(client, name, comment=NULL, owner=NULL, updates=NULL) {
+    body <- list(
+        comment = comment
+        , name = name
+        , owner = owner
+        , updates = updates)
+    client$do("PATCH", paste("/api/2.1/unity-catalog/shares/", name, sep = ""), body = body)
 }
 
 #' Update permissions.
@@ -121,9 +133,10 @@ sharesUpdate <- function(client, name, comment = NULL, owner = NULL, updates = N
 #' @param name Required. The name of the share.
 #'
 #' @rdname sharesUpdatePermissions
-sharesUpdatePermissions <- function(client, name, changes = NULL) {
-  body <- list(changes = changes)
-  client$do("PATCH", paste("/api/2.1/unity-catalog/shares/", name, "/permissions",
-    , sep = ""), body = body)
+#' @export
+sharesUpdatePermissions <- function(client, name, changes=NULL) {
+    body <- list(
+        changes = changes)
+    client$do("PATCH", paste("/api/2.1/unity-catalog/shares/", name, "/permissions", , sep = ""), body = body)
 }
 

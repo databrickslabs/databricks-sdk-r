@@ -24,18 +24,24 @@ NULL
 #' @param preloaded_spark_versions A list of preloaded Spark image versions for the pool.
 #'
 #' @rdname instancePoolsCreate
-instancePoolsCreate <- function(client, instance_pool_name, node_type_id, aws_attributes = NULL,
-  azure_attributes = NULL, custom_tags = NULL, disk_spec = NULL, enable_elastic_disk = NULL,
-  gcp_attributes = NULL, idle_instance_autotermination_minutes = NULL, instance_pool_fleet_attributes = NULL,
-  max_capacity = NULL, min_idle_instances = NULL, preloaded_docker_images = NULL,
-  preloaded_spark_versions = NULL) {
-  body <- list(aws_attributes = aws_attributes, azure_attributes = azure_attributes,
-    custom_tags = custom_tags, disk_spec = disk_spec, enable_elastic_disk = enable_elastic_disk,
-    gcp_attributes = gcp_attributes, idle_instance_autotermination_minutes = idle_instance_autotermination_minutes,
-    instance_pool_fleet_attributes = instance_pool_fleet_attributes, instance_pool_name = instance_pool_name,
-    max_capacity = max_capacity, min_idle_instances = min_idle_instances, node_type_id = node_type_id,
-    preloaded_docker_images = preloaded_docker_images, preloaded_spark_versions = preloaded_spark_versions)
-  client$do("POST", "/api/2.0/instance-pools/create", body = body)
+#' @export
+instancePoolsCreate <- function(client, instance_pool_name, node_type_id, aws_attributes=NULL, azure_attributes=NULL, custom_tags=NULL, disk_spec=NULL, enable_elastic_disk=NULL, gcp_attributes=NULL, idle_instance_autotermination_minutes=NULL, instance_pool_fleet_attributes=NULL, max_capacity=NULL, min_idle_instances=NULL, preloaded_docker_images=NULL, preloaded_spark_versions=NULL) {
+    body <- list(
+        aws_attributes = aws_attributes
+        , azure_attributes = azure_attributes
+        , custom_tags = custom_tags
+        , disk_spec = disk_spec
+        , enable_elastic_disk = enable_elastic_disk
+        , gcp_attributes = gcp_attributes
+        , idle_instance_autotermination_minutes = idle_instance_autotermination_minutes
+        , instance_pool_fleet_attributes = instance_pool_fleet_attributes
+        , instance_pool_name = instance_pool_name
+        , max_capacity = max_capacity
+        , min_idle_instances = min_idle_instances
+        , node_type_id = node_type_id
+        , preloaded_docker_images = preloaded_docker_images
+        , preloaded_spark_versions = preloaded_spark_versions)
+    client$do("POST", "/api/2.0/instance-pools/create", body = body)
 }
 
 #' Delete an instance pool.
@@ -47,9 +53,11 @@ instancePoolsCreate <- function(client, instance_pool_name, node_type_id, aws_at
 #' @param instance_pool_id Required. The instance pool to be terminated.
 #'
 #' @rdname instancePoolsDelete
+#' @export
 instancePoolsDelete <- function(client, instance_pool_id) {
-  body <- list(instance_pool_id = instance_pool_id)
-  client$do("POST", "/api/2.0/instance-pools/delete", body = body)
+    body <- list(
+        instance_pool_id = instance_pool_id)
+    client$do("POST", "/api/2.0/instance-pools/delete", body = body)
 }
 
 #' Edit an existing instance pool.
@@ -74,19 +82,25 @@ instancePoolsDelete <- function(client, instance_pool_id) {
 #' @param preloaded_spark_versions A list of preloaded Spark image versions for the pool.
 #'
 #' @rdname instancePoolsEdit
-instancePoolsEdit <- function(client, instance_pool_id, instance_pool_name, node_type_id,
-  aws_attributes = NULL, azure_attributes = NULL, custom_tags = NULL, disk_spec = NULL,
-  enable_elastic_disk = NULL, gcp_attributes = NULL, idle_instance_autotermination_minutes = NULL,
-  instance_pool_fleet_attributes = NULL, max_capacity = NULL, min_idle_instances = NULL,
-  preloaded_docker_images = NULL, preloaded_spark_versions = NULL) {
-  body <- list(aws_attributes = aws_attributes, azure_attributes = azure_attributes,
-    custom_tags = custom_tags, disk_spec = disk_spec, enable_elastic_disk = enable_elastic_disk,
-    gcp_attributes = gcp_attributes, idle_instance_autotermination_minutes = idle_instance_autotermination_minutes,
-    instance_pool_fleet_attributes = instance_pool_fleet_attributes, instance_pool_id = instance_pool_id,
-    instance_pool_name = instance_pool_name, max_capacity = max_capacity, min_idle_instances = min_idle_instances,
-    node_type_id = node_type_id, preloaded_docker_images = preloaded_docker_images,
-    preloaded_spark_versions = preloaded_spark_versions)
-  client$do("POST", "/api/2.0/instance-pools/edit", body = body)
+#' @export
+instancePoolsEdit <- function(client, instance_pool_id, instance_pool_name, node_type_id, aws_attributes=NULL, azure_attributes=NULL, custom_tags=NULL, disk_spec=NULL, enable_elastic_disk=NULL, gcp_attributes=NULL, idle_instance_autotermination_minutes=NULL, instance_pool_fleet_attributes=NULL, max_capacity=NULL, min_idle_instances=NULL, preloaded_docker_images=NULL, preloaded_spark_versions=NULL) {
+    body <- list(
+        aws_attributes = aws_attributes
+        , azure_attributes = azure_attributes
+        , custom_tags = custom_tags
+        , disk_spec = disk_spec
+        , enable_elastic_disk = enable_elastic_disk
+        , gcp_attributes = gcp_attributes
+        , idle_instance_autotermination_minutes = idle_instance_autotermination_minutes
+        , instance_pool_fleet_attributes = instance_pool_fleet_attributes
+        , instance_pool_id = instance_pool_id
+        , instance_pool_name = instance_pool_name
+        , max_capacity = max_capacity
+        , min_idle_instances = min_idle_instances
+        , node_type_id = node_type_id
+        , preloaded_docker_images = preloaded_docker_images
+        , preloaded_spark_versions = preloaded_spark_versions)
+    client$do("POST", "/api/2.0/instance-pools/edit", body = body)
 }
 
 #' Get instance pool information.
@@ -97,9 +111,11 @@ instancePoolsEdit <- function(client, instance_pool_id, instance_pool_name, node
 #' @param instance_pool_id Required. The canonical unique identifier for the instance pool.
 #'
 #' @rdname instancePoolsGet
+#' @export
 instancePoolsGet <- function(client, instance_pool_id) {
-  query <- list(instance_pool_id = instance_pool_id)
-  client$do("GET", "/api/2.0/instance-pools/get", query = query)
+    query <- list(
+        instance_pool_id = instance_pool_id)
+    client$do("GET", "/api/2.0/instance-pools/get", query = query)
 }
 
 #' List instance pool info.
@@ -108,10 +124,11 @@ instancePoolsGet <- function(client, instance_pool_id) {
 #' @return `data.frame` with all of the response pages.
 #'
 #' @rdname instancePoolsList
+#' @export
 instancePoolsList <- function(client) {
-
-  json <- client$do("GET", "/api/2.0/instance-pools/list")
-  return(json$instance_pools)
-
+    
+    json <- client$do("GET", "/api/2.0/instance-pools/list")
+    return (json$instance_pools)
+    
 }
 

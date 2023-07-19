@@ -13,10 +13,10 @@ NULL
 #' @param schema_name Required. Full name of the system schema.
 #'
 #' @rdname systemSchemasDisable
+#' @export
 systemSchemasDisable <- function(client, metastore_id, schema_name) {
-
-  client$do("DELETE", paste("/api/2.1/unity-catalog/metastores/", metastore_id,
-    "/systemschemas/", schema_name, sep = ""))
+    
+    client$do("DELETE", paste("/api/2.1/unity-catalog/metastores/", metastore_id, "/systemschemas/", schema_name, sep = ""))
 }
 
 #' Enable a system schema.
@@ -29,10 +29,10 @@ systemSchemasDisable <- function(client, metastore_id, schema_name) {
 #' @param schema_name Required. Full name of the system schema.
 #'
 #' @rdname systemSchemasEnable
+#' @export
 systemSchemasEnable <- function(client, metastore_id, schema_name) {
-
-  client$do("PUT", paste("/api/2.1/unity-catalog/metastores/", metastore_id, "/systemschemas/",
-    schema_name, sep = ""))
+    
+    client$do("PUT", paste("/api/2.1/unity-catalog/metastores/", metastore_id, "/systemschemas/", schema_name, sep = ""))
 }
 
 #' List system schemas.
@@ -46,12 +46,12 @@ systemSchemasEnable <- function(client, metastore_id, schema_name) {
 #' @return `data.frame` with all of the response pages.
 #'
 #' @rdname systemSchemasList
+#' @export
 systemSchemasList <- function(client, metastore_id) {
-
-
-  json <- client$do("GET", paste("/api/2.1/unity-catalog/metastores/", metastore_id,
-    "/systemschemas", , sep = ""))
-  return(json$schemas)
-
+    
+    
+    json <- client$do("GET", paste("/api/2.1/unity-catalog/metastores/", metastore_id, "/systemschemas", , sep = ""))
+    return (json$schemas)
+    
 }
 

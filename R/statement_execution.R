@@ -12,10 +12,10 @@ NULL
 #' @param statement_id Required. 
 #'
 #' @rdname statementExecutionCancelExecution
+#' @export
 statementExecutionCancelExecution <- function(client, statement_id) {
-
-  client$do("POST", paste("/api/2.0/sql/statements/", statement_id, "/cancel",
-    , sep = ""))
+    
+    client$do("POST", paste("/api/2.0/sql/statements/", statement_id, "/cancel", , sep = ""))
 }
 
 #' Execute a SQL statement.
@@ -35,13 +35,19 @@ statementExecutionCancelExecution <- function(client, statement_id) {
 #' @param warehouse_id Warehouse upon which to execute a statement.
 #'
 #' @rdname statementExecutionExecuteStatement
-statementExecutionExecuteStatement <- function(client, byte_limit = NULL, catalog = NULL,
-  disposition = NULL, format = NULL, on_wait_timeout = NULL, schema = NULL, statement = NULL,
-  wait_timeout = NULL, warehouse_id = NULL) {
-  body <- list(byte_limit = byte_limit, catalog = catalog, disposition = disposition,
-    format = format, on_wait_timeout = on_wait_timeout, schema = schema, statement = statement,
-    wait_timeout = wait_timeout, warehouse_id = warehouse_id)
-  client$do("POST", "/api/2.0/sql/statements/", body = body)
+#' @export
+statementExecutionExecuteStatement <- function(client, byte_limit=NULL, catalog=NULL, disposition=NULL, format=NULL, on_wait_timeout=NULL, schema=NULL, statement=NULL, wait_timeout=NULL, warehouse_id=NULL) {
+    body <- list(
+        byte_limit = byte_limit
+        , catalog = catalog
+        , disposition = disposition
+        , format = format
+        , on_wait_timeout = on_wait_timeout
+        , schema = schema
+        , statement = statement
+        , wait_timeout = wait_timeout
+        , warehouse_id = warehouse_id)
+    client$do("POST", "/api/2.0/sql/statements/", body = body)
 }
 
 #' Get status, manifest, and result first chunk.
@@ -60,9 +66,10 @@ statementExecutionExecuteStatement <- function(client, byte_limit = NULL, catalo
 #' @param statement_id Required. 
 #'
 #' @rdname statementExecutionGetStatement
+#' @export
 statementExecutionGetStatement <- function(client, statement_id) {
-
-  client$do("GET", paste("/api/2.0/sql/statements/", statement_id, sep = ""))
+    
+    client$do("GET", paste("/api/2.0/sql/statements/", statement_id, sep = ""))
 }
 
 #' Get result chunk by index.
@@ -80,9 +87,9 @@ statementExecutionGetStatement <- function(client, statement_id) {
 #' @param statement_id Required. 
 #'
 #' @rdname statementExecutionGetStatementResultChunkN
+#' @export
 statementExecutionGetStatementResultChunkN <- function(client, statement_id, chunk_index) {
-
-  client$do("GET", paste("/api/2.0/sql/statements/", statement_id, "/result/chunks/",
-    chunk_index, sep = ""))
+    
+    client$do("GET", paste("/api/2.0/sql/statements/", statement_id, "/result/chunks/", chunk_index, sep = ""))
 }
 

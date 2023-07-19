@@ -24,11 +24,16 @@ NULL
 #' @param query The text of the query to be run.
 #'
 #' @rdname queriesCreate
-queriesCreate <- function(client, data_source_id = NULL, description = NULL, name = NULL,
-  options = NULL, parent = NULL, query = NULL) {
-  body <- list(data_source_id = data_source_id, description = description, name = name,
-    options = options, parent = parent, query = query)
-  client$do("POST", "/api/2.0/preview/sql/queries", body = body)
+#' @export
+queriesCreate <- function(client, data_source_id=NULL, description=NULL, name=NULL, options=NULL, parent=NULL, query=NULL) {
+    body <- list(
+        data_source_id = data_source_id
+        , description = description
+        , name = name
+        , options = options
+        , parent = parent
+        , query = query)
+    client$do("POST", "/api/2.0/preview/sql/queries", body = body)
 }
 
 #' Delete a query.
@@ -41,9 +46,10 @@ queriesCreate <- function(client, data_source_id = NULL, description = NULL, nam
 #' @param query_id Required. 
 #'
 #' @rdname queriesDelete
+#' @export
 queriesDelete <- function(client, query_id) {
-
-  client$do("DELETE", paste("/api/2.0/preview/sql/queries/", query_id, sep = ""))
+    
+    client$do("DELETE", paste("/api/2.0/preview/sql/queries/", query_id, sep = ""))
 }
 
 #' Get a query definition.
@@ -55,9 +61,10 @@ queriesDelete <- function(client, query_id) {
 #' @param query_id Required. 
 #'
 #' @rdname queriesGet
+#' @export
 queriesGet <- function(client, query_id) {
-
-  client$do("GET", paste("/api/2.0/preview/sql/queries/", query_id, sep = ""))
+    
+    client$do("GET", paste("/api/2.0/preview/sql/queries/", query_id, sep = ""))
 }
 
 #' Get a list of queries.
@@ -74,24 +81,29 @@ queriesGet <- function(client, query_id) {
 #' @return `data.frame` with all of the response pages.
 #'
 #' @rdname queriesList
-queriesList <- function(client, order = NULL, page = NULL, page_size = NULL, q = NULL) {
-  query <- list(order = order, page = page, page_size = page_size, q = q)
-
-  query$page = 1
-  results <- data.frame()
-  while (TRUE) {
-    json <- client$do("GET", "/api/2.0/preview/sql/queries", query = query)
-    if (is.null(nrow(json$results))) {
-      break
+#' @export
+queriesList <- function(client, order=NULL, page=NULL, page_size=NULL, q=NULL) {
+    query <- list(
+        order = order
+        , page = page
+        , page_size = page_size
+        , q = q)
+    
+    query$page = 1
+    results <- data.frame()
+    while (TRUE) {
+        json <- client$do("GET", "/api/2.0/preview/sql/queries", query = query)
+        if (is.null(nrow(json$results))) {
+            break
+        }
+        # append this page of results to one results data.frame
+        results <- dplyr::bind_rows(results, json$results)
+        query$page <- query$page + 1
     }
-    # append this page of results to one results data.frame
-    results <- dplyr::bind_rows(results, json$results)
-    query$page <- query$page + 1
-  }
-  # de-duplicate any records via id column
-  results <- results[!duplicated(results$id), ]
-  return(results)
-
+    # de-duplicate any records via id column
+    results <- results[!duplicated(results$id), ]
+    return (results)
+    
 }
 
 #' Restore a query.
@@ -103,9 +115,10 @@ queriesList <- function(client, order = NULL, page = NULL, page_size = NULL, q =
 #' @param query_id Required. 
 #'
 #' @rdname queriesRestore
+#' @export
 queriesRestore <- function(client, query_id) {
-
-  client$do("POST", paste("/api/2.0/preview/sql/queries/trash/", query_id, sep = ""))
+    
+    client$do("POST", paste("/api/2.0/preview/sql/queries/trash/", query_id, sep = ""))
 }
 
 #' Change a query definition.
@@ -123,11 +136,14 @@ queriesRestore <- function(client, query_id) {
 #' @param query_id Required. 
 #'
 #' @rdname queriesUpdate
-queriesUpdate <- function(client, query_id, data_source_id = NULL, description = NULL,
-  name = NULL, options = NULL, query = NULL) {
-  body <- list(data_source_id = data_source_id, description = description, name = name,
-    options = options, query = query)
-  client$do("POST", paste("/api/2.0/preview/sql/queries/", query_id, sep = ""),
-    body = body)
+#' @export
+queriesUpdate <- function(client, query_id, data_source_id=NULL, description=NULL, name=NULL, options=NULL, query=NULL) {
+    body <- list(
+        data_source_id = data_source_id
+        , description = description
+        , name = name
+        , options = options
+        , query = query)
+    client$do("POST", paste("/api/2.0/preview/sql/queries/", query_id, sep = ""), body = body)
 }
 

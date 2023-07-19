@@ -19,9 +19,12 @@ NULL
 #' @param recursive The flag that specifies whether to delete the object recursively.
 #'
 #' @rdname workspaceDelete
-workspaceDelete <- function(client, path, recursive = NULL) {
-  body <- list(path = path, recursive = recursive)
-  client$do("POST", "/api/2.0/workspace/delete", body = body)
+#' @export
+workspaceDelete <- function(client, path, recursive=NULL) {
+    body <- list(
+        path = path
+        , recursive = recursive)
+    client$do("POST", "/api/2.0/workspace/delete", body = body)
 }
 
 #' Export a workspace object.
@@ -40,9 +43,12 @@ workspaceDelete <- function(client, path, recursive = NULL) {
 #' @param path Required. The absolute path of the object or directory.
 #'
 #' @rdname workspaceExport
-workspaceExport <- function(client, path, format = NULL) {
-  query <- list(format = format, path = path)
-  client$do("GET", "/api/2.0/workspace/export", query = query)
+#' @export
+workspaceExport <- function(client, path, format=NULL) {
+    query <- list(
+        format = format
+        , path = path)
+    client$do("GET", "/api/2.0/workspace/export", query = query)
 }
 
 #' Get status.
@@ -54,9 +60,11 @@ workspaceExport <- function(client, path, format = NULL) {
 #' @param path Required. The absolute path of the notebook or directory.
 #'
 #' @rdname workspaceGetStatus
+#' @export
 workspaceGetStatus <- function(client, path) {
-  query <- list(path = path)
-  client$do("GET", "/api/2.0/workspace/get-status", query = query)
+    query <- list(
+        path = path)
+    client$do("GET", "/api/2.0/workspace/get-status", query = query)
 }
 
 #' Import a workspace object.
@@ -74,11 +82,15 @@ workspaceGetStatus <- function(client, path) {
 #' @param path Required. The absolute path of the object or directory.
 #'
 #' @rdname workspaceImport
-workspaceImport <- function(client, path, content = NULL, format = NULL, language = NULL,
-  overwrite = NULL) {
-  body <- list(content = content, format = format, language = language, overwrite = overwrite,
-    path = path)
-  client$do("POST", "/api/2.0/workspace/import", body = body)
+#' @export
+workspaceImport <- function(client, path, content=NULL, format=NULL, language=NULL, overwrite=NULL) {
+    body <- list(
+        content = content
+        , format = format
+        , language = language
+        , overwrite = overwrite
+        , path = path)
+    client$do("POST", "/api/2.0/workspace/import", body = body)
 }
 
 #' List contents.
@@ -94,12 +106,15 @@ workspaceImport <- function(client, path, content = NULL, format = NULL, languag
 #' @return `data.frame` with all of the response pages.
 #'
 #' @rdname workspaceList
-workspaceList <- function(client, path, notebooks_modified_after = NULL) {
-  query <- list(notebooks_modified_after = notebooks_modified_after, path = path)
-
-  json <- client$do("GET", "/api/2.0/workspace/list", query = query)
-  return(json$objects)
-
+#' @export
+workspaceList <- function(client, path, notebooks_modified_after=NULL) {
+    query <- list(
+        notebooks_modified_after = notebooks_modified_after
+        , path = path)
+    
+    json <- client$do("GET", "/api/2.0/workspace/list", query = query)
+    return (json$objects)
+    
 }
 
 #' Create a directory.
@@ -115,8 +130,10 @@ workspaceList <- function(client, path, notebooks_modified_after = NULL) {
 #' @param path Required. The absolute path of the directory.
 #'
 #' @rdname workspaceMkdirs
+#' @export
 workspaceMkdirs <- function(client, path) {
-  body <- list(path = path)
-  client$do("POST", "/api/2.0/workspace/mkdirs", body = body)
+    body <- list(
+        path = path)
+    client$do("POST", "/api/2.0/workspace/mkdirs", body = body)
 }
 

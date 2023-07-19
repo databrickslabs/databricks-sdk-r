@@ -19,11 +19,18 @@ NULL
 #' @param roles 
 #'
 #' @rdname groupsCreate
-groupsCreate <- function(client, display_name = NULL, entitlements = NULL, external_id = NULL,
-  groups = NULL, id = NULL, members = NULL, meta = NULL, roles = NULL) {
-  body <- list(displayName = display_name, entitlements = entitlements, externalId = external_id,
-    groups = groups, id = id, members = members, meta = meta, roles = roles)
-  client$do("POST", "/api/2.0/preview/scim/v2/Groups", body = body)
+#' @export
+groupsCreate <- function(client, display_name=NULL, entitlements=NULL, external_id=NULL, groups=NULL, id=NULL, members=NULL, meta=NULL, roles=NULL) {
+    body <- list(
+        displayName = display_name
+        , entitlements = entitlements
+        , externalId = external_id
+        , groups = groups
+        , id = id
+        , members = members
+        , meta = meta
+        , roles = roles)
+    client$do("POST", "/api/2.0/preview/scim/v2/Groups", body = body)
 }
 
 #' Delete a group.
@@ -34,9 +41,10 @@ groupsCreate <- function(client, display_name = NULL, entitlements = NULL, exter
 #' @param id Required. Unique ID for a group in the Databricks workspace.
 #'
 #' @rdname groupsDelete
+#' @export
 groupsDelete <- function(client, id) {
-
-  client$do("DELETE", paste("/api/2.0/preview/scim/v2/Groups/", id, sep = ""))
+    
+    client$do("DELETE", paste("/api/2.0/preview/scim/v2/Groups/", id, sep = ""))
 }
 
 #' Get group details.
@@ -47,9 +55,10 @@ groupsDelete <- function(client, id) {
 #' @param id Required. Unique ID for a group in the Databricks workspace.
 #'
 #' @rdname groupsGet
+#' @export
 groupsGet <- function(client, id) {
-
-  client$do("GET", paste("/api/2.0/preview/scim/v2/Groups/", id, sep = ""))
+    
+    client$do("GET", paste("/api/2.0/preview/scim/v2/Groups/", id, sep = ""))
 }
 
 #' List group details.
@@ -68,14 +77,20 @@ groupsGet <- function(client, id) {
 #' @return `data.frame` with all of the response pages.
 #'
 #' @rdname groupsList
-groupsList <- function(client, attributes = NULL, count = NULL, excluded_attributes = NULL,
-  filter = NULL, sort_by = NULL, sort_order = NULL, start_index = NULL) {
-  query <- list(attributes = attributes, count = count, excludedAttributes = excluded_attributes,
-    filter = filter, sortBy = sort_by, sortOrder = sort_order, startIndex = start_index)
-
-  json <- client$do("GET", "/api/2.0/preview/scim/v2/Groups", query = query)
-  return(json$Resources)
-
+#' @export
+groupsList <- function(client, attributes=NULL, count=NULL, excluded_attributes=NULL, filter=NULL, sort_by=NULL, sort_order=NULL, start_index=NULL) {
+    query <- list(
+        attributes = attributes
+        , count = count
+        , excludedAttributes = excluded_attributes
+        , filter = filter
+        , sortBy = sort_by
+        , sortOrder = sort_order
+        , startIndex = start_index)
+    
+    json <- client$do("GET", "/api/2.0/preview/scim/v2/Groups", query = query)
+    return (json$Resources)
+    
 }
 
 #' Update group details.
@@ -88,9 +103,12 @@ groupsList <- function(client, attributes = NULL, count = NULL, excluded_attribu
 #' @param schema The schema of the patch request.
 #'
 #' @rdname groupsPatch
-groupsPatch <- function(client, id, operations = NULL, schema = NULL) {
-  body <- list(, Operations = operations, schema = schema)
-  client$do("PATCH", paste("/api/2.0/preview/scim/v2/Groups/", id, sep = ""), body = body)
+#' @export
+groupsPatch <- function(client, id, operations=NULL, schema=NULL) {
+    body <- list(
+        , Operations = operations
+        , schema = schema)
+    client$do("PATCH", paste("/api/2.0/preview/scim/v2/Groups/", id, sep = ""), body = body)
 }
 
 #' Replace a group.
@@ -108,10 +126,17 @@ groupsPatch <- function(client, id, operations = NULL, schema = NULL) {
 #' @param roles 
 #'
 #' @rdname groupsUpdate
-groupsUpdate <- function(client, id, display_name = NULL, entitlements = NULL, external_id = NULL,
-  groups = NULL, members = NULL, meta = NULL, roles = NULL) {
-  body <- list(displayName = display_name, entitlements = entitlements, externalId = external_id,
-    groups = groups, id = id, members = members, meta = meta, roles = roles)
-  client$do("PUT", paste("/api/2.0/preview/scim/v2/Groups/", id, sep = ""), body = body)
+#' @export
+groupsUpdate <- function(client, id, display_name=NULL, entitlements=NULL, external_id=NULL, groups=NULL, members=NULL, meta=NULL, roles=NULL) {
+    body <- list(
+        displayName = display_name
+        , entitlements = entitlements
+        , externalId = external_id
+        , groups = groups
+        , id = id
+        , members = members
+        , meta = meta
+        , roles = roles)
+    client$do("PUT", paste("/api/2.0/preview/scim/v2/Groups/", id, sep = ""), body = body)
 }
 

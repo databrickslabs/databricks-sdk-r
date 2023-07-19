@@ -16,12 +16,16 @@ NULL
 #' @param policy_family_id ID of the policy family.
 #'
 #' @rdname clusterPoliciesCreate
-clusterPoliciesCreate <- function(client, name, definition = NULL, description = NULL,
-  max_clusters_per_user = NULL, policy_family_definition_overrides = NULL, policy_family_id = NULL) {
-  body <- list(definition = definition, description = description, max_clusters_per_user = max_clusters_per_user,
-    name = name, policy_family_definition_overrides = policy_family_definition_overrides,
-    policy_family_id = policy_family_id)
-  client$do("POST", "/api/2.0/policies/clusters/create", body = body)
+#' @export
+clusterPoliciesCreate <- function(client, name, definition=NULL, description=NULL, max_clusters_per_user=NULL, policy_family_definition_overrides=NULL, policy_family_id=NULL) {
+    body <- list(
+        definition = definition
+        , description = description
+        , max_clusters_per_user = max_clusters_per_user
+        , name = name
+        , policy_family_definition_overrides = policy_family_definition_overrides
+        , policy_family_id = policy_family_id)
+    client$do("POST", "/api/2.0/policies/clusters/create", body = body)
 }
 
 #' Delete a cluster policy.
@@ -33,9 +37,11 @@ clusterPoliciesCreate <- function(client, name, definition = NULL, description =
 #' @param policy_id Required. The ID of the policy to delete.
 #'
 #' @rdname clusterPoliciesDelete
+#' @export
 clusterPoliciesDelete <- function(client, policy_id) {
-  body <- list(policy_id = policy_id)
-  client$do("POST", "/api/2.0/policies/clusters/delete", body = body)
+    body <- list(
+        policy_id = policy_id)
+    client$do("POST", "/api/2.0/policies/clusters/delete", body = body)
 }
 
 #' Update a cluster policy.
@@ -53,12 +59,17 @@ clusterPoliciesDelete <- function(client, policy_id) {
 #' @param policy_id Required. The ID of the policy to update.
 #'
 #' @rdname clusterPoliciesEdit
-clusterPoliciesEdit <- function(client, policy_id, name, definition = NULL, description = NULL,
-  max_clusters_per_user = NULL, policy_family_definition_overrides = NULL, policy_family_id = NULL) {
-  body <- list(definition = definition, description = description, max_clusters_per_user = max_clusters_per_user,
-    name = name, policy_family_definition_overrides = policy_family_definition_overrides,
-    policy_family_id = policy_family_id, policy_id = policy_id)
-  client$do("POST", "/api/2.0/policies/clusters/edit", body = body)
+#' @export
+clusterPoliciesEdit <- function(client, policy_id, name, definition=NULL, description=NULL, max_clusters_per_user=NULL, policy_family_definition_overrides=NULL, policy_family_id=NULL) {
+    body <- list(
+        definition = definition
+        , description = description
+        , max_clusters_per_user = max_clusters_per_user
+        , name = name
+        , policy_family_definition_overrides = policy_family_definition_overrides
+        , policy_family_id = policy_family_id
+        , policy_id = policy_id)
+    client$do("POST", "/api/2.0/policies/clusters/edit", body = body)
 }
 
 #' Get entity.
@@ -70,9 +81,11 @@ clusterPoliciesEdit <- function(client, policy_id, name, definition = NULL, desc
 #' @param policy_id Required. Canonical unique identifier for the cluster policy.
 #'
 #' @rdname clusterPoliciesGet
+#' @export
 clusterPoliciesGet <- function(client, policy_id) {
-  query <- list(policy_id = policy_id)
-  client$do("GET", "/api/2.0/policies/clusters/get", query = query)
+    query <- list(
+        policy_id = policy_id)
+    client$do("GET", "/api/2.0/policies/clusters/get", query = query)
 }
 
 #' Get a cluster policy.
@@ -86,11 +99,14 @@ clusterPoliciesGet <- function(client, policy_id) {
 #' @return `data.frame` with all of the response pages.
 #'
 #' @rdname clusterPoliciesList
-clusterPoliciesList <- function(client, sort_column = NULL, sort_order = NULL) {
-  query <- list(sort_column = sort_column, sort_order = sort_order)
-
-  json <- client$do("GET", "/api/2.0/policies/clusters/list", query = query)
-  return(json$policies)
-
+#' @export
+clusterPoliciesList <- function(client, sort_column=NULL, sort_order=NULL) {
+    query <- list(
+        sort_column = sort_column
+        , sort_order = sort_order)
+    
+    json <- client$do("GET", "/api/2.0/policies/clusters/list", query = query)
+    return (json$policies)
+    
 }
 

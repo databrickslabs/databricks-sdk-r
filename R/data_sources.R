@@ -9,7 +9,8 @@ NULL
 #' fields that appear in this API response are enumerated for clarity. However,
 #' you need only a SQL warehouse's `id` to create new queries against it.#'
 #' @rdname dataSourcesList
+#' @export
 dataSourcesList <- function(client) {
-  client$do("GET", "/api/2.0/preview/sql/data_sources")
+    client$do("GET", "/api/2.0/preview/sql/data_sources")
 }
 

@@ -13,10 +13,11 @@ NULL
 #' @param securable_type Required. Type of securable.
 #'
 #' @rdname grantsGet
-grantsGet <- function(client, securable_type, full_name, principal = NULL) {
-  query <- list(, principal = principal)
-  client$do("GET", paste("/api/2.1/unity-catalog/permissions/", securable_type,
-    "/", full_name, sep = ""), query = query)
+#' @export
+grantsGet <- function(client, securable_type, full_name, principal=NULL) {
+    query <- list(
+        , principal = principal)
+    client$do("GET", paste("/api/2.1/unity-catalog/permissions/", securable_type, "/", full_name, sep = ""), query = query)
 }
 
 #' Get effective permissions.
@@ -29,10 +30,11 @@ grantsGet <- function(client, securable_type, full_name, principal = NULL) {
 #' @param securable_type Required. Type of securable.
 #'
 #' @rdname grantsGetEffective
-grantsGetEffective <- function(client, securable_type, full_name, principal = NULL) {
-  query <- list(, principal = principal)
-  client$do("GET", paste("/api/2.1/unity-catalog/effective-permissions/", securable_type,
-    "/", full_name, sep = ""), query = query)
+#' @export
+grantsGetEffective <- function(client, securable_type, full_name, principal=NULL) {
+    query <- list(
+        , principal = principal)
+    client$do("GET", paste("/api/2.1/unity-catalog/effective-permissions/", securable_type, "/", full_name, sep = ""), query = query)
 }
 
 #' Update permissions.
@@ -45,9 +47,10 @@ grantsGetEffective <- function(client, securable_type, full_name, principal = NU
 #' @param securable_type Required. Type of securable.
 #'
 #' @rdname grantsUpdate
-grantsUpdate <- function(client, securable_type, full_name, changes = NULL) {
-  body <- list(changes = changes)
-  client$do("PATCH", paste("/api/2.1/unity-catalog/permissions/", securable_type,
-    "/", full_name, sep = ""), body = body)
+#' @export
+grantsUpdate <- function(client, securable_type, full_name, changes=NULL) {
+    body <- list(
+        changes = changes)
+    client$do("PATCH", paste("/api/2.1/unity-catalog/permissions/", securable_type, "/", full_name, sep = ""), body = body)
 }
 

@@ -35,19 +35,31 @@ NULL
 #' @param sql_path List of schemes whose objects can be referenced without qualification.
 #'
 #' @rdname functionsCreate
-functionsCreate <- function(client, name, catalog_name, schema_name, input_params,
-  data_type, full_data_type, return_params, routine_body, routine_definition, routine_dependencies,
-  parameter_style, is_deterministic, sql_data_access, is_null_call, security_type,
-  specific_name, comment = NULL, external_language = NULL, external_name = NULL,
-  properties = NULL, sql_path = NULL) {
-  body <- list(catalog_name = catalog_name, comment = comment, data_type = data_type,
-    external_language = external_language, external_name = external_name, full_data_type = full_data_type,
-    input_params = input_params, is_deterministic = is_deterministic, is_null_call = is_null_call,
-    name = name, parameter_style = parameter_style, properties = properties,
-    return_params = return_params, routine_body = routine_body, routine_definition = routine_definition,
-    routine_dependencies = routine_dependencies, schema_name = schema_name, security_type = security_type,
-    specific_name = specific_name, sql_data_access = sql_data_access, sql_path = sql_path)
-  client$do("POST", "/api/2.1/unity-catalog/functions", body = body)
+#' @export
+functionsCreate <- function(client, name, catalog_name, schema_name, input_params, data_type, full_data_type, return_params, routine_body, routine_definition, routine_dependencies, parameter_style, is_deterministic, sql_data_access, is_null_call, security_type, specific_name, comment=NULL, external_language=NULL, external_name=NULL, properties=NULL, sql_path=NULL) {
+    body <- list(
+        catalog_name = catalog_name
+        , comment = comment
+        , data_type = data_type
+        , external_language = external_language
+        , external_name = external_name
+        , full_data_type = full_data_type
+        , input_params = input_params
+        , is_deterministic = is_deterministic
+        , is_null_call = is_null_call
+        , name = name
+        , parameter_style = parameter_style
+        , properties = properties
+        , return_params = return_params
+        , routine_body = routine_body
+        , routine_definition = routine_definition
+        , routine_dependencies = routine_dependencies
+        , schema_name = schema_name
+        , security_type = security_type
+        , specific_name = specific_name
+        , sql_data_access = sql_data_access
+        , sql_path = sql_path)
+    client$do("POST", "/api/2.1/unity-catalog/functions", body = body)
 }
 
 #' Delete a function.
@@ -65,10 +77,11 @@ functionsCreate <- function(client, name, catalog_name, schema_name, input_param
 #' @param name Required. The fully-qualified name of the function (of the form __catalog_name__.__schema_name__.__function__name__).
 #'
 #' @rdname functionsDelete
-functionsDelete <- function(client, name, force = NULL) {
-  query <- list(force = force)
-  client$do("DELETE", paste("/api/2.1/unity-catalog/functions/", name, sep = ""),
-    query = query)
+#' @export
+functionsDelete <- function(client, name, force=NULL) {
+    query <- list(
+        force = force)
+    client$do("DELETE", paste("/api/2.1/unity-catalog/functions/", name, sep = ""), query = query)
 }
 
 #' Get a function.
@@ -85,9 +98,10 @@ functionsDelete <- function(client, name, force = NULL) {
 #' @param name Required. The fully-qualified name of the function (of the form __catalog_name__.__schema_name__.__function__name__).
 #'
 #' @rdname functionsGet
+#' @export
 functionsGet <- function(client, name) {
-
-  client$do("GET", paste("/api/2.1/unity-catalog/functions/", name, sep = ""))
+    
+    client$do("GET", paste("/api/2.1/unity-catalog/functions/", name, sep = ""))
 }
 
 #' List functions.
@@ -107,12 +121,15 @@ functionsGet <- function(client, name) {
 #' @return `data.frame` with all of the response pages.
 #'
 #' @rdname functionsList
+#' @export
 functionsList <- function(client, catalog_name, schema_name) {
-  query <- list(catalog_name = catalog_name, schema_name = schema_name)
-
-  json <- client$do("GET", "/api/2.1/unity-catalog/functions", query = query)
-  return(json$functions)
-
+    query <- list(
+        catalog_name = catalog_name
+        , schema_name = schema_name)
+    
+    json <- client$do("GET", "/api/2.1/unity-catalog/functions", query = query)
+    return (json$functions)
+    
 }
 
 #' Update a function.
@@ -131,9 +148,10 @@ functionsList <- function(client, catalog_name, schema_name) {
 #' @param owner Username of current owner of function.
 #'
 #' @rdname functionsUpdate
-functionsUpdate <- function(client, name, owner = NULL) {
-  body <- list(, owner = owner)
-  client$do("PATCH", paste("/api/2.1/unity-catalog/functions/", name, sep = ""),
-    body = body)
+#' @export
+functionsUpdate <- function(client, name, owner=NULL) {
+    body <- list(
+        , owner = owner)
+    client$do("PATCH", paste("/api/2.1/unity-catalog/functions/", name, sep = ""), body = body)
 }
 

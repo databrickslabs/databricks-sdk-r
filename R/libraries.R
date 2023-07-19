@@ -10,8 +10,9 @@ NULL
 #' as well as libraries set to be installed on all clusters via the libraries
 #' UI.#'
 #' @rdname librariesAllClusterStatuses
+#' @export
 librariesAllClusterStatuses <- function(client) {
-  client$do("GET", "/api/2.0/libraries/all-cluster-statuses")
+    client$do("GET", "/api/2.0/libraries/all-cluster-statuses")
 }
 
 #' Get status.
@@ -36,9 +37,11 @@ librariesAllClusterStatuses <- function(client) {
 #' @param cluster_id Required. Unique identifier of the cluster whose status should be retrieved.
 #'
 #' @rdname librariesClusterStatus
+#' @export
 librariesClusterStatus <- function(client, cluster_id) {
-  query <- list(cluster_id = cluster_id)
-  client$do("GET", "/api/2.0/libraries/cluster-status", query = query)
+    query <- list(
+        cluster_id = cluster_id)
+    client$do("GET", "/api/2.0/libraries/cluster-status", query = query)
 }
 
 #' Add a library.
@@ -55,9 +58,12 @@ librariesClusterStatus <- function(client, cluster_id) {
 #' @param libraries Required. The libraries to install.
 #'
 #' @rdname librariesInstall
+#' @export
 librariesInstall <- function(client, cluster_id, libraries) {
-  body <- list(cluster_id = cluster_id, libraries = libraries)
-  client$do("POST", "/api/2.0/libraries/install", body = body)
+    body <- list(
+        cluster_id = cluster_id
+        , libraries = libraries)
+    client$do("POST", "/api/2.0/libraries/install", body = body)
 }
 
 #' Uninstall libraries.
@@ -71,8 +77,11 @@ librariesInstall <- function(client, cluster_id, libraries) {
 #' @param libraries Required. The libraries to uninstall.
 #'
 #' @rdname librariesUninstall
+#' @export
 librariesUninstall <- function(client, cluster_id, libraries) {
-  body <- list(cluster_id = cluster_id, libraries = libraries)
-  client$do("POST", "/api/2.0/libraries/uninstall", body = body)
+    body <- list(
+        cluster_id = cluster_id
+        , libraries = libraries)
+    client$do("POST", "/api/2.0/libraries/uninstall", body = body)
 }
 

@@ -17,6 +17,7 @@ NULL
 #' @return `data.frame` with all of the response pages.
 {{end}}#'
 #' @rdname {{.Service.CamelName}}{{.PascalName}}
+#' @export 
 {{- $hasRequiredFields := and .Request (gt (len .Request.RequiredFields) 0) }}
 {{.Service.CamelName}}{{.PascalName}} <- function(client{{- if .Request}}{{range .Request.RequiredFields}}, {{.SnakeName}}{{end -}}
     {{- range .Request.NonRequiredFields}}, {{.SnakeName}}=NULL{{end}}

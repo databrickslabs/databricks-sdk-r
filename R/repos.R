@@ -16,10 +16,14 @@ NULL
 #' @param url Required. URL of the Git repository to be linked.
 #'
 #' @rdname reposCreate
-reposCreate <- function(client, url, provider, path = NULL, sparse_checkout = NULL) {
-  body <- list(path = path, provider = provider, sparse_checkout = sparse_checkout,
-    url = url)
-  client$do("POST", "/api/2.0/repos", body = body)
+#' @export
+reposCreate <- function(client, url, provider, path=NULL, sparse_checkout=NULL) {
+    body <- list(
+        path = path
+        , provider = provider
+        , sparse_checkout = sparse_checkout
+        , url = url)
+    client$do("POST", "/api/2.0/repos", body = body)
 }
 
 #' Delete a repo.
@@ -30,9 +34,10 @@ reposCreate <- function(client, url, provider, path = NULL, sparse_checkout = NU
 #' @param repo_id Required. The ID for the corresponding repo to access.
 #'
 #' @rdname reposDelete
+#' @export
 reposDelete <- function(client, repo_id) {
-
-  client$do("DELETE", paste("/api/2.0/repos/", repo_id, sep = ""))
+    
+    client$do("DELETE", paste("/api/2.0/repos/", repo_id, sep = ""))
 }
 
 #' Get a repo.
@@ -43,9 +48,10 @@ reposDelete <- function(client, repo_id) {
 #' @param repo_id Required. The ID for the corresponding repo to access.
 #'
 #' @rdname reposGet
+#' @export
 reposGet <- function(client, repo_id) {
-
-  client$do("GET", paste("/api/2.0/repos/", repo_id, sep = ""))
+    
+    client$do("GET", paste("/api/2.0/repos/", repo_id, sep = ""))
 }
 
 #' Get repos.
@@ -60,24 +66,27 @@ reposGet <- function(client, repo_id) {
 #' @return `data.frame` with all of the response pages.
 #'
 #' @rdname reposList
-reposList <- function(client, next_page_token = NULL, path_prefix = NULL) {
-  query <- list(next_page_token = next_page_token, path_prefix = path_prefix)
-
-  results <- data.frame()
-  while (TRUE) {
-    json <- client$do("GET", "/api/2.0/repos", query = query)
-    if (is.null(nrow(json$repos))) {
-      break
+#' @export
+reposList <- function(client, next_page_token=NULL, path_prefix=NULL) {
+    query <- list(
+        next_page_token = next_page_token
+        , path_prefix = path_prefix)
+    
+    results <- data.frame()
+    while (TRUE) {
+        json <- client$do("GET", "/api/2.0/repos", query = query)
+        if (is.null(nrow(json$repos))) {
+            break
+        }
+        # append this page of results to one results data.frame
+        results <- dplyr::bind_rows(results, json$repos)
+        if (is.null(json$next_page_token)) {
+            break
+        }
+        query$next_page_token <- json$next_page_token
     }
-    # append this page of results to one results data.frame
-    results <- dplyr::bind_rows(results, json$repos)
-    if (is.null(json$next_page_token)) {
-      break
-    }
-    query$next_page_token <- json$next_page_token
-  }
-  return(results)
-
+    return (results)
+    
 }
 
 #' Update a repo.
@@ -92,8 +101,12 @@ reposList <- function(client, next_page_token = NULL, path_prefix = NULL) {
 #' @param tag Tag that the local version of the repo is checked out to.
 #'
 #' @rdname reposUpdate
-reposUpdate <- function(client, repo_id, branch = NULL, sparse_checkout = NULL, tag = NULL) {
-  body <- list(branch = branch, sparse_checkout = sparse_checkout, tag = tag)
-  client$do("PATCH", paste("/api/2.0/repos/", repo_id, sep = ""), body = body)
+#' @export
+reposUpdate <- function(client, repo_id, branch=NULL, sparse_checkout=NULL, tag=NULL) {
+    body <- list(
+        branch = branch
+        , sparse_checkout = sparse_checkout
+        , tag = tag)
+    client$do("PATCH", paste("/api/2.0/repos/", repo_id, sep = ""), body = body)
 }
 

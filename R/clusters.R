@@ -13,9 +13,12 @@ NULL
 #' @param owner_username Required. New owner of the cluster_id after this RPC.
 #'
 #' @rdname clustersChangeOwner
+#' @export
 clustersChangeOwner <- function(client, cluster_id, owner_username) {
-  body <- list(cluster_id = cluster_id, owner_username = owner_username)
-  client$do("POST", "/api/2.0/clusters/change-owner", body = body)
+    body <- list(
+        cluster_id = cluster_id
+        , owner_username = owner_username)
+    client$do("POST", "/api/2.0/clusters/change-owner", body = body)
 }
 
 #' Create new cluster.
@@ -63,60 +66,69 @@ clustersChangeOwner <- function(client, cluster_id, owner_username) {
 #' @param workload_type 
 #'
 #' @rdname clustersCreate
-clustersCreate <- function(client, spark_version, apply_policy_default_values = NULL,
-  autoscale = NULL, autotermination_minutes = NULL, aws_attributes = NULL, azure_attributes = NULL,
-  cluster_log_conf = NULL, cluster_name = NULL, cluster_source = NULL, custom_tags = NULL,
-  driver_instance_pool_id = NULL, driver_node_type_id = NULL, enable_elastic_disk = NULL,
-  enable_local_disk_encryption = NULL, gcp_attributes = NULL, init_scripts = NULL,
-  instance_pool_id = NULL, node_type_id = NULL, num_workers = NULL, policy_id = NULL,
-  runtime_engine = NULL, spark_conf = NULL, spark_env_vars = NULL, ssh_public_keys = NULL,
-  workload_type = NULL, timeout = 20, callback = cli_reporter) {
-  body <- list(apply_policy_default_values = apply_policy_default_values, autoscale = autoscale,
-    autotermination_minutes = autotermination_minutes, aws_attributes = aws_attributes,
-    azure_attributes = azure_attributes, cluster_log_conf = cluster_log_conf,
-    cluster_name = cluster_name, cluster_source = cluster_source, custom_tags = custom_tags,
-    driver_instance_pool_id = driver_instance_pool_id, driver_node_type_id = driver_node_type_id,
-    enable_elastic_disk = enable_elastic_disk, enable_local_disk_encryption = enable_local_disk_encryption,
-    gcp_attributes = gcp_attributes, init_scripts = init_scripts, instance_pool_id = instance_pool_id,
-    node_type_id = node_type_id, num_workers = num_workers, policy_id = policy_id,
-    runtime_engine = runtime_engine, spark_conf = spark_conf, spark_env_vars = spark_env_vars,
-    spark_version = spark_version, ssh_public_keys = ssh_public_keys, workload_type = workload_type)
-  op_response <- client$do("POST", "/api/2.0/clusters/create", body = body)
-  started <- as.numeric(Sys.time())
-  target_states <- c("RUNNING", c())
-  failure_states <- c("ERROR", "TERMINATED", c())
-  status_message <- "polling..."
-  attempt <- 1
-  while ((started + (timeout * 60)) > as.numeric(Sys.time())) {
-    poll <- clustersGet(client, cluster_id = op_response$cluster_id)
-    status <- poll$state
-    status_message <- poll$state_message
-    if (status %in% target_states) {
-      if (!is.null(callback)) {
-        callback(paste0(status, ": ", status_message), done = TRUE)
-      }
-      return(poll)
+#' @export
+clustersCreate <- function(client, spark_version, apply_policy_default_values=NULL, autoscale=NULL, autotermination_minutes=NULL, aws_attributes=NULL, azure_attributes=NULL, cluster_log_conf=NULL, cluster_name=NULL, cluster_source=NULL, custom_tags=NULL, driver_instance_pool_id=NULL, driver_node_type_id=NULL, enable_elastic_disk=NULL, enable_local_disk_encryption=NULL, gcp_attributes=NULL, init_scripts=NULL, instance_pool_id=NULL, node_type_id=NULL, num_workers=NULL, policy_id=NULL, runtime_engine=NULL, spark_conf=NULL, spark_env_vars=NULL, ssh_public_keys=NULL, workload_type=NULL, timeout=20, callback=cli_reporter) {
+    body <- list(
+        apply_policy_default_values = apply_policy_default_values
+        , autoscale = autoscale
+        , autotermination_minutes = autotermination_minutes
+        , aws_attributes = aws_attributes
+        , azure_attributes = azure_attributes
+        , cluster_log_conf = cluster_log_conf
+        , cluster_name = cluster_name
+        , cluster_source = cluster_source
+        , custom_tags = custom_tags
+        , driver_instance_pool_id = driver_instance_pool_id
+        , driver_node_type_id = driver_node_type_id
+        , enable_elastic_disk = enable_elastic_disk
+        , enable_local_disk_encryption = enable_local_disk_encryption
+        , gcp_attributes = gcp_attributes
+        , init_scripts = init_scripts
+        , instance_pool_id = instance_pool_id
+        , node_type_id = node_type_id
+        , num_workers = num_workers
+        , policy_id = policy_id
+        , runtime_engine = runtime_engine
+        , spark_conf = spark_conf
+        , spark_env_vars = spark_env_vars
+        , spark_version = spark_version
+        , ssh_public_keys = ssh_public_keys
+        , workload_type = workload_type)
+    op_response <- client$do("POST", "/api/2.0/clusters/create", body = body)
+    started <- as.numeric(Sys.time())
+    target_states <- c("RUNNING", c())
+    failure_states <- c("ERROR", "TERMINATED", c())
+    status_message <- 'polling...'
+    attempt <- 1
+    while ((started + (timeout*60)) > as.numeric(Sys.time())) {
+        poll <- clustersGet(client, cluster_id = op_response$cluster_id)
+        status <- poll$state
+        status_message <- poll$state_message
+        if (status %in% target_states) {
+            if (!is.null(callback)) {
+                callback(paste0(status, ": ", status_message), done=TRUE)
+            }
+            return (poll)
+        }
+        if (status %in% failure_states) {
+            msg <- paste("failed to reach RUNNING, got ", status, "-", status_message)
+            rlang::abort(msg, call = rlang::caller_env())
+        }
+        prefix <- paste0("databricks::clustersGet(cluster_id=", op_response$cluster_id, ")")
+        sleep <- attempt
+        if (sleep > 10) {
+            # sleep 10s max per attempt
+            sleep <- 10
+        }
+        if (!is.null(callback)) {
+            callback(paste0(status, ": ", status_message), done=FALSE)
+        }
+        random_pause <- runif(1, min = 0.1, max = 0.5)
+        Sys.sleep(sleep + random_pause)
+        attempt <- attempt + 1
     }
-    if (status %in% failure_states) {
-      msg <- paste("failed to reach RUNNING, got ", status, "-", status_message)
-      rlang::abort(msg, call = rlang::caller_env())
-    }
-    prefix <- paste0("databricks::clustersGet(cluster_id=", op_response$cluster_id,
-      ")")
-    sleep <- attempt
-    if (sleep > 10) {
-      # sleep 10s max per attempt
-      sleep <- 10
-    }
-    if (!is.null(callback)) {
-      callback(paste0(status, ": ", status_message), done = FALSE)
-    }
-    random_pause <- runif(1, min = 0.1, max = 0.5)
-    Sys.sleep(sleep + random_pause)
-    attempt <- attempt + 1
-  }
-  msg <- paste("timed out after", timeout, "minutes:", status_message)
-  rlang::abort(msg, call = rlang::caller_env())
+    msg <- paste("timed out after", timeout, "minutes:", status_message)
+    rlang::abort(msg, call = rlang::caller_env())
 }
 
 #' Terminate cluster.
@@ -136,43 +148,45 @@ clustersCreate <- function(client, spark_version, apply_policy_default_values = 
 #' @param cluster_id Required. The cluster to be terminated.
 #'
 #' @rdname clustersDelete
-clustersDelete <- function(client, cluster_id, timeout = 20, callback = cli_reporter) {
-  body <- list(cluster_id = cluster_id)
-  client$do("POST", "/api/2.0/clusters/delete", body = body)
-  started <- as.numeric(Sys.time())
-  target_states <- c("TERMINATED", c())
-  failure_states <- c("ERROR", c())
-  status_message <- "polling..."
-  attempt <- 1
-  while ((started + (timeout * 60)) > as.numeric(Sys.time())) {
-    poll <- clustersGet(client, cluster_id = cluster_id)
-    status <- poll$state
-    status_message <- poll$state_message
-    if (status %in% target_states) {
-      if (!is.null(callback)) {
-        callback(paste0(status, ": ", status_message), done = TRUE)
-      }
-      return(poll)
+#' @export
+clustersDelete <- function(client, cluster_id, timeout=20, callback=cli_reporter) {
+    body <- list(
+        cluster_id = cluster_id)
+    client$do("POST", "/api/2.0/clusters/delete", body = body)
+    started <- as.numeric(Sys.time())
+    target_states <- c("TERMINATED", c())
+    failure_states <- c("ERROR", c())
+    status_message <- 'polling...'
+    attempt <- 1
+    while ((started + (timeout*60)) > as.numeric(Sys.time())) {
+        poll <- clustersGet(client, cluster_id = cluster_id)
+        status <- poll$state
+        status_message <- poll$state_message
+        if (status %in% target_states) {
+            if (!is.null(callback)) {
+                callback(paste0(status, ": ", status_message), done=TRUE)
+            }
+            return (poll)
+        }
+        if (status %in% failure_states) {
+            msg <- paste("failed to reach TERMINATED, got ", status, "-", status_message)
+            rlang::abort(msg, call = rlang::caller_env())
+        }
+        prefix <- paste0("databricks::clustersGet(cluster_id=", cluster_id, ")")
+        sleep <- attempt
+        if (sleep > 10) {
+            # sleep 10s max per attempt
+            sleep <- 10
+        }
+        if (!is.null(callback)) {
+            callback(paste0(status, ": ", status_message), done=FALSE)
+        }
+        random_pause <- runif(1, min = 0.1, max = 0.5)
+        Sys.sleep(sleep + random_pause)
+        attempt <- attempt + 1
     }
-    if (status %in% failure_states) {
-      msg <- paste("failed to reach TERMINATED, got ", status, "-", status_message)
-      rlang::abort(msg, call = rlang::caller_env())
-    }
-    prefix <- paste0("databricks::clustersGet(cluster_id=", cluster_id, ")")
-    sleep <- attempt
-    if (sleep > 10) {
-      # sleep 10s max per attempt
-      sleep <- 10
-    }
-    if (!is.null(callback)) {
-      callback(paste0(status, ": ", status_message), done = FALSE)
-    }
-    random_pause <- runif(1, min = 0.1, max = 0.5)
-    Sys.sleep(sleep + random_pause)
-    attempt <- attempt + 1
-  }
-  msg <- paste("timed out after", timeout, "minutes:", status_message)
-  rlang::abort(msg, call = rlang::caller_env())
+    msg <- paste("timed out after", timeout, "minutes:", status_message)
+    rlang::abort(msg, call = rlang::caller_env())
 }
 
 #' Update cluster configuration.
@@ -228,61 +242,73 @@ clustersDelete <- function(client, cluster_id, timeout = 20, callback = cli_repo
 #' @param workload_type 
 #'
 #' @rdname clustersEdit
-clustersEdit <- function(client, cluster_id, spark_version, apply_policy_default_values = NULL,
-  autoscale = NULL, autotermination_minutes = NULL, aws_attributes = NULL, azure_attributes = NULL,
-  cluster_log_conf = NULL, cluster_name = NULL, cluster_source = NULL, custom_tags = NULL,
-  data_security_mode = NULL, docker_image = NULL, driver_instance_pool_id = NULL,
-  driver_node_type_id = NULL, enable_elastic_disk = NULL, enable_local_disk_encryption = NULL,
-  gcp_attributes = NULL, init_scripts = NULL, instance_pool_id = NULL, node_type_id = NULL,
-  num_workers = NULL, policy_id = NULL, runtime_engine = NULL, single_user_name = NULL,
-  spark_conf = NULL, spark_env_vars = NULL, ssh_public_keys = NULL, workload_type = NULL,
-  timeout = 20, callback = cli_reporter) {
-  body <- list(apply_policy_default_values = apply_policy_default_values, autoscale = autoscale,
-    autotermination_minutes = autotermination_minutes, aws_attributes = aws_attributes,
-    azure_attributes = azure_attributes, cluster_id = cluster_id, cluster_log_conf = cluster_log_conf,
-    cluster_name = cluster_name, cluster_source = cluster_source, custom_tags = custom_tags,
-    data_security_mode = data_security_mode, docker_image = docker_image, driver_instance_pool_id = driver_instance_pool_id,
-    driver_node_type_id = driver_node_type_id, enable_elastic_disk = enable_elastic_disk,
-    enable_local_disk_encryption = enable_local_disk_encryption, gcp_attributes = gcp_attributes,
-    init_scripts = init_scripts, instance_pool_id = instance_pool_id, node_type_id = node_type_id,
-    num_workers = num_workers, policy_id = policy_id, runtime_engine = runtime_engine,
-    single_user_name = single_user_name, spark_conf = spark_conf, spark_env_vars = spark_env_vars,
-    spark_version = spark_version, ssh_public_keys = ssh_public_keys, workload_type = workload_type)
-  client$do("POST", "/api/2.0/clusters/edit", body = body)
-  started <- as.numeric(Sys.time())
-  target_states <- c("RUNNING", c())
-  failure_states <- c("ERROR", "TERMINATED", c())
-  status_message <- "polling..."
-  attempt <- 1
-  while ((started + (timeout * 60)) > as.numeric(Sys.time())) {
-    poll <- clustersGet(client, cluster_id = cluster_id)
-    status <- poll$state
-    status_message <- poll$state_message
-    if (status %in% target_states) {
-      if (!is.null(callback)) {
-        callback(paste0(status, ": ", status_message), done = TRUE)
-      }
-      return(poll)
+#' @export
+clustersEdit <- function(client, cluster_id, spark_version, apply_policy_default_values=NULL, autoscale=NULL, autotermination_minutes=NULL, aws_attributes=NULL, azure_attributes=NULL, cluster_log_conf=NULL, cluster_name=NULL, cluster_source=NULL, custom_tags=NULL, data_security_mode=NULL, docker_image=NULL, driver_instance_pool_id=NULL, driver_node_type_id=NULL, enable_elastic_disk=NULL, enable_local_disk_encryption=NULL, gcp_attributes=NULL, init_scripts=NULL, instance_pool_id=NULL, node_type_id=NULL, num_workers=NULL, policy_id=NULL, runtime_engine=NULL, single_user_name=NULL, spark_conf=NULL, spark_env_vars=NULL, ssh_public_keys=NULL, workload_type=NULL, timeout=20, callback=cli_reporter) {
+    body <- list(
+        apply_policy_default_values = apply_policy_default_values
+        , autoscale = autoscale
+        , autotermination_minutes = autotermination_minutes
+        , aws_attributes = aws_attributes
+        , azure_attributes = azure_attributes
+        , cluster_id = cluster_id
+        , cluster_log_conf = cluster_log_conf
+        , cluster_name = cluster_name
+        , cluster_source = cluster_source
+        , custom_tags = custom_tags
+        , data_security_mode = data_security_mode
+        , docker_image = docker_image
+        , driver_instance_pool_id = driver_instance_pool_id
+        , driver_node_type_id = driver_node_type_id
+        , enable_elastic_disk = enable_elastic_disk
+        , enable_local_disk_encryption = enable_local_disk_encryption
+        , gcp_attributes = gcp_attributes
+        , init_scripts = init_scripts
+        , instance_pool_id = instance_pool_id
+        , node_type_id = node_type_id
+        , num_workers = num_workers
+        , policy_id = policy_id
+        , runtime_engine = runtime_engine
+        , single_user_name = single_user_name
+        , spark_conf = spark_conf
+        , spark_env_vars = spark_env_vars
+        , spark_version = spark_version
+        , ssh_public_keys = ssh_public_keys
+        , workload_type = workload_type)
+    client$do("POST", "/api/2.0/clusters/edit", body = body)
+    started <- as.numeric(Sys.time())
+    target_states <- c("RUNNING", c())
+    failure_states <- c("ERROR", "TERMINATED", c())
+    status_message <- 'polling...'
+    attempt <- 1
+    while ((started + (timeout*60)) > as.numeric(Sys.time())) {
+        poll <- clustersGet(client, cluster_id = cluster_id)
+        status <- poll$state
+        status_message <- poll$state_message
+        if (status %in% target_states) {
+            if (!is.null(callback)) {
+                callback(paste0(status, ": ", status_message), done=TRUE)
+            }
+            return (poll)
+        }
+        if (status %in% failure_states) {
+            msg <- paste("failed to reach RUNNING, got ", status, "-", status_message)
+            rlang::abort(msg, call = rlang::caller_env())
+        }
+        prefix <- paste0("databricks::clustersGet(cluster_id=", cluster_id, ")")
+        sleep <- attempt
+        if (sleep > 10) {
+            # sleep 10s max per attempt
+            sleep <- 10
+        }
+        if (!is.null(callback)) {
+            callback(paste0(status, ": ", status_message), done=FALSE)
+        }
+        random_pause <- runif(1, min = 0.1, max = 0.5)
+        Sys.sleep(sleep + random_pause)
+        attempt <- attempt + 1
     }
-    if (status %in% failure_states) {
-      msg <- paste("failed to reach RUNNING, got ", status, "-", status_message)
-      rlang::abort(msg, call = rlang::caller_env())
-    }
-    prefix <- paste0("databricks::clustersGet(cluster_id=", cluster_id, ")")
-    sleep <- attempt
-    if (sleep > 10) {
-      # sleep 10s max per attempt
-      sleep <- 10
-    }
-    if (!is.null(callback)) {
-      callback(paste0(status, ": ", status_message), done = FALSE)
-    }
-    random_pause <- runif(1, min = 0.1, max = 0.5)
-    Sys.sleep(sleep + random_pause)
-    attempt <- attempt + 1
-  }
-  msg <- paste("timed out after", timeout, "minutes:", status_message)
-  rlang::abort(msg, call = rlang::caller_env())
+    msg <- paste("timed out after", timeout, "minutes:", status_message)
+    rlang::abort(msg, call = rlang::caller_env())
 }
 
 #' List cluster activity events.
@@ -297,32 +323,38 @@ clustersEdit <- function(client, cluster_id, spark_version, apply_policy_default
 #' @param event_types An optional set of event types to filter on.
 #' @param limit The maximum number of events to include in a page of events.
 #' @param offset The offset in the result set.
-#' @param order The order to list events in; either 'ASC' or 'DESC'.
+#' @param order The order to list events in; either "ASC" or "DESC".
 #' @param start_time The start time in epoch milliseconds.
 #'
 #' @return `data.frame` with all of the response pages.
 #'
 #' @rdname clustersEvents
-clustersEvents <- function(client, cluster_id, end_time = NULL, event_types = NULL,
-  limit = NULL, offset = NULL, order = NULL, start_time = NULL) {
-  body <- list(cluster_id = cluster_id, end_time = end_time, event_types = event_types,
-    limit = limit, offset = offset, order = order, start_time = start_time)
-
-  results <- data.frame()
-  while (TRUE) {
-    json <- client$do("POST", "/api/2.0/clusters/events", body = body)
-    if (is.null(nrow(json$events))) {
-      break
+#' @export
+clustersEvents <- function(client, cluster_id, end_time=NULL, event_types=NULL, limit=NULL, offset=NULL, order=NULL, start_time=NULL) {
+    body <- list(
+        cluster_id = cluster_id
+        , end_time = end_time
+        , event_types = event_types
+        , limit = limit
+        , offset = offset
+        , order = order
+        , start_time = start_time)
+    
+    results <- data.frame()
+    while (TRUE) {
+        json <- client$do("POST", "/api/2.0/clusters/events", body = body)
+        if (is.null(nrow(json$events))) {
+            break
+        }
+        # append this page of results to one results data.frame
+        results <- dplyr::bind_rows(results, json$events)
+        if (is.null(json$next_page)) {
+            break
+        }
+        body <- json$next_page
     }
-    # append this page of results to one results data.frame
-    results <- dplyr::bind_rows(results, json$events)
-    if (is.null(json$next_page)) {
-      break
-    }
-    body <- json$next_page
-  }
-  return(results)
-
+    return (results)
+    
 }
 
 #' Get cluster info.
@@ -334,9 +366,11 @@ clustersEvents <- function(client, cluster_id, end_time = NULL, event_types = NU
 #' @param cluster_id Required. The cluster about which to retrieve information.
 #'
 #' @rdname clustersGet
+#' @export
 clustersGet <- function(client, cluster_id) {
-  query <- list(cluster_id = cluster_id)
-  client$do("GET", "/api/2.0/clusters/get", query = query)
+    query <- list(
+        cluster_id = cluster_id)
+    client$do("GET", "/api/2.0/clusters/get", query = query)
 }
 
 #' List all clusters.
@@ -357,12 +391,14 @@ clustersGet <- function(client, cluster_id) {
 #' @return `data.frame` with all of the response pages.
 #'
 #' @rdname clustersList
-clustersList <- function(client, can_use_client = NULL) {
-  query <- list(can_use_client = can_use_client)
-
-  json <- client$do("GET", "/api/2.0/clusters/list", query = query)
-  return(json$clusters)
-
+#' @export
+clustersList <- function(client, can_use_client=NULL) {
+    query <- list(
+        can_use_client = can_use_client)
+    
+    json <- client$do("GET", "/api/2.0/clusters/list", query = query)
+    return (json$clusters)
+    
 }
 
 #' List node types.
@@ -370,8 +406,9 @@ clustersList <- function(client, can_use_client = NULL) {
 #' Returns a list of supported Spark node types. These node types can be used to
 #' launch a cluster.#'
 #' @rdname clustersListNodeTypes
+#' @export
 clustersListNodeTypes <- function(client) {
-  client$do("GET", "/api/2.0/clusters/list-node-types")
+    client$do("GET", "/api/2.0/clusters/list-node-types")
 }
 
 #' List availability zones.
@@ -379,8 +416,9 @@ clustersListNodeTypes <- function(client) {
 #' Returns a list of availability zones where clusters can be created in (For
 #' example, us-west-2a). These zones can be used to launch a cluster.#'
 #' @rdname clustersListZones
+#' @export
 clustersListZones <- function(client) {
-  client$do("GET", "/api/2.0/clusters/list-zones")
+    client$do("GET", "/api/2.0/clusters/list-zones")
 }
 
 #' Permanently delete cluster.
@@ -396,9 +434,11 @@ clustersListZones <- function(client) {
 #' @param cluster_id Required. The cluster to be deleted.
 #'
 #' @rdname clustersPermanentDelete
+#' @export
 clustersPermanentDelete <- function(client, cluster_id) {
-  body <- list(cluster_id = cluster_id)
-  client$do("POST", "/api/2.0/clusters/permanent-delete", body = body)
+    body <- list(
+        cluster_id = cluster_id)
+    client$do("POST", "/api/2.0/clusters/permanent-delete", body = body)
 }
 
 #' Pin cluster.
@@ -411,9 +451,11 @@ clustersPermanentDelete <- function(client, cluster_id) {
 #' @param cluster_id Required. <needs content added>.
 #'
 #' @rdname clustersPin
+#' @export
 clustersPin <- function(client, cluster_id) {
-  body <- list(cluster_id = cluster_id)
-  client$do("POST", "/api/2.0/clusters/pin", body = body)
+    body <- list(
+        cluster_id = cluster_id)
+    client$do("POST", "/api/2.0/clusters/pin", body = body)
 }
 
 #' Resize cluster.
@@ -433,44 +475,47 @@ clustersPin <- function(client, cluster_id) {
 #' @param num_workers Number of worker nodes that this cluster should have.
 #'
 #' @rdname clustersResize
-clustersResize <- function(client, cluster_id, autoscale = NULL, num_workers = NULL,
-  timeout = 20, callback = cli_reporter) {
-  body <- list(autoscale = autoscale, cluster_id = cluster_id, num_workers = num_workers)
-  client$do("POST", "/api/2.0/clusters/resize", body = body)
-  started <- as.numeric(Sys.time())
-  target_states <- c("RUNNING", c())
-  failure_states <- c("ERROR", "TERMINATED", c())
-  status_message <- "polling..."
-  attempt <- 1
-  while ((started + (timeout * 60)) > as.numeric(Sys.time())) {
-    poll <- clustersGet(client, cluster_id = cluster_id)
-    status <- poll$state
-    status_message <- poll$state_message
-    if (status %in% target_states) {
-      if (!is.null(callback)) {
-        callback(paste0(status, ": ", status_message), done = TRUE)
-      }
-      return(poll)
+#' @export
+clustersResize <- function(client, cluster_id, autoscale=NULL, num_workers=NULL, timeout=20, callback=cli_reporter) {
+    body <- list(
+        autoscale = autoscale
+        , cluster_id = cluster_id
+        , num_workers = num_workers)
+    client$do("POST", "/api/2.0/clusters/resize", body = body)
+    started <- as.numeric(Sys.time())
+    target_states <- c("RUNNING", c())
+    failure_states <- c("ERROR", "TERMINATED", c())
+    status_message <- 'polling...'
+    attempt <- 1
+    while ((started + (timeout*60)) > as.numeric(Sys.time())) {
+        poll <- clustersGet(client, cluster_id = cluster_id)
+        status <- poll$state
+        status_message <- poll$state_message
+        if (status %in% target_states) {
+            if (!is.null(callback)) {
+                callback(paste0(status, ": ", status_message), done=TRUE)
+            }
+            return (poll)
+        }
+        if (status %in% failure_states) {
+            msg <- paste("failed to reach RUNNING, got ", status, "-", status_message)
+            rlang::abort(msg, call = rlang::caller_env())
+        }
+        prefix <- paste0("databricks::clustersGet(cluster_id=", cluster_id, ")")
+        sleep <- attempt
+        if (sleep > 10) {
+            # sleep 10s max per attempt
+            sleep <- 10
+        }
+        if (!is.null(callback)) {
+            callback(paste0(status, ": ", status_message), done=FALSE)
+        }
+        random_pause <- runif(1, min = 0.1, max = 0.5)
+        Sys.sleep(sleep + random_pause)
+        attempt <- attempt + 1
     }
-    if (status %in% failure_states) {
-      msg <- paste("failed to reach RUNNING, got ", status, "-", status_message)
-      rlang::abort(msg, call = rlang::caller_env())
-    }
-    prefix <- paste0("databricks::clustersGet(cluster_id=", cluster_id, ")")
-    sleep <- attempt
-    if (sleep > 10) {
-      # sleep 10s max per attempt
-      sleep <- 10
-    }
-    if (!is.null(callback)) {
-      callback(paste0(status, ": ", status_message), done = FALSE)
-    }
-    random_pause <- runif(1, min = 0.1, max = 0.5)
-    Sys.sleep(sleep + random_pause)
-    attempt <- attempt + 1
-  }
-  msg <- paste("timed out after", timeout, "minutes:", status_message)
-  rlang::abort(msg, call = rlang::caller_env())
+    msg <- paste("timed out after", timeout, "minutes:", status_message)
+    rlang::abort(msg, call = rlang::caller_env())
 }
 
 #' Restart cluster.
@@ -489,44 +534,46 @@ clustersResize <- function(client, cluster_id, autoscale = NULL, num_workers = N
 #' @param restart_user <needs content added>.
 #'
 #' @rdname clustersRestart
-clustersRestart <- function(client, cluster_id, restart_user = NULL, timeout = 20,
-  callback = cli_reporter) {
-  body <- list(cluster_id = cluster_id, restart_user = restart_user)
-  client$do("POST", "/api/2.0/clusters/restart", body = body)
-  started <- as.numeric(Sys.time())
-  target_states <- c("RUNNING", c())
-  failure_states <- c("ERROR", "TERMINATED", c())
-  status_message <- "polling..."
-  attempt <- 1
-  while ((started + (timeout * 60)) > as.numeric(Sys.time())) {
-    poll <- clustersGet(client, cluster_id = cluster_id)
-    status <- poll$state
-    status_message <- poll$state_message
-    if (status %in% target_states) {
-      if (!is.null(callback)) {
-        callback(paste0(status, ": ", status_message), done = TRUE)
-      }
-      return(poll)
+#' @export
+clustersRestart <- function(client, cluster_id, restart_user=NULL, timeout=20, callback=cli_reporter) {
+    body <- list(
+        cluster_id = cluster_id
+        , restart_user = restart_user)
+    client$do("POST", "/api/2.0/clusters/restart", body = body)
+    started <- as.numeric(Sys.time())
+    target_states <- c("RUNNING", c())
+    failure_states <- c("ERROR", "TERMINATED", c())
+    status_message <- 'polling...'
+    attempt <- 1
+    while ((started + (timeout*60)) > as.numeric(Sys.time())) {
+        poll <- clustersGet(client, cluster_id = cluster_id)
+        status <- poll$state
+        status_message <- poll$state_message
+        if (status %in% target_states) {
+            if (!is.null(callback)) {
+                callback(paste0(status, ": ", status_message), done=TRUE)
+            }
+            return (poll)
+        }
+        if (status %in% failure_states) {
+            msg <- paste("failed to reach RUNNING, got ", status, "-", status_message)
+            rlang::abort(msg, call = rlang::caller_env())
+        }
+        prefix <- paste0("databricks::clustersGet(cluster_id=", cluster_id, ")")
+        sleep <- attempt
+        if (sleep > 10) {
+            # sleep 10s max per attempt
+            sleep <- 10
+        }
+        if (!is.null(callback)) {
+            callback(paste0(status, ": ", status_message), done=FALSE)
+        }
+        random_pause <- runif(1, min = 0.1, max = 0.5)
+        Sys.sleep(sleep + random_pause)
+        attempt <- attempt + 1
     }
-    if (status %in% failure_states) {
-      msg <- paste("failed to reach RUNNING, got ", status, "-", status_message)
-      rlang::abort(msg, call = rlang::caller_env())
-    }
-    prefix <- paste0("databricks::clustersGet(cluster_id=", cluster_id, ")")
-    sleep <- attempt
-    if (sleep > 10) {
-      # sleep 10s max per attempt
-      sleep <- 10
-    }
-    if (!is.null(callback)) {
-      callback(paste0(status, ": ", status_message), done = FALSE)
-    }
-    random_pause <- runif(1, min = 0.1, max = 0.5)
-    Sys.sleep(sleep + random_pause)
-    attempt <- attempt + 1
-  }
-  msg <- paste("timed out after", timeout, "minutes:", status_message)
-  rlang::abort(msg, call = rlang::caller_env())
+    msg <- paste("timed out after", timeout, "minutes:", status_message)
+    rlang::abort(msg, call = rlang::caller_env())
 }
 
 #' List available Spark versions.
@@ -534,8 +581,9 @@ clustersRestart <- function(client, cluster_id, restart_user = NULL, timeout = 2
 #' Returns the list of available Spark versions. These versions can be used to
 #' launch a cluster.#'
 #' @rdname clustersSparkVersions
+#' @export
 clustersSparkVersions <- function(client) {
-  client$do("GET", "/api/2.0/clusters/spark-versions")
+    client$do("GET", "/api/2.0/clusters/spark-versions")
 }
 
 #' Start terminated cluster.
@@ -559,43 +607,45 @@ clustersSparkVersions <- function(client) {
 #' @param cluster_id Required. The cluster to be started.
 #'
 #' @rdname clustersStart
-clustersStart <- function(client, cluster_id, timeout = 20, callback = cli_reporter) {
-  body <- list(cluster_id = cluster_id)
-  client$do("POST", "/api/2.0/clusters/start", body = body)
-  started <- as.numeric(Sys.time())
-  target_states <- c("RUNNING", c())
-  failure_states <- c("ERROR", "TERMINATED", c())
-  status_message <- "polling..."
-  attempt <- 1
-  while ((started + (timeout * 60)) > as.numeric(Sys.time())) {
-    poll <- clustersGet(client, cluster_id = cluster_id)
-    status <- poll$state
-    status_message <- poll$state_message
-    if (status %in% target_states) {
-      if (!is.null(callback)) {
-        callback(paste0(status, ": ", status_message), done = TRUE)
-      }
-      return(poll)
+#' @export
+clustersStart <- function(client, cluster_id, timeout=20, callback=cli_reporter) {
+    body <- list(
+        cluster_id = cluster_id)
+    client$do("POST", "/api/2.0/clusters/start", body = body)
+    started <- as.numeric(Sys.time())
+    target_states <- c("RUNNING", c())
+    failure_states <- c("ERROR", "TERMINATED", c())
+    status_message <- 'polling...'
+    attempt <- 1
+    while ((started + (timeout*60)) > as.numeric(Sys.time())) {
+        poll <- clustersGet(client, cluster_id = cluster_id)
+        status <- poll$state
+        status_message <- poll$state_message
+        if (status %in% target_states) {
+            if (!is.null(callback)) {
+                callback(paste0(status, ": ", status_message), done=TRUE)
+            }
+            return (poll)
+        }
+        if (status %in% failure_states) {
+            msg <- paste("failed to reach RUNNING, got ", status, "-", status_message)
+            rlang::abort(msg, call = rlang::caller_env())
+        }
+        prefix <- paste0("databricks::clustersGet(cluster_id=", cluster_id, ")")
+        sleep <- attempt
+        if (sleep > 10) {
+            # sleep 10s max per attempt
+            sleep <- 10
+        }
+        if (!is.null(callback)) {
+            callback(paste0(status, ": ", status_message), done=FALSE)
+        }
+        random_pause <- runif(1, min = 0.1, max = 0.5)
+        Sys.sleep(sleep + random_pause)
+        attempt <- attempt + 1
     }
-    if (status %in% failure_states) {
-      msg <- paste("failed to reach RUNNING, got ", status, "-", status_message)
-      rlang::abort(msg, call = rlang::caller_env())
-    }
-    prefix <- paste0("databricks::clustersGet(cluster_id=", cluster_id, ")")
-    sleep <- attempt
-    if (sleep > 10) {
-      # sleep 10s max per attempt
-      sleep <- 10
-    }
-    if (!is.null(callback)) {
-      callback(paste0(status, ": ", status_message), done = FALSE)
-    }
-    random_pause <- runif(1, min = 0.1, max = 0.5)
-    Sys.sleep(sleep + random_pause)
-    attempt <- attempt + 1
-  }
-  msg <- paste("timed out after", timeout, "minutes:", status_message)
-  rlang::abort(msg, call = rlang::caller_env())
+    msg <- paste("timed out after", timeout, "minutes:", status_message)
+    rlang::abort(msg, call = rlang::caller_env())
 }
 
 #' Unpin cluster.
@@ -608,8 +658,10 @@ clustersStart <- function(client, cluster_id, timeout = 20, callback = cli_repor
 #' @param cluster_id Required. <needs content added>.
 #'
 #' @rdname clustersUnpin
+#' @export
 clustersUnpin <- function(client, cluster_id) {
-  body <- list(cluster_id = cluster_id)
-  client$do("POST", "/api/2.0/clusters/unpin", body = body)
+    body <- list(
+        cluster_id = cluster_id)
+    client$do("POST", "/api/2.0/clusters/unpin", body = body)
 }
 

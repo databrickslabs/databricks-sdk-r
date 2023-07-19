@@ -21,49 +21,50 @@ NULL
 #' @param context_id 
 #'
 #' @rdname commandExecutionCancel
-commandExecutionCancel <- function(client, cluster_id = NULL, command_id = NULL,
-  context_id = NULL, timeout = 20, callback = cli_reporter) {
-  body <- list(clusterId = cluster_id, commandId = command_id, contextId = context_id)
-  client$do("POST", "/api/1.2/commands/cancel", body = body)
-  started <- as.numeric(Sys.time())
-  target_states <- c("Cancelled", c())
-  failure_states <- c("Error", c())
-  status_message <- "polling..."
-  attempt <- 1
-  while ((started + (timeout * 60)) > as.numeric(Sys.time())) {
-    poll <- commandExecutionCommandStatus(client, cluster_id = cluster_id, command_id = command_id,
-      context_id = context_id)
-    status <- poll$status
-    status_message <- paste("current status:", status)
-    if (!is.null(poll$results)) {
-      status_message <- poll$results$cause
+#' @export
+commandExecutionCancel <- function(client, cluster_id=NULL, command_id=NULL, context_id=NULL, timeout=20, callback=cli_reporter) {
+    body <- list(
+        clusterId = cluster_id
+        , commandId = command_id
+        , contextId = context_id)
+    client$do("POST", "/api/1.2/commands/cancel", body = body)
+    started <- as.numeric(Sys.time())
+    target_states <- c("Cancelled", c())
+    failure_states <- c("Error", c())
+    status_message <- 'polling...'
+    attempt <- 1
+    while ((started + (timeout*60)) > as.numeric(Sys.time())) {
+        poll <- commandExecutionCommandStatus(client, cluster_id = cluster_id, command_id = command_id, context_id = context_id)
+        status <- poll$status
+        status_message <- paste("current status:", status)
+        if (!is.null(poll$results)) {
+            status_message <- poll$results$cause
+        }
+        if (status %in% target_states) {
+            if (!is.null(callback)) {
+                callback(paste0(status, ": ", status_message), done=TRUE)
+            }
+            return (poll)
+        }
+        if (status %in% failure_states) {
+            msg <- paste("failed to reach Cancelled, got ", status, "-", status_message)
+            rlang::abort(msg, call = rlang::caller_env())
+        }
+        prefix <- paste0("databricks::commandExecutionCommandStatus(cluster_id=", cluster_id, "command_id=", command_id, "context_id=", context_id, ")")
+        sleep <- attempt
+        if (sleep > 10) {
+            # sleep 10s max per attempt
+            sleep <- 10
+        }
+        if (!is.null(callback)) {
+            callback(paste0(status, ": ", status_message), done=FALSE)
+        }
+        random_pause <- runif(1, min = 0.1, max = 0.5)
+        Sys.sleep(sleep + random_pause)
+        attempt <- attempt + 1
     }
-    if (status %in% target_states) {
-      if (!is.null(callback)) {
-        callback(paste0(status, ": ", status_message), done = TRUE)
-      }
-      return(poll)
-    }
-    if (status %in% failure_states) {
-      msg <- paste("failed to reach Cancelled, got ", status, "-", status_message)
-      rlang::abort(msg, call = rlang::caller_env())
-    }
-    prefix <- paste0("databricks::commandExecutionCommandStatus(cluster_id=",
-      cluster_id, "command_id=", command_id, "context_id=", context_id, ")")
-    sleep <- attempt
-    if (sleep > 10) {
-      # sleep 10s max per attempt
-      sleep <- 10
-    }
-    if (!is.null(callback)) {
-      callback(paste0(status, ": ", status_message), done = FALSE)
-    }
-    random_pause <- runif(1, min = 0.1, max = 0.5)
-    Sys.sleep(sleep + random_pause)
-    attempt <- attempt + 1
-  }
-  msg <- paste("timed out after", timeout, "minutes:", status_message)
-  rlang::abort(msg, call = rlang::caller_env())
+    msg <- paste("timed out after", timeout, "minutes:", status_message)
+    rlang::abort(msg, call = rlang::caller_env())
 }
 
 #' Get command info.
@@ -79,9 +80,13 @@ commandExecutionCancel <- function(client, cluster_id = NULL, command_id = NULL,
 #' @param context_id Required. 
 #'
 #' @rdname commandExecutionCommandStatus
+#' @export
 commandExecutionCommandStatus <- function(client, cluster_id, context_id, command_id) {
-  query <- list(clusterId = cluster_id, commandId = command_id, contextId = context_id)
-  client$do("GET", "/api/1.2/commands/status", query = query)
+    query <- list(
+        clusterId = cluster_id
+        , commandId = command_id
+        , contextId = context_id)
+    client$do("GET", "/api/1.2/commands/status", query = query)
 }
 
 #' Get status.
@@ -93,9 +98,12 @@ commandExecutionCommandStatus <- function(client, cluster_id, context_id, comman
 #' @param context_id Required. 
 #'
 #' @rdname commandExecutionContextStatus
+#' @export
 commandExecutionContextStatus <- function(client, cluster_id, context_id) {
-  query <- list(clusterId = cluster_id, contextId = context_id)
-  client$do("GET", "/api/1.2/contexts/status", query = query)
+    query <- list(
+        clusterId = cluster_id
+        , contextId = context_id)
+    client$do("GET", "/api/1.2/contexts/status", query = query)
 }
 
 #' Create an execution context.
@@ -115,45 +123,46 @@ commandExecutionContextStatus <- function(client, cluster_id, context_id) {
 #' @param language 
 #'
 #' @rdname commandExecutionCreate
-commandExecutionCreate <- function(client, cluster_id = NULL, language = NULL, timeout = 20,
-  callback = cli_reporter) {
-  body <- list(clusterId = cluster_id, language = language)
-  op_response <- client$do("POST", "/api/1.2/contexts/create", body = body)
-  started <- as.numeric(Sys.time())
-  target_states <- c("Running", c())
-  failure_states <- c("Error", c())
-  status_message <- "polling..."
-  attempt <- 1
-  while ((started + (timeout * 60)) > as.numeric(Sys.time())) {
-    poll <- commandExecutionContextStatus(client, cluster_id = cluster_id, context_id = op_response$id)
-    status <- poll$status
-    status_message <- paste("current status:", status)
-    if (status %in% target_states) {
-      if (!is.null(callback)) {
-        callback(paste0(status, ": ", status_message), done = TRUE)
-      }
-      return(poll)
+#' @export
+commandExecutionCreate <- function(client, cluster_id=NULL, language=NULL, timeout=20, callback=cli_reporter) {
+    body <- list(
+        clusterId = cluster_id
+        , language = language)
+    op_response <- client$do("POST", "/api/1.2/contexts/create", body = body)
+    started <- as.numeric(Sys.time())
+    target_states <- c("Running", c())
+    failure_states <- c("Error", c())
+    status_message <- 'polling...'
+    attempt <- 1
+    while ((started + (timeout*60)) > as.numeric(Sys.time())) {
+        poll <- commandExecutionContextStatus(client, cluster_id = cluster_id, context_id = op_response$id)
+        status <- poll$status
+        status_message <- paste("current status:", status)
+        if (status %in% target_states) {
+            if (!is.null(callback)) {
+                callback(paste0(status, ": ", status_message), done=TRUE)
+            }
+            return (poll)
+        }
+        if (status %in% failure_states) {
+            msg <- paste("failed to reach Running, got ", status, "-", status_message)
+            rlang::abort(msg, call = rlang::caller_env())
+        }
+        prefix <- paste0("databricks::commandExecutionContextStatus(cluster_id=", cluster_id, "context_id=", op_response$id, ")")
+        sleep <- attempt
+        if (sleep > 10) {
+            # sleep 10s max per attempt
+            sleep <- 10
+        }
+        if (!is.null(callback)) {
+            callback(paste0(status, ": ", status_message), done=FALSE)
+        }
+        random_pause <- runif(1, min = 0.1, max = 0.5)
+        Sys.sleep(sleep + random_pause)
+        attempt <- attempt + 1
     }
-    if (status %in% failure_states) {
-      msg <- paste("failed to reach Running, got ", status, "-", status_message)
-      rlang::abort(msg, call = rlang::caller_env())
-    }
-    prefix <- paste0("databricks::commandExecutionContextStatus(cluster_id=",
-      cluster_id, "context_id=", op_response$id, ")")
-    sleep <- attempt
-    if (sleep > 10) {
-      # sleep 10s max per attempt
-      sleep <- 10
-    }
-    if (!is.null(callback)) {
-      callback(paste0(status, ": ", status_message), done = FALSE)
-    }
-    random_pause <- runif(1, min = 0.1, max = 0.5)
-    Sys.sleep(sleep + random_pause)
-    attempt <- attempt + 1
-  }
-  msg <- paste("timed out after", timeout, "minutes:", status_message)
-  rlang::abort(msg, call = rlang::caller_env())
+    msg <- paste("timed out after", timeout, "minutes:", status_message)
+    rlang::abort(msg, call = rlang::caller_env())
 }
 
 #' Delete an execution context.
@@ -165,9 +174,12 @@ commandExecutionCreate <- function(client, cluster_id = NULL, language = NULL, t
 #' @param context_id Required. 
 #'
 #' @rdname commandExecutionDestroy
+#' @export
 commandExecutionDestroy <- function(client, cluster_id, context_id) {
-  body <- list(clusterId = cluster_id, contextId = context_id)
-  client$do("POST", "/api/1.2/contexts/destroy", body = body)
+    body <- list(
+        clusterId = cluster_id
+        , contextId = context_id)
+    client$do("POST", "/api/1.2/contexts/destroy", body = body)
 }
 
 #' Run a command.
@@ -191,48 +203,47 @@ commandExecutionDestroy <- function(client, cluster_id, context_id) {
 #' @param language 
 #'
 #' @rdname commandExecutionExecute
-commandExecutionExecute <- function(client, cluster_id = NULL, command = NULL, context_id = NULL,
-  language = NULL, timeout = 20, callback = cli_reporter) {
-  body <- list(clusterId = cluster_id, command = command, contextId = context_id,
-    language = language)
-  op_response <- client$do("POST", "/api/1.2/commands/execute", body = body)
-  started <- as.numeric(Sys.time())
-  target_states <- c("Finished", "Error", c())
-  failure_states <- c("Cancelled", "Cancelling", c())
-  status_message <- "polling..."
-  attempt <- 1
-  while ((started + (timeout * 60)) > as.numeric(Sys.time())) {
-    poll <- commandExecutionCommandStatus(client, cluster_id = cluster_id, command_id = op_response$id,
-      context_id = context_id)
-    status <- poll$status
-    status_message <- paste("current status:", status)
-    if (status %in% target_states) {
-      if (!is.null(callback)) {
-        callback(paste0(status, ": ", status_message), done = TRUE)
-      }
-      return(poll)
+#' @export
+commandExecutionExecute <- function(client, cluster_id=NULL, command=NULL, context_id=NULL, language=NULL, timeout=20, callback=cli_reporter) {
+    body <- list(
+        clusterId = cluster_id
+        , command = command
+        , contextId = context_id
+        , language = language)
+    op_response <- client$do("POST", "/api/1.2/commands/execute", body = body)
+    started <- as.numeric(Sys.time())
+    target_states <- c("Finished", "Error", c())
+    failure_states <- c("Cancelled", "Cancelling", c())
+    status_message <- 'polling...'
+    attempt <- 1
+    while ((started + (timeout*60)) > as.numeric(Sys.time())) {
+        poll <- commandExecutionCommandStatus(client, cluster_id = cluster_id, command_id = op_response$id, context_id = context_id)
+        status <- poll$status
+        status_message <- paste("current status:", status)
+        if (status %in% target_states) {
+            if (!is.null(callback)) {
+                callback(paste0(status, ": ", status_message), done=TRUE)
+            }
+            return (poll)
+        }
+        if (status %in% failure_states) {
+            msg <- paste("failed to reach Finished or Error, got ", status, "-", status_message)
+            rlang::abort(msg, call = rlang::caller_env())
+        }
+        prefix <- paste0("databricks::commandExecutionCommandStatus(cluster_id=", cluster_id, "command_id=", op_response$id, "context_id=", context_id, ")")
+        sleep <- attempt
+        if (sleep > 10) {
+            # sleep 10s max per attempt
+            sleep <- 10
+        }
+        if (!is.null(callback)) {
+            callback(paste0(status, ": ", status_message), done=FALSE)
+        }
+        random_pause <- runif(1, min = 0.1, max = 0.5)
+        Sys.sleep(sleep + random_pause)
+        attempt <- attempt + 1
     }
-    if (status %in% failure_states) {
-      msg <- paste("failed to reach Finished or Error, got ", status, "-",
-        status_message)
-      rlang::abort(msg, call = rlang::caller_env())
-    }
-    prefix <- paste0("databricks::commandExecutionCommandStatus(cluster_id=",
-      cluster_id, "command_id=", op_response$id, "context_id=", context_id,
-      ")")
-    sleep <- attempt
-    if (sleep > 10) {
-      # sleep 10s max per attempt
-      sleep <- 10
-    }
-    if (!is.null(callback)) {
-      callback(paste0(status, ": ", status_message), done = FALSE)
-    }
-    random_pause <- runif(1, min = 0.1, max = 0.5)
-    Sys.sleep(sleep + random_pause)
-    attempt <- attempt + 1
-  }
-  msg <- paste("timed out after", timeout, "minutes:", status_message)
-  rlang::abort(msg, call = rlang::caller_env())
+    msg <- paste("timed out after", timeout, "minutes:", status_message)
+    rlang::abort(msg, call = rlang::caller_env())
 }
 

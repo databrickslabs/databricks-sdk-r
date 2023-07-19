@@ -28,9 +28,13 @@ NULL
 #' @param list_type Required. This describes an enum.
 #'
 #' @rdname ipAccessListsCreate
+#' @export
 ipAccessListsCreate <- function(client, label, list_type, ip_addresses) {
-  body <- list(ip_addresses = ip_addresses, label = label, list_type = list_type)
-  client$do("POST", "/api/2.0/ip-access-lists", body = body)
+    body <- list(
+        ip_addresses = ip_addresses
+        , label = label
+        , list_type = list_type)
+    client$do("POST", "/api/2.0/ip-access-lists", body = body)
 }
 
 #' Delete access list.
@@ -41,9 +45,10 @@ ipAccessListsCreate <- function(client, label, list_type, ip_addresses) {
 #' @param ip_access_list_id Required. The ID for the corresponding IP access list to modify.
 #'
 #' @rdname ipAccessListsDelete
+#' @export
 ipAccessListsDelete <- function(client, ip_access_list_id) {
-
-  client$do("DELETE", paste("/api/2.0/ip-access-lists/", ip_access_list_id, sep = ""))
+    
+    client$do("DELETE", paste("/api/2.0/ip-access-lists/", ip_access_list_id, sep = ""))
 }
 
 #' Get access list.
@@ -54,9 +59,10 @@ ipAccessListsDelete <- function(client, ip_access_list_id) {
 #' @param ip_access_list_id Required. The ID for the corresponding IP access list to modify.
 #'
 #' @rdname ipAccessListsGet
+#' @export
 ipAccessListsGet <- function(client, ip_access_list_id) {
-
-  client$do("GET", paste("/api/2.0/ip-access-lists/", ip_access_list_id, sep = ""))
+    
+    client$do("GET", paste("/api/2.0/ip-access-lists/", ip_access_list_id, sep = ""))
 }
 
 #' Get access lists.
@@ -65,11 +71,12 @@ ipAccessListsGet <- function(client, ip_access_list_id) {
 #' @return `data.frame` with all of the response pages.
 #'
 #' @rdname ipAccessListsList
+#' @export
 ipAccessListsList <- function(client) {
-
-  json <- client$do("GET", "/api/2.0/ip-access-lists")
-  return(json$ip_access_lists)
-
+    
+    json <- client$do("GET", "/api/2.0/ip-access-lists")
+    return (json$ip_access_lists)
+    
 }
 
 #' Replace access list.
@@ -96,12 +103,15 @@ ipAccessListsList <- function(client) {
 #' @param list_type Required. This describes an enum.
 #'
 #' @rdname ipAccessListsReplace
-ipAccessListsReplace <- function(client, label, list_type, ip_addresses, enabled,
-  ip_access_list_id, list_id = NULL) {
-  body <- list(enabled = enabled, ip_addresses = ip_addresses, label = label, list_id = list_id,
-    list_type = list_type)
-  client$do("PUT", paste("/api/2.0/ip-access-lists/", ip_access_list_id, sep = ""),
-    body = body)
+#' @export
+ipAccessListsReplace <- function(client, label, list_type, ip_addresses, enabled, ip_access_list_id, list_id=NULL) {
+    body <- list(
+        enabled = enabled
+        , ip_addresses = ip_addresses
+        , label = label
+        , list_id = list_id
+        , list_type = list_type)
+    client$do("PUT", paste("/api/2.0/ip-access-lists/", ip_access_list_id, sep = ""), body = body)
 }
 
 #' Update access list.
@@ -133,11 +143,14 @@ ipAccessListsReplace <- function(client, label, list_type, ip_addresses, enabled
 #' @param list_type Required. This describes an enum.
 #'
 #' @rdname ipAccessListsUpdate
-ipAccessListsUpdate <- function(client, label, list_type, ip_addresses, enabled,
-  ip_access_list_id, list_id = NULL) {
-  body <- list(enabled = enabled, ip_addresses = ip_addresses, label = label, list_id = list_id,
-    list_type = list_type)
-  client$do("PATCH", paste("/api/2.0/ip-access-lists/", ip_access_list_id, sep = ""),
-    body = body)
+#' @export
+ipAccessListsUpdate <- function(client, label, list_type, ip_addresses, enabled, ip_access_list_id, list_id=NULL) {
+    body <- list(
+        enabled = enabled
+        , ip_addresses = ip_addresses
+        , label = label
+        , list_id = list_id
+        , list_type = list_type)
+    client$do("PATCH", paste("/api/2.0/ip-access-lists/", ip_access_list_id, sep = ""), body = body)
 }
 
