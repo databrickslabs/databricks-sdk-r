@@ -13,9 +13,8 @@ NULL
 #' @rdname workspaceConfGetStatus
 #' @export
 workspaceConfGetStatus <- function(client, keys) {
-    query <- list(
-        keys = keys)
-    client$do("GET", "/api/2.0/workspace-conf", query = query)
+  query <- list(keys = keys)
+  client$do("GET", "/api/2.0/workspace-conf", query = query)
 }
 
 #' Enable/disable features.
@@ -28,7 +27,7 @@ workspaceConfGetStatus <- function(client, keys) {
 #' @rdname workspaceConfSetStatus
 #' @export
 workspaceConfSetStatus <- function(client) {
-    
-    client$do("PATCH", "/api/2.0/workspace-conf")
+
+  client$do("PATCH", "/api/2.0/workspace-conf")
 }
 

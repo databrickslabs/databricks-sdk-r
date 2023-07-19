@@ -22,16 +22,12 @@ NULL
 #'
 #' @rdname connectionsCreate
 #' @export
-connectionsCreate <- function(client, name, connection_type, options_kvpairs, comment=NULL, owner=NULL, properties_kvpairs=NULL, read_only=NULL) {
-    body <- list(
-        comment = comment
-        , connection_type = connection_type
-        , name = name
-        , options_kvpairs = options_kvpairs
-        , owner = owner
-        , properties_kvpairs = properties_kvpairs
-        , read_only = read_only)
-    client$do("POST", "/api/2.1/unity-catalog/connections", body = body)
+connectionsCreate <- function(client, name, connection_type, options_kvpairs, comment = NULL,
+  owner = NULL, properties_kvpairs = NULL, read_only = NULL) {
+  body <- list(comment = comment, connection_type = connection_type, name = name,
+    options_kvpairs = options_kvpairs, owner = owner, properties_kvpairs = properties_kvpairs,
+    read_only = read_only)
+  client$do("POST", "/api/2.1/unity-catalog/connections", body = body)
 }
 
 #' Delete a connection.
@@ -44,8 +40,8 @@ connectionsCreate <- function(client, name, connection_type, options_kvpairs, co
 #' @rdname connectionsDelete
 #' @export
 connectionsDelete <- function(client, name_arg) {
-    
-    client$do("DELETE", paste("/api/2.1/unity-catalog/connections/", name_arg, sep = ""))
+
+  client$do("DELETE", paste("/api/2.1/unity-catalog/connections/", name_arg, sep = ""))
 }
 
 #' Get a connection.
@@ -58,8 +54,8 @@ connectionsDelete <- function(client, name_arg) {
 #' @rdname connectionsGet
 #' @export
 connectionsGet <- function(client, name_arg) {
-    
-    client$do("GET", paste("/api/2.1/unity-catalog/connections/", name_arg, sep = ""))
+
+  client$do("GET", paste("/api/2.1/unity-catalog/connections/", name_arg, sep = ""))
 }
 
 #' List connections.
@@ -70,10 +66,10 @@ connectionsGet <- function(client, name_arg) {
 #' @rdname connectionsList
 #' @export
 connectionsList <- function(client) {
-    
-    json <- client$do("GET", "/api/2.1/unity-catalog/connections")
-    return (json$connections)
-    
+
+  json <- client$do("GET", "/api/2.1/unity-catalog/connections")
+  return(json$connections)
+
 }
 
 #' Update a connection.
@@ -88,9 +84,8 @@ connectionsList <- function(client) {
 #' @rdname connectionsUpdate
 #' @export
 connectionsUpdate <- function(client, name, options_kvpairs, name_arg) {
-    body <- list(
-        name = name
-        , options_kvpairs = options_kvpairs)
-    client$do("PATCH", paste("/api/2.1/unity-catalog/connections/", name_arg, sep = ""), body = body)
+  body <- list(name = name, options_kvpairs = options_kvpairs)
+  client$do("PATCH", paste("/api/2.1/unity-catalog/connections/", name_arg, sep = ""),
+    body = body)
 }
 

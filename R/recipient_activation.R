@@ -13,8 +13,9 @@ NULL
 #' @rdname recipientActivationGetActivationUrlInfo
 #' @export
 recipientActivationGetActivationUrlInfo <- function(client, activation_url) {
-    
-    client$do("GET", paste("/api/2.1/unity-catalog/public/data_sharing_activation_info/", activation_url, sep = ""))
+
+  client$do("GET", paste("/api/2.1/unity-catalog/public/data_sharing_activation_info/",
+    activation_url, sep = ""))
 }
 
 #' Get an access token.
@@ -28,7 +29,8 @@ recipientActivationGetActivationUrlInfo <- function(client, activation_url) {
 #' @rdname recipientActivationRetrieveToken
 #' @export
 recipientActivationRetrieveToken <- function(client, activation_url) {
-    
-    client$do("GET", paste("/api/2.1/unity-catalog/public/data_sharing_activation/", activation_url, sep = ""))
+
+  client$do("GET", paste("/api/2.1/unity-catalog/public/data_sharing_activation/",
+    activation_url, sep = ""))
 }
 

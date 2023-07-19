@@ -27,17 +27,13 @@ NULL
 #'
 #' @rdname storageCredentialsCreate
 #' @export
-storageCredentialsCreate <- function(client, name, aws_iam_role=NULL, azure_managed_identity=NULL, azure_service_principal=NULL, comment=NULL, databricks_gcp_service_account=NULL, read_only=NULL, skip_validation=NULL) {
-    body <- list(
-        aws_iam_role = aws_iam_role
-        , azure_managed_identity = azure_managed_identity
-        , azure_service_principal = azure_service_principal
-        , comment = comment
-        , databricks_gcp_service_account = databricks_gcp_service_account
-        , name = name
-        , read_only = read_only
-        , skip_validation = skip_validation)
-    client$do("POST", "/api/2.1/unity-catalog/storage-credentials", body = body)
+storageCredentialsCreate <- function(client, name, aws_iam_role = NULL, azure_managed_identity = NULL,
+  azure_service_principal = NULL, comment = NULL, databricks_gcp_service_account = NULL,
+  read_only = NULL, skip_validation = NULL) {
+  body <- list(aws_iam_role = aws_iam_role, azure_managed_identity = azure_managed_identity,
+    azure_service_principal = azure_service_principal, comment = comment, databricks_gcp_service_account = databricks_gcp_service_account,
+    name = name, read_only = read_only, skip_validation = skip_validation)
+  client$do("POST", "/api/2.1/unity-catalog/storage-credentials", body = body)
 }
 
 #' Delete a credential.
@@ -51,10 +47,10 @@ storageCredentialsCreate <- function(client, name, aws_iam_role=NULL, azure_mana
 #'
 #' @rdname storageCredentialsDelete
 #' @export
-storageCredentialsDelete <- function(client, name, force=NULL) {
-    query <- list(
-        force = force)
-    client$do("DELETE", paste("/api/2.1/unity-catalog/storage-credentials/", name, sep = ""), query = query)
+storageCredentialsDelete <- function(client, name, force = NULL) {
+  query <- list(force = force)
+  client$do("DELETE", paste("/api/2.1/unity-catalog/storage-credentials/", name,
+    sep = ""), query = query)
 }
 
 #' Get a credential.
@@ -69,8 +65,8 @@ storageCredentialsDelete <- function(client, name, force=NULL) {
 #' @rdname storageCredentialsGet
 #' @export
 storageCredentialsGet <- function(client, name) {
-    
-    client$do("GET", paste("/api/2.1/unity-catalog/storage-credentials/", name, sep = ""))
+
+  client$do("GET", paste("/api/2.1/unity-catalog/storage-credentials/", name, sep = ""))
 }
 
 #' List credentials.
@@ -85,10 +81,10 @@ storageCredentialsGet <- function(client, name) {
 #' @rdname storageCredentialsList
 #' @export
 storageCredentialsList <- function(client) {
-    
-    json <- client$do("GET", "/api/2.1/unity-catalog/storage-credentials")
-    return (json$storage_credentials)
-    
+
+  json <- client$do("GET", "/api/2.1/unity-catalog/storage-credentials")
+  return(json$storage_credentials)
+
 }
 
 #' Update a credential.
@@ -111,19 +107,14 @@ storageCredentialsList <- function(client) {
 #'
 #' @rdname storageCredentialsUpdate
 #' @export
-storageCredentialsUpdate <- function(client, name, aws_iam_role=NULL, azure_managed_identity=NULL, azure_service_principal=NULL, comment=NULL, databricks_gcp_service_account=NULL, force=NULL, owner=NULL, read_only=NULL, skip_validation=NULL) {
-    body <- list(
-        aws_iam_role = aws_iam_role
-        , azure_managed_identity = azure_managed_identity
-        , azure_service_principal = azure_service_principal
-        , comment = comment
-        , databricks_gcp_service_account = databricks_gcp_service_account
-        , force = force
-        , name = name
-        , owner = owner
-        , read_only = read_only
-        , skip_validation = skip_validation)
-    client$do("PATCH", paste("/api/2.1/unity-catalog/storage-credentials/", name, sep = ""), body = body)
+storageCredentialsUpdate <- function(client, name, aws_iam_role = NULL, azure_managed_identity = NULL,
+  azure_service_principal = NULL, comment = NULL, databricks_gcp_service_account = NULL,
+  force = NULL, owner = NULL, read_only = NULL, skip_validation = NULL) {
+  body <- list(aws_iam_role = aws_iam_role, azure_managed_identity = azure_managed_identity,
+    azure_service_principal = azure_service_principal, comment = comment, databricks_gcp_service_account = databricks_gcp_service_account,
+    force = force, name = name, owner = owner, read_only = read_only, skip_validation = skip_validation)
+  client$do("PATCH", paste("/api/2.1/unity-catalog/storage-credentials/", name,
+    sep = ""), body = body)
 }
 
 #' Validate a storage credential.
@@ -153,16 +144,13 @@ storageCredentialsUpdate <- function(client, name, aws_iam_role=NULL, azure_mana
 #'
 #' @rdname storageCredentialsValidate
 #' @export
-storageCredentialsValidate <- function(client, aws_iam_role=NULL, azure_managed_identity=NULL, azure_service_principal=NULL, databricks_gcp_service_account=NULL, external_location_name=NULL, read_only=NULL, storage_credential_name=NULL, url=NULL) {
-    body <- list(
-        aws_iam_role = aws_iam_role
-        , azure_managed_identity = azure_managed_identity
-        , azure_service_principal = azure_service_principal
-        , databricks_gcp_service_account = databricks_gcp_service_account
-        , external_location_name = external_location_name
-        , read_only = read_only
-        , storage_credential_name = storage_credential_name
-        , url = url)
-    client$do("POST", "/api/2.1/unity-catalog/validate-storage-credentials", body = body)
+storageCredentialsValidate <- function(client, aws_iam_role = NULL, azure_managed_identity = NULL,
+  azure_service_principal = NULL, databricks_gcp_service_account = NULL, external_location_name = NULL,
+  read_only = NULL, storage_credential_name = NULL, url = NULL) {
+  body <- list(aws_iam_role = aws_iam_role, azure_managed_identity = azure_managed_identity,
+    azure_service_principal = azure_service_principal, databricks_gcp_service_account = databricks_gcp_service_account,
+    external_location_name = external_location_name, read_only = read_only, storage_credential_name = storage_credential_name,
+    url = url)
+  client$do("POST", "/api/2.1/unity-catalog/validate-storage-credentials", body = body)
 }
 

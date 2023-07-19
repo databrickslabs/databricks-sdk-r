@@ -18,14 +18,10 @@ NULL
 #'
 #' @rdname alertsCreate
 #' @export
-alertsCreate <- function(client, name, options, query_id, parent=NULL, rearm=NULL) {
-    body <- list(
-        name = name
-        , options = options
-        , parent = parent
-        , query_id = query_id
-        , rearm = rearm)
-    client$do("POST", "/api/2.0/preview/sql/alerts", body = body)
+alertsCreate <- function(client, name, options, query_id, parent = NULL, rearm = NULL) {
+  body <- list(name = name, options = options, parent = parent, query_id = query_id,
+    rearm = rearm)
+  client$do("POST", "/api/2.0/preview/sql/alerts", body = body)
 }
 
 #' Delete an alert.
@@ -40,8 +36,8 @@ alertsCreate <- function(client, name, options, query_id, parent=NULL, rearm=NUL
 #' @rdname alertsDelete
 #' @export
 alertsDelete <- function(client, alert_id) {
-    
-    client$do("DELETE", paste("/api/2.0/preview/sql/alerts/", alert_id, sep = ""))
+
+  client$do("DELETE", paste("/api/2.0/preview/sql/alerts/", alert_id, sep = ""))
 }
 
 #' Get an alert.
@@ -54,8 +50,8 @@ alertsDelete <- function(client, alert_id) {
 #' @rdname alertsGet
 #' @export
 alertsGet <- function(client, alert_id) {
-    
-    client$do("GET", paste("/api/2.0/preview/sql/alerts/", alert_id, sep = ""))
+
+  client$do("GET", paste("/api/2.0/preview/sql/alerts/", alert_id, sep = ""))
 }
 
 #' Get alerts.
@@ -64,7 +60,7 @@ alertsGet <- function(client, alert_id) {
 #' @rdname alertsList
 #' @export
 alertsList <- function(client) {
-    client$do("GET", "/api/2.0/preview/sql/alerts")
+  client$do("GET", "/api/2.0/preview/sql/alerts")
 }
 
 #' Update an alert.
@@ -80,12 +76,8 @@ alertsList <- function(client) {
 #'
 #' @rdname alertsUpdate
 #' @export
-alertsUpdate <- function(client, name, options, query_id, alert_id, rearm=NULL) {
-    body <- list(
-        , name = name
-        , options = options
-        , query_id = query_id
-        , rearm = rearm)
-    client$do("PUT", paste("/api/2.0/preview/sql/alerts/", alert_id, sep = ""), body = body)
+alertsUpdate <- function(client, name, options, query_id, alert_id, rearm = NULL) {
+  body <- list(, name = name, options = options, query_id = query_id, rearm = rearm)
+  client$do("PUT", paste("/api/2.0/preview/sql/alerts/", alert_id, sep = ""), body = body)
 }
 

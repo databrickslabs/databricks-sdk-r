@@ -20,11 +20,9 @@ NULL
 #'
 #' @rdname workspaceDelete
 #' @export
-workspaceDelete <- function(client, path, recursive=NULL) {
-    body <- list(
-        path = path
-        , recursive = recursive)
-    client$do("POST", "/api/2.0/workspace/delete", body = body)
+workspaceDelete <- function(client, path, recursive = NULL) {
+  body <- list(path = path, recursive = recursive)
+  client$do("POST", "/api/2.0/workspace/delete", body = body)
 }
 
 #' Export a workspace object.
@@ -44,11 +42,9 @@ workspaceDelete <- function(client, path, recursive=NULL) {
 #'
 #' @rdname workspaceExport
 #' @export
-workspaceExport <- function(client, path, format=NULL) {
-    query <- list(
-        format = format
-        , path = path)
-    client$do("GET", "/api/2.0/workspace/export", query = query)
+workspaceExport <- function(client, path, format = NULL) {
+  query <- list(format = format, path = path)
+  client$do("GET", "/api/2.0/workspace/export", query = query)
 }
 
 #' Get status.
@@ -62,9 +58,8 @@ workspaceExport <- function(client, path, format=NULL) {
 #' @rdname workspaceGetStatus
 #' @export
 workspaceGetStatus <- function(client, path) {
-    query <- list(
-        path = path)
-    client$do("GET", "/api/2.0/workspace/get-status", query = query)
+  query <- list(path = path)
+  client$do("GET", "/api/2.0/workspace/get-status", query = query)
 }
 
 #' Import a workspace object.
@@ -83,14 +78,11 @@ workspaceGetStatus <- function(client, path) {
 #'
 #' @rdname workspaceImport
 #' @export
-workspaceImport <- function(client, path, content=NULL, format=NULL, language=NULL, overwrite=NULL) {
-    body <- list(
-        content = content
-        , format = format
-        , language = language
-        , overwrite = overwrite
-        , path = path)
-    client$do("POST", "/api/2.0/workspace/import", body = body)
+workspaceImport <- function(client, path, content = NULL, format = NULL, language = NULL,
+  overwrite = NULL) {
+  body <- list(content = content, format = format, language = language, overwrite = overwrite,
+    path = path)
+  client$do("POST", "/api/2.0/workspace/import", body = body)
 }
 
 #' List contents.
@@ -107,14 +99,12 @@ workspaceImport <- function(client, path, content=NULL, format=NULL, language=NU
 #'
 #' @rdname workspaceList
 #' @export
-workspaceList <- function(client, path, notebooks_modified_after=NULL) {
-    query <- list(
-        notebooks_modified_after = notebooks_modified_after
-        , path = path)
-    
-    json <- client$do("GET", "/api/2.0/workspace/list", query = query)
-    return (json$objects)
-    
+workspaceList <- function(client, path, notebooks_modified_after = NULL) {
+  query <- list(notebooks_modified_after = notebooks_modified_after, path = path)
+
+  json <- client$do("GET", "/api/2.0/workspace/list", query = query)
+  return(json$objects)
+
 }
 
 #' Create a directory.
@@ -132,8 +122,7 @@ workspaceList <- function(client, path, notebooks_modified_after=NULL) {
 #' @rdname workspaceMkdirs
 #' @export
 workspaceMkdirs <- function(client, path) {
-    body <- list(
-        path = path)
-    client$do("POST", "/api/2.0/workspace/mkdirs", body = body)
+  body <- list(path = path)
+  client$do("POST", "/api/2.0/workspace/mkdirs", body = body)
 }
 

@@ -9,6 +9,6 @@ NULL
 #' @rdname currentUserMe
 #' @export
 currentUserMe <- function(client) {
-    client$do("GET", "/api/2.0/preview/scim/v2/Me")
+  client$do("GET", "/api/2.0/preview/scim/v2/Me")
 }
 

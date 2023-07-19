@@ -12,7 +12,7 @@ NULL
 #' @rdname librariesAllClusterStatuses
 #' @export
 librariesAllClusterStatuses <- function(client) {
-    client$do("GET", "/api/2.0/libraries/all-cluster-statuses")
+  client$do("GET", "/api/2.0/libraries/all-cluster-statuses")
 }
 
 #' Get status.
@@ -39,9 +39,8 @@ librariesAllClusterStatuses <- function(client) {
 #' @rdname librariesClusterStatus
 #' @export
 librariesClusterStatus <- function(client, cluster_id) {
-    query <- list(
-        cluster_id = cluster_id)
-    client$do("GET", "/api/2.0/libraries/cluster-status", query = query)
+  query <- list(cluster_id = cluster_id)
+  client$do("GET", "/api/2.0/libraries/cluster-status", query = query)
 }
 
 #' Add a library.
@@ -60,10 +59,8 @@ librariesClusterStatus <- function(client, cluster_id) {
 #' @rdname librariesInstall
 #' @export
 librariesInstall <- function(client, cluster_id, libraries) {
-    body <- list(
-        cluster_id = cluster_id
-        , libraries = libraries)
-    client$do("POST", "/api/2.0/libraries/install", body = body)
+  body <- list(cluster_id = cluster_id, libraries = libraries)
+  client$do("POST", "/api/2.0/libraries/install", body = body)
 }
 
 #' Uninstall libraries.
@@ -79,9 +76,7 @@ librariesInstall <- function(client, cluster_id, libraries) {
 #' @rdname librariesUninstall
 #' @export
 librariesUninstall <- function(client, cluster_id, libraries) {
-    body <- list(
-        cluster_id = cluster_id
-        , libraries = libraries)
-    client$do("POST", "/api/2.0/libraries/uninstall", body = body)
+  body <- list(cluster_id = cluster_id, libraries = libraries)
+  client$do("POST", "/api/2.0/libraries/uninstall", body = body)
 }
 

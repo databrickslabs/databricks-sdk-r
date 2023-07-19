@@ -30,59 +30,54 @@ NULL
 #'
 #' @rdname warehousesCreate
 #' @export
-warehousesCreate <- function(client, auto_stop_mins=NULL, channel=NULL, cluster_size=NULL, creator_name=NULL, enable_photon=NULL, enable_serverless_compute=NULL, instance_profile_arn=NULL, max_num_clusters=NULL, min_num_clusters=NULL, name=NULL, spot_instance_policy=NULL, tags=NULL, warehouse_type=NULL, timeout=20, callback=cli_reporter) {
-    body <- list(
-        auto_stop_mins = auto_stop_mins
-        , channel = channel
-        , cluster_size = cluster_size
-        , creator_name = creator_name
-        , enable_photon = enable_photon
-        , enable_serverless_compute = enable_serverless_compute
-        , instance_profile_arn = instance_profile_arn
-        , max_num_clusters = max_num_clusters
-        , min_num_clusters = min_num_clusters
-        , name = name
-        , spot_instance_policy = spot_instance_policy
-        , tags = tags
-        , warehouse_type = warehouse_type)
-    op_response <- client$do("POST", "/api/2.0/sql/warehouses", body = body)
-    started <- as.numeric(Sys.time())
-    target_states <- c("RUNNING", c())
-    failure_states <- c("STOPPED", "DELETED", c())
-    status_message <- 'polling...'
-    attempt <- 1
-    while ((started + (timeout*60)) > as.numeric(Sys.time())) {
-        poll <- warehousesGet(client, id = op_response$id)
-        status <- poll$state
-        status_message <- paste("current status:", status)
-        if (!is.null(poll$health)) {
-            status_message <- poll$health$summary
-        }
-        if (status %in% target_states) {
-            if (!is.null(callback)) {
-                callback(paste0(status, ": ", status_message), done=TRUE)
-            }
-            return (poll)
-        }
-        if (status %in% failure_states) {
-            msg <- paste("failed to reach RUNNING, got ", status, "-", status_message)
-            rlang::abort(msg, call = rlang::caller_env())
-        }
-        prefix <- paste0("databricks::warehousesGet(id=", op_response$id, ")")
-        sleep <- attempt
-        if (sleep > 10) {
-            # sleep 10s max per attempt
-            sleep <- 10
-        }
-        if (!is.null(callback)) {
-            callback(paste0(status, ": ", status_message), done=FALSE)
-        }
-        random_pause <- runif(1, min = 0.1, max = 0.5)
-        Sys.sleep(sleep + random_pause)
-        attempt <- attempt + 1
+warehousesCreate <- function(client, auto_stop_mins = NULL, channel = NULL, cluster_size = NULL,
+  creator_name = NULL, enable_photon = NULL, enable_serverless_compute = NULL,
+  instance_profile_arn = NULL, max_num_clusters = NULL, min_num_clusters = NULL,
+  name = NULL, spot_instance_policy = NULL, tags = NULL, warehouse_type = NULL,
+  timeout = 20, callback = cli_reporter) {
+  body <- list(auto_stop_mins = auto_stop_mins, channel = channel, cluster_size = cluster_size,
+    creator_name = creator_name, enable_photon = enable_photon, enable_serverless_compute = enable_serverless_compute,
+    instance_profile_arn = instance_profile_arn, max_num_clusters = max_num_clusters,
+    min_num_clusters = min_num_clusters, name = name, spot_instance_policy = spot_instance_policy,
+    tags = tags, warehouse_type = warehouse_type)
+  op_response <- client$do("POST", "/api/2.0/sql/warehouses", body = body)
+  started <- as.numeric(Sys.time())
+  target_states <- c("RUNNING", c())
+  failure_states <- c("STOPPED", "DELETED", c())
+  status_message <- "polling..."
+  attempt <- 1
+  while ((started + (timeout * 60)) > as.numeric(Sys.time())) {
+    poll <- warehousesGet(client, id = op_response$id)
+    status <- poll$state
+    status_message <- paste("current status:", status)
+    if (!is.null(poll$health)) {
+      status_message <- poll$health$summary
     }
-    msg <- paste("timed out after", timeout, "minutes:", status_message)
-    rlang::abort(msg, call = rlang::caller_env())
+    if (status %in% target_states) {
+      if (!is.null(callback)) {
+        callback(paste0(status, ": ", status_message), done = TRUE)
+      }
+      return(poll)
+    }
+    if (status %in% failure_states) {
+      msg <- paste("failed to reach RUNNING, got ", status, "-", status_message)
+      rlang::abort(msg, call = rlang::caller_env())
+    }
+    prefix <- paste0("databricks::warehousesGet(id=", op_response$id, ")")
+    sleep <- attempt
+    if (sleep > 10) {
+      # sleep 10s max per attempt
+      sleep <- 10
+    }
+    if (!is.null(callback)) {
+      callback(paste0(status, ": ", status_message), done = FALSE)
+    }
+    random_pause <- runif(1, min = 0.1, max = 0.5)
+    Sys.sleep(sleep + random_pause)
+    attempt <- attempt + 1
+  }
+  msg <- paste("timed out after", timeout, "minutes:", status_message)
+  rlang::abort(msg, call = rlang::caller_env())
 }
 
 #' Delete a warehouse.
@@ -95,8 +90,8 @@ warehousesCreate <- function(client, auto_stop_mins=NULL, channel=NULL, cluster_
 #' @rdname warehousesDelete
 #' @export
 warehousesDelete <- function(client, id) {
-    
-    client$do("DELETE", paste("/api/2.0/sql/warehouses/", id, sep = ""))
+
+  client$do("DELETE", paste("/api/2.0/sql/warehouses/", id, sep = ""))
 }
 
 #' Update a warehouse.
@@ -127,59 +122,55 @@ warehousesDelete <- function(client, id) {
 #'
 #' @rdname warehousesEdit
 #' @export
-warehousesEdit <- function(client, id, auto_stop_mins=NULL, channel=NULL, cluster_size=NULL, creator_name=NULL, enable_photon=NULL, enable_serverless_compute=NULL, instance_profile_arn=NULL, max_num_clusters=NULL, min_num_clusters=NULL, name=NULL, spot_instance_policy=NULL, tags=NULL, warehouse_type=NULL, timeout=20, callback=cli_reporter) {
-    body <- list(
-        auto_stop_mins = auto_stop_mins
-        , channel = channel
-        , cluster_size = cluster_size
-        , creator_name = creator_name
-        , enable_photon = enable_photon
-        , enable_serverless_compute = enable_serverless_compute
-        , instance_profile_arn = instance_profile_arn
-        , max_num_clusters = max_num_clusters
-        , min_num_clusters = min_num_clusters
-        , name = name
-        , spot_instance_policy = spot_instance_policy
-        , tags = tags
-        , warehouse_type = warehouse_type)
-    client$do("POST", paste("/api/2.0/sql/warehouses/", id, "/edit", , sep = ""), body = body)
-    started <- as.numeric(Sys.time())
-    target_states <- c("RUNNING", c())
-    failure_states <- c("STOPPED", "DELETED", c())
-    status_message <- 'polling...'
-    attempt <- 1
-    while ((started + (timeout*60)) > as.numeric(Sys.time())) {
-        poll <- warehousesGet(client, id = id)
-        status <- poll$state
-        status_message <- paste("current status:", status)
-        if (!is.null(poll$health)) {
-            status_message <- poll$health$summary
-        }
-        if (status %in% target_states) {
-            if (!is.null(callback)) {
-                callback(paste0(status, ": ", status_message), done=TRUE)
-            }
-            return (poll)
-        }
-        if (status %in% failure_states) {
-            msg <- paste("failed to reach RUNNING, got ", status, "-", status_message)
-            rlang::abort(msg, call = rlang::caller_env())
-        }
-        prefix <- paste0("databricks::warehousesGet(id=", id, ")")
-        sleep <- attempt
-        if (sleep > 10) {
-            # sleep 10s max per attempt
-            sleep <- 10
-        }
-        if (!is.null(callback)) {
-            callback(paste0(status, ": ", status_message), done=FALSE)
-        }
-        random_pause <- runif(1, min = 0.1, max = 0.5)
-        Sys.sleep(sleep + random_pause)
-        attempt <- attempt + 1
+warehousesEdit <- function(client, id, auto_stop_mins = NULL, channel = NULL, cluster_size = NULL,
+  creator_name = NULL, enable_photon = NULL, enable_serverless_compute = NULL,
+  instance_profile_arn = NULL, max_num_clusters = NULL, min_num_clusters = NULL,
+  name = NULL, spot_instance_policy = NULL, tags = NULL, warehouse_type = NULL,
+  timeout = 20, callback = cli_reporter) {
+  body <- list(auto_stop_mins = auto_stop_mins, channel = channel, cluster_size = cluster_size,
+    creator_name = creator_name, enable_photon = enable_photon, enable_serverless_compute = enable_serverless_compute,
+    instance_profile_arn = instance_profile_arn, max_num_clusters = max_num_clusters,
+    min_num_clusters = min_num_clusters, name = name, spot_instance_policy = spot_instance_policy,
+    tags = tags, warehouse_type = warehouse_type)
+  client$do("POST", paste("/api/2.0/sql/warehouses/", id, "/edit", , sep = ""),
+    body = body)
+  started <- as.numeric(Sys.time())
+  target_states <- c("RUNNING", c())
+  failure_states <- c("STOPPED", "DELETED", c())
+  status_message <- "polling..."
+  attempt <- 1
+  while ((started + (timeout * 60)) > as.numeric(Sys.time())) {
+    poll <- warehousesGet(client, id = id)
+    status <- poll$state
+    status_message <- paste("current status:", status)
+    if (!is.null(poll$health)) {
+      status_message <- poll$health$summary
     }
-    msg <- paste("timed out after", timeout, "minutes:", status_message)
-    rlang::abort(msg, call = rlang::caller_env())
+    if (status %in% target_states) {
+      if (!is.null(callback)) {
+        callback(paste0(status, ": ", status_message), done = TRUE)
+      }
+      return(poll)
+    }
+    if (status %in% failure_states) {
+      msg <- paste("failed to reach RUNNING, got ", status, "-", status_message)
+      rlang::abort(msg, call = rlang::caller_env())
+    }
+    prefix <- paste0("databricks::warehousesGet(id=", id, ")")
+    sleep <- attempt
+    if (sleep > 10) {
+      # sleep 10s max per attempt
+      sleep <- 10
+    }
+    if (!is.null(callback)) {
+      callback(paste0(status, ": ", status_message), done = FALSE)
+    }
+    random_pause <- runif(1, min = 0.1, max = 0.5)
+    Sys.sleep(sleep + random_pause)
+    attempt <- attempt + 1
+  }
+  msg <- paste("timed out after", timeout, "minutes:", status_message)
+  rlang::abort(msg, call = rlang::caller_env())
 }
 
 #' Get warehouse info.
@@ -192,8 +183,8 @@ warehousesEdit <- function(client, id, auto_stop_mins=NULL, channel=NULL, cluste
 #' @rdname warehousesGet
 #' @export
 warehousesGet <- function(client, id) {
-    
-    client$do("GET", paste("/api/2.0/sql/warehouses/", id, sep = ""))
+
+  client$do("GET", paste("/api/2.0/sql/warehouses/", id, sep = ""))
 }
 
 #' Get the workspace configuration.
@@ -203,7 +194,7 @@ warehousesGet <- function(client, id) {
 #' @rdname warehousesGetWorkspaceWarehouseConfig
 #' @export
 warehousesGetWorkspaceWarehouseConfig <- function(client) {
-    client$do("GET", "/api/2.0/sql/config/warehouses")
+  client$do("GET", "/api/2.0/sql/config/warehouses")
 }
 
 #' List warehouses.
@@ -217,13 +208,12 @@ warehousesGetWorkspaceWarehouseConfig <- function(client) {
 #'
 #' @rdname warehousesList
 #' @export
-warehousesList <- function(client, run_as_user_id=NULL) {
-    query <- list(
-        run_as_user_id = run_as_user_id)
-    
-    json <- client$do("GET", "/api/2.0/sql/warehouses", query = query)
-    return (json$warehouses)
-    
+warehousesList <- function(client, run_as_user_id = NULL) {
+  query <- list(run_as_user_id = run_as_user_id)
+
+  json <- client$do("GET", "/api/2.0/sql/warehouses", query = query)
+  return(json$warehouses)
+
 }
 
 #' Set the workspace configuration.
@@ -244,18 +234,15 @@ warehousesList <- function(client, run_as_user_id=NULL) {
 #'
 #' @rdname warehousesSetWorkspaceWarehouseConfig
 #' @export
-warehousesSetWorkspaceWarehouseConfig <- function(client, channel=NULL, config_param=NULL, data_access_config=NULL, enabled_warehouse_types=NULL, global_param=NULL, google_service_account=NULL, instance_profile_arn=NULL, security_policy=NULL, sql_configuration_parameters=NULL) {
-    body <- list(
-        channel = channel
-        , config_param = config_param
-        , data_access_config = data_access_config
-        , enabled_warehouse_types = enabled_warehouse_types
-        , global_param = global_param
-        , google_service_account = google_service_account
-        , instance_profile_arn = instance_profile_arn
-        , security_policy = security_policy
-        , sql_configuration_parameters = sql_configuration_parameters)
-    client$do("PUT", "/api/2.0/sql/config/warehouses", body = body)
+warehousesSetWorkspaceWarehouseConfig <- function(client, channel = NULL, config_param = NULL,
+  data_access_config = NULL, enabled_warehouse_types = NULL, global_param = NULL,
+  google_service_account = NULL, instance_profile_arn = NULL, security_policy = NULL,
+  sql_configuration_parameters = NULL) {
+  body <- list(channel = channel, config_param = config_param, data_access_config = data_access_config,
+    enabled_warehouse_types = enabled_warehouse_types, global_param = global_param,
+    google_service_account = google_service_account, instance_profile_arn = instance_profile_arn,
+    security_policy = security_policy, sql_configuration_parameters = sql_configuration_parameters)
+  client$do("PUT", "/api/2.0/sql/config/warehouses", body = body)
 }
 
 #' Start a warehouse.
@@ -273,46 +260,46 @@ warehousesSetWorkspaceWarehouseConfig <- function(client, channel=NULL, config_p
 #'
 #' @rdname warehousesStart
 #' @export
-warehousesStart <- function(client, id, timeout=20, callback=cli_reporter) {
-    
-    client$do("POST", paste("/api/2.0/sql/warehouses/", id, "/start", , sep = ""))
-    started <- as.numeric(Sys.time())
-    target_states <- c("RUNNING", c())
-    failure_states <- c("STOPPED", "DELETED", c())
-    status_message <- 'polling...'
-    attempt <- 1
-    while ((started + (timeout*60)) > as.numeric(Sys.time())) {
-        poll <- warehousesGet(client, id = id)
-        status <- poll$state
-        status_message <- paste("current status:", status)
-        if (!is.null(poll$health)) {
-            status_message <- poll$health$summary
-        }
-        if (status %in% target_states) {
-            if (!is.null(callback)) {
-                callback(paste0(status, ": ", status_message), done=TRUE)
-            }
-            return (poll)
-        }
-        if (status %in% failure_states) {
-            msg <- paste("failed to reach RUNNING, got ", status, "-", status_message)
-            rlang::abort(msg, call = rlang::caller_env())
-        }
-        prefix <- paste0("databricks::warehousesGet(id=", id, ")")
-        sleep <- attempt
-        if (sleep > 10) {
-            # sleep 10s max per attempt
-            sleep <- 10
-        }
-        if (!is.null(callback)) {
-            callback(paste0(status, ": ", status_message), done=FALSE)
-        }
-        random_pause <- runif(1, min = 0.1, max = 0.5)
-        Sys.sleep(sleep + random_pause)
-        attempt <- attempt + 1
+warehousesStart <- function(client, id, timeout = 20, callback = cli_reporter) {
+
+  client$do("POST", paste("/api/2.0/sql/warehouses/", id, "/start", , sep = ""))
+  started <- as.numeric(Sys.time())
+  target_states <- c("RUNNING", c())
+  failure_states <- c("STOPPED", "DELETED", c())
+  status_message <- "polling..."
+  attempt <- 1
+  while ((started + (timeout * 60)) > as.numeric(Sys.time())) {
+    poll <- warehousesGet(client, id = id)
+    status <- poll$state
+    status_message <- paste("current status:", status)
+    if (!is.null(poll$health)) {
+      status_message <- poll$health$summary
     }
-    msg <- paste("timed out after", timeout, "minutes:", status_message)
-    rlang::abort(msg, call = rlang::caller_env())
+    if (status %in% target_states) {
+      if (!is.null(callback)) {
+        callback(paste0(status, ": ", status_message), done = TRUE)
+      }
+      return(poll)
+    }
+    if (status %in% failure_states) {
+      msg <- paste("failed to reach RUNNING, got ", status, "-", status_message)
+      rlang::abort(msg, call = rlang::caller_env())
+    }
+    prefix <- paste0("databricks::warehousesGet(id=", id, ")")
+    sleep <- attempt
+    if (sleep > 10) {
+      # sleep 10s max per attempt
+      sleep <- 10
+    }
+    if (!is.null(callback)) {
+      callback(paste0(status, ": ", status_message), done = FALSE)
+    }
+    random_pause <- runif(1, min = 0.1, max = 0.5)
+    Sys.sleep(sleep + random_pause)
+    attempt <- attempt + 1
+  }
+  msg <- paste("timed out after", timeout, "minutes:", status_message)
+  rlang::abort(msg, call = rlang::caller_env())
 }
 
 #' Stop a warehouse.
@@ -330,40 +317,40 @@ warehousesStart <- function(client, id, timeout=20, callback=cli_reporter) {
 #'
 #' @rdname warehousesStop
 #' @export
-warehousesStop <- function(client, id, timeout=20, callback=cli_reporter) {
-    
-    client$do("POST", paste("/api/2.0/sql/warehouses/", id, "/stop", , sep = ""))
-    started <- as.numeric(Sys.time())
-    target_states <- c("STOPPED", c())
-    status_message <- 'polling...'
-    attempt <- 1
-    while ((started + (timeout*60)) > as.numeric(Sys.time())) {
-        poll <- warehousesGet(client, id = id)
-        status <- poll$state
-        status_message <- paste("current status:", status)
-        if (!is.null(poll$health)) {
-            status_message <- poll$health$summary
-        }
-        if (status %in% target_states) {
-            if (!is.null(callback)) {
-                callback(paste0(status, ": ", status_message), done=TRUE)
-            }
-            return (poll)
-        }
-        prefix <- paste0("databricks::warehousesGet(id=", id, ")")
-        sleep <- attempt
-        if (sleep > 10) {
-            # sleep 10s max per attempt
-            sleep <- 10
-        }
-        if (!is.null(callback)) {
-            callback(paste0(status, ": ", status_message), done=FALSE)
-        }
-        random_pause <- runif(1, min = 0.1, max = 0.5)
-        Sys.sleep(sleep + random_pause)
-        attempt <- attempt + 1
+warehousesStop <- function(client, id, timeout = 20, callback = cli_reporter) {
+
+  client$do("POST", paste("/api/2.0/sql/warehouses/", id, "/stop", , sep = ""))
+  started <- as.numeric(Sys.time())
+  target_states <- c("STOPPED", c())
+  status_message <- "polling..."
+  attempt <- 1
+  while ((started + (timeout * 60)) > as.numeric(Sys.time())) {
+    poll <- warehousesGet(client, id = id)
+    status <- poll$state
+    status_message <- paste("current status:", status)
+    if (!is.null(poll$health)) {
+      status_message <- poll$health$summary
     }
-    msg <- paste("timed out after", timeout, "minutes:", status_message)
-    rlang::abort(msg, call = rlang::caller_env())
+    if (status %in% target_states) {
+      if (!is.null(callback)) {
+        callback(paste0(status, ": ", status_message), done = TRUE)
+      }
+      return(poll)
+    }
+    prefix <- paste0("databricks::warehousesGet(id=", id, ")")
+    sleep <- attempt
+    if (sleep > 10) {
+      # sleep 10s max per attempt
+      sleep <- 10
+    }
+    if (!is.null(callback)) {
+      callback(paste0(status, ": ", status_message), done = FALSE)
+    }
+    random_pause <- runif(1, min = 0.1, max = 0.5)
+    Sys.sleep(sleep + random_pause)
+    attempt <- attempt + 1
+  }
+  msg <- paste("timed out after", timeout, "minutes:", status_message)
+  rlang::abort(msg, call = rlang::caller_env())
 }
 

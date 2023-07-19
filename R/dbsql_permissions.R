@@ -15,8 +15,9 @@ NULL
 #' @rdname dbsqlPermissionsGet
 #' @export
 dbsqlPermissionsGet <- function(client, object_type, object_id) {
-    
-    client$do("GET", paste("/api/2.0/preview/sql/permissions/", object_type, "/", object_id, sep = ""))
+
+  client$do("GET", paste("/api/2.0/preview/sql/permissions/", object_type, "/",
+    object_id, sep = ""))
 }
 
 #' Set object ACL.
@@ -31,10 +32,10 @@ dbsqlPermissionsGet <- function(client, object_type, object_id) {
 #'
 #' @rdname dbsqlPermissionsSet
 #' @export
-dbsqlPermissionsSet <- function(client, object_type, object_id, access_control_list=NULL) {
-    body <- list(
-        access_control_list = access_control_list)
-    client$do("POST", paste("/api/2.0/preview/sql/permissions/", object_type, "/", object_id, sep = ""), body = body)
+dbsqlPermissionsSet <- function(client, object_type, object_id, access_control_list = NULL) {
+  body <- list(access_control_list = access_control_list)
+  client$do("POST", paste("/api/2.0/preview/sql/permissions/", object_type, "/",
+    object_id, sep = ""), body = body)
 }
 
 #' Transfer object ownership.
@@ -49,9 +50,9 @@ dbsqlPermissionsSet <- function(client, object_type, object_id, access_control_l
 #'
 #' @rdname dbsqlPermissionsTransferOwnership
 #' @export
-dbsqlPermissionsTransferOwnership <- function(client, object_type, object_id, new_owner=NULL) {
-    body <- list(
-        new_owner = new_owner)
-    client$do("POST", paste("/api/2.0/preview/sql/permissions/", object_type, "/", object_id, "/transfer", , sep = ""), body = body)
+dbsqlPermissionsTransferOwnership <- function(client, object_type, object_id, new_owner = NULL) {
+  body <- list(new_owner = new_owner)
+  client$do("POST", paste("/api/2.0/preview/sql/permissions/", object_type, "/",
+    object_id, "/transfer", , sep = ""), body = body)
 }
 

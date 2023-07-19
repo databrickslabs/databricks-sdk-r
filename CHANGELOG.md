@@ -1,5 +1,14 @@
 # Version changelog
 
+## 0.2.0
+
+* Adding `@export` to Roxygen, improving visibility ([#16](https://github.com/databrickslabs/databricks-sdk-r/pull/16)).
+
+API Changes:
+
+
+OpenAPI SHA: 2ff01e4fb3c2799518dfaff00c986f6737a4a742, Date: 2023-07-19
+
 ## 0.1.0
 
 * Work towards getting `R CMD check` passing ([#4](https://github.com/databrickslabs/databricks-sdk-r/pull/4)).

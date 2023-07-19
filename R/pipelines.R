@@ -30,27 +30,17 @@ NULL
 #'
 #' @rdname pipelinesCreate
 #' @export
-pipelinesCreate <- function(client, allow_duplicate_names=NULL, catalog=NULL, channel=NULL, clusters=NULL, configuration=NULL, continuous=NULL, development=NULL, dry_run=NULL, edition=NULL, filters=NULL, id=NULL, libraries=NULL, name=NULL, photon=NULL, serverless=NULL, storage=NULL, target=NULL, trigger=NULL) {
-    body <- list(
-        allow_duplicate_names = allow_duplicate_names
-        , catalog = catalog
-        , channel = channel
-        , clusters = clusters
-        , configuration = configuration
-        , continuous = continuous
-        , development = development
-        , dry_run = dry_run
-        , edition = edition
-        , filters = filters
-        , id = id
-        , libraries = libraries
-        , name = name
-        , photon = photon
-        , serverless = serverless
-        , storage = storage
-        , target = target
-        , trigger = trigger)
-    client$do("POST", "/api/2.0/pipelines", body = body)
+pipelinesCreate <- function(client, allow_duplicate_names = NULL, catalog = NULL,
+  channel = NULL, clusters = NULL, configuration = NULL, continuous = NULL, development = NULL,
+  dry_run = NULL, edition = NULL, filters = NULL, id = NULL, libraries = NULL,
+  name = NULL, photon = NULL, serverless = NULL, storage = NULL, target = NULL,
+  trigger = NULL) {
+  body <- list(allow_duplicate_names = allow_duplicate_names, catalog = catalog,
+    channel = channel, clusters = clusters, configuration = configuration, continuous = continuous,
+    development = development, dry_run = dry_run, edition = edition, filters = filters,
+    id = id, libraries = libraries, name = name, photon = photon, serverless = serverless,
+    storage = storage, target = target, trigger = trigger)
+  client$do("POST", "/api/2.0/pipelines", body = body)
 }
 
 #' Delete a pipeline.
@@ -63,8 +53,8 @@ pipelinesCreate <- function(client, allow_duplicate_names=NULL, catalog=NULL, ch
 #' @rdname pipelinesDelete
 #' @export
 pipelinesDelete <- function(client, pipeline_id) {
-    
-    client$do("DELETE", paste("/api/2.0/pipelines/", pipeline_id, sep = ""))
+
+  client$do("DELETE", paste("/api/2.0/pipelines/", pipeline_id, sep = ""))
 }
 
 #' Get a pipeline.
@@ -75,8 +65,8 @@ pipelinesDelete <- function(client, pipeline_id) {
 #' @rdname pipelinesGet
 #' @export
 pipelinesGet <- function(client, pipeline_id) {
-    
-    client$do("GET", paste("/api/2.0/pipelines/", pipeline_id, sep = ""))
+
+  client$do("GET", paste("/api/2.0/pipelines/", pipeline_id, sep = ""))
 }
 
 #' Get a pipeline update.
@@ -90,8 +80,9 @@ pipelinesGet <- function(client, pipeline_id) {
 #' @rdname pipelinesGetUpdate
 #' @export
 pipelinesGetUpdate <- function(client, pipeline_id, update_id) {
-    
-    client$do("GET", paste("/api/2.0/pipelines/", pipeline_id, "/updates/", update_id, sep = ""))
+
+  client$do("GET", paste("/api/2.0/pipelines/", pipeline_id, "/updates/", update_id,
+    sep = ""))
 }
 
 #' List pipeline events.
@@ -101,7 +92,7 @@ pipelinesGetUpdate <- function(client, pipeline_id, update_id) {
 #'
 #' @param filter Criteria to select a subset of results, expressed using a SQL-like syntax.
 #' @param max_results Max number of entries to return in a single page.
-#' @param order_by A string indicating a sort order by timestamp for the results, for example, ["timestamp asc"].
+#' @param order_by A string indicating a sort order by timestamp for the results, for example, ['timestamp asc'].
 #' @param page_token Page token returned by previous call.
 #' @param pipeline_id Required. 
 #'
@@ -109,28 +100,27 @@ pipelinesGetUpdate <- function(client, pipeline_id, update_id) {
 #'
 #' @rdname pipelinesListPipelineEvents
 #' @export
-pipelinesListPipelineEvents <- function(client, pipeline_id, filter=NULL, max_results=NULL, order_by=NULL, page_token=NULL) {
-    query <- list(
-        filter = filter
-        , max_results = max_results
-        , order_by = order_by
-        , page_token = page_token)
-    
-    results <- data.frame()
-    while (TRUE) {
-        json <- client$do("GET", paste("/api/2.0/pipelines/", pipeline_id, "/events", , sep = ""), query = query)
-        if (is.null(nrow(json$events))) {
-            break
-        }
-        # append this page of results to one results data.frame
-        results <- dplyr::bind_rows(results, json$events)
-        if (is.null(json$next_page_token)) {
-            break
-        }
-        query$page_token <- json$next_page_token
+pipelinesListPipelineEvents <- function(client, pipeline_id, filter = NULL, max_results = NULL,
+  order_by = NULL, page_token = NULL) {
+  query <- list(filter = filter, max_results = max_results, order_by = order_by,
+    page_token = page_token)
+
+  results <- data.frame()
+  while (TRUE) {
+    json <- client$do("GET", paste("/api/2.0/pipelines/", pipeline_id, "/events",
+      , sep = ""), query = query)
+    if (is.null(nrow(json$events))) {
+      break
     }
-    return (results)
-    
+    # append this page of results to one results data.frame
+    results <- dplyr::bind_rows(results, json$events)
+    if (is.null(json$next_page_token)) {
+      break
+    }
+    query$page_token <- json$next_page_token
+  }
+  return(results)
+
 }
 
 #' List pipelines.
@@ -147,28 +137,26 @@ pipelinesListPipelineEvents <- function(client, pipeline_id, filter=NULL, max_re
 #'
 #' @rdname pipelinesListPipelines
 #' @export
-pipelinesListPipelines <- function(client, filter=NULL, max_results=NULL, order_by=NULL, page_token=NULL) {
-    query <- list(
-        filter = filter
-        , max_results = max_results
-        , order_by = order_by
-        , page_token = page_token)
-    
-    results <- data.frame()
-    while (TRUE) {
-        json <- client$do("GET", "/api/2.0/pipelines", query = query)
-        if (is.null(nrow(json$statuses))) {
-            break
-        }
-        # append this page of results to one results data.frame
-        results <- dplyr::bind_rows(results, json$statuses)
-        if (is.null(json$next_page_token)) {
-            break
-        }
-        query$page_token <- json$next_page_token
+pipelinesListPipelines <- function(client, filter = NULL, max_results = NULL, order_by = NULL,
+  page_token = NULL) {
+  query <- list(filter = filter, max_results = max_results, order_by = order_by,
+    page_token = page_token)
+
+  results <- data.frame()
+  while (TRUE) {
+    json <- client$do("GET", "/api/2.0/pipelines", query = query)
+    if (is.null(nrow(json$statuses))) {
+      break
     }
-    return (results)
-    
+    # append this page of results to one results data.frame
+    results <- dplyr::bind_rows(results, json$statuses)
+    if (is.null(json$next_page_token)) {
+      break
+    }
+    query$page_token <- json$next_page_token
+  }
+  return(results)
+
 }
 
 #' List pipeline updates.
@@ -183,12 +171,11 @@ pipelinesListPipelines <- function(client, filter=NULL, max_results=NULL, order_
 #'
 #' @rdname pipelinesListUpdates
 #' @export
-pipelinesListUpdates <- function(client, pipeline_id, max_results=NULL, page_token=NULL, until_update_id=NULL) {
-    query <- list(
-        max_results = max_results
-        , page_token = page_token
-        , until_update_id = until_update_id)
-    client$do("GET", paste("/api/2.0/pipelines/", pipeline_id, "/updates", , sep = ""), query = query)
+pipelinesListUpdates <- function(client, pipeline_id, max_results = NULL, page_token = NULL,
+  until_update_id = NULL) {
+  query <- list(max_results = max_results, page_token = page_token, until_update_id = until_update_id)
+  client$do("GET", paste("/api/2.0/pipelines/", pipeline_id, "/updates", , sep = ""),
+    query = query)
 }
 
 #' Reset a pipeline.
@@ -206,43 +193,43 @@ pipelinesListUpdates <- function(client, pipeline_id, max_results=NULL, page_tok
 #'
 #' @rdname pipelinesReset
 #' @export
-pipelinesReset <- function(client, pipeline_id, timeout=20, callback=cli_reporter) {
-    
-    client$do("POST", paste("/api/2.0/pipelines/", pipeline_id, "/reset", , sep = ""))
-    started <- as.numeric(Sys.time())
-    target_states <- c("RUNNING", c())
-    failure_states <- c("FAILED", c())
-    status_message <- 'polling...'
-    attempt <- 1
-    while ((started + (timeout*60)) > as.numeric(Sys.time())) {
-        poll <- pipelinesGet(client, pipeline_id = pipeline_id)
-        status <- poll$state
-        status_message <- poll$cause
-        if (status %in% target_states) {
-            if (!is.null(callback)) {
-                callback(paste0(status, ": ", status_message), done=TRUE)
-            }
-            return (poll)
-        }
-        if (status %in% failure_states) {
-            msg <- paste("failed to reach RUNNING, got ", status, "-", status_message)
-            rlang::abort(msg, call = rlang::caller_env())
-        }
-        prefix <- paste0("databricks::pipelinesGet(pipeline_id=", pipeline_id, ")")
-        sleep <- attempt
-        if (sleep > 10) {
-            # sleep 10s max per attempt
-            sleep <- 10
-        }
-        if (!is.null(callback)) {
-            callback(paste0(status, ": ", status_message), done=FALSE)
-        }
-        random_pause <- runif(1, min = 0.1, max = 0.5)
-        Sys.sleep(sleep + random_pause)
-        attempt <- attempt + 1
+pipelinesReset <- function(client, pipeline_id, timeout = 20, callback = cli_reporter) {
+
+  client$do("POST", paste("/api/2.0/pipelines/", pipeline_id, "/reset", , sep = ""))
+  started <- as.numeric(Sys.time())
+  target_states <- c("RUNNING", c())
+  failure_states <- c("FAILED", c())
+  status_message <- "polling..."
+  attempt <- 1
+  while ((started + (timeout * 60)) > as.numeric(Sys.time())) {
+    poll <- pipelinesGet(client, pipeline_id = pipeline_id)
+    status <- poll$state
+    status_message <- poll$cause
+    if (status %in% target_states) {
+      if (!is.null(callback)) {
+        callback(paste0(status, ": ", status_message), done = TRUE)
+      }
+      return(poll)
     }
-    msg <- paste("timed out after", timeout, "minutes:", status_message)
-    rlang::abort(msg, call = rlang::caller_env())
+    if (status %in% failure_states) {
+      msg <- paste("failed to reach RUNNING, got ", status, "-", status_message)
+      rlang::abort(msg, call = rlang::caller_env())
+    }
+    prefix <- paste0("databricks::pipelinesGet(pipeline_id=", pipeline_id, ")")
+    sleep <- attempt
+    if (sleep > 10) {
+      # sleep 10s max per attempt
+      sleep <- 10
+    }
+    if (!is.null(callback)) {
+      callback(paste0(status, ": ", status_message), done = FALSE)
+    }
+    random_pause <- runif(1, min = 0.1, max = 0.5)
+    Sys.sleep(sleep + random_pause)
+    attempt <- attempt + 1
+  }
+  msg <- paste("timed out after", timeout, "minutes:", status_message)
+  rlang::abort(msg, call = rlang::caller_env())
 }
 
 #' Queue a pipeline update.
@@ -258,13 +245,12 @@ pipelinesReset <- function(client, pipeline_id, timeout=20, callback=cli_reporte
 #'
 #' @rdname pipelinesStartUpdate
 #' @export
-pipelinesStartUpdate <- function(client, pipeline_id, cause=NULL, full_refresh=NULL, full_refresh_selection=NULL, refresh_selection=NULL) {
-    body <- list(
-        cause = cause
-        , full_refresh = full_refresh
-        , full_refresh_selection = full_refresh_selection
-        , refresh_selection = refresh_selection)
-    client$do("POST", paste("/api/2.0/pipelines/", pipeline_id, "/updates", , sep = ""), body = body)
+pipelinesStartUpdate <- function(client, pipeline_id, cause = NULL, full_refresh = NULL,
+  full_refresh_selection = NULL, refresh_selection = NULL) {
+  body <- list(cause = cause, full_refresh = full_refresh, full_refresh_selection = full_refresh_selection,
+    refresh_selection = refresh_selection)
+  client$do("POST", paste("/api/2.0/pipelines/", pipeline_id, "/updates", , sep = ""),
+    body = body)
 }
 
 #' Stop a pipeline.
@@ -282,43 +268,43 @@ pipelinesStartUpdate <- function(client, pipeline_id, cause=NULL, full_refresh=N
 #'
 #' @rdname pipelinesStop
 #' @export
-pipelinesStop <- function(client, pipeline_id, timeout=20, callback=cli_reporter) {
-    
-    client$do("POST", paste("/api/2.0/pipelines/", pipeline_id, "/stop", , sep = ""))
-    started <- as.numeric(Sys.time())
-    target_states <- c("IDLE", c())
-    failure_states <- c("FAILED", c())
-    status_message <- 'polling...'
-    attempt <- 1
-    while ((started + (timeout*60)) > as.numeric(Sys.time())) {
-        poll <- pipelinesGet(client, pipeline_id = pipeline_id)
-        status <- poll$state
-        status_message <- poll$cause
-        if (status %in% target_states) {
-            if (!is.null(callback)) {
-                callback(paste0(status, ": ", status_message), done=TRUE)
-            }
-            return (poll)
-        }
-        if (status %in% failure_states) {
-            msg <- paste("failed to reach IDLE, got ", status, "-", status_message)
-            rlang::abort(msg, call = rlang::caller_env())
-        }
-        prefix <- paste0("databricks::pipelinesGet(pipeline_id=", pipeline_id, ")")
-        sleep <- attempt
-        if (sleep > 10) {
-            # sleep 10s max per attempt
-            sleep <- 10
-        }
-        if (!is.null(callback)) {
-            callback(paste0(status, ": ", status_message), done=FALSE)
-        }
-        random_pause <- runif(1, min = 0.1, max = 0.5)
-        Sys.sleep(sleep + random_pause)
-        attempt <- attempt + 1
+pipelinesStop <- function(client, pipeline_id, timeout = 20, callback = cli_reporter) {
+
+  client$do("POST", paste("/api/2.0/pipelines/", pipeline_id, "/stop", , sep = ""))
+  started <- as.numeric(Sys.time())
+  target_states <- c("IDLE", c())
+  failure_states <- c("FAILED", c())
+  status_message <- "polling..."
+  attempt <- 1
+  while ((started + (timeout * 60)) > as.numeric(Sys.time())) {
+    poll <- pipelinesGet(client, pipeline_id = pipeline_id)
+    status <- poll$state
+    status_message <- poll$cause
+    if (status %in% target_states) {
+      if (!is.null(callback)) {
+        callback(paste0(status, ": ", status_message), done = TRUE)
+      }
+      return(poll)
     }
-    msg <- paste("timed out after", timeout, "minutes:", status_message)
-    rlang::abort(msg, call = rlang::caller_env())
+    if (status %in% failure_states) {
+      msg <- paste("failed to reach IDLE, got ", status, "-", status_message)
+      rlang::abort(msg, call = rlang::caller_env())
+    }
+    prefix <- paste0("databricks::pipelinesGet(pipeline_id=", pipeline_id, ")")
+    sleep <- attempt
+    if (sleep > 10) {
+      # sleep 10s max per attempt
+      sleep <- 10
+    }
+    if (!is.null(callback)) {
+      callback(paste0(status, ": ", status_message), done = FALSE)
+    }
+    random_pause <- runif(1, min = 0.1, max = 0.5)
+    Sys.sleep(sleep + random_pause)
+    attempt <- attempt + 1
+  }
+  msg <- paste("timed out after", timeout, "minutes:", status_message)
+  rlang::abort(msg, call = rlang::caller_env())
 }
 
 #' Edit a pipeline.
@@ -348,27 +334,17 @@ pipelinesStop <- function(client, pipeline_id, timeout=20, callback=cli_reporter
 #'
 #' @rdname pipelinesUpdate
 #' @export
-pipelinesUpdate <- function(client, pipeline_id, allow_duplicate_names=NULL, catalog=NULL, channel=NULL, clusters=NULL, configuration=NULL, continuous=NULL, development=NULL, edition=NULL, expected_last_modified=NULL, filters=NULL, id=NULL, libraries=NULL, name=NULL, photon=NULL, serverless=NULL, storage=NULL, target=NULL, trigger=NULL) {
-    body <- list(
-        allow_duplicate_names = allow_duplicate_names
-        , catalog = catalog
-        , channel = channel
-        , clusters = clusters
-        , configuration = configuration
-        , continuous = continuous
-        , development = development
-        , edition = edition
-        , expected_last_modified = expected_last_modified
-        , filters = filters
-        , id = id
-        , libraries = libraries
-        , name = name
-        , photon = photon
-        , pipeline_id = pipeline_id
-        , serverless = serverless
-        , storage = storage
-        , target = target
-        , trigger = trigger)
-    client$do("PUT", paste("/api/2.0/pipelines/", pipeline_id, sep = ""), body = body)
+pipelinesUpdate <- function(client, pipeline_id, allow_duplicate_names = NULL, catalog = NULL,
+  channel = NULL, clusters = NULL, configuration = NULL, continuous = NULL, development = NULL,
+  edition = NULL, expected_last_modified = NULL, filters = NULL, id = NULL, libraries = NULL,
+  name = NULL, photon = NULL, serverless = NULL, storage = NULL, target = NULL,
+  trigger = NULL) {
+  body <- list(allow_duplicate_names = allow_duplicate_names, catalog = catalog,
+    channel = channel, clusters = clusters, configuration = configuration, continuous = continuous,
+    development = development, edition = edition, expected_last_modified = expected_last_modified,
+    filters = filters, id = id, libraries = libraries, name = name, photon = photon,
+    pipeline_id = pipeline_id, serverless = serverless, storage = storage, target = target,
+    trigger = trigger)
+  client$do("PUT", paste("/api/2.0/pipelines/", pipeline_id, sep = ""), body = body)
 }
 

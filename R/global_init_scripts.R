@@ -15,13 +15,9 @@ NULL
 #'
 #' @rdname globalInitScriptsCreate
 #' @export
-globalInitScriptsCreate <- function(client, name, script, enabled=NULL, position=NULL) {
-    body <- list(
-        enabled = enabled
-        , name = name
-        , position = position
-        , script = script)
-    client$do("POST", "/api/2.0/global-init-scripts", body = body)
+globalInitScriptsCreate <- function(client, name, script, enabled = NULL, position = NULL) {
+  body <- list(enabled = enabled, name = name, position = position, script = script)
+  client$do("POST", "/api/2.0/global-init-scripts", body = body)
 }
 
 #' Delete init script.
@@ -34,8 +30,8 @@ globalInitScriptsCreate <- function(client, name, script, enabled=NULL, position
 #' @rdname globalInitScriptsDelete
 #' @export
 globalInitScriptsDelete <- function(client, script_id) {
-    
-    client$do("DELETE", paste("/api/2.0/global-init-scripts/", script_id, sep = ""))
+
+  client$do("DELETE", paste("/api/2.0/global-init-scripts/", script_id, sep = ""))
 }
 
 #' Get an init script.
@@ -48,8 +44,8 @@ globalInitScriptsDelete <- function(client, script_id) {
 #' @rdname globalInitScriptsGet
 #' @export
 globalInitScriptsGet <- function(client, script_id) {
-    
-    client$do("GET", paste("/api/2.0/global-init-scripts/", script_id, sep = ""))
+
+  client$do("GET", paste("/api/2.0/global-init-scripts/", script_id, sep = ""))
 }
 
 #' Get init scripts.
@@ -63,10 +59,10 @@ globalInitScriptsGet <- function(client, script_id) {
 #' @rdname globalInitScriptsList
 #' @export
 globalInitScriptsList <- function(client) {
-    
-    json <- client$do("GET", "/api/2.0/global-init-scripts")
-    return (json$scripts)
-    
+
+  json <- client$do("GET", "/api/2.0/global-init-scripts")
+  return(json$scripts)
+
 }
 
 #' Update init script.
@@ -83,12 +79,10 @@ globalInitScriptsList <- function(client) {
 #'
 #' @rdname globalInitScriptsUpdate
 #' @export
-globalInitScriptsUpdate <- function(client, name, script, script_id, enabled=NULL, position=NULL) {
-    body <- list(
-        enabled = enabled
-        , name = name
-        , position = position
-        , script = script)
-    client$do("PATCH", paste("/api/2.0/global-init-scripts/", script_id, sep = ""), body = body)
+globalInitScriptsUpdate <- function(client, name, script, script_id, enabled = NULL,
+  position = NULL) {
+  body <- list(enabled = enabled, name = name, position = position, script = script)
+  client$do("PATCH", paste("/api/2.0/global-init-scripts/", script_id, sep = ""),
+    body = body)
 }
 
