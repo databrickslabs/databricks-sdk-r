@@ -11,9 +11,10 @@ NULL
 #' @param policy_family_id Required. 
 #'
 #' @rdname policyFamiliesGet
+#' @export
 policyFamiliesGet <- function(client, policy_family_id) {
-
-  client$do("GET", paste("/api/2.0/policy-families/", policy_family_id, sep = ""))
+    
+    client$do("GET", paste("/api/2.0/policy-families/", policy_family_id, sep = ""))
 }
 
 #' List policy families.
@@ -27,23 +28,26 @@ policyFamiliesGet <- function(client, policy_family_id) {
 #' @return `data.frame` with all of the response pages.
 #'
 #' @rdname policyFamiliesList
-policyFamiliesList <- function(client, max_results = NULL, page_token = NULL) {
-  query <- list(max_results = max_results, page_token = page_token)
-
-  results <- data.frame()
-  while (TRUE) {
-    json <- client$do("GET", "/api/2.0/policy-families", query = query)
-    if (is.null(nrow(json$policy_families))) {
-      break
+#' @export
+policyFamiliesList <- function(client, max_results=NULL, page_token=NULL) {
+    query <- list(
+        max_results = max_results
+        , page_token = page_token)
+    
+    results <- data.frame()
+    while (TRUE) {
+        json <- client$do("GET", "/api/2.0/policy-families", query = query)
+        if (is.null(nrow(json$policy_families))) {
+            break
+        }
+        # append this page of results to one results data.frame
+        results <- dplyr::bind_rows(results, json$policy_families)
+        if (is.null(json$next_page_token)) {
+            break
+        }
+        query$page_token <- json$next_page_token
     }
-    # append this page of results to one results data.frame
-    results <- dplyr::bind_rows(results, json$policy_families)
-    if (is.null(json$next_page_token)) {
-      break
-    }
-    query$page_token <- json$next_page_token
-  }
-  return(results)
-
+    return (results)
+    
 }
 

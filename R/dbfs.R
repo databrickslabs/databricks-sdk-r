@@ -17,9 +17,12 @@ NULL
 #' @param handle Required. The handle on an open stream.
 #'
 #' @rdname dbfsAddBlock
+#' @export
 dbfsAddBlock <- function(client, handle, data) {
-  body <- list(data = data, handle = handle)
-  client$do("POST", "/api/2.0/dbfs/add-block", body = body)
+    body <- list(
+        data = data
+        , handle = handle)
+    client$do("POST", "/api/2.0/dbfs/add-block", body = body)
 }
 
 #' Close the stream.
@@ -31,9 +34,11 @@ dbfsAddBlock <- function(client, handle, data) {
 #' @param handle Required. The handle on an open stream.
 #'
 #' @rdname dbfsClose
+#' @export
 dbfsClose <- function(client, handle) {
-  body <- list(handle = handle)
-  client$do("POST", "/api/2.0/dbfs/close", body = body)
+    body <- list(
+        handle = handle)
+    client$do("POST", "/api/2.0/dbfs/close", body = body)
 }
 
 #' Open a stream.
@@ -54,9 +59,12 @@ dbfsClose <- function(client, handle) {
 #' @param path Required. The path of the new file.
 #'
 #' @rdname dbfsCreate
-dbfsCreate <- function(client, path, overwrite = NULL) {
-  body <- list(overwrite = overwrite, path = path)
-  client$do("POST", "/api/2.0/dbfs/create", body = body)
+#' @export
+dbfsCreate <- function(client, path, overwrite=NULL) {
+    body <- list(
+        overwrite = overwrite
+        , path = path)
+    client$do("POST", "/api/2.0/dbfs/create", body = body)
 }
 
 #' Delete a file/directory.
@@ -85,9 +93,12 @@ dbfsCreate <- function(client, path, overwrite = NULL) {
 #' @param recursive Whether or not to recursively delete the directory's contents.
 #'
 #' @rdname dbfsDelete
-dbfsDelete <- function(client, path, recursive = NULL) {
-  body <- list(path = path, recursive = recursive)
-  client$do("POST", "/api/2.0/dbfs/delete", body = body)
+#' @export
+dbfsDelete <- function(client, path, recursive=NULL) {
+    body <- list(
+        path = path
+        , recursive = recursive)
+    client$do("POST", "/api/2.0/dbfs/delete", body = body)
 }
 
 #' Get the information of a file or directory.
@@ -99,9 +110,11 @@ dbfsDelete <- function(client, path, recursive = NULL) {
 #' @param path Required. The path of the file or directory.
 #'
 #' @rdname dbfsGetStatus
+#' @export
 dbfsGetStatus <- function(client, path) {
-  query <- list(path = path)
-  client$do("GET", "/api/2.0/dbfs/get-status", query = query)
+    query <- list(
+        path = path)
+    client$do("GET", "/api/2.0/dbfs/get-status", query = query)
 }
 
 #' List directory contents or file details.
@@ -124,12 +137,14 @@ dbfsGetStatus <- function(client, path) {
 #' @return `data.frame` with all of the response pages.
 #'
 #' @rdname dbfsList
+#' @export
 dbfsList <- function(client, path) {
-  query <- list(path = path)
-
-  json <- client$do("GET", "/api/2.0/dbfs/list", query = query)
-  return(json$files)
-
+    query <- list(
+        path = path)
+    
+    json <- client$do("GET", "/api/2.0/dbfs/list", query = query)
+    return (json$files)
+    
 }
 
 #' Create a directory.
@@ -144,9 +159,11 @@ dbfsList <- function(client, path) {
 #' @param path Required. The path of the new directory.
 #'
 #' @rdname dbfsMkdirs
+#' @export
 dbfsMkdirs <- function(client, path) {
-  body <- list(path = path)
-  client$do("POST", "/api/2.0/dbfs/mkdirs", body = body)
+    body <- list(
+        path = path)
+    client$do("POST", "/api/2.0/dbfs/mkdirs", body = body)
 }
 
 #' Move a file.
@@ -155,16 +172,19 @@ dbfsMkdirs <- function(client, path) {
 #' file does not exist, this call throws an exception with
 #' `RESOURCE_DOES_NOT_EXIST`. If a file already exists in the destination path,
 #' this call throws an exception with `RESOURCE_ALREADY_EXISTS`. If the given
-#' source path is a directory, this call always recursively moves all files.',
+#' source path is a directory, this call always recursively moves all files.",
 #' @param client Required. Instance of DatabricksClient()
 #'
 #' @param destination_path Required. The destination path of the file or directory.
 #' @param source_path Required. The source path of the file or directory.
 #'
 #' @rdname dbfsMove
+#' @export
 dbfsMove <- function(client, source_path, destination_path) {
-  body <- list(destination_path = destination_path, source_path = source_path)
-  client$do("POST", "/api/2.0/dbfs/move", body = body)
+    body <- list(
+        destination_path = destination_path
+        , source_path = source_path)
+    client$do("POST", "/api/2.0/dbfs/move", body = body)
 }
 
 #' Upload a file.
@@ -188,9 +208,13 @@ dbfsMove <- function(client, source_path, destination_path) {
 #' @param path Required. The path of the new file.
 #'
 #' @rdname dbfsPut
-dbfsPut <- function(client, path, contents = NULL, overwrite = NULL) {
-  body <- list(contents = contents, overwrite = overwrite, path = path)
-  client$do("POST", "/api/2.0/dbfs/put", body = body)
+#' @export
+dbfsPut <- function(client, path, contents=NULL, overwrite=NULL) {
+    body <- list(
+        contents = contents
+        , overwrite = overwrite
+        , path = path)
+    client$do("POST", "/api/2.0/dbfs/put", body = body)
 }
 
 #' Get the contents of a file.
@@ -202,7 +226,7 @@ dbfsPut <- function(client, path, contents = NULL, overwrite = NULL) {
 #' this call throws an exception with `MAX_READ_SIZE_EXCEEDED`.
 #' 
 #' If `offset + length` exceeds the number of bytes in a file, it reads the
-#' contents until the end of file.',
+#' contents until the end of file.",
 #' @param client Required. Instance of DatabricksClient()
 #'
 #' @param length The number of bytes to read starting from the offset.
@@ -210,8 +234,12 @@ dbfsPut <- function(client, path, contents = NULL, overwrite = NULL) {
 #' @param path Required. The path of the file to read.
 #'
 #' @rdname dbfsRead
-dbfsRead <- function(client, path, length = NULL, offset = NULL) {
-  query <- list(length = length, offset = offset, path = path)
-  client$do("GET", "/api/2.0/dbfs/read", query = query)
+#' @export
+dbfsRead <- function(client, path, length=NULL, offset=NULL) {
+    query <- list(
+        length = length
+        , offset = offset
+        , path = path)
+    client$do("GET", "/api/2.0/dbfs/read", query = query)
 }
 

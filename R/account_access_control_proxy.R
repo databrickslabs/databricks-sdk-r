@@ -13,10 +13,11 @@ NULL
 #' @param resource Required. The resource name for which assignable roles will be listed.
 #'
 #' @rdname accountAccessControlProxyGetAssignableRolesForResource
+#' @export
 accountAccessControlProxyGetAssignableRolesForResource <- function(client, resource) {
-  query <- list(resource = resource)
-  client$do("GET", "/api/2.0/preview/accounts/access-control/assignable-roles",
-    query = query)
+    query <- list(
+        resource = resource)
+    client$do("GET", "/api/2.0/preview/accounts/access-control/assignable-roles", query = query)
 }
 
 #' Get a rule set.
@@ -30,9 +31,12 @@ accountAccessControlProxyGetAssignableRolesForResource <- function(client, resou
 #' @param name Required. The ruleset name associated with the request.
 #'
 #' @rdname accountAccessControlProxyGetRuleSet
+#' @export
 accountAccessControlProxyGetRuleSet <- function(client, name, etag) {
-  query <- list(etag = etag, name = name)
-  client$do("GET", "/api/2.0/preview/accounts/access-control/rule-sets", query = query)
+    query <- list(
+        etag = etag
+        , name = name)
+    client$do("GET", "/api/2.0/preview/accounts/access-control/rule-sets", query = query)
 }
 
 #' Update a rule set.
@@ -46,8 +50,11 @@ accountAccessControlProxyGetRuleSet <- function(client, name, etag) {
 #' @param rule_set Required. 
 #'
 #' @rdname accountAccessControlProxyUpdateRuleSet
+#' @export
 accountAccessControlProxyUpdateRuleSet <- function(client, name, rule_set) {
-  body <- list(name = name, rule_set = rule_set)
-  client$do("PUT", "/api/2.0/preview/accounts/access-control/rule-sets", body = body)
+    body <- list(
+        name = name
+        , rule_set = rule_set)
+    client$do("PUT", "/api/2.0/preview/accounts/access-control/rule-sets", body = body)
 }
 

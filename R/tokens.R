@@ -15,9 +15,12 @@ NULL
 #' @param lifetime_seconds The lifetime of the token, in seconds.
 #'
 #' @rdname tokensCreate
-tokensCreate <- function(client, comment = NULL, lifetime_seconds = NULL) {
-  body <- list(comment = comment, lifetime_seconds = lifetime_seconds)
-  client$do("POST", "/api/2.0/token/create", body = body)
+#' @export
+tokensCreate <- function(client, comment=NULL, lifetime_seconds=NULL) {
+    body <- list(
+        comment = comment
+        , lifetime_seconds = lifetime_seconds)
+    client$do("POST", "/api/2.0/token/create", body = body)
 }
 
 #' Revoke token.
@@ -31,9 +34,11 @@ tokensCreate <- function(client, comment = NULL, lifetime_seconds = NULL) {
 #' @param token_id Required. The ID of the token to be revoked.
 #'
 #' @rdname tokensDelete
+#' @export
 tokensDelete <- function(client, token_id) {
-  body <- list(token_id = token_id)
-  client$do("POST", "/api/2.0/token/delete", body = body)
+    body <- list(
+        token_id = token_id)
+    client$do("POST", "/api/2.0/token/delete", body = body)
 }
 
 #' List tokens.
@@ -42,10 +47,11 @@ tokensDelete <- function(client, token_id) {
 #' @return `data.frame` with all of the response pages.
 #'
 #' @rdname tokensList
+#' @export
 tokensList <- function(client) {
-
-  json <- client$do("GET", "/api/2.0/token/list")
-  return(json$token_infos)
-
+    
+    json <- client$do("GET", "/api/2.0/token/list")
+    return (json$token_infos)
+    
 }
 

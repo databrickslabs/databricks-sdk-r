@@ -14,9 +14,13 @@ NULL
 #' @param remote_detailed_info Required. Central clean room details.
 #'
 #' @rdname cleanRoomsCreate
-cleanRoomsCreate <- function(client, name, remote_detailed_info, comment = NULL) {
-  body <- list(comment = comment, name = name, remote_detailed_info = remote_detailed_info)
-  client$do("POST", "/api/2.1/unity-catalog/clean-rooms", body = body)
+#' @export
+cleanRoomsCreate <- function(client, name, remote_detailed_info, comment=NULL) {
+    body <- list(
+        comment = comment
+        , name = name
+        , remote_detailed_info = remote_detailed_info)
+    client$do("POST", "/api/2.1/unity-catalog/clean-rooms", body = body)
 }
 
 #' Delete a clean room.
@@ -28,9 +32,10 @@ cleanRoomsCreate <- function(client, name, remote_detailed_info, comment = NULL)
 #' @param name_arg Required. The name of the clean room.
 #'
 #' @rdname cleanRoomsDelete
+#' @export
 cleanRoomsDelete <- function(client, name_arg) {
-
-  client$do("DELETE", paste("/api/2.1/unity-catalog/clean-rooms/", name_arg, sep = ""))
+    
+    client$do("DELETE", paste("/api/2.1/unity-catalog/clean-rooms/", name_arg, sep = ""))
 }
 
 #' Get a clean room.
@@ -43,10 +48,11 @@ cleanRoomsDelete <- function(client, name_arg) {
 #' @param name_arg Required. The name of the clean room.
 #'
 #' @rdname cleanRoomsGet
-cleanRoomsGet <- function(client, name_arg, include_remote_details = NULL) {
-  query <- list(include_remote_details = include_remote_details)
-  client$do("GET", paste("/api/2.1/unity-catalog/clean-rooms/", name_arg, sep = ""),
-    query = query)
+#' @export
+cleanRoomsGet <- function(client, name_arg, include_remote_details=NULL) {
+    query <- list(
+        include_remote_details = include_remote_details)
+    client$do("GET", paste("/api/2.1/unity-catalog/clean-rooms/", name_arg, sep = ""), query = query)
 }
 
 #' List clean rooms.
@@ -57,11 +63,12 @@ cleanRoomsGet <- function(client, name_arg, include_remote_details = NULL) {
 #' @return `data.frame` with all of the response pages.
 #'
 #' @rdname cleanRoomsList
+#' @export
 cleanRoomsList <- function(client) {
-
-  json <- client$do("GET", "/api/2.1/unity-catalog/clean-rooms")
-  return(json$clean_rooms)
-
+    
+    json <- client$do("GET", "/api/2.1/unity-catalog/clean-rooms")
+    return (json$clean_rooms)
+    
 }
 
 #' Update a clean room.
@@ -90,11 +97,13 @@ cleanRoomsList <- function(client) {
 #' @param owner Username of current owner of clean room.
 #'
 #' @rdname cleanRoomsUpdate
-cleanRoomsUpdate <- function(client, name_arg, catalog_updates = NULL, comment = NULL,
-  name = NULL, owner = NULL) {
-  body <- list(catalog_updates = catalog_updates, comment = comment, name = name,
-    owner = owner)
-  client$do("PATCH", paste("/api/2.1/unity-catalog/clean-rooms/", name_arg, sep = ""),
-    body = body)
+#' @export
+cleanRoomsUpdate <- function(client, name_arg, catalog_updates=NULL, comment=NULL, name=NULL, owner=NULL) {
+    body <- list(
+        catalog_updates = catalog_updates
+        , comment = comment
+        , name = name
+        , owner = owner)
+    client$do("PATCH", paste("/api/2.1/unity-catalog/clean-rooms/", name_arg, sep = ""), body = body)
 }
 

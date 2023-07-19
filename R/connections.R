@@ -21,12 +21,17 @@ NULL
 #' @param read_only If the connection is read only.
 #'
 #' @rdname connectionsCreate
-connectionsCreate <- function(client, name, connection_type, options_kvpairs, comment = NULL,
-  owner = NULL, properties_kvpairs = NULL, read_only = NULL) {
-  body <- list(comment = comment, connection_type = connection_type, name = name,
-    options_kvpairs = options_kvpairs, owner = owner, properties_kvpairs = properties_kvpairs,
-    read_only = read_only)
-  client$do("POST", "/api/2.1/unity-catalog/connections", body = body)
+#' @export
+connectionsCreate <- function(client, name, connection_type, options_kvpairs, comment=NULL, owner=NULL, properties_kvpairs=NULL, read_only=NULL) {
+    body <- list(
+        comment = comment
+        , connection_type = connection_type
+        , name = name
+        , options_kvpairs = options_kvpairs
+        , owner = owner
+        , properties_kvpairs = properties_kvpairs
+        , read_only = read_only)
+    client$do("POST", "/api/2.1/unity-catalog/connections", body = body)
 }
 
 #' Delete a connection.
@@ -37,9 +42,10 @@ connectionsCreate <- function(client, name, connection_type, options_kvpairs, co
 #' @param name_arg Required. The name of the connection to be deleted.
 #'
 #' @rdname connectionsDelete
+#' @export
 connectionsDelete <- function(client, name_arg) {
-
-  client$do("DELETE", paste("/api/2.1/unity-catalog/connections/", name_arg, sep = ""))
+    
+    client$do("DELETE", paste("/api/2.1/unity-catalog/connections/", name_arg, sep = ""))
 }
 
 #' Get a connection.
@@ -50,9 +56,10 @@ connectionsDelete <- function(client, name_arg) {
 #' @param name_arg Required. Name of the connection.
 #'
 #' @rdname connectionsGet
+#' @export
 connectionsGet <- function(client, name_arg) {
-
-  client$do("GET", paste("/api/2.1/unity-catalog/connections/", name_arg, sep = ""))
+    
+    client$do("GET", paste("/api/2.1/unity-catalog/connections/", name_arg, sep = ""))
 }
 
 #' List connections.
@@ -61,11 +68,12 @@ connectionsGet <- function(client, name_arg) {
 #' @return `data.frame` with all of the response pages.
 #'
 #' @rdname connectionsList
+#' @export
 connectionsList <- function(client) {
-
-  json <- client$do("GET", "/api/2.1/unity-catalog/connections")
-  return(json$connections)
-
+    
+    json <- client$do("GET", "/api/2.1/unity-catalog/connections")
+    return (json$connections)
+    
 }
 
 #' Update a connection.
@@ -78,9 +86,11 @@ connectionsList <- function(client) {
 #' @param options_kvpairs Required. A map of key-value properties attached to the securable.
 #'
 #' @rdname connectionsUpdate
+#' @export
 connectionsUpdate <- function(client, name, options_kvpairs, name_arg) {
-  body <- list(name = name, options_kvpairs = options_kvpairs)
-  client$do("PATCH", paste("/api/2.1/unity-catalog/connections/", name_arg, sep = ""),
-    body = body)
+    body <- list(
+        name = name
+        , options_kvpairs = options_kvpairs)
+    client$do("PATCH", paste("/api/2.1/unity-catalog/connections/", name_arg, sep = ""), body = body)
 }
 

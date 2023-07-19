@@ -17,11 +17,15 @@ NULL
 #' @param storage_root Storage root URL for managed tables within schema.
 #'
 #' @rdname schemasCreate
-schemasCreate <- function(client, name, catalog_name, comment = NULL, properties = NULL,
-  storage_root = NULL) {
-  body <- list(catalog_name = catalog_name, comment = comment, name = name, properties = properties,
-    storage_root = storage_root)
-  client$do("POST", "/api/2.1/unity-catalog/schemas", body = body)
+#' @export
+schemasCreate <- function(client, name, catalog_name, comment=NULL, properties=NULL, storage_root=NULL) {
+    body <- list(
+        catalog_name = catalog_name
+        , comment = comment
+        , name = name
+        , properties = properties
+        , storage_root = storage_root)
+    client$do("POST", "/api/2.1/unity-catalog/schemas", body = body)
 }
 
 #' Delete a schema.
@@ -33,9 +37,10 @@ schemasCreate <- function(client, name, catalog_name, comment = NULL, properties
 #' @param full_name Required. Full name of the schema.
 #'
 #' @rdname schemasDelete
+#' @export
 schemasDelete <- function(client, full_name) {
-
-  client$do("DELETE", paste("/api/2.1/unity-catalog/schemas/", full_name, sep = ""))
+    
+    client$do("DELETE", paste("/api/2.1/unity-catalog/schemas/", full_name, sep = ""))
 }
 
 #' Get a schema.
@@ -48,9 +53,10 @@ schemasDelete <- function(client, full_name) {
 #' @param full_name Required. Full name of the schema.
 #'
 #' @rdname schemasGet
+#' @export
 schemasGet <- function(client, full_name) {
-
-  client$do("GET", paste("/api/2.1/unity-catalog/schemas/", full_name, sep = ""))
+    
+    client$do("GET", paste("/api/2.1/unity-catalog/schemas/", full_name, sep = ""))
 }
 
 #' List schemas.
@@ -67,12 +73,14 @@ schemasGet <- function(client, full_name) {
 #' @return `data.frame` with all of the response pages.
 #'
 #' @rdname schemasList
+#' @export
 schemasList <- function(client, catalog_name) {
-  query <- list(catalog_name = catalog_name)
-
-  json <- client$do("GET", "/api/2.1/unity-catalog/schemas", query = query)
-  return(json$schemas)
-
+    query <- list(
+        catalog_name = catalog_name)
+    
+    json <- client$do("GET", "/api/2.1/unity-catalog/schemas", query = query)
+    return (json$schemas)
+    
 }
 
 #' Update a schema.
@@ -91,10 +99,13 @@ schemasList <- function(client, catalog_name) {
 #' @param properties A map of key-value properties attached to the securable.
 #'
 #' @rdname schemasUpdate
-schemasUpdate <- function(client, full_name, comment = NULL, name = NULL, owner = NULL,
-  properties = NULL) {
-  body <- list(comment = comment, name = name, owner = owner, properties = properties)
-  client$do("PATCH", paste("/api/2.1/unity-catalog/schemas/", full_name, sep = ""),
-    body = body)
+#' @export
+schemasUpdate <- function(client, full_name, comment=NULL, name=NULL, owner=NULL, properties=NULL) {
+    body <- list(
+        comment = comment
+        , name = name
+        , owner = owner
+        , properties = properties)
+    client$do("PATCH", paste("/api/2.1/unity-catalog/schemas/", full_name, sep = ""), body = body)
 }
 

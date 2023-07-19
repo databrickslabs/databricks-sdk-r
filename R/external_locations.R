@@ -18,11 +18,16 @@ NULL
 #' @param url Required. Path URL of the external location.
 #'
 #' @rdname externalLocationsCreate
-externalLocationsCreate <- function(client, name, url, credential_name, comment = NULL,
-  read_only = NULL, skip_validation = NULL) {
-  body <- list(comment = comment, credential_name = credential_name, name = name,
-    read_only = read_only, skip_validation = skip_validation, url = url)
-  client$do("POST", "/api/2.1/unity-catalog/external-locations", body = body)
+#' @export
+externalLocationsCreate <- function(client, name, url, credential_name, comment=NULL, read_only=NULL, skip_validation=NULL) {
+    body <- list(
+        comment = comment
+        , credential_name = credential_name
+        , name = name
+        , read_only = read_only
+        , skip_validation = skip_validation
+        , url = url)
+    client$do("POST", "/api/2.1/unity-catalog/external-locations", body = body)
 }
 
 #' Delete an external location.
@@ -35,10 +40,11 @@ externalLocationsCreate <- function(client, name, url, credential_name, comment 
 #' @param name Required. Name of the external location.
 #'
 #' @rdname externalLocationsDelete
-externalLocationsDelete <- function(client, name, force = NULL) {
-  query <- list(force = force)
-  client$do("DELETE", paste("/api/2.1/unity-catalog/external-locations/", name,
-    sep = ""), query = query)
+#' @export
+externalLocationsDelete <- function(client, name, force=NULL) {
+    query <- list(
+        force = force)
+    client$do("DELETE", paste("/api/2.1/unity-catalog/external-locations/", name, sep = ""), query = query)
 }
 
 #' Get an external location.
@@ -51,9 +57,10 @@ externalLocationsDelete <- function(client, name, force = NULL) {
 #' @param name Required. Name of the external location.
 #'
 #' @rdname externalLocationsGet
+#' @export
 externalLocationsGet <- function(client, name) {
-
-  client$do("GET", paste("/api/2.1/unity-catalog/external-locations/", name, sep = ""))
+    
+    client$do("GET", paste("/api/2.1/unity-catalog/external-locations/", name, sep = ""))
 }
 
 #' List external locations.
@@ -66,11 +73,12 @@ externalLocationsGet <- function(client, name) {
 #' @return `data.frame` with all of the response pages.
 #'
 #' @rdname externalLocationsList
+#' @export
 externalLocationsList <- function(client) {
-
-  json <- client$do("GET", "/api/2.1/unity-catalog/external-locations")
-  return(json$external_locations)
-
+    
+    json <- client$do("GET", "/api/2.1/unity-catalog/external-locations")
+    return (json$external_locations)
+    
 }
 
 #' Update an external location.
@@ -89,11 +97,16 @@ externalLocationsList <- function(client) {
 #' @param url Path URL of the external location.
 #'
 #' @rdname externalLocationsUpdate
-externalLocationsUpdate <- function(client, name, comment = NULL, credential_name = NULL,
-  force = NULL, owner = NULL, read_only = NULL, url = NULL) {
-  body <- list(comment = comment, credential_name = credential_name, force = force,
-    name = name, owner = owner, read_only = read_only, url = url)
-  client$do("PATCH", paste("/api/2.1/unity-catalog/external-locations/", name,
-    sep = ""), body = body)
+#' @export
+externalLocationsUpdate <- function(client, name, comment=NULL, credential_name=NULL, force=NULL, owner=NULL, read_only=NULL, url=NULL) {
+    body <- list(
+        comment = comment
+        , credential_name = credential_name
+        , force = force
+        , name = name
+        , owner = owner
+        , read_only = read_only
+        , url = url)
+    client$do("PATCH", paste("/api/2.1/unity-catalog/external-locations/", name, sep = ""), body = body)
 }
 

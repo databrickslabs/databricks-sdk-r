@@ -15,10 +15,12 @@ NULL
 #' @param workspace_id Required. A workspace ID.
 #'
 #' @rdname metastoresAssign
+#' @export
 metastoresAssign <- function(client, metastore_id, default_catalog_name, workspace_id) {
-  body <- list(default_catalog_name = default_catalog_name, metastore_id = metastore_id)
-  client$do("PUT", paste("/api/2.1/unity-catalog/workspaces/", workspace_id, "/metastore",
-    , sep = ""), body = body)
+    body <- list(
+        default_catalog_name = default_catalog_name
+        , metastore_id = metastore_id)
+    client$do("PUT", paste("/api/2.1/unity-catalog/workspaces/", workspace_id, "/metastore", , sep = ""), body = body)
 }
 
 #' Create a metastore.
@@ -31,17 +33,22 @@ metastoresAssign <- function(client, metastore_id, default_catalog_name, workspa
 #' @param storage_root Required. The storage root URL for metastore.
 #'
 #' @rdname metastoresCreate
-metastoresCreate <- function(client, name, storage_root, region = NULL) {
-  body <- list(name = name, region = region, storage_root = storage_root)
-  client$do("POST", "/api/2.1/unity-catalog/metastores", body = body)
+#' @export
+metastoresCreate <- function(client, name, storage_root, region=NULL) {
+    body <- list(
+        name = name
+        , region = region
+        , storage_root = storage_root)
+    client$do("POST", "/api/2.1/unity-catalog/metastores", body = body)
 }
 
 #' Get metastore assignment for workspace.
 #' 
 #' Gets the metastore assignment for the workspace being accessed.#'
 #' @rdname metastoresCurrent
+#' @export
 metastoresCurrent <- function(client) {
-  client$do("GET", "/api/2.1/unity-catalog/current-metastore-assignment")
+    client$do("GET", "/api/2.1/unity-catalog/current-metastore-assignment")
 }
 
 #' Delete a metastore.
@@ -53,10 +60,11 @@ metastoresCurrent <- function(client) {
 #' @param id Required. Unique ID of the metastore.
 #'
 #' @rdname metastoresDelete
-metastoresDelete <- function(client, id, force = NULL) {
-  query <- list(force = force)
-  client$do("DELETE", paste("/api/2.1/unity-catalog/metastores/", id, sep = ""),
-    query = query)
+#' @export
+metastoresDelete <- function(client, id, force=NULL) {
+    query <- list(
+        force = force)
+    client$do("DELETE", paste("/api/2.1/unity-catalog/metastores/", id, sep = ""), query = query)
 }
 
 #' Toggle predictive optimization on the metastore.
@@ -68,9 +76,12 @@ metastoresDelete <- function(client, id, force = NULL) {
 #' @param metastore_id Required. Unique identifier of metastore.
 #'
 #' @rdname metastoresEnableOptimization
+#' @export
 metastoresEnableOptimization <- function(client, metastore_id, enable) {
-  body <- list(enable = enable, metastore_id = metastore_id)
-  client$do("PATCH", "/api/2.0/predictive-optimization/service", body = body)
+    body <- list(
+        enable = enable
+        , metastore_id = metastore_id)
+    client$do("PATCH", "/api/2.0/predictive-optimization/service", body = body)
 }
 
 #' Get a metastore.
@@ -82,9 +93,10 @@ metastoresEnableOptimization <- function(client, metastore_id, enable) {
 #' @param id Required. Unique ID of the metastore.
 #'
 #' @rdname metastoresGet
+#' @export
 metastoresGet <- function(client, id) {
-
-  client$do("GET", paste("/api/2.1/unity-catalog/metastores/", id, sep = ""))
+    
+    client$do("GET", paste("/api/2.1/unity-catalog/metastores/", id, sep = ""))
 }
 
 #' List metastores.
@@ -95,11 +107,12 @@ metastoresGet <- function(client, id) {
 #' @return `data.frame` with all of the response pages.
 #'
 #' @rdname metastoresList
+#' @export
 metastoresList <- function(client) {
-
-  json <- client$do("GET", "/api/2.1/unity-catalog/metastores")
-  return(json$metastores)
-
+    
+    json <- client$do("GET", "/api/2.1/unity-catalog/metastores")
+    return (json$metastores)
+    
 }
 
 #' Get a metastore summary.
@@ -107,8 +120,9 @@ metastoresList <- function(client) {
 #' Gets information about a metastore. This summary includes the storage
 #' credential, the cloud vendor, the cloud region, and the global metastore ID.#'
 #' @rdname metastoresSummary
+#' @export
 metastoresSummary <- function(client) {
-  client$do("GET", "/api/2.1/unity-catalog/metastore_summary")
+    client$do("GET", "/api/2.1/unity-catalog/metastore_summary")
 }
 
 #' Delete an assignment.
@@ -120,10 +134,11 @@ metastoresSummary <- function(client) {
 #' @param workspace_id Required. A workspace ID.
 #'
 #' @rdname metastoresUnassign
+#' @export
 metastoresUnassign <- function(client, workspace_id, metastore_id) {
-  query <- list(metastore_id = metastore_id)
-  client$do("DELETE", paste("/api/2.1/unity-catalog/workspaces/", workspace_id,
-    "/metastore", , sep = ""), query = query)
+    query <- list(
+        metastore_id = metastore_id)
+    client$do("DELETE", paste("/api/2.1/unity-catalog/workspaces/", workspace_id, "/metastore", , sep = ""), query = query)
 }
 
 #' Update a metastore.
@@ -142,15 +157,17 @@ metastoresUnassign <- function(client, workspace_id, metastore_id) {
 #' @param storage_root_credential_id UUID of storage credential to access the metastore storage_root.
 #'
 #' @rdname metastoresUpdate
-metastoresUpdate <- function(client, id, delta_sharing_organization_name = NULL,
-  delta_sharing_recipient_token_lifetime_in_seconds = NULL, delta_sharing_scope = NULL,
-  name = NULL, owner = NULL, privilege_model_version = NULL, storage_root_credential_id = NULL) {
-  body <- list(delta_sharing_organization_name = delta_sharing_organization_name,
-    delta_sharing_recipient_token_lifetime_in_seconds = delta_sharing_recipient_token_lifetime_in_seconds,
-    delta_sharing_scope = delta_sharing_scope, name = name, owner = owner, privilege_model_version = privilege_model_version,
-    storage_root_credential_id = storage_root_credential_id)
-  client$do("PATCH", paste("/api/2.1/unity-catalog/metastores/", id, sep = ""),
-    body = body)
+#' @export
+metastoresUpdate <- function(client, id, delta_sharing_organization_name=NULL, delta_sharing_recipient_token_lifetime_in_seconds=NULL, delta_sharing_scope=NULL, name=NULL, owner=NULL, privilege_model_version=NULL, storage_root_credential_id=NULL) {
+    body <- list(
+        delta_sharing_organization_name = delta_sharing_organization_name
+        , delta_sharing_recipient_token_lifetime_in_seconds = delta_sharing_recipient_token_lifetime_in_seconds
+        , delta_sharing_scope = delta_sharing_scope
+        , name = name
+        , owner = owner
+        , privilege_model_version = privilege_model_version
+        , storage_root_credential_id = storage_root_credential_id)
+    client$do("PATCH", paste("/api/2.1/unity-catalog/metastores/", id, sep = ""), body = body)
 }
 
 #' Update an assignment.
@@ -167,10 +184,11 @@ metastoresUpdate <- function(client, id, delta_sharing_organization_name = NULL,
 #' @param workspace_id Required. A workspace ID.
 #'
 #' @rdname metastoresUpdateAssignment
-metastoresUpdateAssignment <- function(client, workspace_id, default_catalog_name = NULL,
-  metastore_id = NULL) {
-  body <- list(default_catalog_name = default_catalog_name, metastore_id = metastore_id)
-  client$do("PATCH", paste("/api/2.1/unity-catalog/workspaces/", workspace_id,
-    "/metastore", , sep = ""), body = body)
+#' @export
+metastoresUpdateAssignment <- function(client, workspace_id, default_catalog_name=NULL, metastore_id=NULL) {
+    body <- list(
+        default_catalog_name = default_catalog_name
+        , metastore_id = metastore_id)
+    client$do("PATCH", paste("/api/2.1/unity-catalog/workspaces/", workspace_id, "/metastore", , sep = ""), body = body)
 }
 

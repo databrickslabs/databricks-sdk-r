@@ -15,9 +15,10 @@ NULL
 #' @param full_name Required. Full name of the table.
 #'
 #' @rdname tablesDelete
+#' @export
 tablesDelete <- function(client, full_name) {
-
-  client$do("DELETE", paste("/api/2.1/unity-catalog/tables/", full_name, sep = ""))
+    
+    client$do("DELETE", paste("/api/2.1/unity-catalog/tables/", full_name, sep = ""))
 }
 
 #' Get a table.
@@ -33,10 +34,11 @@ tablesDelete <- function(client, full_name) {
 #' @param include_delta_metadata Whether delta metadata should be included in the response.
 #'
 #' @rdname tablesGet
-tablesGet <- function(client, full_name, include_delta_metadata = NULL) {
-  query <- list(, include_delta_metadata = include_delta_metadata)
-  client$do("GET", paste("/api/2.1/unity-catalog/tables/", full_name, sep = ""),
-    query = query)
+#' @export
+tablesGet <- function(client, full_name, include_delta_metadata=NULL) {
+    query <- list(
+        , include_delta_metadata = include_delta_metadata)
+    client$do("GET", paste("/api/2.1/unity-catalog/tables/", full_name, sep = ""), query = query)
 }
 
 #' List tables.
@@ -58,26 +60,30 @@ tablesGet <- function(client, full_name, include_delta_metadata = NULL) {
 #' @return `data.frame` with all of the response pages.
 #'
 #' @rdname tablesList
-tablesList <- function(client, catalog_name, schema_name, include_delta_metadata = NULL,
-  max_results = NULL, page_token = NULL) {
-  query <- list(catalog_name = catalog_name, include_delta_metadata = include_delta_metadata,
-    max_results = max_results, page_token = page_token, schema_name = schema_name)
-
-  results <- data.frame()
-  while (TRUE) {
-    json <- client$do("GET", "/api/2.1/unity-catalog/tables", query = query)
-    if (is.null(nrow(json$tables))) {
-      break
+#' @export
+tablesList <- function(client, catalog_name, schema_name, include_delta_metadata=NULL, max_results=NULL, page_token=NULL) {
+    query <- list(
+        catalog_name = catalog_name
+        , include_delta_metadata = include_delta_metadata
+        , max_results = max_results
+        , page_token = page_token
+        , schema_name = schema_name)
+    
+    results <- data.frame()
+    while (TRUE) {
+        json <- client$do("GET", "/api/2.1/unity-catalog/tables", query = query)
+        if (is.null(nrow(json$tables))) {
+            break
+        }
+        # append this page of results to one results data.frame
+        results <- dplyr::bind_rows(results, json$tables)
+        if (is.null(json$next_page_token)) {
+            break
+        }
+        query$page_token <- json$next_page_token
     }
-    # append this page of results to one results data.frame
-    results <- dplyr::bind_rows(results, json$tables)
-    if (is.null(json$next_page_token)) {
-      break
-    }
-    query$page_token <- json$next_page_token
-  }
-  return(results)
-
+    return (results)
+    
 }
 
 #' List table summaries.
@@ -104,26 +110,30 @@ tablesList <- function(client, catalog_name, schema_name, include_delta_metadata
 #' @return `data.frame` with all of the response pages.
 #'
 #' @rdname tablesListSummaries
-tablesListSummaries <- function(client, catalog_name, max_results = NULL, page_token = NULL,
-  schema_name_pattern = NULL, table_name_pattern = NULL) {
-  query <- list(catalog_name = catalog_name, max_results = max_results, page_token = page_token,
-    schema_name_pattern = schema_name_pattern, table_name_pattern = table_name_pattern)
-
-  results <- data.frame()
-  while (TRUE) {
-    json <- client$do("GET", "/api/2.1/unity-catalog/table-summaries", query = query)
-    if (is.null(nrow(json$tables))) {
-      break
+#' @export
+tablesListSummaries <- function(client, catalog_name, max_results=NULL, page_token=NULL, schema_name_pattern=NULL, table_name_pattern=NULL) {
+    query <- list(
+        catalog_name = catalog_name
+        , max_results = max_results
+        , page_token = page_token
+        , schema_name_pattern = schema_name_pattern
+        , table_name_pattern = table_name_pattern)
+    
+    results <- data.frame()
+    while (TRUE) {
+        json <- client$do("GET", "/api/2.1/unity-catalog/table-summaries", query = query)
+        if (is.null(nrow(json$tables))) {
+            break
+        }
+        # append this page of results to one results data.frame
+        results <- dplyr::bind_rows(results, json$tables)
+        if (is.null(json$next_page_token)) {
+            break
+        }
+        query$page_token <- json$next_page_token
     }
-    # append this page of results to one results data.frame
-    results <- dplyr::bind_rows(results, json$tables)
-    if (is.null(json$next_page_token)) {
-      break
-    }
-    query$page_token <- json$next_page_token
-  }
-  return(results)
-
+    return (results)
+    
 }
 
 #' Update a table owner.
@@ -139,9 +149,10 @@ tablesListSummaries <- function(client, catalog_name, max_results = NULL, page_t
 #' @param owner 
 #'
 #' @rdname tablesUpdate
-tablesUpdate <- function(client, full_name, owner = NULL) {
-  body <- list(, owner = owner)
-  client$do("PATCH", paste("/api/2.1/unity-catalog/tables/", full_name, sep = ""),
-    body = body)
+#' @export
+tablesUpdate <- function(client, full_name, owner=NULL) {
+    body <- list(
+        , owner = owner)
+    client$do("PATCH", paste("/api/2.1/unity-catalog/tables/", full_name, sep = ""), body = body)
 }
 

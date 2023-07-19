@@ -18,13 +18,18 @@ NULL
 #' @param roles 
 #'
 #' @rdname servicePrincipalsCreate
-servicePrincipalsCreate <- function(client, active = NULL, application_id = NULL,
-  display_name = NULL, entitlements = NULL, external_id = NULL, groups = NULL,
-  id = NULL, roles = NULL) {
-  body <- list(active = active, applicationId = application_id, displayName = display_name,
-    entitlements = entitlements, externalId = external_id, groups = groups, id = id,
-    roles = roles)
-  client$do("POST", "/api/2.0/preview/scim/v2/ServicePrincipals", body = body)
+#' @export
+servicePrincipalsCreate <- function(client, active=NULL, application_id=NULL, display_name=NULL, entitlements=NULL, external_id=NULL, groups=NULL, id=NULL, roles=NULL) {
+    body <- list(
+        active = active
+        , applicationId = application_id
+        , displayName = display_name
+        , entitlements = entitlements
+        , externalId = external_id
+        , groups = groups
+        , id = id
+        , roles = roles)
+    client$do("POST", "/api/2.0/preview/scim/v2/ServicePrincipals", body = body)
 }
 
 #' Delete a service principal.
@@ -35,10 +40,10 @@ servicePrincipalsCreate <- function(client, active = NULL, application_id = NULL
 #' @param id Required. Unique ID for a service principal in the Databricks workspace.
 #'
 #' @rdname servicePrincipalsDelete
+#' @export
 servicePrincipalsDelete <- function(client, id) {
-
-  client$do("DELETE", paste("/api/2.0/preview/scim/v2/ServicePrincipals/", id,
-    sep = ""))
+    
+    client$do("DELETE", paste("/api/2.0/preview/scim/v2/ServicePrincipals/", id, sep = ""))
 }
 
 #' Get service principal details.
@@ -50,9 +55,10 @@ servicePrincipalsDelete <- function(client, id) {
 #' @param id Required. Unique ID for a service principal in the Databricks workspace.
 #'
 #' @rdname servicePrincipalsGet
+#' @export
 servicePrincipalsGet <- function(client, id) {
-
-  client$do("GET", paste("/api/2.0/preview/scim/v2/ServicePrincipals/", id, sep = ""))
+    
+    client$do("GET", paste("/api/2.0/preview/scim/v2/ServicePrincipals/", id, sep = ""))
 }
 
 #' List service principals.
@@ -71,14 +77,20 @@ servicePrincipalsGet <- function(client, id) {
 #' @return `data.frame` with all of the response pages.
 #'
 #' @rdname servicePrincipalsList
-servicePrincipalsList <- function(client, attributes = NULL, count = NULL, excluded_attributes = NULL,
-  filter = NULL, sort_by = NULL, sort_order = NULL, start_index = NULL) {
-  query <- list(attributes = attributes, count = count, excludedAttributes = excluded_attributes,
-    filter = filter, sortBy = sort_by, sortOrder = sort_order, startIndex = start_index)
-
-  json <- client$do("GET", "/api/2.0/preview/scim/v2/ServicePrincipals", query = query)
-  return(json$Resources)
-
+#' @export
+servicePrincipalsList <- function(client, attributes=NULL, count=NULL, excluded_attributes=NULL, filter=NULL, sort_by=NULL, sort_order=NULL, start_index=NULL) {
+    query <- list(
+        attributes = attributes
+        , count = count
+        , excludedAttributes = excluded_attributes
+        , filter = filter
+        , sortBy = sort_by
+        , sortOrder = sort_order
+        , startIndex = start_index)
+    
+    json <- client$do("GET", "/api/2.0/preview/scim/v2/ServicePrincipals", query = query)
+    return (json$Resources)
+    
 }
 
 #' Update service principal details.
@@ -92,10 +104,12 @@ servicePrincipalsList <- function(client, attributes = NULL, count = NULL, exclu
 #' @param schema The schema of the patch request.
 #'
 #' @rdname servicePrincipalsPatch
-servicePrincipalsPatch <- function(client, id, operations = NULL, schema = NULL) {
-  body <- list(, Operations = operations, schema = schema)
-  client$do("PATCH", paste("/api/2.0/preview/scim/v2/ServicePrincipals/", id, sep = ""),
-    body = body)
+#' @export
+servicePrincipalsPatch <- function(client, id, operations=NULL, schema=NULL) {
+    body <- list(
+        , Operations = operations
+        , schema = schema)
+    client$do("PATCH", paste("/api/2.0/preview/scim/v2/ServicePrincipals/", id, sep = ""), body = body)
 }
 
 #' Replace service principal.
@@ -115,13 +129,17 @@ servicePrincipalsPatch <- function(client, id, operations = NULL, schema = NULL)
 #' @param roles 
 #'
 #' @rdname servicePrincipalsUpdate
-servicePrincipalsUpdate <- function(client, id, active = NULL, application_id = NULL,
-  display_name = NULL, entitlements = NULL, external_id = NULL, groups = NULL,
-  roles = NULL) {
-  body <- list(active = active, applicationId = application_id, displayName = display_name,
-    entitlements = entitlements, externalId = external_id, groups = groups, id = id,
-    roles = roles)
-  client$do("PUT", paste("/api/2.0/preview/scim/v2/ServicePrincipals/", id, sep = ""),
-    body = body)
+#' @export
+servicePrincipalsUpdate <- function(client, id, active=NULL, application_id=NULL, display_name=NULL, entitlements=NULL, external_id=NULL, groups=NULL, roles=NULL) {
+    body <- list(
+        active = active
+        , applicationId = application_id
+        , displayName = display_name
+        , entitlements = entitlements
+        , externalId = external_id
+        , groups = groups
+        , id = id
+        , roles = roles)
+    client$do("PUT", paste("/api/2.0/preview/scim/v2/ServicePrincipals/", id, sep = ""), body = body)
 }
 

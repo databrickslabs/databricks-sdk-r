@@ -21,9 +21,12 @@ NULL
 #' @param full_name_arg Required. The full name of the table referenced by the constraint.
 #'
 #' @rdname tableConstraintsCreate
+#' @export
 tableConstraintsCreate <- function(client, full_name_arg, constraint) {
-  body <- list(constraint = constraint, full_name_arg = full_name_arg)
-  client$do("POST", "/api/2.1/unity-catalog/constraints", body = body)
+    body <- list(
+        constraint = constraint
+        , full_name_arg = full_name_arg)
+    client$do("POST", "/api/2.1/unity-catalog/constraints", body = body)
 }
 
 #' Delete a table constraint.
@@ -44,9 +47,11 @@ tableConstraintsCreate <- function(client, full_name_arg, constraint) {
 #' @param full_name Required. Full name of the table referenced by the constraint.
 #'
 #' @rdname tableConstraintsDelete
+#' @export
 tableConstraintsDelete <- function(client, full_name, constraint_name, cascade) {
-  query <- list(cascade = cascade, constraint_name = constraint_name)
-  client$do("DELETE", paste("/api/2.1/unity-catalog/constraints/", full_name, sep = ""),
-    query = query)
+    query <- list(
+        cascade = cascade
+        , constraint_name = constraint_name)
+    client$do("DELETE", paste("/api/2.1/unity-catalog/constraints/", full_name, sep = ""), query = query)
 }
 

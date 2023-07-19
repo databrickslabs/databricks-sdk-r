@@ -12,10 +12,14 @@ NULL
 #' @param tags 
 #'
 #' @rdname dashboardsCreate
-dashboardsCreate <- function(client, is_favorite = NULL, name = NULL, parent = NULL,
-  tags = NULL) {
-  body <- list(is_favorite = is_favorite, name = name, parent = parent, tags = tags)
-  client$do("POST", "/api/2.0/preview/sql/dashboards", body = body)
+#' @export
+dashboardsCreate <- function(client, is_favorite=NULL, name=NULL, parent=NULL, tags=NULL) {
+    body <- list(
+        is_favorite = is_favorite
+        , name = name
+        , parent = parent
+        , tags = tags)
+    client$do("POST", "/api/2.0/preview/sql/dashboards", body = body)
 }
 
 #' Remove a dashboard.
@@ -27,9 +31,10 @@ dashboardsCreate <- function(client, is_favorite = NULL, name = NULL, parent = N
 #' @param dashboard_id Required. 
 #'
 #' @rdname dashboardsDelete
+#' @export
 dashboardsDelete <- function(client, dashboard_id) {
-
-  client$do("DELETE", paste("/api/2.0/preview/sql/dashboards/", dashboard_id, sep = ""))
+    
+    client$do("DELETE", paste("/api/2.0/preview/sql/dashboards/", dashboard_id, sep = ""))
 }
 
 #' Retrieve a definition.
@@ -41,9 +46,10 @@ dashboardsDelete <- function(client, dashboard_id) {
 #' @param dashboard_id Required. 
 #'
 #' @rdname dashboardsGet
+#' @export
 dashboardsGet <- function(client, dashboard_id) {
-
-  client$do("GET", paste("/api/2.0/preview/sql/dashboards/", dashboard_id, sep = ""))
+    
+    client$do("GET", paste("/api/2.0/preview/sql/dashboards/", dashboard_id, sep = ""))
 }
 
 #' Get dashboard objects.
@@ -59,24 +65,29 @@ dashboardsGet <- function(client, dashboard_id) {
 #' @return `data.frame` with all of the response pages.
 #'
 #' @rdname dashboardsList
-dashboardsList <- function(client, order = NULL, page = NULL, page_size = NULL, q = NULL) {
-  query <- list(order = order, page = page, page_size = page_size, q = q)
-
-  query$page = 1
-  results <- data.frame()
-  while (TRUE) {
-    json <- client$do("GET", "/api/2.0/preview/sql/dashboards", query = query)
-    if (is.null(nrow(json$results))) {
-      break
+#' @export
+dashboardsList <- function(client, order=NULL, page=NULL, page_size=NULL, q=NULL) {
+    query <- list(
+        order = order
+        , page = page
+        , page_size = page_size
+        , q = q)
+    
+    query$page = 1
+    results <- data.frame()
+    while (TRUE) {
+        json <- client$do("GET", "/api/2.0/preview/sql/dashboards", query = query)
+        if (is.null(nrow(json$results))) {
+            break
+        }
+        # append this page of results to one results data.frame
+        results <- dplyr::bind_rows(results, json$results)
+        query$page <- query$page + 1
     }
-    # append this page of results to one results data.frame
-    results <- dplyr::bind_rows(results, json$results)
-    query$page <- query$page + 1
-  }
-  # de-duplicate any records via id column
-  results <- results[!duplicated(results$id), ]
-  return(results)
-
+    # de-duplicate any records via id column
+    results <- results[!duplicated(results$id), ]
+    return (results)
+    
 }
 
 #' Restore a dashboard.
@@ -87,9 +98,9 @@ dashboardsList <- function(client, order = NULL, page = NULL, page_size = NULL, 
 #' @param dashboard_id Required. 
 #'
 #' @rdname dashboardsRestore
+#' @export
 dashboardsRestore <- function(client, dashboard_id) {
-
-  client$do("POST", paste("/api/2.0/preview/sql/dashboards/trash/", dashboard_id,
-    sep = ""))
+    
+    client$do("POST", paste("/api/2.0/preview/sql/dashboards/trash/", dashboard_id, sep = ""))
 }
 
