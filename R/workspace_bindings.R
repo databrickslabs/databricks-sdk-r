@@ -14,8 +14,9 @@ NULL
 #' @rdname workspaceBindingsGet
 #' @export
 workspaceBindingsGet <- function(client, name) {
-    
-    client$do("GET", paste("/api/2.1/unity-catalog/workspace-bindings/catalogs/", name, sep = ""))
+
+  client$do("GET", paste("/api/2.1/unity-catalog/workspace-bindings/catalogs/",
+    name, sep = ""))
 }
 
 #' Update catalog workspace bindings.
@@ -30,10 +31,9 @@ workspaceBindingsGet <- function(client, name) {
 #'
 #' @rdname workspaceBindingsUpdate
 #' @export
-workspaceBindingsUpdate <- function(client, name, assign_workspaces=NULL, unassign_workspaces=NULL) {
-    body <- list(
-        assign_workspaces = assign_workspaces
-        , unassign_workspaces = unassign_workspaces)
-    client$do("PATCH", paste("/api/2.1/unity-catalog/workspace-bindings/catalogs/", name, sep = ""), body = body)
+workspaceBindingsUpdate <- function(client, name, assign_workspaces = NULL, unassign_workspaces = NULL) {
+  body <- list(assign_workspaces = assign_workspaces, unassign_workspaces = unassign_workspaces)
+  client$do("PATCH", paste("/api/2.1/unity-catalog/workspace-bindings/catalogs/",
+    name, sep = ""), body = body)
 }
 

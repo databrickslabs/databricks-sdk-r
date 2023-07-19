@@ -9,7 +9,9 @@ externalLocationsCreate(
   name,
   url,
   credential_name,
+  access_point = NULL,
   comment = NULL,
+  encryption_details = NULL,
   read_only = NULL,
   skip_validation = NULL
 )
@@ -23,7 +25,11 @@ externalLocationsCreate(
 
 \item{credential_name}{Required. Name of the storage credential used with this location.}
 
+\item{access_point}{The AWS access point to use when accesing s3 for this external location.}
+
 \item{comment}{User-provided free-form text description.}
+
+\item{encryption_details}{Encryption options that apply to clients connecting to cloud storage.}
 
 \item{read_only}{Indicates whether the external location is read-only.}
 

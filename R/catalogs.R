@@ -10,6 +10,7 @@ NULL
 #' @param client Required. Instance of DatabricksClient()
 #'
 #' @param comment User-provided free-form text description.
+#' @param connection_name The name of the connection to an external data source.
 #' @param name Required. Name of catalog.
 #' @param properties A map of key-value properties attached to the securable.
 #' @param provider_name The name of delta sharing provider.
@@ -18,15 +19,12 @@ NULL
 #'
 #' @rdname catalogsCreate
 #' @export
-catalogsCreate <- function(client, name, comment=NULL, properties=NULL, provider_name=NULL, share_name=NULL, storage_root=NULL) {
-    body <- list(
-        comment = comment
-        , name = name
-        , properties = properties
-        , provider_name = provider_name
-        , share_name = share_name
-        , storage_root = storage_root)
-    client$do("POST", "/api/2.1/unity-catalog/catalogs", body = body)
+catalogsCreate <- function(client, name, comment = NULL, connection_name = NULL,
+  properties = NULL, provider_name = NULL, share_name = NULL, storage_root = NULL) {
+  body <- list(comment = comment, connection_name = connection_name, name = name,
+    properties = properties, provider_name = provider_name, share_name = share_name,
+    storage_root = storage_root)
+  client$do("POST", "/api/2.1/unity-catalog/catalogs", body = body)
 }
 
 #' Delete a catalog.
@@ -40,10 +38,10 @@ catalogsCreate <- function(client, name, comment=NULL, properties=NULL, provider
 #'
 #' @rdname catalogsDelete
 #' @export
-catalogsDelete <- function(client, name, force=NULL) {
-    query <- list(
-        force = force)
-    client$do("DELETE", paste("/api/2.1/unity-catalog/catalogs/", name, sep = ""), query = query)
+catalogsDelete <- function(client, name, force = NULL) {
+  query <- list(force = force)
+  client$do("DELETE", paste("/api/2.1/unity-catalog/catalogs/", name, sep = ""),
+    query = query)
 }
 
 #' Get a catalog.
@@ -58,8 +56,8 @@ catalogsDelete <- function(client, name, force=NULL) {
 #' @rdname catalogsGet
 #' @export
 catalogsGet <- function(client, name) {
-    
-    client$do("GET", paste("/api/2.1/unity-catalog/catalogs/", name, sep = ""))
+
+  client$do("GET", paste("/api/2.1/unity-catalog/catalogs/", name, sep = ""))
 }
 
 #' List catalogs.
@@ -74,10 +72,10 @@ catalogsGet <- function(client, name) {
 #' @rdname catalogsList
 #' @export
 catalogsList <- function(client) {
-    
-    json <- client$do("GET", "/api/2.1/unity-catalog/catalogs")
-    return (json$catalogs)
-    
+
+  json <- client$do("GET", "/api/2.1/unity-catalog/catalogs")
+  return(json$catalogs)
+
 }
 
 #' Update a catalog.
@@ -95,13 +93,11 @@ catalogsList <- function(client) {
 #'
 #' @rdname catalogsUpdate
 #' @export
-catalogsUpdate <- function(client, name, comment=NULL, isolation_mode=NULL, owner=NULL, properties=NULL) {
-    body <- list(
-        comment = comment
-        , isolation_mode = isolation_mode
-        , name = name
-        , owner = owner
-        , properties = properties)
-    client$do("PATCH", paste("/api/2.1/unity-catalog/catalogs/", name, sep = ""), body = body)
+catalogsUpdate <- function(client, name, comment = NULL, isolation_mode = NULL, owner = NULL,
+  properties = NULL) {
+  body <- list(comment = comment, isolation_mode = isolation_mode, name = name,
+    owner = owner, properties = properties)
+  client$do("PATCH", paste("/api/2.1/unity-catalog/catalogs/", name, sep = ""),
+    body = body)
 }
 

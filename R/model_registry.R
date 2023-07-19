@@ -16,14 +16,11 @@ NULL
 #'
 #' @rdname modelRegistryApproveTransitionRequest
 #' @export
-modelRegistryApproveTransitionRequest <- function(client, name, version, stage, archive_existing_versions, comment=NULL) {
-    body <- list(
-        archive_existing_versions = archive_existing_versions
-        , comment = comment
-        , name = name
-        , stage = stage
-        , version = version)
-    client$do("POST", "/api/2.0/mlflow/transition-requests/approve", body = body)
+modelRegistryApproveTransitionRequest <- function(client, name, version, stage, archive_existing_versions,
+  comment = NULL) {
+  body <- list(archive_existing_versions = archive_existing_versions, comment = comment,
+    name = name, stage = stage, version = version)
+  client$do("POST", "/api/2.0/mlflow/transition-requests/approve", body = body)
 }
 
 #' Post a comment.
@@ -40,11 +37,8 @@ modelRegistryApproveTransitionRequest <- function(client, name, version, stage, 
 #' @rdname modelRegistryCreateComment
 #' @export
 modelRegistryCreateComment <- function(client, name, version, comment) {
-    body <- list(
-        comment = comment
-        , name = name
-        , version = version)
-    client$do("POST", "/api/2.0/mlflow/comments/create", body = body)
+  body <- list(comment = comment, name = name, version = version)
+  client$do("POST", "/api/2.0/mlflow/comments/create", body = body)
 }
 
 #' Create a model.
@@ -61,12 +55,9 @@ modelRegistryCreateComment <- function(client, name, version, comment) {
 #'
 #' @rdname modelRegistryCreateModel
 #' @export
-modelRegistryCreateModel <- function(client, name, description=NULL, tags=NULL) {
-    body <- list(
-        description = description
-        , name = name
-        , tags = tags)
-    client$do("POST", "/api/2.0/mlflow/registered-models/create", body = body)
+modelRegistryCreateModel <- function(client, name, description = NULL, tags = NULL) {
+  body <- list(description = description, name = name, tags = tags)
+  client$do("POST", "/api/2.0/mlflow/registered-models/create", body = body)
 }
 
 #' Create a model version.
@@ -83,15 +74,11 @@ modelRegistryCreateModel <- function(client, name, description=NULL, tags=NULL) 
 #'
 #' @rdname modelRegistryCreateModelVersion
 #' @export
-modelRegistryCreateModelVersion <- function(client, name, source, description=NULL, run_id=NULL, run_link=NULL, tags=NULL) {
-    body <- list(
-        description = description
-        , name = name
-        , run_id = run_id
-        , run_link = run_link
-        , source = source
-        , tags = tags)
-    client$do("POST", "/api/2.0/mlflow/model-versions/create", body = body)
+modelRegistryCreateModelVersion <- function(client, name, source, description = NULL,
+  run_id = NULL, run_link = NULL, tags = NULL) {
+  body <- list(description = description, name = name, run_id = run_id, run_link = run_link,
+    source = source, tags = tags)
+  client$do("POST", "/api/2.0/mlflow/model-versions/create", body = body)
 }
 
 #' Make a transition request.
@@ -106,13 +93,9 @@ modelRegistryCreateModelVersion <- function(client, name, source, description=NU
 #'
 #' @rdname modelRegistryCreateTransitionRequest
 #' @export
-modelRegistryCreateTransitionRequest <- function(client, name, version, stage, comment=NULL) {
-    body <- list(
-        comment = comment
-        , name = name
-        , stage = stage
-        , version = version)
-    client$do("POST", "/api/2.0/mlflow/transition-requests/create", body = body)
+modelRegistryCreateTransitionRequest <- function(client, name, version, stage, comment = NULL) {
+  body <- list(comment = comment, name = name, stage = stage, version = version)
+  client$do("POST", "/api/2.0/mlflow/transition-requests/create", body = body)
 }
 
 #' Create a webhook.
@@ -131,15 +114,11 @@ modelRegistryCreateTransitionRequest <- function(client, name, version, stage, c
 #'
 #' @rdname modelRegistryCreateWebhook
 #' @export
-modelRegistryCreateWebhook <- function(client, events, description=NULL, http_url_spec=NULL, job_spec=NULL, model_name=NULL, status=NULL) {
-    body <- list(
-        description = description
-        , events = events
-        , http_url_spec = http_url_spec
-        , job_spec = job_spec
-        , model_name = model_name
-        , status = status)
-    client$do("POST", "/api/2.0/mlflow/registry-webhooks/create", body = body)
+modelRegistryCreateWebhook <- function(client, events, description = NULL, http_url_spec = NULL,
+  job_spec = NULL, model_name = NULL, status = NULL) {
+  body <- list(description = description, events = events, http_url_spec = http_url_spec,
+    job_spec = job_spec, model_name = model_name, status = status)
+  client$do("POST", "/api/2.0/mlflow/registry-webhooks/create", body = body)
 }
 
 #' Delete a comment.
@@ -152,9 +131,8 @@ modelRegistryCreateWebhook <- function(client, events, description=NULL, http_ur
 #' @rdname modelRegistryDeleteComment
 #' @export
 modelRegistryDeleteComment <- function(client, id) {
-    query <- list(
-        id = id)
-    client$do("DELETE", "/api/2.0/mlflow/comments/delete", query = query)
+  query <- list(id = id)
+  client$do("DELETE", "/api/2.0/mlflow/comments/delete", query = query)
 }
 
 #' Delete a model.
@@ -167,9 +145,8 @@ modelRegistryDeleteComment <- function(client, id) {
 #' @rdname modelRegistryDeleteModel
 #' @export
 modelRegistryDeleteModel <- function(client, name) {
-    query <- list(
-        name = name)
-    client$do("DELETE", "/api/2.0/mlflow/registered-models/delete", query = query)
+  query <- list(name = name)
+  client$do("DELETE", "/api/2.0/mlflow/registered-models/delete", query = query)
 }
 
 #' Delete a model tag.
@@ -183,10 +160,8 @@ modelRegistryDeleteModel <- function(client, name) {
 #' @rdname modelRegistryDeleteModelTag
 #' @export
 modelRegistryDeleteModelTag <- function(client, name, key) {
-    query <- list(
-        key = key
-        , name = name)
-    client$do("DELETE", "/api/2.0/mlflow/registered-models/delete-tag", query = query)
+  query <- list(key = key, name = name)
+  client$do("DELETE", "/api/2.0/mlflow/registered-models/delete-tag", query = query)
 }
 
 #' Delete a model version.
@@ -200,10 +175,8 @@ modelRegistryDeleteModelTag <- function(client, name, key) {
 #' @rdname modelRegistryDeleteModelVersion
 #' @export
 modelRegistryDeleteModelVersion <- function(client, name, version) {
-    query <- list(
-        name = name
-        , version = version)
-    client$do("DELETE", "/api/2.0/mlflow/model-versions/delete", query = query)
+  query <- list(name = name, version = version)
+  client$do("DELETE", "/api/2.0/mlflow/model-versions/delete", query = query)
 }
 
 #' Delete a model version tag.
@@ -218,11 +191,8 @@ modelRegistryDeleteModelVersion <- function(client, name, version) {
 #' @rdname modelRegistryDeleteModelVersionTag
 #' @export
 modelRegistryDeleteModelVersionTag <- function(client, name, version, key) {
-    query <- list(
-        key = key
-        , name = name
-        , version = version)
-    client$do("DELETE", "/api/2.0/mlflow/model-versions/delete-tag", query = query)
+  query <- list(key = key, name = name, version = version)
+  client$do("DELETE", "/api/2.0/mlflow/model-versions/delete-tag", query = query)
 }
 
 #' Delete a transition request.
@@ -238,14 +208,11 @@ modelRegistryDeleteModelVersionTag <- function(client, name, version, key) {
 #'
 #' @rdname modelRegistryDeleteTransitionRequest
 #' @export
-modelRegistryDeleteTransitionRequest <- function(client, name, version, stage, creator, comment=NULL) {
-    query <- list(
-        comment = comment
-        , creator = creator
-        , name = name
-        , stage = stage
-        , version = version)
-    client$do("DELETE", "/api/2.0/mlflow/transition-requests/delete", query = query)
+modelRegistryDeleteTransitionRequest <- function(client, name, version, stage, creator,
+  comment = NULL) {
+  query <- list(comment = comment, creator = creator, name = name, stage = stage,
+    version = version)
+  client$do("DELETE", "/api/2.0/mlflow/transition-requests/delete", query = query)
 }
 
 #' Delete a webhook.
@@ -259,10 +226,9 @@ modelRegistryDeleteTransitionRequest <- function(client, name, version, stage, c
 #'
 #' @rdname modelRegistryDeleteWebhook
 #' @export
-modelRegistryDeleteWebhook <- function(client, id=NULL) {
-    query <- list(
-        id = id)
-    client$do("DELETE", "/api/2.0/mlflow/registry-webhooks/delete", query = query)
+modelRegistryDeleteWebhook <- function(client, id = NULL) {
+  query <- list(id = id)
+  client$do("DELETE", "/api/2.0/mlflow/registry-webhooks/delete", query = query)
 }
 
 #' Get the latest version.
@@ -277,14 +243,13 @@ modelRegistryDeleteWebhook <- function(client, id=NULL) {
 #'
 #' @rdname modelRegistryGetLatestVersions
 #' @export
-modelRegistryGetLatestVersions <- function(client, name, stages=NULL) {
-    body <- list(
-        name = name
-        , stages = stages)
-    
-    json <- client$do("POST", "/api/2.0/mlflow/registered-models/get-latest-versions", body = body)
-    return (json$model_versions)
-    
+modelRegistryGetLatestVersions <- function(client, name, stages = NULL) {
+  body <- list(name = name, stages = stages)
+
+  json <- client$do("POST", "/api/2.0/mlflow/registered-models/get-latest-versions",
+    body = body)
+  return(json$model_versions)
+
 }
 
 #' Get model.
@@ -301,9 +266,8 @@ modelRegistryGetLatestVersions <- function(client, name, stages=NULL) {
 #' @rdname modelRegistryGetModel
 #' @export
 modelRegistryGetModel <- function(client, name) {
-    query <- list(
-        name = name)
-    client$do("GET", "/api/2.0/mlflow/databricks/registered-models/get", query = query)
+  query <- list(name = name)
+  client$do("GET", "/api/2.0/mlflow/databricks/registered-models/get", query = query)
 }
 
 #' Get a model version.
@@ -317,10 +281,8 @@ modelRegistryGetModel <- function(client, name) {
 #' @rdname modelRegistryGetModelVersion
 #' @export
 modelRegistryGetModelVersion <- function(client, name, version) {
-    query <- list(
-        name = name
-        , version = version)
-    client$do("GET", "/api/2.0/mlflow/model-versions/get", query = query)
+  query <- list(name = name, version = version)
+  client$do("GET", "/api/2.0/mlflow/model-versions/get", query = query)
 }
 
 #' Get a model version URI.
@@ -334,10 +296,8 @@ modelRegistryGetModelVersion <- function(client, name, version) {
 #' @rdname modelRegistryGetModelVersionDownloadUri
 #' @export
 modelRegistryGetModelVersionDownloadUri <- function(client, name, version) {
-    query <- list(
-        name = name
-        , version = version)
-    client$do("GET", "/api/2.0/mlflow/model-versions/get-download-uri", query = query)
+  query <- list(name = name, version = version)
+  client$do("GET", "/api/2.0/mlflow/model-versions/get-download-uri", query = query)
 }
 
 #' List models.
@@ -353,26 +313,24 @@ modelRegistryGetModelVersionDownloadUri <- function(client, name, version) {
 #'
 #' @rdname modelRegistryListModels
 #' @export
-modelRegistryListModels <- function(client, max_results=NULL, page_token=NULL) {
-    query <- list(
-        max_results = max_results
-        , page_token = page_token)
-    
-    results <- data.frame()
-    while (TRUE) {
-        json <- client$do("GET", "/api/2.0/mlflow/registered-models/list", query = query)
-        if (is.null(nrow(json$registered_models))) {
-            break
-        }
-        # append this page of results to one results data.frame
-        results <- dplyr::bind_rows(results, json$registered_models)
-        if (is.null(json$next_page_token)) {
-            break
-        }
-        query$page_token <- json$next_page_token
+modelRegistryListModels <- function(client, max_results = NULL, page_token = NULL) {
+  query <- list(max_results = max_results, page_token = page_token)
+
+  results <- data.frame()
+  while (TRUE) {
+    json <- client$do("GET", "/api/2.0/mlflow/registered-models/list", query = query)
+    if (is.null(nrow(json$registered_models))) {
+      break
     }
-    return (results)
-    
+    # append this page of results to one results data.frame
+    results <- dplyr::bind_rows(results, json$registered_models)
+    if (is.null(json$next_page_token)) {
+      break
+    }
+    query$page_token <- json$next_page_token
+  }
+  return(results)
+
 }
 
 #' List transition requests.
@@ -388,13 +346,11 @@ modelRegistryListModels <- function(client, max_results=NULL, page_token=NULL) {
 #' @rdname modelRegistryListTransitionRequests
 #' @export
 modelRegistryListTransitionRequests <- function(client, name, version) {
-    query <- list(
-        name = name
-        , version = version)
-    
-    json <- client$do("GET", "/api/2.0/mlflow/transition-requests/list", query = query)
-    return (json$requests)
-    
+  query <- list(name = name, version = version)
+
+  json <- client$do("GET", "/api/2.0/mlflow/transition-requests/list", query = query)
+  return(json$requests)
+
 }
 
 #' List registry webhooks.
@@ -412,27 +368,24 @@ modelRegistryListTransitionRequests <- function(client, name, version) {
 #'
 #' @rdname modelRegistryListWebhooks
 #' @export
-modelRegistryListWebhooks <- function(client, events=NULL, model_name=NULL, page_token=NULL) {
-    query <- list(
-        events = events
-        , model_name = model_name
-        , page_token = page_token)
-    
-    results <- data.frame()
-    while (TRUE) {
-        json <- client$do("GET", "/api/2.0/mlflow/registry-webhooks/list", query = query)
-        if (is.null(nrow(json$webhooks))) {
-            break
-        }
-        # append this page of results to one results data.frame
-        results <- dplyr::bind_rows(results, json$webhooks)
-        if (is.null(json$next_page_token)) {
-            break
-        }
-        query$page_token <- json$next_page_token
+modelRegistryListWebhooks <- function(client, events = NULL, model_name = NULL, page_token = NULL) {
+  query <- list(events = events, model_name = model_name, page_token = page_token)
+
+  results <- data.frame()
+  while (TRUE) {
+    json <- client$do("GET", "/api/2.0/mlflow/registry-webhooks/list", query = query)
+    if (is.null(nrow(json$webhooks))) {
+      break
     }
-    return (results)
-    
+    # append this page of results to one results data.frame
+    results <- dplyr::bind_rows(results, json$webhooks)
+    if (is.null(json$next_page_token)) {
+      break
+    }
+    query$page_token <- json$next_page_token
+  }
+  return(results)
+
 }
 
 #' Reject a transition request.
@@ -447,13 +400,9 @@ modelRegistryListWebhooks <- function(client, events=NULL, model_name=NULL, page
 #'
 #' @rdname modelRegistryRejectTransitionRequest
 #' @export
-modelRegistryRejectTransitionRequest <- function(client, name, version, stage, comment=NULL) {
-    body <- list(
-        comment = comment
-        , name = name
-        , stage = stage
-        , version = version)
-    client$do("POST", "/api/2.0/mlflow/transition-requests/reject", body = body)
+modelRegistryRejectTransitionRequest <- function(client, name, version, stage, comment = NULL) {
+  body <- list(comment = comment, name = name, stage = stage, version = version)
+  client$do("POST", "/api/2.0/mlflow/transition-requests/reject", body = body)
 }
 
 #' Rename a model.
@@ -466,11 +415,9 @@ modelRegistryRejectTransitionRequest <- function(client, name, version, stage, c
 #'
 #' @rdname modelRegistryRenameModel
 #' @export
-modelRegistryRenameModel <- function(client, name, new_name=NULL) {
-    body <- list(
-        name = name
-        , new_name = new_name)
-    client$do("POST", "/api/2.0/mlflow/registered-models/rename", body = body)
+modelRegistryRenameModel <- function(client, name, new_name = NULL) {
+  body <- list(name = name, new_name = new_name)
+  client$do("POST", "/api/2.0/mlflow/registered-models/rename", body = body)
 }
 
 #' Searches model versions.
@@ -478,37 +425,35 @@ modelRegistryRenameModel <- function(client, name, new_name=NULL) {
 #' Searches for specific model versions based on the supplied __filter__.
 #' @param client Required. Instance of DatabricksClient()
 #'
-#' @param filter String filter condition, like "name='my-model-name'".
+#' @param filter String filter condition, like 'name='my-model-name''.
 #' @param max_results Maximum number of models desired.
-#' @param order_by List of columns to be ordered by including model name, version, stage with an optional "DESC" or "ASC" annotation, where "ASC" is the default.
+#' @param order_by List of columns to be ordered by including model name, version, stage with an optional 'DESC' or 'ASC' annotation, where 'ASC' is the default.
 #' @param page_token Pagination token to go to next page based on previous search query.
 #'
 #' @return `data.frame` with all of the response pages.
 #'
 #' @rdname modelRegistrySearchModelVersions
 #' @export
-modelRegistrySearchModelVersions <- function(client, filter=NULL, max_results=NULL, order_by=NULL, page_token=NULL) {
-    query <- list(
-        filter = filter
-        , max_results = max_results
-        , order_by = order_by
-        , page_token = page_token)
-    
-    results <- data.frame()
-    while (TRUE) {
-        json <- client$do("GET", "/api/2.0/mlflow/model-versions/search", query = query)
-        if (is.null(nrow(json$model_versions))) {
-            break
-        }
-        # append this page of results to one results data.frame
-        results <- dplyr::bind_rows(results, json$model_versions)
-        if (is.null(json$next_page_token)) {
-            break
-        }
-        query$page_token <- json$next_page_token
+modelRegistrySearchModelVersions <- function(client, filter = NULL, max_results = NULL,
+  order_by = NULL, page_token = NULL) {
+  query <- list(filter = filter, max_results = max_results, order_by = order_by,
+    page_token = page_token)
+
+  results <- data.frame()
+  while (TRUE) {
+    json <- client$do("GET", "/api/2.0/mlflow/model-versions/search", query = query)
+    if (is.null(nrow(json$model_versions))) {
+      break
     }
-    return (results)
-    
+    # append this page of results to one results data.frame
+    results <- dplyr::bind_rows(results, json$model_versions)
+    if (is.null(json$next_page_token)) {
+      break
+    }
+    query$page_token <- json$next_page_token
+  }
+  return(results)
+
 }
 
 #' Search models.
@@ -516,37 +461,35 @@ modelRegistrySearchModelVersions <- function(client, filter=NULL, max_results=NU
 #' Search for registered models based on the specified __filter__.
 #' @param client Required. Instance of DatabricksClient()
 #'
-#' @param filter String filter condition, like "name LIKE 'my-model-name'".
+#' @param filter String filter condition, like 'name LIKE 'my-model-name''.
 #' @param max_results Maximum number of models desired.
-#' @param order_by List of columns for ordering search results, which can include model name and last updated timestamp with an optional "DESC" or "ASC" annotation, where "ASC" is the default.
+#' @param order_by List of columns for ordering search results, which can include model name and last updated timestamp with an optional 'DESC' or 'ASC' annotation, where 'ASC' is the default.
 #' @param page_token Pagination token to go to the next page based on a previous search query.
 #'
 #' @return `data.frame` with all of the response pages.
 #'
 #' @rdname modelRegistrySearchModels
 #' @export
-modelRegistrySearchModels <- function(client, filter=NULL, max_results=NULL, order_by=NULL, page_token=NULL) {
-    query <- list(
-        filter = filter
-        , max_results = max_results
-        , order_by = order_by
-        , page_token = page_token)
-    
-    results <- data.frame()
-    while (TRUE) {
-        json <- client$do("GET", "/api/2.0/mlflow/registered-models/search", query = query)
-        if (is.null(nrow(json$registered_models))) {
-            break
-        }
-        # append this page of results to one results data.frame
-        results <- dplyr::bind_rows(results, json$registered_models)
-        if (is.null(json$next_page_token)) {
-            break
-        }
-        query$page_token <- json$next_page_token
+modelRegistrySearchModels <- function(client, filter = NULL, max_results = NULL,
+  order_by = NULL, page_token = NULL) {
+  query <- list(filter = filter, max_results = max_results, order_by = order_by,
+    page_token = page_token)
+
+  results <- data.frame()
+  while (TRUE) {
+    json <- client$do("GET", "/api/2.0/mlflow/registered-models/search", query = query)
+    if (is.null(nrow(json$registered_models))) {
+      break
     }
-    return (results)
-    
+    # append this page of results to one results data.frame
+    results <- dplyr::bind_rows(results, json$registered_models)
+    if (is.null(json$next_page_token)) {
+      break
+    }
+    query$page_token <- json$next_page_token
+  }
+  return(results)
+
 }
 
 #' Set a tag.
@@ -561,11 +504,8 @@ modelRegistrySearchModels <- function(client, filter=NULL, max_results=NULL, ord
 #' @rdname modelRegistrySetModelTag
 #' @export
 modelRegistrySetModelTag <- function(client, name, key, value) {
-    body <- list(
-        key = key
-        , name = name
-        , value = value)
-    client$do("POST", "/api/2.0/mlflow/registered-models/set-tag", body = body)
+  body <- list(key = key, name = name, value = value)
+  client$do("POST", "/api/2.0/mlflow/registered-models/set-tag", body = body)
 }
 
 #' Set a version tag.
@@ -581,12 +521,8 @@ modelRegistrySetModelTag <- function(client, name, key, value) {
 #' @rdname modelRegistrySetModelVersionTag
 #' @export
 modelRegistrySetModelVersionTag <- function(client, name, version, key, value) {
-    body <- list(
-        key = key
-        , name = name
-        , value = value
-        , version = version)
-    client$do("POST", "/api/2.0/mlflow/model-versions/set-tag", body = body)
+  body <- list(key = key, name = name, value = value, version = version)
+  client$do("POST", "/api/2.0/mlflow/model-versions/set-tag", body = body)
 }
 
 #' Test a webhook.
@@ -601,18 +537,16 @@ modelRegistrySetModelVersionTag <- function(client, name, version, key, value) {
 #'
 #' @rdname modelRegistryTestRegistryWebhook
 #' @export
-modelRegistryTestRegistryWebhook <- function(client, id, event=NULL) {
-    body <- list(
-        event = event
-        , id = id)
-    client$do("POST", "/api/2.0/mlflow/registry-webhooks/test", body = body)
+modelRegistryTestRegistryWebhook <- function(client, id, event = NULL) {
+  body <- list(event = event, id = id)
+  client$do("POST", "/api/2.0/mlflow/registry-webhooks/test", body = body)
 }
 
 #' Transition a stage.
 #' 
 #' Transition a model version's stage. This is a Databricks workspace version of
 #' the [MLflow endpoint] that also accepts a comment associated with the
-#' transition to be recorded.",
+#' transition to be recorded.',
 #' 
 #' [MLflow endpoint]: https://www.mlflow.org/docs/latest/rest-api.html#transition-modelversion-stage
 #' @param client Required. Instance of DatabricksClient()
@@ -625,14 +559,12 @@ modelRegistryTestRegistryWebhook <- function(client, id, event=NULL) {
 #'
 #' @rdname modelRegistryTransitionStage
 #' @export
-modelRegistryTransitionStage <- function(client, name, version, stage, archive_existing_versions, comment=NULL) {
-    body <- list(
-        archive_existing_versions = archive_existing_versions
-        , comment = comment
-        , name = name
-        , stage = stage
-        , version = version)
-    client$do("POST", "/api/2.0/mlflow/databricks/model-versions/transition-stage", body = body)
+modelRegistryTransitionStage <- function(client, name, version, stage, archive_existing_versions,
+  comment = NULL) {
+  body <- list(archive_existing_versions = archive_existing_versions, comment = comment,
+    name = name, stage = stage, version = version)
+  client$do("POST", "/api/2.0/mlflow/databricks/model-versions/transition-stage",
+    body = body)
 }
 
 #' Update a comment.
@@ -646,10 +578,8 @@ modelRegistryTransitionStage <- function(client, name, version, stage, archive_e
 #' @rdname modelRegistryUpdateComment
 #' @export
 modelRegistryUpdateComment <- function(client, id, comment) {
-    body <- list(
-        comment = comment
-        , id = id)
-    client$do("PATCH", "/api/2.0/mlflow/comments/update", body = body)
+  body <- list(comment = comment, id = id)
+  client$do("PATCH", "/api/2.0/mlflow/comments/update", body = body)
 }
 
 #' Update model.
@@ -662,11 +592,9 @@ modelRegistryUpdateComment <- function(client, id, comment) {
 #'
 #' @rdname modelRegistryUpdateModel
 #' @export
-modelRegistryUpdateModel <- function(client, name, description=NULL) {
-    body <- list(
-        description = description
-        , name = name)
-    client$do("PATCH", "/api/2.0/mlflow/registered-models/update", body = body)
+modelRegistryUpdateModel <- function(client, name, description = NULL) {
+  body <- list(description = description, name = name)
+  client$do("PATCH", "/api/2.0/mlflow/registered-models/update", body = body)
 }
 
 #' Update model version.
@@ -680,12 +608,9 @@ modelRegistryUpdateModel <- function(client, name, description=NULL) {
 #'
 #' @rdname modelRegistryUpdateModelVersion
 #' @export
-modelRegistryUpdateModelVersion <- function(client, name, version, description=NULL) {
-    body <- list(
-        description = description
-        , name = name
-        , version = version)
-    client$do("PATCH", "/api/2.0/mlflow/model-versions/update", body = body)
+modelRegistryUpdateModelVersion <- function(client, name, version, description = NULL) {
+  body <- list(description = description, name = name, version = version)
+  client$do("PATCH", "/api/2.0/mlflow/model-versions/update", body = body)
 }
 
 #' Update a webhook.
@@ -704,14 +629,10 @@ modelRegistryUpdateModelVersion <- function(client, name, version, description=N
 #'
 #' @rdname modelRegistryUpdateWebhook
 #' @export
-modelRegistryUpdateWebhook <- function(client, id, description=NULL, events=NULL, http_url_spec=NULL, job_spec=NULL, status=NULL) {
-    body <- list(
-        description = description
-        , events = events
-        , http_url_spec = http_url_spec
-        , id = id
-        , job_spec = job_spec
-        , status = status)
-    client$do("PATCH", "/api/2.0/mlflow/registry-webhooks/update", body = body)
+modelRegistryUpdateWebhook <- function(client, id, description = NULL, events = NULL,
+  http_url_spec = NULL, job_spec = NULL, status = NULL) {
+  body <- list(description = description, events = events, http_url_spec = http_url_spec,
+    id = id, job_spec = job_spec, status = status)
+  client$do("PATCH", "/api/2.0/mlflow/registry-webhooks/update", body = body)
 }
 

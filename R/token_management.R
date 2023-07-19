@@ -14,12 +14,10 @@ NULL
 #'
 #' @rdname tokenManagementCreateOboToken
 #' @export
-tokenManagementCreateOboToken <- function(client, application_id, lifetime_seconds, comment=NULL) {
-    body <- list(
-        application_id = application_id
-        , comment = comment
-        , lifetime_seconds = lifetime_seconds)
-    client$do("POST", "/api/2.0/token-management/on-behalf-of/tokens", body = body)
+tokenManagementCreateOboToken <- function(client, application_id, lifetime_seconds,
+  comment = NULL) {
+  body <- list(application_id = application_id, comment = comment, lifetime_seconds = lifetime_seconds)
+  client$do("POST", "/api/2.0/token-management/on-behalf-of/tokens", body = body)
 }
 
 #' Delete a token.
@@ -32,8 +30,8 @@ tokenManagementCreateOboToken <- function(client, application_id, lifetime_secon
 #' @rdname tokenManagementDelete
 #' @export
 tokenManagementDelete <- function(client, token_id) {
-    
-    client$do("DELETE", paste("/api/2.0/token-management/tokens/", token_id, sep = ""))
+
+  client$do("DELETE", paste("/api/2.0/token-management/tokens/", token_id, sep = ""))
 }
 
 #' Get token info.
@@ -46,8 +44,8 @@ tokenManagementDelete <- function(client, token_id) {
 #' @rdname tokenManagementGet
 #' @export
 tokenManagementGet <- function(client, token_id) {
-    
-    client$do("GET", paste("/api/2.0/token-management/tokens/", token_id, sep = ""))
+
+  client$do("GET", paste("/api/2.0/token-management/tokens/", token_id, sep = ""))
 }
 
 #' List all tokens.
@@ -62,13 +60,11 @@ tokenManagementGet <- function(client, token_id) {
 #'
 #' @rdname tokenManagementList
 #' @export
-tokenManagementList <- function(client, created_by_id=NULL, created_by_username=NULL) {
-    query <- list(
-        created_by_id = created_by_id
-        , created_by_username = created_by_username)
-    
-    json <- client$do("GET", "/api/2.0/token-management/tokens", query = query)
-    return (json$token_infos)
-    
+tokenManagementList <- function(client, created_by_id = NULL, created_by_username = NULL) {
+  query <- list(created_by_id = created_by_id, created_by_username = created_by_username)
+
+  json <- client$do("GET", "/api/2.0/token-management/tokens", query = query)
+  return(json$token_infos)
+
 }
 

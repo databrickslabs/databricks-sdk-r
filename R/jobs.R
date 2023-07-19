@@ -14,9 +14,8 @@ NULL
 #' @rdname jobsCancelAllRuns
 #' @export
 jobsCancelAllRuns <- function(client, job_id) {
-    body <- list(
-        job_id = job_id)
-    client$do("POST", "/api/2.1/jobs/runs/cancel-all", body = body)
+  body <- list(job_id = job_id)
+  client$do("POST", "/api/2.1/jobs/runs/cancel-all", body = body)
 }
 
 #' Cancel a job run.
@@ -35,47 +34,47 @@ jobsCancelAllRuns <- function(client, job_id) {
 #'
 #' @rdname jobsCancelRun
 #' @export
-jobsCancelRun <- function(client, run_id, timeout=20, callback=cli_reporter) {
-    body <- list(
-        run_id = run_id)
-    client$do("POST", "/api/2.1/jobs/runs/cancel", body = body)
-    started <- as.numeric(Sys.time())
-    target_states <- c("TERMINATED", "SKIPPED", c())
-    failure_states <- c("INTERNAL_ERROR", c())
-    status_message <- 'polling...'
-    attempt <- 1
-    while ((started + (timeout*60)) > as.numeric(Sys.time())) {
-        poll <- jobsGetRun(client, run_id = run_id)
-        status <- poll$state$life_cycle_state
-        status_message <- paste("current status:", status)
-        if (!is.null(poll$state)) {
-            status_message <- poll$state$state_message
-        }
-        if (status %in% target_states) {
-            if (!is.null(callback)) {
-                callback(paste0(status, ": ", status_message), done=TRUE)
-            }
-            return (poll)
-        }
-        if (status %in% failure_states) {
-            msg <- paste("failed to reach TERMINATED or SKIPPED, got ", status, "-", status_message)
-            rlang::abort(msg, call = rlang::caller_env())
-        }
-        prefix <- paste0("databricks::jobsGetRun(run_id=", run_id, ")")
-        sleep <- attempt
-        if (sleep > 10) {
-            # sleep 10s max per attempt
-            sleep <- 10
-        }
-        if (!is.null(callback)) {
-            callback(paste0(status, ": ", status_message), done=FALSE)
-        }
-        random_pause <- runif(1, min = 0.1, max = 0.5)
-        Sys.sleep(sleep + random_pause)
-        attempt <- attempt + 1
+jobsCancelRun <- function(client, run_id, timeout = 20, callback = cli_reporter) {
+  body <- list(run_id = run_id)
+  client$do("POST", "/api/2.1/jobs/runs/cancel", body = body)
+  started <- as.numeric(Sys.time())
+  target_states <- c("TERMINATED", "SKIPPED", c())
+  failure_states <- c("INTERNAL_ERROR", c())
+  status_message <- "polling..."
+  attempt <- 1
+  while ((started + (timeout * 60)) > as.numeric(Sys.time())) {
+    poll <- jobsGetRun(client, run_id = run_id)
+    status <- poll$state$life_cycle_state
+    status_message <- paste("current status:", status)
+    if (!is.null(poll$state)) {
+      status_message <- poll$state$state_message
     }
-    msg <- paste("timed out after", timeout, "minutes:", status_message)
-    rlang::abort(msg, call = rlang::caller_env())
+    if (status %in% target_states) {
+      if (!is.null(callback)) {
+        callback(paste0(status, ": ", status_message), done = TRUE)
+      }
+      return(poll)
+    }
+    if (status %in% failure_states) {
+      msg <- paste("failed to reach TERMINATED or SKIPPED, got ", status, "-",
+        status_message)
+      rlang::abort(msg, call = rlang::caller_env())
+    }
+    prefix <- paste0("databricks::jobsGetRun(run_id=", run_id, ")")
+    sleep <- attempt
+    if (sleep > 10) {
+      # sleep 10s max per attempt
+      sleep <- 10
+    }
+    if (!is.null(callback)) {
+      callback(paste0(status, ": ", status_message), done = FALSE)
+    }
+    random_pause <- runif(1, min = 0.1, max = 0.5)
+    Sys.sleep(sleep + random_pause)
+    attempt <- attempt + 1
+  }
+  msg <- paste("timed out after", timeout, "minutes:", status_message)
+  rlang::abort(msg, call = rlang::caller_env())
 }
 
 #' Create a new job.
@@ -105,28 +104,18 @@ jobsCancelRun <- function(client, run_id, timeout=20, callback=cli_reporter) {
 #'
 #' @rdname jobsCreate
 #' @export
-jobsCreate <- function(client, access_control_list=NULL, compute=NULL, continuous=NULL, email_notifications=NULL, format=NULL, git_source=NULL, health=NULL, job_clusters=NULL, max_concurrent_runs=NULL, name=NULL, notification_settings=NULL, parameters=NULL, run_as=NULL, schedule=NULL, tags=NULL, tasks=NULL, timeout_seconds=NULL, trigger=NULL, webhook_notifications=NULL) {
-    body <- list(
-        access_control_list = access_control_list
-        , compute = compute
-        , continuous = continuous
-        , email_notifications = email_notifications
-        , format = format
-        , git_source = git_source
-        , health = health
-        , job_clusters = job_clusters
-        , max_concurrent_runs = max_concurrent_runs
-        , name = name
-        , notification_settings = notification_settings
-        , parameters = parameters
-        , run_as = run_as
-        , schedule = schedule
-        , tags = tags
-        , tasks = tasks
-        , timeout_seconds = timeout_seconds
-        , trigger = trigger
-        , webhook_notifications = webhook_notifications)
-    client$do("POST", "/api/2.1/jobs/create", body = body)
+jobsCreate <- function(client, access_control_list = NULL, compute = NULL, continuous = NULL,
+  email_notifications = NULL, format = NULL, git_source = NULL, health = NULL,
+  job_clusters = NULL, max_concurrent_runs = NULL, name = NULL, notification_settings = NULL,
+  parameters = NULL, run_as = NULL, schedule = NULL, tags = NULL, tasks = NULL,
+  timeout_seconds = NULL, trigger = NULL, webhook_notifications = NULL) {
+  body <- list(access_control_list = access_control_list, compute = compute, continuous = continuous,
+    email_notifications = email_notifications, format = format, git_source = git_source,
+    health = health, job_clusters = job_clusters, max_concurrent_runs = max_concurrent_runs,
+    name = name, notification_settings = notification_settings, parameters = parameters,
+    run_as = run_as, schedule = schedule, tags = tags, tasks = tasks, timeout_seconds = timeout_seconds,
+    trigger = trigger, webhook_notifications = webhook_notifications)
+  client$do("POST", "/api/2.1/jobs/create", body = body)
 }
 
 #' Delete a job.
@@ -139,9 +128,8 @@ jobsCreate <- function(client, access_control_list=NULL, compute=NULL, continuou
 #' @rdname jobsDelete
 #' @export
 jobsDelete <- function(client, job_id) {
-    body <- list(
-        job_id = job_id)
-    client$do("POST", "/api/2.1/jobs/delete", body = body)
+  body <- list(job_id = job_id)
+  client$do("POST", "/api/2.1/jobs/delete", body = body)
 }
 
 #' Delete a job run.
@@ -154,9 +142,8 @@ jobsDelete <- function(client, job_id) {
 #' @rdname jobsDeleteRun
 #' @export
 jobsDeleteRun <- function(client, run_id) {
-    body <- list(
-        run_id = run_id)
-    client$do("POST", "/api/2.1/jobs/runs/delete", body = body)
+  body <- list(run_id = run_id)
+  client$do("POST", "/api/2.1/jobs/runs/delete", body = body)
 }
 
 #' Export and retrieve a job run.
@@ -169,11 +156,9 @@ jobsDeleteRun <- function(client, run_id) {
 #'
 #' @rdname jobsExportRun
 #' @export
-jobsExportRun <- function(client, run_id, views_to_export=NULL) {
-    query <- list(
-        run_id = run_id
-        , views_to_export = views_to_export)
-    client$do("GET", "/api/2.1/jobs/runs/export", query = query)
+jobsExportRun <- function(client, run_id, views_to_export = NULL) {
+  query <- list(run_id = run_id, views_to_export = views_to_export)
+  client$do("GET", "/api/2.1/jobs/runs/export", query = query)
 }
 
 #' Get a single job.
@@ -186,9 +171,8 @@ jobsExportRun <- function(client, run_id, views_to_export=NULL) {
 #' @rdname jobsGet
 #' @export
 jobsGet <- function(client, job_id) {
-    query <- list(
-        job_id = job_id)
-    client$do("GET", "/api/2.1/jobs/get", query = query)
+  query <- list(job_id = job_id)
+  client$do("GET", "/api/2.1/jobs/get", query = query)
 }
 
 #' Get a single job run.
@@ -207,48 +191,47 @@ jobsGet <- function(client, job_id) {
 #'
 #' @rdname jobsGetRun
 #' @export
-jobsGetRun <- function(client, run_id, include_history=NULL, timeout=20, callback=cli_reporter) {
-    query <- list(
-        include_history = include_history
-        , run_id = run_id)
-    op_response <- client$do("GET", "/api/2.1/jobs/runs/get", query = query)
-    started <- as.numeric(Sys.time())
-    target_states <- c("TERMINATED", "SKIPPED", c())
-    failure_states <- c("INTERNAL_ERROR", c())
-    status_message <- 'polling...'
-    attempt <- 1
-    while ((started + (timeout*60)) > as.numeric(Sys.time())) {
-        poll <- jobsGetRun(client, run_id = op_response$run_id)
-        status <- poll$state$life_cycle_state
-        status_message <- paste("current status:", status)
-        if (!is.null(poll$state)) {
-            status_message <- poll$state$state_message
-        }
-        if (status %in% target_states) {
-            if (!is.null(callback)) {
-                callback(paste0(status, ": ", status_message), done=TRUE)
-            }
-            return (poll)
-        }
-        if (status %in% failure_states) {
-            msg <- paste("failed to reach TERMINATED or SKIPPED, got ", status, "-", status_message)
-            rlang::abort(msg, call = rlang::caller_env())
-        }
-        prefix <- paste0("databricks::jobsGetRun(run_id=", op_response$run_id, ")")
-        sleep <- attempt
-        if (sleep > 10) {
-            # sleep 10s max per attempt
-            sleep <- 10
-        }
-        if (!is.null(callback)) {
-            callback(paste0(status, ": ", status_message), done=FALSE)
-        }
-        random_pause <- runif(1, min = 0.1, max = 0.5)
-        Sys.sleep(sleep + random_pause)
-        attempt <- attempt + 1
+jobsGetRun <- function(client, run_id, include_history = NULL, timeout = 20, callback = cli_reporter) {
+  query <- list(include_history = include_history, run_id = run_id)
+  op_response <- client$do("GET", "/api/2.1/jobs/runs/get", query = query)
+  started <- as.numeric(Sys.time())
+  target_states <- c("TERMINATED", "SKIPPED", c())
+  failure_states <- c("INTERNAL_ERROR", c())
+  status_message <- "polling..."
+  attempt <- 1
+  while ((started + (timeout * 60)) > as.numeric(Sys.time())) {
+    poll <- jobsGetRun(client, run_id = op_response$run_id)
+    status <- poll$state$life_cycle_state
+    status_message <- paste("current status:", status)
+    if (!is.null(poll$state)) {
+      status_message <- poll$state$state_message
     }
-    msg <- paste("timed out after", timeout, "minutes:", status_message)
-    rlang::abort(msg, call = rlang::caller_env())
+    if (status %in% target_states) {
+      if (!is.null(callback)) {
+        callback(paste0(status, ": ", status_message), done = TRUE)
+      }
+      return(poll)
+    }
+    if (status %in% failure_states) {
+      msg <- paste("failed to reach TERMINATED or SKIPPED, got ", status, "-",
+        status_message)
+      rlang::abort(msg, call = rlang::caller_env())
+    }
+    prefix <- paste0("databricks::jobsGetRun(run_id=", op_response$run_id, ")")
+    sleep <- attempt
+    if (sleep > 10) {
+      # sleep 10s max per attempt
+      sleep <- 10
+    }
+    if (!is.null(callback)) {
+      callback(paste0(status, ": ", status_message), done = FALSE)
+    }
+    random_pause <- runif(1, min = 0.1, max = 0.5)
+    Sys.sleep(sleep + random_pause)
+    attempt <- attempt + 1
+  }
+  msg <- paste("timed out after", timeout, "minutes:", status_message)
+  rlang::abort(msg, call = rlang::caller_env())
 }
 
 #' Get the output for a single run.
@@ -270,9 +253,8 @@ jobsGetRun <- function(client, run_id, include_history=NULL, timeout=20, callbac
 #' @rdname jobsGetRunOutput
 #' @export
 jobsGetRunOutput <- function(client, run_id) {
-    query <- list(
-        run_id = run_id)
-    client$do("GET", "/api/2.1/jobs/runs/get-output", query = query)
+  query <- list(run_id = run_id)
+  client$do("GET", "/api/2.1/jobs/runs/get-output", query = query)
 }
 
 #' List jobs.
@@ -290,29 +272,26 @@ jobsGetRunOutput <- function(client, run_id) {
 #'
 #' @rdname jobsList
 #' @export
-jobsList <- function(client, expand_tasks=NULL, limit=NULL, name=NULL, offset=NULL, page_token=NULL) {
-    query <- list(
-        expand_tasks = expand_tasks
-        , limit = limit
-        , name = name
-        , offset = offset
-        , page_token = page_token)
-    
-    results <- data.frame()
-    while (TRUE) {
-        json <- client$do("GET", "/api/2.1/jobs/list", query = query)
-        if (is.null(nrow(json$jobs))) {
-            break
-        }
-        # append this page of results to one results data.frame
-        results <- dplyr::bind_rows(results, json$jobs)
-        if (is.null(json$next_page_token)) {
-            break
-        }
-        query$page_token <- json$next_page_token
+jobsList <- function(client, expand_tasks = NULL, limit = NULL, name = NULL, offset = NULL,
+  page_token = NULL) {
+  query <- list(expand_tasks = expand_tasks, limit = limit, name = name, offset = offset,
+    page_token = page_token)
+
+  results <- data.frame()
+  while (TRUE) {
+    json <- client$do("GET", "/api/2.1/jobs/list", query = query)
+    if (is.null(nrow(json$jobs))) {
+      break
     }
-    return (results)
-    
+    # append this page of results to one results data.frame
+    results <- dplyr::bind_rows(results, json$jobs)
+    if (is.null(json$next_page_token)) {
+      break
+    }
+    query$page_token <- json$next_page_token
+  }
+  return(results)
+
 }
 
 #' List job runs.
@@ -335,34 +314,28 @@ jobsList <- function(client, expand_tasks=NULL, limit=NULL, name=NULL, offset=NU
 #'
 #' @rdname jobsListRuns
 #' @export
-jobsListRuns <- function(client, active_only=NULL, completed_only=NULL, expand_tasks=NULL, job_id=NULL, limit=NULL, offset=NULL, page_token=NULL, run_type=NULL, start_time_from=NULL, start_time_to=NULL) {
-    query <- list(
-        active_only = active_only
-        , completed_only = completed_only
-        , expand_tasks = expand_tasks
-        , job_id = job_id
-        , limit = limit
-        , offset = offset
-        , page_token = page_token
-        , run_type = run_type
-        , start_time_from = start_time_from
-        , start_time_to = start_time_to)
-    
-    results <- data.frame()
-    while (TRUE) {
-        json <- client$do("GET", "/api/2.1/jobs/runs/list", query = query)
-        if (is.null(nrow(json$runs))) {
-            break
-        }
-        # append this page of results to one results data.frame
-        results <- dplyr::bind_rows(results, json$runs)
-        if (is.null(json$next_page_token)) {
-            break
-        }
-        query$page_token <- json$next_page_token
+jobsListRuns <- function(client, active_only = NULL, completed_only = NULL, expand_tasks = NULL,
+  job_id = NULL, limit = NULL, offset = NULL, page_token = NULL, run_type = NULL,
+  start_time_from = NULL, start_time_to = NULL) {
+  query <- list(active_only = active_only, completed_only = completed_only, expand_tasks = expand_tasks,
+    job_id = job_id, limit = limit, offset = offset, page_token = page_token,
+    run_type = run_type, start_time_from = start_time_from, start_time_to = start_time_to)
+
+  results <- data.frame()
+  while (TRUE) {
+    json <- client$do("GET", "/api/2.1/jobs/runs/list", query = query)
+    if (is.null(nrow(json$runs))) {
+      break
     }
-    return (results)
-    
+    # append this page of results to one results data.frame
+    results <- dplyr::bind_rows(results, json$runs)
+    if (is.null(json$next_page_token)) {
+      break
+    }
+    query$page_token <- json$next_page_token
+  }
+  return(results)
+
 }
 
 #' Repair a job run.
@@ -378,75 +351,71 @@ jobsListRuns <- function(client, active_only=NULL, completed_only=NULL, expand_t
 #' by changing the `callback` parameter.
 #' @param client Required. Instance of DatabricksClient()
 #'
-#' @param dbt_commands An array of commands to execute for jobs with the dbt task, for example `"dbt_commands": ["dbt deps", "dbt seed", "dbt run"]`.
-#' @param jar_params A list of parameters for jobs with Spark JAR tasks, for example `\"jar_params\": [\"john doe\", \"35\"]`.
+#' @param dbt_commands An array of commands to execute for jobs with the dbt task, for example `'dbt_commands': ['dbt deps', 'dbt seed', 'dbt run']`.
+#' @param jar_params A list of parameters for jobs with Spark JAR tasks, for example `\'jar_params\': [\'john doe\', \'35\']`.
 #' @param latest_repair_id The ID of the latest repair.
-#' @param notebook_params A map from keys to values for jobs with notebook task, for example `\"notebook_params\": {\"name\": \"john doe\", \"age\": \"35\"}`.
+#' @param notebook_params A map from keys to values for jobs with notebook task, for example `\'notebook_params\': {\'name\': \'john doe\', \'age\': \'35\'}`.
 #' @param pipeline_params 
-#' @param python_named_params A map from keys to values for jobs with Python wheel task, for example `"python_named_params": {"name": "task", "data": "dbfs:/path/to/data.json"}`.
-#' @param python_params A list of parameters for jobs with Python tasks, for example `\"python_params\": [\"john doe\", \"35\"]`.
+#' @param python_named_params A map from keys to values for jobs with Python wheel task, for example `'python_named_params': {'name': 'task', 'data': 'dbfs:/path/to/data.json'}`.
+#' @param python_params A list of parameters for jobs with Python tasks, for example `\'python_params\': [\'john doe\', \'35\']`.
 #' @param rerun_all_failed_tasks If true, repair all failed tasks.
 #' @param rerun_dependent_tasks If true, repair all tasks that depend on the tasks in `rerun_tasks`, even if they were previously successful.
 #' @param rerun_tasks The task keys of the task runs to repair.
 #' @param run_id Required. The job run ID of the run to repair.
-#' @param spark_submit_params A list of parameters for jobs with spark submit task, for example `\"spark_submit_params\": [\"--class\", \"org.apache.spark.examples.SparkPi\"]`.
-#' @param sql_params A map from keys to values for jobs with SQL task, for example `"sql_params": {"name": "john doe", "age": "35"}`.
+#' @param spark_submit_params A list of parameters for jobs with spark submit task, for example `\'spark_submit_params\': [\'--class\', \'org.apache.spark.examples.SparkPi\']`.
+#' @param sql_params A map from keys to values for jobs with SQL task, for example `'sql_params': {'name': 'john doe', 'age': '35'}`.
 #'
 #' @rdname jobsRepairRun
 #' @export
-jobsRepairRun <- function(client, run_id, dbt_commands=NULL, jar_params=NULL, latest_repair_id=NULL, notebook_params=NULL, pipeline_params=NULL, python_named_params=NULL, python_params=NULL, rerun_all_failed_tasks=NULL, rerun_dependent_tasks=NULL, rerun_tasks=NULL, spark_submit_params=NULL, sql_params=NULL, timeout=20, callback=cli_reporter) {
-    body <- list(
-        dbt_commands = dbt_commands
-        , jar_params = jar_params
-        , latest_repair_id = latest_repair_id
-        , notebook_params = notebook_params
-        , pipeline_params = pipeline_params
-        , python_named_params = python_named_params
-        , python_params = python_params
-        , rerun_all_failed_tasks = rerun_all_failed_tasks
-        , rerun_dependent_tasks = rerun_dependent_tasks
-        , rerun_tasks = rerun_tasks
-        , run_id = run_id
-        , spark_submit_params = spark_submit_params
-        , sql_params = sql_params)
-    op_response <- client$do("POST", "/api/2.1/jobs/runs/repair", body = body)
-    started <- as.numeric(Sys.time())
-    target_states <- c("TERMINATED", "SKIPPED", c())
-    failure_states <- c("INTERNAL_ERROR", c())
-    status_message <- 'polling...'
-    attempt <- 1
-    while ((started + (timeout*60)) > as.numeric(Sys.time())) {
-        poll <- jobsGetRun(client, run_id = run_id)
-        status <- poll$state$life_cycle_state
-        status_message <- paste("current status:", status)
-        if (!is.null(poll$state)) {
-            status_message <- poll$state$state_message
-        }
-        if (status %in% target_states) {
-            if (!is.null(callback)) {
-                callback(paste0(status, ": ", status_message), done=TRUE)
-            }
-            return (poll)
-        }
-        if (status %in% failure_states) {
-            msg <- paste("failed to reach TERMINATED or SKIPPED, got ", status, "-", status_message)
-            rlang::abort(msg, call = rlang::caller_env())
-        }
-        prefix <- paste0("databricks::jobsGetRun(run_id=", run_id, ")")
-        sleep <- attempt
-        if (sleep > 10) {
-            # sleep 10s max per attempt
-            sleep <- 10
-        }
-        if (!is.null(callback)) {
-            callback(paste0(status, ": ", status_message), done=FALSE)
-        }
-        random_pause <- runif(1, min = 0.1, max = 0.5)
-        Sys.sleep(sleep + random_pause)
-        attempt <- attempt + 1
+jobsRepairRun <- function(client, run_id, dbt_commands = NULL, jar_params = NULL,
+  latest_repair_id = NULL, notebook_params = NULL, pipeline_params = NULL, python_named_params = NULL,
+  python_params = NULL, rerun_all_failed_tasks = NULL, rerun_dependent_tasks = NULL,
+  rerun_tasks = NULL, spark_submit_params = NULL, sql_params = NULL, timeout = 20,
+  callback = cli_reporter) {
+  body <- list(dbt_commands = dbt_commands, jar_params = jar_params, latest_repair_id = latest_repair_id,
+    notebook_params = notebook_params, pipeline_params = pipeline_params, python_named_params = python_named_params,
+    python_params = python_params, rerun_all_failed_tasks = rerun_all_failed_tasks,
+    rerun_dependent_tasks = rerun_dependent_tasks, rerun_tasks = rerun_tasks,
+    run_id = run_id, spark_submit_params = spark_submit_params, sql_params = sql_params)
+  op_response <- client$do("POST", "/api/2.1/jobs/runs/repair", body = body)
+  started <- as.numeric(Sys.time())
+  target_states <- c("TERMINATED", "SKIPPED", c())
+  failure_states <- c("INTERNAL_ERROR", c())
+  status_message <- "polling..."
+  attempt <- 1
+  while ((started + (timeout * 60)) > as.numeric(Sys.time())) {
+    poll <- jobsGetRun(client, run_id = run_id)
+    status <- poll$state$life_cycle_state
+    status_message <- paste("current status:", status)
+    if (!is.null(poll$state)) {
+      status_message <- poll$state$state_message
     }
-    msg <- paste("timed out after", timeout, "minutes:", status_message)
-    rlang::abort(msg, call = rlang::caller_env())
+    if (status %in% target_states) {
+      if (!is.null(callback)) {
+        callback(paste0(status, ": ", status_message), done = TRUE)
+      }
+      return(poll)
+    }
+    if (status %in% failure_states) {
+      msg <- paste("failed to reach TERMINATED or SKIPPED, got ", status, "-",
+        status_message)
+      rlang::abort(msg, call = rlang::caller_env())
+    }
+    prefix <- paste0("databricks::jobsGetRun(run_id=", run_id, ")")
+    sleep <- attempt
+    if (sleep > 10) {
+      # sleep 10s max per attempt
+      sleep <- 10
+    }
+    if (!is.null(callback)) {
+      callback(paste0(status, ": ", status_message), done = FALSE)
+    }
+    random_pause <- runif(1, min = 0.1, max = 0.5)
+    Sys.sleep(sleep + random_pause)
+    attempt <- attempt + 1
+  }
+  msg <- paste("timed out after", timeout, "minutes:", status_message)
+  rlang::abort(msg, call = rlang::caller_env())
 }
 
 #' Overwrites all settings for a job.
@@ -461,10 +430,8 @@ jobsRepairRun <- function(client, run_id, dbt_commands=NULL, jar_params=NULL, la
 #' @rdname jobsReset
 #' @export
 jobsReset <- function(client, job_id, new_settings) {
-    body <- list(
-        job_id = job_id
-        , new_settings = new_settings)
-    client$do("POST", "/api/2.1/jobs/reset", body = body)
+  body <- list(job_id = job_id, new_settings = new_settings)
+  client$do("POST", "/api/2.1/jobs/reset", body = body)
 }
 
 #' Trigger a new job run.
@@ -478,71 +445,68 @@ jobsReset <- function(client, job_id, new_settings) {
 #' by changing the `callback` parameter.
 #' @param client Required. Instance of DatabricksClient()
 #'
-#' @param dbt_commands An array of commands to execute for jobs with the dbt task, for example `"dbt_commands": ["dbt deps", "dbt seed", "dbt run"]`.
+#' @param dbt_commands An array of commands to execute for jobs with the dbt task, for example `'dbt_commands': ['dbt deps', 'dbt seed', 'dbt run']`.
 #' @param idempotency_token An optional token to guarantee the idempotency of job run requests.
-#' @param jar_params A list of parameters for jobs with Spark JAR tasks, for example `\"jar_params\": [\"john doe\", \"35\"]`.
+#' @param jar_params A list of parameters for jobs with Spark JAR tasks, for example `\'jar_params\': [\'john doe\', \'35\']`.
 #' @param job_id Required. The ID of the job to be executed.
 #' @param job_parameters Job-level parameters used in the run.
-#' @param notebook_params A map from keys to values for jobs with notebook task, for example `\"notebook_params\": {\"name\": \"john doe\", \"age\": \"35\"}`.
+#' @param notebook_params A map from keys to values for jobs with notebook task, for example `\'notebook_params\': {\'name\': \'john doe\', \'age\': \'35\'}`.
 #' @param pipeline_params 
-#' @param python_named_params A map from keys to values for jobs with Python wheel task, for example `"python_named_params": {"name": "task", "data": "dbfs:/path/to/data.json"}`.
-#' @param python_params A list of parameters for jobs with Python tasks, for example `\"python_params\": [\"john doe\", \"35\"]`.
-#' @param spark_submit_params A list of parameters for jobs with spark submit task, for example `\"spark_submit_params\": [\"--class\", \"org.apache.spark.examples.SparkPi\"]`.
-#' @param sql_params A map from keys to values for jobs with SQL task, for example `"sql_params": {"name": "john doe", "age": "35"}`.
+#' @param python_named_params A map from keys to values for jobs with Python wheel task, for example `'python_named_params': {'name': 'task', 'data': 'dbfs:/path/to/data.json'}`.
+#' @param python_params A list of parameters for jobs with Python tasks, for example `\'python_params\': [\'john doe\', \'35\']`.
+#' @param spark_submit_params A list of parameters for jobs with spark submit task, for example `\'spark_submit_params\': [\'--class\', \'org.apache.spark.examples.SparkPi\']`.
+#' @param sql_params A map from keys to values for jobs with SQL task, for example `'sql_params': {'name': 'john doe', 'age': '35'}`.
 #'
 #' @rdname jobsRunNow
 #' @export
-jobsRunNow <- function(client, job_id, dbt_commands=NULL, idempotency_token=NULL, jar_params=NULL, job_parameters=NULL, notebook_params=NULL, pipeline_params=NULL, python_named_params=NULL, python_params=NULL, spark_submit_params=NULL, sql_params=NULL, timeout=20, callback=cli_reporter) {
-    body <- list(
-        dbt_commands = dbt_commands
-        , idempotency_token = idempotency_token
-        , jar_params = jar_params
-        , job_id = job_id
-        , job_parameters = job_parameters
-        , notebook_params = notebook_params
-        , pipeline_params = pipeline_params
-        , python_named_params = python_named_params
-        , python_params = python_params
-        , spark_submit_params = spark_submit_params
-        , sql_params = sql_params)
-    op_response <- client$do("POST", "/api/2.1/jobs/run-now", body = body)
-    started <- as.numeric(Sys.time())
-    target_states <- c("TERMINATED", "SKIPPED", c())
-    failure_states <- c("INTERNAL_ERROR", c())
-    status_message <- 'polling...'
-    attempt <- 1
-    while ((started + (timeout*60)) > as.numeric(Sys.time())) {
-        poll <- jobsGetRun(client, run_id = op_response$run_id)
-        status <- poll$state$life_cycle_state
-        status_message <- paste("current status:", status)
-        if (!is.null(poll$state)) {
-            status_message <- poll$state$state_message
-        }
-        if (status %in% target_states) {
-            if (!is.null(callback)) {
-                callback(paste0(status, ": ", status_message), done=TRUE)
-            }
-            return (poll)
-        }
-        if (status %in% failure_states) {
-            msg <- paste("failed to reach TERMINATED or SKIPPED, got ", status, "-", status_message)
-            rlang::abort(msg, call = rlang::caller_env())
-        }
-        prefix <- paste0("databricks::jobsGetRun(run_id=", op_response$run_id, ")")
-        sleep <- attempt
-        if (sleep > 10) {
-            # sleep 10s max per attempt
-            sleep <- 10
-        }
-        if (!is.null(callback)) {
-            callback(paste0(status, ": ", status_message), done=FALSE)
-        }
-        random_pause <- runif(1, min = 0.1, max = 0.5)
-        Sys.sleep(sleep + random_pause)
-        attempt <- attempt + 1
+jobsRunNow <- function(client, job_id, dbt_commands = NULL, idempotency_token = NULL,
+  jar_params = NULL, job_parameters = NULL, notebook_params = NULL, pipeline_params = NULL,
+  python_named_params = NULL, python_params = NULL, spark_submit_params = NULL,
+  sql_params = NULL, timeout = 20, callback = cli_reporter) {
+  body <- list(dbt_commands = dbt_commands, idempotency_token = idempotency_token,
+    jar_params = jar_params, job_id = job_id, job_parameters = job_parameters,
+    notebook_params = notebook_params, pipeline_params = pipeline_params, python_named_params = python_named_params,
+    python_params = python_params, spark_submit_params = spark_submit_params,
+    sql_params = sql_params)
+  op_response <- client$do("POST", "/api/2.1/jobs/run-now", body = body)
+  started <- as.numeric(Sys.time())
+  target_states <- c("TERMINATED", "SKIPPED", c())
+  failure_states <- c("INTERNAL_ERROR", c())
+  status_message <- "polling..."
+  attempt <- 1
+  while ((started + (timeout * 60)) > as.numeric(Sys.time())) {
+    poll <- jobsGetRun(client, run_id = op_response$run_id)
+    status <- poll$state$life_cycle_state
+    status_message <- paste("current status:", status)
+    if (!is.null(poll$state)) {
+      status_message <- poll$state$state_message
     }
-    msg <- paste("timed out after", timeout, "minutes:", status_message)
-    rlang::abort(msg, call = rlang::caller_env())
+    if (status %in% target_states) {
+      if (!is.null(callback)) {
+        callback(paste0(status, ": ", status_message), done = TRUE)
+      }
+      return(poll)
+    }
+    if (status %in% failure_states) {
+      msg <- paste("failed to reach TERMINATED or SKIPPED, got ", status, "-",
+        status_message)
+      rlang::abort(msg, call = rlang::caller_env())
+    }
+    prefix <- paste0("databricks::jobsGetRun(run_id=", op_response$run_id, ")")
+    sleep <- attempt
+    if (sleep > 10) {
+      # sleep 10s max per attempt
+      sleep <- 10
+    }
+    if (!is.null(callback)) {
+      callback(paste0(status, ": ", status_message), done = FALSE)
+    }
+    random_pause <- runif(1, min = 0.1, max = 0.5)
+    Sys.sleep(sleep + random_pause)
+    attempt <- attempt + 1
+  }
+  msg <- paste("timed out after", timeout, "minutes:", status_message)
+  rlang::abort(msg, call = rlang::caller_env())
 }
 
 #' Create and trigger a one-time run.
@@ -572,56 +536,53 @@ jobsRunNow <- function(client, job_id, dbt_commands=NULL, idempotency_token=NULL
 #'
 #' @rdname jobsSubmit
 #' @export
-jobsSubmit <- function(client, access_control_list=NULL, email_notifications=NULL, git_source=NULL, health=NULL, idempotency_token=NULL, notification_settings=NULL, run_name=NULL, tasks=NULL, timeout_seconds=NULL, webhook_notifications=NULL, timeout=20, callback=cli_reporter) {
-    body <- list(
-        access_control_list = access_control_list
-        , email_notifications = email_notifications
-        , git_source = git_source
-        , health = health
-        , idempotency_token = idempotency_token
-        , notification_settings = notification_settings
-        , run_name = run_name
-        , tasks = tasks
-        , timeout_seconds = timeout_seconds
-        , webhook_notifications = webhook_notifications)
-    op_response <- client$do("POST", "/api/2.1/jobs/runs/submit", body = body)
-    started <- as.numeric(Sys.time())
-    target_states <- c("TERMINATED", "SKIPPED", c())
-    failure_states <- c("INTERNAL_ERROR", c())
-    status_message <- 'polling...'
-    attempt <- 1
-    while ((started + (timeout*60)) > as.numeric(Sys.time())) {
-        poll <- jobsGetRun(client, run_id = op_response$run_id)
-        status <- poll$state$life_cycle_state
-        status_message <- paste("current status:", status)
-        if (!is.null(poll$state)) {
-            status_message <- poll$state$state_message
-        }
-        if (status %in% target_states) {
-            if (!is.null(callback)) {
-                callback(paste0(status, ": ", status_message), done=TRUE)
-            }
-            return (poll)
-        }
-        if (status %in% failure_states) {
-            msg <- paste("failed to reach TERMINATED or SKIPPED, got ", status, "-", status_message)
-            rlang::abort(msg, call = rlang::caller_env())
-        }
-        prefix <- paste0("databricks::jobsGetRun(run_id=", op_response$run_id, ")")
-        sleep <- attempt
-        if (sleep > 10) {
-            # sleep 10s max per attempt
-            sleep <- 10
-        }
-        if (!is.null(callback)) {
-            callback(paste0(status, ": ", status_message), done=FALSE)
-        }
-        random_pause <- runif(1, min = 0.1, max = 0.5)
-        Sys.sleep(sleep + random_pause)
-        attempt <- attempt + 1
+jobsSubmit <- function(client, access_control_list = NULL, email_notifications = NULL,
+  git_source = NULL, health = NULL, idempotency_token = NULL, notification_settings = NULL,
+  run_name = NULL, tasks = NULL, timeout_seconds = NULL, webhook_notifications = NULL,
+  timeout = 20, callback = cli_reporter) {
+  body <- list(access_control_list = access_control_list, email_notifications = email_notifications,
+    git_source = git_source, health = health, idempotency_token = idempotency_token,
+    notification_settings = notification_settings, run_name = run_name, tasks = tasks,
+    timeout_seconds = timeout_seconds, webhook_notifications = webhook_notifications)
+  op_response <- client$do("POST", "/api/2.1/jobs/runs/submit", body = body)
+  started <- as.numeric(Sys.time())
+  target_states <- c("TERMINATED", "SKIPPED", c())
+  failure_states <- c("INTERNAL_ERROR", c())
+  status_message <- "polling..."
+  attempt <- 1
+  while ((started + (timeout * 60)) > as.numeric(Sys.time())) {
+    poll <- jobsGetRun(client, run_id = op_response$run_id)
+    status <- poll$state$life_cycle_state
+    status_message <- paste("current status:", status)
+    if (!is.null(poll$state)) {
+      status_message <- poll$state$state_message
     }
-    msg <- paste("timed out after", timeout, "minutes:", status_message)
-    rlang::abort(msg, call = rlang::caller_env())
+    if (status %in% target_states) {
+      if (!is.null(callback)) {
+        callback(paste0(status, ": ", status_message), done = TRUE)
+      }
+      return(poll)
+    }
+    if (status %in% failure_states) {
+      msg <- paste("failed to reach TERMINATED or SKIPPED, got ", status, "-",
+        status_message)
+      rlang::abort(msg, call = rlang::caller_env())
+    }
+    prefix <- paste0("databricks::jobsGetRun(run_id=", op_response$run_id, ")")
+    sleep <- attempt
+    if (sleep > 10) {
+      # sleep 10s max per attempt
+      sleep <- 10
+    }
+    if (!is.null(callback)) {
+      callback(paste0(status, ": ", status_message), done = FALSE)
+    }
+    random_pause <- runif(1, min = 0.1, max = 0.5)
+    Sys.sleep(sleep + random_pause)
+    attempt <- attempt + 1
+  }
+  msg <- paste("timed out after", timeout, "minutes:", status_message)
+  rlang::abort(msg, call = rlang::caller_env())
 }
 
 #' Partially update a job.
@@ -636,11 +597,8 @@ jobsSubmit <- function(client, access_control_list=NULL, email_notifications=NUL
 #'
 #' @rdname jobsUpdate
 #' @export
-jobsUpdate <- function(client, job_id, fields_to_remove=NULL, new_settings=NULL) {
-    body <- list(
-        fields_to_remove = fields_to_remove
-        , job_id = job_id
-        , new_settings = new_settings)
-    client$do("POST", "/api/2.1/jobs/update", body = body)
+jobsUpdate <- function(client, job_id, fields_to_remove = NULL, new_settings = NULL) {
+  body <- list(fields_to_remove = fields_to_remove, job_id = job_id, new_settings = new_settings)
+  client$do("POST", "/api/2.1/jobs/update", body = body)
 }
 

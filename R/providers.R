@@ -16,13 +16,10 @@ NULL
 #'
 #' @rdname providersCreate
 #' @export
-providersCreate <- function(client, name, authentication_type, comment=NULL, recipient_profile_str=NULL) {
-    body <- list(
-        authentication_type = authentication_type
-        , comment = comment
-        , name = name
-        , recipient_profile_str = recipient_profile_str)
-    client$do("POST", "/api/2.1/unity-catalog/providers", body = body)
+providersCreate <- function(client, name, authentication_type, comment = NULL, recipient_profile_str = NULL) {
+  body <- list(authentication_type = authentication_type, comment = comment, name = name,
+    recipient_profile_str = recipient_profile_str)
+  client$do("POST", "/api/2.1/unity-catalog/providers", body = body)
 }
 
 #' Delete a provider.
@@ -36,8 +33,8 @@ providersCreate <- function(client, name, authentication_type, comment=NULL, rec
 #' @rdname providersDelete
 #' @export
 providersDelete <- function(client, name) {
-    
-    client$do("DELETE", paste("/api/2.1/unity-catalog/providers/", name, sep = ""))
+
+  client$do("DELETE", paste("/api/2.1/unity-catalog/providers/", name, sep = ""))
 }
 
 #' Get a provider.
@@ -52,8 +49,8 @@ providersDelete <- function(client, name) {
 #' @rdname providersGet
 #' @export
 providersGet <- function(client, name) {
-    
-    client$do("GET", paste("/api/2.1/unity-catalog/providers/", name, sep = ""))
+
+  client$do("GET", paste("/api/2.1/unity-catalog/providers/", name, sep = ""))
 }
 
 #' List providers.
@@ -70,13 +67,12 @@ providersGet <- function(client, name) {
 #'
 #' @rdname providersList
 #' @export
-providersList <- function(client, data_provider_global_metastore_id=NULL) {
-    query <- list(
-        data_provider_global_metastore_id = data_provider_global_metastore_id)
-    
-    json <- client$do("GET", "/api/2.1/unity-catalog/providers", query = query)
-    return (json$providers)
-    
+providersList <- function(client, data_provider_global_metastore_id = NULL) {
+  query <- list(data_provider_global_metastore_id = data_provider_global_metastore_id)
+
+  json <- client$do("GET", "/api/2.1/unity-catalog/providers", query = query)
+  return(json$providers)
+
 }
 
 #' List shares by Provider.
@@ -93,11 +89,12 @@ providersList <- function(client, data_provider_global_metastore_id=NULL) {
 #' @rdname providersListShares
 #' @export
 providersListShares <- function(client, name) {
-    
-    
-    json <- client$do("GET", paste("/api/2.1/unity-catalog/providers/", name, "/shares", , sep = ""))
-    return (json$shares)
-    
+
+
+  json <- client$do("GET", paste("/api/2.1/unity-catalog/providers/", name, "/shares",
+    , sep = ""))
+  return(json$shares)
+
 }
 
 #' Update a provider.
@@ -115,12 +112,9 @@ providersListShares <- function(client, name) {
 #'
 #' @rdname providersUpdate
 #' @export
-providersUpdate <- function(client, name, comment=NULL, owner=NULL, recipient_profile_str=NULL) {
-    body <- list(
-        comment = comment
-        , name = name
-        , owner = owner
-        , recipient_profile_str = recipient_profile_str)
-    client$do("PATCH", paste("/api/2.1/unity-catalog/providers/", name, sep = ""), body = body)
+providersUpdate <- function(client, name, comment = NULL, owner = NULL, recipient_profile_str = NULL) {
+  body <- list(comment = comment, name = name, owner = owner, recipient_profile_str = recipient_profile_str)
+  client$do("PATCH", paste("/api/2.1/unity-catalog/providers/", name, sep = ""),
+    body = body)
 }
 

@@ -19,10 +19,8 @@ NULL
 #' @rdname dbfsAddBlock
 #' @export
 dbfsAddBlock <- function(client, handle, data) {
-    body <- list(
-        data = data
-        , handle = handle)
-    client$do("POST", "/api/2.0/dbfs/add-block", body = body)
+  body <- list(data = data, handle = handle)
+  client$do("POST", "/api/2.0/dbfs/add-block", body = body)
 }
 
 #' Close the stream.
@@ -36,9 +34,8 @@ dbfsAddBlock <- function(client, handle, data) {
 #' @rdname dbfsClose
 #' @export
 dbfsClose <- function(client, handle) {
-    body <- list(
-        handle = handle)
-    client$do("POST", "/api/2.0/dbfs/close", body = body)
+  body <- list(handle = handle)
+  client$do("POST", "/api/2.0/dbfs/close", body = body)
 }
 
 #' Open a stream.
@@ -60,11 +57,9 @@ dbfsClose <- function(client, handle) {
 #'
 #' @rdname dbfsCreate
 #' @export
-dbfsCreate <- function(client, path, overwrite=NULL) {
-    body <- list(
-        overwrite = overwrite
-        , path = path)
-    client$do("POST", "/api/2.0/dbfs/create", body = body)
+dbfsCreate <- function(client, path, overwrite = NULL) {
+  body <- list(overwrite = overwrite, path = path)
+  client$do("POST", "/api/2.0/dbfs/create", body = body)
 }
 
 #' Delete a file/directory.
@@ -94,11 +89,9 @@ dbfsCreate <- function(client, path, overwrite=NULL) {
 #'
 #' @rdname dbfsDelete
 #' @export
-dbfsDelete <- function(client, path, recursive=NULL) {
-    body <- list(
-        path = path
-        , recursive = recursive)
-    client$do("POST", "/api/2.0/dbfs/delete", body = body)
+dbfsDelete <- function(client, path, recursive = NULL) {
+  body <- list(path = path, recursive = recursive)
+  client$do("POST", "/api/2.0/dbfs/delete", body = body)
 }
 
 #' Get the information of a file or directory.
@@ -112,9 +105,8 @@ dbfsDelete <- function(client, path, recursive=NULL) {
 #' @rdname dbfsGetStatus
 #' @export
 dbfsGetStatus <- function(client, path) {
-    query <- list(
-        path = path)
-    client$do("GET", "/api/2.0/dbfs/get-status", query = query)
+  query <- list(path = path)
+  client$do("GET", "/api/2.0/dbfs/get-status", query = query)
 }
 
 #' List directory contents or file details.
@@ -139,12 +131,11 @@ dbfsGetStatus <- function(client, path) {
 #' @rdname dbfsList
 #' @export
 dbfsList <- function(client, path) {
-    query <- list(
-        path = path)
-    
-    json <- client$do("GET", "/api/2.0/dbfs/list", query = query)
-    return (json$files)
-    
+  query <- list(path = path)
+
+  json <- client$do("GET", "/api/2.0/dbfs/list", query = query)
+  return(json$files)
+
 }
 
 #' Create a directory.
@@ -161,9 +152,8 @@ dbfsList <- function(client, path) {
 #' @rdname dbfsMkdirs
 #' @export
 dbfsMkdirs <- function(client, path) {
-    body <- list(
-        path = path)
-    client$do("POST", "/api/2.0/dbfs/mkdirs", body = body)
+  body <- list(path = path)
+  client$do("POST", "/api/2.0/dbfs/mkdirs", body = body)
 }
 
 #' Move a file.
@@ -172,7 +162,7 @@ dbfsMkdirs <- function(client, path) {
 #' file does not exist, this call throws an exception with
 #' `RESOURCE_DOES_NOT_EXIST`. If a file already exists in the destination path,
 #' this call throws an exception with `RESOURCE_ALREADY_EXISTS`. If the given
-#' source path is a directory, this call always recursively moves all files.",
+#' source path is a directory, this call always recursively moves all files.',
 #' @param client Required. Instance of DatabricksClient()
 #'
 #' @param destination_path Required. The destination path of the file or directory.
@@ -181,10 +171,8 @@ dbfsMkdirs <- function(client, path) {
 #' @rdname dbfsMove
 #' @export
 dbfsMove <- function(client, source_path, destination_path) {
-    body <- list(
-        destination_path = destination_path
-        , source_path = source_path)
-    client$do("POST", "/api/2.0/dbfs/move", body = body)
+  body <- list(destination_path = destination_path, source_path = source_path)
+  client$do("POST", "/api/2.0/dbfs/move", body = body)
 }
 
 #' Upload a file.
@@ -209,12 +197,9 @@ dbfsMove <- function(client, source_path, destination_path) {
 #'
 #' @rdname dbfsPut
 #' @export
-dbfsPut <- function(client, path, contents=NULL, overwrite=NULL) {
-    body <- list(
-        contents = contents
-        , overwrite = overwrite
-        , path = path)
-    client$do("POST", "/api/2.0/dbfs/put", body = body)
+dbfsPut <- function(client, path, contents = NULL, overwrite = NULL) {
+  body <- list(contents = contents, overwrite = overwrite, path = path)
+  client$do("POST", "/api/2.0/dbfs/put", body = body)
 }
 
 #' Get the contents of a file.
@@ -226,7 +211,7 @@ dbfsPut <- function(client, path, contents=NULL, overwrite=NULL) {
 #' this call throws an exception with `MAX_READ_SIZE_EXCEEDED`.
 #' 
 #' If `offset + length` exceeds the number of bytes in a file, it reads the
-#' contents until the end of file.",
+#' contents until the end of file.',
 #' @param client Required. Instance of DatabricksClient()
 #'
 #' @param length The number of bytes to read starting from the offset.
@@ -235,11 +220,8 @@ dbfsPut <- function(client, path, contents=NULL, overwrite=NULL) {
 #'
 #' @rdname dbfsRead
 #' @export
-dbfsRead <- function(client, path, length=NULL, offset=NULL) {
-    query <- list(
-        length = length
-        , offset = offset
-        , path = path)
-    client$do("GET", "/api/2.0/dbfs/read", query = query)
+dbfsRead <- function(client, path, length = NULL, offset = NULL) {
+  query <- list(length = length, offset = offset, path = path)
+  client$do("GET", "/api/2.0/dbfs/read", query = query)
 }
 

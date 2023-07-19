@@ -7,8 +7,10 @@
 externalLocationsUpdate(
   client,
   name,
+  access_point = NULL,
   comment = NULL,
   credential_name = NULL,
+  encryption_details = NULL,
   force = NULL,
   owner = NULL,
   read_only = NULL,
@@ -20,9 +22,13 @@ externalLocationsUpdate(
 
 \item{name}{Name of the external location.}
 
+\item{access_point}{The AWS access point to use when accesing s3 for this external location.}
+
 \item{comment}{User-provided free-form text description.}
 
 \item{credential_name}{Name of the storage credential used with this location.}
+
+\item{encryption_details}{Encryption options that apply to clients connecting to cloud storage.}
 
 \item{force}{Force update even if changing url invalidates dependent external tables or mounts.}
 

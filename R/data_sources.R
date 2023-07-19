@@ -11,6 +11,6 @@ NULL
 #' @rdname dataSourcesList
 #' @export
 dataSourcesList <- function(client) {
-    client$do("GET", "/api/2.0/preview/sql/data_sources")
+  client$do("GET", "/api/2.0/preview/sql/data_sources")
 }
 

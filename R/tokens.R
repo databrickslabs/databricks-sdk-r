@@ -16,11 +16,9 @@ NULL
 #'
 #' @rdname tokensCreate
 #' @export
-tokensCreate <- function(client, comment=NULL, lifetime_seconds=NULL) {
-    body <- list(
-        comment = comment
-        , lifetime_seconds = lifetime_seconds)
-    client$do("POST", "/api/2.0/token/create", body = body)
+tokensCreate <- function(client, comment = NULL, lifetime_seconds = NULL) {
+  body <- list(comment = comment, lifetime_seconds = lifetime_seconds)
+  client$do("POST", "/api/2.0/token/create", body = body)
 }
 
 #' Revoke token.
@@ -36,9 +34,8 @@ tokensCreate <- function(client, comment=NULL, lifetime_seconds=NULL) {
 #' @rdname tokensDelete
 #' @export
 tokensDelete <- function(client, token_id) {
-    body <- list(
-        token_id = token_id)
-    client$do("POST", "/api/2.0/token/delete", body = body)
+  body <- list(token_id = token_id)
+  client$do("POST", "/api/2.0/token/delete", body = body)
 }
 
 #' List tokens.
@@ -49,9 +46,9 @@ tokensDelete <- function(client, token_id) {
 #' @rdname tokensList
 #' @export
 tokensList <- function(client) {
-    
-    json <- client$do("GET", "/api/2.0/token/list")
-    return (json$token_infos)
-    
+
+  json <- client$do("GET", "/api/2.0/token/list")
+  return(json$token_infos)
+
 }
 

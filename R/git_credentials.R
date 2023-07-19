@@ -17,12 +17,9 @@ NULL
 #'
 #' @rdname gitCredentialsCreate
 #' @export
-gitCredentialsCreate <- function(client, git_provider, git_username=NULL, personal_access_token=NULL) {
-    body <- list(
-        git_provider = git_provider
-        , git_username = git_username
-        , personal_access_token = personal_access_token)
-    client$do("POST", "/api/2.0/git-credentials", body = body)
+gitCredentialsCreate <- function(client, git_provider, git_username = NULL, personal_access_token = NULL) {
+  body <- list(git_provider = git_provider, git_username = git_username, personal_access_token = personal_access_token)
+  client$do("POST", "/api/2.0/git-credentials", body = body)
 }
 
 #' Delete a credential.
@@ -35,8 +32,8 @@ gitCredentialsCreate <- function(client, git_provider, git_username=NULL, person
 #' @rdname gitCredentialsDelete
 #' @export
 gitCredentialsDelete <- function(client, credential_id) {
-    
-    client$do("DELETE", paste("/api/2.0/git-credentials/", credential_id, sep = ""))
+
+  client$do("DELETE", paste("/api/2.0/git-credentials/", credential_id, sep = ""))
 }
 
 #' Get a credential entry.
@@ -49,8 +46,8 @@ gitCredentialsDelete <- function(client, credential_id) {
 #' @rdname gitCredentialsGet
 #' @export
 gitCredentialsGet <- function(client, credential_id) {
-    
-    client$do("GET", paste("/api/2.0/git-credentials/", credential_id, sep = ""))
+
+  client$do("GET", paste("/api/2.0/git-credentials/", credential_id, sep = ""))
 }
 
 #' Get Git credentials.
@@ -62,10 +59,10 @@ gitCredentialsGet <- function(client, credential_id) {
 #' @rdname gitCredentialsList
 #' @export
 gitCredentialsList <- function(client) {
-    
-    json <- client$do("GET", "/api/2.0/git-credentials")
-    return (json$credentials)
-    
+
+  json <- client$do("GET", "/api/2.0/git-credentials")
+  return(json$credentials)
+
 }
 
 #' Update a credential.
@@ -80,11 +77,10 @@ gitCredentialsList <- function(client) {
 #'
 #' @rdname gitCredentialsUpdate
 #' @export
-gitCredentialsUpdate <- function(client, credential_id, git_provider=NULL, git_username=NULL, personal_access_token=NULL) {
-    body <- list(
-        , git_provider = git_provider
-        , git_username = git_username
-        , personal_access_token = personal_access_token)
-    client$do("PATCH", paste("/api/2.0/git-credentials/", credential_id, sep = ""), body = body)
+gitCredentialsUpdate <- function(client, credential_id, git_provider = NULL, git_username = NULL,
+  personal_access_token = NULL) {
+  body <- list(, git_provider = git_provider, git_username = git_username, personal_access_token = personal_access_token)
+  client$do("PATCH", paste("/api/2.0/git-credentials/", credential_id, sep = ""),
+    body = body)
 }
 

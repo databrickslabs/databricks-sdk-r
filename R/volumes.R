@@ -34,15 +34,11 @@ NULL
 #'
 #' @rdname volumesCreate
 #' @export
-volumesCreate <- function(client, catalog_name, name, schema_name, volume_type, comment=NULL, storage_location=NULL) {
-    body <- list(
-        catalog_name = catalog_name
-        , comment = comment
-        , name = name
-        , schema_name = schema_name
-        , storage_location = storage_location
-        , volume_type = volume_type)
-    client$do("POST", "/api/2.1/unity-catalog/volumes", body = body)
+volumesCreate <- function(client, catalog_name, name, schema_name, volume_type, comment = NULL,
+  storage_location = NULL) {
+  body <- list(catalog_name = catalog_name, comment = comment, name = name, schema_name = schema_name,
+    storage_location = storage_location, volume_type = volume_type)
+  client$do("POST", "/api/2.1/unity-catalog/volumes", body = body)
 }
 
 #' Delete a Volume.
@@ -60,8 +56,8 @@ volumesCreate <- function(client, catalog_name, name, schema_name, volume_type, 
 #' @rdname volumesDelete
 #' @export
 volumesDelete <- function(client, full_name_arg) {
-    
-    client$do("DELETE", paste("/api/2.1/unity-catalog/volumes/", full_name_arg, sep = ""))
+
+  client$do("DELETE", paste("/api/2.1/unity-catalog/volumes/", full_name_arg, sep = ""))
 }
 
 #' List Volumes.
@@ -87,13 +83,11 @@ volumesDelete <- function(client, full_name_arg) {
 #' @rdname volumesList
 #' @export
 volumesList <- function(client, catalog_name, schema_name) {
-    query <- list(
-        catalog_name = catalog_name
-        , schema_name = schema_name)
-    
-    json <- client$do("GET", "/api/2.1/unity-catalog/volumes", query = query)
-    return (json$volumes)
-    
+  query <- list(catalog_name = catalog_name, schema_name = schema_name)
+
+  json <- client$do("GET", "/api/2.1/unity-catalog/volumes", query = query)
+  return(json$volumes)
+
 }
 
 #' Get a Volume.
@@ -111,8 +105,8 @@ volumesList <- function(client, catalog_name, schema_name) {
 #' @rdname volumesRead
 #' @export
 volumesRead <- function(client, full_name_arg) {
-    
-    client$do("GET", paste("/api/2.1/unity-catalog/volumes/", full_name_arg, sep = ""))
+
+  client$do("GET", paste("/api/2.1/unity-catalog/volumes/", full_name_arg, sep = ""))
 }
 
 #' Update a Volume.
@@ -135,11 +129,9 @@ volumesRead <- function(client, full_name_arg) {
 #'
 #' @rdname volumesUpdate
 #' @export
-volumesUpdate <- function(client, full_name_arg, comment=NULL, name=NULL, owner=NULL) {
-    body <- list(
-        comment = comment
-        , name = name
-        , owner = owner)
-    client$do("PATCH", paste("/api/2.1/unity-catalog/volumes/", full_name_arg, sep = ""), body = body)
+volumesUpdate <- function(client, full_name_arg, comment = NULL, name = NULL, owner = NULL) {
+  body <- list(comment = comment, name = name, owner = owner)
+  client$do("PATCH", paste("/api/2.1/unity-catalog/volumes/", full_name_arg, sep = ""),
+    body = body)
 }
 
