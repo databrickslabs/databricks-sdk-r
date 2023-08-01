@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">databricks</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -143,6 +143,11 @@ Databricks REST API and handle a subset of Unified Client Authentication.</dd>
         <dd>Update a clean room.</dd>
       </dl><dl><dt>
           
+          <code><a href="clusterPoliciesClusterPolicyId.html">clusterPoliciesClusterPolicyId()</a></code> 
+        </dt>
+        <dd>Get cluster policy permissions.</dd>
+      </dl><dl><dt>
+          
           <code><a href="clusterPoliciesCreate.html">clusterPoliciesCreate()</a></code> 
         </dt>
         <dd>Create a new policy.</dd>
@@ -168,9 +173,19 @@ Databricks REST API and handle a subset of Unified Client Authentication.</dd>
         <dd>Get a cluster policy.</dd>
       </dl><dl><dt>
           
+          <code><a href="clusterPoliciesPermissionLevels.html">clusterPoliciesPermissionLevels()</a></code> 
+        </dt>
+        <dd>Get cluster policy permission levels.</dd>
+      </dl><dl><dt>
+          
           <code><a href="clustersChangeOwner.html">clustersChangeOwner()</a></code> 
         </dt>
         <dd>Change cluster owner.</dd>
+      </dl><dl><dt>
+          
+          <code><a href="clustersClusterId.html">clustersClusterId()</a></code> 
+        </dt>
+        <dd>Update cluster permissions.</dd>
       </dl><dl><dt>
           
           <code><a href="clustersCreate.html">clustersCreate()</a></code> 
@@ -216,6 +231,11 @@ Databricks REST API and handle a subset of Unified Client Authentication.</dd>
           <code><a href="clustersPermanentDelete.html">clustersPermanentDelete()</a></code> 
         </dt>
         <dd>Permanently delete cluster.</dd>
+      </dl><dl><dt>
+          
+          <code><a href="clustersPermissionLevels.html">clustersPermissionLevels()</a></code> 
+        </dt>
+        <dd>Get cluster permission levels.</dd>
       </dl><dl><dt>
           
           <code><a href="clustersPin.html">clustersPin()</a></code> 
@@ -438,6 +458,16 @@ Databricks REST API and handle a subset of Unified Client Authentication.</dd>
         <dd>Get an experiment.</dd>
       </dl><dl><dt>
           
+          <code><a href="experimentsGetExperimentPermissionLevels.html">experimentsGetExperimentPermissionLevels()</a></code> 
+        </dt>
+        <dd>Get experiment permission levels.</dd>
+      </dl><dl><dt>
+          
+          <code><a href="experimentsGetExperimentPermissions.html">experimentsGetExperimentPermissions()</a></code> 
+        </dt>
+        <dd>Get experiment permissions.</dd>
+      </dl><dl><dt>
+          
           <code><a href="experimentsGetHistory.html">experimentsGetHistory()</a></code> 
         </dt>
         <dd>Get history of a given metric within a run.</dd>
@@ -503,6 +533,11 @@ Databricks REST API and handle a subset of Unified Client Authentication.</dd>
         <dd>Search for runs.</dd>
       </dl><dl><dt>
           
+          <code><a href="experimentsSetExperimentPermissions.html">experimentsSetExperimentPermissions()</a></code> 
+        </dt>
+        <dd>Set experiment permissions.</dd>
+      </dl><dl><dt>
+          
           <code><a href="experimentsSetExperimentTag.html">experimentsSetExperimentTag()</a></code> 
         </dt>
         <dd>Set a tag.</dd>
@@ -516,6 +551,11 @@ Databricks REST API and handle a subset of Unified Client Authentication.</dd>
           <code><a href="experimentsUpdateExperiment.html">experimentsUpdateExperiment()</a></code> 
         </dt>
         <dd>Update an experiment.</dd>
+      </dl><dl><dt>
+          
+          <code><a href="experimentsUpdateExperimentPermissions.html">experimentsUpdateExperimentPermissions()</a></code> 
+        </dt>
+        <dd>Update experiment permissions.</dd>
       </dl><dl><dt>
           
           <code><a href="experimentsUpdateRun.html">experimentsUpdateRun()</a></code> 
@@ -688,9 +728,19 @@ Databricks REST API and handle a subset of Unified Client Authentication.</dd>
         <dd>Get instance pool information.</dd>
       </dl><dl><dt>
           
+          <code><a href="instancePoolsInstancePoolId.html">instancePoolsInstancePoolId()</a></code> 
+        </dt>
+        <dd>Set instance pool permissions.</dd>
+      </dl><dl><dt>
+          
           <code><a href="instancePoolsList.html">instancePoolsList()</a></code> 
         </dt>
         <dd>List instance pool info.</dd>
+      </dl><dl><dt>
+          
+          <code><a href="instancePoolsPermissionLevels.html">instancePoolsPermissionLevels()</a></code> 
+        </dt>
+        <dd>Get instance pool permission levels.</dd>
       </dl><dl><dt>
           
           <code><a href="instanceProfilesAdd.html">instanceProfilesAdd()</a></code> 
@@ -778,6 +828,16 @@ Databricks REST API and handle a subset of Unified Client Authentication.</dd>
         <dd>Get a single job.</dd>
       </dl><dl><dt>
           
+          <code><a href="jobsGetJobPermissionLevels.html">jobsGetJobPermissionLevels()</a></code> 
+        </dt>
+        <dd>Get job permission levels.</dd>
+      </dl><dl><dt>
+          
+          <code><a href="jobsGetJobPermissions.html">jobsGetJobPermissions()</a></code> 
+        </dt>
+        <dd>Get job permissions.</dd>
+      </dl><dl><dt>
+          
           <code><a href="jobsGetRun.html">jobsGetRun()</a></code> 
         </dt>
         <dd>Get a single job run.</dd>
@@ -813,6 +873,11 @@ Databricks REST API and handle a subset of Unified Client Authentication.</dd>
         <dd>Trigger a new job run.</dd>
       </dl><dl><dt>
           
+          <code><a href="jobsSetJobPermissions.html">jobsSetJobPermissions()</a></code> 
+        </dt>
+        <dd>Set job permissions.</dd>
+      </dl><dl><dt>
+          
           <code><a href="jobsSubmit.html">jobsSubmit()</a></code> 
         </dt>
         <dd>Create and trigger a one-time run.</dd>
@@ -821,6 +886,11 @@ Databricks REST API and handle a subset of Unified Client Authentication.</dd>
           <code><a href="jobsUpdate.html">jobsUpdate()</a></code> 
         </dt>
         <dd>Partially update a job.</dd>
+      </dl><dl><dt>
+          
+          <code><a href="jobsUpdateJobPermissions.html">jobsUpdateJobPermissions()</a></code> 
+        </dt>
+        <dd>Update job permissions.</dd>
       </dl><dl><dt>
           
           <code><a href="librariesAllClusterStatuses.html">librariesAllClusterStatuses()</a></code> 
@@ -983,6 +1053,16 @@ Databricks REST API and handle a subset of Unified Client Authentication.</dd>
         <dd>Get a model version URI.</dd>
       </dl><dl><dt>
           
+          <code><a href="modelRegistryGetRegisteredModelPermissionLevels.html">modelRegistryGetRegisteredModelPermissionLevels()</a></code> 
+        </dt>
+        <dd>Get registered model permission levels.</dd>
+      </dl><dl><dt>
+          
+          <code><a href="modelRegistryGetRegisteredModelPermissions.html">modelRegistryGetRegisteredModelPermissions()</a></code> 
+        </dt>
+        <dd>Get registered model permissions.</dd>
+      </dl><dl><dt>
+          
           <code><a href="modelRegistryListModels.html">modelRegistryListModels()</a></code> 
         </dt>
         <dd>List models.</dd>
@@ -1028,6 +1108,11 @@ Databricks REST API and handle a subset of Unified Client Authentication.</dd>
         <dd>Set a version tag.</dd>
       </dl><dl><dt>
           
+          <code><a href="modelRegistrySetRegisteredModelPermissions.html">modelRegistrySetRegisteredModelPermissions()</a></code> 
+        </dt>
+        <dd>Set registered model permissions.</dd>
+      </dl><dl><dt>
+          
           <code><a href="modelRegistryTestRegistryWebhook.html">modelRegistryTestRegistryWebhook()</a></code> 
         </dt>
         <dd>Test a webhook.</dd>
@@ -1053,6 +1138,11 @@ Databricks REST API and handle a subset of Unified Client Authentication.</dd>
         <dd>Update model version.</dd>
       </dl><dl><dt>
           
+          <code><a href="modelRegistryUpdateRegisteredModelPermissions.html">modelRegistryUpdateRegisteredModelPermissions()</a></code> 
+        </dt>
+        <dd>Update registered model permissions.</dd>
+      </dl><dl><dt>
+          
           <code><a href="modelRegistryUpdateWebhook.html">modelRegistryUpdateWebhook()</a></code> 
         </dt>
         <dd>Update a webhook.</dd>
@@ -1065,17 +1155,17 @@ Databricks REST API and handle a subset of Unified Client Authentication.</dd>
           
           <code><a href="permissionsGetPermissionLevels.html">permissionsGetPermissionLevels()</a></code> 
         </dt>
-        <dd>Get permission levels.</dd>
+        <dd>Get object permission levels.</dd>
       </dl><dl><dt>
           
           <code><a href="permissionsSet.html">permissionsSet()</a></code> 
         </dt>
-        <dd>Set permissions.</dd>
+        <dd>Set object permissions.</dd>
       </dl><dl><dt>
           
           <code><a href="permissionsUpdate.html">permissionsUpdate()</a></code> 
         </dt>
-        <dd>Update permission.</dd>
+        <dd>Update object permissions.</dd>
       </dl><dl><dt>
           
           <code><a href="pipelinesCreate.html">pipelinesCreate()</a></code> 
@@ -1091,6 +1181,16 @@ Databricks REST API and handle a subset of Unified Client Authentication.</dd>
           <code><a href="pipelinesGet.html">pipelinesGet()</a></code> 
         </dt>
         <dd>Get a pipeline.</dd>
+      </dl><dl><dt>
+          
+          <code><a href="pipelinesGetPipelinePermissionLevels.html">pipelinesGetPipelinePermissionLevels()</a></code> 
+        </dt>
+        <dd>Get pipeline permission levels.</dd>
+      </dl><dl><dt>
+          
+          <code><a href="pipelinesGetPipelinePermissions.html">pipelinesGetPipelinePermissions()</a></code> 
+        </dt>
+        <dd>Get pipeline permissions.</dd>
       </dl><dl><dt>
           
           <code><a href="pipelinesGetUpdate.html">pipelinesGetUpdate()</a></code> 
@@ -1118,6 +1218,11 @@ Databricks REST API and handle a subset of Unified Client Authentication.</dd>
         <dd>Reset a pipeline.</dd>
       </dl><dl><dt>
           
+          <code><a href="pipelinesSetPipelinePermissions.html">pipelinesSetPipelinePermissions()</a></code> 
+        </dt>
+        <dd>Set pipeline permissions.</dd>
+      </dl><dl><dt>
+          
           <code><a href="pipelinesStartUpdate.html">pipelinesStartUpdate()</a></code> 
         </dt>
         <dd>Queue a pipeline update.</dd>
@@ -1131,6 +1236,11 @@ Databricks REST API and handle a subset of Unified Client Authentication.</dd>
           <code><a href="pipelinesUpdate.html">pipelinesUpdate()</a></code> 
         </dt>
         <dd>Edit a pipeline.</dd>
+      </dl><dl><dt>
+          
+          <code><a href="pipelinesUpdatePipelinePermissions.html">pipelinesUpdatePipelinePermissions()</a></code> 
+        </dt>
+        <dd>Update pipeline permissions.</dd>
       </dl><dl><dt>
           
           <code><a href="policyFamiliesGet.html">policyFamiliesGet()</a></code> 
@@ -1268,14 +1378,34 @@ Databricks REST API and handle a subset of Unified Client Authentication.</dd>
         <dd>Get a repo.</dd>
       </dl><dl><dt>
           
+          <code><a href="reposGetRepoPermissionLevels.html">reposGetRepoPermissionLevels()</a></code> 
+        </dt>
+        <dd>Get repo permission levels.</dd>
+      </dl><dl><dt>
+          
+          <code><a href="reposGetRepoPermissions.html">reposGetRepoPermissions()</a></code> 
+        </dt>
+        <dd>Get repo permissions.</dd>
+      </dl><dl><dt>
+          
           <code><a href="reposList.html">reposList()</a></code> 
         </dt>
         <dd>Get repos.</dd>
       </dl><dl><dt>
           
+          <code><a href="reposSetRepoPermissions.html">reposSetRepoPermissions()</a></code> 
+        </dt>
+        <dd>Set repo permissions.</dd>
+      </dl><dl><dt>
+          
           <code><a href="reposUpdate.html">reposUpdate()</a></code> 
         </dt>
         <dd>Update a repo.</dd>
+      </dl><dl><dt>
+          
+          <code><a href="reposUpdateRepoPermissions.html">reposUpdateRepoPermissions()</a></code> 
+        </dt>
+        <dd>Update repo permissions.</dd>
       </dl><dl><dt>
           
           <code><a href="schemasCreate.html">schemasCreate()</a></code> 
@@ -1409,6 +1539,16 @@ given serving endpoint's served model.</dd>
         <dd>Get a single serving endpoint.</dd>
       </dl><dl><dt>
           
+          <code><a href="servingEndpointsGetServingEndpointPermissionLevels.html">servingEndpointsGetServingEndpointPermissionLevels()</a></code> 
+        </dt>
+        <dd>Get serving endpoint permission levels.</dd>
+      </dl><dl><dt>
+          
+          <code><a href="servingEndpointsGetServingEndpointPermissions.html">servingEndpointsGetServingEndpointPermissions()</a></code> 
+        </dt>
+        <dd>Get serving endpoint permissions.</dd>
+      </dl><dl><dt>
+          
           <code><a href="servingEndpointsList.html">servingEndpointsList()</a></code> 
         </dt>
         <dd>Retrieve all serving endpoints.#'</dd>
@@ -1425,9 +1565,19 @@ served model.</dd>
         <dd>Query a serving endpoint with provided model input.</dd>
       </dl><dl><dt>
           
+          <code><a href="servingEndpointsSetServingEndpointPermissions.html">servingEndpointsSetServingEndpointPermissions()</a></code> 
+        </dt>
+        <dd>Set serving endpoint permissions.</dd>
+      </dl><dl><dt>
+          
           <code><a href="servingEndpointsUpdateConfig.html">servingEndpointsUpdateConfig()</a></code> 
         </dt>
         <dd>Update a serving endpoint with a new config.</dd>
+      </dl><dl><dt>
+          
+          <code><a href="servingEndpointsUpdateServingEndpointPermissions.html">servingEndpointsUpdateServingEndpointPermissions()</a></code> 
+        </dt>
+        <dd>Update serving endpoint permissions.</dd>
       </dl><dl><dt>
           
           <code><a href="sharesCreate.html">sharesCreate()</a></code> 
@@ -1580,9 +1730,29 @@ served model.</dd>
         <dd>Get token info.</dd>
       </dl><dl><dt>
           
+          <code><a href="tokenManagementGetTokenPermissionLevels.html">tokenManagementGetTokenPermissionLevels()</a></code> 
+        </dt>
+        <dd>Get token permission levels.</dd>
+      </dl><dl><dt>
+          
+          <code><a href="tokenManagementGetTokenPermissions.html">tokenManagementGetTokenPermissions()</a></code> 
+        </dt>
+        <dd>Get token permissions.</dd>
+      </dl><dl><dt>
+          
           <code><a href="tokenManagementList.html">tokenManagementList()</a></code> 
         </dt>
         <dd>List all tokens.</dd>
+      </dl><dl><dt>
+          
+          <code><a href="tokenManagementSetTokenPermissions.html">tokenManagementSetTokenPermissions()</a></code> 
+        </dt>
+        <dd>Set token permissions.</dd>
+      </dl><dl><dt>
+          
+          <code><a href="tokenManagementUpdateTokenPermissions.html">tokenManagementUpdateTokenPermissions()</a></code> 
+        </dt>
+        <dd>Update token permissions.</dd>
       </dl><dl><dt>
           
           <code><a href="tokensCreate.html">tokensCreate()</a></code> 
@@ -1615,6 +1785,16 @@ served model.</dd>
         <dd>Get user details.</dd>
       </dl><dl><dt>
           
+          <code><a href="usersGetPasswordPermissionLevels.html">usersGetPasswordPermissionLevels()</a></code> 
+        </dt>
+        <dd>Get password permission levels.</dd>
+      </dl><dl><dt>
+          
+          <code><a href="usersGetPasswordPermissions.html">usersGetPasswordPermissions()</a></code> 
+        </dt>
+        <dd>Get password permissions.</dd>
+      </dl><dl><dt>
+          
           <code><a href="usersList.html">usersList()</a></code> 
         </dt>
         <dd>List users.</dd>
@@ -1625,9 +1805,19 @@ served model.</dd>
         <dd>Update user details.</dd>
       </dl><dl><dt>
           
+          <code><a href="usersSetPasswordPermissions.html">usersSetPasswordPermissions()</a></code> 
+        </dt>
+        <dd>Set password permissions.</dd>
+      </dl><dl><dt>
+          
           <code><a href="usersUpdate.html">usersUpdate()</a></code> 
         </dt>
         <dd>Replace a user.</dd>
+      </dl><dl><dt>
+          
+          <code><a href="usersUpdatePasswordPermissions.html">usersUpdatePasswordPermissions()</a></code> 
+        </dt>
+        <dd>Update password permissions.</dd>
       </dl><dl><dt>
           
           <code><a href="volumesCreate.html">volumesCreate()</a></code> 
@@ -1675,6 +1865,16 @@ served model.</dd>
         <dd>Get warehouse info.</dd>
       </dl><dl><dt>
           
+          <code><a href="warehousesGetWarehousePermissionLevels.html">warehousesGetWarehousePermissionLevels()</a></code> 
+        </dt>
+        <dd>Get SQL warehouse permission levels.</dd>
+      </dl><dl><dt>
+          
+          <code><a href="warehousesGetWarehousePermissions.html">warehousesGetWarehousePermissions()</a></code> 
+        </dt>
+        <dd>Get SQL warehouse permissions.</dd>
+      </dl><dl><dt>
+          
           <code><a href="warehousesGetWorkspaceWarehouseConfig.html">warehousesGetWorkspaceWarehouseConfig()</a></code> 
         </dt>
         <dd>Get the workspace configuration.</dd>
@@ -1683,6 +1883,11 @@ served model.</dd>
           <code><a href="warehousesList.html">warehousesList()</a></code> 
         </dt>
         <dd>List warehouses.</dd>
+      </dl><dl><dt>
+          
+          <code><a href="warehousesSetWarehousePermissions.html">warehousesSetWarehousePermissions()</a></code> 
+        </dt>
+        <dd>Set SQL warehouse permissions.</dd>
       </dl><dl><dt>
           
           <code><a href="warehousesSetWorkspaceWarehouseConfig.html">warehousesSetWorkspaceWarehouseConfig()</a></code> 
@@ -1698,6 +1903,11 @@ served model.</dd>
           <code><a href="warehousesStop.html">warehousesStop()</a></code> 
         </dt>
         <dd>Stop a warehouse.</dd>
+      </dl><dl><dt>
+          
+          <code><a href="warehousesUpdateWarehousePermissions.html">warehousesUpdateWarehousePermissions()</a></code> 
+        </dt>
+        <dd>Update SQL warehouse permissions.</dd>
       </dl><dl><dt>
           
           <code><a href="workspaceBindingsGet.html">workspaceBindingsGet()</a></code> 
@@ -1748,6 +1958,16 @@ served model.</dd>
           <code><a href="workspaceMkdirs.html">workspaceMkdirs()</a></code> 
         </dt>
         <dd>Create a directory.</dd>
+      </dl><dl><dt>
+          
+          <code><a href="workspacePermissionLevels.html">workspacePermissionLevels()</a></code> 
+        </dt>
+        <dd>Get workspace object permission levels.</dd>
+      </dl><dl><dt>
+          
+          <code><a href="workspaceWorkspaceObjectId.html">workspaceWorkspaceObjectId()</a></code> 
+        </dt>
+        <dd>Update workspace object permissions.</dd>
       </dl></div>
   </main></div>
 

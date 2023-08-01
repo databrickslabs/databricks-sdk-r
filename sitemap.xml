@@ -76,6 +76,9 @@
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/cleanRoomsUpdate.html</loc>
   </url>
   <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/clusterPoliciesClusterPolicyId.html</loc>
+  </url>
+  <url>
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/clusterPoliciesCreate.html</loc>
   </url>
   <url>
@@ -91,7 +94,13 @@
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/clusterPoliciesList.html</loc>
   </url>
   <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/clusterPoliciesPermissionLevels.html</loc>
+  </url>
+  <url>
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/clustersChangeOwner.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/clustersClusterId.html</loc>
   </url>
   <url>
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/clustersCreate.html</loc>
@@ -119,6 +128,9 @@
   </url>
   <url>
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/clustersPermanentDelete.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/clustersPermissionLevels.html</loc>
   </url>
   <url>
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/clustersPin.html</loc>
@@ -256,6 +268,12 @@
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/experimentsGetExperiment.html</loc>
   </url>
   <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/experimentsGetExperimentPermissionLevels.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/experimentsGetExperimentPermissions.html</loc>
+  </url>
+  <url>
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/experimentsGetHistory.html</loc>
   </url>
   <url>
@@ -295,6 +313,9 @@
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/experimentsSearchRuns.html</loc>
   </url>
   <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/experimentsSetExperimentPermissions.html</loc>
+  </url>
+  <url>
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/experimentsSetExperimentTag.html</loc>
   </url>
   <url>
@@ -302,6 +323,9 @@
   </url>
   <url>
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/experimentsUpdateExperiment.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/experimentsUpdateExperimentPermissions.html</loc>
   </url>
   <url>
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/experimentsUpdateRun.html</loc>
@@ -409,7 +433,13 @@
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/instancePoolsGet.html</loc>
   </url>
   <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/instancePoolsInstancePoolId.html</loc>
+  </url>
+  <url>
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/instancePoolsList.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/instancePoolsPermissionLevels.html</loc>
   </url>
   <url>
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/instanceProfilesAdd.html</loc>
@@ -463,6 +493,12 @@
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/jobsGet.html</loc>
   </url>
   <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/jobsGetJobPermissionLevels.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/jobsGetJobPermissions.html</loc>
+  </url>
+  <url>
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/jobsGetRun.html</loc>
   </url>
   <url>
@@ -484,10 +520,16 @@
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/jobsRunNow.html</loc>
   </url>
   <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/jobsSetJobPermissions.html</loc>
+  </url>
+  <url>
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/jobsSubmit.html</loc>
   </url>
   <url>
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/jobsUpdate.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/jobsUpdateJobPermissions.html</loc>
   </url>
   <url>
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/librariesAllClusterStatuses.html</loc>
@@ -586,6 +628,12 @@
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/modelRegistryGetModelVersionDownloadUri.html</loc>
   </url>
   <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/modelRegistryGetRegisteredModelPermissionLevels.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/modelRegistryGetRegisteredModelPermissions.html</loc>
+  </url>
+  <url>
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/modelRegistryListModels.html</loc>
   </url>
   <url>
@@ -613,6 +661,9 @@
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/modelRegistrySetModelVersionTag.html</loc>
   </url>
   <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/modelRegistrySetRegisteredModelPermissions.html</loc>
+  </url>
+  <url>
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/modelRegistryTestRegistryWebhook.html</loc>
   </url>
   <url>
@@ -626,6 +677,9 @@
   </url>
   <url>
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/modelRegistryUpdateModelVersion.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/modelRegistryUpdateRegisteredModelPermissions.html</loc>
   </url>
   <url>
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/modelRegistryUpdateWebhook.html</loc>
@@ -652,6 +706,12 @@
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/pipelinesGet.html</loc>
   </url>
   <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/pipelinesGetPipelinePermissionLevels.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/pipelinesGetPipelinePermissions.html</loc>
+  </url>
+  <url>
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/pipelinesGetUpdate.html</loc>
   </url>
   <url>
@@ -667,6 +727,9 @@
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/pipelinesReset.html</loc>
   </url>
   <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/pipelinesSetPipelinePermissions.html</loc>
+  </url>
+  <url>
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/pipelinesStartUpdate.html</loc>
   </url>
   <url>
@@ -674,6 +737,9 @@
   </url>
   <url>
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/pipelinesUpdate.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/pipelinesUpdatePipelinePermissions.html</loc>
   </url>
   <url>
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/policyFamiliesGet.html</loc>
@@ -757,10 +823,22 @@
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/reposGet.html</loc>
   </url>
   <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/reposGetRepoPermissionLevels.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/reposGetRepoPermissions.html</loc>
+  </url>
+  <url>
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/reposList.html</loc>
   </url>
   <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/reposSetRepoPermissions.html</loc>
+  </url>
+  <url>
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/reposUpdate.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/reposUpdateRepoPermissions.html</loc>
   </url>
   <url>
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/schemasCreate.html</loc>
@@ -841,6 +919,12 @@
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/servingEndpointsGet.html</loc>
   </url>
   <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/servingEndpointsGetServingEndpointPermissionLevels.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/servingEndpointsGetServingEndpointPermissions.html</loc>
+  </url>
+  <url>
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/servingEndpointsList.html</loc>
   </url>
   <url>
@@ -850,7 +934,13 @@
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/servingEndpointsQuery.html</loc>
   </url>
   <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/servingEndpointsSetServingEndpointPermissions.html</loc>
+  </url>
+  <url>
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/servingEndpointsUpdateConfig.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/servingEndpointsUpdateServingEndpointPermissions.html</loc>
   </url>
   <url>
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/sharesCreate.html</loc>
@@ -943,7 +1033,19 @@
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/tokenManagementGet.html</loc>
   </url>
   <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/tokenManagementGetTokenPermissionLevels.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/tokenManagementGetTokenPermissions.html</loc>
+  </url>
+  <url>
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/tokenManagementList.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/tokenManagementSetTokenPermissions.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/tokenManagementUpdateTokenPermissions.html</loc>
   </url>
   <url>
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/tokensCreate.html</loc>
@@ -964,13 +1066,25 @@
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/usersGet.html</loc>
   </url>
   <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/usersGetPasswordPermissionLevels.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/usersGetPasswordPermissions.html</loc>
+  </url>
+  <url>
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/usersList.html</loc>
   </url>
   <url>
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/usersPatch.html</loc>
   </url>
   <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/usersSetPasswordPermissions.html</loc>
+  </url>
+  <url>
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/usersUpdate.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/usersUpdatePasswordPermissions.html</loc>
   </url>
   <url>
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/volumesCreate.html</loc>
@@ -1000,10 +1114,19 @@
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/warehousesGet.html</loc>
   </url>
   <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/warehousesGetWarehousePermissionLevels.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/warehousesGetWarehousePermissions.html</loc>
+  </url>
+  <url>
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/warehousesGetWorkspaceWarehouseConfig.html</loc>
   </url>
   <url>
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/warehousesList.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/warehousesSetWarehousePermissions.html</loc>
   </url>
   <url>
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/warehousesSetWorkspaceWarehouseConfig.html</loc>
@@ -1013,6 +1136,9 @@
   </url>
   <url>
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/warehousesStop.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/warehousesUpdateWarehousePermissions.html</loc>
   </url>
   <url>
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/workspaceBindingsGet.html</loc>
@@ -1043,5 +1169,11 @@
   </url>
   <url>
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/workspaceMkdirs.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/workspacePermissionLevels.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/workspaceWorkspaceObjectId.html</loc>
   </url>
 </urlset>

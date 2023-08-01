@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="index.html">databricks</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -37,6 +37,59 @@
 
 <div id="version-changelog" class="section level1">
 
+<div class="section level2">
+<h2 id="id_030">0.3.0<a class="anchor" aria-label="anchor" href="#id_030"></a></h2>
+<ul><li>Added github pages (<a href="https://github.com/databrickslabs/databricks-sdk-r/pull/19" class="external-link">#19</a>).</li>
+<li>Added <code>pkgdown</code> website (<a href="https://github.com/databrickslabs/databricks-sdk-r/pull/20" class="external-link">#20</a>).</li>
+</ul><p>API Changes:</p>
+<ul><li>Added <code><a href="reference/clusterPoliciesClusterPolicyId.html">clusterPoliciesClusterPolicyId()</a></code> function.</li>
+<li>Added <code><a href="reference/clusterPoliciesPermissionLevels.html">clusterPoliciesPermissionLevels()</a></code> function.</li>
+<li>Added <code><a href="reference/clustersClusterId.html">clustersClusterId()</a></code> function.</li>
+<li>Added <code><a href="reference/clustersPermissionLevels.html">clustersPermissionLevels()</a></code> function.</li>
+<li>Added <code><a href="reference/instancePoolsInstancePoolId.html">instancePoolsInstancePoolId()</a></code> function.</li>
+<li>Added <code><a href="reference/instancePoolsPermissionLevels.html">instancePoolsPermissionLevels()</a></code> function.</li>
+<li>Changed <code><a href="reference/permissionsSet.html">permissionsSet()</a></code> function to start returning .</li>
+<li>Changed <code><a href="reference/permissionsUpdate.html">permissionsUpdate()</a></code> function to start returning .</li>
+<li>Added <code><a href="reference/usersGetPasswordPermissionLevels.html">usersGetPasswordPermissionLevels()</a></code> function.</li>
+<li>Added <code><a href="reference/usersGetPasswordPermissions.html">usersGetPasswordPermissions()</a></code> function.</li>
+<li>Added <code><a href="reference/usersSetPasswordPermissions.html">usersSetPasswordPermissions()</a></code> function.</li>
+<li>Added <code><a href="reference/usersUpdatePasswordPermissions.html">usersUpdatePasswordPermissions()</a></code> function.</li>
+<li>Added <code><a href="reference/jobsGetJobPermissionLevels.html">jobsGetJobPermissionLevels()</a></code> function.</li>
+<li>Added <code><a href="reference/jobsGetJobPermissions.html">jobsGetJobPermissions()</a></code> function.</li>
+<li>Added <code><a href="reference/jobsSetJobPermissions.html">jobsSetJobPermissions()</a></code> function.</li>
+<li>Added <code><a href="reference/jobsUpdateJobPermissions.html">jobsUpdateJobPermissions()</a></code> function.</li>
+<li>Added <code><a href="reference/experimentsGetExperimentPermissionLevels.html">experimentsGetExperimentPermissionLevels()</a></code> function.</li>
+<li>Added <code><a href="reference/experimentsGetExperimentPermissions.html">experimentsGetExperimentPermissions()</a></code> function.</li>
+<li>Added <code><a href="reference/experimentsSetExperimentPermissions.html">experimentsSetExperimentPermissions()</a></code> function.</li>
+<li>Added <code><a href="reference/experimentsUpdateExperimentPermissions.html">experimentsUpdateExperimentPermissions()</a></code> function.</li>
+<li>Added <code><a href="reference/modelRegistryGetRegisteredModelPermissionLevels.html">modelRegistryGetRegisteredModelPermissionLevels()</a></code> function.</li>
+<li>Added <code><a href="reference/modelRegistryGetRegisteredModelPermissions.html">modelRegistryGetRegisteredModelPermissions()</a></code> function.</li>
+<li>Added <code><a href="reference/modelRegistrySetRegisteredModelPermissions.html">modelRegistrySetRegisteredModelPermissions()</a></code> function.</li>
+<li>Added <code><a href="reference/modelRegistryUpdateRegisteredModelPermissions.html">modelRegistryUpdateRegisteredModelPermissions()</a></code> function.</li>
+<li>Added <code><a href="reference/pipelinesGetPipelinePermissionLevels.html">pipelinesGetPipelinePermissionLevels()</a></code> function.</li>
+<li>Added <code><a href="reference/pipelinesGetPipelinePermissions.html">pipelinesGetPipelinePermissions()</a></code> function.</li>
+<li>Added <code><a href="reference/pipelinesSetPipelinePermissions.html">pipelinesSetPipelinePermissions()</a></code> function.</li>
+<li>Added <code><a href="reference/pipelinesUpdatePipelinePermissions.html">pipelinesUpdatePipelinePermissions()</a></code> function.</li>
+<li>Added <code><a href="reference/servingEndpointsGetServingEndpointPermissionLevels.html">servingEndpointsGetServingEndpointPermissionLevels()</a></code> function.</li>
+<li>Added <code><a href="reference/servingEndpointsGetServingEndpointPermissions.html">servingEndpointsGetServingEndpointPermissions()</a></code> function.</li>
+<li>Added <code><a href="reference/servingEndpointsSetServingEndpointPermissions.html">servingEndpointsSetServingEndpointPermissions()</a></code> function.</li>
+<li>Added <code><a href="reference/servingEndpointsUpdateServingEndpointPermissions.html">servingEndpointsUpdateServingEndpointPermissions()</a></code> function.</li>
+<li>Added <code><a href="reference/tokenManagementGetTokenPermissionLevels.html">tokenManagementGetTokenPermissionLevels()</a></code> function.</li>
+<li>Added <code><a href="reference/tokenManagementGetTokenPermissions.html">tokenManagementGetTokenPermissions()</a></code> function.</li>
+<li>Added <code><a href="reference/tokenManagementSetTokenPermissions.html">tokenManagementSetTokenPermissions()</a></code> function.</li>
+<li>Added <code><a href="reference/tokenManagementUpdateTokenPermissions.html">tokenManagementUpdateTokenPermissions()</a></code> function.</li>
+<li>Added <code><a href="reference/warehousesGetWarehousePermissionLevels.html">warehousesGetWarehousePermissionLevels()</a></code> function.</li>
+<li>Added <code><a href="reference/warehousesGetWarehousePermissions.html">warehousesGetWarehousePermissions()</a></code> function.</li>
+<li>Added <code><a href="reference/warehousesSetWarehousePermissions.html">warehousesSetWarehousePermissions()</a></code> function.</li>
+<li>Added <code><a href="reference/warehousesUpdateWarehousePermissions.html">warehousesUpdateWarehousePermissions()</a></code> function.</li>
+<li>Added <code><a href="reference/reposGetRepoPermissionLevels.html">reposGetRepoPermissionLevels()</a></code> function.</li>
+<li>Added <code><a href="reference/reposGetRepoPermissions.html">reposGetRepoPermissions()</a></code> function.</li>
+<li>Added <code><a href="reference/reposSetRepoPermissions.html">reposSetRepoPermissions()</a></code> function.</li>
+<li>Added <code><a href="reference/reposUpdateRepoPermissions.html">reposUpdateRepoPermissions()</a></code> function.</li>
+<li>Added <code><a href="reference/workspacePermissionLevels.html">workspacePermissionLevels()</a></code> function.</li>
+<li>Added <code><a href="reference/workspaceWorkspaceObjectId.html">workspaceWorkspaceObjectId()</a></code> function.</li>
+</ul><p>OpenAPI SHA: ae082ae8b1bcc0bd41468e5f07810054e05b3dc7, Date: 2023-08-01</p>
+</div>
 <div class="section level2">
 <h2 id="id_020">0.2.0<a class="anchor" aria-label="anchor" href="#id_020"></a></h2>
 <ul><li>Adding <code>@export</code> to Roxygen, improving visibility (<a href="https://github.com/databrickslabs/databricks-sdk-r/pull/16" class="external-link">#16</a>).</li>
