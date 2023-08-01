@@ -12,3 +12,6 @@
 ^CHANGELOG\.md$
 ^Makefile$
 ^NOTICE$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$

@@ -6,3 +6,4 @@
 .Renviron
 *.tar.gz
 renv
+docs
