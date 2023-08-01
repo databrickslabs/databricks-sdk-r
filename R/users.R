@@ -60,6 +60,25 @@ usersGet <- function(client, id) {
   client$do("GET", paste("/api/2.0/preview/scim/v2/Users/", id, sep = ""))
 }
 
+#' Get password permission levels.
+#' 
+#' Gets the permission levels that a user can have on an object.#'
+#' @rdname usersGetPasswordPermissionLevels
+#' @export
+usersGetPasswordPermissionLevels <- function(client) {
+  client$do("GET", "/api/2.0/permissions/authorization/passwords/permissionLevels")
+}
+
+#' Get password permissions.
+#' 
+#' Gets the permissions of all passwords. Passwords can inherit permissions from
+#' their root object.#'
+#' @rdname usersGetPasswordPermissions
+#' @export
+usersGetPasswordPermissions <- function(client) {
+  client$do("GET", "/api/2.0/permissions/authorization/passwords")
+}
+
 #' List users.
 #' 
 #' Gets details for all the users associated with a Databricks workspace.
@@ -104,6 +123,21 @@ usersPatch <- function(client, id, operations = NULL, schema = NULL) {
   client$do("PATCH", paste("/api/2.0/preview/scim/v2/Users/", id, sep = ""), body = body)
 }
 
+#' Set password permissions.
+#' 
+#' Sets permissions on all passwords. Passwords can inherit permissions from
+#' their root object.
+#' @param client Required. Instance of DatabricksClient()
+#'
+#' @param access_control_list 
+#'
+#' @rdname usersSetPasswordPermissions
+#' @export
+usersSetPasswordPermissions <- function(client, access_control_list = NULL) {
+  body <- list(access_control_list = access_control_list)
+  client$do("PUT", "/api/2.0/permissions/authorization/passwords", body = body)
+}
+
 #' Replace a user.
 #' 
 #' Replaces a user's information with the data supplied in request.
@@ -129,5 +163,20 @@ usersUpdate <- function(client, id, active = NULL, display_name = NULL, emails =
     externalId = external_id, groups = groups, id = id, name = name, roles = roles,
     userName = user_name)
   client$do("PUT", paste("/api/2.0/preview/scim/v2/Users/", id, sep = ""), body = body)
+}
+
+#' Update password permissions.
+#' 
+#' Updates the permissions on all passwords. Passwords can inherit permissions
+#' from their root object.
+#' @param client Required. Instance of DatabricksClient()
+#'
+#' @param access_control_list 
+#'
+#' @rdname usersUpdatePasswordPermissions
+#' @export
+usersUpdatePasswordPermissions <- function(client, access_control_list = NULL) {
+  body <- list(access_control_list = access_control_list)
+  client$do("PATCH", "/api/2.0/permissions/authorization/passwords", body = body)
 }
 

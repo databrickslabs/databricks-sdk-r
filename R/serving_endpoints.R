@@ -115,6 +115,37 @@ servingEndpointsGet <- function(client, name) {
   client$do("GET", paste("/api/2.0/serving-endpoints/", name, sep = ""))
 }
 
+#' Get serving endpoint permission levels.
+#' 
+#' Gets the permission levels that a user can have on an object.
+#' @param client Required. Instance of DatabricksClient()
+#'
+#' @param serving_endpoint_id Required. The serving endpoint for which to get or manage permissions.
+#'
+#' @rdname servingEndpointsGetServingEndpointPermissionLevels
+#' @export
+servingEndpointsGetServingEndpointPermissionLevels <- function(client, serving_endpoint_id) {
+
+  client$do("GET", paste("/api/2.0/permissions/serving-endpoints/", serving_endpoint_id,
+    "/permissionLevels", , sep = ""))
+}
+
+#' Get serving endpoint permissions.
+#' 
+#' Gets the permissions of a serving endpoint. Serving endpoints can inherit
+#' permissions from their root object.
+#' @param client Required. Instance of DatabricksClient()
+#'
+#' @param serving_endpoint_id Required. The serving endpoint for which to get or manage permissions.
+#'
+#' @rdname servingEndpointsGetServingEndpointPermissions
+#' @export
+servingEndpointsGetServingEndpointPermissions <- function(client, serving_endpoint_id) {
+
+  client$do("GET", paste("/api/2.0/permissions/serving-endpoints/", serving_endpoint_id,
+    sep = ""))
+}
+
 #' Retrieve all serving endpoints.#'
 #' @return `data.frame` with all of the response pages.
 #'
@@ -154,6 +185,24 @@ servingEndpointsLogs <- function(client, name, served_model_name) {
 servingEndpointsQuery <- function(client, name) {
 
   client$do("POST", paste("/serving-endpoints/", name, "/invocations", , sep = ""))
+}
+
+#' Set serving endpoint permissions.
+#' 
+#' Sets permissions on a serving endpoint. Serving endpoints can inherit
+#' permissions from their root object.
+#' @param client Required. Instance of DatabricksClient()
+#'
+#' @param access_control_list 
+#' @param serving_endpoint_id Required. The serving endpoint for which to get or manage permissions.
+#'
+#' @rdname servingEndpointsSetServingEndpointPermissions
+#' @export
+servingEndpointsSetServingEndpointPermissions <- function(client, serving_endpoint_id,
+  access_control_list = NULL) {
+  body <- list(access_control_list = access_control_list)
+  client$do("PUT", paste("/api/2.0/permissions/serving-endpoints/", serving_endpoint_id,
+    sep = ""), body = body)
 }
 
 #' Update a serving endpoint with a new config.
@@ -216,5 +265,23 @@ servingEndpointsUpdateConfig <- function(client, served_models, name, traffic_co
   }
   msg <- paste("timed out after", timeout, "minutes:", status_message)
   rlang::abort(msg, call = rlang::caller_env())
+}
+
+#' Update serving endpoint permissions.
+#' 
+#' Updates the permissions on a serving endpoint. Serving endpoints can inherit
+#' permissions from their root object.
+#' @param client Required. Instance of DatabricksClient()
+#'
+#' @param access_control_list 
+#' @param serving_endpoint_id Required. The serving endpoint for which to get or manage permissions.
+#'
+#' @rdname servingEndpointsUpdateServingEndpointPermissions
+#' @export
+servingEndpointsUpdateServingEndpointPermissions <- function(client, serving_endpoint_id,
+  access_control_list = NULL) {
+  body <- list(access_control_list = access_control_list)
+  client$do("PATCH", paste("/api/2.0/permissions/serving-endpoints/", serving_endpoint_id,
+    sep = ""), body = body)
 }
 

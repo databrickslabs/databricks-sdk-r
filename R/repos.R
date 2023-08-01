@@ -51,6 +51,36 @@ reposGet <- function(client, repo_id) {
   client$do("GET", paste("/api/2.0/repos/", repo_id, sep = ""))
 }
 
+#' Get repo permission levels.
+#' 
+#' Gets the permission levels that a user can have on an object.
+#' @param client Required. Instance of DatabricksClient()
+#'
+#' @param repo_id Required. The repo for which to get or manage permissions.
+#'
+#' @rdname reposGetRepoPermissionLevels
+#' @export
+reposGetRepoPermissionLevels <- function(client, repo_id) {
+
+  client$do("GET", paste("/api/2.0/permissions/repos/", repo_id, "/permissionLevels",
+    , sep = ""))
+}
+
+#' Get repo permissions.
+#' 
+#' Gets the permissions of a repo. Repos can inherit permissions from their root
+#' object.
+#' @param client Required. Instance of DatabricksClient()
+#'
+#' @param repo_id Required. The repo for which to get or manage permissions.
+#'
+#' @rdname reposGetRepoPermissions
+#' @export
+reposGetRepoPermissions <- function(client, repo_id) {
+
+  client$do("GET", paste("/api/2.0/permissions/repos/", repo_id, sep = ""))
+}
+
 #' Get repos.
 #' 
 #' Returns repos that the calling user has Manage permissions on. Results are
@@ -84,6 +114,22 @@ reposList <- function(client, next_page_token = NULL, path_prefix = NULL) {
 
 }
 
+#' Set repo permissions.
+#' 
+#' Sets permissions on a repo. Repos can inherit permissions from their root
+#' object.
+#' @param client Required. Instance of DatabricksClient()
+#'
+#' @param access_control_list 
+#' @param repo_id Required. The repo for which to get or manage permissions.
+#'
+#' @rdname reposSetRepoPermissions
+#' @export
+reposSetRepoPermissions <- function(client, repo_id, access_control_list = NULL) {
+  body <- list(access_control_list = access_control_list)
+  client$do("PUT", paste("/api/2.0/permissions/repos/", repo_id, sep = ""), body = body)
+}
+
 #' Update a repo.
 #' 
 #' Updates the repo to a different branch or tag, or updates the repo to the
@@ -100,5 +146,21 @@ reposList <- function(client, next_page_token = NULL, path_prefix = NULL) {
 reposUpdate <- function(client, repo_id, branch = NULL, sparse_checkout = NULL, tag = NULL) {
   body <- list(branch = branch, sparse_checkout = sparse_checkout, tag = tag)
   client$do("PATCH", paste("/api/2.0/repos/", repo_id, sep = ""), body = body)
+}
+
+#' Update repo permissions.
+#' 
+#' Updates the permissions on a repo. Repos can inherit permissions from their
+#' root object.
+#' @param client Required. Instance of DatabricksClient()
+#'
+#' @param access_control_list 
+#' @param repo_id Required. The repo for which to get or manage permissions.
+#'
+#' @rdname reposUpdateRepoPermissions
+#' @export
+reposUpdateRepoPermissions <- function(client, repo_id, access_control_list = NULL) {
+  body <- list(access_control_list = access_control_list)
+  client$do("PATCH", paste("/api/2.0/permissions/repos/", repo_id, sep = ""), body = body)
 }
 

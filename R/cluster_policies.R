@@ -3,6 +3,22 @@
 #' @importFrom stats runif
 NULL
 
+#' Get cluster policy permissions.
+#' 
+#' Gets the permissions of a cluster policy. Cluster policies can inherit
+#' permissions from their root object.
+#' @param client Required. Instance of DatabricksClient()
+#'
+#' @param cluster_policy_id Required. The cluster policy for which to get or manage permissions.
+#'
+#' @rdname clusterPoliciesClusterPolicyId
+#' @export
+clusterPoliciesClusterPolicyId <- function(client, cluster_policy_id) {
+
+  client$do("GET", paste("/api/2.0/permissions/cluster-policies/", cluster_policy_id,
+    sep = ""))
+}
+
 #' Create a new policy.
 #' 
 #' Creates a new policy with prescribed settings.
@@ -97,5 +113,20 @@ clusterPoliciesList <- function(client, sort_column = NULL, sort_order = NULL) {
   json <- client$do("GET", "/api/2.0/policies/clusters/list", query = query)
   return(json$policies)
 
+}
+
+#' Get cluster policy permission levels.
+#' 
+#' Gets the permission levels that a user can have on an object.
+#' @param client Required. Instance of DatabricksClient()
+#'
+#' @param cluster_policy_id Required. The cluster policy for which to get or manage permissions.
+#'
+#' @rdname clusterPoliciesPermissionLevels
+#' @export
+clusterPoliciesPermissionLevels <- function(client, cluster_policy_id) {
+
+  client$do("GET", paste("/api/2.0/permissions/cluster-policies/", cluster_policy_id,
+    "/permissionLevels", , sep = ""))
 }
 

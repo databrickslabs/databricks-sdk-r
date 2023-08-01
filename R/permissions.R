@@ -5,8 +5,8 @@ NULL
 
 #' Get object permissions.
 #' 
-#' Gets the permission of an object. Objects can inherit permissions from their
-#' parent objects or root objects.
+#' Gets the permissions of an object. Objects can inherit permissions from their
+#' parent objects or root object.
 #' @param client Required. Instance of DatabricksClient()
 #'
 #' @param request_object_id Required. 
@@ -20,7 +20,7 @@ permissionsGet <- function(client, request_object_type, request_object_id) {
     sep = ""))
 }
 
-#' Get permission levels.
+#' Get object permission levels.
 #' 
 #' Gets the permission levels that a user can have on an object.
 #' @param client Required. Instance of DatabricksClient()
@@ -36,10 +36,10 @@ permissionsGetPermissionLevels <- function(client, request_object_type, request_
     "/permissionLevels", , sep = ""))
 }
 
-#' Set permissions.
+#' Set object permissions.
 #' 
-#' Sets permissions on object. Objects can inherit permissions from their parent
-#' objects and root objects.
+#' Sets permissions on an object. Objects can inherit permissions from their
+#' parent objects or root object.
 #' @param client Required. Instance of DatabricksClient()
 #'
 #' @param access_control_list 
@@ -54,9 +54,10 @@ permissionsSet <- function(client, request_object_type, request_object_id, acces
     sep = ""), body = body)
 }
 
-#' Update permission.
+#' Update object permissions.
 #' 
-#' Updates the permissions on an object.
+#' Updates the permissions on an object. Objects can inherit permissions from
+#' their parent objects or root object.
 #' @param client Required. Instance of DatabricksClient()
 #'
 #' @param access_control_list 

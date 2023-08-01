@@ -175,6 +175,36 @@ jobsGet <- function(client, job_id) {
   client$do("GET", "/api/2.1/jobs/get", query = query)
 }
 
+#' Get job permission levels.
+#' 
+#' Gets the permission levels that a user can have on an object.
+#' @param client Required. Instance of DatabricksClient()
+#'
+#' @param job_id Required. The job for which to get or manage permissions.
+#'
+#' @rdname jobsGetJobPermissionLevels
+#' @export
+jobsGetJobPermissionLevels <- function(client, job_id) {
+
+  client$do("GET", paste("/api/2.0/permissions/jobs/", job_id, "/permissionLevels",
+    , sep = ""))
+}
+
+#' Get job permissions.
+#' 
+#' Gets the permissions of a job. Jobs can inherit permissions from their root
+#' object.
+#' @param client Required. Instance of DatabricksClient()
+#'
+#' @param job_id Required. The job for which to get or manage permissions.
+#'
+#' @rdname jobsGetJobPermissions
+#' @export
+jobsGetJobPermissions <- function(client, job_id) {
+
+  client$do("GET", paste("/api/2.0/permissions/jobs/", job_id, sep = ""))
+}
+
 #' Get a single job run.
 #' 
 #' Retrieve the metadata of a run.
@@ -509,6 +539,22 @@ jobsRunNow <- function(client, job_id, dbt_commands = NULL, idempotency_token = 
   rlang::abort(msg, call = rlang::caller_env())
 }
 
+#' Set job permissions.
+#' 
+#' Sets permissions on a job. Jobs can inherit permissions from their root
+#' object.
+#' @param client Required. Instance of DatabricksClient()
+#'
+#' @param access_control_list 
+#' @param job_id Required. The job for which to get or manage permissions.
+#'
+#' @rdname jobsSetJobPermissions
+#' @export
+jobsSetJobPermissions <- function(client, job_id, access_control_list = NULL) {
+  body <- list(access_control_list = access_control_list)
+  client$do("PUT", paste("/api/2.0/permissions/jobs/", job_id, sep = ""), body = body)
+}
+
 #' Create and trigger a one-time run.
 #' 
 #' Submit a one-time run. This endpoint allows you to submit a workload directly
@@ -600,5 +646,21 @@ jobsSubmit <- function(client, access_control_list = NULL, email_notifications =
 jobsUpdate <- function(client, job_id, fields_to_remove = NULL, new_settings = NULL) {
   body <- list(fields_to_remove = fields_to_remove, job_id = job_id, new_settings = new_settings)
   client$do("POST", "/api/2.1/jobs/update", body = body)
+}
+
+#' Update job permissions.
+#' 
+#' Updates the permissions on a job. Jobs can inherit permissions from their
+#' root object.
+#' @param client Required. Instance of DatabricksClient()
+#'
+#' @param access_control_list 
+#' @param job_id Required. The job for which to get or manage permissions.
+#'
+#' @rdname jobsUpdateJobPermissions
+#' @export
+jobsUpdateJobPermissions <- function(client, job_id, access_control_list = NULL) {
+  body <- list(access_control_list = access_control_list)
+  client$do("PATCH", paste("/api/2.0/permissions/jobs/", job_id, sep = ""), body = body)
 }
 
