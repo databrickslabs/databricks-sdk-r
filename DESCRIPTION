@@ -79,3 +79,4 @@ Collate:
     'workspace.R'
     'workspace_bindings.R'
     'workspace_conf.R'
+URL: https://databrickslabs.github.io/databricks-sdk-r/

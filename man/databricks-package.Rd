@@ -8,6 +8,13 @@
 \description{
 Call all Databricks REST APIs from R.
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://databrickslabs.github.io/databricks-sdk-r/}
+}
+
+}
 \author{
 \strong{Maintainer}: Serge Smertin \email{serge.smertin@databricks.com}
 
