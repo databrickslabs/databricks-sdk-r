@@ -48,6 +48,25 @@ tokenManagementGet <- function(client, token_id) {
   client$do("GET", paste("/api/2.0/token-management/tokens/", token_id, sep = ""))
 }
 
+#' Get token permission levels.
+#' 
+#' Gets the permission levels that a user can have on an object.#'
+#' @rdname tokenManagementGetTokenPermissionLevels
+#' @export
+tokenManagementGetTokenPermissionLevels <- function(client) {
+  client$do("GET", "/api/2.0/permissions/authorization/tokens/permissionLevels")
+}
+
+#' Get token permissions.
+#' 
+#' Gets the permissions of all tokens. Tokens can inherit permissions from their
+#' root object.#'
+#' @rdname tokenManagementGetTokenPermissions
+#' @export
+tokenManagementGetTokenPermissions <- function(client) {
+  client$do("GET", "/api/2.0/permissions/authorization/tokens")
+}
+
 #' List all tokens.
 #' 
 #' Lists all tokens associated with the specified workspace or user.
@@ -66,5 +85,35 @@ tokenManagementList <- function(client, created_by_id = NULL, created_by_usernam
   json <- client$do("GET", "/api/2.0/token-management/tokens", query = query)
   return(json$token_infos)
 
+}
+
+#' Set token permissions.
+#' 
+#' Sets permissions on all tokens. Tokens can inherit permissions from their
+#' root object.
+#' @param client Required. Instance of DatabricksClient()
+#'
+#' @param access_control_list 
+#'
+#' @rdname tokenManagementSetTokenPermissions
+#' @export
+tokenManagementSetTokenPermissions <- function(client, access_control_list = NULL) {
+  body <- list(access_control_list = access_control_list)
+  client$do("PUT", "/api/2.0/permissions/authorization/tokens", body = body)
+}
+
+#' Update token permissions.
+#' 
+#' Updates the permissions on all tokens. Tokens can inherit permissions from
+#' their root object.
+#' @param client Required. Instance of DatabricksClient()
+#'
+#' @param access_control_list 
+#'
+#' @rdname tokenManagementUpdateTokenPermissions
+#' @export
+tokenManagementUpdateTokenPermissions <- function(client, access_control_list = NULL) {
+  body <- list(access_control_list = access_control_list)
+  client$do("PATCH", "/api/2.0/permissions/authorization/tokens", body = body)
 }
 

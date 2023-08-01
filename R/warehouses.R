@@ -187,6 +187,36 @@ warehousesGet <- function(client, id) {
   client$do("GET", paste("/api/2.0/sql/warehouses/", id, sep = ""))
 }
 
+#' Get SQL warehouse permission levels.
+#' 
+#' Gets the permission levels that a user can have on an object.
+#' @param client Required. Instance of DatabricksClient()
+#'
+#' @param warehouse_id Required. The SQL warehouse for which to get or manage permissions.
+#'
+#' @rdname warehousesGetWarehousePermissionLevels
+#' @export
+warehousesGetWarehousePermissionLevels <- function(client, warehouse_id) {
+
+  client$do("GET", paste("/api/2.0/permissions/warehouses/", warehouse_id, "/permissionLevels",
+    , sep = ""))
+}
+
+#' Get SQL warehouse permissions.
+#' 
+#' Gets the permissions of a SQL warehouse. SQL warehouses can inherit
+#' permissions from their root object.
+#' @param client Required. Instance of DatabricksClient()
+#'
+#' @param warehouse_id Required. The SQL warehouse for which to get or manage permissions.
+#'
+#' @rdname warehousesGetWarehousePermissions
+#' @export
+warehousesGetWarehousePermissions <- function(client, warehouse_id) {
+
+  client$do("GET", paste("/api/2.0/permissions/warehouses/", warehouse_id, sep = ""))
+}
+
 #' Get the workspace configuration.
 #' 
 #' Gets the workspace level configuration that is shared by all SQL warehouses
@@ -214,6 +244,23 @@ warehousesList <- function(client, run_as_user_id = NULL) {
   json <- client$do("GET", "/api/2.0/sql/warehouses", query = query)
   return(json$warehouses)
 
+}
+
+#' Set SQL warehouse permissions.
+#' 
+#' Sets permissions on a SQL warehouse. SQL warehouses can inherit permissions
+#' from their root object.
+#' @param client Required. Instance of DatabricksClient()
+#'
+#' @param access_control_list 
+#' @param warehouse_id Required. The SQL warehouse for which to get or manage permissions.
+#'
+#' @rdname warehousesSetWarehousePermissions
+#' @export
+warehousesSetWarehousePermissions <- function(client, warehouse_id, access_control_list = NULL) {
+  body <- list(access_control_list = access_control_list)
+  client$do("PUT", paste("/api/2.0/permissions/warehouses/", warehouse_id, sep = ""),
+    body = body)
 }
 
 #' Set the workspace configuration.
@@ -352,5 +399,22 @@ warehousesStop <- function(client, id, timeout = 20, callback = cli_reporter) {
   }
   msg <- paste("timed out after", timeout, "minutes:", status_message)
   rlang::abort(msg, call = rlang::caller_env())
+}
+
+#' Update SQL warehouse permissions.
+#' 
+#' Updates the permissions on a SQL warehouse. SQL warehouses can inherit
+#' permissions from their root object.
+#' @param client Required. Instance of DatabricksClient()
+#'
+#' @param access_control_list 
+#' @param warehouse_id Required. The SQL warehouse for which to get or manage permissions.
+#'
+#' @rdname warehousesUpdateWarehousePermissions
+#' @export
+warehousesUpdateWarehousePermissions <- function(client, warehouse_id, access_control_list = NULL) {
+  body <- list(access_control_list = access_control_list)
+  client$do("PATCH", paste("/api/2.0/permissions/warehouses/", warehouse_id, sep = ""),
+    body = body)
 }
 

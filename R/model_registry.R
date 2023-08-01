@@ -300,6 +300,37 @@ modelRegistryGetModelVersionDownloadUri <- function(client, name, version) {
   client$do("GET", "/api/2.0/mlflow/model-versions/get-download-uri", query = query)
 }
 
+#' Get registered model permission levels.
+#' 
+#' Gets the permission levels that a user can have on an object.
+#' @param client Required. Instance of DatabricksClient()
+#'
+#' @param registered_model_id Required. The registered model for which to get or manage permissions.
+#'
+#' @rdname modelRegistryGetRegisteredModelPermissionLevels
+#' @export
+modelRegistryGetRegisteredModelPermissionLevels <- function(client, registered_model_id) {
+
+  client$do("GET", paste("/api/2.0/permissions/registered-models/", registered_model_id,
+    "/permissionLevels", , sep = ""))
+}
+
+#' Get registered model permissions.
+#' 
+#' Gets the permissions of a registered model. Registered models can inherit
+#' permissions from their root object.
+#' @param client Required. Instance of DatabricksClient()
+#'
+#' @param registered_model_id Required. The registered model for which to get or manage permissions.
+#'
+#' @rdname modelRegistryGetRegisteredModelPermissions
+#' @export
+modelRegistryGetRegisteredModelPermissions <- function(client, registered_model_id) {
+
+  client$do("GET", paste("/api/2.0/permissions/registered-models/", registered_model_id,
+    sep = ""))
+}
+
 #' List models.
 #' 
 #' Lists all available registered models, up to the limit specified in
@@ -525,6 +556,24 @@ modelRegistrySetModelVersionTag <- function(client, name, version, key, value) {
   client$do("POST", "/api/2.0/mlflow/model-versions/set-tag", body = body)
 }
 
+#' Set registered model permissions.
+#' 
+#' Sets permissions on a registered model. Registered models can inherit
+#' permissions from their root object.
+#' @param client Required. Instance of DatabricksClient()
+#'
+#' @param access_control_list 
+#' @param registered_model_id Required. The registered model for which to get or manage permissions.
+#'
+#' @rdname modelRegistrySetRegisteredModelPermissions
+#' @export
+modelRegistrySetRegisteredModelPermissions <- function(client, registered_model_id,
+  access_control_list = NULL) {
+  body <- list(access_control_list = access_control_list)
+  client$do("PUT", paste("/api/2.0/permissions/registered-models/", registered_model_id,
+    sep = ""), body = body)
+}
+
 #' Test a webhook.
 #' 
 #' **NOTE:** This endpoint is in Public Preview.
@@ -611,6 +660,24 @@ modelRegistryUpdateModel <- function(client, name, description = NULL) {
 modelRegistryUpdateModelVersion <- function(client, name, version, description = NULL) {
   body <- list(description = description, name = name, version = version)
   client$do("PATCH", "/api/2.0/mlflow/model-versions/update", body = body)
+}
+
+#' Update registered model permissions.
+#' 
+#' Updates the permissions on a registered model. Registered models can inherit
+#' permissions from their root object.
+#' @param client Required. Instance of DatabricksClient()
+#'
+#' @param access_control_list 
+#' @param registered_model_id Required. The registered model for which to get or manage permissions.
+#'
+#' @rdname modelRegistryUpdateRegisteredModelPermissions
+#' @export
+modelRegistryUpdateRegisteredModelPermissions <- function(client, registered_model_id,
+  access_control_list = NULL) {
+  body <- list(access_control_list = access_control_list)
+  client$do("PATCH", paste("/api/2.0/permissions/registered-models/", registered_model_id,
+    sep = ""), body = body)
 }
 
 #' Update a webhook.

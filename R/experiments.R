@@ -128,6 +128,36 @@ experimentsGetExperiment <- function(client, experiment_id) {
   client$do("GET", "/api/2.0/mlflow/experiments/get", query = query)
 }
 
+#' Get experiment permission levels.
+#' 
+#' Gets the permission levels that a user can have on an object.
+#' @param client Required. Instance of DatabricksClient()
+#'
+#' @param experiment_id Required. The experiment for which to get or manage permissions.
+#'
+#' @rdname experimentsGetExperimentPermissionLevels
+#' @export
+experimentsGetExperimentPermissionLevels <- function(client, experiment_id) {
+
+  client$do("GET", paste("/api/2.0/permissions/experiments/", experiment_id, "/permissionLevels",
+    , sep = ""))
+}
+
+#' Get experiment permissions.
+#' 
+#' Gets the permissions of an experiment. Experiments can inherit permissions
+#' from their root object.
+#' @param client Required. Instance of DatabricksClient()
+#'
+#' @param experiment_id Required. The experiment for which to get or manage permissions.
+#'
+#' @rdname experimentsGetExperimentPermissions
+#' @export
+experimentsGetExperimentPermissions <- function(client, experiment_id) {
+
+  client$do("GET", paste("/api/2.0/permissions/experiments/", experiment_id, sep = ""))
+}
+
 #' Get history of a given metric within a run.
 #' 
 #' Gets a list of all values for the specified metric for a given run.
@@ -477,6 +507,23 @@ experimentsSearchRuns <- function(client, experiment_ids = NULL, filter = NULL, 
 
 }
 
+#' Set experiment permissions.
+#' 
+#' Sets permissions on an experiment. Experiments can inherit permissions from
+#' their root object.
+#' @param client Required. Instance of DatabricksClient()
+#'
+#' @param access_control_list 
+#' @param experiment_id Required. The experiment for which to get or manage permissions.
+#'
+#' @rdname experimentsSetExperimentPermissions
+#' @export
+experimentsSetExperimentPermissions <- function(client, experiment_id, access_control_list = NULL) {
+  body <- list(access_control_list = access_control_list)
+  client$do("PUT", paste("/api/2.0/permissions/experiments/", experiment_id, sep = ""),
+    body = body)
+}
+
 #' Set a tag.
 #' 
 #' Sets a tag on an experiment. Experiment tags are metadata that can be
@@ -525,6 +572,23 @@ experimentsSetTag <- function(client, key, value, run_id = NULL, run_uuid = NULL
 experimentsUpdateExperiment <- function(client, experiment_id, new_name = NULL) {
   body <- list(experiment_id = experiment_id, new_name = new_name)
   client$do("POST", "/api/2.0/mlflow/experiments/update", body = body)
+}
+
+#' Update experiment permissions.
+#' 
+#' Updates the permissions on an experiment. Experiments can inherit permissions
+#' from their root object.
+#' @param client Required. Instance of DatabricksClient()
+#'
+#' @param access_control_list 
+#' @param experiment_id Required. The experiment for which to get or manage permissions.
+#'
+#' @rdname experimentsUpdateExperimentPermissions
+#' @export
+experimentsUpdateExperimentPermissions <- function(client, experiment_id, access_control_list = NULL) {
+  body <- list(access_control_list = access_control_list)
+  client$do("PATCH", paste("/api/2.0/permissions/experiments/", experiment_id,
+    sep = ""), body = body)
 }
 
 #' Update a run.

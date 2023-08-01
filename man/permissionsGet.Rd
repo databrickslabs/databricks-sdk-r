@@ -14,6 +14,6 @@ permissionsGet(client, request_object_type, request_object_id)
 \item{request_object_id}{Required.}
 }
 \description{
-Gets the permission of an object. Objects can inherit permissions from their
-parent objects or root objects.
+Gets the permissions of an object. Objects can inherit permissions from their
+parent objects or root object.
 }

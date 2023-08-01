@@ -2,7 +2,7 @@
 % Please edit documentation in R/permissions.R
 \name{permissionsSet}
 \alias{permissionsSet}
-\title{Set permissions.}
+\title{Set object permissions.}
 \usage{
 permissionsSet(
   client,
@@ -21,6 +21,6 @@ permissionsSet(
 \item{access_control_list}{}
 }
 \description{
-Sets permissions on object. Objects can inherit permissions from their parent
-objects and root objects.
+Sets permissions on an object. Objects can inherit permissions from their
+parent objects or root object.
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/permissions.R
 \name{permissionsGetPermissionLevels}
 \alias{permissionsGetPermissionLevels}
-\title{Get permission levels.}
+\title{Get object permission levels.}
 \usage{
 permissionsGetPermissionLevels(client, request_object_type, request_object_id)
 }

@@ -69,6 +69,36 @@ pipelinesGet <- function(client, pipeline_id) {
   client$do("GET", paste("/api/2.0/pipelines/", pipeline_id, sep = ""))
 }
 
+#' Get pipeline permission levels.
+#' 
+#' Gets the permission levels that a user can have on an object.
+#' @param client Required. Instance of DatabricksClient()
+#'
+#' @param pipeline_id Required. The pipeline for which to get or manage permissions.
+#'
+#' @rdname pipelinesGetPipelinePermissionLevels
+#' @export
+pipelinesGetPipelinePermissionLevels <- function(client, pipeline_id) {
+
+  client$do("GET", paste("/api/2.0/permissions/pipelines/", pipeline_id, "/permissionLevels",
+    , sep = ""))
+}
+
+#' Get pipeline permissions.
+#' 
+#' Gets the permissions of a pipeline. Pipelines can inherit permissions from
+#' their root object.
+#' @param client Required. Instance of DatabricksClient()
+#'
+#' @param pipeline_id Required. The pipeline for which to get or manage permissions.
+#'
+#' @rdname pipelinesGetPipelinePermissions
+#' @export
+pipelinesGetPipelinePermissions <- function(client, pipeline_id) {
+
+  client$do("GET", paste("/api/2.0/permissions/pipelines/", pipeline_id, sep = ""))
+}
+
 #' Get a pipeline update.
 #' 
 #' Gets an update from an active pipeline.
@@ -232,6 +262,23 @@ pipelinesReset <- function(client, pipeline_id, timeout = 20, callback = cli_rep
   rlang::abort(msg, call = rlang::caller_env())
 }
 
+#' Set pipeline permissions.
+#' 
+#' Sets permissions on a pipeline. Pipelines can inherit permissions from their
+#' root object.
+#' @param client Required. Instance of DatabricksClient()
+#'
+#' @param access_control_list 
+#' @param pipeline_id Required. The pipeline for which to get or manage permissions.
+#'
+#' @rdname pipelinesSetPipelinePermissions
+#' @export
+pipelinesSetPipelinePermissions <- function(client, pipeline_id, access_control_list = NULL) {
+  body <- list(access_control_list = access_control_list)
+  client$do("PUT", paste("/api/2.0/permissions/pipelines/", pipeline_id, sep = ""),
+    body = body)
+}
+
 #' Queue a pipeline update.
 #' 
 #' Starts or queues a pipeline update.
@@ -346,5 +393,22 @@ pipelinesUpdate <- function(client, pipeline_id, allow_duplicate_names = NULL, c
     pipeline_id = pipeline_id, serverless = serverless, storage = storage, target = target,
     trigger = trigger)
   client$do("PUT", paste("/api/2.0/pipelines/", pipeline_id, sep = ""), body = body)
+}
+
+#' Update pipeline permissions.
+#' 
+#' Updates the permissions on a pipeline. Pipelines can inherit permissions from
+#' their root object.
+#' @param client Required. Instance of DatabricksClient()
+#'
+#' @param access_control_list 
+#' @param pipeline_id Required. The pipeline for which to get or manage permissions.
+#'
+#' @rdname pipelinesUpdatePipelinePermissions
+#' @export
+pipelinesUpdatePipelinePermissions <- function(client, pipeline_id, access_control_list = NULL) {
+  body <- list(access_control_list = access_control_list)
+  client$do("PATCH", paste("/api/2.0/permissions/pipelines/", pipeline_id, sep = ""),
+    body = body)
 }
 

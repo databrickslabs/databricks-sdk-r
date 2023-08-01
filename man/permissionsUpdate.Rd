@@ -2,7 +2,7 @@
 % Please edit documentation in R/permissions.R
 \name{permissionsUpdate}
 \alias{permissionsUpdate}
-\title{Update permission.}
+\title{Update object permissions.}
 \usage{
 permissionsUpdate(
   client,
@@ -21,5 +21,6 @@ permissionsUpdate(
 \item{access_control_list}{}
 }
 \description{
-Updates the permissions on an object.
+Updates the permissions on an object. Objects can inherit permissions from
+their parent objects or root object.
 }

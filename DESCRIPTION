@@ -1,7 +1,7 @@
 Package: databricks
 Type: Package
 Title: Databricks SDK for R (Experimental)
-Version: 0.2.0
+Version: 0.3.0
 Authors@R: c(
     person("Serge", "Smertin", email = "serge.smertin@databricks.com", role = c("aut", "cre")),
     person("Databricks", role = c("cph", "fnd"))
