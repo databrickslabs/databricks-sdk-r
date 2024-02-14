@@ -91,6 +91,11 @@ DatabricksClient <- function(profile = NULL, host = NULL, token = NULL, config_f
     client_id = coalesce(Sys.getenv("DATABRICKS_CLIENT_ID"), from_cli$client_id),
     client_secret = coalesce(Sys.getenv("DATABRICKS_CLIENT_SECRET"), from_cli$client_secret))
 
+  # add the missing https:// prefix to bare, ODBC-style hosts
+  if (!is.null(cfg$host) && !startsWith(cfg$host, "http")) {
+    cfg$host <- paste0("https://", cfg$host)
+  }
+
   # debug_string iterates over currently resolved configuration and returns a
   # single string with all config key-value pairs that are effective in the
   # current state. Sensitive values are redated. Unlike Go, Python, or Java
