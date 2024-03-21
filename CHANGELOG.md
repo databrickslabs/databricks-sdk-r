@@ -1,5 +1,10 @@
 # Version changelog
 
+## 0.3.2
+
+* Regenerated from the latest OpenAPI spec ([#29](https://github.com/databrickslabs/databricks-sdk-r/pull/29)).
+
+
 ## 0.3.1
 
 * Added tokei.rs badge ([#27](https://github.com/databrickslabs/databricks-sdk-r/pull/27)).
