@@ -1,5 +1,11 @@
 # Version changelog
 
+## 0.3.1
+
+* Added tokei.rs badge ([#27](https://github.com/databrickslabs/databricks-sdk-r/pull/27)).
+* Fix handling of bare DATABRICKS_HOST URLs. ([#25](https://github.com/databrickslabs/databricks-sdk-r/pull/25)).
+
+
 ## 0.3.0
 
 * Added github pages ([#19](https://github.com/databrickslabs/databricks-sdk-r/pull/19)).
