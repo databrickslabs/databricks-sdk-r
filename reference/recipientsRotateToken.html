@@ -45,7 +45,7 @@ the provided token info. The caller must be the owner of the recipient.</p>
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">recipientsRotateToken</span><span class="op">(</span><span class="va">client</span>, <span class="va">existing_token_expire_in_seconds</span>, <span class="va">name</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">recipientsRotateToken</span><span class="op">(</span><span class="va">client</span>, <span class="va">name</span>, <span class="va">existing_token_expire_in_seconds</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -54,12 +54,12 @@ the provided token info. The caller must be the owner of the recipient.</p>
 <dd><p>Required. Instance of DatabricksClient()</p></dd>
 
 
-<dt>existing_token_expire_in_seconds</dt>
-<dd><p>Required. The expiration time of the bearer token in ISO 8601 format.</p></dd>
-
-
 <dt>name</dt>
 <dd><p>Required. The name of the recipient.</p></dd>
+
+
+<dt>existing_token_expire_in_seconds</dt>
+<dd><p>Required. The expiration time of the bearer token in ISO 8601 format.</p></dd>
 
 </dl></div>
 

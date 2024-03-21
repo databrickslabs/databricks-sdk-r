@@ -76,9 +76,6 @@
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/cleanRoomsUpdate.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/clusterPoliciesClusterPolicyId.html</loc>
-  </url>
-  <url>
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/clusterPoliciesCreate.html</loc>
   </url>
   <url>
@@ -91,16 +88,22 @@
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/clusterPoliciesGet.html</loc>
   </url>
   <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/clusterPoliciesGetClusterPolicyPermissionLevels.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/clusterPoliciesGetClusterPolicyPermissions.html</loc>
+  </url>
+  <url>
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/clusterPoliciesList.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/clusterPoliciesPermissionLevels.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/clusterPoliciesSetClusterPolicyPermissions.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/clusterPoliciesUpdateClusterPolicyPermissions.html</loc>
   </url>
   <url>
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/clustersChangeOwner.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/clustersClusterId.html</loc>
   </url>
   <url>
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/clustersCreate.html</loc>
@@ -118,6 +121,12 @@
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/clustersGet.html</loc>
   </url>
   <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/clustersGetClusterPermissionLevels.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/clustersGetClusterPermissions.html</loc>
+  </url>
+  <url>
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/clustersList.html</loc>
   </url>
   <url>
@@ -130,9 +139,6 @@
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/clustersPermanentDelete.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/clustersPermissionLevels.html</loc>
-  </url>
-  <url>
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/clustersPin.html</loc>
   </url>
   <url>
@@ -142,6 +148,9 @@
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/clustersRestart.html</loc>
   </url>
   <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/clustersSetClusterPermissions.html</loc>
+  </url>
+  <url>
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/clustersSparkVersions.html</loc>
   </url>
   <url>
@@ -149,6 +158,9 @@
   </url>
   <url>
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/clustersUnpin.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/clustersUpdateClusterPermissions.html</loc>
   </url>
   <url>
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/commandExecutionCancel.html</loc>
@@ -433,13 +445,19 @@
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/instancePoolsGet.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/instancePoolsInstancePoolId.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/instancePoolsGetInstancePoolPermissionLevels.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/instancePoolsGetInstancePoolPermissions.html</loc>
   </url>
   <url>
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/instancePoolsList.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/instancePoolsPermissionLevels.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/instancePoolsSetInstancePoolPermissions.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/instancePoolsUpdateInstancePoolPermissions.html</loc>
   </url>
   <url>
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/instanceProfilesAdd.html</loc>
@@ -1162,6 +1180,12 @@
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/workspaceGetStatus.html</loc>
   </url>
   <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/workspaceGetWorkspaceObjectPermissionLevels.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/workspaceGetWorkspaceObjectPermissions.html</loc>
+  </url>
+  <url>
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/workspaceImport.html</loc>
   </url>
   <url>
@@ -1171,9 +1195,9 @@
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/workspaceMkdirs.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/workspacePermissionLevels.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/workspaceSetWorkspaceObjectPermissions.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/workspaceWorkspaceObjectId.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/workspaceUpdateWorkspaceObjectPermissions.html</loc>
   </url>
 </urlset>

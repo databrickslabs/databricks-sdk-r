@@ -48,7 +48,7 @@ and <strong>default_catalog_name</strong>. The caller must be an account admin.<
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">metastoresAssign</span><span class="op">(</span><span class="va">client</span>, <span class="va">metastore_id</span>, <span class="va">default_catalog_name</span>, <span class="va">workspace_id</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">metastoresAssign</span><span class="op">(</span><span class="va">client</span>, <span class="va">workspace_id</span>, <span class="va">metastore_id</span>, <span class="va">default_catalog_name</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -57,16 +57,16 @@ and <strong>default_catalog_name</strong>. The caller must be an account admin.<
 <dd><p>Required. Instance of DatabricksClient()</p></dd>
 
 
+<dt>workspace_id</dt>
+<dd><p>Required. A workspace ID.</p></dd>
+
+
 <dt>metastore_id</dt>
 <dd><p>Required. The unique ID of the metastore.</p></dd>
 
 
 <dt>default_catalog_name</dt>
 <dd><p>Required. The name of the default catalog in the metastore.</p></dd>
-
-
-<dt>workspace_id</dt>
-<dd><p>Required. A workspace ID.</p></dd>
 
 </dl></div>
 
