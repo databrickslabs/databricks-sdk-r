@@ -7,8 +7,8 @@
 volumesCreate(
   client,
   catalog_name,
-  name,
   schema_name,
+  name,
   volume_type,
   comment = NULL,
   storage_location = NULL
@@ -19,9 +19,9 @@ volumesCreate(
 
 \item{catalog_name}{Required. The name of the catalog where the schema and the volume are.}
 
-\item{name}{Required. The name of the volume.}
-
 \item{schema_name}{Required. The name of the schema where the volume is.}
+
+\item{name}{Required. The name of the volume.}
 
 \item{volume_type}{Required.}
 

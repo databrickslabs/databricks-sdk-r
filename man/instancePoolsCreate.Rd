@@ -15,7 +15,6 @@ instancePoolsCreate(
   enable_elastic_disk = NULL,
   gcp_attributes = NULL,
   idle_instance_autotermination_minutes = NULL,
-  instance_pool_fleet_attributes = NULL,
   max_capacity = NULL,
   min_idle_instances = NULL,
   preloaded_docker_images = NULL,
@@ -43,15 +42,13 @@ instancePoolsCreate(
 
 \item{idle_instance_autotermination_minutes}{Automatically terminates the extra instances in the pool cache after they are inactive for this time in minutes if min_idle_instances requirement is already met.}
 
-\item{instance_pool_fleet_attributes}{The fleet related setting to power the instance pool.}
-
 \item{max_capacity}{Maximum number of outstanding instances to keep in the pool, including both instances used by clusters and idle instances.}
 
 \item{min_idle_instances}{Minimum number of idle instances to keep in the instance pool.}
 
 \item{preloaded_docker_images}{Custom Docker Image BYOC.}
 
-\item{preloaded_spark_versions}{A list of preloaded Spark image versions for the pool.}
+\item{preloaded_spark_versions}{A list containing at most one preloaded Spark image version for the pool.}
 }
 \description{
 Creates a new instance pool using idle and ready-to-use cloud instances.

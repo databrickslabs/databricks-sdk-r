@@ -11,20 +11,21 @@ NULL
 #' @param active If this user is active.
 #' @param application_id UUID relating to the service principal.
 #' @param display_name String that represents a concatenation of given and family names.
-#' @param entitlements 
+#' @param entitlements Entitlements assigned to the service principal.
 #' @param external_id 
 #' @param groups 
 #' @param id Databricks service principal ID.
-#' @param roles 
+#' @param roles Corresponds to AWS instance profile/arn role.
+#' @param schemas The schema of the List response.
 #'
 #' @rdname servicePrincipalsCreate
 #' @export
 servicePrincipalsCreate <- function(client, active = NULL, application_id = NULL,
   display_name = NULL, entitlements = NULL, external_id = NULL, groups = NULL,
-  id = NULL, roles = NULL) {
+  id = NULL, roles = NULL, schemas = NULL) {
   body <- list(active = active, applicationId = application_id, displayName = display_name,
     entitlements = entitlements, externalId = external_id, groups = groups, id = id,
-    roles = roles)
+    roles = roles, schemas = schemas)
   client$do("POST", "/api/2.0/preview/scim/v2/ServicePrincipals", body = body)
 }
 
@@ -80,8 +81,20 @@ servicePrincipalsList <- function(client, attributes = NULL, count = NULL, exclu
   query <- list(attributes = attributes, count = count, excludedAttributes = excluded_attributes,
     filter = filter, sortBy = sort_by, sortOrder = sort_order, startIndex = start_index)
 
-  json <- client$do("GET", "/api/2.0/preview/scim/v2/ServicePrincipals", query = query)
-  return(json$Resources)
+  query$startIndex = 0
+  results <- data.frame()
+  while (TRUE) {
+    json <- client$do("GET", "/api/2.0/preview/scim/v2/ServicePrincipals", query = query)
+    if (is.null(nrow(json$Resources))) {
+      break
+    }
+    # append this page of results to one results data.frame
+    results <- dplyr::bind_rows(results, json$Resources)
+    query$startIndex <- query$startIndex + nrow(json$Resources)
+  }
+  # de-duplicate any records via id column
+  results <- results[!duplicated(results$id), ]
+  return(results)
 
 }
 
@@ -93,12 +106,12 @@ servicePrincipalsList <- function(client, attributes = NULL, count = NULL, exclu
 #'
 #' @param id Required. Unique ID for a service principal in the Databricks workspace.
 #' @param operations 
-#' @param schema The schema of the patch request.
+#' @param schemas The schema of the patch request.
 #'
 #' @rdname servicePrincipalsPatch
 #' @export
-servicePrincipalsPatch <- function(client, id, operations = NULL, schema = NULL) {
-  body <- list(, Operations = operations, schema = schema)
+servicePrincipalsPatch <- function(client, id, operations = NULL, schemas = NULL) {
+  body <- list(, Operations = operations, schemas = schemas)
   client$do("PATCH", paste("/api/2.0/preview/scim/v2/ServicePrincipals/", id, sep = ""),
     body = body)
 }
@@ -113,20 +126,21 @@ servicePrincipalsPatch <- function(client, id, operations = NULL, schema = NULL)
 #' @param active If this user is active.
 #' @param application_id UUID relating to the service principal.
 #' @param display_name String that represents a concatenation of given and family names.
-#' @param entitlements 
+#' @param entitlements Entitlements assigned to the service principal.
 #' @param external_id 
 #' @param groups 
 #' @param id Databricks service principal ID.
-#' @param roles 
+#' @param roles Corresponds to AWS instance profile/arn role.
+#' @param schemas The schema of the List response.
 #'
 #' @rdname servicePrincipalsUpdate
 #' @export
 servicePrincipalsUpdate <- function(client, id, active = NULL, application_id = NULL,
   display_name = NULL, entitlements = NULL, external_id = NULL, groups = NULL,
-  roles = NULL) {
+  roles = NULL, schemas = NULL) {
   body <- list(active = active, applicationId = application_id, displayName = display_name,
     entitlements = entitlements, externalId = external_id, groups = groups, id = id,
-    roles = roles)
+    roles = roles, schemas = schemas)
   client$do("PUT", paste("/api/2.0/preview/scim/v2/ServicePrincipals/", id, sep = ""),
     body = body)
 }

@@ -103,14 +103,16 @@ sharesSharePermissions <- function(client, name) {
 #' @param client Required. Instance of DatabricksClient()
 #'
 #' @param comment User-provided free-form text description.
-#' @param name Name of the share.
+#' @param name Required. The name of the share.
+#' @param new_name New name for the share.
 #' @param owner Username of current owner of share.
 #' @param updates Array of shared data object updates.
 #'
 #' @rdname sharesUpdate
 #' @export
-sharesUpdate <- function(client, name, comment = NULL, owner = NULL, updates = NULL) {
-  body <- list(comment = comment, name = name, owner = owner, updates = updates)
+sharesUpdate <- function(client, name, comment = NULL, new_name = NULL, owner = NULL,
+  updates = NULL) {
+  body <- list(comment = comment, new_name = new_name, owner = owner, updates = updates)
   client$do("PATCH", paste("/api/2.1/unity-catalog/shares/", name, sep = ""), body = body)
 }
 

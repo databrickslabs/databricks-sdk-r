@@ -11,13 +11,14 @@ queriesCreate(
   name = NULL,
   options = NULL,
   parent = NULL,
-  query = NULL
+  query = NULL,
+  run_as_role = NULL
 )
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{data_source_id}{Data source ID.}
+\item{data_source_id}{Data source ID maps to the ID of the data source used by the resource and is distinct from the warehouse ID.}
 
 \item{description}{General description that conveys additional information about this query such as usage notes.}
 
@@ -28,6 +29,8 @@ queriesCreate(
 \item{parent}{The identifier of the workspace folder containing the object.}
 
 \item{query}{The text of the query to be run.}
+
+\item{run_as_role}{Sets the \strong{Run as} role for the object.}
 }
 \description{
 Creates a new query definition. Queries created with this endpoint belong to

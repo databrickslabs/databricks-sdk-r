@@ -12,22 +12,23 @@ NULL
 #' @param active If this user is active.
 #' @param display_name String that represents a concatenation of given and family names.
 #' @param emails All the emails associated with the Databricks user.
-#' @param entitlements 
-#' @param external_id 
+#' @param entitlements Entitlements assigned to the user.
+#' @param external_id External ID is not currently supported.
 #' @param groups 
 #' @param id Databricks user ID.
 #' @param name 
-#' @param roles 
+#' @param roles Corresponds to AWS instance profile/arn role.
+#' @param schemas The schema of the user.
 #' @param user_name Email address of the Databricks user.
 #'
 #' @rdname usersCreate
 #' @export
 usersCreate <- function(client, active = NULL, display_name = NULL, emails = NULL,
   entitlements = NULL, external_id = NULL, groups = NULL, id = NULL, name = NULL,
-  roles = NULL, user_name = NULL) {
+  roles = NULL, schemas = NULL, user_name = NULL) {
   body <- list(active = active, displayName = display_name, emails = emails, entitlements = entitlements,
     externalId = external_id, groups = groups, id = id, name = name, roles = roles,
-    userName = user_name)
+    schemas = schemas, userName = user_name)
   client$do("POST", "/api/2.0/preview/scim/v2/Users", body = body)
 }
 
@@ -51,21 +52,30 @@ usersDelete <- function(client, id) {
 #' Gets information for a specific user in Databricks workspace.
 #' @param client Required. Instance of DatabricksClient()
 #'
+#' @param attributes Comma-separated list of attributes to return in response.
+#' @param count Desired number of results per page.
+#' @param excluded_attributes Comma-separated list of attributes to exclude in response.
+#' @param filter Query by which the results have to be filtered.
 #' @param id Required. Unique ID for a user in the Databricks workspace.
+#' @param sort_by Attribute to sort the results.
+#' @param sort_order The order to sort the results.
+#' @param start_index Specifies the index of the first result.
 #'
 #' @rdname usersGet
 #' @export
-usersGet <- function(client, id) {
-
-  client$do("GET", paste("/api/2.0/preview/scim/v2/Users/", id, sep = ""))
+usersGet <- function(client, id, attributes = NULL, count = NULL, excluded_attributes = NULL,
+  filter = NULL, sort_by = NULL, sort_order = NULL, start_index = NULL) {
+  query <- list(attributes = attributes, count = count, excludedAttributes = excluded_attributes,
+    filter = filter, sortBy = sort_by, sortOrder = sort_order, startIndex = start_index)
+  client$do("GET", paste("/api/2.0/preview/scim/v2/Users/", id, sep = ""), query = query)
 }
 
 #' Get password permission levels.
 #' 
 #' Gets the permission levels that a user can have on an object.#'
-#' @rdname usersGetPasswordPermissionLevels
+#' @rdname usersGetPermissionLevels
 #' @export
-usersGetPasswordPermissionLevels <- function(client) {
+usersGetPermissionLevels <- function(client) {
   client$do("GET", "/api/2.0/permissions/authorization/passwords/permissionLevels")
 }
 
@@ -73,9 +83,9 @@ usersGetPasswordPermissionLevels <- function(client) {
 #' 
 #' Gets the permissions of all passwords. Passwords can inherit permissions from
 #' their root object.#'
-#' @rdname usersGetPasswordPermissions
+#' @rdname usersGetPermissions
 #' @export
-usersGetPasswordPermissions <- function(client) {
+usersGetPermissions <- function(client) {
   client$do("GET", "/api/2.0/permissions/authorization/passwords")
 }
 
@@ -101,8 +111,20 @@ usersList <- function(client, attributes = NULL, count = NULL, excluded_attribut
   query <- list(attributes = attributes, count = count, excludedAttributes = excluded_attributes,
     filter = filter, sortBy = sort_by, sortOrder = sort_order, startIndex = start_index)
 
-  json <- client$do("GET", "/api/2.0/preview/scim/v2/Users", query = query)
-  return(json$Resources)
+  query$startIndex = 0
+  results <- data.frame()
+  while (TRUE) {
+    json <- client$do("GET", "/api/2.0/preview/scim/v2/Users", query = query)
+    if (is.null(nrow(json$Resources))) {
+      break
+    }
+    # append this page of results to one results data.frame
+    results <- dplyr::bind_rows(results, json$Resources)
+    query$startIndex <- query$startIndex + nrow(json$Resources)
+  }
+  # de-duplicate any records via id column
+  results <- results[!duplicated(results$id), ]
+  return(results)
 
 }
 
@@ -114,12 +136,12 @@ usersList <- function(client, attributes = NULL, count = NULL, excluded_attribut
 #'
 #' @param id Required. Unique ID for a user in the Databricks workspace.
 #' @param operations 
-#' @param schema The schema of the patch request.
+#' @param schemas The schema of the patch request.
 #'
 #' @rdname usersPatch
 #' @export
-usersPatch <- function(client, id, operations = NULL, schema = NULL) {
-  body <- list(, Operations = operations, schema = schema)
+usersPatch <- function(client, id, operations = NULL, schemas = NULL) {
+  body <- list(, Operations = operations, schemas = schemas)
   client$do("PATCH", paste("/api/2.0/preview/scim/v2/Users/", id, sep = ""), body = body)
 }
 
@@ -131,9 +153,9 @@ usersPatch <- function(client, id, operations = NULL, schema = NULL) {
 #'
 #' @param access_control_list 
 #'
-#' @rdname usersSetPasswordPermissions
+#' @rdname usersSetPermissions
 #' @export
-usersSetPasswordPermissions <- function(client, access_control_list = NULL) {
+usersSetPermissions <- function(client, access_control_list = NULL) {
   body <- list(access_control_list = access_control_list)
   client$do("PUT", "/api/2.0/permissions/authorization/passwords", body = body)
 }
@@ -146,22 +168,23 @@ usersSetPasswordPermissions <- function(client, access_control_list = NULL) {
 #' @param active If this user is active.
 #' @param display_name String that represents a concatenation of given and family names.
 #' @param emails All the emails associated with the Databricks user.
-#' @param entitlements 
-#' @param external_id 
+#' @param entitlements Entitlements assigned to the user.
+#' @param external_id External ID is not currently supported.
 #' @param groups 
 #' @param id Databricks user ID.
 #' @param name 
-#' @param roles 
+#' @param roles Corresponds to AWS instance profile/arn role.
+#' @param schemas The schema of the user.
 #' @param user_name Email address of the Databricks user.
 #'
 #' @rdname usersUpdate
 #' @export
 usersUpdate <- function(client, id, active = NULL, display_name = NULL, emails = NULL,
   entitlements = NULL, external_id = NULL, groups = NULL, name = NULL, roles = NULL,
-  user_name = NULL) {
+  schemas = NULL, user_name = NULL) {
   body <- list(active = active, displayName = display_name, emails = emails, entitlements = entitlements,
     externalId = external_id, groups = groups, id = id, name = name, roles = roles,
-    userName = user_name)
+    schemas = schemas, userName = user_name)
   client$do("PUT", paste("/api/2.0/preview/scim/v2/Users/", id, sep = ""), body = body)
 }
 
@@ -173,9 +196,9 @@ usersUpdate <- function(client, id, active = NULL, display_name = NULL, emails =
 #'
 #' @param access_control_list 
 #'
-#' @rdname usersUpdatePasswordPermissions
+#' @rdname usersUpdatePermissions
 #' @export
-usersUpdatePasswordPermissions <- function(client, access_control_list = NULL) {
+usersUpdatePermissions <- function(client, access_control_list = NULL) {
   body <- list(access_control_list = access_control_list)
   client$do("PATCH", "/api/2.0/permissions/authorization/passwords", body = body)
 }

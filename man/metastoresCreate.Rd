@@ -4,17 +4,21 @@
 \alias{metastoresCreate}
 \title{Create a metastore.}
 \usage{
-metastoresCreate(client, name, storage_root, region = NULL)
+metastoresCreate(client, name, region = NULL, storage_root = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
 \item{name}{Required. The user-specified name of the metastore.}
 
-\item{storage_root}{Required. The storage root URL for metastore.}
-
 \item{region}{Cloud region which the metastore serves (e.g., \code{us-west-2}, \code{westus}).}
+
+\item{storage_root}{The storage root URL for metastore.}
 }
 \description{
-Creates a new metastore based on a provided name and storage root path.
+Creates a new metastore based on a provided name and optional storage root
+path. By default (if the \strong{owner} field is not set), the owner of the new
+metastore is the user calling the \strong{createMetastore} API. If the \strong{owner}
+field is set to the empty string (\strong{''}), the ownership is assigned to the
+System User instead.
 }

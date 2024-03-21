@@ -6,8 +6,7 @@ NULL
 #' Create a new secret scope.
 #' 
 #' The scope name must consist of alphanumeric characters, dashes, underscores,
-#' and periods, and may not exceed 128 characters. The maximum number of scopes
-#' in a workspace is 100.
+#' and periods, and may not exceed 128 characters.
 #' @param client Required. Instance of DatabricksClient()
 #'
 #' @param backend_azure_keyvault The metadata for the secret scope if the type is `AZURE_KEYVAULT`.
@@ -100,6 +99,32 @@ secretsDeleteSecret <- function(client, scope, key) {
 secretsGetAcl <- function(client, scope, principal) {
   query <- list(principal = principal, scope = scope)
   client$do("GET", "/api/2.0/secrets/acls/get", query = query)
+}
+
+#' Get a secret.
+#' 
+#' Gets the bytes representation of a secret value for the specified scope and
+#' key.
+#' 
+#' Users need the READ permission to make this call.
+#' 
+#' Note that the secret value returned is in bytes. The interpretation of the
+#' bytes is determined by the caller in DBUtils and the type the data is decoded
+#' into.
+#' 
+#' Throws ``PERMISSION_DENIED`` if the user does not have permission to make
+#' this API call. Throws ``RESOURCE_DOES_NOT_EXIST`` if no such secret or secret
+#' scope exists.
+#' @param client Required. Instance of DatabricksClient()
+#'
+#' @param key Required. The key to fetch secret for.
+#' @param scope Required. The name of the scope to fetch secret information from.
+#'
+#' @rdname secretsGetSecret
+#' @export
+secretsGetSecret <- function(client, scope, key) {
+  query <- list(key = key, scope = scope)
+  client$do("GET", "/api/2.0/secrets/get", query = query)
 }
 
 #' Lists ACLs.

@@ -18,9 +18,9 @@ tablesListSummaries(
 
 \item{catalog_name}{Required. Name of parent catalog for tables of interest.}
 
-\item{max_results}{Maximum number of tables to return (page length).}
+\item{max_results}{Maximum number of summaries for tables to return.}
 
-\item{page_token}{Opaque token to send for the next page of results (pagination).}
+\item{page_token}{Opaque pagination token to go to next page based on previous query.}
 
 \item{schema_name_pattern}{A sql LIKE pattern (\% and _) for schema names.}
 
@@ -35,12 +35,12 @@ metastore. The table summaries returned are either:
 }
 \details{
 \itemize{
-\item summaries for all tables (within the current metastore and parent catalog
-and schema), when the user is a metastore admin, or: * summaries for all
-tables and schemas (within the current metastore and parent catalog) for
-which the user has ownership or the \strong{SELECT} privilege on the table and
-ownership or \strong{USE_SCHEMA} privilege on the schema, provided that the user
-also has ownership or the \strong{USE_CATALOG} privilege on the parent catalog.
+\item summaries for tables (within the current metastore and parent catalog and
+schema), when the user is a metastore admin, or: * summaries for tables and
+schemas (within the current metastore and parent catalog) for which the user
+has ownership or the \strong{SELECT} privilege on the table and ownership or
+\strong{USE_SCHEMA} privilege on the schema, provided that the user also has
+ownership or the \strong{USE_CATALOG} privilege on the parent catalog.
 }
 
 There is no guarantee of a specific ordering of the elements in the array.

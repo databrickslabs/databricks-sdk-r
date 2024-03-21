@@ -13,7 +13,8 @@ groupsCreate(
   id = NULL,
   members = NULL,
   meta = NULL,
-  roles = NULL
+  roles = NULL,
+  schemas = NULL
 )
 }
 \arguments{
@@ -21,7 +22,7 @@ groupsCreate(
 
 \item{display_name}{String that represents a human-readable group name.}
 
-\item{entitlements}{}
+\item{entitlements}{Entitlements assigned to the group.}
 
 \item{external_id}{}
 
@@ -33,7 +34,9 @@ groupsCreate(
 
 \item{meta}{Container for the group identifier.}
 
-\item{roles}{}
+\item{roles}{Corresponds to AWS instance profile/arn role.}
+
+\item{schemas}{The schema of the group.}
 }
 \description{
 Creates a group in the Databricks workspace with a unique name, using the

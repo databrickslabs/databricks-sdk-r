@@ -8,7 +8,8 @@ schemasUpdate(
   client,
   full_name,
   comment = NULL,
-  name = NULL,
+  enable_predictive_optimization = NULL,
+  new_name = NULL,
   owner = NULL,
   properties = NULL
 )
@@ -20,7 +21,9 @@ schemasUpdate(
 
 \item{comment}{User-provided free-form text description.}
 
-\item{name}{Name of schema, relative to parent catalog.}
+\item{enable_predictive_optimization}{Whether predictive optimization should be enabled for this object and objects under it.}
+
+\item{new_name}{New name for the schema.}
 
 \item{owner}{Username of current owner of schema.}
 

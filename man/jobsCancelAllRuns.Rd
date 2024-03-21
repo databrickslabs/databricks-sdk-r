@@ -4,12 +4,14 @@
 \alias{jobsCancelAllRuns}
 \title{Cancel all runs of a job.}
 \usage{
-jobsCancelAllRuns(client, job_id)
+jobsCancelAllRuns(client, all_queued_runs = NULL, job_id = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{job_id}{Required. The canonical identifier of the job to cancel all runs of.}
+\item{all_queued_runs}{Optional boolean parameter to cancel all queued runs.}
+
+\item{job_id}{The canonical identifier of the job to cancel all runs of.}
 }
 \description{
 Cancels all active runs of a job. The runs are canceled asynchronously, so it

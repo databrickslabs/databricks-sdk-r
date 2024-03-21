@@ -2,7 +2,7 @@
 % Please edit documentation in R/cluster_policies.R
 \name{clusterPoliciesList}
 \alias{clusterPoliciesList}
-\title{Get a cluster policy.}
+\title{List cluster policies.}
 \usage{
 clusterPoliciesList(client, sort_column = NULL, sort_order = NULL)
 }

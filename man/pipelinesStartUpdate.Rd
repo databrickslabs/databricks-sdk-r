@@ -2,7 +2,7 @@
 % Please edit documentation in R/pipelines.R
 \name{pipelinesStartUpdate}
 \alias{pipelinesStartUpdate}
-\title{Queue a pipeline update.}
+\title{Start a pipeline.}
 \usage{
 pipelinesStartUpdate(
   client,
@@ -10,7 +10,8 @@ pipelinesStartUpdate(
   cause = NULL,
   full_refresh = NULL,
   full_refresh_selection = NULL,
-  refresh_selection = NULL
+  refresh_selection = NULL,
+  validate_only = NULL
 )
 }
 \arguments{
@@ -25,7 +26,11 @@ pipelinesStartUpdate(
 \item{full_refresh_selection}{A list of tables to update with fullRefresh.}
 
 \item{refresh_selection}{A list of tables to update without fullRefresh.}
+
+\item{validate_only}{If true, this update only validates the correctness of pipeline source code but does not materialize or publish any datasets.}
 }
 \description{
-Starts or queues a pipeline update.
+Starts a new update for the pipeline. If there is already an active update
+for the pipeline, the request will fail and the active update will remain
+running.
 }

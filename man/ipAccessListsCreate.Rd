@@ -4,16 +4,16 @@
 \alias{ipAccessListsCreate}
 \title{Create access list.}
 \usage{
-ipAccessListsCreate(client, label, list_type, ip_addresses)
+ipAccessListsCreate(client, label, list_type, ip_addresses = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
 \item{label}{Required. Label for the IP access list.}
 
-\item{list_type}{Required. This describes an enum.}
+\item{list_type}{Required. Type of IP access list.}
 
-\item{ip_addresses}{Required. Array of IP addresses or CIDR values to be added to the IP access list.}
+\item{ip_addresses}{}
 }
 \description{
 Creates an IP access list for this workspace.

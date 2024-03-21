@@ -4,7 +4,14 @@
 \alias{cleanRoomsList}
 \title{List clean rooms.}
 \usage{
-cleanRoomsList(client)
+cleanRoomsList(client, max_results = NULL, page_token = NULL)
+}
+\arguments{
+\item{client}{Required. Instance of DatabricksClient()}
+
+\item{max_results}{Maximum number of clean rooms to return.}
+
+\item{page_token}{Opaque pagination token to go to next page based on previous query.}
 }
 \value{
 \code{data.frame} with all of the response pages.
@@ -12,5 +19,5 @@ cleanRoomsList(client)
 \description{
 Gets an array of data object clean rooms from the metastore. The caller must
 be a metastore admin or the owner of the clean room. There is no guarantee of
-a specific ordering of the elements in the array.#'
+a specific ordering of the elements in the array.
 }

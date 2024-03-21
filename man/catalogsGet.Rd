@@ -4,12 +4,14 @@
 \alias{catalogsGet}
 \title{Get a catalog.}
 \usage{
-catalogsGet(client, name)
+catalogsGet(client, name, include_browse = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
 \item{name}{Required. The name of the catalog.}
+
+\item{include_browse}{Whether to include catalogs in the response for which the principal can only access selective metadata for.}
 }
 \description{
 Gets the specified catalog in a metastore. The caller must be a metastore

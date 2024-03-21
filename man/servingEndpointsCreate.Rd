@@ -8,6 +8,8 @@ servingEndpointsCreate(
   client,
   name,
   config,
+  rate_limits = NULL,
+  tags = NULL,
   timeout = 20,
   callback = cli_reporter
 )
@@ -18,6 +20,10 @@ servingEndpointsCreate(
 \item{name}{Required. The name of the serving endpoint.}
 
 \item{config}{Required. The core config of the serving endpoint.}
+
+\item{rate_limits}{Rate limits to be applied to the serving endpoint.}
+
+\item{tags}{Tags to be attached to the serving endpoint and automatically propagated to billing logs.}
 }
 \description{
 This is a long-running operation, which blocks until Serving Endpoints on Databricks reach

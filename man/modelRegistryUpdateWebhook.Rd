@@ -27,7 +27,7 @@ modelRegistryUpdateWebhook(
 
 \item{job_spec}{}
 
-\item{status}{This describes an enum.}
+\item{status}{Enable or disable triggering the webhook, or put the webhook into test mode.}
 }
 \description{
 \strong{NOTE:} This endpoint is in Public Preview.

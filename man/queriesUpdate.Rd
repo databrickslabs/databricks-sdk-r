@@ -11,7 +11,8 @@ queriesUpdate(
   description = NULL,
   name = NULL,
   options = NULL,
-  query = NULL
+  query = NULL,
+  run_as_role = NULL
 )
 }
 \arguments{
@@ -19,7 +20,7 @@ queriesUpdate(
 
 \item{query_id}{Required.}
 
-\item{data_source_id}{Data source ID.}
+\item{data_source_id}{Data source ID maps to the ID of the data source used by the resource and is distinct from the warehouse ID.}
 
 \item{description}{General description that conveys additional information about this query such as usage notes.}
 
@@ -28,6 +29,8 @@ queriesUpdate(
 \item{options}{Exclusively used for storing a list parameter definitions.}
 
 \item{query}{The text of the query to be run.}
+
+\item{run_as_role}{Sets the \strong{Run as} role for the object.}
 }
 \description{
 Modify this query definition.

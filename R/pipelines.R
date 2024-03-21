@@ -22,6 +22,7 @@ NULL
 #' @param id Unique identifier for this pipeline.
 #' @param libraries Libraries or code needed by this deployment.
 #' @param name Friendly identifier for this pipeline.
+#' @param notifications List of notification settings for this pipeline.
 #' @param photon Whether Photon is enabled for this pipeline.
 #' @param serverless Whether serverless compute is enabled for this pipeline.
 #' @param storage DBFS root directory for storing checkpoints and tables.
@@ -33,13 +34,14 @@ NULL
 pipelinesCreate <- function(client, allow_duplicate_names = NULL, catalog = NULL,
   channel = NULL, clusters = NULL, configuration = NULL, continuous = NULL, development = NULL,
   dry_run = NULL, edition = NULL, filters = NULL, id = NULL, libraries = NULL,
-  name = NULL, photon = NULL, serverless = NULL, storage = NULL, target = NULL,
-  trigger = NULL) {
+  name = NULL, notifications = NULL, photon = NULL, serverless = NULL, storage = NULL,
+  target = NULL, trigger = NULL) {
   body <- list(allow_duplicate_names = allow_duplicate_names, catalog = catalog,
     channel = channel, clusters = clusters, configuration = configuration, continuous = continuous,
     development = development, dry_run = dry_run, edition = edition, filters = filters,
-    id = id, libraries = libraries, name = name, photon = photon, serverless = serverless,
-    storage = storage, target = target, trigger = trigger)
+    id = id, libraries = libraries, name = name, notifications = notifications,
+    photon = photon, serverless = serverless, storage = storage, target = target,
+    trigger = trigger)
   client$do("POST", "/api/2.0/pipelines", body = body)
 }
 
@@ -76,9 +78,9 @@ pipelinesGet <- function(client, pipeline_id) {
 #'
 #' @param pipeline_id Required. The pipeline for which to get or manage permissions.
 #'
-#' @rdname pipelinesGetPipelinePermissionLevels
+#' @rdname pipelinesGetPermissionLevels
 #' @export
-pipelinesGetPipelinePermissionLevels <- function(client, pipeline_id) {
+pipelinesGetPermissionLevels <- function(client, pipeline_id) {
 
   client$do("GET", paste("/api/2.0/permissions/pipelines/", pipeline_id, "/permissionLevels",
     , sep = ""))
@@ -92,9 +94,9 @@ pipelinesGetPipelinePermissionLevels <- function(client, pipeline_id) {
 #'
 #' @param pipeline_id Required. The pipeline for which to get or manage permissions.
 #'
-#' @rdname pipelinesGetPipelinePermissions
+#' @rdname pipelinesGetPermissions
 #' @export
-pipelinesGetPipelinePermissions <- function(client, pipeline_id) {
+pipelinesGetPermissions <- function(client, pipeline_id) {
 
   client$do("GET", paste("/api/2.0/permissions/pipelines/", pipeline_id, sep = ""))
 }
@@ -208,61 +210,6 @@ pipelinesListUpdates <- function(client, pipeline_id, max_results = NULL, page_t
     query = query)
 }
 
-#' Reset a pipeline.
-#' 
-#' Resets a pipeline.
-#'
-#' @description
-#' This is a long-running operation, which blocks until Pipelines on Databricks reach
-#' RUNNING state with the timeout of 20 minutes, that you can change via `timeout` parameter.
-#' By default, the state of Databricks Pipelines is reported to console. You can change this behavior
-#' by changing the `callback` parameter.
-#' @param client Required. Instance of DatabricksClient()
-#'
-#' @param pipeline_id Required. 
-#'
-#' @rdname pipelinesReset
-#' @export
-pipelinesReset <- function(client, pipeline_id, timeout = 20, callback = cli_reporter) {
-
-  op_response <- client$do("POST", paste("/api/2.0/pipelines/", pipeline_id, "/reset",
-    , sep = ""))
-  started <- as.numeric(Sys.time())
-  target_states <- c("RUNNING", c())
-  failure_states <- c("FAILED", c())
-  status_message <- "polling..."
-  attempt <- 1
-  while ((started + (timeout * 60)) > as.numeric(Sys.time())) {
-    poll <- pipelinesGet(client, pipeline_id = pipeline_id)
-    status <- poll$state
-    status_message <- poll$cause
-    if (status %in% target_states) {
-      if (!is.null(callback)) {
-        callback(paste0(status, ": ", status_message), done = TRUE)
-      }
-      return(poll)
-    }
-    if (status %in% failure_states) {
-      msg <- paste("failed to reach RUNNING, got ", status, "-", status_message)
-      rlang::abort(msg, call = rlang::caller_env())
-    }
-    prefix <- paste0("databricks::pipelinesGet(pipeline_id=", pipeline_id, ")")
-    sleep <- attempt
-    if (sleep > 10) {
-      # sleep 10s max per attempt
-      sleep <- 10
-    }
-    if (!is.null(callback)) {
-      callback(paste0(status, ": ", status_message), done = FALSE)
-    }
-    random_pause <- runif(1, min = 0.1, max = 0.5)
-    Sys.sleep(sleep + random_pause)
-    attempt <- attempt + 1
-  }
-  msg <- paste("timed out after", timeout, "minutes:", status_message)
-  rlang::abort(msg, call = rlang::caller_env())
-}
-
 #' Set pipeline permissions.
 #' 
 #' Sets permissions on a pipeline. Pipelines can inherit permissions from their
@@ -272,17 +219,19 @@ pipelinesReset <- function(client, pipeline_id, timeout = 20, callback = cli_rep
 #' @param access_control_list 
 #' @param pipeline_id Required. The pipeline for which to get or manage permissions.
 #'
-#' @rdname pipelinesSetPipelinePermissions
+#' @rdname pipelinesSetPermissions
 #' @export
-pipelinesSetPipelinePermissions <- function(client, pipeline_id, access_control_list = NULL) {
+pipelinesSetPermissions <- function(client, pipeline_id, access_control_list = NULL) {
   body <- list(access_control_list = access_control_list)
   client$do("PUT", paste("/api/2.0/permissions/pipelines/", pipeline_id, sep = ""),
     body = body)
 }
 
-#' Queue a pipeline update.
+#' Start a pipeline.
 #' 
-#' Starts or queues a pipeline update.
+#' Starts a new update for the pipeline. If there is already an active update
+#' for the pipeline, the request will fail and the active update will remain
+#' running.
 #' @param client Required. Instance of DatabricksClient()
 #'
 #' @param cause 
@@ -290,20 +239,22 @@ pipelinesSetPipelinePermissions <- function(client, pipeline_id, access_control_
 #' @param full_refresh_selection A list of tables to update with fullRefresh.
 #' @param pipeline_id Required. 
 #' @param refresh_selection A list of tables to update without fullRefresh.
+#' @param validate_only If true, this update only validates the correctness of pipeline source code but does not materialize or publish any datasets.
 #'
 #' @rdname pipelinesStartUpdate
 #' @export
 pipelinesStartUpdate <- function(client, pipeline_id, cause = NULL, full_refresh = NULL,
-  full_refresh_selection = NULL, refresh_selection = NULL) {
+  full_refresh_selection = NULL, refresh_selection = NULL, validate_only = NULL) {
   body <- list(cause = cause, full_refresh = full_refresh, full_refresh_selection = full_refresh_selection,
-    refresh_selection = refresh_selection)
+    refresh_selection = refresh_selection, validate_only = validate_only)
   client$do("POST", paste("/api/2.0/pipelines/", pipeline_id, "/updates", , sep = ""),
     body = body)
 }
 
 #' Stop a pipeline.
 #' 
-#' Stops a pipeline.
+#' Stops the pipeline by canceling the active update. If there is no active
+#' update for the pipeline, this request is a no-op.
 #'
 #' @description
 #' This is a long-running operation, which blocks until Pipelines on Databricks reach
@@ -374,6 +325,7 @@ pipelinesStop <- function(client, pipeline_id, timeout = 20, callback = cli_repo
 #' @param id Unique identifier for this pipeline.
 #' @param libraries Libraries or code needed by this deployment.
 #' @param name Friendly identifier for this pipeline.
+#' @param notifications List of notification settings for this pipeline.
 #' @param photon Whether Photon is enabled for this pipeline.
 #' @param pipeline_id Unique identifier for this pipeline.
 #' @param serverless Whether serverless compute is enabled for this pipeline.
@@ -386,14 +338,14 @@ pipelinesStop <- function(client, pipeline_id, timeout = 20, callback = cli_repo
 pipelinesUpdate <- function(client, pipeline_id, allow_duplicate_names = NULL, catalog = NULL,
   channel = NULL, clusters = NULL, configuration = NULL, continuous = NULL, development = NULL,
   edition = NULL, expected_last_modified = NULL, filters = NULL, id = NULL, libraries = NULL,
-  name = NULL, photon = NULL, serverless = NULL, storage = NULL, target = NULL,
-  trigger = NULL) {
+  name = NULL, notifications = NULL, photon = NULL, serverless = NULL, storage = NULL,
+  target = NULL, trigger = NULL) {
   body <- list(allow_duplicate_names = allow_duplicate_names, catalog = catalog,
     channel = channel, clusters = clusters, configuration = configuration, continuous = continuous,
     development = development, edition = edition, expected_last_modified = expected_last_modified,
-    filters = filters, id = id, libraries = libraries, name = name, photon = photon,
-    pipeline_id = pipeline_id, serverless = serverless, storage = storage, target = target,
-    trigger = trigger)
+    filters = filters, id = id, libraries = libraries, name = name, notifications = notifications,
+    photon = photon, pipeline_id = pipeline_id, serverless = serverless, storage = storage,
+    target = target, trigger = trigger)
   client$do("PUT", paste("/api/2.0/pipelines/", pipeline_id, sep = ""), body = body)
 }
 
@@ -406,9 +358,9 @@ pipelinesUpdate <- function(client, pipeline_id, allow_duplicate_names = NULL, c
 #' @param access_control_list 
 #' @param pipeline_id Required. The pipeline for which to get or manage permissions.
 #'
-#' @rdname pipelinesUpdatePipelinePermissions
+#' @rdname pipelinesUpdatePermissions
 #' @export
-pipelinesUpdatePipelinePermissions <- function(client, pipeline_id, access_control_list = NULL) {
+pipelinesUpdatePermissions <- function(client, pipeline_id, access_control_list = NULL) {
   body <- list(access_control_list = access_control_list)
   client$do("PATCH", paste("/api/2.0/permissions/pipelines/", pipeline_id, sep = ""),
     body = body)

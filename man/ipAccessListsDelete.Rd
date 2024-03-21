@@ -9,7 +9,7 @@ ipAccessListsDelete(client, ip_access_list_id)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{ip_access_list_id}{Required. The ID for the corresponding IP access list to modify.}
+\item{ip_access_list_id}{Required. The ID for the corresponding IP access list.}
 }
 \description{
 Deletes an IP access list, specified by its list ID.

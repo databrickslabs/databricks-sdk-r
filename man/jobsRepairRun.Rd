@@ -9,6 +9,7 @@ jobsRepairRun(
   run_id,
   dbt_commands = NULL,
   jar_params = NULL,
+  job_parameters = NULL,
   latest_repair_id = NULL,
   notebook_params = NULL,
   pipeline_params = NULL,
@@ -30,17 +31,19 @@ jobsRepairRun(
 
 \item{dbt_commands}{An array of commands to execute for jobs with the dbt task, for example \verb{'dbt_commands': ['dbt deps', 'dbt seed', 'dbt run']}.}
 
-\item{jar_params}{A list of parameters for jobs with Spark JAR tasks, for example \verb{\\'jar_params\\': [\\'john doe\\', \\'35\\']}.}
+\item{jar_params}{A list of parameters for jobs with Spark JAR tasks, for example \verb{'jar_params': ['john doe', '35']}.}
+
+\item{job_parameters}{Job-level parameters used in the run.}
 
 \item{latest_repair_id}{The ID of the latest repair.}
 
-\item{notebook_params}{A map from keys to values for jobs with notebook task, for example \verb{\\'notebook_params\\': \{\\'name\\': \\'john doe\\', \\'age\\': \\'35\\'\}}.}
+\item{notebook_params}{A map from keys to values for jobs with notebook task, for example \verb{'notebook_params': \{'name': 'john doe', 'age': '35'\}}.}
 
 \item{pipeline_params}{}
 
 \item{python_named_params}{A map from keys to values for jobs with Python wheel task, for example \verb{'python_named_params': \{'name': 'task', 'data': 'dbfs:/path/to/data.json'\}}.}
 
-\item{python_params}{A list of parameters for jobs with Python tasks, for example \verb{\\'python_params\\': [\\'john doe\\', \\'35\\']}.}
+\item{python_params}{A list of parameters for jobs with Python tasks, for example \verb{'python_params': ['john doe', '35']}.}
 
 \item{rerun_all_failed_tasks}{If true, repair all failed tasks.}
 
@@ -48,7 +51,7 @@ jobsRepairRun(
 
 \item{rerun_tasks}{The task keys of the task runs to repair.}
 
-\item{spark_submit_params}{A list of parameters for jobs with spark submit task, for example \verb{\\'spark_submit_params\\': [\\'--class\\', \\'org.apache.spark.examples.SparkPi\\']}.}
+\item{spark_submit_params}{A list of parameters for jobs with spark submit task, for example \verb{'spark_submit_params': ['--class', 'org.apache.spark.examples.SparkPi']}.}
 
 \item{sql_params}{A map from keys to values for jobs with SQL task, for example \verb{'sql_params': \{'name': 'john doe', 'age': '35'\}}.}
 }

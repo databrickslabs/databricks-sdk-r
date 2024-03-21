@@ -16,14 +16,14 @@ dbfsCreate(client, path, overwrite = NULL)
 \description{
 Opens a stream to write to a file and returns a handle to this stream. There
 is a 10 minute idle timeout on this handle. If a file or directory already
-exists on the given path and \strong{overwrite} is set to \code{false}, this call
-throws an exception with \code{RESOURCE_ALREADY_EXISTS}.
+exists on the given path and \strong{overwrite} is set to false, this call will
+throw an exception with \code{RESOURCE_ALREADY_EXISTS}.
 }
 \details{
 A typical workflow for file upload would be:
 \enumerate{
-\item Issue a \code{create} call and get a handle. 2. Issue one or more \code{add-block}
-calls with the handle you have. 3. Issue a \code{close} call with the handle you
-have.
+\item Issue a \code{create} call and get a handle. 2. Issue one or more
+\code{add-block} calls with the handle you have. 3. Issue a \code{close} call with
+the handle you have.
 }
 }

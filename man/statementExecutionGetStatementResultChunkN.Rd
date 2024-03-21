@@ -9,15 +9,17 @@ statementExecutionGetStatementResultChunkN(client, statement_id, chunk_index)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{statement_id}{Required. Statement ID is returned upon successfully submitting a SQL statement, and is a required reference for all subsequent calls.}
+\item{statement_id}{Required. The statement ID is returned upon successfully submitting a SQL statement, and is a required reference for all subsequent calls.}
 
 \item{chunk_index}{Required.}
 }
 \description{
-After the statement execution has \code{SUCCEEDED}, the result data can be fetched
-by chunks. Whereas the first chuck with \code{chunk_index=0} is typically fetched
-through a \verb{get status} request, subsequent chunks can be fetched using a \verb{get result} request. The response structure is identical to the nested \code{result}
-element described in the \verb{get status} request, and similarly includes the
-\code{next_chunk_index} and \code{next_chunk_internal_link} fields for simple iteration
-through the result set.
+After the statement execution has \code{SUCCEEDED}, this request can be used to
+fetch any chunk by index. Whereas the first chunk with \code{chunk_index=0} is
+typically fetched with :method:statementexecution/executeStatement or
+:method:statementexecution/getStatement, this request can be used to fetch
+subsequent chunks. The response structure is identical to the nested \code{result}
+element described in the :method:statementexecution/getStatement request, and
+similarly includes the \code{next_chunk_index} and \code{next_chunk_internal_link}
+fields for simple iteration through the result set.
 }

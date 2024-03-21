@@ -6,19 +6,25 @@
 \usage{
 statementExecutionExecuteStatement(
   client,
+  statement,
+  warehouse_id,
   byte_limit = NULL,
   catalog = NULL,
   disposition = NULL,
   format = NULL,
   on_wait_timeout = NULL,
+  parameters = NULL,
+  row_limit = NULL,
   schema = NULL,
-  statement = NULL,
-  wait_timeout = NULL,
-  warehouse_id = NULL
+  wait_timeout = NULL
 )
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
+
+\item{statement}{Required. The SQL statement to execute.}
+
+\item{warehouse_id}{Required. Warehouse upon which to execute a statement.}
 
 \item{byte_limit}{Applies the given byte limit to the statement's result size.}
 
@@ -28,17 +34,16 @@ statementExecutionExecuteStatement(
 
 \item{format}{Statement execution supports three result formats: \code{JSON_ARRAY} (default), \code{ARROW_STREAM}, and \code{CSV}.}
 
-\item{on_wait_timeout}{When in synchronous mode with \verb{wait_timeout > 0s} it determines the action taken when the timeout is reached: \code{CONTINUE} → the statement execution continues asynchronously and the call returns a statement ID immediately.}
+\item{on_wait_timeout}{When \verb{wait_timeout > 0s}, the call will block up to the specified time.}
+
+\item{parameters}{A list of parameters to pass into a SQL statement containing parameter markers.}
+
+\item{row_limit}{Applies the given row limit to the statement's result set, but unlike the \code{LIMIT} clause in SQL, it also sets the \code{truncated} field in the response to indicate whether the result was trimmed due to the limit or not.}
 
 \item{schema}{Sets default schema for statement execution, similar to \href{https://docs.databricks.com/sql/language-manual/sql-ref-syntax-ddl-use-schema.html}{\verb{USE SCHEMA}} in SQL.}
 
-\item{statement}{SQL statement to execute.}
-
-\item{wait_timeout}{The time in seconds the API service will wait for the statement's result set as \code{Ns}, where \code{N} can be set to 0 or to a value between 5 and 50.}
-
-\item{warehouse_id}{Warehouse upon which to execute a statement.}
+\item{wait_timeout}{The time in seconds the call will wait for the statement's result set as \code{Ns}, where \code{N} can be set to 0 or to a value between 5 and 50.}
 }
 \description{
-Execute a SQL statement, and if flagged as such, await its result for a
-specified time.
+Execute a SQL statement.
 }

@@ -8,8 +8,11 @@ tablesList(
   client,
   catalog_name,
   schema_name,
+  include_browse = NULL,
   include_delta_metadata = NULL,
   max_results = NULL,
+  omit_columns = NULL,
+  omit_properties = NULL,
   page_token = NULL
 )
 }
@@ -20,9 +23,15 @@ tablesList(
 
 \item{schema_name}{Required. Parent schema of tables.}
 
+\item{include_browse}{Whether to include tables in the response for which the principal can only access selective metadata for.}
+
 \item{include_delta_metadata}{Whether delta metadata should be included in the response.}
 
-\item{max_results}{Maximum number of tables to return (page length).}
+\item{max_results}{Maximum number of tables to return.}
+
+\item{omit_columns}{Whether to omit the columns of the table from the response or not.}
+
+\item{omit_properties}{Whether to omit the properties of the table from the response or not.}
 
 \item{page_token}{Opaque token to send for the next page of results (pagination).}
 }

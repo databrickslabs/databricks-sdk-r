@@ -26,13 +26,13 @@ cleanRoomsCreate <- function(client, name, remote_detailed_info, comment = NULL)
 #' owner of the clean room.
 #' @param client Required. Instance of DatabricksClient()
 #'
-#' @param name_arg Required. The name of the clean room.
+#' @param name Required. The name of the clean room.
 #'
 #' @rdname cleanRoomsDelete
 #' @export
-cleanRoomsDelete <- function(client, name_arg) {
+cleanRoomsDelete <- function(client, name) {
 
-  client$do("DELETE", paste("/api/2.1/unity-catalog/clean-rooms/", name_arg, sep = ""))
+  client$do("DELETE", paste("/api/2.1/unity-catalog/clean-rooms/", name, sep = ""))
 }
 
 #' Get a clean room.
@@ -42,13 +42,13 @@ cleanRoomsDelete <- function(client, name_arg) {
 #' @param client Required. Instance of DatabricksClient()
 #'
 #' @param include_remote_details Whether to include remote details (central) on the clean room.
-#' @param name_arg Required. The name of the clean room.
+#' @param name Required. The name of the clean room.
 #'
 #' @rdname cleanRoomsGet
 #' @export
-cleanRoomsGet <- function(client, name_arg, include_remote_details = NULL) {
+cleanRoomsGet <- function(client, name, include_remote_details = NULL) {
   query <- list(include_remote_details = include_remote_details)
-  client$do("GET", paste("/api/2.1/unity-catalog/clean-rooms/", name_arg, sep = ""),
+  client$do("GET", paste("/api/2.1/unity-catalog/clean-rooms/", name, sep = ""),
     query = query)
 }
 
@@ -56,15 +56,33 @@ cleanRoomsGet <- function(client, name_arg, include_remote_details = NULL) {
 #' 
 #' Gets an array of data object clean rooms from the metastore. The caller must
 #' be a metastore admin or the owner of the clean room. There is no guarantee of
-#' a specific ordering of the elements in the array.#'
+#' a specific ordering of the elements in the array.
+#' @param client Required. Instance of DatabricksClient()
+#'
+#' @param max_results Maximum number of clean rooms to return.
+#' @param page_token Opaque pagination token to go to next page based on previous query.
+#'
 #' @return `data.frame` with all of the response pages.
 #'
 #' @rdname cleanRoomsList
 #' @export
-cleanRoomsList <- function(client) {
+cleanRoomsList <- function(client, max_results = NULL, page_token = NULL) {
+  query <- list(max_results = max_results, page_token = page_token)
 
-  json <- client$do("GET", "/api/2.1/unity-catalog/clean-rooms")
-  return(json$clean_rooms)
+  results <- data.frame()
+  while (TRUE) {
+    json <- client$do("GET", "/api/2.1/unity-catalog/clean-rooms", query = query)
+    if (is.null(nrow(json$clean_rooms))) {
+      break
+    }
+    # append this page of results to one results data.frame
+    results <- dplyr::bind_rows(results, json$clean_rooms)
+    if (is.null(json$next_page_token)) {
+      break
+    }
+    query$page_token <- json$next_page_token
+  }
+  return(results)
 
 }
 
@@ -89,17 +107,15 @@ cleanRoomsList <- function(client) {
 #'
 #' @param catalog_updates Array of shared data object updates.
 #' @param comment User-provided free-form text description.
-#' @param name Name of the clean room.
-#' @param name_arg Required. The name of the clean room.
+#' @param name Required. The name of the clean room.
 #' @param owner Username of current owner of clean room.
 #'
 #' @rdname cleanRoomsUpdate
 #' @export
-cleanRoomsUpdate <- function(client, name_arg, catalog_updates = NULL, comment = NULL,
-  name = NULL, owner = NULL) {
-  body <- list(catalog_updates = catalog_updates, comment = comment, name = name,
-    owner = owner)
-  client$do("PATCH", paste("/api/2.1/unity-catalog/clean-rooms/", name_arg, sep = ""),
+cleanRoomsUpdate <- function(client, name, catalog_updates = NULL, comment = NULL,
+  owner = NULL) {
+  body <- list(catalog_updates = catalog_updates, comment = comment, owner = owner)
+  client$do("PATCH", paste("/api/2.1/unity-catalog/clean-rooms/", name, sep = ""),
     body = body)
 }
 

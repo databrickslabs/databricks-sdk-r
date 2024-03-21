@@ -194,9 +194,9 @@ warehousesGet <- function(client, id) {
 #'
 #' @param warehouse_id Required. The SQL warehouse for which to get or manage permissions.
 #'
-#' @rdname warehousesGetWarehousePermissionLevels
+#' @rdname warehousesGetPermissionLevels
 #' @export
-warehousesGetWarehousePermissionLevels <- function(client, warehouse_id) {
+warehousesGetPermissionLevels <- function(client, warehouse_id) {
 
   client$do("GET", paste("/api/2.0/permissions/warehouses/", warehouse_id, "/permissionLevels",
     , sep = ""))
@@ -210,9 +210,9 @@ warehousesGetWarehousePermissionLevels <- function(client, warehouse_id) {
 #'
 #' @param warehouse_id Required. The SQL warehouse for which to get or manage permissions.
 #'
-#' @rdname warehousesGetWarehousePermissions
+#' @rdname warehousesGetPermissions
 #' @export
-warehousesGetWarehousePermissions <- function(client, warehouse_id) {
+warehousesGetPermissions <- function(client, warehouse_id) {
 
   client$do("GET", paste("/api/2.0/permissions/warehouses/", warehouse_id, sep = ""))
 }
@@ -255,9 +255,9 @@ warehousesList <- function(client, run_as_user_id = NULL) {
 #' @param access_control_list 
 #' @param warehouse_id Required. The SQL warehouse for which to get or manage permissions.
 #'
-#' @rdname warehousesSetWarehousePermissions
+#' @rdname warehousesSetPermissions
 #' @export
-warehousesSetWarehousePermissions <- function(client, warehouse_id, access_control_list = NULL) {
+warehousesSetPermissions <- function(client, warehouse_id, access_control_list = NULL) {
   body <- list(access_control_list = access_control_list)
   client$do("PUT", paste("/api/2.0/permissions/warehouses/", warehouse_id, sep = ""),
     body = body)
@@ -412,9 +412,9 @@ warehousesStop <- function(client, id, timeout = 20, callback = cli_reporter) {
 #' @param access_control_list 
 #' @param warehouse_id Required. The SQL warehouse for which to get or manage permissions.
 #'
-#' @rdname warehousesUpdateWarehousePermissions
+#' @rdname warehousesUpdatePermissions
 #' @export
-warehousesUpdateWarehousePermissions <- function(client, warehouse_id, access_control_list = NULL) {
+warehousesUpdatePermissions <- function(client, warehouse_id, access_control_list = NULL) {
   body <- list(access_control_list = access_control_list)
   client$do("PATCH", paste("/api/2.0/permissions/warehouses/", warehouse_id, sep = ""),
     body = body)

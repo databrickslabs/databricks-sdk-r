@@ -2,7 +2,7 @@
 % Please edit documentation in R/serving_endpoints.R
 \name{servingEndpointsList}
 \alias{servingEndpointsList}
-\title{Retrieve all serving endpoints.#'}
+\title{Get all serving endpoints.#'}
 \usage{
 servingEndpointsList(client)
 }
@@ -10,5 +10,5 @@ servingEndpointsList(client)
 \code{data.frame} with all of the response pages.
 }
 \description{
-Retrieve all serving endpoints.#'
+Get all serving endpoints.#'
 }

@@ -4,12 +4,14 @@
 \alias{externalLocationsGet}
 \title{Get an external location.}
 \usage{
-externalLocationsGet(client, name)
+externalLocationsGet(client, name, include_browse = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
 \item{name}{Required. Name of the external location.}
+
+\item{include_browse}{Whether to include external locations in the response for which the principal can only access selective metadata for.}
 }
 \description{
 Gets an external location from the metastore. The caller must be either a

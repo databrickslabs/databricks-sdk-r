@@ -76,6 +76,25 @@ experimentsDeleteRun <- function(client, run_id) {
   client$do("POST", "/api/2.0/mlflow/runs/delete", body = body)
 }
 
+#' Delete runs by creation time.
+#' 
+#' Bulk delete runs in an experiment that were created prior to or at the
+#' specified timestamp. Deletes at most max_runs per request. To call this API
+#' from a Databricks Notebook in Python, you can use the client code snippet on
+#' https://learn.microsoft.com/en-us/azure/databricks/mlflow/runs#bulk-delete.
+#' @param client Required. Instance of DatabricksClient()
+#'
+#' @param experiment_id Required. The ID of the experiment containing the runs to delete.
+#' @param max_runs An optional positive integer indicating the maximum number of runs to delete.
+#' @param max_timestamp_millis Required. The maximum creation timestamp in milliseconds since the UNIX epoch for deleting runs.
+#'
+#' @rdname experimentsDeleteRuns
+#' @export
+experimentsDeleteRuns <- function(client, experiment_id, max_timestamp_millis, max_runs = NULL) {
+  body <- list(experiment_id = experiment_id, max_runs = max_runs, max_timestamp_millis = max_timestamp_millis)
+  client$do("POST", "/api/2.0/mlflow/databricks/runs/delete-runs", body = body)
+}
+
 #' Delete a tag.
 #' 
 #' Deletes a tag on a run. Tags are run metadata that can be updated during a
@@ -128,6 +147,43 @@ experimentsGetExperiment <- function(client, experiment_id) {
   client$do("GET", "/api/2.0/mlflow/experiments/get", query = query)
 }
 
+#' Get history of a given metric within a run.
+#' 
+#' Gets a list of all values for the specified metric for a given run.
+#' @param client Required. Instance of DatabricksClient()
+#'
+#' @param max_results Maximum number of Metric records to return per paginated request.
+#' @param metric_key Required. Name of the metric.
+#' @param page_token Token indicating the page of metric histories to fetch.
+#' @param run_id ID of the run from which to fetch metric values.
+#' @param run_uuid [Deprecated, use run_id instead] ID of the run from which to fetch metric values.
+#'
+#' @return `data.frame` with all of the response pages.
+#'
+#' @rdname experimentsGetHistory
+#' @export
+experimentsGetHistory <- function(client, metric_key, max_results = NULL, page_token = NULL,
+  run_id = NULL, run_uuid = NULL) {
+  query <- list(max_results = max_results, metric_key = metric_key, page_token = page_token,
+    run_id = run_id, run_uuid = run_uuid)
+
+  results <- data.frame()
+  while (TRUE) {
+    json <- client$do("GET", "/api/2.0/mlflow/metrics/get-history", query = query)
+    if (is.null(nrow(json$metrics))) {
+      break
+    }
+    # append this page of results to one results data.frame
+    results <- dplyr::bind_rows(results, json$metrics)
+    if (is.null(json$next_page_token)) {
+      break
+    }
+    query$page_token <- json$next_page_token
+  }
+  return(results)
+
+}
+
 #' Get experiment permission levels.
 #' 
 #' Gets the permission levels that a user can have on an object.
@@ -135,9 +191,9 @@ experimentsGetExperiment <- function(client, experiment_id) {
 #'
 #' @param experiment_id Required. The experiment for which to get or manage permissions.
 #'
-#' @rdname experimentsGetExperimentPermissionLevels
+#' @rdname experimentsGetPermissionLevels
 #' @export
-experimentsGetExperimentPermissionLevels <- function(client, experiment_id) {
+experimentsGetPermissionLevels <- function(client, experiment_id) {
 
   client$do("GET", paste("/api/2.0/permissions/experiments/", experiment_id, "/permissionLevels",
     , sep = ""))
@@ -151,31 +207,11 @@ experimentsGetExperimentPermissionLevels <- function(client, experiment_id) {
 #'
 #' @param experiment_id Required. The experiment for which to get or manage permissions.
 #'
-#' @rdname experimentsGetExperimentPermissions
+#' @rdname experimentsGetPermissions
 #' @export
-experimentsGetExperimentPermissions <- function(client, experiment_id) {
+experimentsGetPermissions <- function(client, experiment_id) {
 
   client$do("GET", paste("/api/2.0/permissions/experiments/", experiment_id, sep = ""))
-}
-
-#' Get history of a given metric within a run.
-#' 
-#' Gets a list of all values for the specified metric for a given run.
-#' @param client Required. Instance of DatabricksClient()
-#'
-#' @param max_results Maximum number of Metric records to return per paginated request.
-#' @param metric_key Required. Name of the metric.
-#' @param page_token Token indicating the page of metric histories to fetch.
-#' @param run_id ID of the run from which to fetch metric values.
-#' @param run_uuid [Deprecated, use run_id instead] ID of the run from which to fetch metric values.
-#'
-#' @rdname experimentsGetHistory
-#' @export
-experimentsGetHistory <- function(client, metric_key, max_results = NULL, page_token = NULL,
-  run_id = NULL, run_uuid = NULL) {
-  query <- list(max_results = max_results, metric_key = metric_key, page_token = page_token,
-    run_id = run_id, run_uuid = run_uuid)
-  client$do("GET", "/api/2.0/mlflow/metrics/get-history", query = query)
 }
 
 #' Get a run.
@@ -430,6 +466,25 @@ experimentsRestoreRun <- function(client, run_id) {
   client$do("POST", "/api/2.0/mlflow/runs/restore", body = body)
 }
 
+#' Restore runs by deletion time.
+#' 
+#' Bulk restore runs in an experiment that were deleted no earlier than the
+#' specified timestamp. Restores at most max_runs per request. To call this API
+#' from a Databricks Notebook in Python, you can use the client code snippet on
+#' https://learn.microsoft.com/en-us/azure/databricks/mlflow/runs#bulk-restore.
+#' @param client Required. Instance of DatabricksClient()
+#'
+#' @param experiment_id Required. The ID of the experiment containing the runs to restore.
+#' @param max_runs An optional positive integer indicating the maximum number of runs to restore.
+#' @param min_timestamp_millis Required. The minimum deletion timestamp in milliseconds since the UNIX epoch for restoring runs.
+#'
+#' @rdname experimentsRestoreRuns
+#' @export
+experimentsRestoreRuns <- function(client, experiment_id, min_timestamp_millis, max_runs = NULL) {
+  body <- list(experiment_id = experiment_id, max_runs = max_runs, min_timestamp_millis = min_timestamp_millis)
+  client$do("POST", "/api/2.0/mlflow/databricks/runs/restore-runs", body = body)
+}
+
 #' Search experiments.
 #' 
 #' Searches for experiments that satisfy specified search criteria.
@@ -507,23 +562,6 @@ experimentsSearchRuns <- function(client, experiment_ids = NULL, filter = NULL, 
 
 }
 
-#' Set experiment permissions.
-#' 
-#' Sets permissions on an experiment. Experiments can inherit permissions from
-#' their root object.
-#' @param client Required. Instance of DatabricksClient()
-#'
-#' @param access_control_list 
-#' @param experiment_id Required. The experiment for which to get or manage permissions.
-#'
-#' @rdname experimentsSetExperimentPermissions
-#' @export
-experimentsSetExperimentPermissions <- function(client, experiment_id, access_control_list = NULL) {
-  body <- list(access_control_list = access_control_list)
-  client$do("PUT", paste("/api/2.0/permissions/experiments/", experiment_id, sep = ""),
-    body = body)
-}
-
 #' Set a tag.
 #' 
 #' Sets a tag on an experiment. Experiment tags are metadata that can be
@@ -539,6 +577,23 @@ experimentsSetExperimentPermissions <- function(client, experiment_id, access_co
 experimentsSetExperimentTag <- function(client, experiment_id, key, value) {
   body <- list(experiment_id = experiment_id, key = key, value = value)
   client$do("POST", "/api/2.0/mlflow/experiments/set-experiment-tag", body = body)
+}
+
+#' Set experiment permissions.
+#' 
+#' Sets permissions on an experiment. Experiments can inherit permissions from
+#' their root object.
+#' @param client Required. Instance of DatabricksClient()
+#'
+#' @param access_control_list 
+#' @param experiment_id Required. The experiment for which to get or manage permissions.
+#'
+#' @rdname experimentsSetPermissions
+#' @export
+experimentsSetPermissions <- function(client, experiment_id, access_control_list = NULL) {
+  body <- list(access_control_list = access_control_list)
+  client$do("PUT", paste("/api/2.0/permissions/experiments/", experiment_id, sep = ""),
+    body = body)
 }
 
 #' Set a tag.
@@ -583,9 +638,9 @@ experimentsUpdateExperiment <- function(client, experiment_id, new_name = NULL) 
 #' @param access_control_list 
 #' @param experiment_id Required. The experiment for which to get or manage permissions.
 #'
-#' @rdname experimentsUpdateExperimentPermissions
+#' @rdname experimentsUpdatePermissions
 #' @export
-experimentsUpdateExperimentPermissions <- function(client, experiment_id, access_control_list = NULL) {
+experimentsUpdatePermissions <- function(client, experiment_id, access_control_list = NULL) {
   body <- list(access_control_list = access_control_list)
   client$do("PATCH", paste("/api/2.0/permissions/experiments/", experiment_id,
     sep = ""), body = body)

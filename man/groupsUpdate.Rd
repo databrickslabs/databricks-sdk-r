@@ -13,7 +13,8 @@ groupsUpdate(
   groups = NULL,
   members = NULL,
   meta = NULL,
-  roles = NULL
+  roles = NULL,
+  schemas = NULL
 )
 }
 \arguments{
@@ -23,7 +24,7 @@ groupsUpdate(
 
 \item{display_name}{String that represents a human-readable group name.}
 
-\item{entitlements}{}
+\item{entitlements}{Entitlements assigned to the group.}
 
 \item{external_id}{}
 
@@ -33,7 +34,9 @@ groupsUpdate(
 
 \item{meta}{Container for the group identifier.}
 
-\item{roles}{}
+\item{roles}{Corresponds to AWS instance profile/arn role.}
+
+\item{schemas}{The schema of the group.}
 }
 \description{
 Updates the details of a group by replacing the entire group entity.

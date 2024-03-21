@@ -2,7 +2,7 @@
 % Please edit documentation in R/serving_endpoints.R
 \name{servingEndpointsExportMetrics}
 \alias{servingEndpointsExportMetrics}
-\title{Retrieve the metrics associated with a serving endpoint.}
+\title{Get metrics of a serving endpoint.}
 \usage{
 servingEndpointsExportMetrics(client, name)
 }

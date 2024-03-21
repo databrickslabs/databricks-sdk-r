@@ -8,19 +8,21 @@ NULL
 #' Creates a new policy with prescribed settings.
 #' @param client Required. Instance of DatabricksClient()
 #'
-#' @param definition Policy definition document expressed in Databricks Cluster Policy Definition Language.
+#' @param definition Policy definition document expressed in [Databricks Cluster Policy Definition Language](https://docs.databricks.com/administration-guide/clusters/policy-definition.html).
 #' @param description Additional human-readable description of the cluster policy.
+#' @param libraries A list of libraries to be installed on the next cluster restart that uses this policy.
 #' @param max_clusters_per_user Max number of clusters per user that can be active using this policy.
 #' @param name Required. Cluster Policy name requested by the user.
-#' @param policy_family_definition_overrides Policy definition JSON document expressed in Databricks Policy Definition Language.
+#' @param policy_family_definition_overrides Policy definition JSON document expressed in [Databricks Policy Definition Language](https://docs.databricks.com/administration-guide/clusters/policy-definition.html).
 #' @param policy_family_id ID of the policy family.
 #'
 #' @rdname clusterPoliciesCreate
 #' @export
 clusterPoliciesCreate <- function(client, name, definition = NULL, description = NULL,
-  max_clusters_per_user = NULL, policy_family_definition_overrides = NULL, policy_family_id = NULL) {
-  body <- list(definition = definition, description = description, max_clusters_per_user = max_clusters_per_user,
-    name = name, policy_family_definition_overrides = policy_family_definition_overrides,
+  libraries = NULL, max_clusters_per_user = NULL, policy_family_definition_overrides = NULL,
+  policy_family_id = NULL) {
+  body <- list(definition = definition, description = description, libraries = libraries,
+    max_clusters_per_user = max_clusters_per_user, name = name, policy_family_definition_overrides = policy_family_definition_overrides,
     policy_family_id = policy_family_id)
   client$do("POST", "/api/2.0/policies/clusters/create", body = body)
 }
@@ -46,25 +48,27 @@ clusterPoliciesDelete <- function(client, policy_id) {
 #' governed by the previous policy invalid.
 #' @param client Required. Instance of DatabricksClient()
 #'
-#' @param definition Policy definition document expressed in Databricks Cluster Policy Definition Language.
+#' @param definition Policy definition document expressed in [Databricks Cluster Policy Definition Language](https://docs.databricks.com/administration-guide/clusters/policy-definition.html).
 #' @param description Additional human-readable description of the cluster policy.
+#' @param libraries A list of libraries to be installed on the next cluster restart that uses this policy.
 #' @param max_clusters_per_user Max number of clusters per user that can be active using this policy.
 #' @param name Required. Cluster Policy name requested by the user.
-#' @param policy_family_definition_overrides Policy definition JSON document expressed in Databricks Policy Definition Language.
+#' @param policy_family_definition_overrides Policy definition JSON document expressed in [Databricks Policy Definition Language](https://docs.databricks.com/administration-guide/clusters/policy-definition.html).
 #' @param policy_family_id ID of the policy family.
 #' @param policy_id Required. The ID of the policy to update.
 #'
 #' @rdname clusterPoliciesEdit
 #' @export
 clusterPoliciesEdit <- function(client, policy_id, name, definition = NULL, description = NULL,
-  max_clusters_per_user = NULL, policy_family_definition_overrides = NULL, policy_family_id = NULL) {
-  body <- list(definition = definition, description = description, max_clusters_per_user = max_clusters_per_user,
-    name = name, policy_family_definition_overrides = policy_family_definition_overrides,
+  libraries = NULL, max_clusters_per_user = NULL, policy_family_definition_overrides = NULL,
+  policy_family_id = NULL) {
+  body <- list(definition = definition, description = description, libraries = libraries,
+    max_clusters_per_user = max_clusters_per_user, name = name, policy_family_definition_overrides = policy_family_definition_overrides,
     policy_family_id = policy_family_id, policy_id = policy_id)
   client$do("POST", "/api/2.0/policies/clusters/edit", body = body)
 }
 
-#' Get entity.
+#' Get a cluster policy.
 #' 
 #' Get a cluster policy entity. Creation and editing is available to admins
 #' only.
@@ -86,9 +90,9 @@ clusterPoliciesGet <- function(client, policy_id) {
 #'
 #' @param cluster_policy_id Required. The cluster policy for which to get or manage permissions.
 #'
-#' @rdname clusterPoliciesGetClusterPolicyPermissionLevels
+#' @rdname clusterPoliciesGetPermissionLevels
 #' @export
-clusterPoliciesGetClusterPolicyPermissionLevels <- function(client, cluster_policy_id) {
+clusterPoliciesGetPermissionLevels <- function(client, cluster_policy_id) {
 
   client$do("GET", paste("/api/2.0/permissions/cluster-policies/", cluster_policy_id,
     "/permissionLevels", , sep = ""))
@@ -102,15 +106,15 @@ clusterPoliciesGetClusterPolicyPermissionLevels <- function(client, cluster_poli
 #'
 #' @param cluster_policy_id Required. The cluster policy for which to get or manage permissions.
 #'
-#' @rdname clusterPoliciesGetClusterPolicyPermissions
+#' @rdname clusterPoliciesGetPermissions
 #' @export
-clusterPoliciesGetClusterPolicyPermissions <- function(client, cluster_policy_id) {
+clusterPoliciesGetPermissions <- function(client, cluster_policy_id) {
 
   client$do("GET", paste("/api/2.0/permissions/cluster-policies/", cluster_policy_id,
     sep = ""))
 }
 
-#' Get a cluster policy.
+#' List cluster policies.
 #' 
 #' Returns a list of policies accessible by the requesting user.
 #' @param client Required. Instance of DatabricksClient()
@@ -139,10 +143,9 @@ clusterPoliciesList <- function(client, sort_column = NULL, sort_order = NULL) {
 #' @param access_control_list 
 #' @param cluster_policy_id Required. The cluster policy for which to get or manage permissions.
 #'
-#' @rdname clusterPoliciesSetClusterPolicyPermissions
+#' @rdname clusterPoliciesSetPermissions
 #' @export
-clusterPoliciesSetClusterPolicyPermissions <- function(client, cluster_policy_id,
-  access_control_list = NULL) {
+clusterPoliciesSetPermissions <- function(client, cluster_policy_id, access_control_list = NULL) {
   body <- list(access_control_list = access_control_list)
   client$do("PUT", paste("/api/2.0/permissions/cluster-policies/", cluster_policy_id,
     sep = ""), body = body)
@@ -157,10 +160,9 @@ clusterPoliciesSetClusterPolicyPermissions <- function(client, cluster_policy_id
 #' @param access_control_list 
 #' @param cluster_policy_id Required. The cluster policy for which to get or manage permissions.
 #'
-#' @rdname clusterPoliciesUpdateClusterPolicyPermissions
+#' @rdname clusterPoliciesUpdatePermissions
 #' @export
-clusterPoliciesUpdateClusterPolicyPermissions <- function(client, cluster_policy_id,
-  access_control_list = NULL) {
+clusterPoliciesUpdatePermissions <- function(client, cluster_policy_id, access_control_list = NULL) {
   body <- list(access_control_list = access_control_list)
   client$do("PATCH", paste("/api/2.0/permissions/cluster-policies/", cluster_policy_id,
     sep = ""), body = body)

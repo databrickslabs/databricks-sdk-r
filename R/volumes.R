@@ -34,7 +34,7 @@ NULL
 #'
 #' @rdname volumesCreate
 #' @export
-volumesCreate <- function(client, catalog_name, name, schema_name, volume_type, comment = NULL,
+volumesCreate <- function(client, catalog_name, schema_name, name, volume_type, comment = NULL,
   storage_location = NULL) {
   body <- list(catalog_name = catalog_name, comment = comment, name = name, schema_name = schema_name,
     storage_location = storage_location, volume_type = volume_type)
@@ -51,19 +51,19 @@ volumesCreate <- function(client, catalog_name, name, schema_name, volume_type, 
 #' parent schema.
 #' @param client Required. Instance of DatabricksClient()
 #'
-#' @param full_name_arg Required. The three-level (fully qualified) name of the volume.
+#' @param name Required. The three-level (fully qualified) name of the volume.
 #'
 #' @rdname volumesDelete
 #' @export
-volumesDelete <- function(client, full_name_arg) {
+volumesDelete <- function(client, name) {
 
-  client$do("DELETE", paste("/api/2.1/unity-catalog/volumes/", full_name_arg, sep = ""))
+  client$do("DELETE", paste("/api/2.1/unity-catalog/volumes/", name, sep = ""))
 }
 
 #' List Volumes.
 #' 
-#' Gets an array of all volumes for the current metastore under the parent
-#' catalog and schema.
+#' Gets an array of volumes for the current metastore under the parent catalog
+#' and schema.
 #' 
 #' The returned volumes are filtered based on the privileges of the calling
 #' user. For example, the metastore admin is able to list all the volumes. A
@@ -76,17 +76,34 @@ volumesDelete <- function(client, full_name_arg) {
 #' @param client Required. Instance of DatabricksClient()
 #'
 #' @param catalog_name Required. The identifier of the catalog.
+#' @param include_browse Whether to include volumes in the response for which the principal can only access selective metadata for.
+#' @param max_results Maximum number of volumes to return (page length).
+#' @param page_token Opaque token returned by a previous request.
 #' @param schema_name Required. The identifier of the schema.
 #'
 #' @return `data.frame` with all of the response pages.
 #'
 #' @rdname volumesList
 #' @export
-volumesList <- function(client, catalog_name, schema_name) {
-  query <- list(catalog_name = catalog_name, schema_name = schema_name)
+volumesList <- function(client, catalog_name, schema_name, include_browse = NULL,
+  max_results = NULL, page_token = NULL) {
+  query <- list(catalog_name = catalog_name, include_browse = include_browse, max_results = max_results,
+    page_token = page_token, schema_name = schema_name)
 
-  json <- client$do("GET", "/api/2.1/unity-catalog/volumes", query = query)
-  return(json$volumes)
+  results <- data.frame()
+  while (TRUE) {
+    json <- client$do("GET", "/api/2.1/unity-catalog/volumes", query = query)
+    if (is.null(nrow(json$volumes))) {
+      break
+    }
+    # append this page of results to one results data.frame
+    results <- dplyr::bind_rows(results, json$volumes)
+    if (is.null(json$next_page_token)) {
+      break
+    }
+    query$page_token <- json$next_page_token
+  }
+  return(results)
 
 }
 
@@ -100,13 +117,14 @@ volumesList <- function(client, catalog_name, schema_name) {
 #' the **USE_SCHEMA** privilege on the parent schema.
 #' @param client Required. Instance of DatabricksClient()
 #'
-#' @param full_name_arg Required. The three-level (fully qualified) name of the volume.
+#' @param include_browse Whether to include volumes in the response for which the principal can only access selective metadata for.
+#' @param name Required. The three-level (fully qualified) name of the volume.
 #'
 #' @rdname volumesRead
 #' @export
-volumesRead <- function(client, full_name_arg) {
-
-  client$do("GET", paste("/api/2.1/unity-catalog/volumes/", full_name_arg, sep = ""))
+volumesRead <- function(client, name, include_browse = NULL) {
+  query <- list(include_browse = include_browse)
+  client$do("GET", paste("/api/2.1/unity-catalog/volumes/", name, sep = ""), query = query)
 }
 
 #' Update a Volume.
@@ -123,15 +141,15 @@ volumesRead <- function(client, full_name_arg) {
 #' @param client Required. Instance of DatabricksClient()
 #'
 #' @param comment The comment attached to the volume.
-#' @param full_name_arg Required. The three-level (fully qualified) name of the volume.
-#' @param name The name of the volume.
+#' @param name Required. The three-level (fully qualified) name of the volume.
+#' @param new_name New name for the volume.
 #' @param owner The identifier of the user who owns the volume.
 #'
 #' @rdname volumesUpdate
 #' @export
-volumesUpdate <- function(client, full_name_arg, comment = NULL, name = NULL, owner = NULL) {
-  body <- list(comment = comment, name = name, owner = owner)
-  client$do("PATCH", paste("/api/2.1/unity-catalog/volumes/", full_name_arg, sep = ""),
+volumesUpdate <- function(client, name, comment = NULL, new_name = NULL, owner = NULL) {
+  body <- list(comment = comment, new_name = new_name, owner = owner)
+  client$do("PATCH", paste("/api/2.1/unity-catalog/volumes/", name, sep = ""),
     body = body)
 }
 

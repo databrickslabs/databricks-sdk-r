@@ -125,15 +125,16 @@ recipientsSharePermissions <- function(client, name) {
 #'
 #' @param comment Description about the recipient.
 #' @param ip_access_list IP Access List.
-#' @param name Name of Recipient.
+#' @param name Required. Name of the recipient.
+#' @param new_name New name for the recipient.
 #' @param owner Username of the recipient owner.
 #' @param properties_kvpairs Recipient properties as map of string key-value pairs.
 #'
 #' @rdname recipientsUpdate
 #' @export
 recipientsUpdate <- function(client, name, comment = NULL, ip_access_list = NULL,
-  owner = NULL, properties_kvpairs = NULL) {
-  body <- list(comment = comment, ip_access_list = ip_access_list, name = name,
+  new_name = NULL, owner = NULL, properties_kvpairs = NULL) {
+  body <- list(comment = comment, ip_access_list = ip_access_list, new_name = new_name,
     owner = owner, properties_kvpairs = properties_kvpairs)
   client$do("PATCH", paste("/api/2.1/unity-catalog/recipients/", name, sep = ""),
     body = body)

@@ -6,23 +6,20 @@
 \usage{
 cleanRoomsUpdate(
   client,
-  name_arg,
+  name,
   catalog_updates = NULL,
   comment = NULL,
-  name = NULL,
   owner = NULL
 )
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{name_arg}{Required. The name of the clean room.}
+\item{name}{Required. The name of the clean room.}
 
 \item{catalog_updates}{Array of shared data object updates.}
 
 \item{comment}{User-provided free-form text description.}
-
-\item{name}{Name of the clean room.}
 
 \item{owner}{Username of current owner of clean room.}
 }

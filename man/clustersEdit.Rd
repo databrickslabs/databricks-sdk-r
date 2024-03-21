@@ -46,7 +46,7 @@ clustersEdit(
 
 \item{spark_version}{Required. The Spark version of the cluster, e.g.}
 
-\item{apply_policy_default_values}{Note: This field won't be true for webapp requests.}
+\item{apply_policy_default_values}{}
 
 \item{autoscale}{Parameters needed in order to automatically scale clusters up and down based on load.}
 
@@ -64,7 +64,7 @@ clustersEdit(
 
 \item{custom_tags}{Additional tags for cluster resources.}
 
-\item{data_security_mode}{This describes an enum.}
+\item{data_security_mode}{Data security mode decides what data governance model to use when accessing data from a cluster.}
 
 \item{docker_image}{}
 

@@ -7,27 +7,24 @@
 ipAccessListsUpdate(
   client,
   ip_access_list_id,
-  label,
-  list_type,
-  ip_addresses,
-  enabled,
-  list_id = NULL
+  enabled = NULL,
+  ip_addresses = NULL,
+  label = NULL,
+  list_type = NULL
 )
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{ip_access_list_id}{Required. The ID for the corresponding IP access list to modify.}
+\item{ip_access_list_id}{Required. The ID for the corresponding IP access list.}
 
-\item{label}{Required. Label for the IP access list.}
+\item{enabled}{Specifies whether this IP access list is enabled.}
 
-\item{list_type}{Required. This describes an enum.}
+\item{ip_addresses}{}
 
-\item{ip_addresses}{Required. Array of IP addresses or CIDR values to be added to the IP access list.}
+\item{label}{Label for the IP access list.}
 
-\item{enabled}{Required. Specifies whether this IP access list is enabled.}
-
-\item{list_id}{Universally unique identifier (UUID) of the IP access list.}
+\item{list_type}{Type of IP access list.}
 }
 \description{
 Updates an existing IP access list, specified by its ID.

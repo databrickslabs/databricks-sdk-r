@@ -5,20 +5,13 @@ NULL
 
 #' Create a storage credential.
 #' 
-#' Creates a new storage credential. The request object is specific to the
-#' cloud:
-#' 
-#' * **AwsIamRole** for AWS credentials. * **AzureServicePrincipal** for Azure
-#' credentials. * **AzureManagedIdentity** for Azure managed credentials. *
-#' **DatabricksGcpServiceAccount** for GCP managed credentials.
-#' 
-#' The caller must be a metastore admin and have the
-#' **CREATE_STORAGE_CREDENTIAL** privilege on the metastore.
+#' Creates a new storage credential.
 #' @param client Required. Instance of DatabricksClient()
 #'
 #' @param aws_iam_role The AWS IAM role configuration.
 #' @param azure_managed_identity The Azure managed identity configuration.
 #' @param azure_service_principal The Azure service principal configuration.
+#' @param cloudflare_api_token The Cloudflare API token configuration.
 #' @param comment Comment associated with the credential.
 #' @param databricks_gcp_service_account The <Databricks> managed GCP service account configuration.
 #' @param name Required. The credential name.
@@ -28,10 +21,11 @@ NULL
 #' @rdname storageCredentialsCreate
 #' @export
 storageCredentialsCreate <- function(client, name, aws_iam_role = NULL, azure_managed_identity = NULL,
-  azure_service_principal = NULL, comment = NULL, databricks_gcp_service_account = NULL,
-  read_only = NULL, skip_validation = NULL) {
+  azure_service_principal = NULL, cloudflare_api_token = NULL, comment = NULL,
+  databricks_gcp_service_account = NULL, read_only = NULL, skip_validation = NULL) {
   body <- list(aws_iam_role = aws_iam_role, azure_managed_identity = azure_managed_identity,
-    azure_service_principal = azure_service_principal, comment = comment, databricks_gcp_service_account = databricks_gcp_service_account,
+    azure_service_principal = azure_service_principal, cloudflare_api_token = cloudflare_api_token,
+    comment = comment, databricks_gcp_service_account = databricks_gcp_service_account,
     name = name, read_only = read_only, skip_validation = skip_validation)
   client$do("POST", "/api/2.1/unity-catalog/storage-credentials", body = body)
 }
@@ -73,34 +67,52 @@ storageCredentialsGet <- function(client, name) {
 #' 
 #' Gets an array of storage credentials (as __StorageCredentialInfo__ objects).
 #' The array is limited to only those storage credentials the caller has
-#' permission to access. If the caller is a metastore admin, all storage
-#' credentials will be retrieved. There is no guarantee of a specific ordering
-#' of the elements in the array.#'
+#' permission to access. If the caller is a metastore admin, retrieval of
+#' credentials is unrestricted. There is no guarantee of a specific ordering of
+#' the elements in the array.
+#' @param client Required. Instance of DatabricksClient()
+#'
+#' @param max_results Maximum number of storage credentials to return.
+#' @param page_token Opaque pagination token to go to next page based on previous query.
+#'
 #' @return `data.frame` with all of the response pages.
 #'
 #' @rdname storageCredentialsList
 #' @export
-storageCredentialsList <- function(client) {
+storageCredentialsList <- function(client, max_results = NULL, page_token = NULL) {
+  query <- list(max_results = max_results, page_token = page_token)
 
-  json <- client$do("GET", "/api/2.1/unity-catalog/storage-credentials")
-  return(json$storage_credentials)
+  results <- data.frame()
+  while (TRUE) {
+    json <- client$do("GET", "/api/2.1/unity-catalog/storage-credentials", query = query)
+    if (is.null(nrow(json$storage_credentials))) {
+      break
+    }
+    # append this page of results to one results data.frame
+    results <- dplyr::bind_rows(results, json$storage_credentials)
+    if (is.null(json$next_page_token)) {
+      break
+    }
+    query$page_token <- json$next_page_token
+  }
+  return(results)
 
 }
 
 #' Update a credential.
 #' 
-#' Updates a storage credential on the metastore. The caller must be the owner
-#' of the storage credential or a metastore admin. If the caller is a metastore
-#' admin, only the __owner__ credential can be changed.
+#' Updates a storage credential on the metastore.
 #' @param client Required. Instance of DatabricksClient()
 #'
 #' @param aws_iam_role The AWS IAM role configuration.
 #' @param azure_managed_identity The Azure managed identity configuration.
 #' @param azure_service_principal The Azure service principal configuration.
+#' @param cloudflare_api_token The Cloudflare API token configuration.
 #' @param comment Comment associated with the credential.
 #' @param databricks_gcp_service_account The <Databricks> managed GCP service account configuration.
 #' @param force Force update even if there are dependent external locations or external tables.
-#' @param name The credential name.
+#' @param name Required. Name of the storage credential.
+#' @param new_name New name for the storage credential.
 #' @param owner Username of current owner of credential.
 #' @param read_only Whether the storage credential is only usable for read operations.
 #' @param skip_validation Supplying true to this argument skips validation of the updated credential.
@@ -108,11 +120,14 @@ storageCredentialsList <- function(client) {
 #' @rdname storageCredentialsUpdate
 #' @export
 storageCredentialsUpdate <- function(client, name, aws_iam_role = NULL, azure_managed_identity = NULL,
-  azure_service_principal = NULL, comment = NULL, databricks_gcp_service_account = NULL,
-  force = NULL, owner = NULL, read_only = NULL, skip_validation = NULL) {
+  azure_service_principal = NULL, cloudflare_api_token = NULL, comment = NULL,
+  databricks_gcp_service_account = NULL, force = NULL, new_name = NULL, owner = NULL,
+  read_only = NULL, skip_validation = NULL) {
   body <- list(aws_iam_role = aws_iam_role, azure_managed_identity = azure_managed_identity,
-    azure_service_principal = azure_service_principal, comment = comment, databricks_gcp_service_account = databricks_gcp_service_account,
-    force = force, name = name, owner = owner, read_only = read_only, skip_validation = skip_validation)
+    azure_service_principal = azure_service_principal, cloudflare_api_token = cloudflare_api_token,
+    comment = comment, databricks_gcp_service_account = databricks_gcp_service_account,
+    force = force, new_name = new_name, owner = owner, read_only = read_only,
+    skip_validation = skip_validation)
   client$do("PATCH", paste("/api/2.1/unity-catalog/storage-credentials/", name,
     sep = ""), body = body)
 }
@@ -136,6 +151,7 @@ storageCredentialsUpdate <- function(client, name, aws_iam_role = NULL, azure_ma
 #' @param aws_iam_role The AWS IAM role configuration.
 #' @param azure_managed_identity The Azure managed identity configuration.
 #' @param azure_service_principal The Azure service principal configuration.
+#' @param cloudflare_api_token The Cloudflare API token configuration.
 #' @param databricks_gcp_service_account The Databricks created GCP service account configuration.
 #' @param external_location_name The name of an existing external location to validate.
 #' @param read_only Whether the storage credential is only usable for read operations.
@@ -145,11 +161,13 @@ storageCredentialsUpdate <- function(client, name, aws_iam_role = NULL, azure_ma
 #' @rdname storageCredentialsValidate
 #' @export
 storageCredentialsValidate <- function(client, aws_iam_role = NULL, azure_managed_identity = NULL,
-  azure_service_principal = NULL, databricks_gcp_service_account = NULL, external_location_name = NULL,
-  read_only = NULL, storage_credential_name = NULL, url = NULL) {
+  azure_service_principal = NULL, cloudflare_api_token = NULL, databricks_gcp_service_account = NULL,
+  external_location_name = NULL, read_only = NULL, storage_credential_name = NULL,
+  url = NULL) {
   body <- list(aws_iam_role = aws_iam_role, azure_managed_identity = azure_managed_identity,
-    azure_service_principal = azure_service_principal, databricks_gcp_service_account = databricks_gcp_service_account,
-    external_location_name = external_location_name, read_only = read_only, storage_credential_name = storage_credential_name,
+    azure_service_principal = azure_service_principal, cloudflare_api_token = cloudflare_api_token,
+    databricks_gcp_service_account = databricks_gcp_service_account, external_location_name = external_location_name,
+    read_only = read_only, storage_credential_name = storage_credential_name,
     url = url)
   client$do("POST", "/api/2.1/unity-catalog/validate-storage-credentials", body = body)
 }

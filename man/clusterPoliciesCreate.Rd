@@ -9,6 +9,7 @@ clusterPoliciesCreate(
   name,
   definition = NULL,
   description = NULL,
+  libraries = NULL,
   max_clusters_per_user = NULL,
   policy_family_definition_overrides = NULL,
   policy_family_id = NULL
@@ -19,13 +20,15 @@ clusterPoliciesCreate(
 
 \item{name}{Required. Cluster Policy name requested by the user.}
 
-\item{definition}{Policy definition document expressed in Databricks Cluster Policy Definition Language.}
+\item{definition}{Policy definition document expressed in \href{https://docs.databricks.com/administration-guide/clusters/policy-definition.html}{Databricks Cluster Policy Definition Language}.}
 
 \item{description}{Additional human-readable description of the cluster policy.}
 
+\item{libraries}{A list of libraries to be installed on the next cluster restart that uses this policy.}
+
 \item{max_clusters_per_user}{Max number of clusters per user that can be active using this policy.}
 
-\item{policy_family_definition_overrides}{Policy definition JSON document expressed in Databricks Policy Definition Language.}
+\item{policy_family_definition_overrides}{Policy definition JSON document expressed in \href{https://docs.databricks.com/administration-guide/clusters/policy-definition.html}{Databricks Policy Definition Language}.}
 
 \item{policy_family_id}{ID of the policy family.}
 }

@@ -9,6 +9,9 @@ jobsCreate(
   access_control_list = NULL,
   compute = NULL,
   continuous = NULL,
+  deployment = NULL,
+  description = NULL,
+  edit_mode = NULL,
   email_notifications = NULL,
   format = NULL,
   git_source = NULL,
@@ -18,6 +21,7 @@ jobsCreate(
   name = NULL,
   notification_settings = NULL,
   parameters = NULL,
+  queue = NULL,
   run_as = NULL,
   schedule = NULL,
   tags = NULL,
@@ -36,11 +40,17 @@ jobsCreate(
 
 \item{continuous}{An optional continuous property for this job.}
 
+\item{deployment}{Deployment information for jobs managed by external sources.}
+
+\item{description}{An optional description for the job.}
+
+\item{edit_mode}{Edit mode of the job.}
+
 \item{email_notifications}{An optional set of email addresses that is notified when runs of this job begin or complete as well as when this job is deleted.}
 
 \item{format}{Used to tell what is the format of the job.}
 
-\item{git_source}{An optional specification for a remote repository containing the notebooks used by this job's notebook tasks.}
+\item{git_source}{An optional specification for a remote Git repository containing the source code used by tasks.}
 
 \item{health}{An optional set of health rules that can be defined for this job.}
 
@@ -54,6 +64,8 @@ jobsCreate(
 
 \item{parameters}{Job-level parameter definitions.}
 
+\item{queue}{The queue settings of the job.}
+
 \item{run_as}{Write-only setting, available only in Create/Update/Reset and Submit calls.}
 
 \item{schedule}{An optional periodic schedule for this job.}
@@ -64,9 +76,9 @@ jobsCreate(
 
 \item{timeout_seconds}{An optional timeout applied to each run of this job.}
 
-\item{trigger}{Trigger settings for the job.}
+\item{trigger}{A configuration to trigger a run when certain conditions are met.}
 
-\item{webhook_notifications}{A collection of system notification IDs to notify when the run begins or completes.}
+\item{webhook_notifications}{A collection of system notification IDs to notify when runs of this job begin or complete.}
 }
 \description{
 Create a new job.

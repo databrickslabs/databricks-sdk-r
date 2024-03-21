@@ -7,10 +7,10 @@ NULL
 #' 
 #' Appends a block of data to the stream specified by the input handle. If the
 #' handle does not exist, this call will throw an exception with
-#' `RESOURCE_DOES_NOT_EXIST`.
+#' ``RESOURCE_DOES_NOT_EXIST``.
 #' 
 #' If the block of data exceeds 1 MB, this call will throw an exception with
-#' `MAX_BLOCK_SIZE_EXCEEDED`.
+#' ``MAX_BLOCK_SIZE_EXCEEDED``.
 #' @param client Required. Instance of DatabricksClient()
 #'
 #' @param data Required. The base64-encoded data to append to the stream.
@@ -26,7 +26,7 @@ dbfsAddBlock <- function(client, handle, data) {
 #' Close the stream.
 #' 
 #' Closes the stream specified by the input handle. If the handle does not
-#' exist, this call throws an exception with `RESOURCE_DOES_NOT_EXIST`.
+#' exist, this call throws an exception with ``RESOURCE_DOES_NOT_EXIST``.
 #' @param client Required. Instance of DatabricksClient()
 #'
 #' @param handle Required. The handle on an open stream.
@@ -42,14 +42,14 @@ dbfsClose <- function(client, handle) {
 #' 
 #' Opens a stream to write to a file and returns a handle to this stream. There
 #' is a 10 minute idle timeout on this handle. If a file or directory already
-#' exists on the given path and __overwrite__ is set to `false`, this call
-#' throws an exception with `RESOURCE_ALREADY_EXISTS`.
+#' exists on the given path and __overwrite__ is set to false, this call will
+#' throw an exception with ``RESOURCE_ALREADY_EXISTS``.
 #' 
 #' A typical workflow for file upload would be:
 #' 
-#' 1. Issue a `create` call and get a handle. 2. Issue one or more `add-block`
-#' calls with the handle you have. 3. Issue a `close` call with the handle you
-#' have.
+#' 1. Issue a ``create`` call and get a handle. 2. Issue one or more
+#' ``add-block`` calls with the handle you have. 3. Issue a ``close`` call with
+#' the handle you have.
 #' @param client Required. Instance of DatabricksClient()
 #'
 #' @param overwrite The flag that specifies whether to overwrite existing file/files.
@@ -162,7 +162,7 @@ dbfsMkdirs <- function(client, path) {
 #' file does not exist, this call throws an exception with
 #' `RESOURCE_DOES_NOT_EXIST`. If a file already exists in the destination path,
 #' this call throws an exception with `RESOURCE_ALREADY_EXISTS`. If the given
-#' source path is a directory, this call always recursively moves all files.',
+#' source path is a directory, this call always recursively moves all files.
 #' @param client Required. Instance of DatabricksClient()
 #'
 #' @param destination_path Required. The destination path of the file or directory.
@@ -211,7 +211,7 @@ dbfsPut <- function(client, path, contents = NULL, overwrite = NULL) {
 #' this call throws an exception with `MAX_READ_SIZE_EXCEEDED`.
 #' 
 #' If `offset + length` exceeds the number of bytes in a file, it reads the
-#' contents until the end of file.',
+#' contents until the end of file.
 #' @param client Required. Instance of DatabricksClient()
 #'
 #' @param length The number of bytes to read starting from the offset.

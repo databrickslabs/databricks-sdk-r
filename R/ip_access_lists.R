@@ -23,13 +23,13 @@ NULL
 #' :method:workspaceconf/setStatus
 #' @param client Required. Instance of DatabricksClient()
 #'
-#' @param ip_addresses Required. Array of IP addresses or CIDR values to be added to the IP access list.
+#' @param ip_addresses 
 #' @param label Required. Label for the IP access list.
-#' @param list_type Required. This describes an enum.
+#' @param list_type Required. Type of IP access list.
 #'
 #' @rdname ipAccessListsCreate
 #' @export
-ipAccessListsCreate <- function(client, label, list_type, ip_addresses) {
+ipAccessListsCreate <- function(client, label, list_type, ip_addresses = NULL) {
   body <- list(ip_addresses = ip_addresses, label = label, list_type = list_type)
   client$do("POST", "/api/2.0/ip-access-lists", body = body)
 }
@@ -39,7 +39,7 @@ ipAccessListsCreate <- function(client, label, list_type, ip_addresses) {
 #' Deletes an IP access list, specified by its list ID.
 #' @param client Required. Instance of DatabricksClient()
 #'
-#' @param ip_access_list_id Required. The ID for the corresponding IP access list to modify.
+#' @param ip_access_list_id Required. The ID for the corresponding IP access list.
 #'
 #' @rdname ipAccessListsDelete
 #' @export
@@ -53,7 +53,7 @@ ipAccessListsDelete <- function(client, ip_access_list_id) {
 #' Gets an IP access list, specified by its list ID.
 #' @param client Required. Instance of DatabricksClient()
 #'
-#' @param ip_access_list_id Required. The ID for the corresponding IP access list to modify.
+#' @param ip_access_list_id Required. The ID for the corresponding IP access list.
 #'
 #' @rdname ipAccessListsGet
 #' @export
@@ -93,18 +93,16 @@ ipAccessListsList <- function(client) {
 #' @param client Required. Instance of DatabricksClient()
 #'
 #' @param enabled Required. Specifies whether this IP access list is enabled.
-#' @param ip_access_list_id Required. The ID for the corresponding IP access list to modify.
-#' @param ip_addresses Required. Array of IP addresses or CIDR values to be added to the IP access list.
+#' @param ip_access_list_id Required. The ID for the corresponding IP access list.
+#' @param ip_addresses 
 #' @param label Required. Label for the IP access list.
-#' @param list_id Universally unique identifier (UUID) of the IP access list.
-#' @param list_type Required. This describes an enum.
+#' @param list_type Required. Type of IP access list.
 #'
 #' @rdname ipAccessListsReplace
 #' @export
-ipAccessListsReplace <- function(client, ip_access_list_id, label, list_type, ip_addresses,
-  enabled, list_id = NULL) {
-  body <- list(enabled = enabled, ip_addresses = ip_addresses, label = label, list_id = list_id,
-    list_type = list_type)
+ipAccessListsReplace <- function(client, ip_access_list_id, label, list_type, enabled,
+  ip_addresses = NULL) {
+  body <- list(enabled = enabled, ip_addresses = ip_addresses, label = label, list_type = list_type)
   client$do("PUT", paste("/api/2.0/ip-access-lists/", ip_access_list_id, sep = ""),
     body = body)
 }
@@ -130,19 +128,17 @@ ipAccessListsReplace <- function(client, ip_access_list_id, label, list_type, ip
 #' :method:workspaceconf/setStatus.
 #' @param client Required. Instance of DatabricksClient()
 #'
-#' @param enabled Required. Specifies whether this IP access list is enabled.
-#' @param ip_access_list_id Required. The ID for the corresponding IP access list to modify.
-#' @param ip_addresses Required. Array of IP addresses or CIDR values to be added to the IP access list.
-#' @param label Required. Label for the IP access list.
-#' @param list_id Universally unique identifier (UUID) of the IP access list.
-#' @param list_type Required. This describes an enum.
+#' @param enabled Specifies whether this IP access list is enabled.
+#' @param ip_access_list_id Required. The ID for the corresponding IP access list.
+#' @param ip_addresses 
+#' @param label Label for the IP access list.
+#' @param list_type Type of IP access list.
 #'
 #' @rdname ipAccessListsUpdate
 #' @export
-ipAccessListsUpdate <- function(client, ip_access_list_id, label, list_type, ip_addresses,
-  enabled, list_id = NULL) {
-  body <- list(enabled = enabled, ip_addresses = ip_addresses, label = label, list_id = list_id,
-    list_type = list_type)
+ipAccessListsUpdate <- function(client, ip_access_list_id, enabled = NULL, ip_addresses = NULL,
+  label = NULL, list_type = NULL) {
+  body <- list(enabled = enabled, ip_addresses = ip_addresses, label = label, list_type = list_type)
   client$do("PATCH", paste("/api/2.0/ip-access-lists/", ip_access_list_id, sep = ""),
     body = body)
 }

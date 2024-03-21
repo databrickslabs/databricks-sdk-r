@@ -18,5 +18,6 @@ By default, the state of Databricks Pipelines is reported to console. You can ch
 by changing the \code{callback} parameter.
 }
 \details{
-Stops a pipeline.
+Stops the pipeline by canceling the active update. If there is no active
+update for the pipeline, this request is a no-op.
 }

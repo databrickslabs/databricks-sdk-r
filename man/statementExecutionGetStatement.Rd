@@ -9,7 +9,7 @@ statementExecutionGetStatement(client, statement_id)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{statement_id}{Required. Statement ID is returned upon successfully submitting a SQL statement, and is a required reference for all subsequent calls.}
+\item{statement_id}{Required. The statement ID is returned upon successfully submitting a SQL statement, and is a required reference for all subsequent calls.}
 }
 \description{
 This request can be used to poll for the statement's status. When the
@@ -20,6 +20,6 @@ set. After at least 12 hours in terminal state, the statement is removed from
 the warehouse and further calls will receive an HTTP 404 response.
 }
 \details{
-\strong{NOTE} This call currently may take up to 5 seconds to get the latest
+\strong{NOTE} This call currently might take up to 5 seconds to get the latest
 status and result.
 }

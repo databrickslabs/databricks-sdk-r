@@ -15,6 +15,7 @@ usersCreate(
   id = NULL,
   name = NULL,
   roles = NULL,
+  schemas = NULL,
   user_name = NULL
 )
 }
@@ -27,9 +28,9 @@ usersCreate(
 
 \item{emails}{All the emails associated with the Databricks user.}
 
-\item{entitlements}{}
+\item{entitlements}{Entitlements assigned to the user.}
 
-\item{external_id}{}
+\item{external_id}{External ID is not currently supported.}
 
 \item{groups}{}
 
@@ -37,7 +38,9 @@ usersCreate(
 
 \item{name}{}
 
-\item{roles}{}
+\item{roles}{Corresponds to AWS instance profile/arn role.}
+
+\item{schemas}{The schema of the user.}
 
 \item{user_name}{Email address of the Databricks user.}
 }

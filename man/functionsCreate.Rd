@@ -4,75 +4,12 @@
 \alias{functionsCreate}
 \title{Create a function.}
 \usage{
-functionsCreate(
-  client,
-  name,
-  catalog_name,
-  schema_name,
-  input_params,
-  data_type,
-  full_data_type,
-  return_params,
-  routine_body,
-  routine_definition,
-  routine_dependencies,
-  parameter_style,
-  is_deterministic,
-  sql_data_access,
-  is_null_call,
-  security_type,
-  specific_name,
-  comment = NULL,
-  external_language = NULL,
-  external_name = NULL,
-  properties = NULL,
-  sql_path = NULL
-)
+functionsCreate(client, function_info)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{name}{Required. Name of function, relative to parent schema.}
-
-\item{catalog_name}{Required. Name of parent catalog.}
-
-\item{schema_name}{Required. Name of parent schema relative to its parent catalog.}
-
-\item{input_params}{Required. The array of \strong{FunctionParameterInfo} definitions of the function's parameters.}
-
-\item{data_type}{Required. Scalar function return data type.}
-
-\item{full_data_type}{Required. Pretty printed function data type.}
-
-\item{return_params}{Required. Table function return parameters.}
-
-\item{routine_body}{Required. Function language.}
-
-\item{routine_definition}{Required. Function body.}
-
-\item{routine_dependencies}{Required. Function dependencies.}
-
-\item{parameter_style}{Required. Function parameter style.}
-
-\item{is_deterministic}{Required. Whether the function is deterministic.}
-
-\item{sql_data_access}{Required. Function SQL data access.}
-
-\item{is_null_call}{Required. Function null call.}
-
-\item{security_type}{Required. Function security type.}
-
-\item{specific_name}{Required. Specific name of the function; Reserved for future use.}
-
-\item{comment}{User-provided free-form text description.}
-
-\item{external_language}{External function language.}
-
-\item{external_name}{External function name.}
-
-\item{properties}{A map of key-value properties attached to the securable.}
-
-\item{sql_path}{List of schemes whose objects can be referenced without qualification.}
+\item{function_info}{Required. Partial \strong{FunctionInfo} specifying the function to be created.}
 }
 \description{
 Creates a new function

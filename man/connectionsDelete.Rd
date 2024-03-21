@@ -4,12 +4,12 @@
 \alias{connectionsDelete}
 \title{Delete a connection.}
 \usage{
-connectionsDelete(client, name_arg)
+connectionsDelete(client, name)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{name_arg}{Required. The name of the connection to be deleted.}
+\item{name}{Required. The name of the connection to be deleted.}
 }
 \description{
 Deletes the connection that matches the supplied name.

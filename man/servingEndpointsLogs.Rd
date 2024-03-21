@@ -2,8 +2,7 @@
 % Please edit documentation in R/serving_endpoints.R
 \name{servingEndpointsLogs}
 \alias{servingEndpointsLogs}
-\title{Retrieve the most recent log lines associated with a given serving endpoint's
-served model.}
+\title{Get the latest logs for a served model.}
 \usage{
 servingEndpointsLogs(client, name, served_model_name)
 }

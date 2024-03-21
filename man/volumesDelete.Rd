@@ -4,12 +4,12 @@
 \alias{volumesDelete}
 \title{Delete a Volume.}
 \usage{
-volumesDelete(client, full_name_arg)
+volumesDelete(client, name)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{full_name_arg}{Required. The three-level (fully qualified) name of the volume.}
+\item{name}{Required. The three-level (fully qualified) name of the volume.}
 }
 \description{
 Deletes a volume from the specified parent catalog and schema.

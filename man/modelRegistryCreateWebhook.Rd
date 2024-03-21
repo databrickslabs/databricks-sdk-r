@@ -27,7 +27,7 @@ modelRegistryCreateWebhook(
 
 \item{model_name}{Name of the model whose events would trigger this webhook.}
 
-\item{status}{This describes an enum.}
+\item{status}{Enable or disable triggering the webhook, or put the webhook into test mode.}
 }
 \description{
 \strong{NOTE}: This endpoint is in Public Preview.

@@ -6,20 +6,26 @@
 \usage{
 dashboardsCreate(
   client,
+  name,
+  dashboard_filters_enabled = NULL,
   is_favorite = NULL,
-  name = NULL,
   parent = NULL,
+  run_as_role = NULL,
   tags = NULL
 )
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{is_favorite}{Indicates whether this query object should appear in the current user's favorites list.}
+\item{name}{Required. The title of this dashboard that appears in list views and at the top of the dashboard page.}
 
-\item{name}{The title of this dashboard that appears in list views and at the top of the dashboard page.}
+\item{dashboard_filters_enabled}{Indicates whether the dashboard filters are enabled.}
+
+\item{is_favorite}{Indicates whether this dashboard object should appear in the current user's favorites list.}
 
 \item{parent}{The identifier of the workspace folder containing the object.}
+
+\item{run_as_role}{Sets the \strong{Run as} role for the object.}
 
 \item{tags}{}
 }

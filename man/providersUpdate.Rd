@@ -8,6 +8,7 @@ providersUpdate(
   client,
   name,
   comment = NULL,
+  new_name = NULL,
   owner = NULL,
   recipient_profile_str = NULL
 )
@@ -15,9 +16,11 @@ providersUpdate(
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{name}{The name of the Provider.}
+\item{name}{Required. Name of the provider.}
 
 \item{comment}{Description about the provider.}
+
+\item{new_name}{New name for the provider.}
 
 \item{owner}{Username of Provider owner.}
 

@@ -4,7 +4,12 @@
 \alias{catalogsList}
 \title{List catalogs.}
 \usage{
-catalogsList(client)
+catalogsList(client, include_browse = NULL)
+}
+\arguments{
+\item{client}{Required. Instance of DatabricksClient()}
+
+\item{include_browse}{Whether to include catalogs in the response for which the principal can only access selective metadata for.}
 }
 \value{
 \code{data.frame} with all of the response pages.
@@ -14,5 +19,5 @@ Gets an array of catalogs in the metastore. If the caller is the metastore
 admin, all catalogs will be retrieved. Otherwise, only catalogs owned by the
 caller (or for which the caller has the \strong{USE_CATALOG} privilege) will be
 retrieved. There is no guarantee of a specific ordering of the elements in
-the array.#'
+the array.
 }

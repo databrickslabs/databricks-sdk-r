@@ -9,9 +9,9 @@ permissionsGet(client, request_object_type, request_object_id)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{request_object_type}{Required. \if{html}{\out{<needs content>}}.}
+\item{request_object_type}{Required. The type of the request object.}
 
-\item{request_object_id}{Required.}
+\item{request_object_id}{Required. The id of the request object.}
 }
 \description{
 Gets the permissions of an object. Objects can inherit permissions from their

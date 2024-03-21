@@ -12,42 +12,12 @@ NULL
 #' and **CREATE_FUNCTION** on the function's parent schema
 #' @param client Required. Instance of DatabricksClient()
 #'
-#' @param catalog_name Required. Name of parent catalog.
-#' @param comment User-provided free-form text description.
-#' @param data_type Required. Scalar function return data type.
-#' @param external_language External function language.
-#' @param external_name External function name.
-#' @param full_data_type Required. Pretty printed function data type.
-#' @param input_params Required. The array of __FunctionParameterInfo__ definitions of the function's parameters.
-#' @param is_deterministic Required. Whether the function is deterministic.
-#' @param is_null_call Required. Function null call.
-#' @param name Required. Name of function, relative to parent schema.
-#' @param parameter_style Required. Function parameter style.
-#' @param properties A map of key-value properties attached to the securable.
-#' @param return_params Required. Table function return parameters.
-#' @param routine_body Required. Function language.
-#' @param routine_definition Required. Function body.
-#' @param routine_dependencies Required. Function dependencies.
-#' @param schema_name Required. Name of parent schema relative to its parent catalog.
-#' @param security_type Required. Function security type.
-#' @param specific_name Required. Specific name of the function; Reserved for future use.
-#' @param sql_data_access Required. Function SQL data access.
-#' @param sql_path List of schemes whose objects can be referenced without qualification.
+#' @param function_info Required. Partial __FunctionInfo__ specifying the function to be created.
 #'
 #' @rdname functionsCreate
 #' @export
-functionsCreate <- function(client, name, catalog_name, schema_name, input_params,
-  data_type, full_data_type, return_params, routine_body, routine_definition, routine_dependencies,
-  parameter_style, is_deterministic, sql_data_access, is_null_call, security_type,
-  specific_name, comment = NULL, external_language = NULL, external_name = NULL,
-  properties = NULL, sql_path = NULL) {
-  body <- list(catalog_name = catalog_name, comment = comment, data_type = data_type,
-    external_language = external_language, external_name = external_name, full_data_type = full_data_type,
-    input_params = input_params, is_deterministic = is_deterministic, is_null_call = is_null_call,
-    name = name, parameter_style = parameter_style, properties = properties,
-    return_params = return_params, routine_body = routine_body, routine_definition = routine_definition,
-    routine_dependencies = routine_dependencies, schema_name = schema_name, security_type = security_type,
-    specific_name = specific_name, sql_data_access = sql_data_access, sql_path = sql_path)
+functionsCreate <- function(client, function_info) {
+  body <- list(function_info = function_info)
   client$do("POST", "/api/2.1/unity-catalog/functions", body = body)
 }
 
@@ -84,13 +54,15 @@ functionsDelete <- function(client, name, force = NULL) {
 #' the **EXECUTE** privilege on the function itself
 #' @param client Required. Instance of DatabricksClient()
 #'
+#' @param include_browse Whether to include functions in the response for which the principal can only access selective metadata for.
 #' @param name Required. The fully-qualified name of the function (of the form __catalog_name__.__schema_name__.__function__name__).
 #'
 #' @rdname functionsGet
 #' @export
-functionsGet <- function(client, name) {
-
-  client$do("GET", paste("/api/2.1/unity-catalog/functions/", name, sep = ""))
+functionsGet <- function(client, name, include_browse = NULL) {
+  query <- list(include_browse = include_browse)
+  client$do("GET", paste("/api/2.1/unity-catalog/functions/", name, sep = ""),
+    query = query)
 }
 
 #' List functions.
@@ -105,17 +77,34 @@ functionsGet <- function(client, name) {
 #' @param client Required. Instance of DatabricksClient()
 #'
 #' @param catalog_name Required. Name of parent catalog for functions of interest.
+#' @param include_browse Whether to include functions in the response for which the principal can only access selective metadata for.
+#' @param max_results Maximum number of functions to return.
+#' @param page_token Opaque pagination token to go to next page based on previous query.
 #' @param schema_name Required. Parent schema of functions.
 #'
 #' @return `data.frame` with all of the response pages.
 #'
 #' @rdname functionsList
 #' @export
-functionsList <- function(client, catalog_name, schema_name) {
-  query <- list(catalog_name = catalog_name, schema_name = schema_name)
+functionsList <- function(client, catalog_name, schema_name, include_browse = NULL,
+  max_results = NULL, page_token = NULL) {
+  query <- list(catalog_name = catalog_name, include_browse = include_browse, max_results = max_results,
+    page_token = page_token, schema_name = schema_name)
 
-  json <- client$do("GET", "/api/2.1/unity-catalog/functions", query = query)
-  return(json$functions)
+  results <- data.frame()
+  while (TRUE) {
+    json <- client$do("GET", "/api/2.1/unity-catalog/functions", query = query)
+    if (is.null(nrow(json$functions))) {
+      break
+    }
+    # append this page of results to one results data.frame
+    results <- dplyr::bind_rows(results, json$functions)
+    if (is.null(json$next_page_token)) {
+      break
+    }
+    query$page_token <- json$next_page_token
+  }
+  return(results)
 
 }
 

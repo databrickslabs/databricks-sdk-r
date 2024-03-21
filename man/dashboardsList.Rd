@@ -23,3 +23,9 @@ dashboardsList(client, order = NULL, page = NULL, page_size = NULL, q = NULL)
 \description{
 Fetch a paginated list of dashboard objects.
 }
+\details{
+\subsection{**Warning: Calling this API concurrently 10 or more times could result in}{
+
+throttling, service degradation, or a temporary ban.**
+}
+}

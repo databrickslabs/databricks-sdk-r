@@ -4,14 +4,23 @@
 \alias{sharesUpdate}
 \title{Update a share.}
 \usage{
-sharesUpdate(client, name, comment = NULL, owner = NULL, updates = NULL)
+sharesUpdate(
+  client,
+  name,
+  comment = NULL,
+  new_name = NULL,
+  owner = NULL,
+  updates = NULL
+)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{name}{Name of the share.}
+\item{name}{Required. The name of the share.}
 
 \item{comment}{User-provided free-form text description.}
+
+\item{new_name}{New name for the share.}
 
 \item{owner}{Username of current owner of share.}
 

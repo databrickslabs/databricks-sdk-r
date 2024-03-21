@@ -2,7 +2,7 @@
 % Please edit documentation in R/cluster_policies.R
 \name{clusterPoliciesGet}
 \alias{clusterPoliciesGet}
-\title{Get entity.}
+\title{Get a cluster policy.}
 \usage{
 clusterPoliciesGet(client, policy_id)
 }

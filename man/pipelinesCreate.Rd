@@ -19,6 +19,7 @@ pipelinesCreate(
   id = NULL,
   libraries = NULL,
   name = NULL,
+  notifications = NULL,
   photon = NULL,
   serverless = NULL,
   storage = NULL,
@@ -54,6 +55,8 @@ pipelinesCreate(
 \item{libraries}{Libraries or code needed by this deployment.}
 
 \item{name}{Friendly identifier for this pipeline.}
+
+\item{notifications}{List of notification settings for this pipeline.}
 
 \item{photon}{Whether Photon is enabled for this pipeline.}
 

@@ -4,7 +4,7 @@
 \alias{servicePrincipalsPatch}
 \title{Update service principal details.}
 \usage{
-servicePrincipalsPatch(client, id, operations = NULL, schema = NULL)
+servicePrincipalsPatch(client, id, operations = NULL, schemas = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
@@ -13,7 +13,7 @@ servicePrincipalsPatch(client, id, operations = NULL, schema = NULL)
 
 \item{operations}{}
 
-\item{schema}{The schema of the patch request.}
+\item{schemas}{The schema of the patch request.}
 }
 \description{
 Partially updates the details of a single service principal in the Databricks
