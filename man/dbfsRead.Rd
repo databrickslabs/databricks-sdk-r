@@ -24,5 +24,5 @@ this call throws an exception with \code{MAX_READ_SIZE_EXCEEDED}.
 }
 \details{
 If \code{offset + length} exceeds the number of bytes in a file, it reads the
-contents until the end of file.',
+contents until the end of file.
 }

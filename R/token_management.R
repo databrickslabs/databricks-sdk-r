@@ -10,12 +10,12 @@ NULL
 #'
 #' @param application_id Required. Application ID of the service principal.
 #' @param comment Comment that describes the purpose of the token.
-#' @param lifetime_seconds Required. The number of seconds before the token expires.
+#' @param lifetime_seconds The number of seconds before the token expires.
 #'
 #' @rdname tokenManagementCreateOboToken
 #' @export
-tokenManagementCreateOboToken <- function(client, application_id, lifetime_seconds,
-  comment = NULL) {
+tokenManagementCreateOboToken <- function(client, application_id, comment = NULL,
+  lifetime_seconds = NULL) {
   body <- list(application_id = application_id, comment = comment, lifetime_seconds = lifetime_seconds)
   client$do("POST", "/api/2.0/token-management/on-behalf-of/tokens", body = body)
 }
@@ -51,9 +51,9 @@ tokenManagementGet <- function(client, token_id) {
 #' Get token permission levels.
 #' 
 #' Gets the permission levels that a user can have on an object.#'
-#' @rdname tokenManagementGetTokenPermissionLevels
+#' @rdname tokenManagementGetPermissionLevels
 #' @export
-tokenManagementGetTokenPermissionLevels <- function(client) {
+tokenManagementGetPermissionLevels <- function(client) {
   client$do("GET", "/api/2.0/permissions/authorization/tokens/permissionLevels")
 }
 
@@ -61,9 +61,9 @@ tokenManagementGetTokenPermissionLevels <- function(client) {
 #' 
 #' Gets the permissions of all tokens. Tokens can inherit permissions from their
 #' root object.#'
-#' @rdname tokenManagementGetTokenPermissions
+#' @rdname tokenManagementGetPermissions
 #' @export
-tokenManagementGetTokenPermissions <- function(client) {
+tokenManagementGetPermissions <- function(client) {
   client$do("GET", "/api/2.0/permissions/authorization/tokens")
 }
 
@@ -95,9 +95,9 @@ tokenManagementList <- function(client, created_by_id = NULL, created_by_usernam
 #'
 #' @param access_control_list 
 #'
-#' @rdname tokenManagementSetTokenPermissions
+#' @rdname tokenManagementSetPermissions
 #' @export
-tokenManagementSetTokenPermissions <- function(client, access_control_list = NULL) {
+tokenManagementSetPermissions <- function(client, access_control_list = NULL) {
   body <- list(access_control_list = access_control_list)
   client$do("PUT", "/api/2.0/permissions/authorization/tokens", body = body)
 }
@@ -110,9 +110,9 @@ tokenManagementSetTokenPermissions <- function(client, access_control_list = NUL
 #'
 #' @param access_control_list 
 #'
-#' @rdname tokenManagementUpdateTokenPermissions
+#' @rdname tokenManagementUpdatePermissions
 #' @export
-tokenManagementUpdateTokenPermissions <- function(client, access_control_list = NULL) {
+tokenManagementUpdatePermissions <- function(client, access_control_list = NULL) {
   body <- list(access_control_list = access_control_list)
   client$do("PATCH", "/api/2.0/permissions/authorization/tokens", body = body)
 }

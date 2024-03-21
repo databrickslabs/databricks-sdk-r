@@ -9,6 +9,7 @@ catalogsCreate(
   name,
   comment = NULL,
   connection_name = NULL,
+  options = NULL,
   properties = NULL,
   provider_name = NULL,
   share_name = NULL,
@@ -23,6 +24,8 @@ catalogsCreate(
 \item{comment}{User-provided free-form text description.}
 
 \item{connection_name}{The name of the connection to an external data source.}
+
+\item{options}{A map of key-value properties attached to the securable.}
 
 \item{properties}{A map of key-value properties attached to the securable.}
 

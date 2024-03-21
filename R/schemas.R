@@ -48,12 +48,14 @@ schemasDelete <- function(client, full_name) {
 #' @param client Required. Instance of DatabricksClient()
 #'
 #' @param full_name Required. Full name of the schema.
+#' @param include_browse Whether to include schemas in the response for which the principal can only access selective metadata for.
 #'
 #' @rdname schemasGet
 #' @export
-schemasGet <- function(client, full_name) {
-
-  client$do("GET", paste("/api/2.1/unity-catalog/schemas/", full_name, sep = ""))
+schemasGet <- function(client, full_name, include_browse = NULL) {
+  query <- list(, include_browse = include_browse)
+  client$do("GET", paste("/api/2.1/unity-catalog/schemas/", full_name, sep = ""),
+    query = query)
 }
 
 #' List schemas.
@@ -66,16 +68,33 @@ schemasGet <- function(client, full_name) {
 #' @param client Required. Instance of DatabricksClient()
 #'
 #' @param catalog_name Required. Parent catalog for schemas of interest.
+#' @param include_browse Whether to include schemas in the response for which the principal can only access selective metadata for.
+#' @param max_results Maximum number of schemas to return.
+#' @param page_token Opaque pagination token to go to next page based on previous query.
 #'
 #' @return `data.frame` with all of the response pages.
 #'
 #' @rdname schemasList
 #' @export
-schemasList <- function(client, catalog_name) {
-  query <- list(catalog_name = catalog_name)
+schemasList <- function(client, catalog_name, include_browse = NULL, max_results = NULL,
+  page_token = NULL) {
+  query <- list(catalog_name = catalog_name, include_browse = include_browse, max_results = max_results,
+    page_token = page_token)
 
-  json <- client$do("GET", "/api/2.1/unity-catalog/schemas", query = query)
-  return(json$schemas)
+  results <- data.frame()
+  while (TRUE) {
+    json <- client$do("GET", "/api/2.1/unity-catalog/schemas", query = query)
+    if (is.null(nrow(json$schemas))) {
+      break
+    }
+    # append this page of results to one results data.frame
+    results <- dplyr::bind_rows(results, json$schemas)
+    if (is.null(json$next_page_token)) {
+      break
+    }
+    query$page_token <- json$next_page_token
+  }
+  return(results)
 
 }
 
@@ -89,16 +108,18 @@ schemasList <- function(client, catalog_name) {
 #' @param client Required. Instance of DatabricksClient()
 #'
 #' @param comment User-provided free-form text description.
+#' @param enable_predictive_optimization Whether predictive optimization should be enabled for this object and objects under it.
 #' @param full_name Required. Full name of the schema.
-#' @param name Name of schema, relative to parent catalog.
+#' @param new_name New name for the schema.
 #' @param owner Username of current owner of schema.
 #' @param properties A map of key-value properties attached to the securable.
 #'
 #' @rdname schemasUpdate
 #' @export
-schemasUpdate <- function(client, full_name, comment = NULL, name = NULL, owner = NULL,
-  properties = NULL) {
-  body <- list(comment = comment, name = name, owner = owner, properties = properties)
+schemasUpdate <- function(client, full_name, comment = NULL, enable_predictive_optimization = NULL,
+  new_name = NULL, owner = NULL, properties = NULL) {
+  body <- list(comment = comment, enable_predictive_optimization = enable_predictive_optimization,
+    new_name = new_name, owner = owner, properties = properties)
   client$do("PATCH", paste("/api/2.1/unity-catalog/schemas/", full_name, sep = ""),
     body = body)
 }

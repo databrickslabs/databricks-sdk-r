@@ -10,7 +10,7 @@ metastoresUpdate(
   delta_sharing_organization_name = NULL,
   delta_sharing_recipient_token_lifetime_in_seconds = NULL,
   delta_sharing_scope = NULL,
-  name = NULL,
+  new_name = NULL,
   owner = NULL,
   privilege_model_version = NULL,
   storage_root_credential_id = NULL
@@ -27,7 +27,7 @@ metastoresUpdate(
 
 \item{delta_sharing_scope}{The scope of Delta Sharing enabled for the metastore.}
 
-\item{name}{The user-specified name of the metastore.}
+\item{new_name}{New name for the metastore.}
 
 \item{owner}{The owner of the metastore.}
 
@@ -37,5 +37,6 @@ metastoresUpdate(
 }
 \description{
 Updates information for a specific metastore. The caller must be a metastore
-admin.
+admin. If the \strong{owner} field is set to the empty string (\strong{''}), the
+ownership is updated to the System User.
 }

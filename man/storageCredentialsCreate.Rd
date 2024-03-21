@@ -10,6 +10,7 @@ storageCredentialsCreate(
   aws_iam_role = NULL,
   azure_managed_identity = NULL,
   azure_service_principal = NULL,
+  cloudflare_api_token = NULL,
   comment = NULL,
   databricks_gcp_service_account = NULL,
   read_only = NULL,
@@ -27,6 +28,8 @@ storageCredentialsCreate(
 
 \item{azure_service_principal}{The Azure service principal configuration.}
 
+\item{cloudflare_api_token}{The Cloudflare API token configuration.}
+
 \item{comment}{Comment associated with the credential.}
 
 \item{databricks_gcp_service_account}{The \if{html}{\out{<Databricks>}} managed GCP service account configuration.}
@@ -36,16 +39,5 @@ storageCredentialsCreate(
 \item{skip_validation}{Supplying true to this argument skips validation of the created credential.}
 }
 \description{
-Creates a new storage credential. The request object is specific to the
-cloud:
-}
-\details{
-\itemize{
-\item \strong{AwsIamRole} for AWS credentials. * \strong{AzureServicePrincipal} for Azure
-credentials. * \strong{AzureManagedIdentity} for Azure managed credentials. *
-\strong{DatabricksGcpServiceAccount} for GCP managed credentials.
-}
-
-The caller must be a metastore admin and have the
-\strong{CREATE_STORAGE_CREDENTIAL} privilege on the metastore.
+Creates a new storage credential.
 }

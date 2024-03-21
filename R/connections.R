@@ -15,18 +15,16 @@ NULL
 #' @param comment User-provided free-form text description.
 #' @param connection_type Required. The type of connection.
 #' @param name Required. Name of the connection.
-#' @param options_kvpairs Required. A map of key-value properties attached to the securable.
-#' @param owner Username of current owner of the connection.
-#' @param properties_kvpairs An object containing map of key-value properties attached to the connection.
+#' @param options Required. A map of key-value properties attached to the securable.
+#' @param properties An object containing map of key-value properties attached to the connection.
 #' @param read_only If the connection is read only.
 #'
 #' @rdname connectionsCreate
 #' @export
-connectionsCreate <- function(client, name, connection_type, options_kvpairs, comment = NULL,
-  owner = NULL, properties_kvpairs = NULL, read_only = NULL) {
+connectionsCreate <- function(client, name, connection_type, options, comment = NULL,
+  properties = NULL, read_only = NULL) {
   body <- list(comment = comment, connection_type = connection_type, name = name,
-    options_kvpairs = options_kvpairs, owner = owner, properties_kvpairs = properties_kvpairs,
-    read_only = read_only)
+    options = options, properties = properties, read_only = read_only)
   client$do("POST", "/api/2.1/unity-catalog/connections", body = body)
 }
 
@@ -35,13 +33,13 @@ connectionsCreate <- function(client, name, connection_type, options_kvpairs, co
 #' Deletes the connection that matches the supplied name.
 #' @param client Required. Instance of DatabricksClient()
 #'
-#' @param name_arg Required. The name of the connection to be deleted.
+#' @param name Required. The name of the connection to be deleted.
 #'
 #' @rdname connectionsDelete
 #' @export
-connectionsDelete <- function(client, name_arg) {
+connectionsDelete <- function(client, name) {
 
-  client$do("DELETE", paste("/api/2.1/unity-catalog/connections/", name_arg, sep = ""))
+  client$do("DELETE", paste("/api/2.1/unity-catalog/connections/", name, sep = ""))
 }
 
 #' Get a connection.
@@ -49,13 +47,13 @@ connectionsDelete <- function(client, name_arg) {
 #' Gets a connection from it's name.
 #' @param client Required. Instance of DatabricksClient()
 #'
-#' @param name_arg Required. Name of the connection.
+#' @param name Required. Name of the connection.
 #'
 #' @rdname connectionsGet
 #' @export
-connectionsGet <- function(client, name_arg) {
+connectionsGet <- function(client, name) {
 
-  client$do("GET", paste("/api/2.1/unity-catalog/connections/", name_arg, sep = ""))
+  client$do("GET", paste("/api/2.1/unity-catalog/connections/", name, sep = ""))
 }
 
 #' List connections.
@@ -78,14 +76,15 @@ connectionsList <- function(client) {
 #' @param client Required. Instance of DatabricksClient()
 #'
 #' @param name Required. Name of the connection.
-#' @param name_arg Required. Name of the connection.
-#' @param options_kvpairs Required. A map of key-value properties attached to the securable.
+#' @param new_name New name for the connection.
+#' @param options Required. A map of key-value properties attached to the securable.
+#' @param owner Username of current owner of the connection.
 #'
 #' @rdname connectionsUpdate
 #' @export
-connectionsUpdate <- function(client, name_arg, name, options_kvpairs) {
-  body <- list(name = name, options_kvpairs = options_kvpairs)
-  client$do("PATCH", paste("/api/2.1/unity-catalog/connections/", name_arg, sep = ""),
+connectionsUpdate <- function(client, name, options, new_name = NULL, owner = NULL) {
+  body <- list(, new_name = new_name, options = options, owner = owner)
+  client$do("PATCH", paste("/api/2.1/unity-catalog/connections/", name, sep = ""),
     body = body)
 }
 

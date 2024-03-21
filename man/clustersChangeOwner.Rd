@@ -14,6 +14,7 @@ clustersChangeOwner(client, cluster_id, owner_username)
 \item{owner_username}{Required. New owner of the cluster_id after this RPC.}
 }
 \description{
-Change the owner of the cluster. You must be an admin to perform this
-operation.
+Change the owner of the cluster. You must be an admin and the cluster must be
+terminated to perform this operation. The service principal application ID
+can be supplied as an argument to \code{owner_username}.
 }

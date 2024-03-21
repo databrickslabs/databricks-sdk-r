@@ -53,7 +53,7 @@ globalInitScriptsGet <- function(client, script_id) {
 #' Get a list of all global init scripts for this workspace. This returns all
 #' properties for each script but **not** the script contents. To retrieve the
 #' contents of a script, use the [get a global init
-#' script](#operation/get-script) operation.#'
+#' script](:method:globalinitscripts/get) operation.#'
 #' @return `data.frame` with all of the response pages.
 #'
 #' @rdname globalInitScriptsList

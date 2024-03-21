@@ -36,11 +36,16 @@ librariesAllClusterStatuses <- function(client) {
 #'
 #' @param cluster_id Required. Unique identifier of the cluster whose status should be retrieved.
 #'
+#' @return `data.frame` with all of the response pages.
+#'
 #' @rdname librariesClusterStatus
 #' @export
 librariesClusterStatus <- function(client, cluster_id) {
   query <- list(cluster_id = cluster_id)
-  client$do("GET", "/api/2.0/libraries/cluster-status", query = query)
+
+  json <- client$do("GET", "/api/2.0/libraries/cluster-status", query = query)
+  return(json$library_statuses)
+
 }
 
 #' Add a library.

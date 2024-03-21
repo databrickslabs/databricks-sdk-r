@@ -4,19 +4,28 @@
 \alias{tablesGet}
 \title{Get a table.}
 \usage{
-tablesGet(client, full_name, include_delta_metadata = NULL)
+tablesGet(
+  client,
+  full_name,
+  include_browse = NULL,
+  include_delta_metadata = NULL
+)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
 \item{full_name}{Required. Full name of the table.}
 
+\item{include_browse}{Whether to include tables in the response for which the principal can only access selective metadata for.}
+
 \item{include_delta_metadata}{Whether delta metadata should be included in the response.}
 }
 \description{
 Gets a table from the metastore for a specific catalog and schema. The caller
-must be a metastore admin, be the owner of the table and have the
-\strong{USE_CATALOG} privilege on the parent catalog and the \strong{USE_SCHEMA}
-privilege on the parent schema, or be the owner of the table and have the
-\strong{SELECT} privilege on it as well.
+must satisfy one of the following requirements: * Be a metastore admin * Be
+the owner of the parent catalog * Be the owner of the parent schema and have
+the USE_CATALOG privilege on the parent catalog * Have the \strong{USE_CATALOG}
+privilege on the parent catalog and the \strong{USE_SCHEMA} privilege on the
+parent schema, and either be the table owner or have the SELECT privilege on
+the table.
 }

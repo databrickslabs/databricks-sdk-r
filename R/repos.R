@@ -58,9 +58,9 @@ reposGet <- function(client, repo_id) {
 #'
 #' @param repo_id Required. The repo for which to get or manage permissions.
 #'
-#' @rdname reposGetRepoPermissionLevels
+#' @rdname reposGetPermissionLevels
 #' @export
-reposGetRepoPermissionLevels <- function(client, repo_id) {
+reposGetPermissionLevels <- function(client, repo_id) {
 
   client$do("GET", paste("/api/2.0/permissions/repos/", repo_id, "/permissionLevels",
     , sep = ""))
@@ -74,9 +74,9 @@ reposGetRepoPermissionLevels <- function(client, repo_id) {
 #'
 #' @param repo_id Required. The repo for which to get or manage permissions.
 #'
-#' @rdname reposGetRepoPermissions
+#' @rdname reposGetPermissions
 #' @export
-reposGetRepoPermissions <- function(client, repo_id) {
+reposGetPermissions <- function(client, repo_id) {
 
   client$do("GET", paste("/api/2.0/permissions/repos/", repo_id, sep = ""))
 }
@@ -123,9 +123,9 @@ reposList <- function(client, next_page_token = NULL, path_prefix = NULL) {
 #' @param access_control_list 
 #' @param repo_id Required. The repo for which to get or manage permissions.
 #'
-#' @rdname reposSetRepoPermissions
+#' @rdname reposSetPermissions
 #' @export
-reposSetRepoPermissions <- function(client, repo_id, access_control_list = NULL) {
+reposSetPermissions <- function(client, repo_id, access_control_list = NULL) {
   body <- list(access_control_list = access_control_list)
   client$do("PUT", paste("/api/2.0/permissions/repos/", repo_id, sep = ""), body = body)
 }
@@ -157,9 +157,9 @@ reposUpdate <- function(client, repo_id, branch = NULL, sparse_checkout = NULL, 
 #' @param access_control_list 
 #' @param repo_id Required. The repo for which to get or manage permissions.
 #'
-#' @rdname reposUpdateRepoPermissions
+#' @rdname reposUpdatePermissions
 #' @export
-reposUpdateRepoPermissions <- function(client, repo_id, access_control_list = NULL) {
+reposUpdatePermissions <- function(client, repo_id, access_control_list = NULL) {
   body <- list(access_control_list = access_control_list)
   client$do("PATCH", paste("/api/2.0/permissions/repos/", repo_id, sep = ""), body = body)
 }

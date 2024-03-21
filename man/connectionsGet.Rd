@@ -4,12 +4,12 @@
 \alias{connectionsGet}
 \title{Get a connection.}
 \usage{
-connectionsGet(client, name_arg)
+connectionsGet(client, name)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{name_arg}{Required. Name of the connection.}
+\item{name}{Required. Name of the connection.}
 }
 \description{
 Gets a connection from it's name.

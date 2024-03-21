@@ -8,6 +8,7 @@ jobsGetRun(
   client,
   run_id,
   include_history = NULL,
+  include_resolved_values = NULL,
   timeout = 20,
   callback = cli_reporter
 )
@@ -18,6 +19,8 @@ jobsGetRun(
 \item{run_id}{Required. The canonical identifier of the run for which to retrieve the metadata.}
 
 \item{include_history}{Whether to include the repair history in the response.}
+
+\item{include_resolved_values}{Whether to include resolved parameter values in the response.}
 }
 \description{
 This is a long-running operation, which blocks until Jobs on Databricks reach

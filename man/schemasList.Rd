@@ -4,12 +4,24 @@
 \alias{schemasList}
 \title{List schemas.}
 \usage{
-schemasList(client, catalog_name)
+schemasList(
+  client,
+  catalog_name,
+  include_browse = NULL,
+  max_results = NULL,
+  page_token = NULL
+)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
 \item{catalog_name}{Required. Parent catalog for schemas of interest.}
+
+\item{include_browse}{Whether to include schemas in the response for which the principal can only access selective metadata for.}
+
+\item{max_results}{Maximum number of schemas to return.}
+
+\item{page_token}{Opaque pagination token to go to next page based on previous query.}
 }
 \value{
 \code{data.frame} with all of the response pages.

@@ -9,19 +9,20 @@ NULL
 #' doesn't prevent new runs from being started.
 #' @param client Required. Instance of DatabricksClient()
 #'
-#' @param job_id Required. The canonical identifier of the job to cancel all runs of.
+#' @param all_queued_runs Optional boolean parameter to cancel all queued runs.
+#' @param job_id The canonical identifier of the job to cancel all runs of.
 #'
 #' @rdname jobsCancelAllRuns
 #' @export
-jobsCancelAllRuns <- function(client, job_id) {
-  body <- list(job_id = job_id)
+jobsCancelAllRuns <- function(client, all_queued_runs = NULL, job_id = NULL) {
+  body <- list(all_queued_runs = all_queued_runs, job_id = job_id)
   client$do("POST", "/api/2.1/jobs/runs/cancel-all", body = body)
 }
 
-#' Cancel a job run.
+#' Cancel a run.
 #' 
-#' Cancels a job run. The run is canceled asynchronously, so it may still be
-#' running when this request completes.
+#' Cancels a job run or a task run. The run is canceled asynchronously, so it
+#' may still be running when this request completes.
 #'
 #' @description
 #' This is a long-running operation, which blocks until Jobs on Databricks reach
@@ -85,36 +86,42 @@ jobsCancelRun <- function(client, run_id, timeout = 20, callback = cli_reporter)
 #' @param access_control_list List of permissions to set on the job.
 #' @param compute A list of compute requirements that can be referenced by tasks of this job.
 #' @param continuous An optional continuous property for this job.
+#' @param deployment Deployment information for jobs managed by external sources.
+#' @param description An optional description for the job.
+#' @param edit_mode Edit mode of the job.
 #' @param email_notifications An optional set of email addresses that is notified when runs of this job begin or complete as well as when this job is deleted.
 #' @param format Used to tell what is the format of the job.
-#' @param git_source An optional specification for a remote repository containing the notebooks used by this job's notebook tasks.
+#' @param git_source An optional specification for a remote Git repository containing the source code used by tasks.
 #' @param health An optional set of health rules that can be defined for this job.
 #' @param job_clusters A list of job cluster specifications that can be shared and reused by tasks of this job.
 #' @param max_concurrent_runs An optional maximum allowed number of concurrent runs of the job.
 #' @param name An optional name for the job.
 #' @param notification_settings Optional notification settings that are used when sending notifications to each of the `email_notifications` and `webhook_notifications` for this job.
 #' @param parameters Job-level parameter definitions.
+#' @param queue The queue settings of the job.
 #' @param run_as Write-only setting, available only in Create/Update/Reset and Submit calls.
 #' @param schedule An optional periodic schedule for this job.
 #' @param tags A map of tags associated with the job.
 #' @param tasks A list of task specifications to be executed by this job.
 #' @param timeout_seconds An optional timeout applied to each run of this job.
-#' @param trigger Trigger settings for the job.
-#' @param webhook_notifications A collection of system notification IDs to notify when the run begins or completes.
+#' @param trigger A configuration to trigger a run when certain conditions are met.
+#' @param webhook_notifications A collection of system notification IDs to notify when runs of this job begin or complete.
 #'
 #' @rdname jobsCreate
 #' @export
 jobsCreate <- function(client, access_control_list = NULL, compute = NULL, continuous = NULL,
-  email_notifications = NULL, format = NULL, git_source = NULL, health = NULL,
-  job_clusters = NULL, max_concurrent_runs = NULL, name = NULL, notification_settings = NULL,
-  parameters = NULL, run_as = NULL, schedule = NULL, tags = NULL, tasks = NULL,
-  timeout_seconds = NULL, trigger = NULL, webhook_notifications = NULL) {
+  deployment = NULL, description = NULL, edit_mode = NULL, email_notifications = NULL,
+  format = NULL, git_source = NULL, health = NULL, job_clusters = NULL, max_concurrent_runs = NULL,
+  name = NULL, notification_settings = NULL, parameters = NULL, queue = NULL, run_as = NULL,
+  schedule = NULL, tags = NULL, tasks = NULL, timeout_seconds = NULL, trigger = NULL,
+  webhook_notifications = NULL) {
   body <- list(access_control_list = access_control_list, compute = compute, continuous = continuous,
+    deployment = deployment, description = description, edit_mode = edit_mode,
     email_notifications = email_notifications, format = format, git_source = git_source,
     health = health, job_clusters = job_clusters, max_concurrent_runs = max_concurrent_runs,
     name = name, notification_settings = notification_settings, parameters = parameters,
-    run_as = run_as, schedule = schedule, tags = tags, tasks = tasks, timeout_seconds = timeout_seconds,
-    trigger = trigger, webhook_notifications = webhook_notifications)
+    queue = queue, run_as = run_as, schedule = schedule, tags = tags, tasks = tasks,
+    timeout_seconds = timeout_seconds, trigger = trigger, webhook_notifications = webhook_notifications)
   client$do("POST", "/api/2.1/jobs/create", body = body)
 }
 
@@ -182,9 +189,9 @@ jobsGet <- function(client, job_id) {
 #'
 #' @param job_id Required. The job for which to get or manage permissions.
 #'
-#' @rdname jobsGetJobPermissionLevels
+#' @rdname jobsGetPermissionLevels
 #' @export
-jobsGetJobPermissionLevels <- function(client, job_id) {
+jobsGetPermissionLevels <- function(client, job_id) {
 
   client$do("GET", paste("/api/2.0/permissions/jobs/", job_id, "/permissionLevels",
     , sep = ""))
@@ -198,9 +205,9 @@ jobsGetJobPermissionLevels <- function(client, job_id) {
 #'
 #' @param job_id Required. The job for which to get or manage permissions.
 #'
-#' @rdname jobsGetJobPermissions
+#' @rdname jobsGetPermissions
 #' @export
-jobsGetJobPermissions <- function(client, job_id) {
+jobsGetPermissions <- function(client, job_id) {
 
   client$do("GET", paste("/api/2.0/permissions/jobs/", job_id, sep = ""))
 }
@@ -217,12 +224,15 @@ jobsGetJobPermissions <- function(client, job_id) {
 #' @param client Required. Instance of DatabricksClient()
 #'
 #' @param include_history Whether to include the repair history in the response.
+#' @param include_resolved_values Whether to include resolved parameter values in the response.
 #' @param run_id Required. The canonical identifier of the run for which to retrieve the metadata.
 #'
 #' @rdname jobsGetRun
 #' @export
-jobsGetRun <- function(client, run_id, include_history = NULL, timeout = 20, callback = cli_reporter) {
-  query <- list(include_history = include_history, run_id = run_id)
+jobsGetRun <- function(client, run_id, include_history = NULL, include_resolved_values = NULL,
+  timeout = 20, callback = cli_reporter) {
+  query <- list(include_history = include_history, include_resolved_values = include_resolved_values,
+    run_id = run_id)
   op_response <- client$do("GET", "/api/2.1/jobs/runs/get", query = query)
   started <- as.numeric(Sys.time())
   target_states <- c("TERMINATED", "SKIPPED", c())
@@ -382,31 +392,33 @@ jobsListRuns <- function(client, active_only = NULL, completed_only = NULL, expa
 #' @param client Required. Instance of DatabricksClient()
 #'
 #' @param dbt_commands An array of commands to execute for jobs with the dbt task, for example `'dbt_commands': ['dbt deps', 'dbt seed', 'dbt run']`.
-#' @param jar_params A list of parameters for jobs with Spark JAR tasks, for example `\'jar_params\': [\'john doe\', \'35\']`.
+#' @param jar_params A list of parameters for jobs with Spark JAR tasks, for example `'jar_params': ['john doe', '35']`.
+#' @param job_parameters Job-level parameters used in the run.
 #' @param latest_repair_id The ID of the latest repair.
-#' @param notebook_params A map from keys to values for jobs with notebook task, for example `\'notebook_params\': {\'name\': \'john doe\', \'age\': \'35\'}`.
+#' @param notebook_params A map from keys to values for jobs with notebook task, for example `'notebook_params': {'name': 'john doe', 'age': '35'}`.
 #' @param pipeline_params 
 #' @param python_named_params A map from keys to values for jobs with Python wheel task, for example `'python_named_params': {'name': 'task', 'data': 'dbfs:/path/to/data.json'}`.
-#' @param python_params A list of parameters for jobs with Python tasks, for example `\'python_params\': [\'john doe\', \'35\']`.
+#' @param python_params A list of parameters for jobs with Python tasks, for example `'python_params': ['john doe', '35']`.
 #' @param rerun_all_failed_tasks If true, repair all failed tasks.
 #' @param rerun_dependent_tasks If true, repair all tasks that depend on the tasks in `rerun_tasks`, even if they were previously successful.
 #' @param rerun_tasks The task keys of the task runs to repair.
 #' @param run_id Required. The job run ID of the run to repair.
-#' @param spark_submit_params A list of parameters for jobs with spark submit task, for example `\'spark_submit_params\': [\'--class\', \'org.apache.spark.examples.SparkPi\']`.
+#' @param spark_submit_params A list of parameters for jobs with spark submit task, for example `'spark_submit_params': ['--class', 'org.apache.spark.examples.SparkPi']`.
 #' @param sql_params A map from keys to values for jobs with SQL task, for example `'sql_params': {'name': 'john doe', 'age': '35'}`.
 #'
 #' @rdname jobsRepairRun
 #' @export
 jobsRepairRun <- function(client, run_id, dbt_commands = NULL, jar_params = NULL,
-  latest_repair_id = NULL, notebook_params = NULL, pipeline_params = NULL, python_named_params = NULL,
-  python_params = NULL, rerun_all_failed_tasks = NULL, rerun_dependent_tasks = NULL,
-  rerun_tasks = NULL, spark_submit_params = NULL, sql_params = NULL, timeout = 20,
-  callback = cli_reporter) {
-  body <- list(dbt_commands = dbt_commands, jar_params = jar_params, latest_repair_id = latest_repair_id,
-    notebook_params = notebook_params, pipeline_params = pipeline_params, python_named_params = python_named_params,
-    python_params = python_params, rerun_all_failed_tasks = rerun_all_failed_tasks,
-    rerun_dependent_tasks = rerun_dependent_tasks, rerun_tasks = rerun_tasks,
-    run_id = run_id, spark_submit_params = spark_submit_params, sql_params = sql_params)
+  job_parameters = NULL, latest_repair_id = NULL, notebook_params = NULL, pipeline_params = NULL,
+  python_named_params = NULL, python_params = NULL, rerun_all_failed_tasks = NULL,
+  rerun_dependent_tasks = NULL, rerun_tasks = NULL, spark_submit_params = NULL,
+  sql_params = NULL, timeout = 20, callback = cli_reporter) {
+  body <- list(dbt_commands = dbt_commands, jar_params = jar_params, job_parameters = job_parameters,
+    latest_repair_id = latest_repair_id, notebook_params = notebook_params, pipeline_params = pipeline_params,
+    python_named_params = python_named_params, python_params = python_params,
+    rerun_all_failed_tasks = rerun_all_failed_tasks, rerun_dependent_tasks = rerun_dependent_tasks,
+    rerun_tasks = rerun_tasks, run_id = run_id, spark_submit_params = spark_submit_params,
+    sql_params = sql_params)
   op_response <- client$do("POST", "/api/2.1/jobs/runs/repair", body = body)
   started <- as.numeric(Sys.time())
   target_states <- c("TERMINATED", "SKIPPED", c())
@@ -448,10 +460,10 @@ jobsRepairRun <- function(client, run_id, dbt_commands = NULL, jar_params = NULL
   rlang::abort(msg, call = rlang::caller_env())
 }
 
-#' Overwrites all settings for a job.
+#' Update all job settings (reset).
 #' 
-#' Overwrites all the settings for a specific job. Use the Update endpoint to
-#' update job settings partially.
+#' Overwrite all settings for the given job. Use the [_Update_
+#' endpoint](:method:jobs/update) to update job settings partially.
 #' @param client Required. Instance of DatabricksClient()
 #'
 #' @param job_id Required. The canonical identifier of the job to reset.
@@ -477,26 +489,27 @@ jobsReset <- function(client, job_id, new_settings) {
 #'
 #' @param dbt_commands An array of commands to execute for jobs with the dbt task, for example `'dbt_commands': ['dbt deps', 'dbt seed', 'dbt run']`.
 #' @param idempotency_token An optional token to guarantee the idempotency of job run requests.
-#' @param jar_params A list of parameters for jobs with Spark JAR tasks, for example `\'jar_params\': [\'john doe\', \'35\']`.
+#' @param jar_params A list of parameters for jobs with Spark JAR tasks, for example `'jar_params': ['john doe', '35']`.
 #' @param job_id Required. The ID of the job to be executed.
 #' @param job_parameters Job-level parameters used in the run.
-#' @param notebook_params A map from keys to values for jobs with notebook task, for example `\'notebook_params\': {\'name\': \'john doe\', \'age\': \'35\'}`.
+#' @param notebook_params A map from keys to values for jobs with notebook task, for example `'notebook_params': {'name': 'john doe', 'age': '35'}`.
 #' @param pipeline_params 
 #' @param python_named_params A map from keys to values for jobs with Python wheel task, for example `'python_named_params': {'name': 'task', 'data': 'dbfs:/path/to/data.json'}`.
-#' @param python_params A list of parameters for jobs with Python tasks, for example `\'python_params\': [\'john doe\', \'35\']`.
-#' @param spark_submit_params A list of parameters for jobs with spark submit task, for example `\'spark_submit_params\': [\'--class\', \'org.apache.spark.examples.SparkPi\']`.
+#' @param python_params A list of parameters for jobs with Python tasks, for example `'python_params': ['john doe', '35']`.
+#' @param queue The queue settings of the run.
+#' @param spark_submit_params A list of parameters for jobs with spark submit task, for example `'spark_submit_params': ['--class', 'org.apache.spark.examples.SparkPi']`.
 #' @param sql_params A map from keys to values for jobs with SQL task, for example `'sql_params': {'name': 'john doe', 'age': '35'}`.
 #'
 #' @rdname jobsRunNow
 #' @export
 jobsRunNow <- function(client, job_id, dbt_commands = NULL, idempotency_token = NULL,
   jar_params = NULL, job_parameters = NULL, notebook_params = NULL, pipeline_params = NULL,
-  python_named_params = NULL, python_params = NULL, spark_submit_params = NULL,
+  python_named_params = NULL, python_params = NULL, queue = NULL, spark_submit_params = NULL,
   sql_params = NULL, timeout = 20, callback = cli_reporter) {
   body <- list(dbt_commands = dbt_commands, idempotency_token = idempotency_token,
     jar_params = jar_params, job_id = job_id, job_parameters = job_parameters,
     notebook_params = notebook_params, pipeline_params = pipeline_params, python_named_params = python_named_params,
-    python_params = python_params, spark_submit_params = spark_submit_params,
+    python_params = python_params, queue = queue, spark_submit_params = spark_submit_params,
     sql_params = sql_params)
   op_response <- client$do("POST", "/api/2.1/jobs/run-now", body = body)
   started <- as.numeric(Sys.time())
@@ -548,9 +561,9 @@ jobsRunNow <- function(client, job_id, dbt_commands = NULL, idempotency_token = 
 #' @param access_control_list 
 #' @param job_id Required. The job for which to get or manage permissions.
 #'
-#' @rdname jobsSetJobPermissions
+#' @rdname jobsSetPermissions
 #' @export
-jobsSetJobPermissions <- function(client, job_id, access_control_list = NULL) {
+jobsSetPermissions <- function(client, job_id, access_control_list = NULL) {
   body <- list(access_control_list = access_control_list)
   client$do("PUT", paste("/api/2.0/permissions/jobs/", job_id, sep = ""), body = body)
 }
@@ -571,10 +584,11 @@ jobsSetJobPermissions <- function(client, job_id, access_control_list = NULL) {
 #'
 #' @param access_control_list List of permissions to set on the job.
 #' @param email_notifications An optional set of email addresses notified when the run begins or completes.
-#' @param git_source An optional specification for a remote repository containing the notebooks used by this job's notebook tasks.
+#' @param git_source An optional specification for a remote Git repository containing the source code used by tasks.
 #' @param health An optional set of health rules that can be defined for this job.
 #' @param idempotency_token An optional token that can be used to guarantee the idempotency of job run requests.
-#' @param notification_settings Optional notification settings that are used when sending notifications to each of the `webhook_notifications` for this run.
+#' @param notification_settings Optional notification settings that are used when sending notifications to each of the `email_notifications` and `webhook_notifications` for this run.
+#' @param queue The queue settings of the one-time run.
 #' @param run_name An optional name for the run.
 #' @param tasks 
 #' @param timeout_seconds An optional timeout applied to each run of this job.
@@ -584,12 +598,12 @@ jobsSetJobPermissions <- function(client, job_id, access_control_list = NULL) {
 #' @export
 jobsSubmit <- function(client, access_control_list = NULL, email_notifications = NULL,
   git_source = NULL, health = NULL, idempotency_token = NULL, notification_settings = NULL,
-  run_name = NULL, tasks = NULL, timeout_seconds = NULL, webhook_notifications = NULL,
+  queue = NULL, run_name = NULL, tasks = NULL, timeout_seconds = NULL, webhook_notifications = NULL,
   timeout = 20, callback = cli_reporter) {
   body <- list(access_control_list = access_control_list, email_notifications = email_notifications,
     git_source = git_source, health = health, idempotency_token = idempotency_token,
-    notification_settings = notification_settings, run_name = run_name, tasks = tasks,
-    timeout_seconds = timeout_seconds, webhook_notifications = webhook_notifications)
+    notification_settings = notification_settings, queue = queue, run_name = run_name,
+    tasks = tasks, timeout_seconds = timeout_seconds, webhook_notifications = webhook_notifications)
   op_response <- client$do("POST", "/api/2.1/jobs/runs/submit", body = body)
   started <- as.numeric(Sys.time())
   target_states <- c("TERMINATED", "SKIPPED", c())
@@ -631,10 +645,10 @@ jobsSubmit <- function(client, access_control_list = NULL, email_notifications =
   rlang::abort(msg, call = rlang::caller_env())
 }
 
-#' Partially update a job.
+#' Update job settings partially.
 #' 
-#' Add, update, or remove specific settings of an existing job. Use the ResetJob
-#' to overwrite all job settings.
+#' Add, update, or remove specific settings of an existing job. Use the [_Reset_
+#' endpoint](:method:jobs/reset) to overwrite all job settings.
 #' @param client Required. Instance of DatabricksClient()
 #'
 #' @param fields_to_remove Remove top-level fields in the job settings.
@@ -657,9 +671,9 @@ jobsUpdate <- function(client, job_id, fields_to_remove = NULL, new_settings = N
 #' @param access_control_list 
 #' @param job_id Required. The job for which to get or manage permissions.
 #'
-#' @rdname jobsUpdateJobPermissions
+#' @rdname jobsUpdatePermissions
 #' @export
-jobsUpdateJobPermissions <- function(client, job_id, access_control_list = NULL) {
+jobsUpdatePermissions <- function(client, job_id, access_control_list = NULL) {
   body <- list(access_control_list = access_control_list)
   client$do("PATCH", paste("/api/2.0/permissions/jobs/", job_id, sep = ""), body = body)
 }

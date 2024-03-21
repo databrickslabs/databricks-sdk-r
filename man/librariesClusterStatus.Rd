@@ -11,6 +11,9 @@ librariesClusterStatus(client, cluster_id)
 
 \item{cluster_id}{Required. Unique identifier of the cluster whose status should be retrieved.}
 }
+\value{
+\code{data.frame} with all of the response pages.
+}
 \description{
 Get the status of libraries on a cluster. A status will be available for all
 libraries installed on this cluster via the API or the libraries UI as well

@@ -4,12 +4,12 @@
 \alias{cleanRoomsGet}
 \title{Get a clean room.}
 \usage{
-cleanRoomsGet(client, name_arg, include_remote_details = NULL)
+cleanRoomsGet(client, name, include_remote_details = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{name_arg}{Required. The name of the clean room.}
+\item{name}{Required. The name of the clean room.}
 
 \item{include_remote_details}{Whether to include remote details (central) on the clean room.}
 }

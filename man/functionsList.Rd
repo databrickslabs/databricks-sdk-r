@@ -4,7 +4,14 @@
 \alias{functionsList}
 \title{List functions.}
 \usage{
-functionsList(client, catalog_name, schema_name)
+functionsList(
+  client,
+  catalog_name,
+  schema_name,
+  include_browse = NULL,
+  max_results = NULL,
+  page_token = NULL
+)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
@@ -12,6 +19,12 @@ functionsList(client, catalog_name, schema_name)
 \item{catalog_name}{Required. Name of parent catalog for functions of interest.}
 
 \item{schema_name}{Required. Parent schema of functions.}
+
+\item{include_browse}{Whether to include functions in the response for which the principal can only access selective metadata for.}
+
+\item{max_results}{Maximum number of functions to return.}
+
+\item{page_token}{Opaque pagination token to go to next page based on previous query.}
 }
 \value{
 \code{data.frame} with all of the response pages.

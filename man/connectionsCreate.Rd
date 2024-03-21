@@ -8,10 +8,9 @@ connectionsCreate(
   client,
   name,
   connection_type,
-  options_kvpairs,
+  options,
   comment = NULL,
-  owner = NULL,
-  properties_kvpairs = NULL,
+  properties = NULL,
   read_only = NULL
 )
 }
@@ -22,13 +21,11 @@ connectionsCreate(
 
 \item{connection_type}{Required. The type of connection.}
 
-\item{options_kvpairs}{Required. A map of key-value properties attached to the securable.}
+\item{options}{Required. A map of key-value properties attached to the securable.}
 
 \item{comment}{User-provided free-form text description.}
 
-\item{owner}{Username of current owner of the connection.}
-
-\item{properties_kvpairs}{An object containing map of key-value properties attached to the connection.}
+\item{properties}{An object containing map of key-value properties attached to the connection.}
 
 \item{read_only}{If the connection is read only.}
 }

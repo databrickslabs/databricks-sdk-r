@@ -29,6 +29,8 @@ workspaceImport(
 \description{
 Imports a workspace object (for example, a notebook or file) or the contents
 of an entire directory. If \code{path} already exists and \code{overwrite} is set to
-\code{false}, this call returns an error \code{RESOURCE_ALREADY_EXISTS}. One can only
-use \code{DBC} format to import a directory.
+\code{false}, this call returns an error \code{RESOURCE_ALREADY_EXISTS}. To import a
+directory, you can use either the \code{DBC} format or the \code{SOURCE} format with
+the \code{language} field unset. To import a single file as \code{SOURCE}, you must set
+the \code{language} field.
 }

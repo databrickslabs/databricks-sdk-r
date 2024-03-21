@@ -4,16 +4,16 @@
 \alias{volumesUpdate}
 \title{Update a Volume.}
 \usage{
-volumesUpdate(client, full_name_arg, comment = NULL, name = NULL, owner = NULL)
+volumesUpdate(client, name, comment = NULL, new_name = NULL, owner = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{full_name_arg}{Required. The three-level (fully qualified) name of the volume.}
+\item{name}{Required. The three-level (fully qualified) name of the volume.}
 
 \item{comment}{The comment attached to the volume.}
 
-\item{name}{The name of the volume.}
+\item{new_name}{New name for the volume.}
 
 \item{owner}{The identifier of the user who owns the volume.}
 }

@@ -8,7 +8,9 @@ catalogsUpdate(
   client,
   name,
   comment = NULL,
+  enable_predictive_optimization = NULL,
   isolation_mode = NULL,
+  new_name = NULL,
   owner = NULL,
   properties = NULL
 )
@@ -16,11 +18,15 @@ catalogsUpdate(
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{name}{Name of catalog.}
+\item{name}{Required. The name of the catalog.}
 
 \item{comment}{User-provided free-form text description.}
 
+\item{enable_predictive_optimization}{Whether predictive optimization should be enabled for this object and objects under it.}
+
 \item{isolation_mode}{Whether the current securable is accessible from all workspaces or a specific set of workspaces.}
+
+\item{new_name}{New name for the catalog.}
 
 \item{owner}{Username of current owner of catalog.}
 

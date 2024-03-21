@@ -4,12 +4,14 @@
 \alias{schemasGet}
 \title{Get a schema.}
 \usage{
-schemasGet(client, full_name)
+schemasGet(client, full_name, include_browse = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
 \item{full_name}{Required. Full name of the schema.}
+
+\item{include_browse}{Whether to include schemas in the response for which the principal can only access selective metadata for.}
 }
 \description{
 Gets the specified schema within the metastore. The caller must be a

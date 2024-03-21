@@ -4,7 +4,21 @@
 \alias{externalLocationsList}
 \title{List external locations.}
 \usage{
-externalLocationsList(client)
+externalLocationsList(
+  client,
+  include_browse = NULL,
+  max_results = NULL,
+  page_token = NULL
+)
+}
+\arguments{
+\item{client}{Required. Instance of DatabricksClient()}
+
+\item{include_browse}{Whether to include external locations in the response for which the principal can only access selective metadata for.}
+
+\item{max_results}{Maximum number of external locations to return.}
+
+\item{page_token}{Opaque pagination token to go to next page based on previous query.}
 }
 \value{
 \code{data.frame} with all of the response pages.
@@ -14,5 +28,5 @@ Gets an array of external locations (\strong{ExternalLocationInfo} objects) from
 the metastore. The caller must be a metastore admin, the owner of the
 external location, or a user that has some privilege on the external
 location. There is no guarantee of a specific ordering of the elements in the
-array.#'
+array.
 }

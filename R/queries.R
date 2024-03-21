@@ -16,19 +16,20 @@ NULL
 #' **Note**: You cannot add a visualization until you create the query.
 #' @param client Required. Instance of DatabricksClient()
 #'
-#' @param data_source_id Data source ID.
+#' @param data_source_id Data source ID maps to the ID of the data source used by the resource and is distinct from the warehouse ID.
 #' @param description General description that conveys additional information about this query such as usage notes.
 #' @param name The title of this query that appears in list views, widget headings, and on the query page.
 #' @param options Exclusively used for storing a list parameter definitions.
 #' @param parent The identifier of the workspace folder containing the object.
 #' @param query The text of the query to be run.
+#' @param run_as_role Sets the **Run as** role for the object.
 #'
 #' @rdname queriesCreate
 #' @export
 queriesCreate <- function(client, data_source_id = NULL, description = NULL, name = NULL,
-  options = NULL, parent = NULL, query = NULL) {
+  options = NULL, parent = NULL, query = NULL, run_as_role = NULL) {
   body <- list(data_source_id = data_source_id, description = description, name = name,
-    options = options, parent = parent, query = query)
+    options = options, parent = parent, query = query, run_as_role = run_as_role)
   client$do("POST", "/api/2.0/preview/sql/queries", body = body)
 }
 
@@ -67,6 +68,9 @@ queriesGet <- function(client, query_id) {
 #' 
 #' Gets a list of queries. Optionally, this list can be filtered by a search
 #' term.
+#' 
+#' ### **Warning: Calling this API concurrently 10 or more times could result in
+#' throttling, service degradation, or a temporary ban.**
 #' @param client Required. Instance of DatabricksClient()
 #'
 #' @param order Name of query attribute to order by.
@@ -120,19 +124,20 @@ queriesRestore <- function(client, query_id) {
 #' **Note**: You cannot undo this operation.
 #' @param client Required. Instance of DatabricksClient()
 #'
-#' @param data_source_id Data source ID.
+#' @param data_source_id Data source ID maps to the ID of the data source used by the resource and is distinct from the warehouse ID.
 #' @param description General description that conveys additional information about this query such as usage notes.
 #' @param name The title of this query that appears in list views, widget headings, and on the query page.
 #' @param options Exclusively used for storing a list parameter definitions.
 #' @param query The text of the query to be run.
 #' @param query_id Required. 
+#' @param run_as_role Sets the **Run as** role for the object.
 #'
 #' @rdname queriesUpdate
 #' @export
 queriesUpdate <- function(client, query_id, data_source_id = NULL, description = NULL,
-  name = NULL, options = NULL, query = NULL) {
+  name = NULL, options = NULL, query = NULL, run_as_role = NULL) {
   body <- list(data_source_id = data_source_id, description = description, name = name,
-    options = options, query = query)
+    options = options, query = query, run_as_role = run_as_role)
   client$do("POST", paste("/api/2.0/preview/sql/queries/", query_id, sep = ""),
     body = body)
 }

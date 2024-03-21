@@ -2,7 +2,7 @@
 % Please edit documentation in R/jobs.R
 \name{jobsCancelRun}
 \alias{jobsCancelRun}
-\title{Cancel a job run.}
+\title{Cancel a run.}
 \usage{
 jobsCancelRun(client, run_id, timeout = 20, callback = cli_reporter)
 }
@@ -18,6 +18,6 @@ By default, the state of Databricks Jobs is reported to console. You can change 
 by changing the \code{callback} parameter.
 }
 \details{
-Cancels a job run. The run is canceled asynchronously, so it may still be
-running when this request completes.
+Cancels a job run or a task run. The run is canceled asynchronously, so it
+may still be running when this request completes.
 }

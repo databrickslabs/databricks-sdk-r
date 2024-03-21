@@ -2,12 +2,14 @@
 % Please edit documentation in R/serving_endpoints.R
 \name{servingEndpointsUpdateConfig}
 \alias{servingEndpointsUpdateConfig}
-\title{Update a serving endpoint with a new config.}
+\title{Update config of a serving endpoint.}
 \usage{
 servingEndpointsUpdateConfig(
   client,
   name,
-  served_models,
+  auto_capture_config = NULL,
+  served_entities = NULL,
+  served_models = NULL,
   traffic_config = NULL,
   timeout = 20,
   callback = cli_reporter
@@ -18,7 +20,11 @@ servingEndpointsUpdateConfig(
 
 \item{name}{Required. The name of the serving endpoint to update.}
 
-\item{served_models}{Required. A list of served models for the endpoint to serve.}
+\item{auto_capture_config}{Configuration for Inference Tables which automatically logs requests and responses to Unity Catalog.}
+
+\item{served_entities}{A list of served entities for the endpoint to serve.}
+
+\item{served_models}{(Deprecated, use served_entities instead) A list of served models for the endpoint to serve.}
 
 \item{traffic_config}{The traffic config defining how invocations to the serving endpoint should be routed.}
 }
@@ -29,8 +35,8 @@ By default, the state of Databricks Serving Endpoints is reported to console. Yo
 by changing the \code{callback} parameter.
 }
 \details{
-Updates any combination of the serving endpoint's served models, the compute
-configuration of those served models, and the endpoint's traffic config. An
-endpoint that already has an update in progress can not be updated until the
-current update completes or fails.
+Updates any combination of the serving endpoint's served entities, the
+compute configuration of those served entities, and the endpoint's traffic
+config. An endpoint that already has an update in progress can not be updated
+until the current update completes or fails.
 }

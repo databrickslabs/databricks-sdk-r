@@ -24,16 +24,20 @@ metastoresAssign <- function(client, workspace_id, metastore_id, default_catalog
 
 #' Create a metastore.
 #' 
-#' Creates a new metastore based on a provided name and storage root path.
+#' Creates a new metastore based on a provided name and optional storage root
+#' path. By default (if the __owner__ field is not set), the owner of the new
+#' metastore is the user calling the __createMetastore__ API. If the __owner__
+#' field is set to the empty string (**''**), the ownership is assigned to the
+#' System User instead.
 #' @param client Required. Instance of DatabricksClient()
 #'
 #' @param name Required. The user-specified name of the metastore.
 #' @param region Cloud region which the metastore serves (e.g., `us-west-2`, `westus`).
-#' @param storage_root Required. The storage root URL for metastore.
+#' @param storage_root The storage root URL for metastore.
 #'
 #' @rdname metastoresCreate
 #' @export
-metastoresCreate <- function(client, name, storage_root, region = NULL) {
+metastoresCreate <- function(client, name, region = NULL, storage_root = NULL) {
   body <- list(name = name, region = region, storage_root = storage_root)
   client$do("POST", "/api/2.1/unity-catalog/metastores", body = body)
 }
@@ -61,21 +65,6 @@ metastoresDelete <- function(client, id, force = NULL) {
   query <- list(force = force)
   client$do("DELETE", paste("/api/2.1/unity-catalog/metastores/", id, sep = ""),
     query = query)
-}
-
-#' Toggle predictive optimization on the metastore.
-#' 
-#' Enables or disables predictive optimization on the metastore.
-#' @param client Required. Instance of DatabricksClient()
-#'
-#' @param enable Required. Whether to enable predictive optimization on the metastore.
-#' @param metastore_id Required. Unique identifier of metastore.
-#'
-#' @rdname metastoresEnableOptimization
-#' @export
-metastoresEnableOptimization <- function(client, metastore_id, enable) {
-  body <- list(enable = enable, metastore_id = metastore_id)
-  client$do("PATCH", "/api/2.0/predictive-optimization/service", body = body)
 }
 
 #' Get a metastore.
@@ -138,14 +127,15 @@ metastoresUnassign <- function(client, workspace_id, metastore_id) {
 #' Update a metastore.
 #' 
 #' Updates information for a specific metastore. The caller must be a metastore
-#' admin.
+#' admin. If the __owner__ field is set to the empty string (**''**), the
+#' ownership is updated to the System User.
 #' @param client Required. Instance of DatabricksClient()
 #'
 #' @param delta_sharing_organization_name The organization name of a Delta Sharing entity, to be used in Databricks-to-Databricks Delta Sharing as the official name.
 #' @param delta_sharing_recipient_token_lifetime_in_seconds The lifetime of delta sharing recipient token in seconds.
 #' @param delta_sharing_scope The scope of Delta Sharing enabled for the metastore.
 #' @param id Required. Unique ID of the metastore.
-#' @param name The user-specified name of the metastore.
+#' @param new_name New name for the metastore.
 #' @param owner The owner of the metastore.
 #' @param privilege_model_version Privilege model version of the metastore, of the form `major.minor` (e.g., `1.0`).
 #' @param storage_root_credential_id UUID of storage credential to access the metastore storage_root.
@@ -154,11 +144,11 @@ metastoresUnassign <- function(client, workspace_id, metastore_id) {
 #' @export
 metastoresUpdate <- function(client, id, delta_sharing_organization_name = NULL,
   delta_sharing_recipient_token_lifetime_in_seconds = NULL, delta_sharing_scope = NULL,
-  name = NULL, owner = NULL, privilege_model_version = NULL, storage_root_credential_id = NULL) {
+  new_name = NULL, owner = NULL, privilege_model_version = NULL, storage_root_credential_id = NULL) {
   body <- list(delta_sharing_organization_name = delta_sharing_organization_name,
     delta_sharing_recipient_token_lifetime_in_seconds = delta_sharing_recipient_token_lifetime_in_seconds,
-    delta_sharing_scope = delta_sharing_scope, name = name, owner = owner, privilege_model_version = privilege_model_version,
-    storage_root_credential_id = storage_root_credential_id)
+    delta_sharing_scope = delta_sharing_scope, new_name = new_name, owner = owner,
+    privilege_model_version = privilege_model_version, storage_root_credential_id = storage_root_credential_id)
   client$do("PATCH", paste("/api/2.1/unity-catalog/metastores/", id, sep = ""),
     body = body)
 }

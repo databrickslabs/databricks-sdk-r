@@ -106,14 +106,16 @@ providersListShares <- function(client, name) {
 #' @param client Required. Instance of DatabricksClient()
 #'
 #' @param comment Description about the provider.
-#' @param name The name of the Provider.
+#' @param name Required. Name of the provider.
+#' @param new_name New name for the provider.
 #' @param owner Username of Provider owner.
 #' @param recipient_profile_str This field is required when the __authentication_type__ is **TOKEN** or not provided.
 #'
 #' @rdname providersUpdate
 #' @export
-providersUpdate <- function(client, name, comment = NULL, owner = NULL, recipient_profile_str = NULL) {
-  body <- list(comment = comment, name = name, owner = owner, recipient_profile_str = recipient_profile_str)
+providersUpdate <- function(client, name, comment = NULL, new_name = NULL, owner = NULL,
+  recipient_profile_str = NULL) {
+  body <- list(comment = comment, new_name = new_name, owner = owner, recipient_profile_str = recipient_profile_str)
   client$do("PATCH", paste("/api/2.1/unity-catalog/providers/", name, sep = ""),
     body = body)
 }

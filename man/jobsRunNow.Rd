@@ -15,6 +15,7 @@ jobsRunNow(
   pipeline_params = NULL,
   python_named_params = NULL,
   python_params = NULL,
+  queue = NULL,
   spark_submit_params = NULL,
   sql_params = NULL,
   timeout = 20,
@@ -30,19 +31,21 @@ jobsRunNow(
 
 \item{idempotency_token}{An optional token to guarantee the idempotency of job run requests.}
 
-\item{jar_params}{A list of parameters for jobs with Spark JAR tasks, for example \verb{\\'jar_params\\': [\\'john doe\\', \\'35\\']}.}
+\item{jar_params}{A list of parameters for jobs with Spark JAR tasks, for example \verb{'jar_params': ['john doe', '35']}.}
 
 \item{job_parameters}{Job-level parameters used in the run.}
 
-\item{notebook_params}{A map from keys to values for jobs with notebook task, for example \verb{\\'notebook_params\\': \{\\'name\\': \\'john doe\\', \\'age\\': \\'35\\'\}}.}
+\item{notebook_params}{A map from keys to values for jobs with notebook task, for example \verb{'notebook_params': \{'name': 'john doe', 'age': '35'\}}.}
 
 \item{pipeline_params}{}
 
 \item{python_named_params}{A map from keys to values for jobs with Python wheel task, for example \verb{'python_named_params': \{'name': 'task', 'data': 'dbfs:/path/to/data.json'\}}.}
 
-\item{python_params}{A list of parameters for jobs with Python tasks, for example \verb{\\'python_params\\': [\\'john doe\\', \\'35\\']}.}
+\item{python_params}{A list of parameters for jobs with Python tasks, for example \verb{'python_params': ['john doe', '35']}.}
 
-\item{spark_submit_params}{A list of parameters for jobs with spark submit task, for example \verb{\\'spark_submit_params\\': [\\'--class\\', \\'org.apache.spark.examples.SparkPi\\']}.}
+\item{queue}{The queue settings of the run.}
+
+\item{spark_submit_params}{A list of parameters for jobs with spark submit task, for example \verb{'spark_submit_params': ['--class', 'org.apache.spark.examples.SparkPi']}.}
 
 \item{sql_params}{A map from keys to values for jobs with SQL task, for example \verb{'sql_params': \{'name': 'john doe', 'age': '35'\}}.}
 }

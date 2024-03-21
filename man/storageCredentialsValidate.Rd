@@ -9,6 +9,7 @@ storageCredentialsValidate(
   aws_iam_role = NULL,
   azure_managed_identity = NULL,
   azure_service_principal = NULL,
+  cloudflare_api_token = NULL,
   databricks_gcp_service_account = NULL,
   external_location_name = NULL,
   read_only = NULL,
@@ -24,6 +25,8 @@ storageCredentialsValidate(
 \item{azure_managed_identity}{The Azure managed identity configuration.}
 
 \item{azure_service_principal}{The Azure service principal configuration.}
+
+\item{cloudflare_api_token}{The Cloudflare API token configuration.}
 
 \item{databricks_gcp_service_account}{The Databricks created GCP service account configuration.}
 

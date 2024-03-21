@@ -4,7 +4,14 @@
 \alias{storageCredentialsList}
 \title{List credentials.}
 \usage{
-storageCredentialsList(client)
+storageCredentialsList(client, max_results = NULL, page_token = NULL)
+}
+\arguments{
+\item{client}{Required. Instance of DatabricksClient()}
+
+\item{max_results}{Maximum number of storage credentials to return.}
+
+\item{page_token}{Opaque pagination token to go to next page based on previous query.}
 }
 \value{
 \code{data.frame} with all of the response pages.
@@ -12,7 +19,7 @@ storageCredentialsList(client)
 \description{
 Gets an array of storage credentials (as \strong{StorageCredentialInfo} objects).
 The array is limited to only those storage credentials the caller has
-permission to access. If the caller is a metastore admin, all storage
-credentials will be retrieved. There is no guarantee of a specific ordering
-of the elements in the array.#'
+permission to access. If the caller is a metastore admin, retrieval of
+credentials is unrestricted. There is no guarantee of a specific ordering of
+the elements in the array.
 }

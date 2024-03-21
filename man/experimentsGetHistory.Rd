@@ -26,6 +26,9 @@ experimentsGetHistory(
 
 \item{run_uuid}{\link{Deprecated, use run_id instead} ID of the run from which to fetch metric values.}
 }
+\value{
+\code{data.frame} with all of the response pages.
+}
 \description{
 Gets a list of all values for the specified metric for a given run.
 }

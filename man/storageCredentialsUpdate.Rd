@@ -10,9 +10,11 @@ storageCredentialsUpdate(
   aws_iam_role = NULL,
   azure_managed_identity = NULL,
   azure_service_principal = NULL,
+  cloudflare_api_token = NULL,
   comment = NULL,
   databricks_gcp_service_account = NULL,
   force = NULL,
+  new_name = NULL,
   owner = NULL,
   read_only = NULL,
   skip_validation = NULL
@@ -21,7 +23,7 @@ storageCredentialsUpdate(
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{name}{The credential name.}
+\item{name}{Required. Name of the storage credential.}
 
 \item{aws_iam_role}{The AWS IAM role configuration.}
 
@@ -29,11 +31,15 @@ storageCredentialsUpdate(
 
 \item{azure_service_principal}{The Azure service principal configuration.}
 
+\item{cloudflare_api_token}{The Cloudflare API token configuration.}
+
 \item{comment}{Comment associated with the credential.}
 
 \item{databricks_gcp_service_account}{The \if{html}{\out{<Databricks>}} managed GCP service account configuration.}
 
 \item{force}{Force update even if there are dependent external locations or external tables.}
+
+\item{new_name}{New name for the storage credential.}
 
 \item{owner}{Username of current owner of credential.}
 
@@ -42,7 +48,5 @@ storageCredentialsUpdate(
 \item{skip_validation}{Supplying true to this argument skips validation of the updated credential.}
 }
 \description{
-Updates a storage credential on the metastore. The caller must be the owner
-of the storage credential or a metastore admin. If the caller is a metastore
-admin, only the \strong{owner} credential can be changed.
+Updates a storage credential on the metastore.
 }

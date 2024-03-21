@@ -110,7 +110,7 @@ modelRegistryCreateTransitionRequest <- function(client, name, version, stage, c
 #' @param http_url_spec 
 #' @param job_spec 
 #' @param model_name Name of the model whose events would trigger this webhook.
-#' @param status This describes an enum.
+#' @param status Enable or disable triggering the webhook, or put the webhook into test mode.
 #'
 #' @rdname modelRegistryCreateWebhook
 #' @export
@@ -307,9 +307,9 @@ modelRegistryGetModelVersionDownloadUri <- function(client, name, version) {
 #'
 #' @param registered_model_id Required. The registered model for which to get or manage permissions.
 #'
-#' @rdname modelRegistryGetRegisteredModelPermissionLevels
+#' @rdname modelRegistryGetPermissionLevels
 #' @export
-modelRegistryGetRegisteredModelPermissionLevels <- function(client, registered_model_id) {
+modelRegistryGetPermissionLevels <- function(client, registered_model_id) {
 
   client$do("GET", paste("/api/2.0/permissions/registered-models/", registered_model_id,
     "/permissionLevels", , sep = ""))
@@ -323,9 +323,9 @@ modelRegistryGetRegisteredModelPermissionLevels <- function(client, registered_m
 #'
 #' @param registered_model_id Required. The registered model for which to get or manage permissions.
 #'
-#' @rdname modelRegistryGetRegisteredModelPermissions
+#' @rdname modelRegistryGetPermissions
 #' @export
-modelRegistryGetRegisteredModelPermissions <- function(client, registered_model_id) {
+modelRegistryGetPermissions <- function(client, registered_model_id) {
 
   client$do("GET", paste("/api/2.0/permissions/registered-models/", registered_model_id,
     sep = ""))
@@ -565,10 +565,9 @@ modelRegistrySetModelVersionTag <- function(client, name, version, key, value) {
 #' @param access_control_list 
 #' @param registered_model_id Required. The registered model for which to get or manage permissions.
 #'
-#' @rdname modelRegistrySetRegisteredModelPermissions
+#' @rdname modelRegistrySetPermissions
 #' @export
-modelRegistrySetRegisteredModelPermissions <- function(client, registered_model_id,
-  access_control_list = NULL) {
+modelRegistrySetPermissions <- function(client, registered_model_id, access_control_list = NULL) {
   body <- list(access_control_list = access_control_list)
   client$do("PUT", paste("/api/2.0/permissions/registered-models/", registered_model_id,
     sep = ""), body = body)
@@ -671,10 +670,9 @@ modelRegistryUpdateModelVersion <- function(client, name, version, description =
 #' @param access_control_list 
 #' @param registered_model_id Required. The registered model for which to get or manage permissions.
 #'
-#' @rdname modelRegistryUpdateRegisteredModelPermissions
+#' @rdname modelRegistryUpdatePermissions
 #' @export
-modelRegistryUpdateRegisteredModelPermissions <- function(client, registered_model_id,
-  access_control_list = NULL) {
+modelRegistryUpdatePermissions <- function(client, registered_model_id, access_control_list = NULL) {
   body <- list(access_control_list = access_control_list)
   client$do("PATCH", paste("/api/2.0/permissions/registered-models/", registered_model_id,
     sep = ""), body = body)
@@ -692,7 +690,7 @@ modelRegistryUpdateRegisteredModelPermissions <- function(client, registered_mod
 #' @param http_url_spec 
 #' @param id Required. Webhook ID.
 #' @param job_spec 
-#' @param status This describes an enum.
+#' @param status Enable or disable triggering the webhook, or put the webhook into test mode.
 #'
 #' @rdname modelRegistryUpdateWebhook
 #' @export

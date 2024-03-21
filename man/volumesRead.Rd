@@ -4,12 +4,14 @@
 \alias{volumesRead}
 \title{Get a Volume.}
 \usage{
-volumesRead(client, full_name_arg)
+volumesRead(client, name, include_browse = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{full_name_arg}{Required. The three-level (fully qualified) name of the volume.}
+\item{name}{Required. The three-level (fully qualified) name of the volume.}
+
+\item{include_browse}{Whether to include volumes in the response for which the principal can only access selective metadata for.}
 }
 \description{
 Gets a volume from the metastore for a specific catalog and schema.

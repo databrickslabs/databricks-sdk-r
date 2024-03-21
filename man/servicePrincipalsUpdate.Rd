@@ -13,7 +13,8 @@ servicePrincipalsUpdate(
   entitlements = NULL,
   external_id = NULL,
   groups = NULL,
-  roles = NULL
+  roles = NULL,
+  schemas = NULL
 )
 }
 \arguments{
@@ -27,13 +28,15 @@ servicePrincipalsUpdate(
 
 \item{display_name}{String that represents a concatenation of given and family names.}
 
-\item{entitlements}{}
+\item{entitlements}{Entitlements assigned to the service principal.}
 
 \item{external_id}{}
 
 \item{groups}{}
 
-\item{roles}{}
+\item{roles}{Corresponds to AWS instance profile/arn role.}
+
+\item{schemas}{The schema of the List response.}
 }
 \description{
 Updates the details of a single service principal.

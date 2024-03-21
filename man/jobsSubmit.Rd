@@ -12,6 +12,7 @@ jobsSubmit(
   health = NULL,
   idempotency_token = NULL,
   notification_settings = NULL,
+  queue = NULL,
   run_name = NULL,
   tasks = NULL,
   timeout_seconds = NULL,
@@ -27,13 +28,15 @@ jobsSubmit(
 
 \item{email_notifications}{An optional set of email addresses notified when the run begins or completes.}
 
-\item{git_source}{An optional specification for a remote repository containing the notebooks used by this job's notebook tasks.}
+\item{git_source}{An optional specification for a remote Git repository containing the source code used by tasks.}
 
 \item{health}{An optional set of health rules that can be defined for this job.}
 
 \item{idempotency_token}{An optional token that can be used to guarantee the idempotency of job run requests.}
 
-\item{notification_settings}{Optional notification settings that are used when sending notifications to each of the \code{webhook_notifications} for this run.}
+\item{notification_settings}{Optional notification settings that are used when sending notifications to each of the \code{email_notifications} and \code{webhook_notifications} for this run.}
+
+\item{queue}{The queue settings of the one-time run.}
 
 \item{run_name}{An optional name for the run.}
 

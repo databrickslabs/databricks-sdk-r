@@ -2,7 +2,7 @@
 % Please edit documentation in R/jobs.R
 \name{jobsUpdate}
 \alias{jobsUpdate}
-\title{Partially update a job.}
+\title{Update job settings partially.}
 \usage{
 jobsUpdate(client, job_id, fields_to_remove = NULL, new_settings = NULL)
 }
@@ -16,6 +16,5 @@ jobsUpdate(client, job_id, fields_to_remove = NULL, new_settings = NULL)
 \item{new_settings}{The new settings for the job.}
 }
 \description{
-Add, update, or remove specific settings of an existing job. Use the ResetJob
-to overwrite all job settings.
+Add, update, or remove specific settings of an existing job. Use the \href{:method:jobs/reset}{\emph{Reset} endpoint} to overwrite all job settings.
 }

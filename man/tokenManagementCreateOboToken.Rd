@@ -7,8 +7,8 @@
 tokenManagementCreateOboToken(
   client,
   application_id,
-  lifetime_seconds,
-  comment = NULL
+  comment = NULL,
+  lifetime_seconds = NULL
 )
 }
 \arguments{
@@ -16,9 +16,9 @@ tokenManagementCreateOboToken(
 
 \item{application_id}{Required. Application ID of the service principal.}
 
-\item{lifetime_seconds}{Required. The number of seconds before the token expires.}
-
 \item{comment}{Comment that describes the purpose of the token.}
+
+\item{lifetime_seconds}{The number of seconds before the token expires.}
 }
 \description{
 Creates a token on behalf of a service principal.

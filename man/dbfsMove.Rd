@@ -18,5 +18,5 @@ Moves a file from one location to another location within DBFS. If the source
 file does not exist, this call throws an exception with
 \code{RESOURCE_DOES_NOT_EXIST}. If a file already exists in the destination path,
 this call throws an exception with \code{RESOURCE_ALREADY_EXISTS}. If the given
-source path is a directory, this call always recursively moves all files.',
+source path is a directory, this call always recursively moves all files.
 }

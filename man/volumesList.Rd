@@ -4,7 +4,14 @@
 \alias{volumesList}
 \title{List Volumes.}
 \usage{
-volumesList(client, catalog_name, schema_name)
+volumesList(
+  client,
+  catalog_name,
+  schema_name,
+  include_browse = NULL,
+  max_results = NULL,
+  page_token = NULL
+)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
@@ -12,13 +19,19 @@ volumesList(client, catalog_name, schema_name)
 \item{catalog_name}{Required. The identifier of the catalog.}
 
 \item{schema_name}{Required. The identifier of the schema.}
+
+\item{include_browse}{Whether to include volumes in the response for which the principal can only access selective metadata for.}
+
+\item{max_results}{Maximum number of volumes to return (page length).}
+
+\item{page_token}{Opaque token returned by a previous request.}
 }
 \value{
 \code{data.frame} with all of the response pages.
 }
 \description{
-Gets an array of all volumes for the current metastore under the parent
-catalog and schema.
+Gets an array of volumes for the current metastore under the parent catalog
+and schema.
 }
 \details{
 The returned volumes are filtered based on the privileges of the calling

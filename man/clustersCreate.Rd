@@ -16,6 +16,8 @@ clustersCreate(
   cluster_name = NULL,
   cluster_source = NULL,
   custom_tags = NULL,
+  data_security_mode = NULL,
+  docker_image = NULL,
   driver_instance_pool_id = NULL,
   driver_node_type_id = NULL,
   enable_elastic_disk = NULL,
@@ -27,6 +29,7 @@ clustersCreate(
   num_workers = NULL,
   policy_id = NULL,
   runtime_engine = NULL,
+  single_user_name = NULL,
   spark_conf = NULL,
   spark_env_vars = NULL,
   ssh_public_keys = NULL,
@@ -40,7 +43,7 @@ clustersCreate(
 
 \item{spark_version}{Required. The Spark version of the cluster, e.g.}
 
-\item{apply_policy_default_values}{Note: This field won't be true for webapp requests.}
+\item{apply_policy_default_values}{}
 
 \item{autoscale}{Parameters needed in order to automatically scale clusters up and down based on load.}
 
@@ -57,6 +60,10 @@ clustersCreate(
 \item{cluster_source}{Determines whether the cluster was created by a user through the UI, created by the Databricks Jobs Scheduler, or through an API request.}
 
 \item{custom_tags}{Additional tags for cluster resources.}
+
+\item{data_security_mode}{Data security mode decides what data governance model to use when accessing data from a cluster.}
+
+\item{docker_image}{}
 
 \item{driver_instance_pool_id}{The optional ID of the instance pool for the driver of the cluster belongs.}
 
@@ -79,6 +86,8 @@ clustersCreate(
 \item{policy_id}{The ID of the cluster policy used to create the cluster if applicable.}
 
 \item{runtime_engine}{Decides which runtime engine to be use, e.g.}
+
+\item{single_user_name}{Single user name if data_security_mode is \code{SINGLE_USER}.}
 
 \item{spark_conf}{An object containing a set of optional, user-specified Spark configuration key-value pairs.}
 

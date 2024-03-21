@@ -4,16 +4,18 @@
 \alias{connectionsUpdate}
 \title{Update a connection.}
 \usage{
-connectionsUpdate(client, name_arg, name, options_kvpairs)
+connectionsUpdate(client, name, options, new_name = NULL, owner = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{name_arg}{Required. Name of the connection.}
-
 \item{name}{Required. Name of the connection.}
 
-\item{options_kvpairs}{Required. A map of key-value properties attached to the securable.}
+\item{options}{Required. A map of key-value properties attached to the securable.}
+
+\item{new_name}{New name for the connection.}
+
+\item{owner}{Username of current owner of the connection.}
 }
 \description{
 Updates the connection that matches the supplied name.

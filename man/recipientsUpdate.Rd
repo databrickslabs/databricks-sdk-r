@@ -9,6 +9,7 @@ recipientsUpdate(
   name,
   comment = NULL,
   ip_access_list = NULL,
+  new_name = NULL,
   owner = NULL,
   properties_kvpairs = NULL
 )
@@ -16,11 +17,13 @@ recipientsUpdate(
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{name}{Name of Recipient.}
+\item{name}{Required. Name of the recipient.}
 
 \item{comment}{Description about the recipient.}
 
 \item{ip_access_list}{IP Access List.}
+
+\item{new_name}{New name for the recipient.}
 
 \item{owner}{Username of the recipient owner.}
 

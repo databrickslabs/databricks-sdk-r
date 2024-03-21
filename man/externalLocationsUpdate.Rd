@@ -12,15 +12,17 @@ externalLocationsUpdate(
   credential_name = NULL,
   encryption_details = NULL,
   force = NULL,
+  new_name = NULL,
   owner = NULL,
   read_only = NULL,
+  skip_validation = NULL,
   url = NULL
 )
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{name}{Name of the external location.}
+\item{name}{Required. Name of the external location.}
 
 \item{access_point}{The AWS access point to use when accesing s3 for this external location.}
 
@@ -32,9 +34,13 @@ externalLocationsUpdate(
 
 \item{force}{Force update even if changing url invalidates dependent external tables or mounts.}
 
+\item{new_name}{New name for the external location.}
+
 \item{owner}{The owner of the external location.}
 
 \item{read_only}{Indicates whether the external location is read-only.}
+
+\item{skip_validation}{Skips validation of the storage credential associated with the external location.}
 
 \item{url}{Path URL of the external location.}
 }

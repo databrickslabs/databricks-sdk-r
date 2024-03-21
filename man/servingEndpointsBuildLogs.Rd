@@ -2,8 +2,7 @@
 % Please edit documentation in R/serving_endpoints.R
 \name{servingEndpointsBuildLogs}
 \alias{servingEndpointsBuildLogs}
-\title{Retrieve the logs associated with building the model's environment for a
-given serving endpoint's served model.}
+\title{Get build logs for a served model.}
 \usage{
 servingEndpointsBuildLogs(client, name, served_model_name)
 }

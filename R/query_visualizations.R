@@ -1,0 +1,56 @@
+# Code generated from OpenAPI specs by Databricks SDK Generator. DO NOT EDIT.
+
+#' @importFrom stats runif
+NULL
+
+#' Add visualization to a query.
+#' @param client Required. Instance of DatabricksClient()
+#'
+#' @param description A short description of this visualization.
+#' @param name The name of the visualization that appears on dashboards and the query screen.
+#' @param options Required. The options object varies widely from one visualization type to the next and is unsupported.
+#' @param query_id Required. The identifier returned by :method:queries/create.
+#' @param type Required. The type of visualization: chart, table, pivot table, and so on.
+#'
+#' @rdname queryVisualizationsCreate
+#' @export
+queryVisualizationsCreate <- function(client, query_id, type, options, description = NULL,
+  name = NULL) {
+  body <- list(description = description, name = name, options = options, query_id = query_id,
+    type = type)
+  client$do("POST", "/api/2.0/preview/sql/visualizations", body = body)
+}
+
+#' Remove visualization.
+#' @param client Required. Instance of DatabricksClient()
+#'
+#' @param id Required. Widget ID returned by :method:queryvizualisations/create.
+#'
+#' @rdname queryVisualizationsDelete
+#' @export
+queryVisualizationsDelete <- function(client, id) {
+
+  client$do("DELETE", paste("/api/2.0/preview/sql/visualizations/", id, sep = ""))
+}
+
+#' Edit existing visualization.
+#' @param client Required. Instance of DatabricksClient()
+#'
+#' @param created_at 
+#' @param description A short description of this visualization.
+#' @param id The UUID for this visualization.
+#' @param name The name of the visualization that appears on dashboards and the query screen.
+#' @param options The options object varies widely from one visualization type to the next and is unsupported.
+#' @param type The type of visualization: chart, table, pivot table, and so on.
+#' @param updated_at 
+#'
+#' @rdname queryVisualizationsUpdate
+#' @export
+queryVisualizationsUpdate <- function(client, id, created_at = NULL, description = NULL,
+  name = NULL, options = NULL, type = NULL, updated_at = NULL) {
+  body <- list(created_at = created_at, description = description, id = id, name = name,
+    options = options, type = type, updated_at = updated_at)
+  client$do("POST", paste("/api/2.0/preview/sql/visualizations/", id, sep = ""),
+    body = body)
+}
+

@@ -2,7 +2,7 @@
 % Please edit documentation in R/jobs.R
 \name{jobsReset}
 \alias{jobsReset}
-\title{Overwrites all settings for a job.}
+\title{Update all job settings (reset).}
 \usage{
 jobsReset(client, job_id, new_settings)
 }
@@ -14,6 +14,5 @@ jobsReset(client, job_id, new_settings)
 \item{new_settings}{Required. The new settings of the job.}
 }
 \description{
-Overwrites all the settings for a specific job. Use the Update endpoint to
-update job settings partially.
+Overwrite all settings for the given job. Use the \href{:method:jobs/update}{\emph{Update} endpoint} to update job settings partially.
 }

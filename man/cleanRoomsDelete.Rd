@@ -4,12 +4,12 @@
 \alias{cleanRoomsDelete}
 \title{Delete a clean room.}
 \usage{
-cleanRoomsDelete(client, name_arg)
+cleanRoomsDelete(client, name)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{name_arg}{Required. The name of the clean room.}
+\item{name}{Required. The name of the clean room.}
 }
 \description{
 Deletes a data object clean room from the metastore. The caller must be an
