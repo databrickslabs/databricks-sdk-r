@@ -53,8 +53,8 @@ by changing the <code>callback</code> parameter.</p>
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">servingEndpointsUpdateConfig</span><span class="op">(</span></span>
 <span>  <span class="va">client</span>,</span>
-<span>  <span class="va">name</span>,</span>
 <span>  <span class="va">served_models</span>,</span>
+<span>  <span class="va">name</span>,</span>
 <span>  traffic_config <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  timeout <span class="op">=</span> <span class="fl">20</span>,</span>
 <span>  callback <span class="op">=</span> <span class="va">cli_reporter</span></span>
@@ -67,12 +67,12 @@ by changing the <code>callback</code> parameter.</p>
 <dd><p>Required. Instance of DatabricksClient()</p></dd>
 
 
-<dt>name</dt>
-<dd><p>Required. The name of the serving endpoint to update.</p></dd>
-
-
 <dt>served_models</dt>
 <dd><p>Required. A list of served models for the endpoint to serve.</p></dd>
+
+
+<dt>name</dt>
+<dd><p>Required. The name of the serving endpoint to update.</p></dd>
 
 
 <dt>traffic_config</dt>

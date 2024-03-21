@@ -143,6 +143,11 @@ Databricks REST API and handle a subset of Unified Client Authentication.</dd>
         <dd>Update a clean room.</dd>
       </dl><dl><dt>
           
+          <code><a href="clusterPoliciesClusterPolicyId.html">clusterPoliciesClusterPolicyId()</a></code> 
+        </dt>
+        <dd>Get cluster policy permissions.</dd>
+      </dl><dl><dt>
+          
           <code><a href="clusterPoliciesCreate.html">clusterPoliciesCreate()</a></code> 
         </dt>
         <dd>Create a new policy.</dd>
@@ -163,34 +168,24 @@ Databricks REST API and handle a subset of Unified Client Authentication.</dd>
         <dd>Get entity.</dd>
       </dl><dl><dt>
           
-          <code><a href="clusterPoliciesGetClusterPolicyPermissionLevels.html">clusterPoliciesGetClusterPolicyPermissionLevels()</a></code> 
-        </dt>
-        <dd>Get cluster policy permission levels.</dd>
-      </dl><dl><dt>
-          
-          <code><a href="clusterPoliciesGetClusterPolicyPermissions.html">clusterPoliciesGetClusterPolicyPermissions()</a></code> 
-        </dt>
-        <dd>Get cluster policy permissions.</dd>
-      </dl><dl><dt>
-          
           <code><a href="clusterPoliciesList.html">clusterPoliciesList()</a></code> 
         </dt>
         <dd>Get a cluster policy.</dd>
       </dl><dl><dt>
           
-          <code><a href="clusterPoliciesSetClusterPolicyPermissions.html">clusterPoliciesSetClusterPolicyPermissions()</a></code> 
+          <code><a href="clusterPoliciesPermissionLevels.html">clusterPoliciesPermissionLevels()</a></code> 
         </dt>
-        <dd>Set cluster policy permissions.</dd>
-      </dl><dl><dt>
-          
-          <code><a href="clusterPoliciesUpdateClusterPolicyPermissions.html">clusterPoliciesUpdateClusterPolicyPermissions()</a></code> 
-        </dt>
-        <dd>Update cluster policy permissions.</dd>
+        <dd>Get cluster policy permission levels.</dd>
       </dl><dl><dt>
           
           <code><a href="clustersChangeOwner.html">clustersChangeOwner()</a></code> 
         </dt>
         <dd>Change cluster owner.</dd>
+      </dl><dl><dt>
+          
+          <code><a href="clustersClusterId.html">clustersClusterId()</a></code> 
+        </dt>
+        <dd>Update cluster permissions.</dd>
       </dl><dl><dt>
           
           <code><a href="clustersCreate.html">clustersCreate()</a></code> 
@@ -218,16 +213,6 @@ Databricks REST API and handle a subset of Unified Client Authentication.</dd>
         <dd>Get cluster info.</dd>
       </dl><dl><dt>
           
-          <code><a href="clustersGetClusterPermissionLevels.html">clustersGetClusterPermissionLevels()</a></code> 
-        </dt>
-        <dd>Get cluster permission levels.</dd>
-      </dl><dl><dt>
-          
-          <code><a href="clustersGetClusterPermissions.html">clustersGetClusterPermissions()</a></code> 
-        </dt>
-        <dd>Get cluster permissions.</dd>
-      </dl><dl><dt>
-          
           <code><a href="clustersList.html">clustersList()</a></code> 
         </dt>
         <dd>List all clusters.</dd>
@@ -248,6 +233,11 @@ Databricks REST API and handle a subset of Unified Client Authentication.</dd>
         <dd>Permanently delete cluster.</dd>
       </dl><dl><dt>
           
+          <code><a href="clustersPermissionLevels.html">clustersPermissionLevels()</a></code> 
+        </dt>
+        <dd>Get cluster permission levels.</dd>
+      </dl><dl><dt>
+          
           <code><a href="clustersPin.html">clustersPin()</a></code> 
         </dt>
         <dd>Pin cluster.</dd>
@@ -263,11 +253,6 @@ Databricks REST API and handle a subset of Unified Client Authentication.</dd>
         <dd>Restart cluster.</dd>
       </dl><dl><dt>
           
-          <code><a href="clustersSetClusterPermissions.html">clustersSetClusterPermissions()</a></code> 
-        </dt>
-        <dd>Set cluster permissions.</dd>
-      </dl><dl><dt>
-          
           <code><a href="clustersSparkVersions.html">clustersSparkVersions()</a></code> 
         </dt>
         <dd>List available Spark versions.</dd>
@@ -281,11 +266,6 @@ Databricks REST API and handle a subset of Unified Client Authentication.</dd>
           <code><a href="clustersUnpin.html">clustersUnpin()</a></code> 
         </dt>
         <dd>Unpin cluster.</dd>
-      </dl><dl><dt>
-          
-          <code><a href="clustersUpdateClusterPermissions.html">clustersUpdateClusterPermissions()</a></code> 
-        </dt>
-        <dd>Update cluster permissions.</dd>
       </dl><dl><dt>
           
           <code><a href="commandExecutionCancel.html">commandExecutionCancel()</a></code> 
@@ -748,14 +728,9 @@ Databricks REST API and handle a subset of Unified Client Authentication.</dd>
         <dd>Get instance pool information.</dd>
       </dl><dl><dt>
           
-          <code><a href="instancePoolsGetInstancePoolPermissionLevels.html">instancePoolsGetInstancePoolPermissionLevels()</a></code> 
+          <code><a href="instancePoolsInstancePoolId.html">instancePoolsInstancePoolId()</a></code> 
         </dt>
-        <dd>Get instance pool permission levels.</dd>
-      </dl><dl><dt>
-          
-          <code><a href="instancePoolsGetInstancePoolPermissions.html">instancePoolsGetInstancePoolPermissions()</a></code> 
-        </dt>
-        <dd>Get instance pool permissions.</dd>
+        <dd>Set instance pool permissions.</dd>
       </dl><dl><dt>
           
           <code><a href="instancePoolsList.html">instancePoolsList()</a></code> 
@@ -763,14 +738,9 @@ Databricks REST API and handle a subset of Unified Client Authentication.</dd>
         <dd>List instance pool info.</dd>
       </dl><dl><dt>
           
-          <code><a href="instancePoolsSetInstancePoolPermissions.html">instancePoolsSetInstancePoolPermissions()</a></code> 
+          <code><a href="instancePoolsPermissionLevels.html">instancePoolsPermissionLevels()</a></code> 
         </dt>
-        <dd>Set instance pool permissions.</dd>
-      </dl><dl><dt>
-          
-          <code><a href="instancePoolsUpdateInstancePoolPermissions.html">instancePoolsUpdateInstancePoolPermissions()</a></code> 
-        </dt>
-        <dd>Update instance pool permissions.</dd>
+        <dd>Get instance pool permission levels.</dd>
       </dl><dl><dt>
           
           <code><a href="instanceProfilesAdd.html">instanceProfilesAdd()</a></code> 
@@ -1975,16 +1945,6 @@ served model.</dd>
         <dd>Get status.</dd>
       </dl><dl><dt>
           
-          <code><a href="workspaceGetWorkspaceObjectPermissionLevels.html">workspaceGetWorkspaceObjectPermissionLevels()</a></code> 
-        </dt>
-        <dd>Get workspace object permission levels.</dd>
-      </dl><dl><dt>
-          
-          <code><a href="workspaceGetWorkspaceObjectPermissions.html">workspaceGetWorkspaceObjectPermissions()</a></code> 
-        </dt>
-        <dd>Get workspace object permissions.</dd>
-      </dl><dl><dt>
-          
           <code><a href="workspaceImport.html">workspaceImport()</a></code> 
         </dt>
         <dd>Import a workspace object.</dd>
@@ -2000,12 +1960,12 @@ served model.</dd>
         <dd>Create a directory.</dd>
       </dl><dl><dt>
           
-          <code><a href="workspaceSetWorkspaceObjectPermissions.html">workspaceSetWorkspaceObjectPermissions()</a></code> 
+          <code><a href="workspacePermissionLevels.html">workspacePermissionLevels()</a></code> 
         </dt>
-        <dd>Set workspace object permissions.</dd>
+        <dd>Get workspace object permission levels.</dd>
       </dl><dl><dt>
           
-          <code><a href="workspaceUpdateWorkspaceObjectPermissions.html">workspaceUpdateWorkspaceObjectPermissions()</a></code> 
+          <code><a href="workspaceWorkspaceObjectId.html">workspaceWorkspaceObjectId()</a></code> 
         </dt>
         <dd>Update workspace object permissions.</dd>
       </dl></div>
