@@ -18,7 +18,7 @@ on the parent catalog."><!-- mathjax --><script src="https://cdnjs.cloudflare.co
     
     <a class="navbar-brand me-2" href="../index.html">databricks</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.4.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -58,7 +58,8 @@ on the parent catalog.</p>
 <span>  <span class="va">client</span>,</span>
 <span>  <span class="va">full_name</span>,</span>
 <span>  comment <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  name <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  enable_predictive_optimization <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  new_name <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  owner <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  properties <span class="op">=</span> <span class="cn">NULL</span></span>
 <span><span class="op">)</span></span></code></pre></div>
@@ -78,8 +79,12 @@ on the parent catalog.</p>
 <dd><p>User-provided free-form text description.</p></dd>
 
 
-<dt>name</dt>
-<dd><p>Name of schema, relative to parent catalog.</p></dd>
+<dt>enable_predictive_optimization</dt>
+<dd><p>Whether predictive optimization should be enabled for this object and objects under it.</p></dd>
+
+
+<dt>new_name</dt>
+<dd><p>New name for the schema.</p></dd>
 
 
 <dt>owner</dt>

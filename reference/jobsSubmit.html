@@ -16,7 +16,7 @@ by changing the callback parameter."><!-- mathjax --><script src="https://cdnjs.
     
     <a class="navbar-brand me-2" href="../index.html">databricks</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.4.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -59,6 +59,7 @@ by changing the <code>callback</code> parameter.</p>
 <span>  health <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  idempotency_token <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  notification_settings <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  queue <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  run_name <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  tasks <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  timeout_seconds <span class="op">=</span> <span class="cn">NULL</span>,</span>
@@ -83,7 +84,7 @@ by changing the <code>callback</code> parameter.</p>
 
 
 <dt>git_source</dt>
-<dd><p>An optional specification for a remote repository containing the notebooks used by this job's notebook tasks.</p></dd>
+<dd><p>An optional specification for a remote Git repository containing the source code used by tasks.</p></dd>
 
 
 <dt>health</dt>
@@ -95,7 +96,11 @@ by changing the <code>callback</code> parameter.</p>
 
 
 <dt>notification_settings</dt>
-<dd><p>Optional notification settings that are used when sending notifications to each of the <code>webhook_notifications</code> for this run.</p></dd>
+<dd><p>Optional notification settings that are used when sending notifications to each of the <code>email_notifications</code> and <code>webhook_notifications</code> for this run.</p></dd>
+
+
+<dt>queue</dt>
+<dd><p>The queue settings of the one-time run.</p></dd>
 
 
 <dt>run_name</dt>

@@ -12,7 +12,7 @@ metastore. The table summaries returned are either:"><!-- mathjax --><script src
     
     <a class="navbar-brand me-2" href="../index.html">databricks</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.4.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -66,11 +66,11 @@ metastore. The table summaries returned are either:</p>
 
 
 <dt>max_results</dt>
-<dd><p>Maximum number of tables to return (page length).</p></dd>
+<dd><p>Maximum number of summaries for tables to return.</p></dd>
 
 
 <dt>page_token</dt>
-<dd><p>Opaque token to send for the next page of results (pagination).</p></dd>
+<dd><p>Opaque pagination token to go to next page based on previous query.</p></dd>
 
 
 <dt>schema_name_pattern</dt>
@@ -90,12 +90,12 @@ metastore. The table summaries returned are either:</p>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
     
-<ul><li><p>summaries for all tables (within the current metastore and parent catalog
-and schema), when the user is a metastore admin, or: * summaries for all
-tables and schemas (within the current metastore and parent catalog) for
-which the user has ownership or the <strong>SELECT</strong> privilege on the table and
-ownership or <strong>USE_SCHEMA</strong> privilege on the schema, provided that the user
-also has ownership or the <strong>USE_CATALOG</strong> privilege on the parent catalog.</p></li>
+<ul><li><p>summaries for tables (within the current metastore and parent catalog and
+schema), when the user is a metastore admin, or: * summaries for tables and
+schemas (within the current metastore and parent catalog) for which the user
+has ownership or the <strong>SELECT</strong> privilege on the table and ownership or
+<strong>USE_SCHEMA</strong> privilege on the schema, provided that the user also has
+ownership or the <strong>USE_CATALOG</strong> privilege on the parent catalog.</p></li>
 </ul><p>There is no guarantee of a specific ordering of the elements in the array.</p>
     </div>
 

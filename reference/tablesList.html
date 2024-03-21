@@ -20,7 +20,7 @@ guarantee of a specific ordering of the elements in the array."><!-- mathjax -->
     
     <a class="navbar-brand me-2" href="../index.html">databricks</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.4.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -61,8 +61,11 @@ guarantee of a specific ordering of the elements in the array.</p>
 <span>  <span class="va">client</span>,</span>
 <span>  <span class="va">catalog_name</span>,</span>
 <span>  <span class="va">schema_name</span>,</span>
+<span>  include_browse <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  include_delta_metadata <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  max_results <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  omit_columns <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  omit_properties <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  page_token <span class="op">=</span> <span class="cn">NULL</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
@@ -81,12 +84,24 @@ guarantee of a specific ordering of the elements in the array.</p>
 <dd><p>Required. Parent schema of tables.</p></dd>
 
 
+<dt>include_browse</dt>
+<dd><p>Whether to include tables in the response for which the principal can only access selective metadata for.</p></dd>
+
+
 <dt>include_delta_metadata</dt>
 <dd><p>Whether delta metadata should be included in the response.</p></dd>
 
 
 <dt>max_results</dt>
-<dd><p>Maximum number of tables to return (page length).</p></dd>
+<dd><p>Maximum number of tables to return.</p></dd>
+
+
+<dt>omit_columns</dt>
+<dd><p>Whether to omit the columns of the table from the response or not.</p></dd>
+
+
+<dt>omit_properties</dt>
+<dd><p>Whether to omit the properties of the table from the response or not.</p></dd>
 
 
 <dt>page_token</dt>

@@ -12,7 +12,7 @@ metastore admin or has the CREATE_CATALOG privilege."><!-- mathjax --><script sr
     
     <a class="navbar-brand me-2" href="../index.html">databricks</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.4.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -50,6 +50,7 @@ metastore admin or has the <strong>CREATE_CATALOG</strong> privilege.</p>
 <span>  <span class="va">name</span>,</span>
 <span>  comment <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  connection_name <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  options <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  properties <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  provider_name <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  share_name <span class="op">=</span> <span class="cn">NULL</span>,</span>
@@ -73,6 +74,10 @@ metastore admin or has the <strong>CREATE_CATALOG</strong> privilege.</p>
 
 <dt>connection_name</dt>
 <dd><p>The name of the connection to an external data source.</p></dd>
+
+
+<dt>options</dt>
+<dd><p>A map of key-value properties attached to the securable.</p></dd>
 
 
 <dt>properties</dt>

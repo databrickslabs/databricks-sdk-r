@@ -12,7 +12,7 @@ caller must be the owner of the clean room or a metastore admin."><!-- mathjax -
     
     <a class="navbar-brand me-2" href="../index.html">databricks</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.4.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -47,10 +47,9 @@ caller must be the owner of the clean room or a metastore admin.</p>
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">cleanRoomsUpdate</span><span class="op">(</span></span>
 <span>  <span class="va">client</span>,</span>
-<span>  <span class="va">name_arg</span>,</span>
+<span>  <span class="va">name</span>,</span>
 <span>  catalog_updates <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  comment <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  name <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  owner <span class="op">=</span> <span class="cn">NULL</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
@@ -61,7 +60,7 @@ caller must be the owner of the clean room or a metastore admin.</p>
 <dd><p>Required. Instance of DatabricksClient()</p></dd>
 
 
-<dt>name_arg</dt>
+<dt>name</dt>
 <dd><p>Required. The name of the clean room.</p></dd>
 
 
@@ -71,10 +70,6 @@ caller must be the owner of the clean room or a metastore admin.</p>
 
 <dt>comment</dt>
 <dd><p>User-provided free-form text description.</p></dd>
-
-
-<dt>name</dt>
-<dd><p>Name of the clean room.</p></dd>
 
 
 <dt>owner</dt>

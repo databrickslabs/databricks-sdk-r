@@ -16,7 +16,7 @@ by changing the callback parameter."><!-- mathjax --><script src="https://cdnjs.
     
     <a class="navbar-brand me-2" href="../index.html">databricks</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.4.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -55,6 +55,8 @@ by changing the <code>callback</code> parameter.</p>
 <span>  <span class="va">client</span>,</span>
 <span>  <span class="va">name</span>,</span>
 <span>  <span class="va">config</span>,</span>
+<span>  rate_limits <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  tags <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  timeout <span class="op">=</span> <span class="fl">20</span>,</span>
 <span>  callback <span class="op">=</span> <span class="va">cli_reporter</span></span>
 <span><span class="op">)</span></span></code></pre></div>
@@ -72,6 +74,14 @@ by changing the <code>callback</code> parameter.</p>
 
 <dt>config</dt>
 <dd><p>Required. The core config of the serving endpoint.</p></dd>
+
+
+<dt>rate_limits</dt>
+<dd><p>Rate limits to be applied to the serving endpoint.</p></dd>
+
+
+<dt>tags</dt>
+<dd><p>Tags to be attached to the serving endpoint and automatically propagated to billing logs.</p></dd>
 
 </dl></div>
 

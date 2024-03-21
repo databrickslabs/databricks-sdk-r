@@ -12,7 +12,7 @@ added to the Databricks account."><!-- mathjax --><script src="https://cdnjs.clo
     
     <a class="navbar-brand me-2" href="../index.html">databricks</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.4.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -56,6 +56,7 @@ added to the Databricks account.</p>
 <span>  id <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  name <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  roles <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  schemas <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  user_name <span class="op">=</span> <span class="cn">NULL</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
@@ -79,11 +80,11 @@ added to the Databricks account.</p>
 
 
 <dt>entitlements</dt>
-<dd></dd>
+<dd><p>Entitlements assigned to the user.</p></dd>
 
 
 <dt>external_id</dt>
-<dd></dd>
+<dd><p>External ID is not currently supported.</p></dd>
 
 
 <dt>groups</dt>
@@ -99,7 +100,11 @@ added to the Databricks account.</p>
 
 
 <dt>roles</dt>
-<dd></dd>
+<dd><p>Corresponds to AWS instance profile/arn role.</p></dd>
+
+
+<dt>schemas</dt>
+<dd><p>The schema of the user.</p></dd>
 
 
 <dt>user_name</dt>

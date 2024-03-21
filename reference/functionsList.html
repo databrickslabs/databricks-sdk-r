@@ -22,7 +22,7 @@ the array."><!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/
     
     <a class="navbar-brand me-2" href="../index.html">databricks</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.4.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -60,7 +60,14 @@ the array.</p>
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">functionsList</span><span class="op">(</span><span class="va">client</span>, <span class="va">catalog_name</span>, <span class="va">schema_name</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">functionsList</span><span class="op">(</span></span>
+<span>  <span class="va">client</span>,</span>
+<span>  <span class="va">catalog_name</span>,</span>
+<span>  <span class="va">schema_name</span>,</span>
+<span>  include_browse <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  max_results <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  page_token <span class="op">=</span> <span class="cn">NULL</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -75,6 +82,18 @@ the array.</p>
 
 <dt>schema_name</dt>
 <dd><p>Required. Parent schema of functions.</p></dd>
+
+
+<dt>include_browse</dt>
+<dd><p>Whether to include functions in the response for which the principal can only access selective metadata for.</p></dd>
+
+
+<dt>max_results</dt>
+<dd><p>Maximum number of functions to return.</p></dd>
+
+
+<dt>page_token</dt>
+<dd><p>Opaque pagination token to go to next page based on previous query.</p></dd>
 
 </dl></div>
     <div class="section level2">

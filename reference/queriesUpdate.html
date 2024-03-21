@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">databricks</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.4.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -49,7 +49,8 @@
 <span>  description <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  name <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  options <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  query <span class="op">=</span> <span class="cn">NULL</span></span>
+<span>  query <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  run_as_role <span class="op">=</span> <span class="cn">NULL</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -64,7 +65,7 @@
 
 
 <dt>data_source_id</dt>
-<dd><p>Data source ID.</p></dd>
+<dd><p>Data source ID maps to the ID of the data source used by the resource and is distinct from the warehouse ID.</p></dd>
 
 
 <dt>description</dt>
@@ -81,6 +82,10 @@
 
 <dt>query</dt>
 <dd><p>The text of the query to be run.</p></dd>
+
+
+<dt>run_as_role</dt>
+<dd><p>Sets the <strong>Run as</strong> role for the object.</p></dd>
 
 </dl></div>
     <div class="section level2">

@@ -16,7 +16,7 @@ provider."><!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/m
     
     <a class="navbar-brand me-2" href="../index.html">databricks</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.4.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -55,6 +55,7 @@ provider.</p>
 <span>  <span class="va">client</span>,</span>
 <span>  <span class="va">name</span>,</span>
 <span>  comment <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  new_name <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  owner <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  recipient_profile_str <span class="op">=</span> <span class="cn">NULL</span></span>
 <span><span class="op">)</span></span></code></pre></div>
@@ -67,11 +68,15 @@ provider.</p>
 
 
 <dt>name</dt>
-<dd><p>The name of the Provider.</p></dd>
+<dd><p>Required. Name of the provider.</p></dd>
 
 
 <dt>comment</dt>
 <dd><p>Description about the provider.</p></dd>
+
+
+<dt>new_name</dt>
+<dd><p>New name for the provider.</p></dd>
 
 
 <dt>owner</dt>

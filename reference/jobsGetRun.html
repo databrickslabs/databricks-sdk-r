@@ -16,7 +16,7 @@ by changing the callback parameter."><!-- mathjax --><script src="https://cdnjs.
     
     <a class="navbar-brand me-2" href="../index.html">databricks</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.4.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -55,6 +55,7 @@ by changing the <code>callback</code> parameter.</p>
 <span>  <span class="va">client</span>,</span>
 <span>  <span class="va">run_id</span>,</span>
 <span>  include_history <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  include_resolved_values <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  timeout <span class="op">=</span> <span class="fl">20</span>,</span>
 <span>  callback <span class="op">=</span> <span class="va">cli_reporter</span></span>
 <span><span class="op">)</span></span></code></pre></div>
@@ -72,6 +73,10 @@ by changing the <code>callback</code> parameter.</p>
 
 <dt>include_history</dt>
 <dd><p>Whether to include the repair history in the response.</p></dd>
+
+
+<dt>include_resolved_values</dt>
+<dd><p>Whether to include resolved parameter values in the response.</p></dd>
 
 </dl></div>
     <div class="section level2">

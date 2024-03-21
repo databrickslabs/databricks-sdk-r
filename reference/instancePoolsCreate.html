@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">databricks</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.4.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -53,7 +53,6 @@
 <span>  enable_elastic_disk <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  gcp_attributes <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  idle_instance_autotermination_minutes <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  instance_pool_fleet_attributes <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  max_capacity <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  min_idle_instances <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  preloaded_docker_images <span class="op">=</span> <span class="cn">NULL</span>,</span>
@@ -103,10 +102,6 @@
 <dd><p>Automatically terminates the extra instances in the pool cache after they are inactive for this time in minutes if min_idle_instances requirement is already met.</p></dd>
 
 
-<dt>instance_pool_fleet_attributes</dt>
-<dd><p>The fleet related setting to power the instance pool.</p></dd>
-
-
 <dt>max_capacity</dt>
 <dd><p>Maximum number of outstanding instances to keep in the pool, including both instances used by clusters and idle instances.</p></dd>
 
@@ -120,7 +115,7 @@
 
 
 <dt>preloaded_spark_versions</dt>
-<dd><p>A list of preloaded Spark image versions for the pool.</p></dd>
+<dd><p>A list containing at most one preloaded Spark image version for the pool.</p></dd>
 
 </dl></div>
 

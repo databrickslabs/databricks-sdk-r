@@ -16,7 +16,7 @@ recipient."><!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/
     
     <a class="navbar-brand me-2" href="../index.html">databricks</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.4.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -56,6 +56,7 @@ recipient.</p>
 <span>  <span class="va">name</span>,</span>
 <span>  comment <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  ip_access_list <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  new_name <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  owner <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  properties_kvpairs <span class="op">=</span> <span class="cn">NULL</span></span>
 <span><span class="op">)</span></span></code></pre></div>
@@ -68,7 +69,7 @@ recipient.</p>
 
 
 <dt>name</dt>
-<dd><p>Name of Recipient.</p></dd>
+<dd><p>Required. Name of the recipient.</p></dd>
 
 
 <dt>comment</dt>
@@ -77,6 +78,10 @@ recipient.</p>
 
 <dt>ip_access_list</dt>
 <dd><p>IP Access List.</p></dd>
+
+
+<dt>new_name</dt>
+<dd><p>New name for the recipient.</p></dd>
 
 
 <dt>owner</dt>

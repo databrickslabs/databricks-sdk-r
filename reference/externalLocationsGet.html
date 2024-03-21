@@ -14,7 +14,7 @@ privilege on the external location."><!-- mathjax --><script src="https://cdnjs.
     
     <a class="navbar-brand me-2" href="../index.html">databricks</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.4.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -48,7 +48,7 @@ privilege on the external location.</p>
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">externalLocationsGet</span><span class="op">(</span><span class="va">client</span>, <span class="va">name</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">externalLocationsGet</span><span class="op">(</span><span class="va">client</span>, <span class="va">name</span>, include_browse <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -59,6 +59,10 @@ privilege on the external location.</p>
 
 <dt>name</dt>
 <dd><p>Required. Name of the external location.</p></dd>
+
+
+<dt>include_browse</dt>
+<dd><p>Whether to include external locations in the response for which the principal can only access selective metadata for.</p></dd>
 
 </dl></div>
 

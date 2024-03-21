@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">databricks</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.4.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -42,7 +42,7 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">ipAccessListsCreate</span><span class="op">(</span><span class="va">client</span>, <span class="va">label</span>, <span class="va">list_type</span>, <span class="va">ip_addresses</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">ipAccessListsCreate</span><span class="op">(</span><span class="va">client</span>, <span class="va">label</span>, <span class="va">list_type</span>, ip_addresses <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -56,11 +56,11 @@
 
 
 <dt>list_type</dt>
-<dd><p>Required. This describes an enum.</p></dd>
+<dd><p>Required. Type of IP access list.</p></dd>
 
 
 <dt>ip_addresses</dt>
-<dd><p>Required. Array of IP addresses or CIDR values to be added to the IP access list.</p></dd>
+<dd></dd>
 
 </dl></div>
     <div class="section level2">

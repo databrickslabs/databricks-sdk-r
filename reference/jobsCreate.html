@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">databricks</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.4.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -47,6 +47,9 @@
 <span>  access_control_list <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  compute <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  continuous <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  deployment <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  description <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  edit_mode <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  email_notifications <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  format <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  git_source <span class="op">=</span> <span class="cn">NULL</span>,</span>
@@ -56,6 +59,7 @@
 <span>  name <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  notification_settings <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  parameters <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  queue <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  run_as <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  schedule <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  tags <span class="op">=</span> <span class="cn">NULL</span>,</span>
@@ -84,6 +88,18 @@
 <dd><p>An optional continuous property for this job.</p></dd>
 
 
+<dt>deployment</dt>
+<dd><p>Deployment information for jobs managed by external sources.</p></dd>
+
+
+<dt>description</dt>
+<dd><p>An optional description for the job.</p></dd>
+
+
+<dt>edit_mode</dt>
+<dd><p>Edit mode of the job.</p></dd>
+
+
 <dt>email_notifications</dt>
 <dd><p>An optional set of email addresses that is notified when runs of this job begin or complete as well as when this job is deleted.</p></dd>
 
@@ -93,7 +109,7 @@
 
 
 <dt>git_source</dt>
-<dd><p>An optional specification for a remote repository containing the notebooks used by this job's notebook tasks.</p></dd>
+<dd><p>An optional specification for a remote Git repository containing the source code used by tasks.</p></dd>
 
 
 <dt>health</dt>
@@ -120,6 +136,10 @@
 <dd><p>Job-level parameter definitions.</p></dd>
 
 
+<dt>queue</dt>
+<dd><p>The queue settings of the job.</p></dd>
+
+
 <dt>run_as</dt>
 <dd><p>Write-only setting, available only in Create/Update/Reset and Submit calls.</p></dd>
 
@@ -141,11 +161,11 @@
 
 
 <dt>trigger</dt>
-<dd><p>Trigger settings for the job.</p></dd>
+<dd><p>A configuration to trigger a run when certain conditions are met.</p></dd>
 
 
 <dt>webhook_notifications</dt>
-<dd><p>A collection of system notification IDs to notify when the run begins or completes.</p></dd>
+<dd><p>A collection of system notification IDs to notify when runs of this job begin or complete.</p></dd>
 
 </dl></div>
 

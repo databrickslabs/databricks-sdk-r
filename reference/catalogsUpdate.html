@@ -14,7 +14,7 @@ of the catalog)."><!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax
     
     <a class="navbar-brand me-2" href="../index.html">databricks</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.4.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -52,7 +52,9 @@ of the catalog).</p>
 <span>  <span class="va">client</span>,</span>
 <span>  <span class="va">name</span>,</span>
 <span>  comment <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  enable_predictive_optimization <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  isolation_mode <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  new_name <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  owner <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  properties <span class="op">=</span> <span class="cn">NULL</span></span>
 <span><span class="op">)</span></span></code></pre></div>
@@ -65,15 +67,23 @@ of the catalog).</p>
 
 
 <dt>name</dt>
-<dd><p>Name of catalog.</p></dd>
+<dd><p>Required. The name of the catalog.</p></dd>
 
 
 <dt>comment</dt>
 <dd><p>User-provided free-form text description.</p></dd>
 
 
+<dt>enable_predictive_optimization</dt>
+<dd><p>Whether predictive optimization should be enabled for this object and objects under it.</p></dd>
+
+
 <dt>isolation_mode</dt>
 <dd><p>Whether the current securable is accessible from all workspaces or a specific set of workspaces.</p></dd>
+
+
+<dt>new_name</dt>
+<dd><p>New name for the catalog.</p></dd>
 
 
 <dt>owner</dt>

@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">databricks</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.4.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -47,6 +47,7 @@
 <span>  <span class="va">name</span>,</span>
 <span>  definition <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  description <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  libraries <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  max_clusters_per_user <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  policy_family_definition_overrides <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  policy_family_id <span class="op">=</span> <span class="cn">NULL</span></span>
@@ -64,11 +65,15 @@
 
 
 <dt>definition</dt>
-<dd><p>Policy definition document expressed in Databricks Cluster Policy Definition Language.</p></dd>
+<dd><p>Policy definition document expressed in <a href="https://docs.databricks.com/administration-guide/clusters/policy-definition.html" class="external-link">Databricks Cluster Policy Definition Language</a>.</p></dd>
 
 
 <dt>description</dt>
 <dd><p>Additional human-readable description of the cluster policy.</p></dd>
+
+
+<dt>libraries</dt>
+<dd><p>A list of libraries to be installed on the next cluster restart that uses this policy.</p></dd>
 
 
 <dt>max_clusters_per_user</dt>
@@ -76,7 +81,7 @@
 
 
 <dt>policy_family_definition_overrides</dt>
-<dd><p>Policy definition JSON document expressed in Databricks Policy Definition Language.</p></dd>
+<dd><p>Policy definition JSON document expressed in <a href="https://docs.databricks.com/administration-guide/clusters/policy-definition.html" class="external-link">Databricks Policy Definition Language</a>.</p></dd>
 
 
 <dt>policy_family_id</dt>

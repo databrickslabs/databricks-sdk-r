@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">databricks</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.4.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -45,8 +45,8 @@
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">tokenManagementCreateOboToken</span><span class="op">(</span></span>
 <span>  <span class="va">client</span>,</span>
 <span>  <span class="va">application_id</span>,</span>
-<span>  <span class="va">lifetime_seconds</span>,</span>
-<span>  comment <span class="op">=</span> <span class="cn">NULL</span></span>
+<span>  comment <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  lifetime_seconds <span class="op">=</span> <span class="cn">NULL</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -60,12 +60,12 @@
 <dd><p>Required. Application ID of the service principal.</p></dd>
 
 
-<dt>lifetime_seconds</dt>
-<dd><p>Required. The number of seconds before the token expires.</p></dd>
-
-
 <dt>comment</dt>
 <dd><p>Comment that describes the purpose of the token.</p></dd>
+
+
+<dt>lifetime_seconds</dt>
+<dd><p>The number of seconds before the token expires.</p></dd>
 
 </dl></div>
 

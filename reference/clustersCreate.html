@@ -16,7 +16,7 @@ by changing the callback parameter."><!-- mathjax --><script src="https://cdnjs.
     
     <a class="navbar-brand me-2" href="../index.html">databricks</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.4.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -63,6 +63,8 @@ by changing the <code>callback</code> parameter.</p>
 <span>  cluster_name <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  cluster_source <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  custom_tags <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  data_security_mode <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  docker_image <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  driver_instance_pool_id <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  driver_node_type_id <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  enable_elastic_disk <span class="op">=</span> <span class="cn">NULL</span>,</span>
@@ -74,6 +76,7 @@ by changing the <code>callback</code> parameter.</p>
 <span>  num_workers <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  policy_id <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  runtime_engine <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  single_user_name <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  spark_conf <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  spark_env_vars <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  ssh_public_keys <span class="op">=</span> <span class="cn">NULL</span>,</span>
@@ -94,7 +97,7 @@ by changing the <code>callback</code> parameter.</p>
 
 
 <dt>apply_policy_default_values</dt>
-<dd><p>Note: This field won't be true for webapp requests.</p></dd>
+<dd></dd>
 
 
 <dt>autoscale</dt>
@@ -127,6 +130,14 @@ by changing the <code>callback</code> parameter.</p>
 
 <dt>custom_tags</dt>
 <dd><p>Additional tags for cluster resources.</p></dd>
+
+
+<dt>data_security_mode</dt>
+<dd><p>Data security mode decides what data governance model to use when accessing data from a cluster.</p></dd>
+
+
+<dt>docker_image</dt>
+<dd></dd>
 
 
 <dt>driver_instance_pool_id</dt>
@@ -171,6 +182,10 @@ by changing the <code>callback</code> parameter.</p>
 
 <dt>runtime_engine</dt>
 <dd><p>Decides which runtime engine to be use, e.g.</p></dd>
+
+
+<dt>single_user_name</dt>
+<dd><p>Single user name if data_security_mode is <code>SINGLE_USER</code>.</p></dd>
 
 
 <dt>spark_conf</dt>

@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">databricks</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.4.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -47,18 +47,10 @@
 <span>  <span class="va">instance_pool_id</span>,</span>
 <span>  <span class="va">instance_pool_name</span>,</span>
 <span>  <span class="va">node_type_id</span>,</span>
-<span>  aws_attributes <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  azure_attributes <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  custom_tags <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  disk_spec <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  enable_elastic_disk <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  gcp_attributes <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  idle_instance_autotermination_minutes <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  instance_pool_fleet_attributes <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  max_capacity <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  min_idle_instances <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  preloaded_docker_images <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  preloaded_spark_versions <span class="op">=</span> <span class="cn">NULL</span></span>
+<span>  min_idle_instances <span class="op">=</span> <span class="cn">NULL</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -80,36 +72,12 @@
 <dd><p>Required. This field encodes, through a single value, the resources available to each of the Spark nodes in this cluster.</p></dd>
 
 
-<dt>aws_attributes</dt>
-<dd><p>Attributes related to instance pools running on Amazon Web Services.</p></dd>
-
-
-<dt>azure_attributes</dt>
-<dd><p>Attributes related to instance pools running on Azure.</p></dd>
-
-
 <dt>custom_tags</dt>
 <dd><p>Additional tags for pool resources.</p></dd>
 
 
-<dt>disk_spec</dt>
-<dd><p>Defines the specification of the disks that will be attached to all spark containers.</p></dd>
-
-
-<dt>enable_elastic_disk</dt>
-<dd><p>Autoscaling Local Storage: when enabled, this instances in this pool will dynamically acquire additional disk space when its Spark workers are running low on disk space.</p></dd>
-
-
-<dt>gcp_attributes</dt>
-<dd><p>Attributes related to instance pools running on Google Cloud Platform.</p></dd>
-
-
 <dt>idle_instance_autotermination_minutes</dt>
 <dd><p>Automatically terminates the extra instances in the pool cache after they are inactive for this time in minutes if min_idle_instances requirement is already met.</p></dd>
-
-
-<dt>instance_pool_fleet_attributes</dt>
-<dd><p>The fleet related setting to power the instance pool.</p></dd>
 
 
 <dt>max_capacity</dt>
@@ -118,14 +86,6 @@
 
 <dt>min_idle_instances</dt>
 <dd><p>Minimum number of idle instances to keep in the instance pool.</p></dd>
-
-
-<dt>preloaded_docker_images</dt>
-<dd><p>Custom Docker Image BYOC.</p></dd>
-
-
-<dt>preloaded_spark_versions</dt>
-<dd><p>A list of preloaded Spark image versions for the pool.</p></dd>
 
 </dl></div>
 

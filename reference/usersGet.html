@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">databricks</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.4.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -42,7 +42,17 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">usersGet</span><span class="op">(</span><span class="va">client</span>, <span class="va">id</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">usersGet</span><span class="op">(</span></span>
+<span>  <span class="va">client</span>,</span>
+<span>  <span class="va">id</span>,</span>
+<span>  attributes <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  count <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  excluded_attributes <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  filter <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  sort_by <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  sort_order <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  start_index <span class="op">=</span> <span class="cn">NULL</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -53,6 +63,34 @@
 
 <dt>id</dt>
 <dd><p>Required. Unique ID for a user in the Databricks workspace.</p></dd>
+
+
+<dt>attributes</dt>
+<dd><p>Comma-separated list of attributes to return in response.</p></dd>
+
+
+<dt>count</dt>
+<dd><p>Desired number of results per page.</p></dd>
+
+
+<dt>excluded_attributes</dt>
+<dd><p>Comma-separated list of attributes to exclude in response.</p></dd>
+
+
+<dt>filter</dt>
+<dd><p>Query by which the results have to be filtered.</p></dd>
+
+
+<dt>sort_by</dt>
+<dd><p>Attribute to sort the results.</p></dd>
+
+
+<dt>sort_order</dt>
+<dd><p>The order to sort the results.</p></dd>
+
+
+<dt>start_index</dt>
+<dd><p>Specifies the index of the first result.</p></dd>
 
 </dl></div>
 

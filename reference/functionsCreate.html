@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">databricks</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.4.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -42,30 +42,7 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">functionsCreate</span><span class="op">(</span></span>
-<span>  <span class="va">client</span>,</span>
-<span>  <span class="va">name</span>,</span>
-<span>  <span class="va">catalog_name</span>,</span>
-<span>  <span class="va">schema_name</span>,</span>
-<span>  <span class="va">input_params</span>,</span>
-<span>  <span class="va">data_type</span>,</span>
-<span>  <span class="va">full_data_type</span>,</span>
-<span>  <span class="va">return_params</span>,</span>
-<span>  <span class="va">routine_body</span>,</span>
-<span>  <span class="va">routine_definition</span>,</span>
-<span>  <span class="va">routine_dependencies</span>,</span>
-<span>  <span class="va">parameter_style</span>,</span>
-<span>  <span class="va">is_deterministic</span>,</span>
-<span>  <span class="va">sql_data_access</span>,</span>
-<span>  <span class="va">is_null_call</span>,</span>
-<span>  <span class="va">security_type</span>,</span>
-<span>  <span class="va">specific_name</span>,</span>
-<span>  comment <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  external_language <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  external_name <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  properties <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  sql_path <span class="op">=</span> <span class="cn">NULL</span></span>
-<span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">functionsCreate</span><span class="op">(</span><span class="va">client</span>, <span class="va">function_info</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -74,88 +51,8 @@
 <dd><p>Required. Instance of DatabricksClient()</p></dd>
 
 
-<dt>name</dt>
-<dd><p>Required. Name of function, relative to parent schema.</p></dd>
-
-
-<dt>catalog_name</dt>
-<dd><p>Required. Name of parent catalog.</p></dd>
-
-
-<dt>schema_name</dt>
-<dd><p>Required. Name of parent schema relative to its parent catalog.</p></dd>
-
-
-<dt>input_params</dt>
-<dd><p>Required. The array of <strong>FunctionParameterInfo</strong> definitions of the function's parameters.</p></dd>
-
-
-<dt>data_type</dt>
-<dd><p>Required. Scalar function return data type.</p></dd>
-
-
-<dt>full_data_type</dt>
-<dd><p>Required. Pretty printed function data type.</p></dd>
-
-
-<dt>return_params</dt>
-<dd><p>Required. Table function return parameters.</p></dd>
-
-
-<dt>routine_body</dt>
-<dd><p>Required. Function language.</p></dd>
-
-
-<dt>routine_definition</dt>
-<dd><p>Required. Function body.</p></dd>
-
-
-<dt>routine_dependencies</dt>
-<dd><p>Required. Function dependencies.</p></dd>
-
-
-<dt>parameter_style</dt>
-<dd><p>Required. Function parameter style.</p></dd>
-
-
-<dt>is_deterministic</dt>
-<dd><p>Required. Whether the function is deterministic.</p></dd>
-
-
-<dt>sql_data_access</dt>
-<dd><p>Required. Function SQL data access.</p></dd>
-
-
-<dt>is_null_call</dt>
-<dd><p>Required. Function null call.</p></dd>
-
-
-<dt>security_type</dt>
-<dd><p>Required. Function security type.</p></dd>
-
-
-<dt>specific_name</dt>
-<dd><p>Required. Specific name of the function; Reserved for future use.</p></dd>
-
-
-<dt>comment</dt>
-<dd><p>User-provided free-form text description.</p></dd>
-
-
-<dt>external_language</dt>
-<dd><p>External function language.</p></dd>
-
-
-<dt>external_name</dt>
-<dd><p>External function name.</p></dd>
-
-
-<dt>properties</dt>
-<dd><p>A map of key-value properties attached to the securable.</p></dd>
-
-
-<dt>sql_path</dt>
-<dd><p>List of schemes whose objects can be referenced without qualification.</p></dd>
+<dt>function_info</dt>
+<dd><p>Required. Partial <strong>FunctionInfo</strong> specifying the function to be created.</p></dd>
 
 </dl></div>
     <div class="section level2">

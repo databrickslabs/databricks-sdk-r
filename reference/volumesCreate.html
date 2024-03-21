@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">databricks</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.4.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -45,8 +45,8 @@
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">volumesCreate</span><span class="op">(</span></span>
 <span>  <span class="va">client</span>,</span>
 <span>  <span class="va">catalog_name</span>,</span>
-<span>  <span class="va">name</span>,</span>
 <span>  <span class="va">schema_name</span>,</span>
+<span>  <span class="va">name</span>,</span>
 <span>  <span class="va">volume_type</span>,</span>
 <span>  comment <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  storage_location <span class="op">=</span> <span class="cn">NULL</span></span>
@@ -63,12 +63,12 @@
 <dd><p>Required. The name of the catalog where the schema and the volume are.</p></dd>
 
 
-<dt>name</dt>
-<dd><p>Required. The name of the volume.</p></dd>
-
-
 <dt>schema_name</dt>
 <dd><p>Required. The name of the schema where the volume is.</p></dd>
+
+
+<dt>name</dt>
+<dd><p>Required. The name of the volume.</p></dd>
 
 
 <dt>volume_type</dt>

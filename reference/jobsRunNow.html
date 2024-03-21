@@ -16,7 +16,7 @@ by changing the callback parameter."><!-- mathjax --><script src="https://cdnjs.
     
     <a class="navbar-brand me-2" href="../index.html">databricks</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.4.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -62,6 +62,7 @@ by changing the <code>callback</code> parameter.</p>
 <span>  pipeline_params <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  python_named_params <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  python_params <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  queue <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  spark_submit_params <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  sql_params <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  timeout <span class="op">=</span> <span class="fl">20</span>,</span>
@@ -88,7 +89,7 @@ by changing the <code>callback</code> parameter.</p>
 
 
 <dt>jar_params</dt>
-<dd><p>A list of parameters for jobs with Spark JAR tasks, for example <code>\'jar_params\': [\'john doe\', \'35\']</code>.</p></dd>
+<dd><p>A list of parameters for jobs with Spark JAR tasks, for example <code>'jar_params': ['john doe', '35']</code>.</p></dd>
 
 
 <dt>job_parameters</dt>
@@ -96,7 +97,7 @@ by changing the <code>callback</code> parameter.</p>
 
 
 <dt>notebook_params</dt>
-<dd><p>A map from keys to values for jobs with notebook task, for example <code>\'notebook_params\': {\'name\': \'john doe\', \'age\': \'35\'}</code>.</p></dd>
+<dd><p>A map from keys to values for jobs with notebook task, for example <code>'notebook_params': {'name': 'john doe', 'age': '35'}</code>.</p></dd>
 
 
 <dt>pipeline_params</dt>
@@ -108,11 +109,15 @@ by changing the <code>callback</code> parameter.</p>
 
 
 <dt>python_params</dt>
-<dd><p>A list of parameters for jobs with Python tasks, for example <code>\'python_params\': [\'john doe\', \'35\']</code>.</p></dd>
+<dd><p>A list of parameters for jobs with Python tasks, for example <code>'python_params': ['john doe', '35']</code>.</p></dd>
+
+
+<dt>queue</dt>
+<dd><p>The queue settings of the run.</p></dd>
 
 
 <dt>spark_submit_params</dt>
-<dd><p>A list of parameters for jobs with spark submit task, for example <code>\'spark_submit_params\': [\'--class\', \'org.apache.spark.examples.SparkPi\']</code>.</p></dd>
+<dd><p>A list of parameters for jobs with spark submit task, for example <code>'spark_submit_params': ['--class', 'org.apache.spark.examples.SparkPi']</code>.</p></dd>
 
 
 <dt>sql_params</dt>

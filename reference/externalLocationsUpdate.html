@@ -14,7 +14,7 @@ admin can only update the name of the external location."><!-- mathjax --><scrip
     
     <a class="navbar-brand me-2" href="../index.html">databricks</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.4.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -56,8 +56,10 @@ admin can only update the name of the external location.</p>
 <span>  credential_name <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  encryption_details <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  force <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  new_name <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  owner <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  read_only <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  skip_validation <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  url <span class="op">=</span> <span class="cn">NULL</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
@@ -69,7 +71,7 @@ admin can only update the name of the external location.</p>
 
 
 <dt>name</dt>
-<dd><p>Name of the external location.</p></dd>
+<dd><p>Required. Name of the external location.</p></dd>
 
 
 <dt>access_point</dt>
@@ -92,12 +94,20 @@ admin can only update the name of the external location.</p>
 <dd><p>Force update even if changing url invalidates dependent external tables or mounts.</p></dd>
 
 
+<dt>new_name</dt>
+<dd><p>New name for the external location.</p></dd>
+
+
 <dt>owner</dt>
 <dd><p>The owner of the external location.</p></dd>
 
 
 <dt>read_only</dt>
 <dd><p>Indicates whether the external location is read-only.</p></dd>
+
+
+<dt>skip_validation</dt>
+<dd><p>Skips validation of the storage credential associated with the external location.</p></dd>
 
 
 <dt>url</dt>

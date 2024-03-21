@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">databricks</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.4.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -44,12 +44,11 @@
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">ipAccessListsReplace</span><span class="op">(</span></span>
 <span>  <span class="va">client</span>,</span>
+<span>  <span class="va">ip_access_list_id</span>,</span>
 <span>  <span class="va">label</span>,</span>
 <span>  <span class="va">list_type</span>,</span>
-<span>  <span class="va">ip_addresses</span>,</span>
 <span>  <span class="va">enabled</span>,</span>
-<span>  <span class="va">ip_access_list_id</span>,</span>
-<span>  list_id <span class="op">=</span> <span class="cn">NULL</span></span>
+<span>  ip_addresses <span class="op">=</span> <span class="cn">NULL</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -59,28 +58,24 @@
 <dd><p>Required. Instance of DatabricksClient()</p></dd>
 
 
+<dt>ip_access_list_id</dt>
+<dd><p>Required. The ID for the corresponding IP access list.</p></dd>
+
+
 <dt>label</dt>
 <dd><p>Required. Label for the IP access list.</p></dd>
 
 
 <dt>list_type</dt>
-<dd><p>Required. This describes an enum.</p></dd>
-
-
-<dt>ip_addresses</dt>
-<dd><p>Required. Array of IP addresses or CIDR values to be added to the IP access list.</p></dd>
+<dd><p>Required. Type of IP access list.</p></dd>
 
 
 <dt>enabled</dt>
 <dd><p>Required. Specifies whether this IP access list is enabled.</p></dd>
 
 
-<dt>ip_access_list_id</dt>
-<dd><p>Required. The ID for the corresponding IP access list to modify.</p></dd>
-
-
-<dt>list_id</dt>
-<dd><p>Universally unique identifier (UUID) of the IP access list.</p></dd>
+<dt>ip_addresses</dt>
+<dd></dd>
 
 </dl></div>
     <div class="section level2">

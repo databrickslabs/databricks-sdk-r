@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">databricks</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.4.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -46,10 +46,9 @@
 <span>  <span class="va">client</span>,</span>
 <span>  <span class="va">name</span>,</span>
 <span>  <span class="va">connection_type</span>,</span>
-<span>  <span class="va">options_kvpairs</span>,</span>
+<span>  <span class="va">options</span>,</span>
 <span>  comment <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  owner <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  properties_kvpairs <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  properties <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  read_only <span class="op">=</span> <span class="cn">NULL</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
@@ -68,7 +67,7 @@
 <dd><p>Required. The type of connection.</p></dd>
 
 
-<dt>options_kvpairs</dt>
+<dt>options</dt>
 <dd><p>Required. A map of key-value properties attached to the securable.</p></dd>
 
 
@@ -76,11 +75,7 @@
 <dd><p>User-provided free-form text description.</p></dd>
 
 
-<dt>owner</dt>
-<dd><p>Username of current owner of the connection.</p></dd>
-
-
-<dt>properties_kvpairs</dt>
+<dt>properties</dt>
 <dd><p>An object containing map of key-value properties attached to the connection.</p></dd>
 
 
