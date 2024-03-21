@@ -93,7 +93,7 @@ recipientsList <- function(client, data_recipient_global_metastore_id = NULL) {
 #'
 #' @rdname recipientsRotateToken
 #' @export
-recipientsRotateToken <- function(client, existing_token_expire_in_seconds, name) {
+recipientsRotateToken <- function(client, name, existing_token_expire_in_seconds) {
   body <- list(existing_token_expire_in_seconds = existing_token_expire_in_seconds)
   client$do("POST", paste("/api/2.1/unity-catalog/recipients/", name, "/rotate-token",
     , sep = ""), body = body)

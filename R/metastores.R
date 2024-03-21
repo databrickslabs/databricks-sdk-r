@@ -16,7 +16,7 @@ NULL
 #'
 #' @rdname metastoresAssign
 #' @export
-metastoresAssign <- function(client, metastore_id, default_catalog_name, workspace_id) {
+metastoresAssign <- function(client, workspace_id, metastore_id, default_catalog_name) {
   body <- list(default_catalog_name = default_catalog_name, metastore_id = metastore_id)
   client$do("PUT", paste("/api/2.1/unity-catalog/workspaces/", workspace_id, "/metastore",
     , sep = ""), body = body)

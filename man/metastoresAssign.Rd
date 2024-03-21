@@ -4,16 +4,16 @@
 \alias{metastoresAssign}
 \title{Create an assignment.}
 \usage{
-metastoresAssign(client, metastore_id, default_catalog_name, workspace_id)
+metastoresAssign(client, workspace_id, metastore_id, default_catalog_name)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
+\item{workspace_id}{Required. A workspace ID.}
+
 \item{metastore_id}{Required. The unique ID of the metastore.}
 
 \item{default_catalog_name}{Required. The name of the default catalog in the metastore.}
-
-\item{workspace_id}{Required. A workspace ID.}
 }
 \description{
 Creates a new metastore assignment. If an assignment for the same

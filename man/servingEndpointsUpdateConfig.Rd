@@ -6,8 +6,8 @@
 \usage{
 servingEndpointsUpdateConfig(
   client,
-  served_models,
   name,
+  served_models,
   traffic_config = NULL,
   timeout = 20,
   callback = cli_reporter
@@ -16,9 +16,9 @@ servingEndpointsUpdateConfig(
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{served_models}{Required. A list of served models for the endpoint to serve.}
-
 \item{name}{Required. The name of the serving endpoint to update.}
+
+\item{served_models}{Required. A list of served models for the endpoint to serve.}
 
 \item{traffic_config}{The traffic config defining how invocations to the serving endpoint should be routed.}
 }

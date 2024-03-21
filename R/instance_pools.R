@@ -106,21 +106,35 @@ instancePoolsGet <- function(client, instance_pool_id) {
   client$do("GET", "/api/2.0/instance-pools/get", query = query)
 }
 
-#' Set instance pool permissions.
+#' Get instance pool permission levels.
 #' 
-#' Sets permissions on an instance pool. Instance pools can inherit permissions
-#' from their root object.
+#' Gets the permission levels that a user can have on an object.
 #' @param client Required. Instance of DatabricksClient()
 #'
-#' @param access_control_list 
 #' @param instance_pool_id Required. The instance pool for which to get or manage permissions.
 #'
-#' @rdname instancePoolsInstancePoolId
+#' @rdname instancePoolsGetInstancePoolPermissionLevels
 #' @export
-instancePoolsInstancePoolId <- function(client, instance_pool_id, access_control_list = NULL) {
-  body <- list(access_control_list = access_control_list)
-  client$do("PUT", paste("/api/2.0/permissions/instance-pools/", instance_pool_id,
-    sep = ""), body = body)
+instancePoolsGetInstancePoolPermissionLevels <- function(client, instance_pool_id) {
+
+  client$do("GET", paste("/api/2.0/permissions/instance-pools/", instance_pool_id,
+    "/permissionLevels", , sep = ""))
+}
+
+#' Get instance pool permissions.
+#' 
+#' Gets the permissions of an instance pool. Instance pools can inherit
+#' permissions from their root object.
+#' @param client Required. Instance of DatabricksClient()
+#'
+#' @param instance_pool_id Required. The instance pool for which to get or manage permissions.
+#'
+#' @rdname instancePoolsGetInstancePoolPermissions
+#' @export
+instancePoolsGetInstancePoolPermissions <- function(client, instance_pool_id) {
+
+  client$do("GET", paste("/api/2.0/permissions/instance-pools/", instance_pool_id,
+    sep = ""))
 }
 
 #' List instance pool info.
@@ -137,18 +151,38 @@ instancePoolsList <- function(client) {
 
 }
 
-#' Get instance pool permission levels.
+#' Set instance pool permissions.
 #' 
-#' Gets the permission levels that a user can have on an object.
+#' Sets permissions on an instance pool. Instance pools can inherit permissions
+#' from their root object.
 #' @param client Required. Instance of DatabricksClient()
 #'
+#' @param access_control_list 
 #' @param instance_pool_id Required. The instance pool for which to get or manage permissions.
 #'
-#' @rdname instancePoolsPermissionLevels
+#' @rdname instancePoolsSetInstancePoolPermissions
 #' @export
-instancePoolsPermissionLevels <- function(client, instance_pool_id) {
+instancePoolsSetInstancePoolPermissions <- function(client, instance_pool_id, access_control_list = NULL) {
+  body <- list(access_control_list = access_control_list)
+  client$do("PUT", paste("/api/2.0/permissions/instance-pools/", instance_pool_id,
+    sep = ""), body = body)
+}
 
-  client$do("GET", paste("/api/2.0/permissions/instance-pools/", instance_pool_id,
-    "/permissionLevels", , sep = ""))
+#' Update instance pool permissions.
+#' 
+#' Updates the permissions on an instance pool. Instance pools can inherit
+#' permissions from their root object.
+#' @param client Required. Instance of DatabricksClient()
+#'
+#' @param access_control_list 
+#' @param instance_pool_id Required. The instance pool for which to get or manage permissions.
+#'
+#' @rdname instancePoolsUpdateInstancePoolPermissions
+#' @export
+instancePoolsUpdateInstancePoolPermissions <- function(client, instance_pool_id,
+  access_control_list = NULL) {
+  body <- list(access_control_list = access_control_list)
+  client$do("PATCH", paste("/api/2.0/permissions/instance-pools/", instance_pool_id,
+    sep = ""), body = body)
 }
 

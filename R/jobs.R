@@ -36,7 +36,7 @@ jobsCancelAllRuns <- function(client, job_id) {
 #' @export
 jobsCancelRun <- function(client, run_id, timeout = 20, callback = cli_reporter) {
   body <- list(run_id = run_id)
-  client$do("POST", "/api/2.1/jobs/runs/cancel", body = body)
+  op_response <- client$do("POST", "/api/2.1/jobs/runs/cancel", body = body)
   started <- as.numeric(Sys.time())
   target_states <- c("TERMINATED", "SKIPPED", c())
   failure_states <- c("INTERNAL_ERROR", c())

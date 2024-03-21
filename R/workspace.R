@@ -62,6 +62,41 @@ workspaceGetStatus <- function(client, path) {
   client$do("GET", "/api/2.0/workspace/get-status", query = query)
 }
 
+#' Get workspace object permission levels.
+#' 
+#' Gets the permission levels that a user can have on an object.
+#' @param client Required. Instance of DatabricksClient()
+#'
+#' @param workspace_object_id Required. The workspace object for which to get or manage permissions.
+#' @param workspace_object_type Required. The workspace object type for which to get or manage permissions.
+#'
+#' @rdname workspaceGetWorkspaceObjectPermissionLevels
+#' @export
+workspaceGetWorkspaceObjectPermissionLevels <- function(client, workspace_object_type,
+  workspace_object_id) {
+
+  client$do("GET", paste("/api/2.0/permissions/", workspace_object_type, "/", workspace_object_id,
+    "/permissionLevels", , sep = ""))
+}
+
+#' Get workspace object permissions.
+#' 
+#' Gets the permissions of a workspace object. Workspace objects can inherit
+#' permissions from their parent objects or root object.
+#' @param client Required. Instance of DatabricksClient()
+#'
+#' @param workspace_object_id Required. The workspace object for which to get or manage permissions.
+#' @param workspace_object_type Required. The workspace object type for which to get or manage permissions.
+#'
+#' @rdname workspaceGetWorkspaceObjectPermissions
+#' @export
+workspaceGetWorkspaceObjectPermissions <- function(client, workspace_object_type,
+  workspace_object_id) {
+
+  client$do("GET", paste("/api/2.0/permissions/", workspace_object_type, "/", workspace_object_id,
+    sep = ""))
+}
+
 #' Import a workspace object.
 #' 
 #' Imports a workspace object (for example, a notebook or file) or the contents
@@ -126,20 +161,23 @@ workspaceMkdirs <- function(client, path) {
   client$do("POST", "/api/2.0/workspace/mkdirs", body = body)
 }
 
-#' Get workspace object permission levels.
+#' Set workspace object permissions.
 #' 
-#' Gets the permission levels that a user can have on an object.
+#' Sets permissions on a workspace object. Workspace objects can inherit
+#' permissions from their parent objects or root object.
 #' @param client Required. Instance of DatabricksClient()
 #'
+#' @param access_control_list 
 #' @param workspace_object_id Required. The workspace object for which to get or manage permissions.
 #' @param workspace_object_type Required. The workspace object type for which to get or manage permissions.
 #'
-#' @rdname workspacePermissionLevels
+#' @rdname workspaceSetWorkspaceObjectPermissions
 #' @export
-workspacePermissionLevels <- function(client, workspace_object_type, workspace_object_id) {
-
-  client$do("GET", paste("/api/2.0/permissions/", workspace_object_type, "/", workspace_object_id,
-    "/permissionLevels", , sep = ""))
+workspaceSetWorkspaceObjectPermissions <- function(client, workspace_object_type,
+  workspace_object_id, access_control_list = NULL) {
+  body <- list(access_control_list = access_control_list)
+  client$do("PUT", paste("/api/2.0/permissions/", workspace_object_type, "/", workspace_object_id,
+    sep = ""), body = body)
 }
 
 #' Update workspace object permissions.
@@ -152,10 +190,10 @@ workspacePermissionLevels <- function(client, workspace_object_type, workspace_o
 #' @param workspace_object_id Required. The workspace object for which to get or manage permissions.
 #' @param workspace_object_type Required. The workspace object type for which to get or manage permissions.
 #'
-#' @rdname workspaceWorkspaceObjectId
+#' @rdname workspaceUpdateWorkspaceObjectPermissions
 #' @export
-workspaceWorkspaceObjectId <- function(client, workspace_object_type, workspace_object_id,
-  access_control_list = NULL) {
+workspaceUpdateWorkspaceObjectPermissions <- function(client, workspace_object_type,
+  workspace_object_id, access_control_list = NULL) {
   body <- list(access_control_list = access_control_list)
   client$do("PATCH", paste("/api/2.0/permissions/", workspace_object_type, "/",
     workspace_object_id, sep = ""), body = body)

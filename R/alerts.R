@@ -76,7 +76,7 @@ alertsList <- function(client) {
 #'
 #' @rdname alertsUpdate
 #' @export
-alertsUpdate <- function(client, name, options, query_id, alert_id, rearm = NULL) {
+alertsUpdate <- function(client, alert_id, name, options, query_id, rearm = NULL) {
   body <- list(, name = name, options = options, query_id = query_id, rearm = rearm)
   client$do("PUT", paste("/api/2.0/preview/sql/alerts/", alert_id, sep = ""), body = body)
 }
