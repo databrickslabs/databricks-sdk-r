@@ -4,18 +4,18 @@
 \alias{alertsUpdate}
 \title{Update an alert.}
 \usage{
-alertsUpdate(client, name, options, query_id, alert_id, rearm = NULL)
+alertsUpdate(client, alert_id, name, options, query_id, rearm = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
+
+\item{alert_id}{Required.}
 
 \item{name}{Required. Name of the alert.}
 
 \item{options}{Required. Alert configuration options.}
 
 \item{query_id}{Required. Query ID.}
-
-\item{alert_id}{Required.}
 
 \item{rearm}{Number of seconds after being triggered before the alert rearms itself and can be triggered again.}
 }

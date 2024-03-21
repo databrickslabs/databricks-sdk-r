@@ -225,7 +225,8 @@ pipelinesListUpdates <- function(client, pipeline_id, max_results = NULL, page_t
 #' @export
 pipelinesReset <- function(client, pipeline_id, timeout = 20, callback = cli_reporter) {
 
-  client$do("POST", paste("/api/2.0/pipelines/", pipeline_id, "/reset", , sep = ""))
+  op_response <- client$do("POST", paste("/api/2.0/pipelines/", pipeline_id, "/reset",
+    , sep = ""))
   started <- as.numeric(Sys.time())
   target_states <- c("RUNNING", c())
   failure_states <- c("FAILED", c())
@@ -317,7 +318,8 @@ pipelinesStartUpdate <- function(client, pipeline_id, cause = NULL, full_refresh
 #' @export
 pipelinesStop <- function(client, pipeline_id, timeout = 20, callback = cli_reporter) {
 
-  client$do("POST", paste("/api/2.0/pipelines/", pipeline_id, "/stop", , sep = ""))
+  op_response <- client$do("POST", paste("/api/2.0/pipelines/", pipeline_id, "/stop",
+    , sep = ""))
   started <- as.numeric(Sys.time())
   target_states <- c("IDLE", c())
   failure_states <- c("FAILED", c())

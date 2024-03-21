@@ -6,9 +6,9 @@
 \usage{
 globalInitScriptsUpdate(
   client,
+  script_id,
   name,
   script,
-  script_id,
   enabled = NULL,
   position = NULL
 )
@@ -16,11 +16,11 @@ globalInitScriptsUpdate(
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
+\item{script_id}{Required. The ID of the global init script.}
+
 \item{name}{Required. The name of the script.}
 
 \item{script}{Required. The Base64-encoded content of the script.}
-
-\item{script_id}{Required. The ID of the global init script.}
 
 \item{enabled}{Specifies whether the script is enabled.}
 

@@ -19,23 +19,6 @@ clustersChangeOwner <- function(client, cluster_id, owner_username) {
   client$do("POST", "/api/2.0/clusters/change-owner", body = body)
 }
 
-#' Update cluster permissions.
-#' 
-#' Updates the permissions on a cluster. Clusters can inherit permissions from
-#' their root object.
-#' @param client Required. Instance of DatabricksClient()
-#'
-#' @param access_control_list 
-#' @param cluster_id Required. The cluster for which to get or manage permissions.
-#'
-#' @rdname clustersClusterId
-#' @export
-clustersClusterId <- function(client, cluster_id, access_control_list = NULL) {
-  body <- list(access_control_list = access_control_list)
-  client$do("PATCH", paste("/api/2.0/permissions/clusters/", cluster_id, sep = ""),
-    body = body)
-}
-
 #' Create new cluster.
 #' 
 #' Creates a new Spark cluster. This method will acquire new instances from the
@@ -158,7 +141,7 @@ clustersCreate <- function(client, spark_version, apply_policy_default_values = 
 #' @export
 clustersDelete <- function(client, cluster_id, timeout = 20, callback = cli_reporter) {
   body <- list(cluster_id = cluster_id)
-  client$do("POST", "/api/2.0/clusters/delete", body = body)
+  op_response <- client$do("POST", "/api/2.0/clusters/delete", body = body)
   started <- as.numeric(Sys.time())
   target_states <- c("TERMINATED", c())
   failure_states <- c("ERROR", c())
@@ -269,7 +252,7 @@ clustersEdit <- function(client, cluster_id, spark_version, apply_policy_default
     num_workers = num_workers, policy_id = policy_id, runtime_engine = runtime_engine,
     single_user_name = single_user_name, spark_conf = spark_conf, spark_env_vars = spark_env_vars,
     spark_version = spark_version, ssh_public_keys = ssh_public_keys, workload_type = workload_type)
-  client$do("POST", "/api/2.0/clusters/edit", body = body)
+  op_response <- client$do("POST", "/api/2.0/clusters/edit", body = body)
   started <- as.numeric(Sys.time())
   target_states <- c("RUNNING", c())
   failure_states <- c("ERROR", "TERMINATED", c())
@@ -362,6 +345,36 @@ clustersGet <- function(client, cluster_id) {
   client$do("GET", "/api/2.0/clusters/get", query = query)
 }
 
+#' Get cluster permission levels.
+#' 
+#' Gets the permission levels that a user can have on an object.
+#' @param client Required. Instance of DatabricksClient()
+#'
+#' @param cluster_id Required. The cluster for which to get or manage permissions.
+#'
+#' @rdname clustersGetClusterPermissionLevels
+#' @export
+clustersGetClusterPermissionLevels <- function(client, cluster_id) {
+
+  client$do("GET", paste("/api/2.0/permissions/clusters/", cluster_id, "/permissionLevels",
+    , sep = ""))
+}
+
+#' Get cluster permissions.
+#' 
+#' Gets the permissions of a cluster. Clusters can inherit permissions from
+#' their root object.
+#' @param client Required. Instance of DatabricksClient()
+#'
+#' @param cluster_id Required. The cluster for which to get or manage permissions.
+#'
+#' @rdname clustersGetClusterPermissions
+#' @export
+clustersGetClusterPermissions <- function(client, cluster_id) {
+
+  client$do("GET", paste("/api/2.0/permissions/clusters/", cluster_id, sep = ""))
+}
+
 #' List all clusters.
 #' 
 #' Return information about all pinned clusters, active clusters, up to 200 of
@@ -428,21 +441,6 @@ clustersPermanentDelete <- function(client, cluster_id) {
   client$do("POST", "/api/2.0/clusters/permanent-delete", body = body)
 }
 
-#' Get cluster permission levels.
-#' 
-#' Gets the permission levels that a user can have on an object.
-#' @param client Required. Instance of DatabricksClient()
-#'
-#' @param cluster_id Required. The cluster for which to get or manage permissions.
-#'
-#' @rdname clustersPermissionLevels
-#' @export
-clustersPermissionLevels <- function(client, cluster_id) {
-
-  client$do("GET", paste("/api/2.0/permissions/clusters/", cluster_id, "/permissionLevels",
-    , sep = ""))
-}
-
 #' Pin cluster.
 #' 
 #' Pinning a cluster ensures that the cluster will always be returned by the
@@ -480,7 +478,7 @@ clustersPin <- function(client, cluster_id) {
 clustersResize <- function(client, cluster_id, autoscale = NULL, num_workers = NULL,
   timeout = 20, callback = cli_reporter) {
   body <- list(autoscale = autoscale, cluster_id = cluster_id, num_workers = num_workers)
-  client$do("POST", "/api/2.0/clusters/resize", body = body)
+  op_response <- client$do("POST", "/api/2.0/clusters/resize", body = body)
   started <- as.numeric(Sys.time())
   target_states <- c("RUNNING", c())
   failure_states <- c("ERROR", "TERMINATED", c())
@@ -537,7 +535,7 @@ clustersResize <- function(client, cluster_id, autoscale = NULL, num_workers = N
 clustersRestart <- function(client, cluster_id, restart_user = NULL, timeout = 20,
   callback = cli_reporter) {
   body <- list(cluster_id = cluster_id, restart_user = restart_user)
-  client$do("POST", "/api/2.0/clusters/restart", body = body)
+  op_response <- client$do("POST", "/api/2.0/clusters/restart", body = body)
   started <- as.numeric(Sys.time())
   target_states <- c("RUNNING", c())
   failure_states <- c("ERROR", "TERMINATED", c())
@@ -574,6 +572,23 @@ clustersRestart <- function(client, cluster_id, restart_user = NULL, timeout = 2
   rlang::abort(msg, call = rlang::caller_env())
 }
 
+#' Set cluster permissions.
+#' 
+#' Sets permissions on a cluster. Clusters can inherit permissions from their
+#' root object.
+#' @param client Required. Instance of DatabricksClient()
+#'
+#' @param access_control_list 
+#' @param cluster_id Required. The cluster for which to get or manage permissions.
+#'
+#' @rdname clustersSetClusterPermissions
+#' @export
+clustersSetClusterPermissions <- function(client, cluster_id, access_control_list = NULL) {
+  body <- list(access_control_list = access_control_list)
+  client$do("PUT", paste("/api/2.0/permissions/clusters/", cluster_id, sep = ""),
+    body = body)
+}
+
 #' List available Spark versions.
 #' 
 #' Returns the list of available Spark versions. These versions can be used to
@@ -608,7 +623,7 @@ clustersSparkVersions <- function(client) {
 #' @export
 clustersStart <- function(client, cluster_id, timeout = 20, callback = cli_reporter) {
   body <- list(cluster_id = cluster_id)
-  client$do("POST", "/api/2.0/clusters/start", body = body)
+  op_response <- client$do("POST", "/api/2.0/clusters/start", body = body)
   started <- as.numeric(Sys.time())
   target_states <- c("RUNNING", c())
   failure_states <- c("ERROR", "TERMINATED", c())
@@ -659,5 +674,22 @@ clustersStart <- function(client, cluster_id, timeout = 20, callback = cli_repor
 clustersUnpin <- function(client, cluster_id) {
   body <- list(cluster_id = cluster_id)
   client$do("POST", "/api/2.0/clusters/unpin", body = body)
+}
+
+#' Update cluster permissions.
+#' 
+#' Updates the permissions on a cluster. Clusters can inherit permissions from
+#' their root object.
+#' @param client Required. Instance of DatabricksClient()
+#'
+#' @param access_control_list 
+#' @param cluster_id Required. The cluster for which to get or manage permissions.
+#'
+#' @rdname clustersUpdateClusterPermissions
+#' @export
+clustersUpdateClusterPermissions <- function(client, cluster_id, access_control_list = NULL) {
+  body <- list(access_control_list = access_control_list)
+  client$do("PATCH", paste("/api/2.0/permissions/clusters/", cluster_id, sep = ""),
+    body = body)
 }
 

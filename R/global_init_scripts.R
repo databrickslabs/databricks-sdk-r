@@ -79,7 +79,7 @@ globalInitScriptsList <- function(client) {
 #'
 #' @rdname globalInitScriptsUpdate
 #' @export
-globalInitScriptsUpdate <- function(client, name, script, script_id, enabled = NULL,
+globalInitScriptsUpdate <- function(client, script_id, name, script, enabled = NULL,
   position = NULL) {
   body <- list(enabled = enabled, name = name, position = position, script = script)
   client$do("PATCH", paste("/api/2.0/global-init-scripts/", script_id, sep = ""),

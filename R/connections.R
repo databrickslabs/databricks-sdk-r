@@ -83,7 +83,7 @@ connectionsList <- function(client) {
 #'
 #' @rdname connectionsUpdate
 #' @export
-connectionsUpdate <- function(client, name, options_kvpairs, name_arg) {
+connectionsUpdate <- function(client, name_arg, name, options_kvpairs) {
   body <- list(name = name, options_kvpairs = options_kvpairs)
   client$do("PATCH", paste("/api/2.1/unity-catalog/connections/", name_arg, sep = ""),
     body = body)

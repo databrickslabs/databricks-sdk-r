@@ -6,16 +6,18 @@
 \usage{
 ipAccessListsUpdate(
   client,
+  ip_access_list_id,
   label,
   list_type,
   ip_addresses,
   enabled,
-  ip_access_list_id,
   list_id = NULL
 )
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
+
+\item{ip_access_list_id}{Required. The ID for the corresponding IP access list to modify.}
 
 \item{label}{Required. Label for the IP access list.}
 
@@ -24,8 +26,6 @@ ipAccessListsUpdate(
 \item{ip_addresses}{Required. Array of IP addresses or CIDR values to be added to the IP access list.}
 
 \item{enabled}{Required. Specifies whether this IP access list is enabled.}
-
-\item{ip_access_list_id}{Required. The ID for the corresponding IP access list to modify.}
 
 \item{list_id}{Universally unique identifier (UUID) of the IP access list.}
 }

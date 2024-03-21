@@ -4,14 +4,14 @@
 \alias{recipientsRotateToken}
 \title{Rotate a token.}
 \usage{
-recipientsRotateToken(client, existing_token_expire_in_seconds, name)
+recipientsRotateToken(client, name, existing_token_expire_in_seconds)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{existing_token_expire_in_seconds}{Required. The expiration time of the bearer token in ISO 8601 format.}
-
 \item{name}{Required. The name of the recipient.}
+
+\item{existing_token_expire_in_seconds}{Required. The expiration time of the bearer token in ISO 8601 format.}
 }
 \description{
 Refreshes the specified recipient's delta sharing authentication token with

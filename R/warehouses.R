@@ -132,8 +132,8 @@ warehousesEdit <- function(client, id, auto_stop_mins = NULL, channel = NULL, cl
     instance_profile_arn = instance_profile_arn, max_num_clusters = max_num_clusters,
     min_num_clusters = min_num_clusters, name = name, spot_instance_policy = spot_instance_policy,
     tags = tags, warehouse_type = warehouse_type)
-  client$do("POST", paste("/api/2.0/sql/warehouses/", id, "/edit", , sep = ""),
-    body = body)
+  op_response <- client$do("POST", paste("/api/2.0/sql/warehouses/", id, "/edit",
+    , sep = ""), body = body)
   started <- as.numeric(Sys.time())
   target_states <- c("RUNNING", c())
   failure_states <- c("STOPPED", "DELETED", c())
@@ -309,7 +309,8 @@ warehousesSetWorkspaceWarehouseConfig <- function(client, channel = NULL, config
 #' @export
 warehousesStart <- function(client, id, timeout = 20, callback = cli_reporter) {
 
-  client$do("POST", paste("/api/2.0/sql/warehouses/", id, "/start", , sep = ""))
+  op_response <- client$do("POST", paste("/api/2.0/sql/warehouses/", id, "/start",
+    , sep = ""))
   started <- as.numeric(Sys.time())
   target_states <- c("RUNNING", c())
   failure_states <- c("STOPPED", "DELETED", c())
@@ -366,7 +367,8 @@ warehousesStart <- function(client, id, timeout = 20, callback = cli_reporter) {
 #' @export
 warehousesStop <- function(client, id, timeout = 20, callback = cli_reporter) {
 
-  client$do("POST", paste("/api/2.0/sql/warehouses/", id, "/stop", , sep = ""))
+  op_response <- client$do("POST", paste("/api/2.0/sql/warehouses/", id, "/stop",
+    , sep = ""))
   started <- as.numeric(Sys.time())
   target_states <- c("STOPPED", c())
   status_message <- "polling..."

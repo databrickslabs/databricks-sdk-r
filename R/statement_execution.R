@@ -9,7 +9,7 @@ NULL
 #' status to see the terminal state.
 #' @param client Required. Instance of DatabricksClient()
 #'
-#' @param statement_id Required. 
+#' @param statement_id Required. Statement ID is returned upon successfully submitting a SQL statement, and is a required reference for all subsequent calls.
 #'
 #' @rdname statementExecutionCancelExecution
 #' @export
@@ -59,7 +59,7 @@ statementExecutionExecuteStatement <- function(client, byte_limit = NULL, catalo
 #' status and result.
 #' @param client Required. Instance of DatabricksClient()
 #'
-#' @param statement_id Required. 
+#' @param statement_id Required. Statement ID is returned upon successfully submitting a SQL statement, and is a required reference for all subsequent calls.
 #'
 #' @rdname statementExecutionGetStatement
 #' @export
@@ -80,7 +80,7 @@ statementExecutionGetStatement <- function(client, statement_id) {
 #' @param client Required. Instance of DatabricksClient()
 #'
 #' @param chunk_index Required. 
-#' @param statement_id Required. 
+#' @param statement_id Required. Statement ID is returned upon successfully submitting a SQL statement, and is a required reference for all subsequent calls.
 #'
 #' @rdname statementExecutionGetStatementResultChunkN
 #' @export

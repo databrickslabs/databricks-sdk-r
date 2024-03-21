@@ -25,7 +25,7 @@ NULL
 commandExecutionCancel <- function(client, cluster_id = NULL, command_id = NULL,
   context_id = NULL, timeout = 20, callback = cli_reporter) {
   body <- list(clusterId = cluster_id, commandId = command_id, contextId = context_id)
-  client$do("POST", "/api/1.2/commands/cancel", body = body)
+  op_response <- client$do("POST", "/api/1.2/commands/cancel", body = body)
   started <- as.numeric(Sys.time())
   target_states <- c("Cancelled", c())
   failure_states <- c("Error", c())

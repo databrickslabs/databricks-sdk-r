@@ -9,7 +9,7 @@ Authors@R: c(
 Description: Call all Databricks REST APIs from R.
 License: Apache License (>= 2)
 Encoding: UTF-8
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.1
 Roxygen: list(markdown = TRUE, roclets = c("rd", "namespace", "collate"))
 ByteCompile: false
 StagedInstall: no 

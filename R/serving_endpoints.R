@@ -225,7 +225,7 @@ servingEndpointsSetServingEndpointPermissions <- function(client, serving_endpoi
 #'
 #' @rdname servingEndpointsUpdateConfig
 #' @export
-servingEndpointsUpdateConfig <- function(client, served_models, name, traffic_config = NULL,
+servingEndpointsUpdateConfig <- function(client, name, served_models, traffic_config = NULL,
   timeout = 20, callback = cli_reporter) {
   body <- list(, served_models = served_models, traffic_config = traffic_config)
   op_response <- client$do("PUT", paste("/api/2.0/serving-endpoints/", name, "/config",
