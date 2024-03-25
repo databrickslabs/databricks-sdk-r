@@ -8,9 +8,6 @@ NULL
 #' Creates a new catalog instance in the parent metastore if the caller is a
 #' metastore admin or has the **CREATE_CATALOG** privilege.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param comment User-provided free-form text description.
 #' @param connection_name The name of the connection to an external data source.
@@ -30,15 +27,11 @@ catalogsCreate <- function(client, name, comment = NULL, connection_name = NULL,
     share_name = share_name, storage_root = storage_root)
   client$do("POST", "/api/2.1/unity-catalog/catalogs", body = body)
 }
-
 #' Delete a catalog.
 #' 
 #' Deletes the catalog that matches the supplied name. The caller must be a
 #' metastore admin or the owner of the catalog.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param force Force deletion even if the catalog is not empty.
 #' @param name Required. The name of the catalog.
@@ -50,16 +43,12 @@ catalogsDelete <- function(client, name, force = NULL) {
   client$do("DELETE", paste("/api/2.1/unity-catalog/catalogs/", name, sep = ""),
     query = query)
 }
-
 #' Get a catalog.
 #' 
 #' Gets the specified catalog in a metastore. The caller must be a metastore
 #' admin, the owner of the catalog, or a user that has the **USE_CATALOG**
 #' privilege set for their account.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param include_browse Whether to include catalogs in the response for which the principal can only access selective metadata for.
 #' @param name Required. The name of the catalog.
@@ -70,7 +59,6 @@ catalogsGet <- function(client, name, include_browse = NULL) {
   query <- list(include_browse = include_browse)
   client$do("GET", paste("/api/2.1/unity-catalog/catalogs/", name, sep = ""), query = query)
 }
-
 #' List catalogs.
 #' 
 #' Gets an array of catalogs in the metastore. If the caller is the metastore
@@ -79,8 +67,6 @@ catalogsGet <- function(client, name, include_browse = NULL) {
 #' retrieved. There is no guarantee of a specific ordering of the elements in
 #' the array.
 #' @param client Required. Instance of DatabricksClient()
-
-
 #'
 #' @param include_browse Whether to include catalogs in the response for which the principal can only access selective metadata for.
 #'
@@ -95,16 +81,12 @@ catalogsList <- function(client, include_browse = NULL) {
   return(json$catalogs)
 
 }
-
 #' Update a catalog.
 #' 
 #' Updates the catalog that matches the supplied name. The caller must be either
 #' the owner of the catalog, or a metastore admin (when changing the owner field
 #' of the catalog).
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param comment User-provided free-form text description.
 #' @param enable_predictive_optimization Whether predictive optimization should be enabled for this object and objects under it.
@@ -123,4 +105,8 @@ catalogsUpdate <- function(client, name, comment = NULL, enable_predictive_optim
   client$do("PATCH", paste("/api/2.1/unity-catalog/catalogs/", name, sep = ""),
     body = body)
 }
+
+
+
+
 

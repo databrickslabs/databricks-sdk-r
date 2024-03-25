@@ -7,9 +7,6 @@ NULL
 #' 
 #' Create a draft dashboard.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param display_name Required. The display name of the dashboard.
 #' @param parent_path The workspace path of the folder containing the dashboard.
@@ -24,14 +21,10 @@ lakeviewCreate <- function(client, display_name, parent_path = NULL, serialized_
     warehouse_id = warehouse_id)
   client$do("POST", "/api/2.0/lakeview/dashboards", body = body)
 }
-
 #' Get dashboard.
 #' 
 #' Get a draft dashboard.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param dashboard_id Required. UUID identifying the dashboard.
 #'
@@ -41,14 +34,10 @@ lakeviewGet <- function(client, dashboard_id) {
 
   client$do("GET", paste("/api/2.0/lakeview/dashboards/", dashboard_id, sep = ""))
 }
-
 #' Get published dashboard.
 #' 
 #' Get the current published dashboard.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param dashboard_id Required. UUID identifying the dashboard to be published.
 #'
@@ -59,14 +48,10 @@ lakeviewGetPublished <- function(client, dashboard_id) {
   client$do("GET", paste("/api/2.0/lakeview/dashboards/", dashboard_id, "/published",
     , sep = ""))
 }
-
 #' Publish dashboard.
 #' 
 #' Publish the current draft dashboard.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param dashboard_id Required. UUID identifying the dashboard to be published.
 #' @param embed_credentials Flag to indicate if the publisher's credentials should be embedded in the published dashboard.
@@ -79,14 +64,10 @@ lakeviewPublish <- function(client, dashboard_id, embed_credentials = NULL, ware
   client$do("POST", paste("/api/2.0/lakeview/dashboards/", dashboard_id, "/published",
     , sep = ""), body = body)
 }
-
 #' Trash dashboard.
 #' 
 #' Trash a dashboard.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param dashboard_id Required. UUID identifying the dashboard.
 #'
@@ -96,14 +77,10 @@ lakeviewTrash <- function(client, dashboard_id) {
 
   client$do("DELETE", paste("/api/2.0/lakeview/dashboards/", dashboard_id, sep = ""))
 }
-
 #' Update dashboard.
 #' 
 #' Update a draft dashboard.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param dashboard_id Required. UUID identifying the dashboard.
 #' @param display_name The display name of the dashboard.
@@ -120,4 +97,9 @@ lakeviewUpdate <- function(client, dashboard_id, display_name = NULL, etag = NUL
   client$do("PATCH", paste("/api/2.0/lakeview/dashboards/", dashboard_id, sep = ""),
     body = body)
 }
+
+
+
+
+
 

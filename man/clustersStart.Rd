@@ -4,26 +4,18 @@
 \alias{clustersStart}
 \title{Start terminated cluster.}
 \usage{
-clustersStart(client, cluster_id, timeout = 20, callback = cli_reporter)
+clustersStart(client, cluster_id)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
 \item{cluster_id}{Required. The cluster to be started.}
-
-\item{timeout}{Time to wait for the operation to complete in minutes.}
-
-\item{callback}{Function to report the status of the operation. By default, it reports to console.}
 }
 \description{
-This is a long-running operation, which blocks until Clusters on Databricks reach
-RUNNING state with the timeout of 20 minutes, that you can change via \code{timeout} parameter.
-By default, the state of Databricks Clusters is reported to console. You can change this behavior
-by changing the \code{callback} parameter.
-}
-\details{
 Starts a terminated Spark cluster with the supplied ID. This works similar to
 \code{createCluster} except:
+}
+\details{
 \itemize{
 \item The previous cluster id and attributes are preserved. * The cluster starts
 with the last specified cluster size. * If the previous cluster was an

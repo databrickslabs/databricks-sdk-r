@@ -9,8 +9,6 @@ NULL
 #' 
 #' You can filter by user ID, warehouse ID, status, and time range.
 #' @param client Required. Instance of DatabricksClient()
-
-
 #'
 #' @param filter_by A filter to limit query history results.
 #' @param include_metrics Whether to include metrics about query.

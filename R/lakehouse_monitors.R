@@ -16,9 +16,6 @@ NULL
 #' Additionally, the call must be made from the workspace where the monitor was
 #' created.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param full_name Required. Full name of the table.
 #' @param refresh_id Required. ID of the refresh.
@@ -30,7 +27,6 @@ lakehouseMonitorsCancelRefresh <- function(client, full_name, refresh_id) {
   client$do("POST", paste("/api/2.1/unity-catalog/tables/", full_name, "/monitor/refreshes/",
     refresh_id, "/cancel", , sep = ""))
 }
-
 #' Create a table monitor.
 #' 
 #' Creates a new monitor for the specified table.
@@ -46,9 +42,6 @@ lakehouseMonitorsCancelRefresh <- function(client, full_name, refresh_id) {
 #' Workspace assets, such as the dashboard, will be created in the workspace
 #' where this call was made.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param assets_dir Required. The directory to store monitoring assets (e.g.
 #' @param baseline_table_name Name of the baseline table from which drift metrics are computed from.
@@ -79,7 +72,6 @@ lakehouseMonitorsCreate <- function(client, full_name, assets_dir, output_schema
   client$do("POST", paste("/api/2.1/unity-catalog/tables/", full_name, "/monitor",
     , sep = ""), body = body)
 }
-
 #' Delete a table monitor.
 #' 
 #' Deletes a monitor for the specified table.
@@ -96,9 +88,6 @@ lakehouseMonitorsCreate <- function(client, full_name, assets_dir, output_schema
 #' Note that the metric tables and dashboard will not be deleted as part of this
 #' call; those assets must be manually cleaned up (if desired).
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param full_name Required. Full name of the table.
 #'
@@ -109,7 +98,6 @@ lakehouseMonitorsDelete <- function(client, full_name) {
   client$do("DELETE", paste("/api/2.1/unity-catalog/tables/", full_name, "/monitor",
     , sep = ""))
 }
-
 #' Get a table monitor.
 #' 
 #' Gets a monitor for the specified table.
@@ -125,9 +113,6 @@ lakehouseMonitorsDelete <- function(client, full_name) {
 #' dashboard) may be filtered out if the caller is in a different workspace than
 #' where the monitor was created.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param full_name Required. Full name of the table.
 #'
@@ -138,7 +123,6 @@ lakehouseMonitorsGet <- function(client, full_name) {
   client$do("GET", paste("/api/2.1/unity-catalog/tables/", full_name, "/monitor",
     , sep = ""))
 }
-
 #' Get refresh.
 #' 
 #' Gets info about a specific monitor refresh using the given refresh ID.
@@ -152,9 +136,6 @@ lakehouseMonitorsGet <- function(client, full_name) {
 #' Additionally, the call must be made from the workspace where the monitor was
 #' created.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param full_name Required. Full name of the table.
 #' @param refresh_id Required. ID of the refresh.
@@ -166,7 +147,6 @@ lakehouseMonitorsGetRefresh <- function(client, full_name, refresh_id) {
   client$do("GET", paste("/api/2.1/unity-catalog/tables/", full_name, "/monitor/refreshes/",
     refresh_id, sep = ""))
 }
-
 #' List refreshes.
 #' 
 #' Gets an array containing the history of the most recent refreshes (up to 25)
@@ -181,9 +161,6 @@ lakehouseMonitorsGetRefresh <- function(client, full_name, refresh_id) {
 #' Additionally, the call must be made from the workspace where the monitor was
 #' created.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param full_name Required. Full name of the table.
 #'
@@ -194,7 +171,6 @@ lakehouseMonitorsListRefreshes <- function(client, full_name) {
   client$do("GET", paste("/api/2.1/unity-catalog/tables/", full_name, "/monitor/refreshes",
     , sep = ""))
 }
-
 #' Queue a metric refresh for a monitor.
 #' 
 #' Queues a metric refresh on the monitor for the specified table. The refresh
@@ -209,9 +185,6 @@ lakehouseMonitorsListRefreshes <- function(client, full_name) {
 #' Additionally, the call must be made from the workspace where the monitor was
 #' created.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param full_name Required. Full name of the table.
 #'
@@ -222,7 +195,6 @@ lakehouseMonitorsRunRefresh <- function(client, full_name) {
   client$do("POST", paste("/api/2.1/unity-catalog/tables/", full_name, "/monitor/refreshes",
     , sep = ""))
 }
-
 #' Update a table monitor.
 #' 
 #' Updates a monitor for the specified table.
@@ -239,9 +211,6 @@ lakehouseMonitorsRunRefresh <- function(client, full_name) {
 #' Certain configuration fields, such as output asset identifiers, cannot be
 #' updated.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param baseline_table_name Name of the baseline table from which drift metrics are computed from.
 #' @param custom_metrics Custom metrics to compute on the monitored table.
@@ -268,4 +237,11 @@ lakehouseMonitorsUpdate <- function(client, full_name, output_schema_name, basel
   client$do("PUT", paste("/api/2.1/unity-catalog/tables/", full_name, "/monitor",
     , sep = ""), body = body)
 }
+
+
+
+
+
+
+
 

@@ -9,9 +9,6 @@ NULL
 #' creation with **update**. The caller must be a metastore admin or have the
 #' **CREATE_SHARE** privilege on the metastore.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param comment User-provided free-form text description.
 #' @param name Required. Name of the share.
@@ -22,15 +19,11 @@ sharesCreate <- function(client, name, comment = NULL) {
   body <- list(comment = comment, name = name)
   client$do("POST", "/api/2.1/unity-catalog/shares", body = body)
 }
-
 #' Delete a share.
 #' 
 #' Deletes a data object share from the metastore. The caller must be an owner
 #' of the share.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param name Required. The name of the share.
 #'
@@ -40,15 +33,11 @@ sharesDelete <- function(client, name) {
 
   client$do("DELETE", paste("/api/2.1/unity-catalog/shares/", name, sep = ""))
 }
-
 #' Get a share.
 #' 
 #' Gets a data object share from the metastore. The caller must be a metastore
 #' admin or the owner of the share.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param include_shared_data Query for data to include in the share.
 #' @param name Required. The name of the share.
@@ -59,7 +48,6 @@ sharesGet <- function(client, name, include_shared_data = NULL) {
   query <- list(include_shared_data = include_shared_data)
   client$do("GET", paste("/api/2.1/unity-catalog/shares/", name, sep = ""), query = query)
 }
-
 #' List shares.
 #' 
 #' Gets an array of data object shares from the metastore. The caller must be a
@@ -77,15 +65,11 @@ sharesList <- function(client) {
   return(json$shares)
 
 }
-
 #' Get permissions.
 #' 
 #' Gets the permissions for a data share from the metastore. The caller must be
 #' a metastore admin or the owner of the share.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param name Required. The name of the share.
 #'
@@ -96,7 +80,6 @@ sharesSharePermissions <- function(client, name) {
   client$do("GET", paste("/api/2.1/unity-catalog/shares/", name, "/permissions",
     , sep = ""))
 }
-
 #' Update a share.
 #' 
 #' Updates the share with the changes and data objects in the request. The
@@ -115,9 +98,6 @@ sharesSharePermissions <- function(client, name) {
 #' 
 #' Table removals through **update** do not require additional privileges.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param comment User-provided free-form text description.
 #' @param name Required. The name of the share.
@@ -132,7 +112,6 @@ sharesUpdate <- function(client, name, comment = NULL, new_name = NULL, owner = 
   body <- list(comment = comment, new_name = new_name, owner = owner, updates = updates)
   client$do("PATCH", paste("/api/2.1/unity-catalog/shares/", name, sep = ""), body = body)
 }
-
 #' Update permissions.
 #' 
 #' Updates the permissions for a data share in the metastore. The caller must be
@@ -141,9 +120,6 @@ sharesUpdate <- function(client, name, comment = NULL, new_name = NULL, owner = 
 #' For new recipient grants, the user must also be the owner of the recipients.
 #' recipient revocations do not require additional privileges.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param changes Array of permission changes.
 #' @param name Required. The name of the share.
@@ -155,4 +131,10 @@ sharesUpdatePermissions <- function(client, name, changes = NULL) {
   client$do("PATCH", paste("/api/2.1/unity-catalog/shares/", name, "/permissions",
     , sep = ""), body = body)
 }
+
+
+
+
+
+
 

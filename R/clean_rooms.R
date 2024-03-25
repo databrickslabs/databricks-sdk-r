@@ -8,9 +8,6 @@ NULL
 #' Creates a new clean room with specified colaborators. The caller must be a
 #' metastore admin or have the **CREATE_CLEAN_ROOM** privilege on the metastore.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param comment User-provided free-form text description.
 #' @param name Required. Name of the clean room.
@@ -22,15 +19,11 @@ cleanRoomsCreate <- function(client, name, remote_detailed_info, comment = NULL)
   body <- list(comment = comment, name = name, remote_detailed_info = remote_detailed_info)
   client$do("POST", "/api/2.1/unity-catalog/clean-rooms", body = body)
 }
-
 #' Delete a clean room.
 #' 
 #' Deletes a data object clean room from the metastore. The caller must be an
 #' owner of the clean room.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param name Required. The name of the clean room.
 #'
@@ -40,15 +33,11 @@ cleanRoomsDelete <- function(client, name) {
 
   client$do("DELETE", paste("/api/2.1/unity-catalog/clean-rooms/", name, sep = ""))
 }
-
 #' Get a clean room.
 #' 
 #' Gets a data object clean room from the metastore. The caller must be a
 #' metastore admin or the owner of the clean room.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param include_remote_details Whether to include remote details (central) on the clean room.
 #' @param name Required. The name of the clean room.
@@ -60,15 +49,12 @@ cleanRoomsGet <- function(client, name, include_remote_details = NULL) {
   client$do("GET", paste("/api/2.1/unity-catalog/clean-rooms/", name, sep = ""),
     query = query)
 }
-
 #' List clean rooms.
 #' 
 #' Gets an array of data object clean rooms from the metastore. The caller must
 #' be a metastore admin or the owner of the clean room. There is no guarantee of
 #' a specific ordering of the elements in the array.
 #' @param client Required. Instance of DatabricksClient()
-
-
 #'
 #' @param max_results Maximum number of clean rooms to return.
 #' @param page_token Opaque pagination token to go to next page based on previous query.
@@ -96,7 +82,6 @@ cleanRoomsList <- function(client, max_results = NULL, page_token = NULL) {
   return(results)
 
 }
-
 #' Update a clean room.
 #' 
 #' Updates the clean room with the changes and data objects in the request. The
@@ -115,9 +100,6 @@ cleanRoomsList <- function(client, max_results = NULL, page_token = NULL) {
 #' 
 #' Table removals through **update** do not require additional privileges.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param catalog_updates Array of shared data object updates.
 #' @param comment User-provided free-form text description.
@@ -132,4 +114,8 @@ cleanRoomsUpdate <- function(client, name, catalog_updates = NULL, comment = NUL
   client$do("PATCH", paste("/api/2.1/unity-catalog/clean-rooms/", name, sep = ""),
     body = body)
 }
+
+
+
+
 

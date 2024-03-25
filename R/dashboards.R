@@ -5,9 +5,6 @@ NULL
 
 #' Create a dashboard object.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param dashboard_filters_enabled Indicates whether the dashboard filters are enabled.
 #' @param is_favorite Indicates whether this dashboard object should appear in the current user's favorites list.
@@ -24,15 +21,11 @@ dashboardsCreate <- function(client, name, dashboard_filters_enabled = NULL, is_
     name = name, parent = parent, run_as_role = run_as_role, tags = tags)
   client$do("POST", "/api/2.0/preview/sql/dashboards", body = body)
 }
-
 #' Remove a dashboard.
 #' 
 #' Moves a dashboard to the trash. Trashed dashboards do not appear in list
 #' views or searches, and cannot be shared.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param dashboard_id Required. This field has no description yet.
 #'
@@ -42,15 +35,11 @@ dashboardsDelete <- function(client, dashboard_id) {
 
   client$do("DELETE", paste("/api/2.0/preview/sql/dashboards/", dashboard_id, sep = ""))
 }
-
 #' Retrieve a definition.
 #' 
 #' Returns a JSON representation of a dashboard object, including its
 #' visualization and query objects.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param dashboard_id Required. This field has no description yet.
 #'
@@ -60,7 +49,6 @@ dashboardsGet <- function(client, dashboard_id) {
 
   client$do("GET", paste("/api/2.0/preview/sql/dashboards/", dashboard_id, sep = ""))
 }
-
 #' Get dashboard objects.
 #' 
 #' Fetch a paginated list of dashboard objects.
@@ -68,8 +56,6 @@ dashboardsGet <- function(client, dashboard_id) {
 #' ### **Warning: Calling this API concurrently 10 or more times could result in
 #' throttling, service degradation, or a temporary ban.**
 #' @param client Required. Instance of DatabricksClient()
-
-
 #'
 #' @param order Name of dashboard attribute to order by.
 #' @param page Page number to retrieve.
@@ -99,14 +85,10 @@ dashboardsList <- function(client, order = NULL, page = NULL, page_size = NULL, 
   return(results)
 
 }
-
 #' Restore a dashboard.
 #' 
 #' A restored dashboard appears in list views and searches and can be shared.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param dashboard_id Required. This field has no description yet.
 #'
@@ -117,7 +99,6 @@ dashboardsRestore <- function(client, dashboard_id) {
   client$do("POST", paste("/api/2.0/preview/sql/dashboards/trash/", dashboard_id,
     sep = ""))
 }
-
 #' Change a dashboard definition.
 #' 
 #' Modify this dashboard definition. This operation only affects attributes of
@@ -125,9 +106,6 @@ dashboardsRestore <- function(client, dashboard_id) {
 #' 
 #' **Note**: You cannot undo this operation.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param dashboard_id Required. This field has no description yet.
 #' @param name The title of this dashboard that appears in list views and at the top of the dashboard page.
@@ -140,4 +118,9 @@ dashboardsUpdate <- function(client, dashboard_id, name = NULL, run_as_role = NU
   client$do("POST", paste("/api/2.0/preview/sql/dashboards/", dashboard_id, sep = ""),
     body = body)
 }
+
+
+
+
+
 

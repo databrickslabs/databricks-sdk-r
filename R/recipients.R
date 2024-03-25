@@ -9,9 +9,6 @@ NULL
 #' metastore. The caller must be a metastore admin or has the
 #' **CREATE_RECIPIENT** privilege on the metastore.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param authentication_type Required. The delta sharing authentication type.
 #' @param comment Description about the recipient.
@@ -31,15 +28,11 @@ recipientsCreate <- function(client, name, authentication_type, comment = NULL, 
     sharing_code = sharing_code)
   client$do("POST", "/api/2.1/unity-catalog/recipients", body = body)
 }
-
 #' Delete a share recipient.
 #' 
 #' Deletes the specified recipient from the metastore. The caller must be the
 #' owner of the recipient.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param name Required. Name of the recipient.
 #'
@@ -49,16 +42,12 @@ recipientsDelete <- function(client, name) {
 
   client$do("DELETE", paste("/api/2.1/unity-catalog/recipients/", name, sep = ""))
 }
-
 #' Get a share recipient.
 #' 
 #' Gets a share recipient from the metastore if:
 #' 
 #' * the caller is the owner of the share recipient, or: * is a metastore admin
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param name Required. Name of the recipient.
 #'
@@ -68,7 +57,6 @@ recipientsGet <- function(client, name) {
 
   client$do("GET", paste("/api/2.1/unity-catalog/recipients/", name, sep = ""))
 }
-
 #' List share recipients.
 #' 
 #' Gets an array of all share recipients within the current metastore where:
@@ -76,8 +64,6 @@ recipientsGet <- function(client, name) {
 #' * the caller is a metastore admin, or * the caller is the owner. There is no
 #' guarantee of a specific ordering of the elements in the array.
 #' @param client Required. Instance of DatabricksClient()
-
-
 #'
 #' @param data_recipient_global_metastore_id If not provided, all recipients will be returned.
 #'
@@ -92,15 +78,11 @@ recipientsList <- function(client, data_recipient_global_metastore_id = NULL) {
   return(json$recipients)
 
 }
-
 #' Rotate a token.
 #' 
 #' Refreshes the specified recipient's delta sharing authentication token with
 #' the provided token info. The caller must be the owner of the recipient.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param existing_token_expire_in_seconds Required. The expiration time of the bearer token in ISO 8601 format.
 #' @param name Required. The name of the recipient.
@@ -112,15 +94,11 @@ recipientsRotateToken <- function(client, name, existing_token_expire_in_seconds
   client$do("POST", paste("/api/2.1/unity-catalog/recipients/", name, "/rotate-token",
     , sep = ""), body = body)
 }
-
 #' Get recipient share permissions.
 #' 
 #' Gets the share permissions for the specified Recipient. The caller must be a
 #' metastore admin or the owner of the Recipient.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param name Required. The name of the Recipient.
 #'
@@ -131,7 +109,6 @@ recipientsSharePermissions <- function(client, name) {
   client$do("GET", paste("/api/2.1/unity-catalog/recipients/", name, "/share-permissions",
     , sep = ""))
 }
-
 #' Update a share recipient.
 #' 
 #' Updates an existing recipient in the metastore. The caller must be a
@@ -139,9 +116,6 @@ recipientsSharePermissions <- function(client, name) {
 #' updated, the user must be both a metastore admin and the owner of the
 #' recipient.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param comment Description about the recipient.
 #' @param ip_access_list IP Access List.
@@ -159,4 +133,10 @@ recipientsUpdate <- function(client, name, comment = NULL, ip_access_list = NULL
   client$do("PATCH", paste("/api/2.1/unity-catalog/recipients/", name, sep = ""),
     body = body)
 }
+
+
+
+
+
+
 

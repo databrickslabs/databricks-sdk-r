@@ -5,18 +5,7 @@ NULL
 
 {{range .Methods}}{{.Comment "#' " 80}}
 #' @param client Required. Instance of DatabricksClient()
-{{if .Request}}
-{{if and .Wait (not .IsCrudRead)}}#'
-#' @description
-#' This is a long-running operation, which blocks until {{.Service.TitleName}} on Databricks reach
-#' {{range $i, $s := .Wait.Success}}{{if $i}} or {{end}}{{.Content}}{{end}} state with the timeout of {{.Wait.Timeout}} minutes, that you can change via `timeout` parameter.
-#' By default, the state of Databricks {{.Service.TitleName}} is reported to console. You can change this behavior
-#' by changing the `callback` parameter.
-#' @param timeout Time to wait for the operation to complete in minutes.
-#' @param callback Function to report the status of the operation. By default, it reports to console.
-{{end}}
-{{if .Request.RequiredFields}}#'
-{{end}}#'{{range .Request.Fields}}
+{{if .Request}}#'{{range .Request.Fields}}
 #' @param {{.SnakeName}} {{if .Required}}Required. {{end}}{{with .Summary}}{{.}}{{else}}This field has no description yet.{{end}}{{end}}
 {{end}}{{if .Pagination}}#'
 #' @return `data.frame` with all of the response pages.
@@ -26,11 +15,35 @@ NULL
 {{- $hasRequiredFields := and .Request (gt (len .Request.RequiredFields) 0) }}
 {{.Service.CamelName}}{{.PascalName}} <- function(client{{- if .Request}}{{range .Request.RequiredFields}}, {{.SnakeName}}{{end -}}
     {{- range .Request.NonRequiredFields}}, {{.SnakeName}}=NULL{{end}}
-    {{- end}}{{if and .Wait (not .IsCrudRead)}}, timeout={{.Wait.Timeout}}, callback=cli_reporter{{end}}) {
+    {{- end}}) {
     {{- template "method-serialize" .}}
     {{template "method-call" .}}
 }
-
+{{end}}
+{{- range .Methods}}{{if and .Wait (not .IsCrudRead)}}{{.Comment "#' " 80}}
+#' @param client Required. Instance of DatabricksClient()
+{{if .Request}}
+#'
+#' @description
+#' This is a long-running operation, which blocks until {{.Service.TitleName}} on Databricks reach
+#' {{range $i, $s := .Wait.Success}}{{if $i}} or {{end}}{{.Content}}{{end}} state with the timeout of {{.Wait.Timeout}} minutes, that you can change via `timeout` parameter.
+#' By default, the state of Databricks {{.Service.TitleName}} is reported to console. You can change this behavior
+#' by changing the `callback` parameter.
+#' @param timeout Time to wait for the operation to complete in minutes.
+#' @param callback Function to report the status of the operation. By default, it reports to console.
+#'{{range .Request.Fields}}
+#' @param {{.SnakeName}} {{if .Required}}Required. {{end}}{{with .Summary}}{{.}}{{else}}This field has no description yet.{{end}}{{end}}
+{{end}}#'
+#' @rdname {{.Service.CamelName}}{{.PascalName}}AndWait
+#' @export 
+{{- $hasRequiredFields := and .Request (gt (len .Request.RequiredFields) 0) }}
+{{.Service.CamelName}}{{.PascalName}}AndWait <- function(client{{- if .Request}}{{range .Request.RequiredFields}}, {{.SnakeName}}{{end -}}
+    {{- range .Request.NonRequiredFields}}, {{.SnakeName}}=NULL{{end}}
+    {{- end}}, timeout={{.Wait.Timeout}}, callback=cli_reporter) {
+    {{- template "method-serialize" .}}
+    {{template "method-call-retried" .}}
+}
+{{end}}
 {{end}}
 
 {{- define "method-serialize" -}}
@@ -44,7 +57,6 @@ NULL
 
 {{- define "method-call" -}}
     {{if .Pagination -}}{{template "method-call-paginated" .}}
-    {{- else if and .Wait (not .IsCrudRead) -}}{{template "method-call-retried" .}}
     {{- else}}{{template "method-call-default" .}}{{end}}
 {{- end -}}
 

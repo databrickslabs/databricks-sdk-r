@@ -7,6 +7,71 @@ NULL
 #' 
 #' Create a new endpoint.
 #' @param client Required. Instance of DatabricksClient()
+#'
+#' @param endpoint_type Required. Type of endpoint.
+#' @param name Required. Name of endpoint.
+#'
+#' @rdname vectorSearchEndpointsCreateEndpoint
+#' @export
+vectorSearchEndpointsCreateEndpoint <- function(client, name, endpoint_type) {
+  body <- list(endpoint_type = endpoint_type, name = name)
+  client$do("POST", "/api/2.0/vector-search/endpoints", body = body)
+}
+#' Delete an endpoint.
+#' @param client Required. Instance of DatabricksClient()
+#'
+#' @param endpoint_name Required. Name of the endpoint.
+#'
+#' @rdname vectorSearchEndpointsDeleteEndpoint
+#' @export
+vectorSearchEndpointsDeleteEndpoint <- function(client, endpoint_name) {
+
+  client$do("DELETE", paste("/api/2.0/vector-search/endpoints/", endpoint_name,
+    sep = ""))
+}
+#' Get an endpoint.
+#' @param client Required. Instance of DatabricksClient()
+#'
+#' @param endpoint_name Required. Name of the endpoint.
+#'
+#' @rdname vectorSearchEndpointsGetEndpoint
+#' @export
+vectorSearchEndpointsGetEndpoint <- function(client, endpoint_name) {
+
+  client$do("GET", paste("/api/2.0/vector-search/endpoints/", endpoint_name, sep = ""))
+}
+#' List all endpoints.
+#' @param client Required. Instance of DatabricksClient()
+#'
+#' @param page_token Token for pagination.
+#'
+#' @return `data.frame` with all of the response pages.
+#'
+#' @rdname vectorSearchEndpointsListEndpoints
+#' @export
+vectorSearchEndpointsListEndpoints <- function(client, page_token = NULL) {
+  query <- list(page_token = page_token)
+
+  results <- data.frame()
+  while (TRUE) {
+    json <- client$do("GET", "/api/2.0/vector-search/endpoints", query = query)
+    if (is.null(nrow(json$endpoints))) {
+      break
+    }
+    # append this page of results to one results data.frame
+    results <- dplyr::bind_rows(results, json$endpoints)
+    if (is.null(json$next_page_token)) {
+      break
+    }
+    query$page_token <- json$next_page_token
+  }
+  return(results)
+
+}
+#' Create an endpoint.
+#' 
+#' Create a new endpoint.
+#' @param client Required. Instance of DatabricksClient()
 
 #'
 #' @description
@@ -16,16 +81,14 @@ NULL
 #' by changing the `callback` parameter.
 #' @param timeout Time to wait for the operation to complete in minutes.
 #' @param callback Function to report the status of the operation. By default, it reports to console.
-
-#'
 #'
 #' @param endpoint_type Required. Type of endpoint.
 #' @param name Required. Name of endpoint.
 #'
-#' @rdname vectorSearchEndpointsCreateEndpoint
+#' @rdname vectorSearchEndpointsCreateEndpointAndWait
 #' @export
-vectorSearchEndpointsCreateEndpoint <- function(client, name, endpoint_type, timeout = 20,
-  callback = cli_reporter) {
+vectorSearchEndpointsCreateEndpointAndWait <- function(client, name, endpoint_type,
+  timeout = 20, callback = cli_reporter) {
   body <- list(endpoint_type = endpoint_type, name = name)
   op_response <- client$do("POST", "/api/2.0/vector-search/endpoints", body = body)
   started <- as.numeric(Sys.time())
@@ -68,65 +131,6 @@ vectorSearchEndpointsCreateEndpoint <- function(client, name, endpoint_type, tim
   rlang::abort(msg, call = rlang::caller_env())
 }
 
-#' Delete an endpoint.
-#' @param client Required. Instance of DatabricksClient()
 
 
-#'
-#'
-#' @param endpoint_name Required. Name of the endpoint.
-#'
-#' @rdname vectorSearchEndpointsDeleteEndpoint
-#' @export
-vectorSearchEndpointsDeleteEndpoint <- function(client, endpoint_name) {
-
-  client$do("DELETE", paste("/api/2.0/vector-search/endpoints/", endpoint_name,
-    sep = ""))
-}
-
-#' Get an endpoint.
-#' @param client Required. Instance of DatabricksClient()
-
-
-#'
-#'
-#' @param endpoint_name Required. Name of the endpoint.
-#'
-#' @rdname vectorSearchEndpointsGetEndpoint
-#' @export
-vectorSearchEndpointsGetEndpoint <- function(client, endpoint_name) {
-
-  client$do("GET", paste("/api/2.0/vector-search/endpoints/", endpoint_name, sep = ""))
-}
-
-#' List all endpoints.
-#' @param client Required. Instance of DatabricksClient()
-
-
-#'
-#' @param page_token Token for pagination.
-#'
-#' @return `data.frame` with all of the response pages.
-#'
-#' @rdname vectorSearchEndpointsListEndpoints
-#' @export
-vectorSearchEndpointsListEndpoints <- function(client, page_token = NULL) {
-  query <- list(page_token = page_token)
-
-  results <- data.frame()
-  while (TRUE) {
-    json <- client$do("GET", "/api/2.0/vector-search/endpoints", query = query)
-    if (is.null(nrow(json$endpoints))) {
-      break
-    }
-    # append this page of results to one results data.frame
-    results <- dplyr::bind_rows(results, json$endpoints)
-    if (is.null(json$next_page_token)) {
-      break
-    }
-    query$page_token <- json$next_page_token
-  }
-  return(results)
-
-}
 

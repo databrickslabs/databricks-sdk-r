@@ -7,9 +7,6 @@ NULL
 #' 
 #' Approves a model version stage transition request.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param archive_existing_versions Required. Specifies whether to archive all current model versions in the target stage.
 #' @param comment User-provided comment on the action.
@@ -25,16 +22,12 @@ modelRegistryApproveTransitionRequest <- function(client, name, version, stage, 
     name = name, stage = stage, version = version)
   client$do("POST", "/api/2.0/mlflow/transition-requests/approve", body = body)
 }
-
 #' Post a comment.
 #' 
 #' Posts a comment on a model version. A comment can be submitted either by a
 #' user or programmatically to display relevant information about the model. For
 #' example, test results or deployment errors.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param comment Required. User-provided comment on the action.
 #' @param name Required. Name of the model.
@@ -46,7 +39,6 @@ modelRegistryCreateComment <- function(client, name, version, comment) {
   body <- list(comment = comment, name = name, version = version)
   client$do("POST", "/api/2.0/mlflow/comments/create", body = body)
 }
-
 #' Create a model.
 #' 
 #' Creates a new registered model with the name specified in the request body.
@@ -54,9 +46,6 @@ modelRegistryCreateComment <- function(client, name, version, comment) {
 #' Throws `RESOURCE_ALREADY_EXISTS` if a registered model with the given name
 #' exists.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param description Optional description for registered model.
 #' @param name Required. Register models under this name.
@@ -68,14 +57,10 @@ modelRegistryCreateModel <- function(client, name, description = NULL, tags = NU
   body <- list(description = description, name = name, tags = tags)
   client$do("POST", "/api/2.0/mlflow/registered-models/create", body = body)
 }
-
 #' Create a model version.
 #' 
 #' Creates a model version.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param description Optional description for model version.
 #' @param name Required. Register model under this name.
@@ -92,14 +77,10 @@ modelRegistryCreateModelVersion <- function(client, name, source, description = 
     source = source, tags = tags)
   client$do("POST", "/api/2.0/mlflow/model-versions/create", body = body)
 }
-
 #' Make a transition request.
 #' 
 #' Creates a model version stage transition request.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param comment User-provided comment on the action.
 #' @param name Required. Name of the model.
@@ -112,16 +93,12 @@ modelRegistryCreateTransitionRequest <- function(client, name, version, stage, c
   body <- list(comment = comment, name = name, stage = stage, version = version)
   client$do("POST", "/api/2.0/mlflow/transition-requests/create", body = body)
 }
-
 #' Create a webhook.
 #' 
 #' **NOTE**: This endpoint is in Public Preview.
 #' 
 #' Creates a registry webhook.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param description User-specified description for the webhook.
 #' @param events Required. Events that can trigger a registry webhook: * `MODEL_VERSION_CREATED`: A new model version was created for the associated model.
@@ -138,14 +115,10 @@ modelRegistryCreateWebhook <- function(client, events, description = NULL, http_
     job_spec = job_spec, model_name = model_name, status = status)
   client$do("POST", "/api/2.0/mlflow/registry-webhooks/create", body = body)
 }
-
 #' Delete a comment.
 #' 
 #' Deletes a comment on a model version.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param id Required. This field has no description yet.
 #'
@@ -155,14 +128,10 @@ modelRegistryDeleteComment <- function(client, id) {
   query <- list(id = id)
   client$do("DELETE", "/api/2.0/mlflow/comments/delete", query = query)
 }
-
 #' Delete a model.
 #' 
 #' Deletes a registered model.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param name Required. Registered model unique name identifier.
 #'
@@ -172,14 +141,10 @@ modelRegistryDeleteModel <- function(client, name) {
   query <- list(name = name)
   client$do("DELETE", "/api/2.0/mlflow/registered-models/delete", query = query)
 }
-
 #' Delete a model tag.
 #' 
 #' Deletes the tag for a registered model.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param key Required. Name of the tag.
 #' @param name Required. Name of the registered model that the tag was logged under.
@@ -190,14 +155,10 @@ modelRegistryDeleteModelTag <- function(client, name, key) {
   query <- list(key = key, name = name)
   client$do("DELETE", "/api/2.0/mlflow/registered-models/delete-tag", query = query)
 }
-
 #' Delete a model version.
 #' 
 #' Deletes a model version.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param name Required. Name of the registered model.
 #' @param version Required. Model version number.
@@ -208,14 +169,10 @@ modelRegistryDeleteModelVersion <- function(client, name, version) {
   query <- list(name = name, version = version)
   client$do("DELETE", "/api/2.0/mlflow/model-versions/delete", query = query)
 }
-
 #' Delete a model version tag.
 #' 
 #' Deletes a model version tag.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param key Required. Name of the tag.
 #' @param name Required. Name of the registered model that the tag was logged under.
@@ -227,14 +184,10 @@ modelRegistryDeleteModelVersionTag <- function(client, name, version, key) {
   query <- list(key = key, name = name, version = version)
   client$do("DELETE", "/api/2.0/mlflow/model-versions/delete-tag", query = query)
 }
-
 #' Delete a transition request.
 #' 
 #' Cancels a model version stage transition request.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param comment User-provided comment on the action.
 #' @param creator Required. Username of the user who created this request.
@@ -250,15 +203,12 @@ modelRegistryDeleteTransitionRequest <- function(client, name, version, stage, c
     version = version)
   client$do("DELETE", "/api/2.0/mlflow/transition-requests/delete", query = query)
 }
-
 #' Delete a webhook.
 #' 
 #' **NOTE:** This endpoint is in Public Preview.
 #' 
 #' Deletes a registry webhook.
 #' @param client Required. Instance of DatabricksClient()
-
-
 #'
 #' @param id Webhook ID required to delete a registry webhook.
 #'
@@ -268,14 +218,10 @@ modelRegistryDeleteWebhook <- function(client, id = NULL) {
   query <- list(id = id)
   client$do("DELETE", "/api/2.0/mlflow/registry-webhooks/delete", query = query)
 }
-
 #' Get the latest version.
 #' 
 #' Gets the latest version of a registered model.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param name Required. Registered model unique name identifier.
 #' @param stages List of stages.
@@ -292,7 +238,6 @@ modelRegistryGetLatestVersions <- function(client, name, stages = NULL) {
   return(json$model_versions)
 
 }
-
 #' Get model.
 #' 
 #' Get the details of a model. This is a Databricks workspace version of the
@@ -301,9 +246,6 @@ modelRegistryGetLatestVersions <- function(client, name, stages = NULL) {
 #' 
 #' MLflow endpoint: https://www.mlflow.org/docs/latest/rest-api.html#get-registeredmodel
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param name Required. Registered model unique name identifier.
 #'
@@ -313,14 +255,10 @@ modelRegistryGetModel <- function(client, name) {
   query <- list(name = name)
   client$do("GET", "/api/2.0/mlflow/databricks/registered-models/get", query = query)
 }
-
 #' Get a model version.
 #' 
 #' Get a model version.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param name Required. Name of the registered model.
 #' @param version Required. Model version number.
@@ -331,14 +269,10 @@ modelRegistryGetModelVersion <- function(client, name, version) {
   query <- list(name = name, version = version)
   client$do("GET", "/api/2.0/mlflow/model-versions/get", query = query)
 }
-
 #' Get a model version URI.
 #' 
 #' Gets a URI to download the model version.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param name Required. Name of the registered model.
 #' @param version Required. Model version number.
@@ -349,14 +283,10 @@ modelRegistryGetModelVersionDownloadUri <- function(client, name, version) {
   query <- list(name = name, version = version)
   client$do("GET", "/api/2.0/mlflow/model-versions/get-download-uri", query = query)
 }
-
 #' Get registered model permission levels.
 #' 
 #' Gets the permission levels that a user can have on an object.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param registered_model_id Required. The registered model for which to get or manage permissions.
 #'
@@ -367,15 +297,11 @@ modelRegistryGetPermissionLevels <- function(client, registered_model_id) {
   client$do("GET", paste("/api/2.0/permissions/registered-models/", registered_model_id,
     "/permissionLevels", , sep = ""))
 }
-
 #' Get registered model permissions.
 #' 
 #' Gets the permissions of a registered model. Registered models can inherit
 #' permissions from their root object.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param registered_model_id Required. The registered model for which to get or manage permissions.
 #'
@@ -386,14 +312,11 @@ modelRegistryGetPermissions <- function(client, registered_model_id) {
   client$do("GET", paste("/api/2.0/permissions/registered-models/", registered_model_id,
     sep = ""))
 }
-
 #' List models.
 #' 
 #' Lists all available registered models, up to the limit specified in
 #' __max_results__.
 #' @param client Required. Instance of DatabricksClient()
-
-
 #'
 #' @param max_results Maximum number of registered models desired.
 #' @param page_token Pagination token to go to the next page based on a previous query.
@@ -421,14 +344,10 @@ modelRegistryListModels <- function(client, max_results = NULL, page_token = NUL
   return(results)
 
 }
-
 #' List transition requests.
 #' 
 #' Gets a list of all open stage transition requests for the model version.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param name Required. Name of the model.
 #' @param version Required. Version of the model.
@@ -444,15 +363,12 @@ modelRegistryListTransitionRequests <- function(client, name, version) {
   return(json$requests)
 
 }
-
 #' List registry webhooks.
 #' 
 #' **NOTE:** This endpoint is in Public Preview.
 #' 
 #' Lists all registry webhooks.
 #' @param client Required. Instance of DatabricksClient()
-
-
 #'
 #' @param events If `events` is specified, any webhook with one or more of the specified trigger events is included in the output.
 #' @param model_name If not specified, all webhooks associated with the specified events are listed, regardless of their associated model.
@@ -481,14 +397,10 @@ modelRegistryListWebhooks <- function(client, events = NULL, model_name = NULL, 
   return(results)
 
 }
-
 #' Reject a transition request.
 #' 
 #' Rejects a model version stage transition request.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param comment User-provided comment on the action.
 #' @param name Required. Name of the model.
@@ -501,14 +413,10 @@ modelRegistryRejectTransitionRequest <- function(client, name, version, stage, c
   body <- list(comment = comment, name = name, stage = stage, version = version)
   client$do("POST", "/api/2.0/mlflow/transition-requests/reject", body = body)
 }
-
 #' Rename a model.
 #' 
 #' Renames a registered model.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param name Required. Registered model unique name identifier.
 #' @param new_name If provided, updates the name for this `registered_model`.
@@ -519,13 +427,10 @@ modelRegistryRenameModel <- function(client, name, new_name = NULL) {
   body <- list(name = name, new_name = new_name)
   client$do("POST", "/api/2.0/mlflow/registered-models/rename", body = body)
 }
-
 #' Searches model versions.
 #' 
 #' Searches for specific model versions based on the supplied __filter__.
 #' @param client Required. Instance of DatabricksClient()
-
-
 #'
 #' @param filter String filter condition, like 'name='my-model-name''.
 #' @param max_results Maximum number of models desired.
@@ -557,13 +462,10 @@ modelRegistrySearchModelVersions <- function(client, filter = NULL, max_results 
   return(results)
 
 }
-
 #' Search models.
 #' 
 #' Search for registered models based on the specified __filter__.
 #' @param client Required. Instance of DatabricksClient()
-
-
 #'
 #' @param filter String filter condition, like 'name LIKE 'my-model-name''.
 #' @param max_results Maximum number of models desired.
@@ -595,14 +497,10 @@ modelRegistrySearchModels <- function(client, filter = NULL, max_results = NULL,
   return(results)
 
 }
-
 #' Set a tag.
 #' 
 #' Sets a tag on a registered model.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param key Required. Name of the tag.
 #' @param name Required. Unique name of the model.
@@ -614,14 +512,10 @@ modelRegistrySetModelTag <- function(client, name, key, value) {
   body <- list(key = key, name = name, value = value)
   client$do("POST", "/api/2.0/mlflow/registered-models/set-tag", body = body)
 }
-
 #' Set a version tag.
 #' 
 #' Sets a model version tag.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param key Required. Name of the tag.
 #' @param name Required. Unique name of the model.
@@ -634,15 +528,11 @@ modelRegistrySetModelVersionTag <- function(client, name, version, key, value) {
   body <- list(key = key, name = name, value = value, version = version)
   client$do("POST", "/api/2.0/mlflow/model-versions/set-tag", body = body)
 }
-
 #' Set registered model permissions.
 #' 
 #' Sets permissions on a registered model. Registered models can inherit
 #' permissions from their root object.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param access_control_list This field has no description yet.
 #' @param registered_model_id Required. The registered model for which to get or manage permissions.
@@ -654,16 +544,12 @@ modelRegistrySetPermissions <- function(client, registered_model_id, access_cont
   client$do("PUT", paste("/api/2.0/permissions/registered-models/", registered_model_id,
     sep = ""), body = body)
 }
-
 #' Test a webhook.
 #' 
 #' **NOTE:** This endpoint is in Public Preview.
 #' 
 #' Tests a registry webhook.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param event If `event` is specified, the test trigger uses the specified event.
 #' @param id Required. Webhook ID.
@@ -674,7 +560,6 @@ modelRegistryTestRegistryWebhook <- function(client, id, event = NULL) {
   body <- list(event = event, id = id)
   client$do("POST", "/api/2.0/mlflow/registry-webhooks/test", body = body)
 }
-
 #' Transition a stage.
 #' 
 #' Transition a model version's stage. This is a Databricks workspace version of
@@ -683,9 +568,6 @@ modelRegistryTestRegistryWebhook <- function(client, id, event = NULL) {
 #' 
 #' MLflow endpoint: https://www.mlflow.org/docs/latest/rest-api.html#transition-modelversion-stage
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param archive_existing_versions Required. Specifies whether to archive all current model versions in the target stage.
 #' @param comment User-provided comment on the action.
@@ -702,14 +584,10 @@ modelRegistryTransitionStage <- function(client, name, version, stage, archive_e
   client$do("POST", "/api/2.0/mlflow/databricks/model-versions/transition-stage",
     body = body)
 }
-
 #' Update a comment.
 #' 
 #' Post an edit to a comment on a model version.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param comment Required. User-provided comment on the action.
 #' @param id Required. Unique identifier of an activity.
@@ -720,14 +598,10 @@ modelRegistryUpdateComment <- function(client, id, comment) {
   body <- list(comment = comment, id = id)
   client$do("PATCH", "/api/2.0/mlflow/comments/update", body = body)
 }
-
 #' Update model.
 #' 
 #' Updates a registered model.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param description If provided, updates the description for this `registered_model`.
 #' @param name Required. Registered model unique name identifier.
@@ -738,14 +612,10 @@ modelRegistryUpdateModel <- function(client, name, description = NULL) {
   body <- list(description = description, name = name)
   client$do("PATCH", "/api/2.0/mlflow/registered-models/update", body = body)
 }
-
 #' Update model version.
 #' 
 #' Updates the model version.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param description If provided, updates the description for this `registered_model`.
 #' @param name Required. Name of the registered model.
@@ -757,15 +627,11 @@ modelRegistryUpdateModelVersion <- function(client, name, version, description =
   body <- list(description = description, name = name, version = version)
   client$do("PATCH", "/api/2.0/mlflow/model-versions/update", body = body)
 }
-
 #' Update registered model permissions.
 #' 
 #' Updates the permissions on a registered model. Registered models can inherit
 #' permissions from their root object.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param access_control_list This field has no description yet.
 #' @param registered_model_id Required. The registered model for which to get or manage permissions.
@@ -777,16 +643,12 @@ modelRegistryUpdatePermissions <- function(client, registered_model_id, access_c
   client$do("PATCH", paste("/api/2.0/permissions/registered-models/", registered_model_id,
     sep = ""), body = body)
 }
-
 #' Update a webhook.
 #' 
 #' **NOTE:** This endpoint is in Public Preview.
 #' 
 #' Updates a registry webhook.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param description User-specified description for the webhook.
 #' @param events Events that can trigger a registry webhook: * `MODEL_VERSION_CREATED`: A new model version was created for the associated model.
@@ -803,4 +665,39 @@ modelRegistryUpdateWebhook <- function(client, id, description = NULL, events = 
     id = id, job_spec = job_spec, status = status)
   client$do("PATCH", "/api/2.0/mlflow/registry-webhooks/update", body = body)
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

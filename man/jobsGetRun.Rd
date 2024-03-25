@@ -8,9 +8,7 @@ jobsGetRun(
   client,
   run_id,
   include_history = NULL,
-  include_resolved_values = NULL,
-  timeout = 20,
-  callback = cli_reporter
+  include_resolved_values = NULL
 )
 }
 \arguments{
@@ -21,17 +19,7 @@ jobsGetRun(
 \item{include_history}{Whether to include the repair history in the response.}
 
 \item{include_resolved_values}{Whether to include resolved parameter values in the response.}
-
-\item{timeout}{Time to wait for the operation to complete in minutes.}
-
-\item{callback}{Function to report the status of the operation. By default, it reports to console.}
 }
 \description{
-This is a long-running operation, which blocks until Jobs on Databricks reach
-TERMINATED or SKIPPED state with the timeout of 20 minutes, that you can change via \code{timeout} parameter.
-By default, the state of Databricks Jobs is reported to console. You can change this behavior
-by changing the \code{callback} parameter.
-}
-\details{
 Retrieve the metadata of a run.
 }

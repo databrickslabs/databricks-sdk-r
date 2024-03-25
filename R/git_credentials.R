@@ -10,9 +10,6 @@ NULL
 #' exists will fail. Use the PATCH endpoint to update existing credentials, or
 #' the DELETE endpoint to delete existing credentials.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param git_provider Required. Git provider.
 #' @param git_username Git username.
@@ -24,14 +21,10 @@ gitCredentialsCreate <- function(client, git_provider, git_username = NULL, pers
   body <- list(git_provider = git_provider, git_username = git_username, personal_access_token = personal_access_token)
   client$do("POST", "/api/2.0/git-credentials", body = body)
 }
-
 #' Delete a credential.
 #' 
 #' Deletes the specified Git credential.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param credential_id Required. The ID for the corresponding credential to access.
 #'
@@ -41,14 +34,10 @@ gitCredentialsDelete <- function(client, credential_id) {
 
   client$do("DELETE", paste("/api/2.0/git-credentials/", credential_id, sep = ""))
 }
-
 #' Get a credential entry.
 #' 
 #' Gets the Git credential with the specified credential ID.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param credential_id Required. The ID for the corresponding credential to access.
 #'
@@ -58,7 +47,6 @@ gitCredentialsGet <- function(client, credential_id) {
 
   client$do("GET", paste("/api/2.0/git-credentials/", credential_id, sep = ""))
 }
-
 #' Get Git credentials.
 #' 
 #' Lists the calling user's Git credentials. One credential per user is
@@ -75,14 +63,10 @@ gitCredentialsList <- function(client) {
   return(json$credentials)
 
 }
-
 #' Update a credential.
 #' 
 #' Updates the specified Git credential.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param credential_id Required. The ID for the corresponding credential to access.
 #' @param git_provider Git provider.
@@ -97,4 +81,8 @@ gitCredentialsUpdate <- function(client, credential_id, git_provider = NULL, git
   client$do("PATCH", paste("/api/2.0/git-credentials/", credential_id, sep = ""),
     body = body)
 }
+
+
+
+
 

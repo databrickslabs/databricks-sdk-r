@@ -9,9 +9,6 @@ NULL
 #' metastore admin, or have the **CREATE_SCHEMA** privilege in the parent
 #' catalog.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param catalog_name Required. Name of parent catalog.
 #' @param comment User-provided free-form text description.
@@ -27,15 +24,11 @@ schemasCreate <- function(client, name, catalog_name, comment = NULL, properties
     storage_root = storage_root)
   client$do("POST", "/api/2.1/unity-catalog/schemas", body = body)
 }
-
 #' Delete a schema.
 #' 
 #' Deletes the specified schema from the parent catalog. The caller must be the
 #' owner of the schema or an owner of the parent catalog.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param full_name Required. Full name of the schema.
 #'
@@ -45,16 +38,12 @@ schemasDelete <- function(client, full_name) {
 
   client$do("DELETE", paste("/api/2.1/unity-catalog/schemas/", full_name, sep = ""))
 }
-
 #' Get a schema.
 #' 
 #' Gets the specified schema within the metastore. The caller must be a
 #' metastore admin, the owner of the schema, or a user that has the
 #' **USE_SCHEMA** privilege on the schema.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param full_name Required. Full name of the schema.
 #' @param include_browse Whether to include schemas in the response for which the principal can only access selective metadata for.
@@ -66,7 +55,6 @@ schemasGet <- function(client, full_name, include_browse = NULL) {
   client$do("GET", paste("/api/2.1/unity-catalog/schemas/", full_name, sep = ""),
     query = query)
 }
-
 #' List schemas.
 #' 
 #' Gets an array of schemas for a catalog in the metastore. If the caller is the
@@ -75,9 +63,6 @@ schemasGet <- function(client, full_name, include_browse = NULL) {
 #' for which the caller has the **USE_SCHEMA** privilege) will be retrieved.
 #' There is no guarantee of a specific ordering of the elements in the array.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param catalog_name Required. Parent catalog for schemas of interest.
 #' @param include_browse Whether to include schemas in the response for which the principal can only access selective metadata for.
@@ -109,7 +94,6 @@ schemasList <- function(client, catalog_name, include_browse = NULL, max_results
   return(results)
 
 }
-
 #' Update a schema.
 #' 
 #' Updates a schema for a catalog. The caller must be the owner of the schema or
@@ -118,9 +102,6 @@ schemasList <- function(client, catalog_name, include_browse = NULL, max_results
 #' the caller must be a metastore admin or have the **CREATE_SCHEMA** privilege
 #' on the parent catalog.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param comment User-provided free-form text description.
 #' @param enable_predictive_optimization Whether predictive optimization should be enabled for this object and objects under it.
@@ -138,4 +119,8 @@ schemasUpdate <- function(client, full_name, comment = NULL, enable_predictive_o
   client$do("PATCH", paste("/api/2.1/unity-catalog/schemas/", full_name, sep = ""),
     body = body)
 }
+
+
+
+
 

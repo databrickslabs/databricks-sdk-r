@@ -34,9 +34,7 @@ clustersEdit(
   spark_conf = NULL,
   spark_env_vars = NULL,
   ssh_public_keys = NULL,
-  workload_type = NULL,
-  timeout = 20,
-  callback = cli_reporter
+  workload_type = NULL
 )
 }
 \arguments{
@@ -99,21 +97,12 @@ clustersEdit(
 \item{ssh_public_keys}{SSH public key contents that will be added to each Spark node in this cluster.}
 
 \item{workload_type}{This field has no description yet.}
-
-\item{timeout}{Time to wait for the operation to complete in minutes.}
-
-\item{callback}{Function to report the status of the operation. By default, it reports to console.}
 }
 \description{
-This is a long-running operation, which blocks until Clusters on Databricks reach
-RUNNING state with the timeout of 20 minutes, that you can change via \code{timeout} parameter.
-By default, the state of Databricks Clusters is reported to console. You can change this behavior
-by changing the \code{callback} parameter.
-}
-\details{
 Updates the configuration of a cluster to match the provided attributes and
 size. A cluster can be updated if it is in a \code{RUNNING} or \code{TERMINATED} state.
-
+}
+\details{
 If a cluster is updated while in a \code{RUNNING} state, it will be restarted so
 that the new attributes can take effect.
 

@@ -9,9 +9,6 @@ NULL
 #' __workspace_id__ exists, it will be overwritten by the new __metastore_id__
 #' and __default_catalog_name__. The caller must be an account admin.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param default_catalog_name Required. The name of the default catalog in the metastore.
 #' @param metastore_id Required. The unique ID of the metastore.
@@ -24,7 +21,6 @@ metastoresAssign <- function(client, workspace_id, metastore_id, default_catalog
   client$do("PUT", paste("/api/2.1/unity-catalog/workspaces/", workspace_id, "/metastore",
     , sep = ""), body = body)
 }
-
 #' Create a metastore.
 #' 
 #' Creates a new metastore based on a provided name and optional storage root
@@ -33,9 +29,6 @@ metastoresAssign <- function(client, workspace_id, metastore_id, default_catalog
 #' field is set to the empty string (**''**), the ownership is assigned to the
 #' System User instead.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param name Required. The user-specified name of the metastore.
 #' @param region Cloud region which the metastore serves (e.g., `us-west-2`, `westus`).
@@ -47,7 +40,6 @@ metastoresCreate <- function(client, name, region = NULL, storage_root = NULL) {
   body <- list(name = name, region = region, storage_root = storage_root)
   client$do("POST", "/api/2.1/unity-catalog/metastores", body = body)
 }
-
 #' Get metastore assignment for workspace.
 #' 
 #' Gets the metastore assignment for the workspace being accessed.
@@ -58,14 +50,10 @@ metastoresCreate <- function(client, name, region = NULL, storage_root = NULL) {
 metastoresCurrent <- function(client) {
   client$do("GET", "/api/2.1/unity-catalog/current-metastore-assignment")
 }
-
 #' Delete a metastore.
 #' 
 #' Deletes a metastore. The caller must be a metastore admin.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param force Force deletion even if the metastore is not empty.
 #' @param id Required. Unique ID of the metastore.
@@ -77,15 +65,11 @@ metastoresDelete <- function(client, id, force = NULL) {
   client$do("DELETE", paste("/api/2.1/unity-catalog/metastores/", id, sep = ""),
     query = query)
 }
-
 #' Get a metastore.
 #' 
 #' Gets a metastore that matches the supplied ID. The caller must be a metastore
 #' admin to retrieve this info.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param id Required. Unique ID of the metastore.
 #'
@@ -95,7 +79,6 @@ metastoresGet <- function(client, id) {
 
   client$do("GET", paste("/api/2.1/unity-catalog/metastores/", id, sep = ""))
 }
-
 #' List metastores.
 #' 
 #' Gets an array of the available metastores (as __MetastoreInfo__ objects). The
@@ -113,7 +96,6 @@ metastoresList <- function(client) {
   return(json$metastores)
 
 }
-
 #' Get a metastore summary.
 #' 
 #' Gets information about a metastore. This summary includes the storage
@@ -125,14 +107,10 @@ metastoresList <- function(client) {
 metastoresSummary <- function(client) {
   client$do("GET", "/api/2.1/unity-catalog/metastore_summary")
 }
-
 #' Delete an assignment.
 #' 
 #' Deletes a metastore assignment. The caller must be an account administrator.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param metastore_id Required. Query for the ID of the metastore to delete.
 #' @param workspace_id Required. A workspace ID.
@@ -144,16 +122,12 @@ metastoresUnassign <- function(client, workspace_id, metastore_id) {
   client$do("DELETE", paste("/api/2.1/unity-catalog/workspaces/", workspace_id,
     "/metastore", , sep = ""), query = query)
 }
-
 #' Update a metastore.
 #' 
 #' Updates information for a specific metastore. The caller must be a metastore
 #' admin. If the __owner__ field is set to the empty string (**''**), the
 #' ownership is updated to the System User.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param delta_sharing_organization_name The organization name of a Delta Sharing entity, to be used in Databricks-to-Databricks Delta Sharing as the official name.
 #' @param delta_sharing_recipient_token_lifetime_in_seconds The lifetime of delta sharing recipient token in seconds.
@@ -176,7 +150,6 @@ metastoresUpdate <- function(client, id, delta_sharing_organization_name = NULL,
   client$do("PATCH", paste("/api/2.1/unity-catalog/metastores/", id, sep = ""),
     body = body)
 }
-
 #' Update an assignment.
 #' 
 #' Updates a metastore assignment. This operation can be used to update
@@ -185,9 +158,6 @@ metastoresUpdate <- function(client, id, delta_sharing_organization_name = NULL,
 #' admin to update __metastore_id__; otherwise, the caller can be a Workspace
 #' admin.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param default_catalog_name The name of the default catalog for the metastore.
 #' @param metastore_id The unique ID of the metastore.
@@ -201,4 +171,13 @@ metastoresUpdateAssignment <- function(client, workspace_id, default_catalog_nam
   client$do("PATCH", paste("/api/2.1/unity-catalog/workspaces/", workspace_id,
     "/metastore", , sep = ""), body = body)
 }
+
+
+
+
+
+
+
+
+
 

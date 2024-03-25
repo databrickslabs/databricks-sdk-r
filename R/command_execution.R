@@ -9,6 +9,108 @@ NULL
 #' 
 #' The command ID is obtained from a prior successful call to __execute__.
 #' @param client Required. Instance of DatabricksClient()
+#'
+#' @param cluster_id This field has no description yet.
+#' @param command_id This field has no description yet.
+#' @param context_id This field has no description yet.
+#'
+#' @rdname commandExecutionCancel
+#' @export
+commandExecutionCancel <- function(client, cluster_id = NULL, command_id = NULL,
+  context_id = NULL) {
+  body <- list(clusterId = cluster_id, commandId = command_id, contextId = context_id)
+  client$do("POST", "/api/1.2/commands/cancel", body = body)
+}
+#' Get command info.
+#' 
+#' Gets the status of and, if available, the results from a currently executing
+#' command.
+#' 
+#' The command ID is obtained from a prior successful call to __execute__.
+#' @param client Required. Instance of DatabricksClient()
+#'
+#' @param cluster_id Required. This field has no description yet.
+#' @param command_id Required. This field has no description yet.
+#' @param context_id Required. This field has no description yet.
+#'
+#' @rdname commandExecutionCommandStatus
+#' @export
+commandExecutionCommandStatus <- function(client, cluster_id, context_id, command_id) {
+  query <- list(clusterId = cluster_id, commandId = command_id, contextId = context_id)
+  client$do("GET", "/api/1.2/commands/status", query = query)
+}
+#' Get status.
+#' 
+#' Gets the status for an execution context.
+#' @param client Required. Instance of DatabricksClient()
+#'
+#' @param cluster_id Required. This field has no description yet.
+#' @param context_id Required. This field has no description yet.
+#'
+#' @rdname commandExecutionContextStatus
+#' @export
+commandExecutionContextStatus <- function(client, cluster_id, context_id) {
+  query <- list(clusterId = cluster_id, contextId = context_id)
+  client$do("GET", "/api/1.2/contexts/status", query = query)
+}
+#' Create an execution context.
+#' 
+#' Creates an execution context for running cluster commands.
+#' 
+#' If successful, this method returns the ID of the new execution context.
+#' @param client Required. Instance of DatabricksClient()
+#'
+#' @param cluster_id Running cluster id.
+#' @param language This field has no description yet.
+#'
+#' @rdname commandExecutionCreate
+#' @export
+commandExecutionCreate <- function(client, cluster_id = NULL, language = NULL) {
+  body <- list(clusterId = cluster_id, language = language)
+  client$do("POST", "/api/1.2/contexts/create", body = body)
+}
+#' Delete an execution context.
+#' 
+#' Deletes an execution context.
+#' @param client Required. Instance of DatabricksClient()
+#'
+#' @param cluster_id Required. This field has no description yet.
+#' @param context_id Required. This field has no description yet.
+#'
+#' @rdname commandExecutionDestroy
+#' @export
+commandExecutionDestroy <- function(client, cluster_id, context_id) {
+  body <- list(clusterId = cluster_id, contextId = context_id)
+  client$do("POST", "/api/1.2/contexts/destroy", body = body)
+}
+#' Run a command.
+#' 
+#' Runs a cluster command in the given execution context, using the provided
+#' language.
+#' 
+#' If successful, it returns an ID for tracking the status of the command's
+#' execution.
+#' @param client Required. Instance of DatabricksClient()
+#'
+#' @param cluster_id Running cluster id.
+#' @param command Executable code.
+#' @param context_id Running context id.
+#' @param language This field has no description yet.
+#'
+#' @rdname commandExecutionExecute
+#' @export
+commandExecutionExecute <- function(client, cluster_id = NULL, command = NULL, context_id = NULL,
+  language = NULL) {
+  body <- list(clusterId = cluster_id, command = command, contextId = context_id,
+    language = language)
+  client$do("POST", "/api/1.2/commands/execute", body = body)
+}
+#' Cancel a command.
+#' 
+#' Cancels a currently running command within an execution context.
+#' 
+#' The command ID is obtained from a prior successful call to __execute__.
+#' @param client Required. Instance of DatabricksClient()
 
 #'
 #' @description
@@ -18,15 +120,14 @@ NULL
 #' by changing the `callback` parameter.
 #' @param timeout Time to wait for the operation to complete in minutes.
 #' @param callback Function to report the status of the operation. By default, it reports to console.
-
 #'
 #' @param cluster_id This field has no description yet.
 #' @param command_id This field has no description yet.
 #' @param context_id This field has no description yet.
 #'
-#' @rdname commandExecutionCancel
+#' @rdname commandExecutionCancelAndWait
 #' @export
-commandExecutionCancel <- function(client, cluster_id = NULL, command_id = NULL,
+commandExecutionCancelAndWait <- function(client, cluster_id = NULL, command_id = NULL,
   context_id = NULL, timeout = 20, callback = cli_reporter) {
   body <- list(clusterId = cluster_id, commandId = command_id, contextId = context_id)
   op_response <- client$do("POST", "/api/1.2/commands/cancel", body = body)
@@ -71,45 +172,7 @@ commandExecutionCancel <- function(client, cluster_id = NULL, command_id = NULL,
   rlang::abort(msg, call = rlang::caller_env())
 }
 
-#' Get command info.
-#' 
-#' Gets the status of and, if available, the results from a currently executing
-#' command.
-#' 
-#' The command ID is obtained from a prior successful call to __execute__.
-#' @param client Required. Instance of DatabricksClient()
 
-
-#'
-#'
-#' @param cluster_id Required. This field has no description yet.
-#' @param command_id Required. This field has no description yet.
-#' @param context_id Required. This field has no description yet.
-#'
-#' @rdname commandExecutionCommandStatus
-#' @export
-commandExecutionCommandStatus <- function(client, cluster_id, context_id, command_id) {
-  query <- list(clusterId = cluster_id, commandId = command_id, contextId = context_id)
-  client$do("GET", "/api/1.2/commands/status", query = query)
-}
-
-#' Get status.
-#' 
-#' Gets the status for an execution context.
-#' @param client Required. Instance of DatabricksClient()
-
-
-#'
-#'
-#' @param cluster_id Required. This field has no description yet.
-#' @param context_id Required. This field has no description yet.
-#'
-#' @rdname commandExecutionContextStatus
-#' @export
-commandExecutionContextStatus <- function(client, cluster_id, context_id) {
-  query <- list(clusterId = cluster_id, contextId = context_id)
-  client$do("GET", "/api/1.2/contexts/status", query = query)
-}
 
 #' Create an execution context.
 #' 
@@ -126,15 +189,14 @@ commandExecutionContextStatus <- function(client, cluster_id, context_id) {
 #' by changing the `callback` parameter.
 #' @param timeout Time to wait for the operation to complete in minutes.
 #' @param callback Function to report the status of the operation. By default, it reports to console.
-
 #'
 #' @param cluster_id Running cluster id.
 #' @param language This field has no description yet.
 #'
-#' @rdname commandExecutionCreate
+#' @rdname commandExecutionCreateAndWait
 #' @export
-commandExecutionCreate <- function(client, cluster_id = NULL, language = NULL, timeout = 20,
-  callback = cli_reporter) {
+commandExecutionCreateAndWait <- function(client, cluster_id = NULL, language = NULL,
+  timeout = 20, callback = cli_reporter) {
   body <- list(clusterId = cluster_id, language = language)
   op_response <- client$do("POST", "/api/1.2/contexts/create", body = body)
   started <- as.numeric(Sys.time())
@@ -174,23 +236,6 @@ commandExecutionCreate <- function(client, cluster_id = NULL, language = NULL, t
   rlang::abort(msg, call = rlang::caller_env())
 }
 
-#' Delete an execution context.
-#' 
-#' Deletes an execution context.
-#' @param client Required. Instance of DatabricksClient()
-
-
-#'
-#'
-#' @param cluster_id Required. This field has no description yet.
-#' @param context_id Required. This field has no description yet.
-#'
-#' @rdname commandExecutionDestroy
-#' @export
-commandExecutionDestroy <- function(client, cluster_id, context_id) {
-  body <- list(clusterId = cluster_id, contextId = context_id)
-  client$do("POST", "/api/1.2/contexts/destroy", body = body)
-}
 
 #' Run a command.
 #' 
@@ -209,17 +254,16 @@ commandExecutionDestroy <- function(client, cluster_id, context_id) {
 #' by changing the `callback` parameter.
 #' @param timeout Time to wait for the operation to complete in minutes.
 #' @param callback Function to report the status of the operation. By default, it reports to console.
-
 #'
 #' @param cluster_id Running cluster id.
 #' @param command Executable code.
 #' @param context_id Running context id.
 #' @param language This field has no description yet.
 #'
-#' @rdname commandExecutionExecute
+#' @rdname commandExecutionExecuteAndWait
 #' @export
-commandExecutionExecute <- function(client, cluster_id = NULL, command = NULL, context_id = NULL,
-  language = NULL, timeout = 20, callback = cli_reporter) {
+commandExecutionExecuteAndWait <- function(client, cluster_id = NULL, command = NULL,
+  context_id = NULL, language = NULL, timeout = 20, callback = cli_reporter) {
   body <- list(clusterId = cluster_id, command = command, contextId = context_id,
     language = language)
   op_response <- client$do("POST", "/api/1.2/commands/execute", body = body)

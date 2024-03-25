@@ -8,8 +8,6 @@ NULL
 #' Creates a new user in the Databricks workspace. This new user will also be
 #' added to the Databricks account.
 #' @param client Required. Instance of DatabricksClient()
-
-
 #'
 #' @param active If this user is active.
 #' @param display_name String that represents a concatenation of given and family names.
@@ -33,15 +31,11 @@ usersCreate <- function(client, active = NULL, display_name = NULL, emails = NUL
     schemas = schemas, userName = user_name)
   client$do("POST", "/api/2.0/preview/scim/v2/Users", body = body)
 }
-
 #' Delete a user.
 #' 
 #' Deletes a user. Deleting a user from a Databricks workspace also removes
 #' objects associated with the user.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param id Required. Unique ID for a user in the Databricks workspace.
 #'
@@ -51,14 +45,10 @@ usersDelete <- function(client, id) {
 
   client$do("DELETE", paste("/api/2.0/preview/scim/v2/Users/", id, sep = ""))
 }
-
 #' Get user details.
 #' 
 #' Gets information for a specific user in Databricks workspace.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param attributes Comma-separated list of attributes to return in response.
 #' @param count Desired number of results per page.
@@ -77,7 +67,6 @@ usersGet <- function(client, id, attributes = NULL, count = NULL, excluded_attri
     filter = filter, sortBy = sort_by, sortOrder = sort_order, startIndex = start_index)
   client$do("GET", paste("/api/2.0/preview/scim/v2/Users/", id, sep = ""), query = query)
 }
-
 #' Get password permission levels.
 #' 
 #' Gets the permission levels that a user can have on an object.
@@ -88,7 +77,6 @@ usersGet <- function(client, id, attributes = NULL, count = NULL, excluded_attri
 usersGetPermissionLevels <- function(client) {
   client$do("GET", "/api/2.0/permissions/authorization/passwords/permissionLevels")
 }
-
 #' Get password permissions.
 #' 
 #' Gets the permissions of all passwords. Passwords can inherit permissions from
@@ -100,13 +88,10 @@ usersGetPermissionLevels <- function(client) {
 usersGetPermissions <- function(client) {
   client$do("GET", "/api/2.0/permissions/authorization/passwords")
 }
-
 #' List users.
 #' 
 #' Gets details for all the users associated with a Databricks workspace.
 #' @param client Required. Instance of DatabricksClient()
-
-
 #'
 #' @param attributes Comma-separated list of attributes to return in response.
 #' @param count Desired number of results per page.
@@ -141,15 +126,11 @@ usersList <- function(client, attributes = NULL, count = NULL, excluded_attribut
   return(results)
 
 }
-
 #' Update user details.
 #' 
 #' Partially updates a user resource by applying the supplied operations on
 #' specific user attributes.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param id Required. Unique ID for a user in the Databricks workspace.
 #' @param operations This field has no description yet.
@@ -161,14 +142,11 @@ usersPatch <- function(client, id, operations = NULL, schemas = NULL) {
   body <- list(Operations = operations, schemas = schemas)
   client$do("PATCH", paste("/api/2.0/preview/scim/v2/Users/", id, sep = ""), body = body)
 }
-
 #' Set password permissions.
 #' 
 #' Sets permissions on all passwords. Passwords can inherit permissions from
 #' their root object.
 #' @param client Required. Instance of DatabricksClient()
-
-
 #'
 #' @param access_control_list This field has no description yet.
 #'
@@ -178,14 +156,10 @@ usersSetPermissions <- function(client, access_control_list = NULL) {
   body <- list(access_control_list = access_control_list)
   client$do("PUT", "/api/2.0/permissions/authorization/passwords", body = body)
 }
-
 #' Replace a user.
 #' 
 #' Replaces a user's information with the data supplied in request.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param active If this user is active.
 #' @param display_name String that represents a concatenation of given and family names.
@@ -209,14 +183,11 @@ usersUpdate <- function(client, id, active = NULL, display_name = NULL, emails =
     schemas = schemas, userName = user_name)
   client$do("PUT", paste("/api/2.0/preview/scim/v2/Users/", id, sep = ""), body = body)
 }
-
 #' Update password permissions.
 #' 
 #' Updates the permissions on all passwords. Passwords can inherit permissions
 #' from their root object.
 #' @param client Required. Instance of DatabricksClient()
-
-
 #'
 #' @param access_control_list This field has no description yet.
 #'
@@ -226,4 +197,13 @@ usersUpdatePermissions <- function(client, access_control_list = NULL) {
   body <- list(access_control_list = access_control_list)
   client$do("PATCH", "/api/2.0/permissions/authorization/passwords", body = body)
 }
+
+
+
+
+
+
+
+
+
 

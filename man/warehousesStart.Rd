@@ -4,23 +4,13 @@
 \alias{warehousesStart}
 \title{Start a warehouse.}
 \usage{
-warehousesStart(client, id, timeout = 20, callback = cli_reporter)
+warehousesStart(client, id)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
 \item{id}{Required. Required.}
-
-\item{timeout}{Time to wait for the operation to complete in minutes.}
-
-\item{callback}{Function to report the status of the operation. By default, it reports to console.}
 }
 \description{
-This is a long-running operation, which blocks until Warehouses on Databricks reach
-RUNNING state with the timeout of 20 minutes, that you can change via \code{timeout} parameter.
-By default, the state of Databricks Warehouses is reported to console. You can change this behavior
-by changing the \code{callback} parameter.
-}
-\details{
 Starts a SQL warehouse.
 }

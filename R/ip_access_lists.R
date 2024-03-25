@@ -22,9 +22,6 @@ NULL
 #' IP access list has no effect until you enable the feature. See
 #' :method:workspaceconf/setStatus
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param ip_addresses This field has no description yet.
 #' @param label Required. Label for the IP access list.
@@ -36,14 +33,10 @@ ipAccessListsCreate <- function(client, label, list_type, ip_addresses = NULL) {
   body <- list(ip_addresses = ip_addresses, label = label, list_type = list_type)
   client$do("POST", "/api/2.0/ip-access-lists", body = body)
 }
-
 #' Delete access list.
 #' 
 #' Deletes an IP access list, specified by its list ID.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param ip_access_list_id Required. The ID for the corresponding IP access list.
 #'
@@ -53,14 +46,10 @@ ipAccessListsDelete <- function(client, ip_access_list_id) {
 
   client$do("DELETE", paste("/api/2.0/ip-access-lists/", ip_access_list_id, sep = ""))
 }
-
 #' Get access list.
 #' 
 #' Gets an IP access list, specified by its list ID.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param ip_access_list_id Required. The ID for the corresponding IP access list.
 #'
@@ -70,7 +59,6 @@ ipAccessListsGet <- function(client, ip_access_list_id) {
 
   client$do("GET", paste("/api/2.0/ip-access-lists/", ip_access_list_id, sep = ""))
 }
-
 #' Get access lists.
 #' 
 #' Gets all IP access lists for the specified workspace.
@@ -86,7 +74,6 @@ ipAccessListsList <- function(client) {
   return(json$ip_access_lists)
 
 }
-
 #' Replace access list.
 #' 
 #' Replaces an IP access list, specified by its ID.
@@ -102,9 +89,6 @@ ipAccessListsList <- function(client) {
 #' Note that your resulting IP access list has no effect until you enable the
 #' feature. See :method:workspaceconf/setStatus.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param enabled Required. Specifies whether this IP access list is enabled.
 #' @param ip_access_list_id Required. The ID for the corresponding IP access list.
@@ -120,7 +104,6 @@ ipAccessListsReplace <- function(client, ip_access_list_id, label, list_type, en
   client$do("PUT", paste("/api/2.0/ip-access-lists/", ip_access_list_id, sep = ""),
     body = body)
 }
-
 #' Update access list.
 #' 
 #' Updates an existing IP access list, specified by its ID.
@@ -141,9 +124,6 @@ ipAccessListsReplace <- function(client, ip_access_list_id, label, list_type, en
 #' resulting IP access list has no effect until you enable the feature. See
 #' :method:workspaceconf/setStatus.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param enabled Specifies whether this IP access list is enabled.
 #' @param ip_access_list_id Required. The ID for the corresponding IP access list.
@@ -159,4 +139,9 @@ ipAccessListsUpdate <- function(client, ip_access_list_id, enabled = NULL, ip_ad
   client$do("PATCH", paste("/api/2.0/ip-access-lists/", ip_access_list_id, sep = ""),
     body = body)
 }
+
+
+
+
+
 

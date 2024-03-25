@@ -12,9 +12,6 @@ NULL
 #' 
 #' Throws `RESOURCE_ALREADY_EXISTS` if a experiment with the given name exists.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param artifact_location Location where all artifacts for the experiment are stored.
 #' @param name Required. Experiment name.
@@ -26,7 +23,6 @@ experimentsCreateExperiment <- function(client, name, artifact_location = NULL, 
   body <- list(artifact_location = artifact_location, name = name, tags = tags)
   client$do("POST", "/api/2.0/mlflow/experiments/create", body = body)
 }
-
 #' Create a run.
 #' 
 #' Creates a new run within an experiment. A run is usually a single execution
@@ -34,8 +30,6 @@ experimentsCreateExperiment <- function(client, name, artifact_location = NULL, 
 #' `mlflowParam`, `mlflowMetric` and `mlflowRunTag` associated with a single
 #' execution.
 #' @param client Required. Instance of DatabricksClient()
-
-
 #'
 #' @param experiment_id ID of the associated experiment.
 #' @param start_time Unix timestamp in milliseconds of when the run started.
@@ -50,16 +44,12 @@ experimentsCreateRun <- function(client, experiment_id = NULL, start_time = NULL
     user_id = user_id)
   client$do("POST", "/api/2.0/mlflow/runs/create", body = body)
 }
-
 #' Delete an experiment.
 #' 
 #' Marks an experiment and associated metadata, runs, metrics, params, and tags
 #' for deletion. If the experiment uses FileStore, artifacts associated with
 #' experiment are also deleted.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param experiment_id Required. ID of the associated experiment.
 #'
@@ -69,14 +59,10 @@ experimentsDeleteExperiment <- function(client, experiment_id) {
   body <- list(experiment_id = experiment_id)
   client$do("POST", "/api/2.0/mlflow/experiments/delete", body = body)
 }
-
 #' Delete a run.
 #' 
 #' Marks a run for deletion.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param run_id Required. ID of the run to delete.
 #'
@@ -86,7 +72,6 @@ experimentsDeleteRun <- function(client, run_id) {
   body <- list(run_id = run_id)
   client$do("POST", "/api/2.0/mlflow/runs/delete", body = body)
 }
-
 #' Delete runs by creation time.
 #' 
 #' Bulk delete runs in an experiment that were created prior to or at the
@@ -94,9 +79,6 @@ experimentsDeleteRun <- function(client, run_id) {
 #' from a Databricks Notebook in Python, you can use the client code snippet on
 #' https://learn.microsoft.com/en-us/azure/databricks/mlflow/runs#bulk-delete.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param experiment_id Required. The ID of the experiment containing the runs to delete.
 #' @param max_runs An optional positive integer indicating the maximum number of runs to delete.
@@ -108,15 +90,11 @@ experimentsDeleteRuns <- function(client, experiment_id, max_timestamp_millis, m
   body <- list(experiment_id = experiment_id, max_runs = max_runs, max_timestamp_millis = max_timestamp_millis)
   client$do("POST", "/api/2.0/mlflow/databricks/runs/delete-runs", body = body)
 }
-
 #' Delete a tag.
 #' 
 #' Deletes a tag on a run. Tags are run metadata that can be updated during a
 #' run and after a run completes.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param key Required. Name of the tag.
 #' @param run_id Required. ID of the run that the tag was logged under.
@@ -127,7 +105,6 @@ experimentsDeleteTag <- function(client, run_id, key) {
   body <- list(key = key, run_id = run_id)
   client$do("POST", "/api/2.0/mlflow/runs/delete-tag", body = body)
 }
-
 #' Get metadata.
 #' 
 #' Gets metadata for an experiment.
@@ -140,9 +117,6 @@ experimentsDeleteTag <- function(client, run_id, key) {
 #' Throws `RESOURCE_DOES_NOT_EXIST` if no experiment with the specified name
 #' exists.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param experiment_name Required. Name of the associated experiment.
 #'
@@ -152,14 +126,10 @@ experimentsGetByName <- function(client, experiment_name) {
   query <- list(experiment_name = experiment_name)
   client$do("GET", "/api/2.0/mlflow/experiments/get-by-name", query = query)
 }
-
 #' Get an experiment.
 #' 
 #' Gets metadata for an experiment. This method works on deleted experiments.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param experiment_id Required. ID of the associated experiment.
 #'
@@ -169,14 +139,10 @@ experimentsGetExperiment <- function(client, experiment_id) {
   query <- list(experiment_id = experiment_id)
   client$do("GET", "/api/2.0/mlflow/experiments/get", query = query)
 }
-
 #' Get history of a given metric within a run.
 #' 
 #' Gets a list of all values for the specified metric for a given run.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param max_results Maximum number of Metric records to return per paginated request.
 #' @param metric_key Required. Name of the metric.
@@ -209,14 +175,10 @@ experimentsGetHistory <- function(client, metric_key, max_results = NULL, page_t
   return(results)
 
 }
-
 #' Get experiment permission levels.
 #' 
 #' Gets the permission levels that a user can have on an object.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param experiment_id Required. The experiment for which to get or manage permissions.
 #'
@@ -227,15 +189,11 @@ experimentsGetPermissionLevels <- function(client, experiment_id) {
   client$do("GET", paste("/api/2.0/permissions/experiments/", experiment_id, "/permissionLevels",
     , sep = ""))
 }
-
 #' Get experiment permissions.
 #' 
 #' Gets the permissions of an experiment. Experiments can inherit permissions
 #' from their root object.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param experiment_id Required. The experiment for which to get or manage permissions.
 #'
@@ -245,7 +203,6 @@ experimentsGetPermissions <- function(client, experiment_id) {
 
   client$do("GET", paste("/api/2.0/permissions/experiments/", experiment_id, sep = ""))
 }
-
 #' Get a run.
 #' 
 #' Gets the metadata, metrics, params, and tags for a run. In the case where
@@ -255,9 +212,6 @@ experimentsGetPermissions <- function(client, experiment_id) {
 #' If there are multiple values with the latest timestamp, return the maximum of
 #' these values.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param run_id Required. ID of the run to fetch.
 #' @param run_uuid Deprecated, use run_id instead. ID of the run to fetch.
@@ -268,14 +222,11 @@ experimentsGetRun <- function(client, run_id, run_uuid = NULL) {
   query <- list(run_id = run_id, run_uuid = run_uuid)
   client$do("GET", "/api/2.0/mlflow/runs/get", query = query)
 }
-
 #' Get all artifacts.
 #' 
 #' List artifacts for a run. Takes an optional `artifact_path` prefix. If it is
 #' specified, the response contains only artifacts with the specified prefix.',
 #' @param client Required. Instance of DatabricksClient()
-
-
 #'
 #' @param page_token Token indicating the page of artifact results to fetch.
 #' @param path Filter artifacts matching this path (a relative path from the root artifact directory).
@@ -306,13 +257,10 @@ experimentsListArtifacts <- function(client, page_token = NULL, path = NULL, run
   return(results)
 
 }
-
 #' List experiments.
 #' 
 #' Gets a list of all experiments.
 #' @param client Required. Instance of DatabricksClient()
-
-
 #'
 #' @param max_results Maximum number of experiments desired.
 #' @param page_token Token indicating the page of experiments to fetch.
@@ -342,7 +290,6 @@ experimentsListExperiments <- function(client, max_results = NULL, page_token = 
   return(results)
 
 }
-
 #' Log a batch.
 #' 
 #' Logs a batch of metrics, params, and tags for a run. If any data failed to be
@@ -383,8 +330,6 @@ experimentsListExperiments <- function(client, max_results = NULL, page_token = 
 #' * Metric keys, param keys, and tag keys can be up to 250 characters in length
 #' * Parameter and tag values can be up to 250 characters in length
 #' @param client Required. Instance of DatabricksClient()
-
-
 #'
 #' @param metrics Metrics to log.
 #' @param params Params to log.
@@ -398,14 +343,11 @@ experimentsLogBatch <- function(client, metrics = NULL, params = NULL, run_id = 
   body <- list(metrics = metrics, params = params, run_id = run_id, tags = tags)
   client$do("POST", "/api/2.0/mlflow/runs/log-batch", body = body)
 }
-
 #' Log inputs to a run.
 #' 
 #' **NOTE:** Experimental: This API may change or be removed in a future release
 #' without warning.
 #' @param client Required. Instance of DatabricksClient()
-
-
 #'
 #' @param datasets Dataset inputs.
 #' @param run_id ID of the run to log under.
@@ -416,16 +358,12 @@ experimentsLogInputs <- function(client, datasets = NULL, run_id = NULL) {
   body <- list(datasets = datasets, run_id = run_id)
   client$do("POST", "/api/2.0/mlflow/runs/log-inputs", body = body)
 }
-
 #' Log a metric.
 #' 
 #' Logs a metric for a run. A metric is a key-value pair (string key, float
 #' value) with an associated timestamp. Examples include the various metrics
 #' that represent ML model accuracy. A metric can be logged multiple times.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param key Required. Name of the metric.
 #' @param run_id ID of the run under which to log the metric.
@@ -442,14 +380,11 @@ experimentsLogMetric <- function(client, key, value, timestamp, run_id = NULL, r
     value = value)
   client$do("POST", "/api/2.0/mlflow/runs/log-metric", body = body)
 }
-
 #' Log a model.
 #' 
 #' **NOTE:** Experimental: This API may change or be removed in a future release
 #' without warning.
 #' @param client Required. Instance of DatabricksClient()
-
-
 #'
 #' @param model_json MLmodel file in json format.
 #' @param run_id ID of the run to log under.
@@ -460,7 +395,6 @@ experimentsLogModel <- function(client, model_json = NULL, run_id = NULL) {
   body <- list(model_json = model_json, run_id = run_id)
   client$do("POST", "/api/2.0/mlflow/runs/log-model", body = body)
 }
-
 #' Log a param.
 #' 
 #' Logs a param used for a run. A param is a key-value pair (string key, string
@@ -468,9 +402,6 @@ experimentsLogModel <- function(client, model_json = NULL, run_id = NULL) {
 #' constant dates and values used in an ETL pipeline. A param can be logged only
 #' once for a run.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param key Required. Name of the param.
 #' @param run_id ID of the run under which to log the param.
@@ -483,7 +414,6 @@ experimentsLogParam <- function(client, key, value, run_id = NULL, run_uuid = NU
   body <- list(key = key, run_id = run_id, run_uuid = run_uuid, value = value)
   client$do("POST", "/api/2.0/mlflow/runs/log-parameter", body = body)
 }
-
 #' Restores an experiment.
 #' 
 #' Restore an experiment marked for deletion. This also restores associated
@@ -493,9 +423,6 @@ experimentsLogParam <- function(client, key, value, run_id = NULL, run_uuid = NU
 #' Throws `RESOURCE_DOES_NOT_EXIST` if experiment was never created or was
 #' permanently deleted.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param experiment_id Required. ID of the associated experiment.
 #'
@@ -505,14 +432,10 @@ experimentsRestoreExperiment <- function(client, experiment_id) {
   body <- list(experiment_id = experiment_id)
   client$do("POST", "/api/2.0/mlflow/experiments/restore", body = body)
 }
-
 #' Restore a run.
 #' 
 #' Restores a deleted run.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param run_id Required. ID of the run to restore.
 #'
@@ -522,7 +445,6 @@ experimentsRestoreRun <- function(client, run_id) {
   body <- list(run_id = run_id)
   client$do("POST", "/api/2.0/mlflow/runs/restore", body = body)
 }
-
 #' Restore runs by deletion time.
 #' 
 #' Bulk restore runs in an experiment that were deleted no earlier than the
@@ -530,9 +452,6 @@ experimentsRestoreRun <- function(client, run_id) {
 #' from a Databricks Notebook in Python, you can use the client code snippet on
 #' https://learn.microsoft.com/en-us/azure/databricks/mlflow/runs#bulk-restore.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param experiment_id Required. The ID of the experiment containing the runs to restore.
 #' @param max_runs An optional positive integer indicating the maximum number of runs to restore.
@@ -544,13 +463,10 @@ experimentsRestoreRuns <- function(client, experiment_id, min_timestamp_millis, 
   body <- list(experiment_id = experiment_id, max_runs = max_runs, min_timestamp_millis = min_timestamp_millis)
   client$do("POST", "/api/2.0/mlflow/databricks/runs/restore-runs", body = body)
 }
-
 #' Search experiments.
 #' 
 #' Searches for experiments that satisfy specified search criteria.
 #' @param client Required. Instance of DatabricksClient()
-
-
 #'
 #' @param filter String representing a SQL filter condition (e.g.
 #' @param max_results Maximum number of experiments desired.
@@ -583,15 +499,12 @@ experimentsSearchExperiments <- function(client, filter = NULL, max_results = NU
   return(results)
 
 }
-
 #' Search for runs.
 #' 
 #' Searches for runs that satisfy expressions.
 #' 
 #' Search expressions can use `mlflowMetric` and `mlflowParam` keys.',
 #' @param client Required. Instance of DatabricksClient()
-
-
 #'
 #' @param experiment_ids List of experiment IDs to search over.
 #' @param filter A filter expression over params, metrics, and tags, that allows returning a subset of runs.
@@ -625,15 +538,11 @@ experimentsSearchRuns <- function(client, experiment_ids = NULL, filter = NULL, 
   return(results)
 
 }
-
 #' Set a tag.
 #' 
 #' Sets a tag on an experiment. Experiment tags are metadata that can be
 #' updated.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param experiment_id Required. ID of the experiment under which to log the tag.
 #' @param key Required. Name of the tag.
@@ -645,15 +554,11 @@ experimentsSetExperimentTag <- function(client, experiment_id, key, value) {
   body <- list(experiment_id = experiment_id, key = key, value = value)
   client$do("POST", "/api/2.0/mlflow/experiments/set-experiment-tag", body = body)
 }
-
 #' Set experiment permissions.
 #' 
 #' Sets permissions on an experiment. Experiments can inherit permissions from
 #' their root object.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param access_control_list This field has no description yet.
 #' @param experiment_id Required. The experiment for which to get or manage permissions.
@@ -665,15 +570,11 @@ experimentsSetPermissions <- function(client, experiment_id, access_control_list
   client$do("PUT", paste("/api/2.0/permissions/experiments/", experiment_id, sep = ""),
     body = body)
 }
-
 #' Set a tag.
 #' 
 #' Sets a tag on a run. Tags are run metadata that can be updated during a run
 #' and after a run completes.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param key Required. Name of the tag.
 #' @param run_id ID of the run under which to log the tag.
@@ -686,14 +587,10 @@ experimentsSetTag <- function(client, key, value, run_id = NULL, run_uuid = NULL
   body <- list(key = key, run_id = run_id, run_uuid = run_uuid, value = value)
   client$do("POST", "/api/2.0/mlflow/runs/set-tag", body = body)
 }
-
 #' Update an experiment.
 #' 
 #' Updates experiment metadata.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param experiment_id Required. ID of the associated experiment.
 #' @param new_name If provided, the experiment's name is changed to the new name.
@@ -704,15 +601,11 @@ experimentsUpdateExperiment <- function(client, experiment_id, new_name = NULL) 
   body <- list(experiment_id = experiment_id, new_name = new_name)
   client$do("POST", "/api/2.0/mlflow/experiments/update", body = body)
 }
-
 #' Update experiment permissions.
 #' 
 #' Updates the permissions on an experiment. Experiments can inherit permissions
 #' from their root object.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param access_control_list This field has no description yet.
 #' @param experiment_id Required. The experiment for which to get or manage permissions.
@@ -724,13 +617,10 @@ experimentsUpdatePermissions <- function(client, experiment_id, access_control_l
   client$do("PATCH", paste("/api/2.0/permissions/experiments/", experiment_id,
     sep = ""), body = body)
 }
-
 #' Update a run.
 #' 
 #' Updates run metadata.
 #' @param client Required. Instance of DatabricksClient()
-
-
 #'
 #' @param end_time Unix timestamp in milliseconds of when the run ended.
 #' @param run_id ID of the run to update.
@@ -744,4 +634,33 @@ experimentsUpdateRun <- function(client, end_time = NULL, run_id = NULL, run_uui
   body <- list(end_time = end_time, run_id = run_id, run_uuid = run_uuid, status = status)
   client$do("POST", "/api/2.0/mlflow/runs/update", body = body)
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

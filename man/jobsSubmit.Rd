@@ -16,9 +16,7 @@ jobsSubmit(
   run_name = NULL,
   tasks = NULL,
   timeout_seconds = NULL,
-  webhook_notifications = NULL,
-  timeout = 20,
-  callback = cli_reporter
+  webhook_notifications = NULL
 )
 }
 \arguments{
@@ -45,18 +43,8 @@ jobsSubmit(
 \item{timeout_seconds}{An optional timeout applied to each run of this job.}
 
 \item{webhook_notifications}{A collection of system notification IDs to notify when the run begins or completes.}
-
-\item{timeout}{Time to wait for the operation to complete in minutes.}
-
-\item{callback}{Function to report the status of the operation. By default, it reports to console.}
 }
 \description{
-This is a long-running operation, which blocks until Jobs on Databricks reach
-TERMINATED or SKIPPED state with the timeout of 20 minutes, that you can change via \code{timeout} parameter.
-By default, the state of Databricks Jobs is reported to console. You can change this behavior
-by changing the \code{callback} parameter.
-}
-\details{
 Submit a one-time run. This endpoint allows you to submit a workload directly
 without creating a job. Runs submitted using this endpoint don’t display in
 the UI. Use the \code{jobs/runs/get} API to check the run state after the job is

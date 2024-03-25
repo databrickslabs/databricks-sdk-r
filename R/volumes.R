@@ -24,9 +24,6 @@ NULL
 #' storage location. - The specified storage location is not under the location
 #' of other tables, nor volumes, or catalogs or schemas.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param catalog_name Required. The name of the catalog where the schema and the volume are.
 #' @param comment The comment attached to the volume.
@@ -43,7 +40,6 @@ volumesCreate <- function(client, catalog_name, schema_name, name, volume_type, 
     storage_location = storage_location, volume_type = volume_type)
   client$do("POST", "/api/2.1/unity-catalog/volumes", body = body)
 }
-
 #' Delete a Volume.
 #' 
 #' Deletes a volume from the specified parent catalog and schema.
@@ -53,9 +49,6 @@ volumesCreate <- function(client, catalog_name, schema_name, name, volume_type, 
 #' privilege on the parent catalog and the **USE_SCHEMA** privilege on the
 #' parent schema.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param name Required. The three-level (fully qualified) name of the volume.
 #'
@@ -65,7 +58,6 @@ volumesDelete <- function(client, name) {
 
   client$do("DELETE", paste("/api/2.1/unity-catalog/volumes/", name, sep = ""))
 }
-
 #' List Volumes.
 #' 
 #' Gets an array of volumes for the current metastore under the parent catalog
@@ -80,9 +72,6 @@ volumesDelete <- function(client, name) {
 #' 
 #' There is no guarantee of a specific ordering of the elements in the array.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param catalog_name Required. The identifier of the catalog.
 #' @param include_browse Whether to include volumes in the response for which the principal can only access selective metadata for.
@@ -115,7 +104,6 @@ volumesList <- function(client, catalog_name, schema_name, include_browse = NULL
   return(results)
 
 }
-
 #' Get a Volume.
 #' 
 #' Gets a volume from the metastore for a specific catalog and schema.
@@ -125,9 +113,6 @@ volumesList <- function(client, catalog_name, schema_name, include_browse = NULL
 #' be the owner or have the **USE_CATALOG** privilege on the parent catalog and
 #' the **USE_SCHEMA** privilege on the parent schema.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param include_browse Whether to include volumes in the response for which the principal can only access selective metadata for.
 #' @param name Required. The three-level (fully qualified) name of the volume.
@@ -138,7 +123,6 @@ volumesRead <- function(client, name, include_browse = NULL) {
   query <- list(include_browse = include_browse)
   client$do("GET", paste("/api/2.1/unity-catalog/volumes/", name, sep = ""), query = query)
 }
-
 #' Update a Volume.
 #' 
 #' Updates the specified volume under the specified parent catalog and schema.
@@ -151,9 +135,6 @@ volumesRead <- function(client, name, include_browse = NULL) {
 #' Currently only the name, the owner or the comment of the volume could be
 #' updated.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param comment The comment attached to the volume.
 #' @param name Required. The three-level (fully qualified) name of the volume.
@@ -167,4 +148,8 @@ volumesUpdate <- function(client, name, comment = NULL, new_name = NULL, owner =
   client$do("PATCH", paste("/api/2.1/unity-catalog/volumes/", name, sep = ""),
     body = body)
 }
+
+
+
+
 

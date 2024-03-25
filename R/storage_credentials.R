@@ -7,9 +7,6 @@ NULL
 #' 
 #' Creates a new storage credential.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param aws_iam_role The AWS IAM role configuration.
 #' @param azure_managed_identity The Azure managed identity configuration.
@@ -32,15 +29,11 @@ storageCredentialsCreate <- function(client, name, aws_iam_role = NULL, azure_ma
     name = name, read_only = read_only, skip_validation = skip_validation)
   client$do("POST", "/api/2.1/unity-catalog/storage-credentials", body = body)
 }
-
 #' Delete a credential.
 #' 
 #' Deletes a storage credential from the metastore. The caller must be an owner
 #' of the storage credential.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param force Force deletion even if there are dependent external locations or external tables.
 #' @param name Required. Name of the storage credential.
@@ -52,16 +45,12 @@ storageCredentialsDelete <- function(client, name, force = NULL) {
   client$do("DELETE", paste("/api/2.1/unity-catalog/storage-credentials/", name,
     sep = ""), query = query)
 }
-
 #' Get a credential.
 #' 
 #' Gets a storage credential from the metastore. The caller must be a metastore
 #' admin, the owner of the storage credential, or have some permission on the
 #' storage credential.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param name Required. Name of the storage credential.
 #'
@@ -71,7 +60,6 @@ storageCredentialsGet <- function(client, name) {
 
   client$do("GET", paste("/api/2.1/unity-catalog/storage-credentials/", name, sep = ""))
 }
-
 #' List credentials.
 #' 
 #' Gets an array of storage credentials (as __StorageCredentialInfo__ objects).
@@ -80,8 +68,6 @@ storageCredentialsGet <- function(client, name) {
 #' credentials is unrestricted. There is no guarantee of a specific ordering of
 #' the elements in the array.
 #' @param client Required. Instance of DatabricksClient()
-
-
 #'
 #' @param max_results Maximum number of storage credentials to return.
 #' @param page_token Opaque pagination token to go to next page based on previous query.
@@ -109,14 +95,10 @@ storageCredentialsList <- function(client, max_results = NULL, page_token = NULL
   return(results)
 
 }
-
 #' Update a credential.
 #' 
 #' Updates a storage credential on the metastore.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param aws_iam_role The AWS IAM role configuration.
 #' @param azure_managed_identity The Azure managed identity configuration.
@@ -145,7 +127,6 @@ storageCredentialsUpdate <- function(client, name, aws_iam_role = NULL, azure_ma
   client$do("PATCH", paste("/api/2.1/unity-catalog/storage-credentials/", name,
     sep = ""), body = body)
 }
-
 #' Validate a storage credential.
 #' 
 #' Validates a storage credential. At least one of __external_location_name__
@@ -161,8 +142,6 @@ storageCredentialsUpdate <- function(client, name, aws_iam_role = NULL, azure_ma
 #' the **CREATE_EXTERNAL_LOCATION** privilege on the metastore and the storage
 #' credential.
 #' @param client Required. Instance of DatabricksClient()
-
-
 #'
 #' @param aws_iam_role The AWS IAM role configuration.
 #' @param azure_managed_identity The Azure managed identity configuration.
@@ -187,4 +166,9 @@ storageCredentialsValidate <- function(client, aws_iam_role = NULL, azure_manage
     url = url)
   client$do("POST", "/api/2.1/unity-catalog/validate-storage-credentials", body = body)
 }
+
+
+
+
+
 

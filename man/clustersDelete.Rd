@@ -4,24 +4,14 @@
 \alias{clustersDelete}
 \title{Terminate cluster.}
 \usage{
-clustersDelete(client, cluster_id, timeout = 20, callback = cli_reporter)
+clustersDelete(client, cluster_id)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
 \item{cluster_id}{Required. The cluster to be terminated.}
-
-\item{timeout}{Time to wait for the operation to complete in minutes.}
-
-\item{callback}{Function to report the status of the operation. By default, it reports to console.}
 }
 \description{
-This is a long-running operation, which blocks until Clusters on Databricks reach
-TERMINATED state with the timeout of 20 minutes, that you can change via \code{timeout} parameter.
-By default, the state of Databricks Clusters is reported to console. You can change this behavior
-by changing the \code{callback} parameter.
-}
-\details{
 Terminates the Spark cluster with the specified ID. The cluster is removed
 asynchronously. Once the termination has completed, the cluster will be in a
 \code{TERMINATED} state. If the cluster is already in a \code{TERMINATING} or

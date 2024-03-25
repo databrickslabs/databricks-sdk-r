@@ -16,7 +16,6 @@ NULL
 librariesAllClusterStatuses <- function(client) {
   client$do("GET", "/api/2.0/libraries/all-cluster-statuses")
 }
-
 #' Get status.
 #' 
 #' Get the status of libraries on a cluster. A status will be available for all
@@ -35,9 +34,6 @@ librariesAllClusterStatuses <- function(client) {
 #' clusters, but now marked for removal. Within this group there is no order
 #' guarantee.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param cluster_id Required. Unique identifier of the cluster whose status should be retrieved.
 #'
@@ -52,7 +48,6 @@ librariesClusterStatus <- function(client, cluster_id) {
   return(json$library_statuses)
 
 }
-
 #' Add a library.
 #' 
 #' Add libraries to be installed on a cluster. The installation is asynchronous;
@@ -62,9 +57,6 @@ librariesClusterStatus <- function(client, cluster_id) {
 #' union of the libraries specified via this method and the libraries set to be
 #' installed on all clusters via the libraries UI.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param cluster_id Required. Unique identifier for the cluster on which to install these libraries.
 #' @param libraries Required. The libraries to install.
@@ -75,16 +67,12 @@ librariesInstall <- function(client, cluster_id, libraries) {
   body <- list(cluster_id = cluster_id, libraries = libraries)
   client$do("POST", "/api/2.0/libraries/install", body = body)
 }
-
 #' Uninstall libraries.
 #' 
 #' Set libraries to be uninstalled on a cluster. The libraries won't be
 #' uninstalled until the cluster is restarted. Uninstalling libraries that are
 #' not installed on the cluster will have no impact but is not an error.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param cluster_id Required. Unique identifier for the cluster on which to uninstall these libraries.
 #' @param libraries Required. The libraries to uninstall.
@@ -95,4 +83,7 @@ librariesUninstall <- function(client, cluster_id, libraries) {
   body <- list(cluster_id = cluster_id, libraries = libraries)
   client$do("POST", "/api/2.0/libraries/uninstall", body = body)
 }
+
+
+
 

@@ -4,15 +4,7 @@
 \alias{servingEndpointsCreate}
 \title{Create a new serving endpoint.}
 \usage{
-servingEndpointsCreate(
-  client,
-  name,
-  config,
-  rate_limits = NULL,
-  tags = NULL,
-  timeout = 20,
-  callback = cli_reporter
-)
+servingEndpointsCreate(client, name, config, rate_limits = NULL, tags = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
@@ -24,14 +16,7 @@ servingEndpointsCreate(
 \item{rate_limits}{Rate limits to be applied to the serving endpoint.}
 
 \item{tags}{Tags to be attached to the serving endpoint and automatically propagated to billing logs.}
-
-\item{timeout}{Time to wait for the operation to complete in minutes.}
-
-\item{callback}{Function to report the status of the operation. By default, it reports to console.}
 }
 \description{
-This is a long-running operation, which blocks until Serving Endpoints on Databricks reach
-NOT_UPDATING state with the timeout of 20 minutes, that you can change via \code{timeout} parameter.
-By default, the state of Databricks Serving Endpoints is reported to console. You can change this behavior
-by changing the \code{callback} parameter.
+Create a new serving endpoint.
 }

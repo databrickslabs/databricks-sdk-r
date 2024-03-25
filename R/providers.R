@@ -8,9 +8,6 @@ NULL
 #' Creates a new authentication provider minimally based on a name and
 #' authentication type. The caller must be an admin on the metastore.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param authentication_type Required. The delta sharing authentication type.
 #' @param comment Description about the provider.
@@ -24,15 +21,11 @@ providersCreate <- function(client, name, authentication_type, comment = NULL, r
     recipient_profile_str = recipient_profile_str)
   client$do("POST", "/api/2.1/unity-catalog/providers", body = body)
 }
-
 #' Delete a provider.
 #' 
 #' Deletes an authentication provider, if the caller is a metastore admin or is
 #' the owner of the provider.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param name Required. Name of the provider.
 #'
@@ -42,16 +35,12 @@ providersDelete <- function(client, name) {
 
   client$do("DELETE", paste("/api/2.1/unity-catalog/providers/", name, sep = ""))
 }
-
 #' Get a provider.
 #' 
 #' Gets a specific authentication provider. The caller must supply the name of
 #' the provider, and must either be a metastore admin or the owner of the
 #' provider.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param name Required. Name of the provider.
 #'
@@ -61,7 +50,6 @@ providersGet <- function(client, name) {
 
   client$do("GET", paste("/api/2.1/unity-catalog/providers/", name, sep = ""))
 }
-
 #' List providers.
 #' 
 #' Gets an array of available authentication providers. The caller must either
@@ -69,8 +57,6 @@ providersGet <- function(client, name) {
 #' the caller are not included in the response. There is no guarantee of a
 #' specific ordering of the elements in the array.
 #' @param client Required. Instance of DatabricksClient()
-
-
 #'
 #' @param data_provider_global_metastore_id If not provided, all providers will be returned.
 #'
@@ -85,16 +71,12 @@ providersList <- function(client, data_provider_global_metastore_id = NULL) {
   return(json$providers)
 
 }
-
 #' List shares by Provider.
 #' 
 #' Gets an array of a specified provider's shares within the metastore where:
 #' 
 #' * the caller is a metastore admin, or * the caller is the owner.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param name Required. Name of the provider in which to list shares.
 #'
@@ -110,7 +92,6 @@ providersListShares <- function(client, name) {
   return(json$shares)
 
 }
-
 #' Update a provider.
 #' 
 #' Updates the information for an authentication provider, if the caller is a
@@ -118,9 +99,6 @@ providersListShares <- function(client, name) {
 #' provider name, the caller must be both a metastore admin and the owner of the
 #' provider.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param comment Description about the provider.
 #' @param name Required. Name of the provider.
@@ -136,4 +114,9 @@ providersUpdate <- function(client, name, comment = NULL, new_name = NULL, owner
   client$do("PATCH", paste("/api/2.1/unity-catalog/providers/", name, sep = ""),
     body = body)
 }
+
+
+
+
+
 

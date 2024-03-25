@@ -8,9 +8,7 @@ commandExecutionCancel(
   client,
   cluster_id = NULL,
   command_id = NULL,
-  context_id = NULL,
-  timeout = 20,
-  callback = cli_reporter
+  context_id = NULL
 )
 }
 \arguments{
@@ -21,19 +19,10 @@ commandExecutionCancel(
 \item{command_id}{This field has no description yet.}
 
 \item{context_id}{This field has no description yet.}
-
-\item{timeout}{Time to wait for the operation to complete in minutes.}
-
-\item{callback}{Function to report the status of the operation. By default, it reports to console.}
 }
 \description{
-This is a long-running operation, which blocks until Command Execution on Databricks reach
-Cancelled state with the timeout of 20 minutes, that you can change via \code{timeout} parameter.
-By default, the state of Databricks Command Execution is reported to console. You can change this behavior
-by changing the \code{callback} parameter.
+Cancels a currently running command within an execution context.
 }
 \details{
-Cancels a currently running command within an execution context.
-
 The command ID is obtained from a prior successful call to \strong{execute}.
 }

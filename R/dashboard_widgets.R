@@ -5,9 +5,6 @@ NULL
 
 #' Add widget to a dashboard.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param dashboard_id Required. Dashboard ID returned by :method:dashboards/create.
 #' @param options Required. This field has no description yet.
@@ -23,12 +20,8 @@ dashboardWidgetsCreate <- function(client, dashboard_id, options, width, text = 
     width = width)
   client$do("POST", "/api/2.0/preview/sql/widgets", body = body)
 }
-
 #' Remove widget.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param id Required. Widget ID returned by :method:dashboardwidgets/create.
 #'
@@ -38,12 +31,8 @@ dashboardWidgetsDelete <- function(client, id) {
 
   client$do("DELETE", paste("/api/2.0/preview/sql/widgets/", id, sep = ""))
 }
-
 #' Update existing widget.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param dashboard_id Required. Dashboard ID returned by :method:dashboards/create.
 #' @param id Required. Widget ID returned by :method:dashboardwidgets/create.
@@ -60,4 +49,6 @@ dashboardWidgetsUpdate <- function(client, id, dashboard_id, options, width, tex
     width = width)
   client$do("POST", paste("/api/2.0/preview/sql/widgets/", id, sep = ""), body = body)
 }
+
+
 

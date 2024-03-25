@@ -13,9 +13,6 @@ NULL
 #' **USE_CATALOG** privilege on the parent catalog and the **USE_SCHEMA**
 #' privilege on the parent schema.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param full_name Required. The three-level (fully qualified) name of the model version.
 #' @param version Required. The integer version number of the model version.
@@ -27,7 +24,6 @@ modelVersionsDelete <- function(client, full_name, version) {
   client$do("DELETE", paste("/api/2.1/unity-catalog/models/", full_name, "/versions/",
     version, sep = ""))
 }
-
 #' Get a Model Version.
 #' 
 #' Get a model version.
@@ -37,9 +33,6 @@ modelVersionsDelete <- function(client, full_name, version) {
 #' must also be the owner or have the **USE_CATALOG** privilege on the parent
 #' catalog and the **USE_SCHEMA** privilege on the parent schema.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param full_name Required. The three-level (fully qualified) name of the model version.
 #' @param include_browse Whether to include model versions in the response for which the principal can only access selective metadata for.
@@ -52,7 +45,6 @@ modelVersionsGet <- function(client, full_name, version, include_browse = NULL) 
   client$do("GET", paste("/api/2.1/unity-catalog/models/", full_name, "/versions/",
     version, sep = ""), query = query)
 }
-
 #' Get Model Version By Alias.
 #' 
 #' Get a model version by alias.
@@ -62,9 +54,6 @@ modelVersionsGet <- function(client, full_name, version, include_browse = NULL) 
 #' be the owner or have the **USE_CATALOG** privilege on the parent catalog and
 #' the **USE_SCHEMA** privilege on the parent schema.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param alias Required. The name of the alias.
 #' @param full_name Required. The three-level (fully qualified) name of the registered model.
@@ -76,7 +65,6 @@ modelVersionsGetByAlias <- function(client, full_name, alias) {
   client$do("GET", paste("/api/2.1/unity-catalog/models/", full_name, "/aliases/",
     alias, sep = ""))
 }
-
 #' List Model Versions.
 #' 
 #' List model versions. You can list model versions under a particular schema,
@@ -92,9 +80,6 @@ modelVersionsGetByAlias <- function(client, full_name, alias) {
 #' 
 #' There is no guarantee of a specific ordering of the elements in the response.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param full_name Required. The full three-level name of the registered model under which to list model versions.
 #' @param include_browse Whether to include model versions in the response for which the principal can only access selective metadata for.
@@ -126,7 +111,6 @@ modelVersionsList <- function(client, full_name, include_browse = NULL, max_resu
   return(results)
 
 }
-
 #' Update a Model Version.
 #' 
 #' Updates the specified model version.
@@ -138,9 +122,6 @@ modelVersionsList <- function(client, full_name, include_browse = NULL, max_resu
 #' 
 #' Currently only the comment of the model version can be updated.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param comment The comment attached to the model version.
 #' @param full_name Required. The three-level (fully qualified) name of the model version.
@@ -153,4 +134,8 @@ modelVersionsUpdate <- function(client, full_name, version, comment = NULL) {
   client$do("PATCH", paste("/api/2.1/unity-catalog/models/", full_name, "/versions/",
     version, sep = ""), body = body)
 }
+
+
+
+
 

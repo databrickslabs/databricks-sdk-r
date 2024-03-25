@@ -33,9 +33,7 @@ clustersCreate(
   spark_conf = NULL,
   spark_env_vars = NULL,
   ssh_public_keys = NULL,
-  workload_type = NULL,
-  timeout = 20,
-  callback = cli_reporter
+  workload_type = NULL
 )
 }
 \arguments{
@@ -96,23 +94,14 @@ clustersCreate(
 \item{ssh_public_keys}{SSH public key contents that will be added to each Spark node in this cluster.}
 
 \item{workload_type}{This field has no description yet.}
-
-\item{timeout}{Time to wait for the operation to complete in minutes.}
-
-\item{callback}{Function to report the status of the operation. By default, it reports to console.}
 }
 \description{
-This is a long-running operation, which blocks until Clusters on Databricks reach
-RUNNING state with the timeout of 20 minutes, that you can change via \code{timeout} parameter.
-By default, the state of Databricks Clusters is reported to console. You can change this behavior
-by changing the \code{callback} parameter.
-}
-\details{
 Creates a new Spark cluster. This method will acquire new instances from the
 cloud provider if necessary. Note: Databricks may not be able to acquire some
 of the requested nodes, due to cloud provider limitations (account limits,
 spot price, etc.) or transient network issues.
-
+}
+\details{
 If Databricks acquires at least 85\% of the requested on-demand nodes, cluster
 creation will succeed. Otherwise the cluster will terminate with an
 informative error message.

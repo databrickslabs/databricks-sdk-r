@@ -17,9 +17,7 @@ jobsRunNow(
   python_params = NULL,
   queue = NULL,
   spark_submit_params = NULL,
-  sql_params = NULL,
-  timeout = 20,
-  callback = cli_reporter
+  sql_params = NULL
 )
 }
 \arguments{
@@ -48,17 +46,7 @@ jobsRunNow(
 \item{spark_submit_params}{A list of parameters for jobs with spark submit task, for example \verb{'spark_submit_params': ['--class', 'org.apache.spark.examples.SparkPi']}.}
 
 \item{sql_params}{A map from keys to values for jobs with SQL task, for example \verb{'sql_params': \{'name': 'john doe', 'age': '35'\}}.}
-
-\item{timeout}{Time to wait for the operation to complete in minutes.}
-
-\item{callback}{Function to report the status of the operation. By default, it reports to console.}
 }
 \description{
-This is a long-running operation, which blocks until Jobs on Databricks reach
-TERMINATED or SKIPPED state with the timeout of 20 minutes, that you can change via \code{timeout} parameter.
-By default, the state of Databricks Jobs is reported to console. You can change this behavior
-by changing the \code{callback} parameter.
-}
-\details{
 Run a job and return the \code{run_id} of the triggered run.
 }

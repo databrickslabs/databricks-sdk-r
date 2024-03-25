@@ -4,13 +4,7 @@
 \alias{commandExecutionCreate}
 \title{Create an execution context.}
 \usage{
-commandExecutionCreate(
-  client,
-  cluster_id = NULL,
-  language = NULL,
-  timeout = 20,
-  callback = cli_reporter
-)
+commandExecutionCreate(client, cluster_id = NULL, language = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
@@ -18,19 +12,10 @@ commandExecutionCreate(
 \item{cluster_id}{Running cluster id.}
 
 \item{language}{This field has no description yet.}
-
-\item{timeout}{Time to wait for the operation to complete in minutes.}
-
-\item{callback}{Function to report the status of the operation. By default, it reports to console.}
 }
 \description{
-This is a long-running operation, which blocks until Command Execution on Databricks reach
-Running state with the timeout of 20 minutes, that you can change via \code{timeout} parameter.
-By default, the state of Databricks Command Execution is reported to console. You can change this behavior
-by changing the \code{callback} parameter.
+Creates an execution context for running cluster commands.
 }
 \details{
-Creates an execution context for running cluster commands.
-
 If successful, this method returns the ID of the new execution context.
 }
