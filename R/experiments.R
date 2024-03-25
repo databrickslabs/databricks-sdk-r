@@ -156,7 +156,7 @@ experimentsGetExperiment <- function(client, experiment_id) {
 #' @param metric_key Required. Name of the metric.
 #' @param page_token Token indicating the page of metric histories to fetch.
 #' @param run_id ID of the run from which to fetch metric values.
-#' @param run_uuid [Deprecated, use run_id instead] ID of the run from which to fetch metric values.
+#' @param run_uuid Deprecated, use run_id instead. ID of the run from which to fetch metric values.
 #'
 #' @return `data.frame` with all of the response pages.
 #'
@@ -225,7 +225,7 @@ experimentsGetPermissions <- function(client, experiment_id) {
 #' @param client Required. Instance of DatabricksClient()
 #'
 #' @param run_id Required. ID of the run to fetch.
-#' @param run_uuid [Deprecated, use run_id instead] ID of the run to fetch.
+#' @param run_uuid Deprecated, use run_id instead. ID of the run to fetch.
 #'
 #' @rdname experimentsGetRun
 #' @export
@@ -243,7 +243,7 @@ experimentsGetRun <- function(client, run_id, run_uuid = NULL) {
 #' @param page_token Token indicating the page of artifact results to fetch.
 #' @param path Filter artifacts matching this path (a relative path from the root artifact directory).
 #' @param run_id ID of the run whose artifacts to list.
-#' @param run_uuid [Deprecated, use run_id instead] ID of the run whose artifacts to list.
+#' @param run_uuid Deprecated, use run_id instead. ID of the run whose artifacts to list.
 #'
 #' @return `data.frame` with all of the response pages.
 #'
@@ -383,7 +383,7 @@ experimentsLogInputs <- function(client, datasets = NULL, run_id = NULL) {
 #'
 #' @param key Required. Name of the metric.
 #' @param run_id ID of the run under which to log the metric.
-#' @param run_uuid [Deprecated, use run_id instead] ID of the run under which to log the metric.
+#' @param run_uuid Deprecated, use run_id instead. ID of the run under which to log the metric.
 #' @param step Step at which to log the metric.
 #' @param timestamp Required. Unix timestamp in milliseconds at the time metric was logged.
 #' @param value Required. Double value of the metric being logged.
@@ -423,7 +423,7 @@ experimentsLogModel <- function(client, model_json = NULL, run_id = NULL) {
 #'
 #' @param key Required. Name of the param.
 #' @param run_id ID of the run under which to log the param.
-#' @param run_uuid [Deprecated, use run_id instead] ID of the run under which to log the param.
+#' @param run_uuid Deprecated, use run_id instead. ID of the run under which to log the param.
 #' @param value Required. String value of the param being logged.
 #'
 #' @rdname experimentsLogParam
@@ -604,7 +604,7 @@ experimentsSetPermissions <- function(client, experiment_id, access_control_list
 #'
 #' @param key Required. Name of the tag.
 #' @param run_id ID of the run under which to log the tag.
-#' @param run_uuid [Deprecated, use run_id instead] ID of the run under which to log the tag.
+#' @param run_uuid Deprecated, use run_id instead. ID of the run under which to log the tag.
 #' @param value Required. String value of the tag being logged.
 #'
 #' @rdname experimentsSetTag
@@ -653,7 +653,7 @@ experimentsUpdatePermissions <- function(client, experiment_id, access_control_l
 #'
 #' @param end_time Unix timestamp in milliseconds of when the run ended.
 #' @param run_id ID of the run to update.
-#' @param run_uuid [Deprecated, use run_id instead] ID of the run to update.
+#' @param run_uuid Deprecated, use run_id instead. ID of the run to update.
 #' @param status Updated status of the run.
 #'
 #' @rdname experimentsUpdateRun

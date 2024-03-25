@@ -15,7 +15,7 @@ experimentsSetTag(client, key, value, run_id = NULL, run_uuid = NULL)
 
 \item{run_id}{ID of the run under which to log the tag.}
 
-\item{run_uuid}{\link{Deprecated, use run_id instead} ID of the run under which to log the tag.}
+\item{run_uuid}{Deprecated, use run_id instead. ID of the run under which to log the tag.}
 }
 \description{
 Sets a tag on a run. Tags are run metadata that can be updated during a run

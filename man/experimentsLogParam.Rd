@@ -15,7 +15,7 @@ experimentsLogParam(client, key, value, run_id = NULL, run_uuid = NULL)
 
 \item{run_id}{ID of the run under which to log the param.}
 
-\item{run_uuid}{\link{Deprecated, use run_id instead} ID of the run under which to log the param.}
+\item{run_uuid}{Deprecated, use run_id instead. ID of the run under which to log the param.}
 }
 \description{
 Logs a param used for a run. A param is a key-value pair (string key, string
