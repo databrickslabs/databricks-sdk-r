@@ -91,7 +91,7 @@ registeredModelsDeleteAlias <- function(client, full_name, alias) {
 #' @rdname registeredModelsGet
 #' @export
 registeredModelsGet <- function(client, full_name, include_browse = NULL) {
-  query <- list(, include_browse = include_browse)
+  query <- list(include_browse = include_browse)
   client$do("GET", paste("/api/2.1/unity-catalog/models/", full_name, sep = ""),
     query = query)
 }

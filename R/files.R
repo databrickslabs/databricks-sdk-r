@@ -120,7 +120,7 @@ filesGetMetadata <- function(client, file_path) {
 #' @export
 filesListDirectoryContents <- function(client, directory_path, page_size = NULL,
   page_token = NULL) {
-  query <- list(, page_size = page_size, page_token = page_token)
+  query <- list(page_size = page_size, page_token = page_token)
 
   results <- data.frame()
   while (TRUE) {
@@ -156,7 +156,7 @@ filesListDirectoryContents <- function(client, directory_path, page_size = NULL,
 #' @rdname filesUpload
 #' @export
 filesUpload <- function(client, file_path, contents, overwrite = NULL) {
-  query <- list(, overwrite = overwrite)
+  query <- list(overwrite = overwrite)
   client$do("PUT", paste("/api/2.0/fs/files", file_path, sep = ""), query = query)
 }
 

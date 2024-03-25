@@ -141,7 +141,7 @@ usersList <- function(client, attributes = NULL, count = NULL, excluded_attribut
 #' @rdname usersPatch
 #' @export
 usersPatch <- function(client, id, operations = NULL, schemas = NULL) {
-  body <- list(, Operations = operations, schemas = schemas)
+  body <- list(Operations = operations, schemas = schemas)
   client$do("PATCH", paste("/api/2.0/preview/scim/v2/Users/", id, sep = ""), body = body)
 }
 

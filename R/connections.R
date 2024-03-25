@@ -83,7 +83,7 @@ connectionsList <- function(client) {
 #' @rdname connectionsUpdate
 #' @export
 connectionsUpdate <- function(client, name, options, new_name = NULL, owner = NULL) {
-  body <- list(, new_name = new_name, options = options, owner = owner)
+  body <- list(new_name = new_name, options = options, owner = owner)
   client$do("PATCH", paste("/api/2.1/unity-catalog/connections/", name, sep = ""),
     body = body)
 }

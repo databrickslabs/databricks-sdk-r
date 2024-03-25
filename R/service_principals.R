@@ -111,7 +111,7 @@ servicePrincipalsList <- function(client, attributes = NULL, count = NULL, exclu
 #' @rdname servicePrincipalsPatch
 #' @export
 servicePrincipalsPatch <- function(client, id, operations = NULL, schemas = NULL) {
-  body <- list(, Operations = operations, schemas = schemas)
+  body <- list(Operations = operations, schemas = schemas)
   client$do("PATCH", paste("/api/2.0/preview/scim/v2/ServicePrincipals/", id, sep = ""),
     body = body)
 }

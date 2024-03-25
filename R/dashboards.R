@@ -119,7 +119,7 @@ dashboardsRestore <- function(client, dashboard_id) {
 #' @rdname dashboardsUpdate
 #' @export
 dashboardsUpdate <- function(client, dashboard_id, name = NULL, run_as_role = NULL) {
-  body <- list(, name = name, run_as_role = run_as_role)
+  body <- list(name = name, run_as_role = run_as_role)
   client$do("POST", paste("/api/2.0/preview/sql/dashboards/", dashboard_id, sep = ""),
     body = body)
 }

@@ -108,7 +108,7 @@ groupsList <- function(client, attributes = NULL, count = NULL, excluded_attribu
 #' @rdname groupsPatch
 #' @export
 groupsPatch <- function(client, id, operations = NULL, schemas = NULL) {
-  body <- list(, Operations = operations, schemas = schemas)
+  body <- list(Operations = operations, schemas = schemas)
   client$do("PATCH", paste("/api/2.0/preview/scim/v2/Groups/", id, sep = ""), body = body)
 }
 

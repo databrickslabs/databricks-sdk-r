@@ -42,7 +42,7 @@ modelVersionsDelete <- function(client, full_name, version) {
 #' @rdname modelVersionsGet
 #' @export
 modelVersionsGet <- function(client, full_name, version, include_browse = NULL) {
-  query <- list(, include_browse = include_browse)
+  query <- list(include_browse = include_browse)
   client$do("GET", paste("/api/2.1/unity-catalog/models/", full_name, "/versions/",
     version, sep = ""), query = query)
 }
@@ -95,7 +95,7 @@ modelVersionsGetByAlias <- function(client, full_name, alias) {
 #' @export
 modelVersionsList <- function(client, full_name, include_browse = NULL, max_results = NULL,
   page_token = NULL) {
-  query <- list(, include_browse = include_browse, max_results = max_results, page_token = page_token)
+  query <- list(include_browse = include_browse, max_results = max_results, page_token = page_token)
 
   results <- data.frame()
   while (TRUE) {

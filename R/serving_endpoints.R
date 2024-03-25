@@ -206,7 +206,7 @@ servingEndpointsPatch <- function(client, name, add_tags = NULL, delete_tags = N
 #' @rdname servingEndpointsPut
 #' @export
 servingEndpointsPut <- function(client, name, rate_limits = NULL) {
-  body <- list(, rate_limits = rate_limits)
+  body <- list(rate_limits = rate_limits)
   client$do("PUT", paste("/api/2.0/serving-endpoints/", name, "/rate-limits", ,
     sep = ""), body = body)
 }
