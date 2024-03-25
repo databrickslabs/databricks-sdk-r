@@ -13,9 +13,9 @@ NULL
 #'
 #' @param directory_path Required. The absolute path of a directory.
 #'
-#' @rdname filesCreateDirectory
+#' @rdname create_file_directory
 #' @export
-filesCreateDirectory <- function(client, directory_path) {
+create_file_directory <- function(client, directory_path) {
 
   client$do("PUT", paste("/api/2.0/fs/directories", directory_path, sep = ""))
 }
@@ -26,9 +26,9 @@ filesCreateDirectory <- function(client, directory_path) {
 #'
 #' @param file_path Required. The absolute path of the file.
 #'
-#' @rdname filesDelete
+#' @rdname delete_file
 #' @export
-filesDelete <- function(client, file_path) {
+delete_file <- function(client, file_path) {
 
   client$do("DELETE", paste("/api/2.0/fs/files", file_path, sep = ""))
 }
@@ -43,9 +43,9 @@ filesDelete <- function(client, file_path) {
 #'
 #' @param directory_path Required. The absolute path of a directory.
 #'
-#' @rdname filesDeleteDirectory
+#' @rdname delete_file_directory
 #' @export
-filesDeleteDirectory <- function(client, directory_path) {
+delete_file_directory <- function(client, directory_path) {
 
   client$do("DELETE", paste("/api/2.0/fs/directories", directory_path, sep = ""))
 }
@@ -57,9 +57,9 @@ filesDeleteDirectory <- function(client, directory_path) {
 #'
 #' @param file_path Required. The absolute path of the file.
 #'
-#' @rdname filesDownload
+#' @rdname download_file
 #' @export
-filesDownload <- function(client, file_path) {
+download_file <- function(client, file_path) {
 
   client$do("GET", paste("/api/2.0/fs/files", file_path, sep = ""))
 }
@@ -78,9 +78,9 @@ filesDownload <- function(client, file_path) {
 #'
 #' @param directory_path Required. The absolute path of a directory.
 #'
-#' @rdname filesGetDirectoryMetadata
+#' @rdname get_file_directory_metadata
 #' @export
-filesGetDirectoryMetadata <- function(client, directory_path) {
+get_file_directory_metadata <- function(client, directory_path) {
 
   client$do("HEAD", paste("/api/2.0/fs/directories", directory_path, sep = ""))
 }
@@ -92,9 +92,9 @@ filesGetDirectoryMetadata <- function(client, directory_path) {
 #'
 #' @param file_path Required. The absolute path of the file.
 #'
-#' @rdname filesGetMetadata
+#' @rdname get_file_metadata
 #' @export
-filesGetMetadata <- function(client, file_path) {
+get_file_metadata <- function(client, file_path) {
 
   client$do("HEAD", paste("/api/2.0/fs/files", file_path, sep = ""))
 }
@@ -110,9 +110,9 @@ filesGetMetadata <- function(client, file_path) {
 #'
 #' @return `data.frame` with all of the response pages.
 #'
-#' @rdname filesListDirectoryContents
+#' @rdname list_file_directory_contents
 #' @export
-filesListDirectoryContents <- function(client, directory_path, page_size = NULL,
+list_file_directory_contents <- function(client, directory_path, page_size = NULL,
   page_token = NULL) {
   query <- list(page_size = page_size, page_token = page_token)
 
@@ -146,9 +146,9 @@ filesListDirectoryContents <- function(client, directory_path, page_size = NULL,
 #' @param file_path Required. The absolute path of the file.
 #' @param overwrite If true, an existing file will be overwritten.
 #'
-#' @rdname filesUpload
+#' @rdname upload_file
 #' @export
-filesUpload <- function(client, file_path, contents, overwrite = NULL) {
+upload_file <- function(client, file_path, contents, overwrite = NULL) {
   query <- list(overwrite = overwrite)
   client$do("PUT", paste("/api/2.0/fs/files", file_path, sep = ""), query = query)
 }

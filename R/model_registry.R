@@ -14,9 +14,9 @@ NULL
 #' @param stage Required. Target stage of the transition.
 #' @param version Required. Version of the model.
 #'
-#' @rdname modelRegistryApproveTransitionRequest
+#' @rdname approve_model_transition_request
 #' @export
-modelRegistryApproveTransitionRequest <- function(client, name, version, stage, archive_existing_versions,
+approve_model_transition_request <- function(client, name, version, stage, archive_existing_versions,
   comment = NULL) {
   body <- list(archive_existing_versions = archive_existing_versions, comment = comment,
     name = name, stage = stage, version = version)
@@ -33,9 +33,9 @@ modelRegistryApproveTransitionRequest <- function(client, name, version, stage, 
 #' @param name Required. Name of the model.
 #' @param version Required. Version of the model.
 #'
-#' @rdname modelRegistryCreateComment
+#' @rdname create_model_comment
 #' @export
-modelRegistryCreateComment <- function(client, name, version, comment) {
+create_model_comment <- function(client, name, version, comment) {
   body <- list(comment = comment, name = name, version = version)
   client$do("POST", "/api/2.0/mlflow/comments/create", body = body)
 }
@@ -51,9 +51,9 @@ modelRegistryCreateComment <- function(client, name, version, comment) {
 #' @param name Required. Register models under this name.
 #' @param tags Additional metadata for registered model.
 #'
-#' @rdname modelRegistryCreateModel
+#' @rdname create_model
 #' @export
-modelRegistryCreateModel <- function(client, name, description = NULL, tags = NULL) {
+create_model <- function(client, name, description = NULL, tags = NULL) {
   body <- list(description = description, name = name, tags = tags)
   client$do("POST", "/api/2.0/mlflow/registered-models/create", body = body)
 }
@@ -69,10 +69,10 @@ modelRegistryCreateModel <- function(client, name, description = NULL, tags = NU
 #' @param source Required. URI indicating the location of the model artifacts.
 #' @param tags Additional metadata for model version.
 #'
-#' @rdname modelRegistryCreateModelVersion
+#' @rdname create_model_version
 #' @export
-modelRegistryCreateModelVersion <- function(client, name, source, description = NULL,
-  run_id = NULL, run_link = NULL, tags = NULL) {
+create_model_version <- function(client, name, source, description = NULL, run_id = NULL,
+  run_link = NULL, tags = NULL) {
   body <- list(description = description, name = name, run_id = run_id, run_link = run_link,
     source = source, tags = tags)
   client$do("POST", "/api/2.0/mlflow/model-versions/create", body = body)
@@ -87,9 +87,9 @@ modelRegistryCreateModelVersion <- function(client, name, source, description = 
 #' @param stage Required. Target stage of the transition.
 #' @param version Required. Version of the model.
 #'
-#' @rdname modelRegistryCreateTransitionRequest
+#' @rdname create_model_transition_request
 #' @export
-modelRegistryCreateTransitionRequest <- function(client, name, version, stage, comment = NULL) {
+create_model_transition_request <- function(client, name, version, stage, comment = NULL) {
   body <- list(comment = comment, name = name, stage = stage, version = version)
   client$do("POST", "/api/2.0/mlflow/transition-requests/create", body = body)
 }
@@ -107,9 +107,9 @@ modelRegistryCreateTransitionRequest <- function(client, name, version, stage, c
 #' @param model_name Name of the model whose events would trigger this webhook.
 #' @param status Enable or disable triggering the webhook, or put the webhook into test mode.
 #'
-#' @rdname modelRegistryCreateWebhook
+#' @rdname create_model_webhook
 #' @export
-modelRegistryCreateWebhook <- function(client, events, description = NULL, http_url_spec = NULL,
+create_model_webhook <- function(client, events, description = NULL, http_url_spec = NULL,
   job_spec = NULL, model_name = NULL, status = NULL) {
   body <- list(description = description, events = events, http_url_spec = http_url_spec,
     job_spec = job_spec, model_name = model_name, status = status)
@@ -122,9 +122,9 @@ modelRegistryCreateWebhook <- function(client, events, description = NULL, http_
 #'
 #' @param id Required. This field has no description yet.
 #'
-#' @rdname modelRegistryDeleteComment
+#' @rdname delete_model_comment
 #' @export
-modelRegistryDeleteComment <- function(client, id) {
+delete_model_comment <- function(client, id) {
   query <- list(id = id)
   client$do("DELETE", "/api/2.0/mlflow/comments/delete", query = query)
 }
@@ -135,9 +135,9 @@ modelRegistryDeleteComment <- function(client, id) {
 #'
 #' @param name Required. Registered model unique name identifier.
 #'
-#' @rdname modelRegistryDeleteModel
+#' @rdname delete_model
 #' @export
-modelRegistryDeleteModel <- function(client, name) {
+delete_model <- function(client, name) {
   query <- list(name = name)
   client$do("DELETE", "/api/2.0/mlflow/registered-models/delete", query = query)
 }
@@ -149,9 +149,9 @@ modelRegistryDeleteModel <- function(client, name) {
 #' @param key Required. Name of the tag.
 #' @param name Required. Name of the registered model that the tag was logged under.
 #'
-#' @rdname modelRegistryDeleteModelTag
+#' @rdname delete_model_tag
 #' @export
-modelRegistryDeleteModelTag <- function(client, name, key) {
+delete_model_tag <- function(client, name, key) {
   query <- list(key = key, name = name)
   client$do("DELETE", "/api/2.0/mlflow/registered-models/delete-tag", query = query)
 }
@@ -163,9 +163,9 @@ modelRegistryDeleteModelTag <- function(client, name, key) {
 #' @param name Required. Name of the registered model.
 #' @param version Required. Model version number.
 #'
-#' @rdname modelRegistryDeleteModelVersion
+#' @rdname delete_model_version
 #' @export
-modelRegistryDeleteModelVersion <- function(client, name, version) {
+delete_model_version <- function(client, name, version) {
   query <- list(name = name, version = version)
   client$do("DELETE", "/api/2.0/mlflow/model-versions/delete", query = query)
 }
@@ -178,9 +178,9 @@ modelRegistryDeleteModelVersion <- function(client, name, version) {
 #' @param name Required. Name of the registered model that the tag was logged under.
 #' @param version Required. Model version number that the tag was logged under.
 #'
-#' @rdname modelRegistryDeleteModelVersionTag
+#' @rdname delete_model_version_tag
 #' @export
-modelRegistryDeleteModelVersionTag <- function(client, name, version, key) {
+delete_model_version_tag <- function(client, name, version, key) {
   query <- list(key = key, name = name, version = version)
   client$do("DELETE", "/api/2.0/mlflow/model-versions/delete-tag", query = query)
 }
@@ -195,9 +195,9 @@ modelRegistryDeleteModelVersionTag <- function(client, name, version, key) {
 #' @param stage Required. Target stage of the transition request.
 #' @param version Required. Version of the model.
 #'
-#' @rdname modelRegistryDeleteTransitionRequest
+#' @rdname delete_model_transition_request
 #' @export
-modelRegistryDeleteTransitionRequest <- function(client, name, version, stage, creator,
+delete_model_transition_request <- function(client, name, version, stage, creator,
   comment = NULL) {
   query <- list(comment = comment, creator = creator, name = name, stage = stage,
     version = version)
@@ -212,9 +212,9 @@ modelRegistryDeleteTransitionRequest <- function(client, name, version, stage, c
 #'
 #' @param id Webhook ID required to delete a registry webhook.
 #'
-#' @rdname modelRegistryDeleteWebhook
+#' @rdname delete_model_webhook
 #' @export
-modelRegistryDeleteWebhook <- function(client, id = NULL) {
+delete_model_webhook <- function(client, id = NULL) {
   query <- list(id = id)
   client$do("DELETE", "/api/2.0/mlflow/registry-webhooks/delete", query = query)
 }
@@ -228,9 +228,9 @@ modelRegistryDeleteWebhook <- function(client, id = NULL) {
 #'
 #' @return `data.frame` with all of the response pages.
 #'
-#' @rdname modelRegistryGetLatestVersions
+#' @rdname get_model_latest_versions
 #' @export
-modelRegistryGetLatestVersions <- function(client, name, stages = NULL) {
+get_model_latest_versions <- function(client, name, stages = NULL) {
   body <- list(name = name, stages = stages)
 
   json <- client$do("POST", "/api/2.0/mlflow/registered-models/get-latest-versions",
@@ -249,9 +249,9 @@ modelRegistryGetLatestVersions <- function(client, name, stages = NULL) {
 #'
 #' @param name Required. Registered model unique name identifier.
 #'
-#' @rdname modelRegistryGetModel
+#' @rdname get_model
 #' @export
-modelRegistryGetModel <- function(client, name) {
+get_model <- function(client, name) {
   query <- list(name = name)
   client$do("GET", "/api/2.0/mlflow/databricks/registered-models/get", query = query)
 }
@@ -263,9 +263,9 @@ modelRegistryGetModel <- function(client, name) {
 #' @param name Required. Name of the registered model.
 #' @param version Required. Model version number.
 #'
-#' @rdname modelRegistryGetModelVersion
+#' @rdname get_model_version
 #' @export
-modelRegistryGetModelVersion <- function(client, name, version) {
+get_model_version <- function(client, name, version) {
   query <- list(name = name, version = version)
   client$do("GET", "/api/2.0/mlflow/model-versions/get", query = query)
 }
@@ -277,9 +277,9 @@ modelRegistryGetModelVersion <- function(client, name, version) {
 #' @param name Required. Name of the registered model.
 #' @param version Required. Model version number.
 #'
-#' @rdname modelRegistryGetModelVersionDownloadUri
+#' @rdname get_model_version_download_uri
 #' @export
-modelRegistryGetModelVersionDownloadUri <- function(client, name, version) {
+get_model_version_download_uri <- function(client, name, version) {
   query <- list(name = name, version = version)
   client$do("GET", "/api/2.0/mlflow/model-versions/get-download-uri", query = query)
 }
@@ -290,9 +290,9 @@ modelRegistryGetModelVersionDownloadUri <- function(client, name, version) {
 #'
 #' @param registered_model_id Required. The registered model for which to get or manage permissions.
 #'
-#' @rdname modelRegistryGetPermissionLevels
+#' @rdname get_model_permission_levels
 #' @export
-modelRegistryGetPermissionLevels <- function(client, registered_model_id) {
+get_model_permission_levels <- function(client, registered_model_id) {
 
   client$do("GET", paste("/api/2.0/permissions/registered-models/", registered_model_id,
     "/permissionLevels", , sep = ""))
@@ -305,9 +305,9 @@ modelRegistryGetPermissionLevels <- function(client, registered_model_id) {
 #'
 #' @param registered_model_id Required. The registered model for which to get or manage permissions.
 #'
-#' @rdname modelRegistryGetPermissions
+#' @rdname get_model_permissions
 #' @export
-modelRegistryGetPermissions <- function(client, registered_model_id) {
+get_model_permissions <- function(client, registered_model_id) {
 
   client$do("GET", paste("/api/2.0/permissions/registered-models/", registered_model_id,
     sep = ""))
@@ -323,9 +323,9 @@ modelRegistryGetPermissions <- function(client, registered_model_id) {
 #'
 #' @return `data.frame` with all of the response pages.
 #'
-#' @rdname modelRegistryListModels
+#' @rdname list_model_models
 #' @export
-modelRegistryListModels <- function(client, max_results = NULL, page_token = NULL) {
+list_model_models <- function(client, max_results = NULL, page_token = NULL) {
   query <- list(max_results = max_results, page_token = page_token)
 
   results <- data.frame()
@@ -354,9 +354,9 @@ modelRegistryListModels <- function(client, max_results = NULL, page_token = NUL
 #'
 #' @return `data.frame` with all of the response pages.
 #'
-#' @rdname modelRegistryListTransitionRequests
+#' @rdname list_model_transition_requests
 #' @export
-modelRegistryListTransitionRequests <- function(client, name, version) {
+list_model_transition_requests <- function(client, name, version) {
   query <- list(name = name, version = version)
 
   json <- client$do("GET", "/api/2.0/mlflow/transition-requests/list", query = query)
@@ -376,9 +376,9 @@ modelRegistryListTransitionRequests <- function(client, name, version) {
 #'
 #' @return `data.frame` with all of the response pages.
 #'
-#' @rdname modelRegistryListWebhooks
+#' @rdname list_model_webhooks
 #' @export
-modelRegistryListWebhooks <- function(client, events = NULL, model_name = NULL, page_token = NULL) {
+list_model_webhooks <- function(client, events = NULL, model_name = NULL, page_token = NULL) {
   query <- list(events = events, model_name = model_name, page_token = page_token)
 
   results <- data.frame()
@@ -407,9 +407,9 @@ modelRegistryListWebhooks <- function(client, events = NULL, model_name = NULL, 
 #' @param stage Required. Target stage of the transition.
 #' @param version Required. Version of the model.
 #'
-#' @rdname modelRegistryRejectTransitionRequest
+#' @rdname reject_model_transition_request
 #' @export
-modelRegistryRejectTransitionRequest <- function(client, name, version, stage, comment = NULL) {
+reject_model_transition_request <- function(client, name, version, stage, comment = NULL) {
   body <- list(comment = comment, name = name, stage = stage, version = version)
   client$do("POST", "/api/2.0/mlflow/transition-requests/reject", body = body)
 }
@@ -421,9 +421,9 @@ modelRegistryRejectTransitionRequest <- function(client, name, version, stage, c
 #' @param name Required. Registered model unique name identifier.
 #' @param new_name If provided, updates the name for this `registered_model`.
 #'
-#' @rdname modelRegistryRenameModel
+#' @rdname rename_model
 #' @export
-modelRegistryRenameModel <- function(client, name, new_name = NULL) {
+rename_model <- function(client, name, new_name = NULL) {
   body <- list(name = name, new_name = new_name)
   client$do("POST", "/api/2.0/mlflow/registered-models/rename", body = body)
 }
@@ -439,10 +439,10 @@ modelRegistryRenameModel <- function(client, name, new_name = NULL) {
 #'
 #' @return `data.frame` with all of the response pages.
 #'
-#' @rdname modelRegistrySearchModelVersions
+#' @rdname search_model_versions
 #' @export
-modelRegistrySearchModelVersions <- function(client, filter = NULL, max_results = NULL,
-  order_by = NULL, page_token = NULL) {
+search_model_versions <- function(client, filter = NULL, max_results = NULL, order_by = NULL,
+  page_token = NULL) {
   query <- list(filter = filter, max_results = max_results, order_by = order_by,
     page_token = page_token)
 
@@ -474,10 +474,10 @@ modelRegistrySearchModelVersions <- function(client, filter = NULL, max_results 
 #'
 #' @return `data.frame` with all of the response pages.
 #'
-#' @rdname modelRegistrySearchModels
+#' @rdname search_model_models
 #' @export
-modelRegistrySearchModels <- function(client, filter = NULL, max_results = NULL,
-  order_by = NULL, page_token = NULL) {
+search_model_models <- function(client, filter = NULL, max_results = NULL, order_by = NULL,
+  page_token = NULL) {
   query <- list(filter = filter, max_results = max_results, order_by = order_by,
     page_token = page_token)
 
@@ -506,9 +506,9 @@ modelRegistrySearchModels <- function(client, filter = NULL, max_results = NULL,
 #' @param name Required. Unique name of the model.
 #' @param value Required. String value of the tag being logged.
 #'
-#' @rdname modelRegistrySetModelTag
+#' @rdname set_model_tag
 #' @export
-modelRegistrySetModelTag <- function(client, name, key, value) {
+set_model_tag <- function(client, name, key, value) {
   body <- list(key = key, name = name, value = value)
   client$do("POST", "/api/2.0/mlflow/registered-models/set-tag", body = body)
 }
@@ -522,9 +522,9 @@ modelRegistrySetModelTag <- function(client, name, key, value) {
 #' @param value Required. String value of the tag being logged.
 #' @param version Required. Model version number.
 #'
-#' @rdname modelRegistrySetModelVersionTag
+#' @rdname set_model_version_tag
 #' @export
-modelRegistrySetModelVersionTag <- function(client, name, version, key, value) {
+set_model_version_tag <- function(client, name, version, key, value) {
   body <- list(key = key, name = name, value = value, version = version)
   client$do("POST", "/api/2.0/mlflow/model-versions/set-tag", body = body)
 }
@@ -537,9 +537,9 @@ modelRegistrySetModelVersionTag <- function(client, name, version, key, value) {
 #' @param access_control_list This field has no description yet.
 #' @param registered_model_id Required. The registered model for which to get or manage permissions.
 #'
-#' @rdname modelRegistrySetPermissions
+#' @rdname set_model_permissions
 #' @export
-modelRegistrySetPermissions <- function(client, registered_model_id, access_control_list = NULL) {
+set_model_permissions <- function(client, registered_model_id, access_control_list = NULL) {
   body <- list(access_control_list = access_control_list)
   client$do("PUT", paste("/api/2.0/permissions/registered-models/", registered_model_id,
     sep = ""), body = body)
@@ -554,9 +554,9 @@ modelRegistrySetPermissions <- function(client, registered_model_id, access_cont
 #' @param event If `event` is specified, the test trigger uses the specified event.
 #' @param id Required. Webhook ID.
 #'
-#' @rdname modelRegistryTestRegistryWebhook
+#' @rdname test_model_registry_webhook
 #' @export
-modelRegistryTestRegistryWebhook <- function(client, id, event = NULL) {
+test_model_registry_webhook <- function(client, id, event = NULL) {
   body <- list(event = event, id = id)
   client$do("POST", "/api/2.0/mlflow/registry-webhooks/test", body = body)
 }
@@ -575,9 +575,9 @@ modelRegistryTestRegistryWebhook <- function(client, id, event = NULL) {
 #' @param stage Required. Target stage of the transition.
 #' @param version Required. Version of the model.
 #'
-#' @rdname modelRegistryTransitionStage
+#' @rdname transition_model_stage
 #' @export
-modelRegistryTransitionStage <- function(client, name, version, stage, archive_existing_versions,
+transition_model_stage <- function(client, name, version, stage, archive_existing_versions,
   comment = NULL) {
   body <- list(archive_existing_versions = archive_existing_versions, comment = comment,
     name = name, stage = stage, version = version)
@@ -592,9 +592,9 @@ modelRegistryTransitionStage <- function(client, name, version, stage, archive_e
 #' @param comment Required. User-provided comment on the action.
 #' @param id Required. Unique identifier of an activity.
 #'
-#' @rdname modelRegistryUpdateComment
+#' @rdname update_model_comment
 #' @export
-modelRegistryUpdateComment <- function(client, id, comment) {
+update_model_comment <- function(client, id, comment) {
   body <- list(comment = comment, id = id)
   client$do("PATCH", "/api/2.0/mlflow/comments/update", body = body)
 }
@@ -606,9 +606,9 @@ modelRegistryUpdateComment <- function(client, id, comment) {
 #' @param description If provided, updates the description for this `registered_model`.
 #' @param name Required. Registered model unique name identifier.
 #'
-#' @rdname modelRegistryUpdateModel
+#' @rdname update_model
 #' @export
-modelRegistryUpdateModel <- function(client, name, description = NULL) {
+update_model <- function(client, name, description = NULL) {
   body <- list(description = description, name = name)
   client$do("PATCH", "/api/2.0/mlflow/registered-models/update", body = body)
 }
@@ -621,9 +621,9 @@ modelRegistryUpdateModel <- function(client, name, description = NULL) {
 #' @param name Required. Name of the registered model.
 #' @param version Required. Model version number.
 #'
-#' @rdname modelRegistryUpdateModelVersion
+#' @rdname update_model_version
 #' @export
-modelRegistryUpdateModelVersion <- function(client, name, version, description = NULL) {
+update_model_version <- function(client, name, version, description = NULL) {
   body <- list(description = description, name = name, version = version)
   client$do("PATCH", "/api/2.0/mlflow/model-versions/update", body = body)
 }
@@ -636,9 +636,9 @@ modelRegistryUpdateModelVersion <- function(client, name, version, description =
 #' @param access_control_list This field has no description yet.
 #' @param registered_model_id Required. The registered model for which to get or manage permissions.
 #'
-#' @rdname modelRegistryUpdatePermissions
+#' @rdname update_model_permissions
 #' @export
-modelRegistryUpdatePermissions <- function(client, registered_model_id, access_control_list = NULL) {
+update_model_permissions <- function(client, registered_model_id, access_control_list = NULL) {
   body <- list(access_control_list = access_control_list)
   client$do("PATCH", paste("/api/2.0/permissions/registered-models/", registered_model_id,
     sep = ""), body = body)
@@ -657,10 +657,10 @@ modelRegistryUpdatePermissions <- function(client, registered_model_id, access_c
 #' @param job_spec This field has no description yet.
 #' @param status Enable or disable triggering the webhook, or put the webhook into test mode.
 #'
-#' @rdname modelRegistryUpdateWebhook
+#' @rdname update_model_webhook
 #' @export
-modelRegistryUpdateWebhook <- function(client, id, description = NULL, events = NULL,
-  http_url_spec = NULL, job_spec = NULL, status = NULL) {
+update_model_webhook <- function(client, id, description = NULL, events = NULL, http_url_spec = NULL,
+  job_spec = NULL, status = NULL) {
   body <- list(description = description, events = events, http_url_spec = http_url_spec,
     id = id, job_spec = job_spec, status = status)
   client$do("PATCH", "/api/2.0/mlflow/registry-webhooks/update", body = body)

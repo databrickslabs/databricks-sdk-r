@@ -11,9 +11,9 @@ NULL
 #' @param name Full three-part (catalog, schema, table) name of the table.
 #' @param spec Specification of the online table.
 #'
-#' @rdname onlineTablesCreate
+#' @rdname create_online_table
 #' @export
-onlineTablesCreate <- function(client, name = NULL, spec = NULL) {
+create_online_table <- function(client, name = NULL, spec = NULL) {
   body <- list(name = name, spec = spec)
   client$do("POST", "/api/2.0/online-tables", body = body)
 }
@@ -26,9 +26,9 @@ onlineTablesCreate <- function(client, name = NULL, spec = NULL) {
 #'
 #' @param name Required. Full three-part (catalog, schema, table) name of the table.
 #'
-#' @rdname onlineTablesDelete
+#' @rdname delete_online_table
 #' @export
-onlineTablesDelete <- function(client, name) {
+delete_online_table <- function(client, name) {
 
   client$do("DELETE", paste("/api/2.0/online-tables/", name, sep = ""))
 }
@@ -39,9 +39,9 @@ onlineTablesDelete <- function(client, name) {
 #'
 #' @param name Required. Full three-part (catalog, schema, table) name of the table.
 #'
-#' @rdname onlineTablesGet
+#' @rdname get_online_table
 #' @export
-onlineTablesGet <- function(client, name) {
+get_online_table <- function(client, name) {
 
   client$do("GET", paste("/api/2.0/online-tables/", name, sep = ""))
 }

@@ -19,9 +19,9 @@ NULL
 #' @param properties_kvpairs Recipient properties as map of string key-value pairs.
 #' @param sharing_code The one-time sharing code provided by the data recipient.
 #'
-#' @rdname recipientsCreate
+#' @rdname create_recipient
 #' @export
-recipientsCreate <- function(client, name, authentication_type, comment = NULL, data_recipient_global_metastore_id = NULL,
+create_recipient <- function(client, name, authentication_type, comment = NULL, data_recipient_global_metastore_id = NULL,
   ip_access_list = NULL, owner = NULL, properties_kvpairs = NULL, sharing_code = NULL) {
   body <- list(authentication_type = authentication_type, comment = comment, data_recipient_global_metastore_id = data_recipient_global_metastore_id,
     ip_access_list = ip_access_list, name = name, owner = owner, properties_kvpairs = properties_kvpairs,
@@ -36,9 +36,9 @@ recipientsCreate <- function(client, name, authentication_type, comment = NULL, 
 #'
 #' @param name Required. Name of the recipient.
 #'
-#' @rdname recipientsDelete
+#' @rdname delete_recipient
 #' @export
-recipientsDelete <- function(client, name) {
+delete_recipient <- function(client, name) {
 
   client$do("DELETE", paste("/api/2.1/unity-catalog/recipients/", name, sep = ""))
 }
@@ -51,9 +51,9 @@ recipientsDelete <- function(client, name) {
 #'
 #' @param name Required. Name of the recipient.
 #'
-#' @rdname recipientsGet
+#' @rdname get_recipient
 #' @export
-recipientsGet <- function(client, name) {
+get_recipient <- function(client, name) {
 
   client$do("GET", paste("/api/2.1/unity-catalog/recipients/", name, sep = ""))
 }
@@ -69,9 +69,9 @@ recipientsGet <- function(client, name) {
 #'
 #' @return `data.frame` with all of the response pages.
 #'
-#' @rdname recipientsList
+#' @rdname list_recipients
 #' @export
-recipientsList <- function(client, data_recipient_global_metastore_id = NULL) {
+list_recipients <- function(client, data_recipient_global_metastore_id = NULL) {
   query <- list(data_recipient_global_metastore_id = data_recipient_global_metastore_id)
 
   json <- client$do("GET", "/api/2.1/unity-catalog/recipients", query = query)
@@ -87,9 +87,9 @@ recipientsList <- function(client, data_recipient_global_metastore_id = NULL) {
 #' @param existing_token_expire_in_seconds Required. The expiration time of the bearer token in ISO 8601 format.
 #' @param name Required. The name of the recipient.
 #'
-#' @rdname recipientsRotateToken
+#' @rdname rotate_recipient_token
 #' @export
-recipientsRotateToken <- function(client, name, existing_token_expire_in_seconds) {
+rotate_recipient_token <- function(client, name, existing_token_expire_in_seconds) {
   body <- list(existing_token_expire_in_seconds = existing_token_expire_in_seconds)
   client$do("POST", paste("/api/2.1/unity-catalog/recipients/", name, "/rotate-token",
     , sep = ""), body = body)
@@ -102,9 +102,9 @@ recipientsRotateToken <- function(client, name, existing_token_expire_in_seconds
 #'
 #' @param name Required. The name of the Recipient.
 #'
-#' @rdname recipientsSharePermissions
+#' @rdname share_recipient_permissions
 #' @export
-recipientsSharePermissions <- function(client, name) {
+share_recipient_permissions <- function(client, name) {
 
   client$do("GET", paste("/api/2.1/unity-catalog/recipients/", name, "/share-permissions",
     , sep = ""))
@@ -124,9 +124,9 @@ recipientsSharePermissions <- function(client, name) {
 #' @param owner Username of the recipient owner.
 #' @param properties_kvpairs Recipient properties as map of string key-value pairs.
 #'
-#' @rdname recipientsUpdate
+#' @rdname update_recipient
 #' @export
-recipientsUpdate <- function(client, name, comment = NULL, ip_access_list = NULL,
+update_recipient <- function(client, name, comment = NULL, ip_access_list = NULL,
   new_name = NULL, owner = NULL, properties_kvpairs = NULL) {
   body <- list(comment = comment, ip_access_list = ip_access_list, new_name = new_name,
     owner = owner, properties_kvpairs = properties_kvpairs)

@@ -25,9 +25,9 @@ NULL
 #' @param schema_name Required. The name of the schema where the registered model resides.
 #' @param storage_location The storage location on the cloud under which model version data files are stored.
 #'
-#' @rdname registeredModelsCreate
+#' @rdname create_registered_model
 #' @export
-registeredModelsCreate <- function(client, catalog_name, schema_name, name, comment = NULL,
+create_registered_model <- function(client, catalog_name, schema_name, name, comment = NULL,
   storage_location = NULL) {
   body <- list(catalog_name = catalog_name, comment = comment, name = name, schema_name = schema_name,
     storage_location = storage_location)
@@ -46,9 +46,9 @@ registeredModelsCreate <- function(client, catalog_name, schema_name, name, comm
 #'
 #' @param full_name Required. The three-level (fully qualified) name of the registered model.
 #'
-#' @rdname registeredModelsDelete
+#' @rdname delete_registered_model
 #' @export
-registeredModelsDelete <- function(client, full_name) {
+delete_registered_model <- function(client, full_name) {
 
   client$do("DELETE", paste("/api/2.1/unity-catalog/models/", full_name, sep = ""))
 }
@@ -65,9 +65,9 @@ registeredModelsDelete <- function(client, full_name) {
 #' @param alias Required. The name of the alias.
 #' @param full_name Required. The three-level (fully qualified) name of the registered model.
 #'
-#' @rdname registeredModelsDeleteAlias
+#' @rdname delete_registered_model_alias
 #' @export
-registeredModelsDeleteAlias <- function(client, full_name, alias) {
+delete_registered_model_alias <- function(client, full_name, alias) {
 
   client$do("DELETE", paste("/api/2.1/unity-catalog/models/", full_name, "/aliases/",
     alias, sep = ""))
@@ -85,9 +85,9 @@ registeredModelsDeleteAlias <- function(client, full_name, alias) {
 #' @param full_name Required. The three-level (fully qualified) name of the registered model.
 #' @param include_browse Whether to include registered models in the response for which the principal can only access selective metadata for.
 #'
-#' @rdname registeredModelsGet
+#' @rdname get_registered_model
 #' @export
-registeredModelsGet <- function(client, full_name, include_browse = NULL) {
+get_registered_model <- function(client, full_name, include_browse = NULL) {
   query <- list(include_browse = include_browse)
   client$do("GET", paste("/api/2.1/unity-catalog/models/", full_name, sep = ""),
     query = query)
@@ -116,9 +116,9 @@ registeredModelsGet <- function(client, full_name, include_browse = NULL) {
 #'
 #' @return `data.frame` with all of the response pages.
 #'
-#' @rdname registeredModelsList
+#' @rdname list_registered_models
 #' @export
-registeredModelsList <- function(client, catalog_name = NULL, include_browse = NULL,
+list_registered_models <- function(client, catalog_name = NULL, include_browse = NULL,
   max_results = NULL, page_token = NULL, schema_name = NULL) {
   query <- list(catalog_name = catalog_name, include_browse = include_browse, max_results = max_results,
     page_token = page_token, schema_name = schema_name)
@@ -153,9 +153,9 @@ registeredModelsList <- function(client, catalog_name = NULL, include_browse = N
 #' @param full_name Required. Full name of the registered model.
 #' @param version_num Required. The version number of the model version to which the alias points.
 #'
-#' @rdname registeredModelsSetAlias
+#' @rdname set_registered_model_alias
 #' @export
-registeredModelsSetAlias <- function(client, full_name, alias, version_num) {
+set_registered_model_alias <- function(client, full_name, alias, version_num) {
   body <- list(alias = alias, full_name = full_name, version_num = version_num)
   client$do("PUT", paste("/api/2.1/unity-catalog/models/", full_name, "/aliases/",
     alias, sep = ""), body = body)
@@ -178,9 +178,9 @@ registeredModelsSetAlias <- function(client, full_name, alias, version_num) {
 #' @param new_name New name for the registered model.
 #' @param owner The identifier of the user who owns the registered model.
 #'
-#' @rdname registeredModelsUpdate
+#' @rdname update_registered_model
 #' @export
-registeredModelsUpdate <- function(client, full_name, comment = NULL, new_name = NULL,
+update_registered_model <- function(client, full_name, comment = NULL, new_name = NULL,
   owner = NULL) {
   body <- list(comment = comment, new_name = new_name, owner = owner)
   client$do("PATCH", paste("/api/2.1/unity-catalog/models/", full_name, sep = ""),

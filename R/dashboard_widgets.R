@@ -12,9 +12,9 @@ NULL
 #' @param visualization_id Query Vizualization ID returned by :method:queryvisualizations/create.
 #' @param width Required. Width of a widget.
 #'
-#' @rdname dashboardWidgetsCreate
+#' @rdname create_dashboard_widget
 #' @export
-dashboardWidgetsCreate <- function(client, dashboard_id, options, width, text = NULL,
+create_dashboard_widget <- function(client, dashboard_id, options, width, text = NULL,
   visualization_id = NULL) {
   body <- list(dashboard_id = dashboard_id, options = options, text = text, visualization_id = visualization_id,
     width = width)
@@ -25,9 +25,9 @@ dashboardWidgetsCreate <- function(client, dashboard_id, options, width, text = 
 #'
 #' @param id Required. Widget ID returned by :method:dashboardwidgets/create.
 #'
-#' @rdname dashboardWidgetsDelete
+#' @rdname delete_dashboard_widget
 #' @export
-dashboardWidgetsDelete <- function(client, id) {
+delete_dashboard_widget <- function(client, id) {
 
   client$do("DELETE", paste("/api/2.0/preview/sql/widgets/", id, sep = ""))
 }
@@ -41,9 +41,9 @@ dashboardWidgetsDelete <- function(client, id) {
 #' @param visualization_id Query Vizualization ID returned by :method:queryvisualizations/create.
 #' @param width Required. Width of a widget.
 #'
-#' @rdname dashboardWidgetsUpdate
+#' @rdname update_dashboard_widget
 #' @export
-dashboardWidgetsUpdate <- function(client, id, dashboard_id, options, width, text = NULL,
+update_dashboard_widget <- function(client, id, dashboard_id, options, width, text = NULL,
   visualization_id = NULL) {
   body <- list(dashboard_id = dashboard_id, options = options, text = text, visualization_id = visualization_id,
     width = width)

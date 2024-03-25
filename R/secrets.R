@@ -14,9 +14,9 @@ NULL
 #' @param scope Required. Scope name requested by the user.
 #' @param scope_backend_type The backend type the scope will be created with.
 #'
-#' @rdname secretsCreateScope
+#' @rdname create_secret_scope
 #' @export
-secretsCreateScope <- function(client, scope, backend_azure_keyvault = NULL, initial_manage_principal = NULL,
+create_secret_scope <- function(client, scope, backend_azure_keyvault = NULL, initial_manage_principal = NULL,
   scope_backend_type = NULL) {
   body <- list(backend_azure_keyvault = backend_azure_keyvault, initial_manage_principal = initial_manage_principal,
     scope = scope, scope_backend_type = scope_backend_type)
@@ -35,9 +35,9 @@ secretsCreateScope <- function(client, scope, backend_azure_keyvault = NULL, ini
 #' @param principal Required. The principal to remove an existing ACL from.
 #' @param scope Required. The name of the scope to remove permissions from.
 #'
-#' @rdname secretsDeleteAcl
+#' @rdname delete_secret_acl
 #' @export
-secretsDeleteAcl <- function(client, scope, principal) {
+delete_secret_acl <- function(client, scope, principal) {
   body <- list(principal = principal, scope = scope)
   client$do("POST", "/api/2.0/secrets/acls/delete", body = body)
 }
@@ -52,9 +52,9 @@ secretsDeleteAcl <- function(client, scope, principal) {
 #'
 #' @param scope Required. Name of the scope to delete.
 #'
-#' @rdname secretsDeleteScope
+#' @rdname delete_secret_scope
 #' @export
-secretsDeleteScope <- function(client, scope) {
+delete_secret_scope <- function(client, scope) {
   body <- list(scope = scope)
   client$do("POST", "/api/2.0/secrets/scopes/delete", body = body)
 }
@@ -71,9 +71,9 @@ secretsDeleteScope <- function(client, scope) {
 #' @param key Required. Name of the secret to delete.
 #' @param scope Required. The name of the scope that contains the secret to delete.
 #'
-#' @rdname secretsDeleteSecret
+#' @rdname delete_secret
 #' @export
-secretsDeleteSecret <- function(client, scope, key) {
+delete_secret <- function(client, scope, key) {
   body <- list(key = key, scope = scope)
   client$do("POST", "/api/2.0/secrets/delete", body = body)
 }
@@ -90,9 +90,9 @@ secretsDeleteSecret <- function(client, scope, key) {
 #' @param principal Required. The principal to fetch ACL information for.
 #' @param scope Required. The name of the scope to fetch ACL information from.
 #'
-#' @rdname secretsGetAcl
+#' @rdname get_secret_acl
 #' @export
-secretsGetAcl <- function(client, scope, principal) {
+get_secret_acl <- function(client, scope, principal) {
   query <- list(principal = principal, scope = scope)
   client$do("GET", "/api/2.0/secrets/acls/get", query = query)
 }
@@ -115,9 +115,9 @@ secretsGetAcl <- function(client, scope, principal) {
 #' @param key Required. The key to fetch secret for.
 #' @param scope Required. The name of the scope to fetch secret information from.
 #'
-#' @rdname secretsGetSecret
+#' @rdname get_secret
 #' @export
-secretsGetSecret <- function(client, scope, key) {
+get_secret <- function(client, scope, key) {
   query <- list(key = key, scope = scope)
   client$do("GET", "/api/2.0/secrets/get", query = query)
 }
@@ -135,9 +135,9 @@ secretsGetSecret <- function(client, scope, key) {
 #'
 #' @return `data.frame` with all of the response pages.
 #'
-#' @rdname secretsListAcls
+#' @rdname list_secret_acls
 #' @export
-secretsListAcls <- function(client, scope) {
+list_secret_acls <- function(client, scope) {
   query <- list(scope = scope)
 
   json <- client$do("GET", "/api/2.0/secrets/acls/list", query = query)
@@ -154,9 +154,9 @@ secretsListAcls <- function(client, scope) {
 #'
 #' @return `data.frame` with all of the response pages.
 #'
-#' @rdname secretsListScopes
+#' @rdname list_secret_scopes
 #' @export
-secretsListScopes <- function(client) {
+list_secret_scopes <- function(client) {
 
   json <- client$do("GET", "/api/2.0/secrets/scopes/list")
   return(json$scopes)
@@ -178,9 +178,9 @@ secretsListScopes <- function(client) {
 #'
 #' @return `data.frame` with all of the response pages.
 #'
-#' @rdname secretsListSecrets
+#' @rdname list_secret_secrets
 #' @export
-secretsListSecrets <- function(client, scope) {
+list_secret_secrets <- function(client, scope) {
   query <- list(scope = scope)
 
   json <- client$do("GET", "/api/2.0/secrets/list", query = query)
@@ -221,9 +221,9 @@ secretsListSecrets <- function(client, scope) {
 #' @param principal Required. The principal in which the permission is applied.
 #' @param scope Required. The name of the scope to apply permissions to.
 #'
-#' @rdname secretsPutAcl
+#' @rdname put_secret_acl
 #' @export
-secretsPutAcl <- function(client, scope, principal, permission) {
+put_secret_acl <- function(client, scope, principal, permission) {
   body <- list(permission = permission, principal = principal, scope = scope)
   client$do("POST", "/api/2.0/secrets/acls/put", body = body)
 }
@@ -255,9 +255,9 @@ secretsPutAcl <- function(client, scope, principal, permission) {
 #' @param scope Required. The name of the scope to which the secret will be associated with.
 #' @param string_value If specified, note that the value will be stored in UTF-8 (MB4) form.
 #'
-#' @rdname secretsPutSecret
+#' @rdname put_secret
 #' @export
-secretsPutSecret <- function(client, scope, key, bytes_value = NULL, string_value = NULL) {
+put_secret <- function(client, scope, key, bytes_value = NULL, string_value = NULL) {
   body <- list(bytes_value = bytes_value, key = key, scope = scope, string_value = string_value)
   client$do("POST", "/api/2.0/secrets/put", body = body)
 }

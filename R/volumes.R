@@ -32,9 +32,9 @@ NULL
 #' @param storage_location The storage location on the cloud.
 #' @param volume_type Required. This field has no description yet.
 #'
-#' @rdname volumesCreate
+#' @rdname create_volume
 #' @export
-volumesCreate <- function(client, catalog_name, schema_name, name, volume_type, comment = NULL,
+create_volume <- function(client, catalog_name, schema_name, name, volume_type, comment = NULL,
   storage_location = NULL) {
   body <- list(catalog_name = catalog_name, comment = comment, name = name, schema_name = schema_name,
     storage_location = storage_location, volume_type = volume_type)
@@ -52,9 +52,9 @@ volumesCreate <- function(client, catalog_name, schema_name, name, volume_type, 
 #'
 #' @param name Required. The three-level (fully qualified) name of the volume.
 #'
-#' @rdname volumesDelete
+#' @rdname delete_volume
 #' @export
-volumesDelete <- function(client, name) {
+delete_volume <- function(client, name) {
 
   client$do("DELETE", paste("/api/2.1/unity-catalog/volumes/", name, sep = ""))
 }
@@ -81,9 +81,9 @@ volumesDelete <- function(client, name) {
 #'
 #' @return `data.frame` with all of the response pages.
 #'
-#' @rdname volumesList
+#' @rdname list_volumes
 #' @export
-volumesList <- function(client, catalog_name, schema_name, include_browse = NULL,
+list_volumes <- function(client, catalog_name, schema_name, include_browse = NULL,
   max_results = NULL, page_token = NULL) {
   query <- list(catalog_name = catalog_name, include_browse = include_browse, max_results = max_results,
     page_token = page_token, schema_name = schema_name)
@@ -117,9 +117,9 @@ volumesList <- function(client, catalog_name, schema_name, include_browse = NULL
 #' @param include_browse Whether to include volumes in the response for which the principal can only access selective metadata for.
 #' @param name Required. The three-level (fully qualified) name of the volume.
 #'
-#' @rdname volumesRead
+#' @rdname read_volume
 #' @export
-volumesRead <- function(client, name, include_browse = NULL) {
+read_volume <- function(client, name, include_browse = NULL) {
   query <- list(include_browse = include_browse)
   client$do("GET", paste("/api/2.1/unity-catalog/volumes/", name, sep = ""), query = query)
 }
@@ -141,9 +141,9 @@ volumesRead <- function(client, name, include_browse = NULL) {
 #' @param new_name New name for the volume.
 #' @param owner The identifier of the user who owns the volume.
 #'
-#' @rdname volumesUpdate
+#' @rdname update_volume
 #' @export
-volumesUpdate <- function(client, name, comment = NULL, new_name = NULL, owner = NULL) {
+update_volume <- function(client, name, comment = NULL, new_name = NULL, owner = NULL) {
   body <- list(comment = comment, new_name = new_name, owner = owner)
   client$do("PATCH", paste("/api/2.1/unity-catalog/volumes/", name, sep = ""),
     body = body)

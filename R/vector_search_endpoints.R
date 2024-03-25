@@ -11,9 +11,9 @@ NULL
 #' @param endpoint_type Required. Type of endpoint.
 #' @param name Required. Name of endpoint.
 #'
-#' @rdname vectorSearchEndpointsCreateEndpoint
+#' @rdname create_vector_search_endpoint
 #' @export
-vectorSearchEndpointsCreateEndpoint <- function(client, name, endpoint_type) {
+create_vector_search_endpoint <- function(client, name, endpoint_type) {
   body <- list(endpoint_type = endpoint_type, name = name)
   client$do("POST", "/api/2.0/vector-search/endpoints", body = body)
 }
@@ -22,9 +22,9 @@ vectorSearchEndpointsCreateEndpoint <- function(client, name, endpoint_type) {
 #'
 #' @param endpoint_name Required. Name of the endpoint.
 #'
-#' @rdname vectorSearchEndpointsDeleteEndpoint
+#' @rdname delete_vector_search_endpoint
 #' @export
-vectorSearchEndpointsDeleteEndpoint <- function(client, endpoint_name) {
+delete_vector_search_endpoint <- function(client, endpoint_name) {
 
   client$do("DELETE", paste("/api/2.0/vector-search/endpoints/", endpoint_name,
     sep = ""))
@@ -34,9 +34,9 @@ vectorSearchEndpointsDeleteEndpoint <- function(client, endpoint_name) {
 #'
 #' @param endpoint_name Required. Name of the endpoint.
 #'
-#' @rdname vectorSearchEndpointsGetEndpoint
+#' @rdname get_vector_search_endpoint
 #' @export
-vectorSearchEndpointsGetEndpoint <- function(client, endpoint_name) {
+get_vector_search_endpoint <- function(client, endpoint_name) {
 
   client$do("GET", paste("/api/2.0/vector-search/endpoints/", endpoint_name, sep = ""))
 }
@@ -47,9 +47,9 @@ vectorSearchEndpointsGetEndpoint <- function(client, endpoint_name) {
 #'
 #' @return `data.frame` with all of the response pages.
 #'
-#' @rdname vectorSearchEndpointsListEndpoints
+#' @rdname list_vector_search_endpoint_endpoints
 #' @export
-vectorSearchEndpointsListEndpoints <- function(client, page_token = NULL) {
+list_vector_search_endpoint_endpoints <- function(client, page_token = NULL) {
   query <- list(page_token = page_token)
 
   results <- data.frame()
@@ -85,10 +85,10 @@ vectorSearchEndpointsListEndpoints <- function(client, page_token = NULL) {
 #' @param endpoint_type Required. Type of endpoint.
 #' @param name Required. Name of endpoint.
 #'
-#' @rdname vectorSearchEndpointsCreateEndpointAndWait
+#' @rdname create_vector_search_endpoint_and_wait
 #' @export
-vectorSearchEndpointsCreateEndpointAndWait <- function(client, name, endpoint_type,
-  timeout = 20, callback = cli_reporter) {
+create_vector_search_endpoint_and_wait <- function(client, name, endpoint_type, timeout = 20,
+  callback = cli_reporter) {
   body <- list(endpoint_type = endpoint_type, name = name)
   op_response <- client$do("POST", "/api/2.0/vector-search/endpoints", body = body)
   started <- as.numeric(Sys.time())

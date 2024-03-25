@@ -10,9 +10,9 @@ NULL
 #'
 #' @param policy_family_id Required. This field has no description yet.
 #'
-#' @rdname policyFamiliesGet
+#' @rdname get_cluster_policy_family
 #' @export
-policyFamiliesGet <- function(client, policy_family_id) {
+get_cluster_policy_family <- function(client, policy_family_id) {
 
   client$do("GET", paste("/api/2.0/policy-families/", policy_family_id, sep = ""))
 }
@@ -26,9 +26,9 @@ policyFamiliesGet <- function(client, policy_family_id) {
 #'
 #' @return `data.frame` with all of the response pages.
 #'
-#' @rdname policyFamiliesList
+#' @rdname list_cluster_policy_families
 #' @export
-policyFamiliesList <- function(client, max_results = NULL, page_token = NULL) {
+list_cluster_policy_families <- function(client, max_results = NULL, page_token = NULL) {
   query <- list(max_results = max_results, page_token = page_token)
 
   results <- data.frame()

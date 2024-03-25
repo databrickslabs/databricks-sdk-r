@@ -18,9 +18,9 @@ NULL
 #' @param share_name The name of the share under the share provider.
 #' @param storage_root Storage root URL for managed tables within catalog.
 #'
-#' @rdname catalogsCreate
+#' @rdname create_catalog
 #' @export
-catalogsCreate <- function(client, name, comment = NULL, connection_name = NULL,
+create_catalog <- function(client, name, comment = NULL, connection_name = NULL,
   options = NULL, properties = NULL, provider_name = NULL, share_name = NULL, storage_root = NULL) {
   body <- list(comment = comment, connection_name = connection_name, name = name,
     options = options, properties = properties, provider_name = provider_name,
@@ -36,9 +36,9 @@ catalogsCreate <- function(client, name, comment = NULL, connection_name = NULL,
 #' @param force Force deletion even if the catalog is not empty.
 #' @param name Required. The name of the catalog.
 #'
-#' @rdname catalogsDelete
+#' @rdname delete_catalog
 #' @export
-catalogsDelete <- function(client, name, force = NULL) {
+delete_catalog <- function(client, name, force = NULL) {
   query <- list(force = force)
   client$do("DELETE", paste("/api/2.1/unity-catalog/catalogs/", name, sep = ""),
     query = query)
@@ -53,9 +53,9 @@ catalogsDelete <- function(client, name, force = NULL) {
 #' @param include_browse Whether to include catalogs in the response for which the principal can only access selective metadata for.
 #' @param name Required. The name of the catalog.
 #'
-#' @rdname catalogsGet
+#' @rdname get_catalog
 #' @export
-catalogsGet <- function(client, name, include_browse = NULL) {
+get_catalog <- function(client, name, include_browse = NULL) {
   query <- list(include_browse = include_browse)
   client$do("GET", paste("/api/2.1/unity-catalog/catalogs/", name, sep = ""), query = query)
 }
@@ -72,9 +72,9 @@ catalogsGet <- function(client, name, include_browse = NULL) {
 #'
 #' @return `data.frame` with all of the response pages.
 #'
-#' @rdname catalogsList
+#' @rdname list_catalogs
 #' @export
-catalogsList <- function(client, include_browse = NULL) {
+list_catalogs <- function(client, include_browse = NULL) {
   query <- list(include_browse = include_browse)
 
   json <- client$do("GET", "/api/2.1/unity-catalog/catalogs", query = query)
@@ -96,9 +96,9 @@ catalogsList <- function(client, include_browse = NULL) {
 #' @param owner Username of current owner of catalog.
 #' @param properties A map of key-value properties attached to the securable.
 #'
-#' @rdname catalogsUpdate
+#' @rdname update_catalog
 #' @export
-catalogsUpdate <- function(client, name, comment = NULL, enable_predictive_optimization = NULL,
+update_catalog <- function(client, name, comment = NULL, enable_predictive_optimization = NULL,
   isolation_mode = NULL, new_name = NULL, owner = NULL, properties = NULL) {
   body <- list(comment = comment, enable_predictive_optimization = enable_predictive_optimization,
     isolation_mode = isolation_mode, new_name = new_name, owner = owner, properties = properties)

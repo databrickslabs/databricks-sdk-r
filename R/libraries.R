@@ -11,9 +11,9 @@ NULL
 #' UI.
 #' @param client Required. Instance of DatabricksClient()
 #'
-#' @rdname librariesAllClusterStatuses
+#' @rdname all_cluster_library_statuses
 #' @export
-librariesAllClusterStatuses <- function(client) {
+all_cluster_library_statuses <- function(client) {
   client$do("GET", "/api/2.0/libraries/all-cluster-statuses")
 }
 #' Get status.
@@ -39,9 +39,9 @@ librariesAllClusterStatuses <- function(client) {
 #'
 #' @return `data.frame` with all of the response pages.
 #'
-#' @rdname librariesClusterStatus
+#' @rdname cluster_library_status
 #' @export
-librariesClusterStatus <- function(client, cluster_id) {
+cluster_library_status <- function(client, cluster_id) {
   query <- list(cluster_id = cluster_id)
 
   json <- client$do("GET", "/api/2.0/libraries/cluster-status", query = query)
@@ -61,9 +61,9 @@ librariesClusterStatus <- function(client, cluster_id) {
 #' @param cluster_id Required. Unique identifier for the cluster on which to install these libraries.
 #' @param libraries Required. The libraries to install.
 #'
-#' @rdname librariesInstall
+#' @rdname install_cluster_library
 #' @export
-librariesInstall <- function(client, cluster_id, libraries) {
+install_cluster_library <- function(client, cluster_id, libraries) {
   body <- list(cluster_id = cluster_id, libraries = libraries)
   client$do("POST", "/api/2.0/libraries/install", body = body)
 }
@@ -77,9 +77,9 @@ librariesInstall <- function(client, cluster_id, libraries) {
 #' @param cluster_id Required. Unique identifier for the cluster on which to uninstall these libraries.
 #' @param libraries Required. The libraries to uninstall.
 #'
-#' @rdname librariesUninstall
+#' @rdname uninstall_cluster_library
 #' @export
-librariesUninstall <- function(client, cluster_id, libraries) {
+uninstall_cluster_library <- function(client, cluster_id, libraries) {
   body <- list(cluster_id = cluster_id, libraries = libraries)
   client$do("POST", "/api/2.0/libraries/uninstall", body = body)
 }

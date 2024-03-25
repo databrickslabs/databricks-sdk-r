@@ -27,9 +27,9 @@ NULL
 #' @param label Required. Label for the IP access list.
 #' @param list_type Required. Type of IP access list.
 #'
-#' @rdname ipAccessListsCreate
+#' @rdname create_ip_access_list
 #' @export
-ipAccessListsCreate <- function(client, label, list_type, ip_addresses = NULL) {
+create_ip_access_list <- function(client, label, list_type, ip_addresses = NULL) {
   body <- list(ip_addresses = ip_addresses, label = label, list_type = list_type)
   client$do("POST", "/api/2.0/ip-access-lists", body = body)
 }
@@ -40,9 +40,9 @@ ipAccessListsCreate <- function(client, label, list_type, ip_addresses = NULL) {
 #'
 #' @param ip_access_list_id Required. The ID for the corresponding IP access list.
 #'
-#' @rdname ipAccessListsDelete
+#' @rdname delete_ip_access_list
 #' @export
-ipAccessListsDelete <- function(client, ip_access_list_id) {
+delete_ip_access_list <- function(client, ip_access_list_id) {
 
   client$do("DELETE", paste("/api/2.0/ip-access-lists/", ip_access_list_id, sep = ""))
 }
@@ -53,9 +53,9 @@ ipAccessListsDelete <- function(client, ip_access_list_id) {
 #'
 #' @param ip_access_list_id Required. The ID for the corresponding IP access list.
 #'
-#' @rdname ipAccessListsGet
+#' @rdname get_ip_access_list
 #' @export
-ipAccessListsGet <- function(client, ip_access_list_id) {
+get_ip_access_list <- function(client, ip_access_list_id) {
 
   client$do("GET", paste("/api/2.0/ip-access-lists/", ip_access_list_id, sep = ""))
 }
@@ -66,9 +66,9 @@ ipAccessListsGet <- function(client, ip_access_list_id) {
 #'
 #' @return `data.frame` with all of the response pages.
 #'
-#' @rdname ipAccessListsList
+#' @rdname list_ip_access_lists
 #' @export
-ipAccessListsList <- function(client) {
+list_ip_access_lists <- function(client) {
 
   json <- client$do("GET", "/api/2.0/ip-access-lists")
   return(json$ip_access_lists)
@@ -96,9 +96,9 @@ ipAccessListsList <- function(client) {
 #' @param label Required. Label for the IP access list.
 #' @param list_type Required. Type of IP access list.
 #'
-#' @rdname ipAccessListsReplace
+#' @rdname replace_ip_access_list
 #' @export
-ipAccessListsReplace <- function(client, ip_access_list_id, label, list_type, enabled,
+replace_ip_access_list <- function(client, ip_access_list_id, label, list_type, enabled,
   ip_addresses = NULL) {
   body <- list(enabled = enabled, ip_addresses = ip_addresses, label = label, list_type = list_type)
   client$do("PUT", paste("/api/2.0/ip-access-lists/", ip_access_list_id, sep = ""),
@@ -131,9 +131,9 @@ ipAccessListsReplace <- function(client, ip_access_list_id, label, list_type, en
 #' @param label Label for the IP access list.
 #' @param list_type Type of IP access list.
 #'
-#' @rdname ipAccessListsUpdate
+#' @rdname update_ip_access_list
 #' @export
-ipAccessListsUpdate <- function(client, ip_access_list_id, enabled = NULL, ip_addresses = NULL,
+update_ip_access_list <- function(client, ip_access_list_id, enabled = NULL, ip_addresses = NULL,
   label = NULL, list_type = NULL) {
   body <- list(enabled = enabled, ip_addresses = ip_addresses, label = label, list_type = list_type)
   client$do("PATCH", paste("/api/2.0/ip-access-lists/", ip_access_list_id, sep = ""),

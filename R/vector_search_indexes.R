@@ -15,9 +15,9 @@ NULL
 #' @param name Required. Name of the index.
 #' @param primary_key Required. Primary key of the index.
 #'
-#' @rdname vectorSearchIndexesCreateIndex
+#' @rdname create_vector_search_index
 #' @export
-vectorSearchIndexesCreateIndex <- function(client, name, endpoint_name, primary_key,
+create_vector_search_index <- function(client, name, endpoint_name, primary_key,
   index_type, delta_sync_index_spec = NULL, direct_access_index_spec = NULL) {
   body <- list(delta_sync_index_spec = delta_sync_index_spec, direct_access_index_spec = direct_access_index_spec,
     endpoint_name = endpoint_name, index_type = index_type, name = name, primary_key = primary_key)
@@ -31,9 +31,9 @@ vectorSearchIndexesCreateIndex <- function(client, name, endpoint_name, primary_
 #' @param index_name Required. Name of the vector index where data is to be deleted.
 #' @param primary_keys Required. List of primary keys for the data to be deleted.
 #'
-#' @rdname vectorSearchIndexesDeleteDataVectorIndex
+#' @rdname delete_vector_search_index_data
 #' @export
-vectorSearchIndexesDeleteDataVectorIndex <- function(client, index_name, primary_keys) {
+delete_vector_search_index_data <- function(client, index_name, primary_keys) {
   body <- list(primary_keys = primary_keys)
   client$do("POST", paste("/api/2.0/vector-search/indexes/", index_name, "/delete-data",
     , sep = ""), body = body)
@@ -45,9 +45,9 @@ vectorSearchIndexesDeleteDataVectorIndex <- function(client, index_name, primary
 #'
 #' @param index_name Required. Name of the index.
 #'
-#' @rdname vectorSearchIndexesDeleteIndex
+#' @rdname delete_vector_search_index
 #' @export
-vectorSearchIndexesDeleteIndex <- function(client, index_name) {
+delete_vector_search_index <- function(client, index_name) {
 
   client$do("DELETE", paste("/api/2.0/vector-search/indexes/", index_name, sep = ""))
 }
@@ -58,9 +58,9 @@ vectorSearchIndexesDeleteIndex <- function(client, index_name) {
 #'
 #' @param index_name Required. Name of the index.
 #'
-#' @rdname vectorSearchIndexesGetIndex
+#' @rdname get_vector_search_index
 #' @export
-vectorSearchIndexesGetIndex <- function(client, index_name) {
+get_vector_search_index <- function(client, index_name) {
 
   client$do("GET", paste("/api/2.0/vector-search/indexes/", index_name, sep = ""))
 }
@@ -74,9 +74,9 @@ vectorSearchIndexesGetIndex <- function(client, index_name) {
 #'
 #' @return `data.frame` with all of the response pages.
 #'
-#' @rdname vectorSearchIndexesListIndexes
+#' @rdname list_vector_search_index_indexes
 #' @export
-vectorSearchIndexesListIndexes <- function(client, endpoint_name, page_token = NULL) {
+list_vector_search_index_indexes <- function(client, endpoint_name, page_token = NULL) {
   query <- list(endpoint_name = endpoint_name, page_token = page_token)
 
   results <- data.frame()
@@ -108,9 +108,9 @@ vectorSearchIndexesListIndexes <- function(client, endpoint_name, page_token = N
 #' @param query_vector Query vector.
 #' @param score_threshold Threshold for the approximate nearest neighbor search.
 #'
-#' @rdname vectorSearchIndexesQueryIndex
+#' @rdname query_vector_search_index
 #' @export
-vectorSearchIndexesQueryIndex <- function(client, index_name, columns, filters_json = NULL,
+query_vector_search_index <- function(client, index_name, columns, filters_json = NULL,
   num_results = NULL, query_text = NULL, query_vector = NULL, score_threshold = NULL) {
   body <- list(columns = columns, filters_json = filters_json, num_results = num_results,
     query_text = query_text, query_vector = query_vector, score_threshold = score_threshold)
@@ -124,9 +124,9 @@ vectorSearchIndexesQueryIndex <- function(client, index_name, columns, filters_j
 #'
 #' @param index_name Required. Name of the vector index to synchronize.
 #'
-#' @rdname vectorSearchIndexesSyncIndex
+#' @rdname sync_vector_search_index
 #' @export
-vectorSearchIndexesSyncIndex <- function(client, index_name) {
+sync_vector_search_index <- function(client, index_name) {
 
   client$do("POST", paste("/api/2.0/vector-search/indexes/", index_name, "/sync",
     , sep = ""))
@@ -139,9 +139,9 @@ vectorSearchIndexesSyncIndex <- function(client, index_name) {
 #' @param index_name Required. Name of the vector index where data is to be upserted.
 #' @param inputs_json Required. JSON string representing the data to be upserted.
 #'
-#' @rdname vectorSearchIndexesUpsertDataVectorIndex
+#' @rdname upsert_vector_search_index_data
 #' @export
-vectorSearchIndexesUpsertDataVectorIndex <- function(client, index_name, inputs_json) {
+upsert_vector_search_index_data <- function(client, index_name, inputs_json) {
   body <- list(inputs_json = inputs_json)
   client$do("POST", paste("/api/2.0/vector-search/indexes/", index_name, "/upsert-data",
     , sep = ""), body = body)

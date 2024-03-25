@@ -15,9 +15,9 @@ NULL
 #'
 #' @param etag etag used for versioning.
 #'
-#' @rdname restrictWorkspaceAdminsDelete
+#' @rdname delete_restrict_workspace_admin
 #' @export
-restrictWorkspaceAdminsDelete <- function(client, etag = NULL) {
+delete_restrict_workspace_admin <- function(client, etag = NULL) {
   query <- list(etag = etag)
   client$do("DELETE", "/api/2.0/settings/types/restrict_workspace_admins/names/default",
     query = query)
@@ -29,9 +29,9 @@ restrictWorkspaceAdminsDelete <- function(client, etag = NULL) {
 #'
 #' @param etag etag used for versioning.
 #'
-#' @rdname restrictWorkspaceAdminsGet
+#' @rdname get_restrict_workspace_admin
 #' @export
-restrictWorkspaceAdminsGet <- function(client, etag = NULL) {
+get_restrict_workspace_admin <- function(client, etag = NULL) {
   query <- list(etag = etag)
   client$do("GET", "/api/2.0/settings/types/restrict_workspace_admins/names/default",
     query = query)
@@ -49,9 +49,9 @@ restrictWorkspaceAdminsGet <- function(client, etag = NULL) {
 #' @param field_mask Required. Field mask is required to be passed into the PATCH request.
 #' @param setting Required. This field has no description yet.
 #'
-#' @rdname restrictWorkspaceAdminsUpdate
+#' @rdname update_restrict_workspace_admin
 #' @export
-restrictWorkspaceAdminsUpdate <- function(client, allow_missing, setting, field_mask) {
+update_restrict_workspace_admin <- function(client, allow_missing, setting, field_mask) {
   body <- list(allow_missing = allow_missing, field_mask = field_mask, setting = setting)
   client$do("PATCH", "/api/2.0/settings/types/restrict_workspace_admins/names/default",
     body = body)

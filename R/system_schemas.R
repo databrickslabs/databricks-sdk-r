@@ -12,9 +12,9 @@ NULL
 #' @param metastore_id Required. The metastore ID under which the system schema lives.
 #' @param schema_name Required. Full name of the system schema.
 #'
-#' @rdname systemSchemasDisable
+#' @rdname disable_system_schema
 #' @export
-systemSchemasDisable <- function(client, metastore_id, schema_name) {
+disable_system_schema <- function(client, metastore_id, schema_name) {
 
   client$do("DELETE", paste("/api/2.1/unity-catalog/metastores/", metastore_id,
     "/systemschemas/", schema_name, sep = ""))
@@ -28,9 +28,9 @@ systemSchemasDisable <- function(client, metastore_id, schema_name) {
 #' @param metastore_id Required. The metastore ID under which the system schema lives.
 #' @param schema_name Required. Full name of the system schema.
 #'
-#' @rdname systemSchemasEnable
+#' @rdname enable_system_schema
 #' @export
-systemSchemasEnable <- function(client, metastore_id, schema_name) {
+enable_system_schema <- function(client, metastore_id, schema_name) {
 
   client$do("PUT", paste("/api/2.1/unity-catalog/metastores/", metastore_id, "/systemschemas/",
     schema_name, sep = ""))
@@ -45,9 +45,9 @@ systemSchemasEnable <- function(client, metastore_id, schema_name) {
 #'
 #' @return `data.frame` with all of the response pages.
 #'
-#' @rdname systemSchemasList
+#' @rdname list_system_schemas
 #' @export
-systemSchemasList <- function(client, metastore_id) {
+list_system_schemas <- function(client, metastore_id) {
 
 
   json <- client$do("GET", paste("/api/2.1/unity-catalog/metastores/", metastore_id,

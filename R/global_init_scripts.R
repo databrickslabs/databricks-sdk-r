@@ -13,9 +13,9 @@ NULL
 #' @param position The position of a global init script, where 0 represents the first script to run, 1 is the second script to run, in ascending order.
 #' @param script Required. The Base64-encoded content of the script.
 #'
-#' @rdname globalInitScriptsCreate
+#' @rdname create_global_init_script
 #' @export
-globalInitScriptsCreate <- function(client, name, script, enabled = NULL, position = NULL) {
+create_global_init_script <- function(client, name, script, enabled = NULL, position = NULL) {
   body <- list(enabled = enabled, name = name, position = position, script = script)
   client$do("POST", "/api/2.0/global-init-scripts", body = body)
 }
@@ -26,9 +26,9 @@ globalInitScriptsCreate <- function(client, name, script, enabled = NULL, positi
 #'
 #' @param script_id Required. The ID of the global init script.
 #'
-#' @rdname globalInitScriptsDelete
+#' @rdname delete_global_init_script
 #' @export
-globalInitScriptsDelete <- function(client, script_id) {
+delete_global_init_script <- function(client, script_id) {
 
   client$do("DELETE", paste("/api/2.0/global-init-scripts/", script_id, sep = ""))
 }
@@ -39,9 +39,9 @@ globalInitScriptsDelete <- function(client, script_id) {
 #'
 #' @param script_id Required. The ID of the global init script.
 #'
-#' @rdname globalInitScriptsGet
+#' @rdname get_global_init_script
 #' @export
-globalInitScriptsGet <- function(client, script_id) {
+get_global_init_script <- function(client, script_id) {
 
   client$do("GET", paste("/api/2.0/global-init-scripts/", script_id, sep = ""))
 }
@@ -55,9 +55,9 @@ globalInitScriptsGet <- function(client, script_id) {
 #'
 #' @return `data.frame` with all of the response pages.
 #'
-#' @rdname globalInitScriptsList
+#' @rdname list_global_init_scripts
 #' @export
-globalInitScriptsList <- function(client) {
+list_global_init_scripts <- function(client) {
 
   json <- client$do("GET", "/api/2.0/global-init-scripts")
   return(json$scripts)
@@ -75,9 +75,9 @@ globalInitScriptsList <- function(client) {
 #' @param script Required. The Base64-encoded content of the script.
 #' @param script_id Required. The ID of the global init script.
 #'
-#' @rdname globalInitScriptsUpdate
+#' @rdname update_global_init_script
 #' @export
-globalInitScriptsUpdate <- function(client, script_id, name, script, enabled = NULL,
+update_global_init_script <- function(client, script_id, name, script, enabled = NULL,
   position = NULL) {
   body <- list(enabled = enabled, name = name, position = position, script = script)
   client$do("PATCH", paste("/api/2.0/global-init-scripts/", script_id, sep = ""),

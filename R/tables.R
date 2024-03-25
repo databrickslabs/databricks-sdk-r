@@ -14,9 +14,9 @@ NULL
 #'
 #' @param full_name Required. Full name of the table.
 #'
-#' @rdname tablesDelete
+#' @rdname delete_table
 #' @export
-tablesDelete <- function(client, full_name) {
+delete_table <- function(client, full_name) {
 
   client$do("DELETE", paste("/api/2.1/unity-catalog/tables/", full_name, sep = ""))
 }
@@ -34,9 +34,9 @@ tablesDelete <- function(client, full_name) {
 #'
 #' @param full_name Required. Full name of the table.
 #'
-#' @rdname tablesExists
+#' @rdname exists_table
 #' @export
-tablesExists <- function(client, full_name) {
+exists_table <- function(client, full_name) {
 
   client$do("GET", paste("/api/2.1/unity-catalog/tables/", full_name, "/exists",
     , sep = ""))
@@ -56,9 +56,9 @@ tablesExists <- function(client, full_name) {
 #' @param include_browse Whether to include tables in the response for which the principal can only access selective metadata for.
 #' @param include_delta_metadata Whether delta metadata should be included in the response.
 #'
-#' @rdname tablesGet
+#' @rdname get_table
 #' @export
-tablesGet <- function(client, full_name, include_browse = NULL, include_delta_metadata = NULL) {
+get_table <- function(client, full_name, include_browse = NULL, include_delta_metadata = NULL) {
   query <- list(include_browse = include_browse, include_delta_metadata = include_delta_metadata)
   client$do("GET", paste("/api/2.1/unity-catalog/tables/", full_name, sep = ""),
     query = query)
@@ -84,9 +84,9 @@ tablesGet <- function(client, full_name, include_browse = NULL, include_delta_me
 #'
 #' @return `data.frame` with all of the response pages.
 #'
-#' @rdname tablesList
+#' @rdname list_tables
 #' @export
-tablesList <- function(client, catalog_name, schema_name, include_browse = NULL,
+list_tables <- function(client, catalog_name, schema_name, include_browse = NULL,
   include_delta_metadata = NULL, max_results = NULL, omit_columns = NULL, omit_properties = NULL,
   page_token = NULL) {
   query <- list(catalog_name = catalog_name, include_browse = include_browse, include_delta_metadata = include_delta_metadata,
@@ -132,9 +132,9 @@ tablesList <- function(client, catalog_name, schema_name, include_browse = NULL,
 #'
 #' @return `data.frame` with all of the response pages.
 #'
-#' @rdname tablesListSummaries
+#' @rdname list_table_summaries
 #' @export
-tablesListSummaries <- function(client, catalog_name, max_results = NULL, page_token = NULL,
+list_table_summaries <- function(client, catalog_name, max_results = NULL, page_token = NULL,
   schema_name_pattern = NULL, table_name_pattern = NULL) {
   query <- list(catalog_name = catalog_name, max_results = max_results, page_token = page_token,
     schema_name_pattern = schema_name_pattern, table_name_pattern = table_name_pattern)
@@ -167,9 +167,9 @@ tablesListSummaries <- function(client, catalog_name, max_results = NULL, page_t
 #' @param full_name Required. Full name of the table.
 #' @param owner This field has no description yet.
 #'
-#' @rdname tablesUpdate
+#' @rdname update_table
 #' @export
-tablesUpdate <- function(client, full_name, owner = NULL) {
+update_table <- function(client, full_name, owner = NULL) {
   body <- list(owner = owner)
   client$do("PATCH", paste("/api/2.1/unity-catalog/tables/", full_name, sep = ""),
     body = body)

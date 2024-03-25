@@ -19,9 +19,9 @@ NULL
 #' @param roles Corresponds to AWS instance profile/arn role.
 #' @param schemas The schema of the group.
 #'
-#' @rdname groupsCreate
+#' @rdname create_group
 #' @export
-groupsCreate <- function(client, display_name = NULL, entitlements = NULL, external_id = NULL,
+create_group <- function(client, display_name = NULL, entitlements = NULL, external_id = NULL,
   groups = NULL, id = NULL, members = NULL, meta = NULL, roles = NULL, schemas = NULL) {
   body <- list(displayName = display_name, entitlements = entitlements, externalId = external_id,
     groups = groups, id = id, members = members, meta = meta, roles = roles,
@@ -35,9 +35,9 @@ groupsCreate <- function(client, display_name = NULL, entitlements = NULL, exter
 #'
 #' @param id Required. Unique ID for a group in the Databricks workspace.
 #'
-#' @rdname groupsDelete
+#' @rdname delete_group
 #' @export
-groupsDelete <- function(client, id) {
+delete_group <- function(client, id) {
 
   client$do("DELETE", paste("/api/2.0/preview/scim/v2/Groups/", id, sep = ""))
 }
@@ -48,9 +48,9 @@ groupsDelete <- function(client, id) {
 #'
 #' @param id Required. Unique ID for a group in the Databricks workspace.
 #'
-#' @rdname groupsGet
+#' @rdname get_group
 #' @export
-groupsGet <- function(client, id) {
+get_group <- function(client, id) {
 
   client$do("GET", paste("/api/2.0/preview/scim/v2/Groups/", id, sep = ""))
 }
@@ -69,9 +69,9 @@ groupsGet <- function(client, id) {
 #'
 #' @return `data.frame` with all of the response pages.
 #'
-#' @rdname groupsList
+#' @rdname list_groups
 #' @export
-groupsList <- function(client, attributes = NULL, count = NULL, excluded_attributes = NULL,
+list_groups <- function(client, attributes = NULL, count = NULL, excluded_attributes = NULL,
   filter = NULL, sort_by = NULL, sort_order = NULL, start_index = NULL) {
   query <- list(attributes = attributes, count = count, excludedAttributes = excluded_attributes,
     filter = filter, sortBy = sort_by, sortOrder = sort_order, startIndex = start_index)
@@ -101,9 +101,9 @@ groupsList <- function(client, attributes = NULL, count = NULL, excluded_attribu
 #' @param operations This field has no description yet.
 #' @param schemas The schema of the patch request.
 #'
-#' @rdname groupsPatch
+#' @rdname patch_group
 #' @export
-groupsPatch <- function(client, id, operations = NULL, schemas = NULL) {
+patch_group <- function(client, id, operations = NULL, schemas = NULL) {
   body <- list(Operations = operations, schemas = schemas)
   client$do("PATCH", paste("/api/2.0/preview/scim/v2/Groups/", id, sep = ""), body = body)
 }
@@ -122,9 +122,9 @@ groupsPatch <- function(client, id, operations = NULL, schemas = NULL) {
 #' @param roles Corresponds to AWS instance profile/arn role.
 #' @param schemas The schema of the group.
 #'
-#' @rdname groupsUpdate
+#' @rdname update_group
 #' @export
-groupsUpdate <- function(client, id, display_name = NULL, entitlements = NULL, external_id = NULL,
+update_group <- function(client, id, display_name = NULL, entitlements = NULL, external_id = NULL,
   groups = NULL, members = NULL, meta = NULL, roles = NULL, schemas = NULL) {
   body <- list(displayName = display_name, entitlements = entitlements, externalId = external_id,
     groups = groups, id = id, members = members, meta = meta, roles = roles,

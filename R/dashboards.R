@@ -13,9 +13,9 @@ NULL
 #' @param run_as_role Sets the **Run as** role for the object.
 #' @param tags This field has no description yet.
 #'
-#' @rdname dashboardsCreate
+#' @rdname create_dashboard
 #' @export
-dashboardsCreate <- function(client, name, dashboard_filters_enabled = NULL, is_favorite = NULL,
+create_dashboard <- function(client, name, dashboard_filters_enabled = NULL, is_favorite = NULL,
   parent = NULL, run_as_role = NULL, tags = NULL) {
   body <- list(dashboard_filters_enabled = dashboard_filters_enabled, is_favorite = is_favorite,
     name = name, parent = parent, run_as_role = run_as_role, tags = tags)
@@ -29,9 +29,9 @@ dashboardsCreate <- function(client, name, dashboard_filters_enabled = NULL, is_
 #'
 #' @param dashboard_id Required. This field has no description yet.
 #'
-#' @rdname dashboardsDelete
+#' @rdname delete_dashboard
 #' @export
-dashboardsDelete <- function(client, dashboard_id) {
+delete_dashboard <- function(client, dashboard_id) {
 
   client$do("DELETE", paste("/api/2.0/preview/sql/dashboards/", dashboard_id, sep = ""))
 }
@@ -43,9 +43,9 @@ dashboardsDelete <- function(client, dashboard_id) {
 #'
 #' @param dashboard_id Required. This field has no description yet.
 #'
-#' @rdname dashboardsGet
+#' @rdname get_dashboard
 #' @export
-dashboardsGet <- function(client, dashboard_id) {
+get_dashboard <- function(client, dashboard_id) {
 
   client$do("GET", paste("/api/2.0/preview/sql/dashboards/", dashboard_id, sep = ""))
 }
@@ -64,9 +64,10 @@ dashboardsGet <- function(client, dashboard_id) {
 #'
 #' @return `data.frame` with all of the response pages.
 #'
-#' @rdname dashboardsList
+#' @rdname list_dashboards
 #' @export
-dashboardsList <- function(client, order = NULL, page = NULL, page_size = NULL, q = NULL) {
+list_dashboards <- function(client, order = NULL, page = NULL, page_size = NULL,
+  q = NULL) {
   query <- list(order = order, page = page, page_size = page_size, q = q)
 
   query$page = 1
@@ -92,9 +93,9 @@ dashboardsList <- function(client, order = NULL, page = NULL, page_size = NULL, 
 #'
 #' @param dashboard_id Required. This field has no description yet.
 #'
-#' @rdname dashboardsRestore
+#' @rdname restore_dashboard
 #' @export
-dashboardsRestore <- function(client, dashboard_id) {
+restore_dashboard <- function(client, dashboard_id) {
 
   client$do("POST", paste("/api/2.0/preview/sql/dashboards/trash/", dashboard_id,
     sep = ""))
@@ -111,9 +112,9 @@ dashboardsRestore <- function(client, dashboard_id) {
 #' @param name The title of this dashboard that appears in list views and at the top of the dashboard page.
 #' @param run_as_role Sets the **Run as** role for the object.
 #'
-#' @rdname dashboardsUpdate
+#' @rdname update_dashboard
 #' @export
-dashboardsUpdate <- function(client, dashboard_id, name = NULL, run_as_role = NULL) {
+update_dashboard <- function(client, dashboard_id, name = NULL, run_as_role = NULL) {
   body <- list(name = name, run_as_role = run_as_role)
   client$do("POST", paste("/api/2.0/preview/sql/dashboards/", dashboard_id, sep = ""),
     body = body)

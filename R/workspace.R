@@ -18,9 +18,9 @@ NULL
 #' @param path Required. The absolute path of the notebook or directory.
 #' @param recursive The flag that specifies whether to delete the object recursively.
 #'
-#' @rdname workspaceDelete
+#' @rdname delete_notebook
 #' @export
-workspaceDelete <- function(client, path, recursive = NULL) {
+delete_notebook <- function(client, path, recursive = NULL) {
   body <- list(path = path, recursive = recursive)
   client$do("POST", "/api/2.0/workspace/delete", body = body)
 }
@@ -39,9 +39,9 @@ workspaceDelete <- function(client, path, recursive = NULL) {
 #' @param format This specifies the format of the exported file.
 #' @param path Required. The absolute path of the object or directory.
 #'
-#' @rdname workspaceExport
+#' @rdname export_notebook
 #' @export
-workspaceExport <- function(client, path, format = NULL) {
+export_notebook <- function(client, path, format = NULL) {
   query <- list(format = format, path = path)
   client$do("GET", "/api/2.0/workspace/export", query = query)
 }
@@ -53,9 +53,9 @@ workspaceExport <- function(client, path, format = NULL) {
 #' @param workspace_object_id Required. The workspace object for which to get or manage permissions.
 #' @param workspace_object_type Required. The workspace object type for which to get or manage permissions.
 #'
-#' @rdname workspaceGetPermissionLevels
+#' @rdname get_notebook_permission_levels
 #' @export
-workspaceGetPermissionLevels <- function(client, workspace_object_type, workspace_object_id) {
+get_notebook_permission_levels <- function(client, workspace_object_type, workspace_object_id) {
 
   client$do("GET", paste("/api/2.0/permissions/", workspace_object_type, "/", workspace_object_id,
     "/permissionLevels", , sep = ""))
@@ -69,9 +69,9 @@ workspaceGetPermissionLevels <- function(client, workspace_object_type, workspac
 #' @param workspace_object_id Required. The workspace object for which to get or manage permissions.
 #' @param workspace_object_type Required. The workspace object type for which to get or manage permissions.
 #'
-#' @rdname workspaceGetPermissions
+#' @rdname get_notebook_permissions
 #' @export
-workspaceGetPermissions <- function(client, workspace_object_type, workspace_object_id) {
+get_notebook_permissions <- function(client, workspace_object_type, workspace_object_id) {
 
   client$do("GET", paste("/api/2.0/permissions/", workspace_object_type, "/", workspace_object_id,
     sep = ""))
@@ -84,9 +84,9 @@ workspaceGetPermissions <- function(client, workspace_object_type, workspace_obj
 #'
 #' @param path Required. The absolute path of the notebook or directory.
 #'
-#' @rdname workspaceGetStatus
+#' @rdname get_notebook_status
 #' @export
-workspaceGetStatus <- function(client, path) {
+get_notebook_status <- function(client, path) {
   query <- list(path = path)
   client$do("GET", "/api/2.0/workspace/get-status", query = query)
 }
@@ -106,9 +106,9 @@ workspaceGetStatus <- function(client, path) {
 #' @param overwrite The flag that specifies whether to overwrite existing object.
 #' @param path Required. The absolute path of the object or directory.
 #'
-#' @rdname workspaceImport
+#' @rdname import_notebook
 #' @export
-workspaceImport <- function(client, path, content = NULL, format = NULL, language = NULL,
+import_notebook <- function(client, path, content = NULL, format = NULL, language = NULL,
   overwrite = NULL) {
   body <- list(content = content, format = format, language = language, overwrite = overwrite,
     path = path)
@@ -126,9 +126,9 @@ workspaceImport <- function(client, path, content = NULL, format = NULL, languag
 #'
 #' @return `data.frame` with all of the response pages.
 #'
-#' @rdname workspaceList
+#' @rdname list_notebooks
 #' @export
-workspaceList <- function(client, path, notebooks_modified_after = NULL) {
+list_notebooks <- function(client, path, notebooks_modified_after = NULL) {
   query <- list(notebooks_modified_after = notebooks_modified_after, path = path)
 
   json <- client$do("GET", "/api/2.0/workspace/list", query = query)
@@ -147,9 +147,9 @@ workspaceList <- function(client, path, notebooks_modified_after = NULL) {
 #'
 #' @param path Required. The absolute path of the directory.
 #'
-#' @rdname workspaceMkdirs
+#' @rdname mkdirs_notebook
 #' @export
-workspaceMkdirs <- function(client, path) {
+mkdirs_notebook <- function(client, path) {
   body <- list(path = path)
   client$do("POST", "/api/2.0/workspace/mkdirs", body = body)
 }
@@ -163,9 +163,9 @@ workspaceMkdirs <- function(client, path) {
 #' @param workspace_object_id Required. The workspace object for which to get or manage permissions.
 #' @param workspace_object_type Required. The workspace object type for which to get or manage permissions.
 #'
-#' @rdname workspaceSetPermissions
+#' @rdname set_notebook_permissions
 #' @export
-workspaceSetPermissions <- function(client, workspace_object_type, workspace_object_id,
+set_notebook_permissions <- function(client, workspace_object_type, workspace_object_id,
   access_control_list = NULL) {
   body <- list(access_control_list = access_control_list)
   client$do("PUT", paste("/api/2.0/permissions/", workspace_object_type, "/", workspace_object_id,
@@ -181,9 +181,9 @@ workspaceSetPermissions <- function(client, workspace_object_type, workspace_obj
 #' @param workspace_object_id Required. The workspace object for which to get or manage permissions.
 #' @param workspace_object_type Required. The workspace object type for which to get or manage permissions.
 #'
-#' @rdname workspaceUpdatePermissions
+#' @rdname update_notebook_permissions
 #' @export
-workspaceUpdatePermissions <- function(client, workspace_object_type, workspace_object_id,
+update_notebook_permissions <- function(client, workspace_object_type, workspace_object_id,
   access_control_list = NULL) {
   body <- list(access_control_list = access_control_list)
   client$do("PATCH", paste("/api/2.0/permissions/", workspace_object_type, "/",

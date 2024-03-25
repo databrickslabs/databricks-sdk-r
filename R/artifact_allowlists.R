@@ -11,9 +11,9 @@ NULL
 #'
 #' @param artifact_type Required. The artifact type of the allowlist.
 #'
-#' @rdname artifactAllowlistsGet
+#' @rdname get_artifact_allowlist
 #' @export
-artifactAllowlistsGet <- function(client, artifact_type) {
+get_artifact_allowlist <- function(client, artifact_type) {
 
   client$do("GET", paste("/api/2.1/unity-catalog/artifact-allowlists/", artifact_type,
     sep = ""))
@@ -28,9 +28,9 @@ artifactAllowlistsGet <- function(client, artifact_type) {
 #' @param artifact_matchers Required. A list of allowed artifact match patterns.
 #' @param artifact_type Required. The artifact type of the allowlist.
 #'
-#' @rdname artifactAllowlistsUpdate
+#' @rdname update_artifact_allowlist
 #' @export
-artifactAllowlistsUpdate <- function(client, artifact_type, artifact_matchers) {
+update_artifact_allowlist <- function(client, artifact_type, artifact_matchers) {
   body <- list(artifact_matchers = artifact_matchers)
   client$do("PUT", paste("/api/2.1/unity-catalog/artifact-allowlists/", artifact_type,
     sep = ""), body = body)

@@ -12,10 +12,9 @@ NULL
 #' @param comment Comment that describes the purpose of the token.
 #' @param lifetime_seconds The number of seconds before the token expires.
 #'
-#' @rdname tokenManagementCreateOboToken
+#' @rdname create_obo_token
 #' @export
-tokenManagementCreateOboToken <- function(client, application_id, comment = NULL,
-  lifetime_seconds = NULL) {
+create_obo_token <- function(client, application_id, comment = NULL, lifetime_seconds = NULL) {
   body <- list(application_id = application_id, comment = comment, lifetime_seconds = lifetime_seconds)
   client$do("POST", "/api/2.0/token-management/on-behalf-of/tokens", body = body)
 }
@@ -26,9 +25,9 @@ tokenManagementCreateOboToken <- function(client, application_id, comment = NULL
 #'
 #' @param token_id Required. The ID of the token to get.
 #'
-#' @rdname tokenManagementDelete
+#' @rdname delete_token_management
 #' @export
-tokenManagementDelete <- function(client, token_id) {
+delete_token_management <- function(client, token_id) {
 
   client$do("DELETE", paste("/api/2.0/token-management/tokens/", token_id, sep = ""))
 }
@@ -39,9 +38,9 @@ tokenManagementDelete <- function(client, token_id) {
 #'
 #' @param token_id Required. The ID of the token to get.
 #'
-#' @rdname tokenManagementGet
+#' @rdname get_token_management
 #' @export
-tokenManagementGet <- function(client, token_id) {
+get_token_management <- function(client, token_id) {
 
   client$do("GET", paste("/api/2.0/token-management/tokens/", token_id, sep = ""))
 }
@@ -50,9 +49,9 @@ tokenManagementGet <- function(client, token_id) {
 #' Gets the permission levels that a user can have on an object.
 #' @param client Required. Instance of DatabricksClient()
 #'
-#' @rdname tokenManagementGetPermissionLevels
+#' @rdname get_token_management_permission_levels
 #' @export
-tokenManagementGetPermissionLevels <- function(client) {
+get_token_management_permission_levels <- function(client) {
   client$do("GET", "/api/2.0/permissions/authorization/tokens/permissionLevels")
 }
 #' Get token permissions.
@@ -61,9 +60,9 @@ tokenManagementGetPermissionLevels <- function(client) {
 #' root object.
 #' @param client Required. Instance of DatabricksClient()
 #'
-#' @rdname tokenManagementGetPermissions
+#' @rdname get_token_management_permissions
 #' @export
-tokenManagementGetPermissions <- function(client) {
+get_token_management_permissions <- function(client) {
   client$do("GET", "/api/2.0/permissions/authorization/tokens")
 }
 #' List all tokens.
@@ -76,9 +75,9 @@ tokenManagementGetPermissions <- function(client) {
 #'
 #' @return `data.frame` with all of the response pages.
 #'
-#' @rdname tokenManagementList
+#' @rdname list_token_management
 #' @export
-tokenManagementList <- function(client, created_by_id = NULL, created_by_username = NULL) {
+list_token_management <- function(client, created_by_id = NULL, created_by_username = NULL) {
   query <- list(created_by_id = created_by_id, created_by_username = created_by_username)
 
   json <- client$do("GET", "/api/2.0/token-management/tokens", query = query)
@@ -93,9 +92,9 @@ tokenManagementList <- function(client, created_by_id = NULL, created_by_usernam
 #'
 #' @param access_control_list This field has no description yet.
 #'
-#' @rdname tokenManagementSetPermissions
+#' @rdname set_token_management_permissions
 #' @export
-tokenManagementSetPermissions <- function(client, access_control_list = NULL) {
+set_token_management_permissions <- function(client, access_control_list = NULL) {
   body <- list(access_control_list = access_control_list)
   client$do("PUT", "/api/2.0/permissions/authorization/tokens", body = body)
 }
@@ -107,9 +106,9 @@ tokenManagementSetPermissions <- function(client, access_control_list = NULL) {
 #'
 #' @param access_control_list This field has no description yet.
 #'
-#' @rdname tokenManagementUpdatePermissions
+#' @rdname update_token_management_permissions
 #' @export
-tokenManagementUpdatePermissions <- function(client, access_control_list = NULL) {
+update_token_management_permissions <- function(client, access_control_list = NULL) {
   body <- list(access_control_list = access_control_list)
   client$do("PATCH", "/api/2.0/permissions/authorization/tokens", body = body)
 }

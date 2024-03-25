@@ -18,9 +18,9 @@ NULL
 #' @param read_only Whether the storage credential is only usable for read operations.
 #' @param skip_validation Supplying true to this argument skips validation of the created credential.
 #'
-#' @rdname storageCredentialsCreate
+#' @rdname create_storage_credential
 #' @export
-storageCredentialsCreate <- function(client, name, aws_iam_role = NULL, azure_managed_identity = NULL,
+create_storage_credential <- function(client, name, aws_iam_role = NULL, azure_managed_identity = NULL,
   azure_service_principal = NULL, cloudflare_api_token = NULL, comment = NULL,
   databricks_gcp_service_account = NULL, read_only = NULL, skip_validation = NULL) {
   body <- list(aws_iam_role = aws_iam_role, azure_managed_identity = azure_managed_identity,
@@ -38,9 +38,9 @@ storageCredentialsCreate <- function(client, name, aws_iam_role = NULL, azure_ma
 #' @param force Force deletion even if there are dependent external locations or external tables.
 #' @param name Required. Name of the storage credential.
 #'
-#' @rdname storageCredentialsDelete
+#' @rdname delete_storage_credential
 #' @export
-storageCredentialsDelete <- function(client, name, force = NULL) {
+delete_storage_credential <- function(client, name, force = NULL) {
   query <- list(force = force)
   client$do("DELETE", paste("/api/2.1/unity-catalog/storage-credentials/", name,
     sep = ""), query = query)
@@ -54,9 +54,9 @@ storageCredentialsDelete <- function(client, name, force = NULL) {
 #'
 #' @param name Required. Name of the storage credential.
 #'
-#' @rdname storageCredentialsGet
+#' @rdname get_storage_credential
 #' @export
-storageCredentialsGet <- function(client, name) {
+get_storage_credential <- function(client, name) {
 
   client$do("GET", paste("/api/2.1/unity-catalog/storage-credentials/", name, sep = ""))
 }
@@ -74,9 +74,9 @@ storageCredentialsGet <- function(client, name) {
 #'
 #' @return `data.frame` with all of the response pages.
 #'
-#' @rdname storageCredentialsList
+#' @rdname list_storage_credentials
 #' @export
-storageCredentialsList <- function(client, max_results = NULL, page_token = NULL) {
+list_storage_credentials <- function(client, max_results = NULL, page_token = NULL) {
   query <- list(max_results = max_results, page_token = page_token)
 
   results <- data.frame()
@@ -113,9 +113,9 @@ storageCredentialsList <- function(client, max_results = NULL, page_token = NULL
 #' @param read_only Whether the storage credential is only usable for read operations.
 #' @param skip_validation Supplying true to this argument skips validation of the updated credential.
 #'
-#' @rdname storageCredentialsUpdate
+#' @rdname update_storage_credential
 #' @export
-storageCredentialsUpdate <- function(client, name, aws_iam_role = NULL, azure_managed_identity = NULL,
+update_storage_credential <- function(client, name, aws_iam_role = NULL, azure_managed_identity = NULL,
   azure_service_principal = NULL, cloudflare_api_token = NULL, comment = NULL,
   databricks_gcp_service_account = NULL, force = NULL, new_name = NULL, owner = NULL,
   read_only = NULL, skip_validation = NULL) {
@@ -153,9 +153,9 @@ storageCredentialsUpdate <- function(client, name, aws_iam_role = NULL, azure_ma
 #' @param storage_credential_name The name of the storage credential to validate.
 #' @param url The external location url to validate.
 #'
-#' @rdname storageCredentialsValidate
+#' @rdname validate_storage_credential
 #' @export
-storageCredentialsValidate <- function(client, aws_iam_role = NULL, azure_managed_identity = NULL,
+validate_storage_credential <- function(client, aws_iam_role = NULL, azure_managed_identity = NULL,
   azure_service_principal = NULL, cloudflare_api_token = NULL, databricks_gcp_service_account = NULL,
   external_location_name = NULL, read_only = NULL, storage_credential_name = NULL,
   url = NULL) {

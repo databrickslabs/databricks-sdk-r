@@ -16,9 +16,9 @@ NULL
 #' @param properties A map of key-value properties attached to the securable.
 #' @param storage_root Storage root URL for managed tables within schema.
 #'
-#' @rdname schemasCreate
+#' @rdname create_schema
 #' @export
-schemasCreate <- function(client, name, catalog_name, comment = NULL, properties = NULL,
+create_schema <- function(client, name, catalog_name, comment = NULL, properties = NULL,
   storage_root = NULL) {
   body <- list(catalog_name = catalog_name, comment = comment, name = name, properties = properties,
     storage_root = storage_root)
@@ -32,9 +32,9 @@ schemasCreate <- function(client, name, catalog_name, comment = NULL, properties
 #'
 #' @param full_name Required. Full name of the schema.
 #'
-#' @rdname schemasDelete
+#' @rdname delete_schema
 #' @export
-schemasDelete <- function(client, full_name) {
+delete_schema <- function(client, full_name) {
 
   client$do("DELETE", paste("/api/2.1/unity-catalog/schemas/", full_name, sep = ""))
 }
@@ -48,9 +48,9 @@ schemasDelete <- function(client, full_name) {
 #' @param full_name Required. Full name of the schema.
 #' @param include_browse Whether to include schemas in the response for which the principal can only access selective metadata for.
 #'
-#' @rdname schemasGet
+#' @rdname get_schema
 #' @export
-schemasGet <- function(client, full_name, include_browse = NULL) {
+get_schema <- function(client, full_name, include_browse = NULL) {
   query <- list(include_browse = include_browse)
   client$do("GET", paste("/api/2.1/unity-catalog/schemas/", full_name, sep = ""),
     query = query)
@@ -71,9 +71,9 @@ schemasGet <- function(client, full_name, include_browse = NULL) {
 #'
 #' @return `data.frame` with all of the response pages.
 #'
-#' @rdname schemasList
+#' @rdname list_schemas
 #' @export
-schemasList <- function(client, catalog_name, include_browse = NULL, max_results = NULL,
+list_schemas <- function(client, catalog_name, include_browse = NULL, max_results = NULL,
   page_token = NULL) {
   query <- list(catalog_name = catalog_name, include_browse = include_browse, max_results = max_results,
     page_token = page_token)
@@ -110,9 +110,9 @@ schemasList <- function(client, catalog_name, include_browse = NULL, max_results
 #' @param owner Username of current owner of schema.
 #' @param properties A map of key-value properties attached to the securable.
 #'
-#' @rdname schemasUpdate
+#' @rdname update_schema
 #' @export
-schemasUpdate <- function(client, full_name, comment = NULL, enable_predictive_optimization = NULL,
+update_schema <- function(client, full_name, comment = NULL, enable_predictive_optimization = NULL,
   new_name = NULL, owner = NULL, properties = NULL) {
   body <- list(comment = comment, enable_predictive_optimization = enable_predictive_optimization,
     new_name = new_name, owner = owner, properties = properties)

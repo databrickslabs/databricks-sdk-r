@@ -12,9 +12,9 @@ NULL
 #' @param request_object_id Required. The id of the request object.
 #' @param request_object_type Required. The type of the request object.
 #'
-#' @rdname permissionsGet
+#' @rdname get_permission
 #' @export
-permissionsGet <- function(client, request_object_type, request_object_id) {
+get_permission <- function(client, request_object_type, request_object_id) {
 
   client$do("GET", paste("/api/2.0/permissions/", request_object_type, "/", request_object_id,
     sep = ""))
@@ -27,9 +27,9 @@ permissionsGet <- function(client, request_object_type, request_object_id) {
 #' @param request_object_id Required. <needs content>.
 #' @param request_object_type Required. <needs content>.
 #'
-#' @rdname permissionsGetPermissionLevels
+#' @rdname get_permission_levels
 #' @export
-permissionsGetPermissionLevels <- function(client, request_object_type, request_object_id) {
+get_permission_levels <- function(client, request_object_type, request_object_id) {
 
   client$do("GET", paste("/api/2.0/permissions/", request_object_type, "/", request_object_id,
     "/permissionLevels", , sep = ""))
@@ -44,9 +44,9 @@ permissionsGetPermissionLevels <- function(client, request_object_type, request_
 #' @param request_object_id Required. The id of the request object.
 #' @param request_object_type Required. The type of the request object.
 #'
-#' @rdname permissionsSet
+#' @rdname set_permission
 #' @export
-permissionsSet <- function(client, request_object_type, request_object_id, access_control_list = NULL) {
+set_permission <- function(client, request_object_type, request_object_id, access_control_list = NULL) {
   body <- list(access_control_list = access_control_list)
   client$do("PUT", paste("/api/2.0/permissions/", request_object_type, "/", request_object_id,
     sep = ""), body = body)
@@ -61,9 +61,9 @@ permissionsSet <- function(client, request_object_type, request_object_id, acces
 #' @param request_object_id Required. The id of the request object.
 #' @param request_object_type Required. The type of the request object.
 #'
-#' @rdname permissionsUpdate
+#' @rdname update_permission
 #' @export
-permissionsUpdate <- function(client, request_object_type, request_object_id, access_control_list = NULL) {
+update_permission <- function(client, request_object_type, request_object_id, access_control_list = NULL) {
   body <- list(access_control_list = access_control_list)
   client$do("PATCH", paste("/api/2.0/permissions/", request_object_type, "/", request_object_id,
     sep = ""), body = body)

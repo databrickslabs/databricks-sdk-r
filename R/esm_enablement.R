@@ -10,9 +10,9 @@ NULL
 #'
 #' @param etag etag used for versioning.
 #'
-#' @rdname esmEnablementGet
+#' @rdname get_esm_enablement
 #' @export
-esmEnablementGet <- function(client, etag = NULL) {
+get_esm_enablement <- function(client, etag = NULL) {
   query <- list(etag = etag)
   client$do("GET", "/api/2.0/settings/types/shield_esm_enablement_ws_db/names/default",
     query = query)
@@ -30,9 +30,9 @@ esmEnablementGet <- function(client, etag = NULL) {
 #' @param field_mask Required. Field mask is required to be passed into the PATCH request.
 #' @param setting Required. This field has no description yet.
 #'
-#' @rdname esmEnablementUpdate
+#' @rdname update_esm_enablement
 #' @export
-esmEnablementUpdate <- function(client, allow_missing, setting, field_mask) {
+update_esm_enablement <- function(client, allow_missing, setting, field_mask) {
   body <- list(allow_missing = allow_missing, field_mask = field_mask, setting = setting)
   client$do("PATCH", "/api/2.0/settings/types/shield_esm_enablement_ws_db/names/default",
     body = body)

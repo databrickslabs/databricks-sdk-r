@@ -16,9 +16,9 @@ NULL
 #' @param policy_family_definition_overrides Policy definition JSON document expressed in [Databricks Policy Definition Language](https://docs.databricks.com/administration-guide/clusters/policy-definition.html).
 #' @param policy_family_id ID of the policy family.
 #'
-#' @rdname clusterPoliciesCreate
+#' @rdname create_cluster_policy
 #' @export
-clusterPoliciesCreate <- function(client, name, definition = NULL, description = NULL,
+create_cluster_policy <- function(client, name, definition = NULL, description = NULL,
   libraries = NULL, max_clusters_per_user = NULL, policy_family_definition_overrides = NULL,
   policy_family_id = NULL) {
   body <- list(definition = definition, description = description, libraries = libraries,
@@ -34,9 +34,9 @@ clusterPoliciesCreate <- function(client, name, definition = NULL, description =
 #'
 #' @param policy_id Required. The ID of the policy to delete.
 #'
-#' @rdname clusterPoliciesDelete
+#' @rdname delete_cluster_policy
 #' @export
-clusterPoliciesDelete <- function(client, policy_id) {
+delete_cluster_policy <- function(client, policy_id) {
   body <- list(policy_id = policy_id)
   client$do("POST", "/api/2.0/policies/clusters/delete", body = body)
 }
@@ -55,9 +55,9 @@ clusterPoliciesDelete <- function(client, policy_id) {
 #' @param policy_family_id ID of the policy family.
 #' @param policy_id Required. The ID of the policy to update.
 #'
-#' @rdname clusterPoliciesEdit
+#' @rdname edit_cluster_policy
 #' @export
-clusterPoliciesEdit <- function(client, policy_id, name, definition = NULL, description = NULL,
+edit_cluster_policy <- function(client, policy_id, name, definition = NULL, description = NULL,
   libraries = NULL, max_clusters_per_user = NULL, policy_family_definition_overrides = NULL,
   policy_family_id = NULL) {
   body <- list(definition = definition, description = description, libraries = libraries,
@@ -73,9 +73,9 @@ clusterPoliciesEdit <- function(client, policy_id, name, definition = NULL, desc
 #'
 #' @param policy_id Required. Canonical unique identifier for the cluster policy.
 #'
-#' @rdname clusterPoliciesGet
+#' @rdname get_cluster_policy
 #' @export
-clusterPoliciesGet <- function(client, policy_id) {
+get_cluster_policy <- function(client, policy_id) {
   query <- list(policy_id = policy_id)
   client$do("GET", "/api/2.0/policies/clusters/get", query = query)
 }
@@ -86,9 +86,9 @@ clusterPoliciesGet <- function(client, policy_id) {
 #'
 #' @param cluster_policy_id Required. The cluster policy for which to get or manage permissions.
 #'
-#' @rdname clusterPoliciesGetPermissionLevels
+#' @rdname get_cluster_policy_permission_levels
 #' @export
-clusterPoliciesGetPermissionLevels <- function(client, cluster_policy_id) {
+get_cluster_policy_permission_levels <- function(client, cluster_policy_id) {
 
   client$do("GET", paste("/api/2.0/permissions/cluster-policies/", cluster_policy_id,
     "/permissionLevels", , sep = ""))
@@ -101,9 +101,9 @@ clusterPoliciesGetPermissionLevels <- function(client, cluster_policy_id) {
 #'
 #' @param cluster_policy_id Required. The cluster policy for which to get or manage permissions.
 #'
-#' @rdname clusterPoliciesGetPermissions
+#' @rdname get_cluster_policy_permissions
 #' @export
-clusterPoliciesGetPermissions <- function(client, cluster_policy_id) {
+get_cluster_policy_permissions <- function(client, cluster_policy_id) {
 
   client$do("GET", paste("/api/2.0/permissions/cluster-policies/", cluster_policy_id,
     sep = ""))
@@ -118,9 +118,9 @@ clusterPoliciesGetPermissions <- function(client, cluster_policy_id) {
 #'
 #' @return `data.frame` with all of the response pages.
 #'
-#' @rdname clusterPoliciesList
+#' @rdname list_cluster_policies
 #' @export
-clusterPoliciesList <- function(client, sort_column = NULL, sort_order = NULL) {
+list_cluster_policies <- function(client, sort_column = NULL, sort_order = NULL) {
   query <- list(sort_column = sort_column, sort_order = sort_order)
 
   json <- client$do("GET", "/api/2.0/policies/clusters/list", query = query)
@@ -136,9 +136,9 @@ clusterPoliciesList <- function(client, sort_column = NULL, sort_order = NULL) {
 #' @param access_control_list This field has no description yet.
 #' @param cluster_policy_id Required. The cluster policy for which to get or manage permissions.
 #'
-#' @rdname clusterPoliciesSetPermissions
+#' @rdname set_cluster_policy_permissions
 #' @export
-clusterPoliciesSetPermissions <- function(client, cluster_policy_id, access_control_list = NULL) {
+set_cluster_policy_permissions <- function(client, cluster_policy_id, access_control_list = NULL) {
   body <- list(access_control_list = access_control_list)
   client$do("PUT", paste("/api/2.0/permissions/cluster-policies/", cluster_policy_id,
     sep = ""), body = body)
@@ -152,9 +152,9 @@ clusterPoliciesSetPermissions <- function(client, cluster_policy_id, access_cont
 #' @param access_control_list This field has no description yet.
 #' @param cluster_policy_id Required. The cluster policy for which to get or manage permissions.
 #'
-#' @rdname clusterPoliciesUpdatePermissions
+#' @rdname update_cluster_policy_permissions
 #' @export
-clusterPoliciesUpdatePermissions <- function(client, cluster_policy_id, access_control_list = NULL) {
+update_cluster_policy_permissions <- function(client, cluster_policy_id, access_control_list = NULL) {
   body <- list(access_control_list = access_control_list)
   client$do("PATCH", paste("/api/2.0/permissions/cluster-policies/", cluster_policy_id,
     sep = ""), body = body)

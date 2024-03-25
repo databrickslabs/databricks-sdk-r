@@ -22,9 +22,9 @@ NULL
 #' @param preloaded_docker_images Custom Docker Image BYOC.
 #' @param preloaded_spark_versions A list containing at most one preloaded Spark image version for the pool.
 #'
-#' @rdname instancePoolsCreate
+#' @rdname create_instance_pool
 #' @export
-instancePoolsCreate <- function(client, instance_pool_name, node_type_id, aws_attributes = NULL,
+create_instance_pool <- function(client, instance_pool_name, node_type_id, aws_attributes = NULL,
   azure_attributes = NULL, custom_tags = NULL, disk_spec = NULL, enable_elastic_disk = NULL,
   gcp_attributes = NULL, idle_instance_autotermination_minutes = NULL, max_capacity = NULL,
   min_idle_instances = NULL, preloaded_docker_images = NULL, preloaded_spark_versions = NULL) {
@@ -44,9 +44,9 @@ instancePoolsCreate <- function(client, instance_pool_name, node_type_id, aws_at
 #'
 #' @param instance_pool_id Required. The instance pool to be terminated.
 #'
-#' @rdname instancePoolsDelete
+#' @rdname delete_instance_pool
 #' @export
-instancePoolsDelete <- function(client, instance_pool_id) {
+delete_instance_pool <- function(client, instance_pool_id) {
   body <- list(instance_pool_id = instance_pool_id)
   client$do("POST", "/api/2.0/instance-pools/delete", body = body)
 }
@@ -63,9 +63,9 @@ instancePoolsDelete <- function(client, instance_pool_id) {
 #' @param min_idle_instances Minimum number of idle instances to keep in the instance pool.
 #' @param node_type_id Required. This field encodes, through a single value, the resources available to each of the Spark nodes in this cluster.
 #'
-#' @rdname instancePoolsEdit
+#' @rdname edit_instance_pool
 #' @export
-instancePoolsEdit <- function(client, instance_pool_id, instance_pool_name, node_type_id,
+edit_instance_pool <- function(client, instance_pool_id, instance_pool_name, node_type_id,
   custom_tags = NULL, idle_instance_autotermination_minutes = NULL, max_capacity = NULL,
   min_idle_instances = NULL) {
   body <- list(custom_tags = custom_tags, idle_instance_autotermination_minutes = idle_instance_autotermination_minutes,
@@ -80,9 +80,9 @@ instancePoolsEdit <- function(client, instance_pool_id, instance_pool_name, node
 #'
 #' @param instance_pool_id Required. The canonical unique identifier for the instance pool.
 #'
-#' @rdname instancePoolsGet
+#' @rdname get_instance_pool
 #' @export
-instancePoolsGet <- function(client, instance_pool_id) {
+get_instance_pool <- function(client, instance_pool_id) {
   query <- list(instance_pool_id = instance_pool_id)
   client$do("GET", "/api/2.0/instance-pools/get", query = query)
 }
@@ -93,9 +93,9 @@ instancePoolsGet <- function(client, instance_pool_id) {
 #'
 #' @param instance_pool_id Required. The instance pool for which to get or manage permissions.
 #'
-#' @rdname instancePoolsGetPermissionLevels
+#' @rdname get_instance_pool_permission_levels
 #' @export
-instancePoolsGetPermissionLevels <- function(client, instance_pool_id) {
+get_instance_pool_permission_levels <- function(client, instance_pool_id) {
 
   client$do("GET", paste("/api/2.0/permissions/instance-pools/", instance_pool_id,
     "/permissionLevels", , sep = ""))
@@ -108,9 +108,9 @@ instancePoolsGetPermissionLevels <- function(client, instance_pool_id) {
 #'
 #' @param instance_pool_id Required. The instance pool for which to get or manage permissions.
 #'
-#' @rdname instancePoolsGetPermissions
+#' @rdname get_instance_pool_permissions
 #' @export
-instancePoolsGetPermissions <- function(client, instance_pool_id) {
+get_instance_pool_permissions <- function(client, instance_pool_id) {
 
   client$do("GET", paste("/api/2.0/permissions/instance-pools/", instance_pool_id,
     sep = ""))
@@ -122,9 +122,9 @@ instancePoolsGetPermissions <- function(client, instance_pool_id) {
 #'
 #' @return `data.frame` with all of the response pages.
 #'
-#' @rdname instancePoolsList
+#' @rdname list_instance_pools
 #' @export
-instancePoolsList <- function(client) {
+list_instance_pools <- function(client) {
 
   json <- client$do("GET", "/api/2.0/instance-pools/list")
   return(json$instance_pools)
@@ -139,9 +139,9 @@ instancePoolsList <- function(client) {
 #' @param access_control_list This field has no description yet.
 #' @param instance_pool_id Required. The instance pool for which to get or manage permissions.
 #'
-#' @rdname instancePoolsSetPermissions
+#' @rdname set_instance_pool_permissions
 #' @export
-instancePoolsSetPermissions <- function(client, instance_pool_id, access_control_list = NULL) {
+set_instance_pool_permissions <- function(client, instance_pool_id, access_control_list = NULL) {
   body <- list(access_control_list = access_control_list)
   client$do("PUT", paste("/api/2.0/permissions/instance-pools/", instance_pool_id,
     sep = ""), body = body)
@@ -155,9 +155,9 @@ instancePoolsSetPermissions <- function(client, instance_pool_id, access_control
 #' @param access_control_list This field has no description yet.
 #' @param instance_pool_id Required. The instance pool for which to get or manage permissions.
 #'
-#' @rdname instancePoolsUpdatePermissions
+#' @rdname update_instance_pool_permissions
 #' @export
-instancePoolsUpdatePermissions <- function(client, instance_pool_id, access_control_list = NULL) {
+update_instance_pool_permissions <- function(client, instance_pool_id, access_control_list = NULL) {
   body <- list(access_control_list = access_control_list)
   client$do("PATCH", paste("/api/2.0/permissions/instance-pools/", instance_pool_id,
     sep = ""), body = body)

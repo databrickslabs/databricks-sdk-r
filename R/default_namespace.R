@@ -14,9 +14,9 @@ NULL
 #'
 #' @param etag etag used for versioning.
 #'
-#' @rdname defaultNamespaceDelete
+#' @rdname delete_default_namespace
 #' @export
-defaultNamespaceDelete <- function(client, etag = NULL) {
+delete_default_namespace <- function(client, etag = NULL) {
   query <- list(etag = etag)
   client$do("DELETE", "/api/2.0/settings/types/default_namespace_ws/names/default",
     query = query)
@@ -28,9 +28,9 @@ defaultNamespaceDelete <- function(client, etag = NULL) {
 #'
 #' @param etag etag used for versioning.
 #'
-#' @rdname defaultNamespaceGet
+#' @rdname get_default_namespace
 #' @export
-defaultNamespaceGet <- function(client, etag = NULL) {
+get_default_namespace <- function(client, etag = NULL) {
   query <- list(etag = etag)
   client$do("GET", "/api/2.0/settings/types/default_namespace_ws/names/default",
     query = query)
@@ -50,9 +50,9 @@ defaultNamespaceGet <- function(client, etag = NULL) {
 #' @param field_mask Required. Field mask is required to be passed into the PATCH request.
 #' @param setting Required. This represents the setting configuration for the default namespace in the Databricks workspace.
 #'
-#' @rdname defaultNamespaceUpdate
+#' @rdname update_default_namespace
 #' @export
-defaultNamespaceUpdate <- function(client, allow_missing, setting, field_mask) {
+update_default_namespace <- function(client, allow_missing, setting, field_mask) {
   body <- list(allow_missing = allow_missing, field_mask = field_mask, setting = setting)
   client$do("PATCH", "/api/2.0/settings/types/default_namespace_ws/names/default",
     body = body)

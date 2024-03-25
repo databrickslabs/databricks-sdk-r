@@ -19,9 +19,9 @@ NULL
 #' @param skip_validation Skips validation of the storage credential associated with the external location.
 #' @param url Required. Path URL of the external location.
 #'
-#' @rdname externalLocationsCreate
+#' @rdname create_external_location
 #' @export
-externalLocationsCreate <- function(client, name, url, credential_name, access_point = NULL,
+create_external_location <- function(client, name, url, credential_name, access_point = NULL,
   comment = NULL, encryption_details = NULL, read_only = NULL, skip_validation = NULL) {
   body <- list(access_point = access_point, comment = comment, credential_name = credential_name,
     encryption_details = encryption_details, name = name, read_only = read_only,
@@ -37,9 +37,9 @@ externalLocationsCreate <- function(client, name, url, credential_name, access_p
 #' @param force Force deletion even if there are dependent external tables or mounts.
 #' @param name Required. Name of the external location.
 #'
-#' @rdname externalLocationsDelete
+#' @rdname delete_external_location
 #' @export
-externalLocationsDelete <- function(client, name, force = NULL) {
+delete_external_location <- function(client, name, force = NULL) {
   query <- list(force = force)
   client$do("DELETE", paste("/api/2.1/unity-catalog/external-locations/", name,
     sep = ""), query = query)
@@ -54,9 +54,9 @@ externalLocationsDelete <- function(client, name, force = NULL) {
 #' @param include_browse Whether to include external locations in the response for which the principal can only access selective metadata for.
 #' @param name Required. Name of the external location.
 #'
-#' @rdname externalLocationsGet
+#' @rdname get_external_location
 #' @export
-externalLocationsGet <- function(client, name, include_browse = NULL) {
+get_external_location <- function(client, name, include_browse = NULL) {
   query <- list(include_browse = include_browse)
   client$do("GET", paste("/api/2.1/unity-catalog/external-locations/", name, sep = ""),
     query = query)
@@ -76,9 +76,9 @@ externalLocationsGet <- function(client, name, include_browse = NULL) {
 #'
 #' @return `data.frame` with all of the response pages.
 #'
-#' @rdname externalLocationsList
+#' @rdname list_external_locations
 #' @export
-externalLocationsList <- function(client, include_browse = NULL, max_results = NULL,
+list_external_locations <- function(client, include_browse = NULL, max_results = NULL,
   page_token = NULL) {
   query <- list(include_browse = include_browse, max_results = max_results, page_token = page_token)
 
@@ -117,9 +117,9 @@ externalLocationsList <- function(client, include_browse = NULL, max_results = N
 #' @param skip_validation Skips validation of the storage credential associated with the external location.
 #' @param url Path URL of the external location.
 #'
-#' @rdname externalLocationsUpdate
+#' @rdname update_external_location
 #' @export
-externalLocationsUpdate <- function(client, name, access_point = NULL, comment = NULL,
+update_external_location <- function(client, name, access_point = NULL, comment = NULL,
   credential_name = NULL, encryption_details = NULL, force = NULL, new_name = NULL,
   owner = NULL, read_only = NULL, skip_validation = NULL, url = NULL) {
   body <- list(access_point = access_point, comment = comment, credential_name = credential_name,

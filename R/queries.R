@@ -24,9 +24,9 @@ NULL
 #' @param query The text of the query to be run.
 #' @param run_as_role Sets the **Run as** role for the object.
 #'
-#' @rdname queriesCreate
+#' @rdname create_query
 #' @export
-queriesCreate <- function(client, data_source_id = NULL, description = NULL, name = NULL,
+create_query <- function(client, data_source_id = NULL, description = NULL, name = NULL,
   options = NULL, parent = NULL, query = NULL, run_as_role = NULL) {
   body <- list(data_source_id = data_source_id, description = description, name = name,
     options = options, parent = parent, query = query, run_as_role = run_as_role)
@@ -41,9 +41,9 @@ queriesCreate <- function(client, data_source_id = NULL, description = NULL, nam
 #'
 #' @param query_id Required. This field has no description yet.
 #'
-#' @rdname queriesDelete
+#' @rdname delete_query
 #' @export
-queriesDelete <- function(client, query_id) {
+delete_query <- function(client, query_id) {
 
   client$do("DELETE", paste("/api/2.0/preview/sql/queries/", query_id, sep = ""))
 }
@@ -55,9 +55,9 @@ queriesDelete <- function(client, query_id) {
 #'
 #' @param query_id Required. This field has no description yet.
 #'
-#' @rdname queriesGet
+#' @rdname get_query
 #' @export
-queriesGet <- function(client, query_id) {
+get_query <- function(client, query_id) {
 
   client$do("GET", paste("/api/2.0/preview/sql/queries/", query_id, sep = ""))
 }
@@ -77,9 +77,9 @@ queriesGet <- function(client, query_id) {
 #'
 #' @return `data.frame` with all of the response pages.
 #'
-#' @rdname queriesList
+#' @rdname list_queries
 #' @export
-queriesList <- function(client, order = NULL, page = NULL, page_size = NULL, q = NULL) {
+list_queries <- function(client, order = NULL, page = NULL, page_size = NULL, q = NULL) {
   query <- list(order = order, page = page, page_size = page_size, q = q)
 
   query$page = 1
@@ -106,9 +106,9 @@ queriesList <- function(client, order = NULL, page = NULL, page_size = NULL, q =
 #'
 #' @param query_id Required. This field has no description yet.
 #'
-#' @rdname queriesRestore
+#' @rdname restore_query
 #' @export
-queriesRestore <- function(client, query_id) {
+restore_query <- function(client, query_id) {
 
   client$do("POST", paste("/api/2.0/preview/sql/queries/trash/", query_id, sep = ""))
 }
@@ -127,9 +127,9 @@ queriesRestore <- function(client, query_id) {
 #' @param query_id Required. This field has no description yet.
 #' @param run_as_role Sets the **Run as** role for the object.
 #'
-#' @rdname queriesUpdate
+#' @rdname update_query
 #' @export
-queriesUpdate <- function(client, query_id, data_source_id = NULL, description = NULL,
+update_query <- function(client, query_id, data_source_id = NULL, description = NULL,
   name = NULL, options = NULL, query = NULL, run_as_role = NULL) {
   body <- list(data_source_id = data_source_id, description = description, name = name,
     options = options, query = query, run_as_role = run_as_role)

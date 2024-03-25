@@ -19,9 +19,9 @@ NULL
 #' @param properties An object containing map of key-value properties attached to the connection.
 #' @param read_only If the connection is read only.
 #'
-#' @rdname connectionsCreate
+#' @rdname create_connection
 #' @export
-connectionsCreate <- function(client, name, connection_type, options, comment = NULL,
+create_connection <- function(client, name, connection_type, options, comment = NULL,
   properties = NULL, read_only = NULL) {
   body <- list(comment = comment, connection_type = connection_type, name = name,
     options = options, properties = properties, read_only = read_only)
@@ -34,9 +34,9 @@ connectionsCreate <- function(client, name, connection_type, options, comment = 
 #'
 #' @param name Required. The name of the connection to be deleted.
 #'
-#' @rdname connectionsDelete
+#' @rdname delete_connection
 #' @export
-connectionsDelete <- function(client, name) {
+delete_connection <- function(client, name) {
 
   client$do("DELETE", paste("/api/2.1/unity-catalog/connections/", name, sep = ""))
 }
@@ -47,9 +47,9 @@ connectionsDelete <- function(client, name) {
 #'
 #' @param name Required. Name of the connection.
 #'
-#' @rdname connectionsGet
+#' @rdname get_connection
 #' @export
-connectionsGet <- function(client, name) {
+get_connection <- function(client, name) {
 
   client$do("GET", paste("/api/2.1/unity-catalog/connections/", name, sep = ""))
 }
@@ -60,9 +60,9 @@ connectionsGet <- function(client, name) {
 #'
 #' @return `data.frame` with all of the response pages.
 #'
-#' @rdname connectionsList
+#' @rdname list_connections
 #' @export
-connectionsList <- function(client) {
+list_connections <- function(client) {
 
   json <- client$do("GET", "/api/2.1/unity-catalog/connections")
   return(json$connections)
@@ -78,9 +78,9 @@ connectionsList <- function(client) {
 #' @param options Required. A map of key-value properties attached to the securable.
 #' @param owner Username of current owner of the connection.
 #'
-#' @rdname connectionsUpdate
+#' @rdname update_connection
 #' @export
-connectionsUpdate <- function(client, name, options, new_name = NULL, owner = NULL) {
+update_connection <- function(client, name, options, new_name = NULL, owner = NULL) {
   body <- list(new_name = new_name, options = options, owner = owner)
   client$do("PATCH", paste("/api/2.1/unity-catalog/connections/", name, sep = ""),
     body = body)

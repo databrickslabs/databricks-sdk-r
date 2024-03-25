@@ -12,9 +12,9 @@ NULL
 #' @param principal If provided, only the permissions for the specified principal (user or group) are returned.
 #' @param securable_type Required. Type of securable.
 #'
-#' @rdname grantsGet
+#' @rdname get_grant
 #' @export
-grantsGet <- function(client, securable_type, full_name, principal = NULL) {
+get_grant <- function(client, securable_type, full_name, principal = NULL) {
   query <- list(principal = principal)
   client$do("GET", paste("/api/2.1/unity-catalog/permissions/", securable_type,
     "/", full_name, sep = ""), query = query)
@@ -28,9 +28,9 @@ grantsGet <- function(client, securable_type, full_name, principal = NULL) {
 #' @param principal If provided, only the effective permissions for the specified principal (user or group) are returned.
 #' @param securable_type Required. Type of securable.
 #'
-#' @rdname grantsGetEffective
+#' @rdname get_grant_effective
 #' @export
-grantsGetEffective <- function(client, securable_type, full_name, principal = NULL) {
+get_grant_effective <- function(client, securable_type, full_name, principal = NULL) {
   query <- list(principal = principal)
   client$do("GET", paste("/api/2.1/unity-catalog/effective-permissions/", securable_type,
     "/", full_name, sep = ""), query = query)
@@ -44,9 +44,9 @@ grantsGetEffective <- function(client, securable_type, full_name, principal = NU
 #' @param full_name Required. Full name of securable.
 #' @param securable_type Required. Type of securable.
 #'
-#' @rdname grantsUpdate
+#' @rdname update_grant
 #' @export
-grantsUpdate <- function(client, securable_type, full_name, changes = NULL) {
+update_grant <- function(client, securable_type, full_name, changes = NULL) {
   body <- list(changes = changes)
   client$do("PATCH", paste("/api/2.1/unity-catalog/permissions/", securable_type,
     "/", full_name, sep = ""), body = body)

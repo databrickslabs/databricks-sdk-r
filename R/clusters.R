@@ -13,9 +13,9 @@ NULL
 #' @param cluster_id Required. <needs content added>.
 #' @param owner_username Required. New owner of the cluster_id after this RPC.
 #'
-#' @rdname clustersChangeOwner
+#' @rdname change_cluster_owner
 #' @export
-clustersChangeOwner <- function(client, cluster_id, owner_username) {
+change_cluster_owner <- function(client, cluster_id, owner_username) {
   body <- list(cluster_id = cluster_id, owner_username = owner_username)
   client$do("POST", "/api/2.0/clusters/change-owner", body = body)
 }
@@ -60,9 +60,9 @@ clustersChangeOwner <- function(client, cluster_id, owner_username) {
 #' @param ssh_public_keys SSH public key contents that will be added to each Spark node in this cluster.
 #' @param workload_type This field has no description yet.
 #'
-#' @rdname clustersCreate
+#' @rdname create_cluster
 #' @export
-clustersCreate <- function(client, spark_version, apply_policy_default_values = NULL,
+create_cluster <- function(client, spark_version, apply_policy_default_values = NULL,
   autoscale = NULL, autotermination_minutes = NULL, aws_attributes = NULL, azure_attributes = NULL,
   cluster_log_conf = NULL, cluster_name = NULL, cluster_source = NULL, custom_tags = NULL,
   data_security_mode = NULL, docker_image = NULL, driver_instance_pool_id = NULL,
@@ -93,9 +93,9 @@ clustersCreate <- function(client, spark_version, apply_policy_default_values = 
 #'
 #' @param cluster_id Required. The cluster to be terminated.
 #'
-#' @rdname clustersDelete
+#' @rdname delete_cluster
 #' @export
-clustersDelete <- function(client, cluster_id) {
+delete_cluster <- function(client, cluster_id) {
   body <- list(cluster_id = cluster_id)
   client$do("POST", "/api/2.0/clusters/delete", body = body)
 }
@@ -145,9 +145,9 @@ clustersDelete <- function(client, cluster_id) {
 #' @param ssh_public_keys SSH public key contents that will be added to each Spark node in this cluster.
 #' @param workload_type This field has no description yet.
 #'
-#' @rdname clustersEdit
+#' @rdname edit_cluster
 #' @export
-clustersEdit <- function(client, cluster_id, spark_version, apply_policy_default_values = NULL,
+edit_cluster <- function(client, cluster_id, spark_version, apply_policy_default_values = NULL,
   autoscale = NULL, autotermination_minutes = NULL, aws_attributes = NULL, azure_attributes = NULL,
   cluster_log_conf = NULL, cluster_name = NULL, cluster_source = NULL, custom_tags = NULL,
   data_security_mode = NULL, docker_image = NULL, driver_instance_pool_id = NULL,
@@ -185,9 +185,9 @@ clustersEdit <- function(client, cluster_id, spark_version, apply_policy_default
 #'
 #' @return `data.frame` with all of the response pages.
 #'
-#' @rdname clustersEvents
+#' @rdname events_cluster
 #' @export
-clustersEvents <- function(client, cluster_id, end_time = NULL, event_types = NULL,
+events_cluster <- function(client, cluster_id, end_time = NULL, event_types = NULL,
   limit = NULL, offset = NULL, order = NULL, start_time = NULL) {
   body <- list(cluster_id = cluster_id, end_time = end_time, event_types = event_types,
     limit = limit, offset = offset, order = order, start_time = start_time)
@@ -216,9 +216,9 @@ clustersEvents <- function(client, cluster_id, end_time = NULL, event_types = NU
 #'
 #' @param cluster_id Required. The cluster about which to retrieve information.
 #'
-#' @rdname clustersGet
+#' @rdname get_cluster
 #' @export
-clustersGet <- function(client, cluster_id) {
+get_cluster <- function(client, cluster_id) {
   query <- list(cluster_id = cluster_id)
   client$do("GET", "/api/2.0/clusters/get", query = query)
 }
@@ -229,9 +229,9 @@ clustersGet <- function(client, cluster_id) {
 #'
 #' @param cluster_id Required. The cluster for which to get or manage permissions.
 #'
-#' @rdname clustersGetPermissionLevels
+#' @rdname get_cluster_permission_levels
 #' @export
-clustersGetPermissionLevels <- function(client, cluster_id) {
+get_cluster_permission_levels <- function(client, cluster_id) {
 
   client$do("GET", paste("/api/2.0/permissions/clusters/", cluster_id, "/permissionLevels",
     , sep = ""))
@@ -244,9 +244,9 @@ clustersGetPermissionLevels <- function(client, cluster_id) {
 #'
 #' @param cluster_id Required. The cluster for which to get or manage permissions.
 #'
-#' @rdname clustersGetPermissions
+#' @rdname get_cluster_permissions
 #' @export
-clustersGetPermissions <- function(client, cluster_id) {
+get_cluster_permissions <- function(client, cluster_id) {
 
   client$do("GET", paste("/api/2.0/permissions/clusters/", cluster_id, sep = ""))
 }
@@ -267,9 +267,9 @@ clustersGetPermissions <- function(client, cluster_id) {
 #'
 #' @return `data.frame` with all of the response pages.
 #'
-#' @rdname clustersList
+#' @rdname list_clusters
 #' @export
-clustersList <- function(client, can_use_client = NULL) {
+list_clusters <- function(client, can_use_client = NULL) {
   query <- list(can_use_client = can_use_client)
 
   json <- client$do("GET", "/api/2.0/clusters/list", query = query)
@@ -282,9 +282,9 @@ clustersList <- function(client, can_use_client = NULL) {
 #' launch a cluster.
 #' @param client Required. Instance of DatabricksClient()
 #'
-#' @rdname clustersListNodeTypes
+#' @rdname list_cluster_node_types
 #' @export
-clustersListNodeTypes <- function(client) {
+list_cluster_node_types <- function(client) {
   client$do("GET", "/api/2.0/clusters/list-node-types")
 }
 #' List availability zones.
@@ -293,9 +293,9 @@ clustersListNodeTypes <- function(client) {
 #' example, us-west-2a). These zones can be used to launch a cluster.
 #' @param client Required. Instance of DatabricksClient()
 #'
-#' @rdname clustersListZones
+#' @rdname list_cluster_zones
 #' @export
-clustersListZones <- function(client) {
+list_cluster_zones <- function(client) {
   client$do("GET", "/api/2.0/clusters/list-zones")
 }
 #' Permanently delete cluster.
@@ -310,9 +310,9 @@ clustersListZones <- function(client) {
 #'
 #' @param cluster_id Required. The cluster to be deleted.
 #'
-#' @rdname clustersPermanentDelete
+#' @rdname permanent_cluster_delete
 #' @export
-clustersPermanentDelete <- function(client, cluster_id) {
+permanent_cluster_delete <- function(client, cluster_id) {
   body <- list(cluster_id = cluster_id)
   client$do("POST", "/api/2.0/clusters/permanent-delete", body = body)
 }
@@ -325,9 +325,9 @@ clustersPermanentDelete <- function(client, cluster_id) {
 #'
 #' @param cluster_id Required. <needs content added>.
 #'
-#' @rdname clustersPin
+#' @rdname pin_cluster
 #' @export
-clustersPin <- function(client, cluster_id) {
+pin_cluster <- function(client, cluster_id) {
   body <- list(cluster_id = cluster_id)
   client$do("POST", "/api/2.0/clusters/pin", body = body)
 }
@@ -341,9 +341,9 @@ clustersPin <- function(client, cluster_id) {
 #' @param cluster_id Required. The cluster to be resized.
 #' @param num_workers Number of worker nodes that this cluster should have.
 #'
-#' @rdname clustersResize
+#' @rdname resize_cluster
 #' @export
-clustersResize <- function(client, cluster_id, autoscale = NULL, num_workers = NULL) {
+resize_cluster <- function(client, cluster_id, autoscale = NULL, num_workers = NULL) {
   body <- list(autoscale = autoscale, cluster_id = cluster_id, num_workers = num_workers)
   client$do("POST", "/api/2.0/clusters/resize", body = body)
 }
@@ -356,9 +356,9 @@ clustersResize <- function(client, cluster_id, autoscale = NULL, num_workers = N
 #' @param cluster_id Required. The cluster to be started.
 #' @param restart_user <needs content added>.
 #'
-#' @rdname clustersRestart
+#' @rdname restart_cluster
 #' @export
-clustersRestart <- function(client, cluster_id, restart_user = NULL) {
+restart_cluster <- function(client, cluster_id, restart_user = NULL) {
   body <- list(cluster_id = cluster_id, restart_user = restart_user)
   client$do("POST", "/api/2.0/clusters/restart", body = body)
 }
@@ -371,9 +371,9 @@ clustersRestart <- function(client, cluster_id, restart_user = NULL) {
 #' @param access_control_list This field has no description yet.
 #' @param cluster_id Required. The cluster for which to get or manage permissions.
 #'
-#' @rdname clustersSetPermissions
+#' @rdname set_cluster_permissions
 #' @export
-clustersSetPermissions <- function(client, cluster_id, access_control_list = NULL) {
+set_cluster_permissions <- function(client, cluster_id, access_control_list = NULL) {
   body <- list(access_control_list = access_control_list)
   client$do("PUT", paste("/api/2.0/permissions/clusters/", cluster_id, sep = ""),
     body = body)
@@ -384,9 +384,9 @@ clustersSetPermissions <- function(client, cluster_id, access_control_list = NUL
 #' launch a cluster.
 #' @param client Required. Instance of DatabricksClient()
 #'
-#' @rdname clustersSparkVersions
+#' @rdname spark_cluster_versions
 #' @export
-clustersSparkVersions <- function(client) {
+spark_cluster_versions <- function(client) {
   client$do("GET", "/api/2.0/clusters/spark-versions")
 }
 #' Start terminated cluster.
@@ -403,9 +403,9 @@ clustersSparkVersions <- function(client) {
 #'
 #' @param cluster_id Required. The cluster to be started.
 #'
-#' @rdname clustersStart
+#' @rdname start_cluster
 #' @export
-clustersStart <- function(client, cluster_id) {
+start_cluster <- function(client, cluster_id) {
   body <- list(cluster_id = cluster_id)
   client$do("POST", "/api/2.0/clusters/start", body = body)
 }
@@ -418,9 +418,9 @@ clustersStart <- function(client, cluster_id) {
 #'
 #' @param cluster_id Required. <needs content added>.
 #'
-#' @rdname clustersUnpin
+#' @rdname unpin_cluster
 #' @export
-clustersUnpin <- function(client, cluster_id) {
+unpin_cluster <- function(client, cluster_id) {
   body <- list(cluster_id = cluster_id)
   client$do("POST", "/api/2.0/clusters/unpin", body = body)
 }
@@ -433,9 +433,9 @@ clustersUnpin <- function(client, cluster_id) {
 #' @param access_control_list This field has no description yet.
 #' @param cluster_id Required. The cluster for which to get or manage permissions.
 #'
-#' @rdname clustersUpdatePermissions
+#' @rdname update_cluster_permissions
 #' @export
-clustersUpdatePermissions <- function(client, cluster_id, access_control_list = NULL) {
+update_cluster_permissions <- function(client, cluster_id, access_control_list = NULL) {
   body <- list(access_control_list = access_control_list)
   client$do("PATCH", paste("/api/2.0/permissions/clusters/", cluster_id, sep = ""),
     body = body)
@@ -491,9 +491,9 @@ clustersUpdatePermissions <- function(client, cluster_id, access_control_list = 
 #' @param ssh_public_keys SSH public key contents that will be added to each Spark node in this cluster.
 #' @param workload_type This field has no description yet.
 #'
-#' @rdname clustersCreateAndWait
+#' @rdname create_cluster_and_wait
 #' @export
-clustersCreateAndWait <- function(client, spark_version, apply_policy_default_values = NULL,
+create_cluster_and_wait <- function(client, spark_version, apply_policy_default_values = NULL,
   autoscale = NULL, autotermination_minutes = NULL, aws_attributes = NULL, azure_attributes = NULL,
   cluster_log_conf = NULL, cluster_name = NULL, cluster_source = NULL, custom_tags = NULL,
   data_security_mode = NULL, docker_image = NULL, driver_instance_pool_id = NULL,
@@ -570,9 +570,9 @@ clustersCreateAndWait <- function(client, spark_version, apply_policy_default_va
 #'
 #' @param cluster_id Required. The cluster to be terminated.
 #'
-#' @rdname clustersDeleteAndWait
+#' @rdname delete_cluster_and_wait
 #' @export
-clustersDeleteAndWait <- function(client, cluster_id, timeout = 20, callback = cli_reporter) {
+delete_cluster_and_wait <- function(client, cluster_id, timeout = 20, callback = cli_reporter) {
   body <- list(cluster_id = cluster_id)
   op_response <- client$do("POST", "/api/2.0/clusters/delete", body = body)
   started <- as.numeric(Sys.time())
@@ -666,9 +666,9 @@ clustersDeleteAndWait <- function(client, cluster_id, timeout = 20, callback = c
 #' @param ssh_public_keys SSH public key contents that will be added to each Spark node in this cluster.
 #' @param workload_type This field has no description yet.
 #'
-#' @rdname clustersEditAndWait
+#' @rdname edit_cluster_and_wait
 #' @export
-clustersEditAndWait <- function(client, cluster_id, spark_version, apply_policy_default_values = NULL,
+edit_cluster_and_wait <- function(client, cluster_id, spark_version, apply_policy_default_values = NULL,
   autoscale = NULL, autotermination_minutes = NULL, aws_attributes = NULL, azure_attributes = NULL,
   cluster_log_conf = NULL, cluster_name = NULL, cluster_source = NULL, custom_tags = NULL,
   data_security_mode = NULL, docker_image = NULL, driver_instance_pool_id = NULL,
@@ -753,9 +753,9 @@ clustersEditAndWait <- function(client, cluster_id, spark_version, apply_policy_
 #' @param cluster_id Required. The cluster to be resized.
 #' @param num_workers Number of worker nodes that this cluster should have.
 #'
-#' @rdname clustersResizeAndWait
+#' @rdname resize_cluster_and_wait
 #' @export
-clustersResizeAndWait <- function(client, cluster_id, autoscale = NULL, num_workers = NULL,
+resize_cluster_and_wait <- function(client, cluster_id, autoscale = NULL, num_workers = NULL,
   timeout = 20, callback = cli_reporter) {
   body <- list(autoscale = autoscale, cluster_id = cluster_id, num_workers = num_workers)
   op_response <- client$do("POST", "/api/2.0/clusters/resize", body = body)
@@ -813,9 +813,9 @@ clustersResizeAndWait <- function(client, cluster_id, autoscale = NULL, num_work
 #' @param cluster_id Required. The cluster to be started.
 #' @param restart_user <needs content added>.
 #'
-#' @rdname clustersRestartAndWait
+#' @rdname restart_cluster_and_wait
 #' @export
-clustersRestartAndWait <- function(client, cluster_id, restart_user = NULL, timeout = 20,
+restart_cluster_and_wait <- function(client, cluster_id, restart_user = NULL, timeout = 20,
   callback = cli_reporter) {
   body <- list(cluster_id = cluster_id, restart_user = restart_user)
   op_response <- client$do("POST", "/api/2.0/clusters/restart", body = body)
@@ -880,9 +880,9 @@ clustersRestartAndWait <- function(client, cluster_id, restart_user = NULL, time
 #'
 #' @param cluster_id Required. The cluster to be started.
 #'
-#' @rdname clustersStartAndWait
+#' @rdname start_cluster_and_wait
 #' @export
-clustersStartAndWait <- function(client, cluster_id, timeout = 20, callback = cli_reporter) {
+start_cluster_and_wait <- function(client, cluster_id, timeout = 20, callback = cli_reporter) {
   body <- list(cluster_id = cluster_id)
   op_response <- client$do("POST", "/api/2.0/clusters/start", body = body)
   started <- as.numeric(Sys.time())
