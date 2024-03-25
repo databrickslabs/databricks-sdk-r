@@ -2,7 +2,6 @@
 
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/databrickslabs/databricks-sdk-r/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/databrickslabs/databricks-sdk-r/actions/workflows/R-CMD-check.yaml)
-[![lines of code](https://tokei.rs/b1/github/databrickslabs/databricks-sdk-r)]([https://codecov.io/github/databrickslabs/databricks-sdk-r](https://github.com/databrickslabs/databricks-sdk-r))
 <!-- badges: end -->
 
 ## Authentication
