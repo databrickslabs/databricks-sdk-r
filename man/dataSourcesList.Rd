@@ -6,8 +6,11 @@
 \usage{
 dataSourcesList(client)
 }
+\arguments{
+\item{client}{Required. Instance of DatabricksClient()}
+}
 \description{
 Retrieves a full list of SQL warehouses available in this workspace. All
 fields that appear in this API response are enumerated for clarity. However,
-you need only a SQL warehouse's \code{id} to create new queries against it.#'
+you need only a SQL warehouse's \code{id} to create new queries against it.
 }

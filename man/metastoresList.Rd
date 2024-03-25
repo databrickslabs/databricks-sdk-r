@@ -6,11 +6,14 @@
 \usage{
 metastoresList(client)
 }
+\arguments{
+\item{client}{Required. Instance of DatabricksClient()}
+}
 \value{
 \code{data.frame} with all of the response pages.
 }
 \description{
 Gets an array of the available metastores (as \strong{MetastoreInfo} objects). The
 caller must be an admin to retrieve this info. There is no guarantee of a
-specific ordering of the elements in the array.#'
+specific ordering of the elements in the array.
 }

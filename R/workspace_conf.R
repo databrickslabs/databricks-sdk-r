@@ -7,6 +7,7 @@ NULL
 #' 
 #' Gets the configuration status for a workspace.
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @param keys Required. 
 #'
@@ -22,6 +23,7 @@ workspaceConfGetStatus <- function(client, keys) {
 #' Sets the configuration status for a workspace, including enabling or
 #' disabling it.
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #'
 #' @rdname workspaceConfSetStatus

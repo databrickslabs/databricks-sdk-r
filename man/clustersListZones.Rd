@@ -6,7 +6,10 @@
 \usage{
 clustersListZones(client)
 }
+\arguments{
+\item{client}{Required. Instance of DatabricksClient()}
+}
 \description{
 Returns a list of availability zones where clusters can be created in (For
-example, us-west-2a). These zones can be used to launch a cluster.#'
+example, us-west-2a). These zones can be used to launch a cluster.
 }

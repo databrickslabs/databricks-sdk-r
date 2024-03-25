@@ -9,6 +9,7 @@ NULL
 #' __workspace_id__ exists, it will be overwritten by the new __metastore_id__
 #' and __default_catalog_name__. The caller must be an account admin.
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @param default_catalog_name Required. The name of the default catalog in the metastore.
 #' @param metastore_id Required. The unique ID of the metastore.
@@ -30,6 +31,7 @@ metastoresAssign <- function(client, workspace_id, metastore_id, default_catalog
 #' field is set to the empty string (**''**), the ownership is assigned to the
 #' System User instead.
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @param name Required. The user-specified name of the metastore.
 #' @param region Cloud region which the metastore serves (e.g., `us-west-2`, `westus`).
@@ -44,7 +46,9 @@ metastoresCreate <- function(client, name, region = NULL, storage_root = NULL) {
 
 #' Get metastore assignment for workspace.
 #' 
-#' Gets the metastore assignment for the workspace being accessed.#'
+#' Gets the metastore assignment for the workspace being accessed.
+#' @param client Required. Instance of DatabricksClient()
+#'
 #' @rdname metastoresCurrent
 #' @export
 metastoresCurrent <- function(client) {
@@ -55,6 +59,7 @@ metastoresCurrent <- function(client) {
 #' 
 #' Deletes a metastore. The caller must be a metastore admin.
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @param force Force deletion even if the metastore is not empty.
 #' @param id Required. Unique ID of the metastore.
@@ -72,6 +77,7 @@ metastoresDelete <- function(client, id, force = NULL) {
 #' Gets a metastore that matches the supplied ID. The caller must be a metastore
 #' admin to retrieve this info.
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @param id Required. Unique ID of the metastore.
 #'
@@ -86,7 +92,9 @@ metastoresGet <- function(client, id) {
 #' 
 #' Gets an array of the available metastores (as __MetastoreInfo__ objects). The
 #' caller must be an admin to retrieve this info. There is no guarantee of a
-#' specific ordering of the elements in the array.#'
+#' specific ordering of the elements in the array.
+#' @param client Required. Instance of DatabricksClient()
+#'
 #' @return `data.frame` with all of the response pages.
 #'
 #' @rdname metastoresList
@@ -101,7 +109,9 @@ metastoresList <- function(client) {
 #' Get a metastore summary.
 #' 
 #' Gets information about a metastore. This summary includes the storage
-#' credential, the cloud vendor, the cloud region, and the global metastore ID.#'
+#' credential, the cloud vendor, the cloud region, and the global metastore ID.
+#' @param client Required. Instance of DatabricksClient()
+#'
 #' @rdname metastoresSummary
 #' @export
 metastoresSummary <- function(client) {
@@ -112,6 +122,7 @@ metastoresSummary <- function(client) {
 #' 
 #' Deletes a metastore assignment. The caller must be an account administrator.
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @param metastore_id Required. Query for the ID of the metastore to delete.
 #' @param workspace_id Required. A workspace ID.
@@ -130,6 +141,7 @@ metastoresUnassign <- function(client, workspace_id, metastore_id) {
 #' admin. If the __owner__ field is set to the empty string (**''**), the
 #' ownership is updated to the System User.
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @param delta_sharing_organization_name The organization name of a Delta Sharing entity, to be used in Databricks-to-Databricks Delta Sharing as the official name.
 #' @param delta_sharing_recipient_token_lifetime_in_seconds The lifetime of delta sharing recipient token in seconds.
@@ -161,6 +173,7 @@ metastoresUpdate <- function(client, id, delta_sharing_organization_name = NULL,
 #' admin to update __metastore_id__; otherwise, the caller can be a Workspace
 #' admin.
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @param default_catalog_name The name of the default catalog for the metastore.
 #' @param metastore_id The unique ID of the metastore.

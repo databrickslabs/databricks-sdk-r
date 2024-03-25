@@ -6,7 +6,10 @@
 \usage{
 tokenManagementGetPermissions(client)
 }
+\arguments{
+\item{client}{Required. Instance of DatabricksClient()}
+}
 \description{
 Gets the permissions of all tokens. Tokens can inherit permissions from their
-root object.#'
+root object.
 }

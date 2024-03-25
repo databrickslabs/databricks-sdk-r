@@ -6,6 +6,9 @@
 \usage{
 usersGetPermissionLevels(client)
 }
+\arguments{
+\item{client}{Required. Instance of DatabricksClient()}
+}
 \description{
-Gets the permission levels that a user can have on an object.#'
+Gets the permission levels that a user can have on an object.
 }

@@ -6,6 +6,9 @@
 \usage{
 appsGetApps(client)
 }
+\arguments{
+\item{client}{Required. Instance of DatabricksClient()}
+}
 \description{
-List all available applications#'
+List all available applications
 }

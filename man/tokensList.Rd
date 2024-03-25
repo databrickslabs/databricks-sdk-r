@@ -6,9 +6,12 @@
 \usage{
 tokensList(client)
 }
+\arguments{
+\item{client}{Required. Instance of DatabricksClient()}
+}
 \value{
 \code{data.frame} with all of the response pages.
 }
 \description{
-Lists all the valid tokens for a user-workspace pair.#'
+Lists all the valid tokens for a user-workspace pair.
 }

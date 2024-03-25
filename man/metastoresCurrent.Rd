@@ -6,6 +6,9 @@
 \usage{
 metastoresCurrent(client)
 }
+\arguments{
+\item{client}{Required. Instance of DatabricksClient()}
+}
 \description{
-Gets the metastore assignment for the workspace being accessed.#'
+Gets the metastore assignment for the workspace being accessed.
 }

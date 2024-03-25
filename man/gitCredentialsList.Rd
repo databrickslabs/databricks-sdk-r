@@ -6,10 +6,13 @@
 \usage{
 gitCredentialsList(client)
 }
+\arguments{
+\item{client}{Required. Instance of DatabricksClient()}
+}
 \value{
 \code{data.frame} with all of the response pages.
 }
 \description{
 Lists the calling user's Git credentials. One credential per user is
-supported.#'
+supported.
 }

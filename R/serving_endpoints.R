@@ -7,6 +7,7 @@ NULL
 #' 
 #' Retrieves the build logs associated with the provided served model.
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @param name Required. The name of the serving endpoint that the served model belongs to.
 #' @param served_model_name Required. The name of the served model that build logs will be retrieved for.
@@ -20,13 +21,14 @@ servingEndpointsBuildLogs <- function(client, name, served_model_name) {
 }
 
 #' Create a new serving endpoint.
+#' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @description
 #' This is a long-running operation, which blocks until Serving Endpoints on Databricks reach
 #' NOT_UPDATING state with the timeout of 20 minutes, that you can change via `timeout` parameter.
 #' By default, the state of Databricks Serving Endpoints is reported to console. You can change this behavior
 #' by changing the `callback` parameter.
-#' @param client Required. Instance of DatabricksClient()
 #'
 #' @param config Required. The core config of the serving endpoint.
 #' @param name Required. The name of the serving endpoint.
@@ -78,6 +80,7 @@ servingEndpointsCreate <- function(client, name, config, rate_limits = NULL, tag
 
 #' Delete a serving endpoint.
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @param name Required. The name of the serving endpoint.
 #'
@@ -93,6 +96,7 @@ servingEndpointsDelete <- function(client, name) {
 #' Retrieves the metrics associated with the provided serving endpoint in either
 #' Prometheus or OpenMetrics exposition format.
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @param name Required. The name of the serving endpoint to retrieve metrics for.
 #'
@@ -107,6 +111,7 @@ servingEndpointsExportMetrics <- function(client, name) {
 #' 
 #' Retrieves the details for a single serving endpoint.
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @param name Required. The name of the serving endpoint.
 #'
@@ -121,6 +126,7 @@ servingEndpointsGet <- function(client, name) {
 #' 
 #' Gets the permission levels that a user can have on an object.
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @param serving_endpoint_id Required. The serving endpoint for which to get or manage permissions.
 #'
@@ -137,6 +143,7 @@ servingEndpointsGetPermissionLevels <- function(client, serving_endpoint_id) {
 #' Gets the permissions of a serving endpoint. Serving endpoints can inherit
 #' permissions from their root object.
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @param serving_endpoint_id Required. The serving endpoint for which to get or manage permissions.
 #'
@@ -148,7 +155,9 @@ servingEndpointsGetPermissions <- function(client, serving_endpoint_id) {
     sep = ""))
 }
 
-#' Get all serving endpoints.#'
+#' Get all serving endpoints.
+#' @param client Required. Instance of DatabricksClient()
+#'
 #' @return `data.frame` with all of the response pages.
 #'
 #' @rdname servingEndpointsList
@@ -164,6 +173,7 @@ servingEndpointsList <- function(client) {
 #' 
 #' Retrieves the service logs associated with the provided served model.
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @param name Required. The name of the serving endpoint that the served model belongs to.
 #' @param served_model_name Required. The name of the served model that logs will be retrieved for.
@@ -181,6 +191,7 @@ servingEndpointsLogs <- function(client, name, served_model_name) {
 #' Used to batch add and delete tags from a serving endpoint with a single API
 #' call.
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @param add_tags List of endpoint tags to add.
 #' @param delete_tags List of tag keys to delete.
@@ -199,6 +210,7 @@ servingEndpointsPatch <- function(client, name, add_tags = NULL, delete_tags = N
 #' Used to update the rate limits of a serving endpoint. NOTE: only external and
 #' foundation model endpoints are supported as of now.
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @param name Required. The name of the serving endpoint whose rate limits are being updated.
 #' @param rate_limits The list of endpoint rate limits.
@@ -213,6 +225,7 @@ servingEndpointsPut <- function(client, name, rate_limits = NULL) {
 
 #' Query a serving endpoint.
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @param dataframe_records Pandas Dataframe input in the records orientation.
 #' @param dataframe_split Pandas Dataframe input in the split orientation.
@@ -247,6 +260,7 @@ servingEndpointsQuery <- function(client, name, dataframe_records = NULL, datafr
 #' Sets permissions on a serving endpoint. Serving endpoints can inherit
 #' permissions from their root object.
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @param access_control_list 
 #' @param serving_endpoint_id Required. The serving endpoint for which to get or manage permissions.
@@ -265,13 +279,14 @@ servingEndpointsSetPermissions <- function(client, serving_endpoint_id, access_c
 #' compute configuration of those served entities, and the endpoint's traffic
 #' config. An endpoint that already has an update in progress can not be updated
 #' until the current update completes or fails.
+#' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @description
 #' This is a long-running operation, which blocks until Serving Endpoints on Databricks reach
 #' NOT_UPDATING state with the timeout of 20 minutes, that you can change via `timeout` parameter.
 #' By default, the state of Databricks Serving Endpoints is reported to console. You can change this behavior
 #' by changing the `callback` parameter.
-#' @param client Required. Instance of DatabricksClient()
 #'
 #' @param auto_capture_config Configuration for Inference Tables which automatically logs requests and responses to Unity Catalog.
 #' @param name Required. The name of the serving endpoint to update.
@@ -330,6 +345,7 @@ servingEndpointsUpdateConfig <- function(client, name, auto_capture_config = NUL
 #' Updates the permissions on a serving endpoint. Serving endpoints can inherit
 #' permissions from their root object.
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @param access_control_list 
 #' @param serving_endpoint_id Required. The serving endpoint for which to get or manage permissions.

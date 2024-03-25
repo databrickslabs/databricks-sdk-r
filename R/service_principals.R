@@ -7,6 +7,7 @@ NULL
 #' 
 #' Creates a new service principal in the Databricks workspace.
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @param active If this user is active.
 #' @param application_id UUID relating to the service principal.
@@ -33,6 +34,7 @@ servicePrincipalsCreate <- function(client, active = NULL, application_id = NULL
 #' 
 #' Delete a single service principal in the Databricks workspace.
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @param id Required. Unique ID for a service principal in the Databricks workspace.
 #'
@@ -49,6 +51,7 @@ servicePrincipalsDelete <- function(client, id) {
 #' Gets the details for a single service principal define in the Databricks
 #' workspace.
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @param id Required. Unique ID for a service principal in the Databricks workspace.
 #'
@@ -63,6 +66,7 @@ servicePrincipalsGet <- function(client, id) {
 #' 
 #' Gets the set of service principals associated with a Databricks workspace.
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @param attributes Comma-separated list of attributes to return in response.
 #' @param count Desired number of results per page.
@@ -103,6 +107,7 @@ servicePrincipalsList <- function(client, attributes = NULL, count = NULL, exclu
 #' Partially updates the details of a single service principal in the Databricks
 #' workspace.
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @param id Required. Unique ID for a service principal in the Databricks workspace.
 #' @param operations 
@@ -122,6 +127,7 @@ servicePrincipalsPatch <- function(client, id, operations = NULL, schemas = NULL
 #' 
 #' This action replaces the existing service principal with the same name.
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @param active If this user is active.
 #' @param application_id UUID relating to the service principal.

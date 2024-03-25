@@ -8,13 +8,14 @@ NULL
 #' Cancels a currently running command within an execution context.
 #' 
 #' The command ID is obtained from a prior successful call to __execute__.
+#' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @description
 #' This is a long-running operation, which blocks until Command Execution on Databricks reach
 #' Cancelled state with the timeout of 20 minutes, that you can change via `timeout` parameter.
 #' By default, the state of Databricks Command Execution is reported to console. You can change this behavior
 #' by changing the `callback` parameter.
-#' @param client Required. Instance of DatabricksClient()
 #'
 #' @param cluster_id 
 #' @param command_id 
@@ -74,6 +75,7 @@ commandExecutionCancel <- function(client, cluster_id = NULL, command_id = NULL,
 #' 
 #' The command ID is obtained from a prior successful call to __execute__.
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @param cluster_id Required. 
 #' @param command_id Required. 
@@ -90,6 +92,7 @@ commandExecutionCommandStatus <- function(client, cluster_id, context_id, comman
 #' 
 #' Gets the status for an execution context.
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @param cluster_id Required. 
 #' @param context_id Required. 
@@ -106,13 +109,14 @@ commandExecutionContextStatus <- function(client, cluster_id, context_id) {
 #' Creates an execution context for running cluster commands.
 #' 
 #' If successful, this method returns the ID of the new execution context.
+#' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @description
 #' This is a long-running operation, which blocks until Command Execution on Databricks reach
 #' Running state with the timeout of 20 minutes, that you can change via `timeout` parameter.
 #' By default, the state of Databricks Command Execution is reported to console. You can change this behavior
 #' by changing the `callback` parameter.
-#' @param client Required. Instance of DatabricksClient()
 #'
 #' @param cluster_id Running cluster id.
 #' @param language 
@@ -164,6 +168,7 @@ commandExecutionCreate <- function(client, cluster_id = NULL, language = NULL, t
 #' 
 #' Deletes an execution context.
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @param cluster_id Required. 
 #' @param context_id Required. 
@@ -182,13 +187,14 @@ commandExecutionDestroy <- function(client, cluster_id, context_id) {
 #' 
 #' If successful, it returns an ID for tracking the status of the command's
 #' execution.
+#' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @description
 #' This is a long-running operation, which blocks until Command Execution on Databricks reach
 #' Finished or Error state with the timeout of 20 minutes, that you can change via `timeout` parameter.
 #' By default, the state of Databricks Command Execution is reported to console. You can change this behavior
 #' by changing the `callback` parameter.
-#' @param client Required. Instance of DatabricksClient()
 #'
 #' @param cluster_id Running cluster id.
 #' @param command Executable code.

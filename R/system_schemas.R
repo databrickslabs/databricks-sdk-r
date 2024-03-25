@@ -8,6 +8,7 @@ NULL
 #' Disables the system schema and removes it from the system catalog. The caller
 #' must be an account admin or a metastore admin.
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @param metastore_id Required. The metastore ID under which the system schema lives.
 #' @param schema_name Required. Full name of the system schema.
@@ -25,6 +26,7 @@ systemSchemasDisable <- function(client, metastore_id, schema_name) {
 #' Enables the system schema and adds it to the system catalog. The caller must
 #' be an account admin or a metastore admin.
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @param metastore_id Required. The metastore ID under which the system schema lives.
 #' @param schema_name Required. Full name of the system schema.
@@ -42,6 +44,7 @@ systemSchemasEnable <- function(client, metastore_id, schema_name) {
 #' Gets an array of system schemas for a metastore. The caller must be an
 #' account admin or a metastore admin.
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @param metastore_id Required. The ID for the metastore in which the system schema resides.
 #'

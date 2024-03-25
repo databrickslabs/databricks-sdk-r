@@ -8,6 +8,7 @@ NULL
 #' Creates a group in the Databricks workspace with a unique name, using the
 #' supplied group details.
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @param display_name String that represents a human-readable group name.
 #' @param entitlements Entitlements assigned to the group.
@@ -33,6 +34,7 @@ groupsCreate <- function(client, display_name = NULL, entitlements = NULL, exter
 #' 
 #' Deletes a group from the Databricks workspace.
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @param id Required. Unique ID for a group in the Databricks workspace.
 #'
@@ -47,6 +49,7 @@ groupsDelete <- function(client, id) {
 #' 
 #' Gets the information for a specific group in the Databricks workspace.
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @param id Required. Unique ID for a group in the Databricks workspace.
 #'
@@ -61,6 +64,7 @@ groupsGet <- function(client, id) {
 #' 
 #' Gets all details of the groups associated with the Databricks workspace.
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @param attributes Comma-separated list of attributes to return in response.
 #' @param count Desired number of results per page.
@@ -100,6 +104,7 @@ groupsList <- function(client, attributes = NULL, count = NULL, excluded_attribu
 #' 
 #' Partially updates the details of a group.
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @param id Required. Unique ID for a group in the Databricks workspace.
 #' @param operations 
@@ -116,6 +121,7 @@ groupsPatch <- function(client, id, operations = NULL, schemas = NULL) {
 #' 
 #' Updates the details of a group by replacing the entire group entity.
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @param display_name String that represents a human-readable group name.
 #' @param entitlements Entitlements assigned to the group.

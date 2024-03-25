@@ -6,6 +6,9 @@
 \usage{
 secretsListScopes(client)
 }
+\arguments{
+\item{client}{Required. Instance of DatabricksClient()}
+}
 \value{
 \code{data.frame} with all of the response pages.
 }
@@ -14,5 +17,5 @@ Lists all secret scopes available in the workspace.
 }
 \details{
 Throws \code{PERMISSION_DENIED} if the user does not have permission to make this
-API call.#'
+API call.
 }

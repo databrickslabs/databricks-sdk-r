@@ -8,6 +8,7 @@ NULL
 #' Cancels all active runs of a job. The runs are canceled asynchronously, so it
 #' doesn't prevent new runs from being started.
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @param all_queued_runs Optional boolean parameter to cancel all queued runs.
 #' @param job_id The canonical identifier of the job to cancel all runs of.
@@ -23,13 +24,14 @@ jobsCancelAllRuns <- function(client, all_queued_runs = NULL, job_id = NULL) {
 #' 
 #' Cancels a job run or a task run. The run is canceled asynchronously, so it
 #' may still be running when this request completes.
+#' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @description
 #' This is a long-running operation, which blocks until Jobs on Databricks reach
 #' TERMINATED or SKIPPED state with the timeout of 20 minutes, that you can change via `timeout` parameter.
 #' By default, the state of Databricks Jobs is reported to console. You can change this behavior
 #' by changing the `callback` parameter.
-#' @param client Required. Instance of DatabricksClient()
 #'
 #' @param run_id Required. This field is required.
 #'
@@ -82,6 +84,7 @@ jobsCancelRun <- function(client, run_id, timeout = 20, callback = cli_reporter)
 #' 
 #' Create a new job.
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @param access_control_list List of permissions to set on the job.
 #' @param compute A list of compute requirements that can be referenced by tasks of this job.
@@ -129,6 +132,7 @@ jobsCreate <- function(client, access_control_list = NULL, compute = NULL, conti
 #' 
 #' Deletes a job.
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @param job_id Required. The canonical identifier of the job to delete.
 #'
@@ -143,6 +147,7 @@ jobsDelete <- function(client, job_id) {
 #' 
 #' Deletes a non-active run. Returns an error if the run is active.
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @param run_id Required. The canonical identifier of the run for which to retrieve the metadata.
 #'
@@ -157,6 +162,7 @@ jobsDeleteRun <- function(client, run_id) {
 #' 
 #' Export and retrieve the job run task.
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @param run_id Required. The canonical identifier for the run.
 #' @param views_to_export Which views to export (CODE, DASHBOARDS, or ALL).
@@ -172,6 +178,7 @@ jobsExportRun <- function(client, run_id, views_to_export = NULL) {
 #' 
 #' Retrieves the details for a single job.
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @param job_id Required. The canonical identifier of the job to retrieve information about.
 #'
@@ -186,6 +193,7 @@ jobsGet <- function(client, job_id) {
 #' 
 #' Gets the permission levels that a user can have on an object.
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @param job_id Required. The job for which to get or manage permissions.
 #'
@@ -202,6 +210,7 @@ jobsGetPermissionLevels <- function(client, job_id) {
 #' Gets the permissions of a job. Jobs can inherit permissions from their root
 #' object.
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @param job_id Required. The job for which to get or manage permissions.
 #'
@@ -215,13 +224,14 @@ jobsGetPermissions <- function(client, job_id) {
 #' Get a single job run.
 #' 
 #' Retrieve the metadata of a run.
+#' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @description
 #' This is a long-running operation, which blocks until Jobs on Databricks reach
 #' TERMINATED or SKIPPED state with the timeout of 20 minutes, that you can change via `timeout` parameter.
 #' By default, the state of Databricks Jobs is reported to console. You can change this behavior
 #' by changing the `callback` parameter.
-#' @param client Required. Instance of DatabricksClient()
 #'
 #' @param include_history Whether to include the repair history in the response.
 #' @param include_resolved_values Whether to include resolved parameter values in the response.
@@ -287,6 +297,7 @@ jobsGetRun <- function(client, run_id, include_history = NULL, include_resolved_
 #' automatically removed after 60 days. If you to want to reference them beyond
 #' 60 days, you must save old run results before they expire.
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @param run_id Required. The canonical identifier for the run.
 #'
@@ -301,6 +312,7 @@ jobsGetRunOutput <- function(client, run_id) {
 #' 
 #' Retrieves a list of jobs.
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @param expand_tasks Whether to include task and cluster details in the response.
 #' @param limit The number of jobs to return.
@@ -338,6 +350,7 @@ jobsList <- function(client, expand_tasks = NULL, limit = NULL, name = NULL, off
 #' 
 #' List runs in descending order by start time.
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @param active_only If active_only is `true`, only active runs are included in the results; otherwise, lists both active and completed runs.
 #' @param completed_only If completed_only is `true`, only completed runs are included in the results; otherwise, lists both active and completed runs.
@@ -383,13 +396,14 @@ jobsListRuns <- function(client, active_only = NULL, completed_only = NULL, expa
 #' Re-run one or more tasks. Tasks are re-run as part of the original job run.
 #' They use the current job and task settings, and can be viewed in the history
 #' for the original job run.
+#' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @description
 #' This is a long-running operation, which blocks until Jobs on Databricks reach
 #' TERMINATED or SKIPPED state with the timeout of 20 minutes, that you can change via `timeout` parameter.
 #' By default, the state of Databricks Jobs is reported to console. You can change this behavior
 #' by changing the `callback` parameter.
-#' @param client Required. Instance of DatabricksClient()
 #'
 #' @param dbt_commands An array of commands to execute for jobs with the dbt task, for example `'dbt_commands': ['dbt deps', 'dbt seed', 'dbt run']`.
 #' @param jar_params A list of parameters for jobs with Spark JAR tasks, for example `'jar_params': ['john doe', '35']`.
@@ -465,6 +479,7 @@ jobsRepairRun <- function(client, run_id, dbt_commands = NULL, jar_params = NULL
 #' Overwrite all settings for the given job. Use the [_Update_
 #' endpoint](:method:jobs/update) to update job settings partially.
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @param job_id Required. The canonical identifier of the job to reset.
 #' @param new_settings Required. The new settings of the job.
@@ -479,13 +494,14 @@ jobsReset <- function(client, job_id, new_settings) {
 #' Trigger a new job run.
 #' 
 #' Run a job and return the `run_id` of the triggered run.
+#' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @description
 #' This is a long-running operation, which blocks until Jobs on Databricks reach
 #' TERMINATED or SKIPPED state with the timeout of 20 minutes, that you can change via `timeout` parameter.
 #' By default, the state of Databricks Jobs is reported to console. You can change this behavior
 #' by changing the `callback` parameter.
-#' @param client Required. Instance of DatabricksClient()
 #'
 #' @param dbt_commands An array of commands to execute for jobs with the dbt task, for example `'dbt_commands': ['dbt deps', 'dbt seed', 'dbt run']`.
 #' @param idempotency_token An optional token to guarantee the idempotency of job run requests.
@@ -557,6 +573,7 @@ jobsRunNow <- function(client, job_id, dbt_commands = NULL, idempotency_token = 
 #' Sets permissions on a job. Jobs can inherit permissions from their root
 #' object.
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @param access_control_list 
 #' @param job_id Required. The job for which to get or manage permissions.
@@ -574,13 +591,14 @@ jobsSetPermissions <- function(client, job_id, access_control_list = NULL) {
 #' without creating a job. Runs submitted using this endpoint don’t display in
 #' the UI. Use the `jobs/runs/get` API to check the run state after the job is
 #' submitted.
+#' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @description
 #' This is a long-running operation, which blocks until Jobs on Databricks reach
 #' TERMINATED or SKIPPED state with the timeout of 20 minutes, that you can change via `timeout` parameter.
 #' By default, the state of Databricks Jobs is reported to console. You can change this behavior
 #' by changing the `callback` parameter.
-#' @param client Required. Instance of DatabricksClient()
 #'
 #' @param access_control_list List of permissions to set on the job.
 #' @param email_notifications An optional set of email addresses notified when the run begins or completes.
@@ -650,6 +668,7 @@ jobsSubmit <- function(client, access_control_list = NULL, email_notifications =
 #' Add, update, or remove specific settings of an existing job. Use the [_Reset_
 #' endpoint](:method:jobs/reset) to overwrite all job settings.
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @param fields_to_remove Remove top-level fields in the job settings.
 #' @param job_id Required. The canonical identifier of the job to update.
@@ -667,6 +686,7 @@ jobsUpdate <- function(client, job_id, fields_to_remove = NULL, new_settings = N
 #' Updates the permissions on a job. Jobs can inherit permissions from their
 #' root object.
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @param access_control_list 
 #' @param job_id Required. The job for which to get or manage permissions.

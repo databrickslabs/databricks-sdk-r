@@ -6,6 +6,9 @@
 \usage{
 alertsList(client)
 }
+\arguments{
+\item{client}{Required. Instance of DatabricksClient()}
+}
 \description{
-Gets a list of alerts.#'
+Gets a list of alerts.
 }

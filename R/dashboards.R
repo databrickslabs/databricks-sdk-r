@@ -5,6 +5,7 @@ NULL
 
 #' Create a dashboard object.
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @param dashboard_filters_enabled Indicates whether the dashboard filters are enabled.
 #' @param is_favorite Indicates whether this dashboard object should appear in the current user's favorites list.
@@ -27,6 +28,7 @@ dashboardsCreate <- function(client, name, dashboard_filters_enabled = NULL, is_
 #' Moves a dashboard to the trash. Trashed dashboards do not appear in list
 #' views or searches, and cannot be shared.
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @param dashboard_id Required. 
 #'
@@ -42,6 +44,7 @@ dashboardsDelete <- function(client, dashboard_id) {
 #' Returns a JSON representation of a dashboard object, including its
 #' visualization and query objects.
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @param dashboard_id Required. 
 #'
@@ -59,6 +62,7 @@ dashboardsGet <- function(client, dashboard_id) {
 #' ### **Warning: Calling this API concurrently 10 or more times could result in
 #' throttling, service degradation, or a temporary ban.**
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @param order Name of dashboard attribute to order by.
 #' @param page Page number to retrieve.
@@ -93,6 +97,7 @@ dashboardsList <- function(client, order = NULL, page = NULL, page_size = NULL, 
 #' 
 #' A restored dashboard appears in list views and searches and can be shared.
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @param dashboard_id Required. 
 #'
@@ -111,6 +116,7 @@ dashboardsRestore <- function(client, dashboard_id) {
 #' 
 #' **Note**: You cannot undo this operation.
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @param dashboard_id Required. 
 #' @param name The title of this dashboard that appears in list views and at the top of the dashboard page.

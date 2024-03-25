@@ -8,6 +8,7 @@ NULL
 #' Creates a new data processing pipeline based on the requested configuration.
 #' If successful, this method returns the ID of the new pipeline.
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @param allow_duplicate_names If false, deployment will fail if name conflicts with that of another pipeline.
 #' @param catalog A catalog in Unity Catalog to publish data from this pipeline to.
@@ -49,6 +50,7 @@ pipelinesCreate <- function(client, allow_duplicate_names = NULL, catalog = NULL
 #' 
 #' Deletes a pipeline.
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @param pipeline_id Required. 
 #'
@@ -61,6 +63,7 @@ pipelinesDelete <- function(client, pipeline_id) {
 
 #' Get a pipeline.
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @param pipeline_id Required. 
 #'
@@ -75,6 +78,7 @@ pipelinesGet <- function(client, pipeline_id) {
 #' 
 #' Gets the permission levels that a user can have on an object.
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @param pipeline_id Required. The pipeline for which to get or manage permissions.
 #'
@@ -91,6 +95,7 @@ pipelinesGetPermissionLevels <- function(client, pipeline_id) {
 #' Gets the permissions of a pipeline. Pipelines can inherit permissions from
 #' their root object.
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @param pipeline_id Required. The pipeline for which to get or manage permissions.
 #'
@@ -105,6 +110,7 @@ pipelinesGetPermissions <- function(client, pipeline_id) {
 #' 
 #' Gets an update from an active pipeline.
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @param pipeline_id Required. The ID of the pipeline.
 #' @param update_id Required. The ID of the update.
@@ -121,6 +127,7 @@ pipelinesGetUpdate <- function(client, pipeline_id, update_id) {
 #' 
 #' Retrieves events for a pipeline.
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @param filter Criteria to select a subset of results, expressed using a SQL-like syntax.
 #' @param max_results Max number of entries to return in a single page.
@@ -159,6 +166,7 @@ pipelinesListPipelineEvents <- function(client, pipeline_id, filter = NULL, max_
 #' 
 #' Lists pipelines defined in the Delta Live Tables system.
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @param filter Select a subset of results based on the specified criteria.
 #' @param max_results The maximum number of entries to return in a single page.
@@ -195,6 +203,7 @@ pipelinesListPipelines <- function(client, filter = NULL, max_results = NULL, or
 #' 
 #' List updates for an active pipeline.
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @param max_results Max number of entries to return in a single page.
 #' @param page_token Page token returned by previous call.
@@ -215,6 +224,7 @@ pipelinesListUpdates <- function(client, pipeline_id, max_results = NULL, page_t
 #' Sets permissions on a pipeline. Pipelines can inherit permissions from their
 #' root object.
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @param access_control_list 
 #' @param pipeline_id Required. The pipeline for which to get or manage permissions.
@@ -233,6 +243,7 @@ pipelinesSetPermissions <- function(client, pipeline_id, access_control_list = N
 #' for the pipeline, the request will fail and the active update will remain
 #' running.
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @param cause 
 #' @param full_refresh If true, this update will reset all tables before running.
@@ -255,13 +266,14 @@ pipelinesStartUpdate <- function(client, pipeline_id, cause = NULL, full_refresh
 #' 
 #' Stops the pipeline by canceling the active update. If there is no active
 #' update for the pipeline, this request is a no-op.
+#' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @description
 #' This is a long-running operation, which blocks until Pipelines on Databricks reach
 #' IDLE state with the timeout of 20 minutes, that you can change via `timeout` parameter.
 #' By default, the state of Databricks Pipelines is reported to console. You can change this behavior
 #' by changing the `callback` parameter.
-#' @param client Required. Instance of DatabricksClient()
 #'
 #' @param pipeline_id Required. 
 #'
@@ -311,6 +323,7 @@ pipelinesStop <- function(client, pipeline_id, timeout = 20, callback = cli_repo
 #' 
 #' Updates a pipeline with the supplied configuration.
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @param allow_duplicate_names If false, deployment will fail if name has changed and conflicts the name of another pipeline.
 #' @param catalog A catalog in Unity Catalog to publish data from this pipeline to.
@@ -354,6 +367,7 @@ pipelinesUpdate <- function(client, pipeline_id, allow_duplicate_names = NULL, c
 #' Updates the permissions on a pipeline. Pipelines can inherit permissions from
 #' their root object.
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @param access_control_list 
 #' @param pipeline_id Required. The pipeline for which to get or manage permissions.

@@ -6,9 +6,12 @@
 \usage{
 connectionsList(client)
 }
+\arguments{
+\item{client}{Required. Instance of DatabricksClient()}
+}
 \value{
 \code{data.frame} with all of the response pages.
 }
 \description{
-List all connections.#'
+List all connections.
 }

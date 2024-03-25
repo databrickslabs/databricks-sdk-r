@@ -6,13 +6,14 @@ NULL
 #' Create a warehouse.
 #' 
 #' Creates a new SQL warehouse.
+#' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @description
 #' This is a long-running operation, which blocks until Warehouses on Databricks reach
 #' RUNNING state with the timeout of 20 minutes, that you can change via `timeout` parameter.
 #' By default, the state of Databricks Warehouses is reported to console. You can change this behavior
 #' by changing the `callback` parameter.
-#' @param client Required. Instance of DatabricksClient()
 #'
 #' @param auto_stop_mins The amount of time in minutes that a SQL warehouse must be idle (i.e., no RUNNING queries) before it is automatically stopped.
 #' @param channel Channel Details.
@@ -84,6 +85,7 @@ warehousesCreate <- function(client, auto_stop_mins = NULL, channel = NULL, clus
 #' 
 #' Deletes a SQL warehouse.
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @param id Required. Required.
 #'
@@ -97,13 +99,14 @@ warehousesDelete <- function(client, id) {
 #' Update a warehouse.
 #' 
 #' Updates the configuration for a SQL warehouse.
+#' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @description
 #' This is a long-running operation, which blocks until Warehouses on Databricks reach
 #' RUNNING state with the timeout of 20 minutes, that you can change via `timeout` parameter.
 #' By default, the state of Databricks Warehouses is reported to console. You can change this behavior
 #' by changing the `callback` parameter.
-#' @param client Required. Instance of DatabricksClient()
 #'
 #' @param auto_stop_mins The amount of time in minutes that a SQL warehouse must be idle (i.e., no RUNNING queries) before it is automatically stopped.
 #' @param channel Channel Details.
@@ -177,6 +180,7 @@ warehousesEdit <- function(client, id, auto_stop_mins = NULL, channel = NULL, cl
 #' 
 #' Gets the information for a single SQL warehouse.
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @param id Required. Required.
 #'
@@ -191,6 +195,7 @@ warehousesGet <- function(client, id) {
 #' 
 #' Gets the permission levels that a user can have on an object.
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @param warehouse_id Required. The SQL warehouse for which to get or manage permissions.
 #'
@@ -207,6 +212,7 @@ warehousesGetPermissionLevels <- function(client, warehouse_id) {
 #' Gets the permissions of a SQL warehouse. SQL warehouses can inherit
 #' permissions from their root object.
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @param warehouse_id Required. The SQL warehouse for which to get or manage permissions.
 #'
@@ -220,7 +226,9 @@ warehousesGetPermissions <- function(client, warehouse_id) {
 #' Get the workspace configuration.
 #' 
 #' Gets the workspace level configuration that is shared by all SQL warehouses
-#' in a workspace.#'
+#' in a workspace.
+#' @param client Required. Instance of DatabricksClient()
+#'
 #' @rdname warehousesGetWorkspaceWarehouseConfig
 #' @export
 warehousesGetWorkspaceWarehouseConfig <- function(client) {
@@ -231,6 +239,7 @@ warehousesGetWorkspaceWarehouseConfig <- function(client) {
 #' 
 #' Lists all SQL warehouses that a user has manager permissions on.
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @param run_as_user_id Service Principal which will be used to fetch the list of warehouses.
 #'
@@ -251,6 +260,7 @@ warehousesList <- function(client, run_as_user_id = NULL) {
 #' Sets permissions on a SQL warehouse. SQL warehouses can inherit permissions
 #' from their root object.
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @param access_control_list 
 #' @param warehouse_id Required. The SQL warehouse for which to get or manage permissions.
@@ -268,6 +278,7 @@ warehousesSetPermissions <- function(client, warehouse_id, access_control_list =
 #' Sets the workspace level configuration that is shared by all SQL warehouses
 #' in a workspace.
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @param channel Optional: Channel selection details.
 #' @param config_param Deprecated: Use sql_configuration_parameters.
@@ -295,13 +306,14 @@ warehousesSetWorkspaceWarehouseConfig <- function(client, channel = NULL, config
 #' Start a warehouse.
 #' 
 #' Starts a SQL warehouse.
+#' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @description
 #' This is a long-running operation, which blocks until Warehouses on Databricks reach
 #' RUNNING state with the timeout of 20 minutes, that you can change via `timeout` parameter.
 #' By default, the state of Databricks Warehouses is reported to console. You can change this behavior
 #' by changing the `callback` parameter.
-#' @param client Required. Instance of DatabricksClient()
 #'
 #' @param id Required. Required.
 #'
@@ -353,13 +365,14 @@ warehousesStart <- function(client, id, timeout = 20, callback = cli_reporter) {
 #' Stop a warehouse.
 #' 
 #' Stops a SQL warehouse.
+#' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @description
 #' This is a long-running operation, which blocks until Warehouses on Databricks reach
 #' STOPPED state with the timeout of 20 minutes, that you can change via `timeout` parameter.
 #' By default, the state of Databricks Warehouses is reported to console. You can change this behavior
 #' by changing the `callback` parameter.
-#' @param client Required. Instance of DatabricksClient()
 #'
 #' @param id Required. Required.
 #'
@@ -408,6 +421,7 @@ warehousesStop <- function(client, id, timeout = 20, callback = cli_reporter) {
 #' Updates the permissions on a SQL warehouse. SQL warehouses can inherit
 #' permissions from their root object.
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @param access_control_list 
 #' @param warehouse_id Required. The SQL warehouse for which to get or manage permissions.

@@ -6,9 +6,12 @@
 \usage{
 instancePoolsList(client)
 }
+\arguments{
+\item{client}{Required. Instance of DatabricksClient()}
+}
 \value{
 \code{data.frame} with all of the response pages.
 }
 \description{
-Gets a list of instance pools with their statistics.#'
+Gets a list of instance pools with their statistics.
 }

@@ -6,6 +6,9 @@
 \usage{
 currentUserMe(client)
 }
+\arguments{
+\item{client}{Required. Instance of DatabricksClient()}
+}
 \description{
-Get details about the current method caller's identity.#'
+Get details about the current method caller's identity.
 }

@@ -7,7 +7,9 @@ NULL
 #' 
 #' Retrieves a full list of SQL warehouses available in this workspace. All
 #' fields that appear in this API response are enumerated for clarity. However,
-#' you need only a SQL warehouse's `id` to create new queries against it.#'
+#' you need only a SQL warehouse's `id` to create new queries against it.
+#' @param client Required. Instance of DatabricksClient()
+#'
 #' @rdname dataSourcesList
 #' @export
 dataSourcesList <- function(client) {

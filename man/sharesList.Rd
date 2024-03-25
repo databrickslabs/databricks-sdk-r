@@ -6,11 +6,14 @@
 \usage{
 sharesList(client)
 }
+\arguments{
+\item{client}{Required. Instance of DatabricksClient()}
+}
 \value{
 \code{data.frame} with all of the response pages.
 }
 \description{
 Gets an array of data object shares from the metastore. The caller must be a
 metastore admin or the owner of the share. There is no guarantee of a
-specific ordering of the elements in the array.#'
+specific ordering of the elements in the array.
 }

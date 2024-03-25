@@ -6,9 +6,12 @@
 \usage{
 ipAccessListsList(client)
 }
+\arguments{
+\item{client}{Required. Instance of DatabricksClient()}
+}
 \value{
 \code{data.frame} with all of the response pages.
 }
 \description{
-Gets all IP access lists for the specified workspace.#'
+Gets all IP access lists for the specified workspace.
 }

@@ -7,6 +7,7 @@ NULL
 #' 
 #' Creates a new policy with prescribed settings.
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @param definition Policy definition document expressed in [Databricks Cluster Policy Definition Language](https://docs.databricks.com/administration-guide/clusters/policy-definition.html).
 #' @param description Additional human-readable description of the cluster policy.
@@ -32,6 +33,7 @@ clusterPoliciesCreate <- function(client, name, definition = NULL, description =
 #' Delete a policy for a cluster. Clusters governed by this policy can still
 #' run, but cannot be edited.
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @param policy_id Required. The ID of the policy to delete.
 #'
@@ -47,6 +49,7 @@ clusterPoliciesDelete <- function(client, policy_id) {
 #' Update an existing policy for cluster. This operation may make some clusters
 #' governed by the previous policy invalid.
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @param definition Policy definition document expressed in [Databricks Cluster Policy Definition Language](https://docs.databricks.com/administration-guide/clusters/policy-definition.html).
 #' @param description Additional human-readable description of the cluster policy.
@@ -73,6 +76,7 @@ clusterPoliciesEdit <- function(client, policy_id, name, definition = NULL, desc
 #' Get a cluster policy entity. Creation and editing is available to admins
 #' only.
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @param policy_id Required. Canonical unique identifier for the cluster policy.
 #'
@@ -87,6 +91,7 @@ clusterPoliciesGet <- function(client, policy_id) {
 #' 
 #' Gets the permission levels that a user can have on an object.
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @param cluster_policy_id Required. The cluster policy for which to get or manage permissions.
 #'
@@ -103,6 +108,7 @@ clusterPoliciesGetPermissionLevels <- function(client, cluster_policy_id) {
 #' Gets the permissions of a cluster policy. Cluster policies can inherit
 #' permissions from their root object.
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @param cluster_policy_id Required. The cluster policy for which to get or manage permissions.
 #'
@@ -118,6 +124,7 @@ clusterPoliciesGetPermissions <- function(client, cluster_policy_id) {
 #' 
 #' Returns a list of policies accessible by the requesting user.
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @param sort_column The cluster policy attribute to sort by.
 #' @param sort_order The order in which the policies get listed.
@@ -139,6 +146,7 @@ clusterPoliciesList <- function(client, sort_column = NULL, sort_order = NULL) {
 #' Sets permissions on a cluster policy. Cluster policies can inherit
 #' permissions from their root object.
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @param access_control_list 
 #' @param cluster_policy_id Required. The cluster policy for which to get or manage permissions.
@@ -156,6 +164,7 @@ clusterPoliciesSetPermissions <- function(client, cluster_policy_id, access_cont
 #' Updates the permissions on a cluster policy. Cluster policies can inherit
 #' permissions from their root object.
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @param access_control_list 
 #' @param cluster_policy_id Required. The cluster policy for which to get or manage permissions.

@@ -7,6 +7,7 @@ NULL
 #' 
 #' Retrieve the information for an policy family based on its identifier.
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @param policy_family_id Required. 
 #'
@@ -21,6 +22,7 @@ policyFamiliesGet <- function(client, policy_family_id) {
 #' 
 #' Retrieve a list of policy families. This API is paginated.
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @param max_results The max number of policy families to return.
 #' @param page_token A token that can be used to get the next page of results.

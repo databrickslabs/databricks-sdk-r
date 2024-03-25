@@ -11,6 +11,7 @@ NULL
 #' table and have the **USE_CATALOG** privilege on the parent catalog and the
 #' **USE_SCHEMA** privilege on the parent schema.
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @param full_name Required. Full name of the table.
 #'
@@ -32,6 +33,7 @@ tablesDelete <- function(client, full_name) {
 #' SELECT privilege on the table. * Have BROWSE privilege on the parent catalog
 #' * Have BROWSE privilege on the parent schema.
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @param full_name Required. Full name of the table.
 #'
@@ -53,6 +55,7 @@ tablesExists <- function(client, full_name) {
 #' parent schema, and either be the table owner or have the SELECT privilege on
 #' the table.
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @param full_name Required. Full name of the table.
 #' @param include_browse Whether to include tables in the response for which the principal can only access selective metadata for.
@@ -75,6 +78,7 @@ tablesGet <- function(client, full_name, include_browse = NULL, include_delta_me
 #' catalog and the **USE_SCHEMA** privilege on the parent schema. There is no
 #' guarantee of a specific ordering of the elements in the array.
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @param catalog_name Required. Name of parent catalog for tables of interest.
 #' @param include_browse Whether to include tables in the response for which the principal can only access selective metadata for.
@@ -127,6 +131,7 @@ tablesList <- function(client, catalog_name, schema_name, include_browse = NULL,
 #' 
 #' There is no guarantee of a specific ordering of the elements in the array.
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @param catalog_name Required. Name of parent catalog for tables of interest.
 #' @param max_results Maximum number of summaries for tables to return.
@@ -168,6 +173,7 @@ tablesListSummaries <- function(client, catalog_name, max_results = NULL, page_t
 #' **USE_CATALOG** privilege on the parent catalog and the **USE_SCHEMA**
 #' privilege on the parent schema.
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @param full_name Required. Full name of the table.
 #' @param owner 

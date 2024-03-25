@@ -5,6 +5,7 @@ NULL
 
 #' Add widget to a dashboard.
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @param dashboard_id Required. Dashboard ID returned by :method:dashboards/create.
 #' @param options Required. 
@@ -23,6 +24,7 @@ dashboardWidgetsCreate <- function(client, dashboard_id, options, width, text = 
 
 #' Remove widget.
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @param id Required. Widget ID returned by :method:dashboardwidgets/create.
 #'
@@ -35,6 +37,7 @@ dashboardWidgetsDelete <- function(client, id) {
 
 #' Update existing widget.
 #' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @param dashboard_id Required. Dashboard ID returned by :method:dashboards/create.
 #' @param id Required. Widget ID returned by :method:dashboardwidgets/create.

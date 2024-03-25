@@ -2,13 +2,16 @@
 % Please edit documentation in R/serving_endpoints.R
 \name{servingEndpointsList}
 \alias{servingEndpointsList}
-\title{Get all serving endpoints.#'}
+\title{Get all serving endpoints.}
 \usage{
 servingEndpointsList(client)
+}
+\arguments{
+\item{client}{Required. Instance of DatabricksClient()}
 }
 \value{
 \code{data.frame} with all of the response pages.
 }
 \description{
-Get all serving endpoints.#'
+Get all serving endpoints.
 }
