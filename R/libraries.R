@@ -8,7 +8,9 @@ NULL
 #' Get the status of all libraries on all clusters. A status will be available
 #' for all libraries installed on this cluster via the API or the libraries UI
 #' as well as libraries set to be installed on all clusters via the libraries
-#' UI.#'
+#' UI.
+#' @param client Required. Instance of DatabricksClient()
+#'
 #' @rdname librariesAllClusterStatuses
 #' @export
 librariesAllClusterStatuses <- function(client) {
@@ -33,6 +35,9 @@ librariesAllClusterStatuses <- function(client) {
 #' clusters, but now marked for removal. Within this group there is no order
 #' guarantee.
 #' @param client Required. Instance of DatabricksClient()
+
+
+#'
 #'
 #' @param cluster_id Required. Unique identifier of the cluster whose status should be retrieved.
 #'
@@ -57,6 +62,9 @@ librariesClusterStatus <- function(client, cluster_id) {
 #' union of the libraries specified via this method and the libraries set to be
 #' installed on all clusters via the libraries UI.
 #' @param client Required. Instance of DatabricksClient()
+
+
+#'
 #'
 #' @param cluster_id Required. Unique identifier for the cluster on which to install these libraries.
 #' @param libraries Required. The libraries to install.
@@ -74,6 +82,9 @@ librariesInstall <- function(client, cluster_id, libraries) {
 #' uninstalled until the cluster is restarted. Uninstalling libraries that are
 #' not installed on the cluster will have no impact but is not an error.
 #' @param client Required. Instance of DatabricksClient()
+
+
+#'
 #'
 #' @param cluster_id Required. Unique identifier for the cluster on which to uninstall these libraries.
 #' @param libraries Required. The libraries to uninstall.

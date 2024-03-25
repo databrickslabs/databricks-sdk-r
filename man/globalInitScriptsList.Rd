@@ -6,11 +6,14 @@
 \usage{
 globalInitScriptsList(client)
 }
+\arguments{
+\item{client}{Required. Instance of DatabricksClient()}
+}
 \value{
 \code{data.frame} with all of the response pages.
 }
 \description{
 Get a list of all global init scripts for this workspace. This returns all
 properties for each script but \strong{not} the script contents. To retrieve the
-contents of a script, use the \href{:method:globalinitscripts/get}{get a global init script} operation.#'
+contents of a script, use the \href{:method:globalinitscripts/get}{get a global init script} operation.
 }

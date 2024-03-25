@@ -6,13 +6,18 @@ NULL
 #' Create an endpoint.
 #' 
 #' Create a new endpoint.
+#' @param client Required. Instance of DatabricksClient()
+
 #'
 #' @description
 #' This is a long-running operation, which blocks until Vector Search Endpoints on Databricks reach
 #' ONLINE state with the timeout of 20 minutes, that you can change via `timeout` parameter.
 #' By default, the state of Databricks Vector Search Endpoints is reported to console. You can change this behavior
 #' by changing the `callback` parameter.
-#' @param client Required. Instance of DatabricksClient()
+#' @param timeout Time to wait for the operation to complete in minutes.
+#' @param callback Function to report the status of the operation. By default, it reports to console.
+
+#'
 #'
 #' @param endpoint_type Required. Type of endpoint.
 #' @param name Required. Name of endpoint.
@@ -65,6 +70,9 @@ vectorSearchEndpointsCreateEndpoint <- function(client, name, endpoint_type, tim
 
 #' Delete an endpoint.
 #' @param client Required. Instance of DatabricksClient()
+
+
+#'
 #'
 #' @param endpoint_name Required. Name of the endpoint.
 #'
@@ -78,6 +86,9 @@ vectorSearchEndpointsDeleteEndpoint <- function(client, endpoint_name) {
 
 #' Get an endpoint.
 #' @param client Required. Instance of DatabricksClient()
+
+
+#'
 #'
 #' @param endpoint_name Required. Name of the endpoint.
 #'
@@ -90,6 +101,8 @@ vectorSearchEndpointsGetEndpoint <- function(client, endpoint_name) {
 
 #' List all endpoints.
 #' @param client Required. Instance of DatabricksClient()
+
+
 #'
 #' @param page_token Token for pagination.
 #'

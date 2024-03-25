@@ -11,7 +11,7 @@ jobsUpdatePermissions(client, job_id, access_control_list = NULL)
 
 \item{job_id}{Required. The job for which to get or manage permissions.}
 
-\item{access_control_list}{}
+\item{access_control_list}{This field has no description yet.}
 }
 \description{
 Updates the permissions on a job. Jobs can inherit permissions from their

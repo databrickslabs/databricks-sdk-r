@@ -7,6 +7,9 @@ NULL
 #' 
 #' Create a draft dashboard.
 #' @param client Required. Instance of DatabricksClient()
+
+
+#'
 #'
 #' @param display_name Required. The display name of the dashboard.
 #' @param parent_path The workspace path of the folder containing the dashboard.
@@ -26,6 +29,9 @@ lakeviewCreate <- function(client, display_name, parent_path = NULL, serialized_
 #' 
 #' Get a draft dashboard.
 #' @param client Required. Instance of DatabricksClient()
+
+
+#'
 #'
 #' @param dashboard_id Required. UUID identifying the dashboard.
 #'
@@ -40,6 +46,9 @@ lakeviewGet <- function(client, dashboard_id) {
 #' 
 #' Get the current published dashboard.
 #' @param client Required. Instance of DatabricksClient()
+
+
+#'
 #'
 #' @param dashboard_id Required. UUID identifying the dashboard to be published.
 #'
@@ -55,6 +64,9 @@ lakeviewGetPublished <- function(client, dashboard_id) {
 #' 
 #' Publish the current draft dashboard.
 #' @param client Required. Instance of DatabricksClient()
+
+
+#'
 #'
 #' @param dashboard_id Required. UUID identifying the dashboard to be published.
 #' @param embed_credentials Flag to indicate if the publisher's credentials should be embedded in the published dashboard.
@@ -72,6 +84,9 @@ lakeviewPublish <- function(client, dashboard_id, embed_credentials = NULL, ware
 #' 
 #' Trash a dashboard.
 #' @param client Required. Instance of DatabricksClient()
+
+
+#'
 #'
 #' @param dashboard_id Required. UUID identifying the dashboard.
 #'
@@ -86,6 +101,9 @@ lakeviewTrash <- function(client, dashboard_id) {
 #' 
 #' Update a draft dashboard.
 #' @param client Required. Instance of DatabricksClient()
+
+
+#'
 #'
 #' @param dashboard_id Required. UUID identifying the dashboard.
 #' @param display_name The display name of the dashboard.

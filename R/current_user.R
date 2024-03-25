@@ -5,7 +5,9 @@ NULL
 
 #' Get current user info.
 #' 
-#' Get details about the current method caller's identity.#'
+#' Get details about the current method caller's identity.
+#' @param client Required. Instance of DatabricksClient()
+#'
 #' @rdname currentUserMe
 #' @export
 currentUserMe <- function(client) {

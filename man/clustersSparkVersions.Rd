@@ -6,7 +6,10 @@
 \usage{
 clustersSparkVersions(client)
 }
+\arguments{
+\item{client}{Required. Instance of DatabricksClient()}
+}
 \description{
 Returns the list of available Spark versions. These versions can be used to
-launch a cluster.#'
+launch a cluster.
 }

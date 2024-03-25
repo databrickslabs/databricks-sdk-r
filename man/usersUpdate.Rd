@@ -34,9 +34,9 @@ usersUpdate(
 
 \item{external_id}{External ID is not currently supported.}
 
-\item{groups}{}
+\item{groups}{This field has no description yet.}
 
-\item{name}{}
+\item{name}{This field has no description yet.}
 
 \item{roles}{Corresponds to AWS instance profile/arn role.}
 

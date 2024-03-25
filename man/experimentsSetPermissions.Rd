@@ -11,7 +11,7 @@ experimentsSetPermissions(client, experiment_id, access_control_list = NULL)
 
 \item{experiment_id}{Required. The experiment for which to get or manage permissions.}
 
-\item{access_control_list}{}
+\item{access_control_list}{This field has no description yet.}
 }
 \description{
 Sets permissions on an experiment. Experiments can inherit permissions from

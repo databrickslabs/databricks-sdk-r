@@ -10,6 +10,10 @@ warehousesStart(client, id, timeout = 20, callback = cli_reporter)
 \item{client}{Required. Instance of DatabricksClient()}
 
 \item{id}{Required. Required.}
+
+\item{timeout}{Time to wait for the operation to complete in minutes.}
+
+\item{callback}{Function to report the status of the operation. By default, it reports to console.}
 }
 \description{
 This is a long-running operation, which blocks until Warehouses on Databricks reach

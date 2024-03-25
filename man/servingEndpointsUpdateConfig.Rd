@@ -27,6 +27,10 @@ servingEndpointsUpdateConfig(
 \item{served_models}{(Deprecated, use served_entities instead) A list of served models for the endpoint to serve.}
 
 \item{traffic_config}{The traffic config defining how invocations to the serving endpoint should be routed.}
+
+\item{timeout}{Time to wait for the operation to complete in minutes.}
+
+\item{callback}{Function to report the status of the operation. By default, it reports to console.}
 }
 \description{
 This is a long-running operation, which blocks until Serving Endpoints on Databricks reach

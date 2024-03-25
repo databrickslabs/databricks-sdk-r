@@ -24,6 +24,10 @@ servingEndpointsCreate(
 \item{rate_limits}{Rate limits to be applied to the serving endpoint.}
 
 \item{tags}{Tags to be attached to the serving endpoint and automatically propagated to billing logs.}
+
+\item{timeout}{Time to wait for the operation to complete in minutes.}
+
+\item{callback}{Function to report the status of the operation. By default, it reports to console.}
 }
 \description{
 This is a long-running operation, which blocks until Serving Endpoints on Databricks reach

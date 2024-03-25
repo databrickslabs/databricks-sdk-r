@@ -4,11 +4,6 @@ deps:
 	@echo "✅ Installing dependencies"
 	@Rscript -e "if (!require(devtools)) install.packages('devtools', repos = 'https://cran.rstudio.com')"
 	@Rscript -e "devtools::install_dev_deps('.')"
-	
-gen: # invoked by Databricks employees
-	@echo "✅ Regenerating files from OpenAPI"
-	@oac
-	@Rscript -e "devtools::document()"
 
 tarball:
 	@echo "✅ Building tarball"
@@ -20,7 +15,7 @@ test:
 fmt:
 	@Rscript .codegen/format.R
 
-check: gen
+check: 
 	@echo "✅ run R CMD check on packages"
 	@set -e ; \
 	cleanup () { rm *.tar.gz; rm -fr *.Rcheck; } ; \

@@ -14,6 +14,9 @@ NULL
 #' Object deletion cannot be undone and deleting a directory recursively is not
 #' atomic.
 #' @param client Required. Instance of DatabricksClient()
+
+
+#'
 #'
 #' @param path Required. The absolute path of the notebook or directory.
 #' @param recursive The flag that specifies whether to delete the object recursively.
@@ -36,6 +39,9 @@ workspaceDelete <- function(client, path, recursive = NULL) {
 #' `MAX_NOTEBOOK_SIZE_EXCEEDED`. Currently, this API does not support exporting
 #' a library.
 #' @param client Required. Instance of DatabricksClient()
+
+
+#'
 #'
 #' @param format This specifies the format of the exported file.
 #' @param path Required. The absolute path of the object or directory.
@@ -51,6 +57,9 @@ workspaceExport <- function(client, path, format = NULL) {
 #' 
 #' Gets the permission levels that a user can have on an object.
 #' @param client Required. Instance of DatabricksClient()
+
+
+#'
 #'
 #' @param workspace_object_id Required. The workspace object for which to get or manage permissions.
 #' @param workspace_object_type Required. The workspace object type for which to get or manage permissions.
@@ -68,6 +77,9 @@ workspaceGetPermissionLevels <- function(client, workspace_object_type, workspac
 #' Gets the permissions of a workspace object. Workspace objects can inherit
 #' permissions from their parent objects or root object.
 #' @param client Required. Instance of DatabricksClient()
+
+
+#'
 #'
 #' @param workspace_object_id Required. The workspace object for which to get or manage permissions.
 #' @param workspace_object_type Required. The workspace object type for which to get or manage permissions.
@@ -85,6 +97,9 @@ workspaceGetPermissions <- function(client, workspace_object_type, workspace_obj
 #' Gets the status of an object or a directory. If `path` does not exist, this
 #' call returns an error `RESOURCE_DOES_NOT_EXIST`.
 #' @param client Required. Instance of DatabricksClient()
+
+
+#'
 #'
 #' @param path Required. The absolute path of the notebook or directory.
 #'
@@ -104,6 +119,9 @@ workspaceGetStatus <- function(client, path) {
 #' the `language` field unset. To import a single file as `SOURCE`, you must set
 #' the `language` field.
 #' @param client Required. Instance of DatabricksClient()
+
+
+#'
 #'
 #' @param content The base64-encoded content.
 #' @param format This specifies the format of the file to be imported.
@@ -126,6 +144,9 @@ workspaceImport <- function(client, path, content = NULL, format = NULL, languag
 #' the input path does not exist, this call returns an error
 #' `RESOURCE_DOES_NOT_EXIST`.
 #' @param client Required. Instance of DatabricksClient()
+
+
+#'
 #'
 #' @param notebooks_modified_after UTC timestamp in milliseconds.
 #' @param path Required. The absolute path of the notebook or directory.
@@ -151,6 +172,9 @@ workspaceList <- function(client, path, notebooks_modified_after = NULL) {
 #' Note that if this operation fails it may have succeeded in creating some of
 #' the necessary parent directories.
 #' @param client Required. Instance of DatabricksClient()
+
+
+#'
 #'
 #' @param path Required. The absolute path of the directory.
 #'
@@ -166,8 +190,11 @@ workspaceMkdirs <- function(client, path) {
 #' Sets permissions on a workspace object. Workspace objects can inherit
 #' permissions from their parent objects or root object.
 #' @param client Required. Instance of DatabricksClient()
+
+
 #'
-#' @param access_control_list 
+#'
+#' @param access_control_list This field has no description yet.
 #' @param workspace_object_id Required. The workspace object for which to get or manage permissions.
 #' @param workspace_object_type Required. The workspace object type for which to get or manage permissions.
 #'
@@ -185,8 +212,11 @@ workspaceSetPermissions <- function(client, workspace_object_type, workspace_obj
 #' Updates the permissions on a workspace object. Workspace objects can inherit
 #' permissions from their parent objects or root object.
 #' @param client Required. Instance of DatabricksClient()
+
+
 #'
-#' @param access_control_list 
+#'
+#' @param access_control_list This field has no description yet.
 #' @param workspace_object_id Required. The workspace object for which to get or manage permissions.
 #' @param workspace_object_type Required. The workspace object type for which to get or manage permissions.
 #'

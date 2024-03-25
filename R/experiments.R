@@ -12,6 +12,9 @@ NULL
 #' 
 #' Throws `RESOURCE_ALREADY_EXISTS` if a experiment with the given name exists.
 #' @param client Required. Instance of DatabricksClient()
+
+
+#'
 #'
 #' @param artifact_location Location where all artifacts for the experiment are stored.
 #' @param name Required. Experiment name.
@@ -31,6 +34,8 @@ experimentsCreateExperiment <- function(client, name, artifact_location = NULL, 
 #' `mlflowParam`, `mlflowMetric` and `mlflowRunTag` associated with a single
 #' execution.
 #' @param client Required. Instance of DatabricksClient()
+
+
 #'
 #' @param experiment_id ID of the associated experiment.
 #' @param start_time Unix timestamp in milliseconds of when the run started.
@@ -52,6 +57,9 @@ experimentsCreateRun <- function(client, experiment_id = NULL, start_time = NULL
 #' for deletion. If the experiment uses FileStore, artifacts associated with
 #' experiment are also deleted.
 #' @param client Required. Instance of DatabricksClient()
+
+
+#'
 #'
 #' @param experiment_id Required. ID of the associated experiment.
 #'
@@ -66,6 +74,9 @@ experimentsDeleteExperiment <- function(client, experiment_id) {
 #' 
 #' Marks a run for deletion.
 #' @param client Required. Instance of DatabricksClient()
+
+
+#'
 #'
 #' @param run_id Required. ID of the run to delete.
 #'
@@ -83,6 +94,9 @@ experimentsDeleteRun <- function(client, run_id) {
 #' from a Databricks Notebook in Python, you can use the client code snippet on
 #' https://learn.microsoft.com/en-us/azure/databricks/mlflow/runs#bulk-delete.
 #' @param client Required. Instance of DatabricksClient()
+
+
+#'
 #'
 #' @param experiment_id Required. The ID of the experiment containing the runs to delete.
 #' @param max_runs An optional positive integer indicating the maximum number of runs to delete.
@@ -100,6 +114,9 @@ experimentsDeleteRuns <- function(client, experiment_id, max_timestamp_millis, m
 #' Deletes a tag on a run. Tags are run metadata that can be updated during a
 #' run and after a run completes.
 #' @param client Required. Instance of DatabricksClient()
+
+
+#'
 #'
 #' @param key Required. Name of the tag.
 #' @param run_id Required. ID of the run that the tag was logged under.
@@ -123,6 +140,9 @@ experimentsDeleteTag <- function(client, run_id, key) {
 #' Throws `RESOURCE_DOES_NOT_EXIST` if no experiment with the specified name
 #' exists.
 #' @param client Required. Instance of DatabricksClient()
+
+
+#'
 #'
 #' @param experiment_name Required. Name of the associated experiment.
 #'
@@ -137,6 +157,9 @@ experimentsGetByName <- function(client, experiment_name) {
 #' 
 #' Gets metadata for an experiment. This method works on deleted experiments.
 #' @param client Required. Instance of DatabricksClient()
+
+
+#'
 #'
 #' @param experiment_id Required. ID of the associated experiment.
 #'
@@ -151,12 +174,15 @@ experimentsGetExperiment <- function(client, experiment_id) {
 #' 
 #' Gets a list of all values for the specified metric for a given run.
 #' @param client Required. Instance of DatabricksClient()
+
+
+#'
 #'
 #' @param max_results Maximum number of Metric records to return per paginated request.
 #' @param metric_key Required. Name of the metric.
 #' @param page_token Token indicating the page of metric histories to fetch.
 #' @param run_id ID of the run from which to fetch metric values.
-#' @param run_uuid [Deprecated, use run_id instead] ID of the run from which to fetch metric values.
+#' @param run_uuid Deprecated, use run_id instead. ID of the run from which to fetch metric values.
 #'
 #' @return `data.frame` with all of the response pages.
 #'
@@ -188,6 +214,9 @@ experimentsGetHistory <- function(client, metric_key, max_results = NULL, page_t
 #' 
 #' Gets the permission levels that a user can have on an object.
 #' @param client Required. Instance of DatabricksClient()
+
+
+#'
 #'
 #' @param experiment_id Required. The experiment for which to get or manage permissions.
 #'
@@ -204,6 +233,9 @@ experimentsGetPermissionLevels <- function(client, experiment_id) {
 #' Gets the permissions of an experiment. Experiments can inherit permissions
 #' from their root object.
 #' @param client Required. Instance of DatabricksClient()
+
+
+#'
 #'
 #' @param experiment_id Required. The experiment for which to get or manage permissions.
 #'
@@ -223,9 +255,12 @@ experimentsGetPermissions <- function(client, experiment_id) {
 #' If there are multiple values with the latest timestamp, return the maximum of
 #' these values.
 #' @param client Required. Instance of DatabricksClient()
+
+
+#'
 #'
 #' @param run_id Required. ID of the run to fetch.
-#' @param run_uuid [Deprecated, use run_id instead] ID of the run to fetch.
+#' @param run_uuid Deprecated, use run_id instead. ID of the run to fetch.
 #'
 #' @rdname experimentsGetRun
 #' @export
@@ -239,11 +274,13 @@ experimentsGetRun <- function(client, run_id, run_uuid = NULL) {
 #' List artifacts for a run. Takes an optional `artifact_path` prefix. If it is
 #' specified, the response contains only artifacts with the specified prefix.',
 #' @param client Required. Instance of DatabricksClient()
+
+
 #'
 #' @param page_token Token indicating the page of artifact results to fetch.
 #' @param path Filter artifacts matching this path (a relative path from the root artifact directory).
 #' @param run_id ID of the run whose artifacts to list.
-#' @param run_uuid [Deprecated, use run_id instead] ID of the run whose artifacts to list.
+#' @param run_uuid Deprecated, use run_id instead. ID of the run whose artifacts to list.
 #'
 #' @return `data.frame` with all of the response pages.
 #'
@@ -274,6 +311,8 @@ experimentsListArtifacts <- function(client, page_token = NULL, path = NULL, run
 #' 
 #' Gets a list of all experiments.
 #' @param client Required. Instance of DatabricksClient()
+
+
 #'
 #' @param max_results Maximum number of experiments desired.
 #' @param page_token Token indicating the page of experiments to fetch.
@@ -344,6 +383,8 @@ experimentsListExperiments <- function(client, max_results = NULL, page_token = 
 #' * Metric keys, param keys, and tag keys can be up to 250 characters in length
 #' * Parameter and tag values can be up to 250 characters in length
 #' @param client Required. Instance of DatabricksClient()
+
+
 #'
 #' @param metrics Metrics to log.
 #' @param params Params to log.
@@ -363,6 +404,8 @@ experimentsLogBatch <- function(client, metrics = NULL, params = NULL, run_id = 
 #' **NOTE:** Experimental: This API may change or be removed in a future release
 #' without warning.
 #' @param client Required. Instance of DatabricksClient()
+
+
 #'
 #' @param datasets Dataset inputs.
 #' @param run_id ID of the run to log under.
@@ -380,10 +423,13 @@ experimentsLogInputs <- function(client, datasets = NULL, run_id = NULL) {
 #' value) with an associated timestamp. Examples include the various metrics
 #' that represent ML model accuracy. A metric can be logged multiple times.
 #' @param client Required. Instance of DatabricksClient()
+
+
+#'
 #'
 #' @param key Required. Name of the metric.
 #' @param run_id ID of the run under which to log the metric.
-#' @param run_uuid [Deprecated, use run_id instead] ID of the run under which to log the metric.
+#' @param run_uuid Deprecated, use run_id instead. ID of the run under which to log the metric.
 #' @param step Step at which to log the metric.
 #' @param timestamp Required. Unix timestamp in milliseconds at the time metric was logged.
 #' @param value Required. Double value of the metric being logged.
@@ -402,6 +448,8 @@ experimentsLogMetric <- function(client, key, value, timestamp, run_id = NULL, r
 #' **NOTE:** Experimental: This API may change or be removed in a future release
 #' without warning.
 #' @param client Required. Instance of DatabricksClient()
+
+
 #'
 #' @param model_json MLmodel file in json format.
 #' @param run_id ID of the run to log under.
@@ -420,10 +468,13 @@ experimentsLogModel <- function(client, model_json = NULL, run_id = NULL) {
 #' constant dates and values used in an ETL pipeline. A param can be logged only
 #' once for a run.
 #' @param client Required. Instance of DatabricksClient()
+
+
+#'
 #'
 #' @param key Required. Name of the param.
 #' @param run_id ID of the run under which to log the param.
-#' @param run_uuid [Deprecated, use run_id instead] ID of the run under which to log the param.
+#' @param run_uuid Deprecated, use run_id instead. ID of the run under which to log the param.
 #' @param value Required. String value of the param being logged.
 #'
 #' @rdname experimentsLogParam
@@ -442,6 +493,9 @@ experimentsLogParam <- function(client, key, value, run_id = NULL, run_uuid = NU
 #' Throws `RESOURCE_DOES_NOT_EXIST` if experiment was never created or was
 #' permanently deleted.
 #' @param client Required. Instance of DatabricksClient()
+
+
+#'
 #'
 #' @param experiment_id Required. ID of the associated experiment.
 #'
@@ -456,6 +510,9 @@ experimentsRestoreExperiment <- function(client, experiment_id) {
 #' 
 #' Restores a deleted run.
 #' @param client Required. Instance of DatabricksClient()
+
+
+#'
 #'
 #' @param run_id Required. ID of the run to restore.
 #'
@@ -473,6 +530,9 @@ experimentsRestoreRun <- function(client, run_id) {
 #' from a Databricks Notebook in Python, you can use the client code snippet on
 #' https://learn.microsoft.com/en-us/azure/databricks/mlflow/runs#bulk-restore.
 #' @param client Required. Instance of DatabricksClient()
+
+
+#'
 #'
 #' @param experiment_id Required. The ID of the experiment containing the runs to restore.
 #' @param max_runs An optional positive integer indicating the maximum number of runs to restore.
@@ -489,6 +549,8 @@ experimentsRestoreRuns <- function(client, experiment_id, min_timestamp_millis, 
 #' 
 #' Searches for experiments that satisfy specified search criteria.
 #' @param client Required. Instance of DatabricksClient()
+
+
 #'
 #' @param filter String representing a SQL filter condition (e.g.
 #' @param max_results Maximum number of experiments desired.
@@ -528,6 +590,8 @@ experimentsSearchExperiments <- function(client, filter = NULL, max_results = NU
 #' 
 #' Search expressions can use `mlflowMetric` and `mlflowParam` keys.',
 #' @param client Required. Instance of DatabricksClient()
+
+
 #'
 #' @param experiment_ids List of experiment IDs to search over.
 #' @param filter A filter expression over params, metrics, and tags, that allows returning a subset of runs.
@@ -567,6 +631,9 @@ experimentsSearchRuns <- function(client, experiment_ids = NULL, filter = NULL, 
 #' Sets a tag on an experiment. Experiment tags are metadata that can be
 #' updated.
 #' @param client Required. Instance of DatabricksClient()
+
+
+#'
 #'
 #' @param experiment_id Required. ID of the experiment under which to log the tag.
 #' @param key Required. Name of the tag.
@@ -584,8 +651,11 @@ experimentsSetExperimentTag <- function(client, experiment_id, key, value) {
 #' Sets permissions on an experiment. Experiments can inherit permissions from
 #' their root object.
 #' @param client Required. Instance of DatabricksClient()
+
+
 #'
-#' @param access_control_list 
+#'
+#' @param access_control_list This field has no description yet.
 #' @param experiment_id Required. The experiment for which to get or manage permissions.
 #'
 #' @rdname experimentsSetPermissions
@@ -601,10 +671,13 @@ experimentsSetPermissions <- function(client, experiment_id, access_control_list
 #' Sets a tag on a run. Tags are run metadata that can be updated during a run
 #' and after a run completes.
 #' @param client Required. Instance of DatabricksClient()
+
+
+#'
 #'
 #' @param key Required. Name of the tag.
 #' @param run_id ID of the run under which to log the tag.
-#' @param run_uuid [Deprecated, use run_id instead] ID of the run under which to log the tag.
+#' @param run_uuid Deprecated, use run_id instead. ID of the run under which to log the tag.
 #' @param value Required. String value of the tag being logged.
 #'
 #' @rdname experimentsSetTag
@@ -618,6 +691,9 @@ experimentsSetTag <- function(client, key, value, run_id = NULL, run_uuid = NULL
 #' 
 #' Updates experiment metadata.
 #' @param client Required. Instance of DatabricksClient()
+
+
+#'
 #'
 #' @param experiment_id Required. ID of the associated experiment.
 #' @param new_name If provided, the experiment's name is changed to the new name.
@@ -634,8 +710,11 @@ experimentsUpdateExperiment <- function(client, experiment_id, new_name = NULL) 
 #' Updates the permissions on an experiment. Experiments can inherit permissions
 #' from their root object.
 #' @param client Required. Instance of DatabricksClient()
+
+
 #'
-#' @param access_control_list 
+#'
+#' @param access_control_list This field has no description yet.
 #' @param experiment_id Required. The experiment for which to get or manage permissions.
 #'
 #' @rdname experimentsUpdatePermissions
@@ -650,10 +729,12 @@ experimentsUpdatePermissions <- function(client, experiment_id, access_control_l
 #' 
 #' Updates run metadata.
 #' @param client Required. Instance of DatabricksClient()
+
+
 #'
 #' @param end_time Unix timestamp in milliseconds of when the run ended.
 #' @param run_id ID of the run to update.
-#' @param run_uuid [Deprecated, use run_id instead] ID of the run to update.
+#' @param run_uuid Deprecated, use run_id instead. ID of the run to update.
 #' @param status Updated status of the run.
 #'
 #' @rdname experimentsUpdateRun

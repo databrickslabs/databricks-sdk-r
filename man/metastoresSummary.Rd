@@ -6,7 +6,10 @@
 \usage{
 metastoresSummary(client)
 }
+\arguments{
+\item{client}{Required. Instance of DatabricksClient()}
+}
 \description{
 Gets information about a metastore. This summary includes the storage
-credential, the cloud vendor, the cloud region, and the global metastore ID.#'
+credential, the cloud vendor, the cloud region, and the global metastore ID.
 }

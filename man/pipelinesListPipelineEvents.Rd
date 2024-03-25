@@ -16,13 +16,13 @@ pipelinesListPipelineEvents(
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{pipeline_id}{Required.}
+\item{pipeline_id}{Required. This field has no description yet.}
 
 \item{filter}{Criteria to select a subset of results, expressed using a SQL-like syntax.}
 
 \item{max_results}{Max number of entries to return in a single page.}
 
-\item{order_by}{A string indicating a sort order by timestamp for the results, for example, \link{'timestamp asc'}.}
+\item{order_by}{A string indicating a sort order by timestamp for the results, for example, timestamp asc.}
 
 \item{page_token}{Page token returned by previous call.}
 }

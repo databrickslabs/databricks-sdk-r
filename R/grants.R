@@ -7,6 +7,9 @@ NULL
 #' 
 #' Gets the permissions for a securable.
 #' @param client Required. Instance of DatabricksClient()
+
+
+#'
 #'
 #' @param full_name Required. Full name of securable.
 #' @param principal If provided, only the permissions for the specified principal (user or group) are returned.
@@ -24,6 +27,9 @@ grantsGet <- function(client, securable_type, full_name, principal = NULL) {
 #' 
 #' Gets the effective permissions for a securable.
 #' @param client Required. Instance of DatabricksClient()
+
+
+#'
 #'
 #' @param full_name Required. Full name of securable.
 #' @param principal If provided, only the effective permissions for the specified principal (user or group) are returned.
@@ -41,6 +47,9 @@ grantsGetEffective <- function(client, securable_type, full_name, principal = NU
 #' 
 #' Updates the permissions for a securable.
 #' @param client Required. Instance of DatabricksClient()
+
+
+#'
 #'
 #' @param changes Array of permissions change objects.
 #' @param full_name Required. Full name of securable.

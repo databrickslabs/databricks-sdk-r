@@ -9,7 +9,7 @@ alertsUpdate(client, alert_id, name, options, query_id, rearm = NULL)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{alert_id}{Required.}
+\item{alert_id}{Required. This field has no description yet.}
 
 \item{name}{Required. Name of the alert.}
 

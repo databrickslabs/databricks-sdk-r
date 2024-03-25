@@ -20,7 +20,7 @@ ipAccessListsUpdate(
 
 \item{enabled}{Specifies whether this IP access list is enabled.}
 
-\item{ip_addresses}{}
+\item{ip_addresses}{This field has no description yet.}
 
 \item{label}{Label for the IP access list.}
 

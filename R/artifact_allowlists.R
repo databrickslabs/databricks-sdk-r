@@ -8,6 +8,9 @@ NULL
 #' Get the artifact allowlist of a certain artifact type. The caller must be a
 #' metastore admin or have the **MANAGE ALLOWLIST** privilege on the metastore.
 #' @param client Required. Instance of DatabricksClient()
+
+
+#'
 #'
 #' @param artifact_type Required. The artifact type of the allowlist.
 #'
@@ -25,6 +28,9 @@ artifactAllowlistsGet <- function(client, artifact_type) {
 #' allowlist is replaced with the new allowlist. The caller must be a metastore
 #' admin or have the **MANAGE ALLOWLIST** privilege on the metastore.
 #' @param client Required. Instance of DatabricksClient()
+
+
+#'
 #'
 #' @param artifact_matchers Required. A list of allowed artifact match patterns.
 #' @param artifact_type Required. The artifact type of the allowlist.

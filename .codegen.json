@@ -14,6 +14,9 @@
       "Rscript -e \"devtools::install_dev_deps('.')\""
     ],
     "post_generate": [
+      "gsed -i -- 's/\\[Deprecated, use run_id instead\\]/Deprecated, use run_id instead./g' **/*.R",
+      "gsed -i -- 's/\\[MLflow endpoint\\]/MLflow endpoint/g' **/*.R",
+      "gsed -i -- \"s/\\['timestamp asc'\\]/timestamp asc/g\" **/*.R",
       "Rscript -e \"devtools::document()\""
     ]
   }

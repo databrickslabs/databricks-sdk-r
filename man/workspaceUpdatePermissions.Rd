@@ -18,7 +18,7 @@ workspaceUpdatePermissions(
 
 \item{workspace_object_id}{Required. The workspace object for which to get or manage permissions.}
 
-\item{access_control_list}{}
+\item{access_control_list}{This field has no description yet.}
 }
 \description{
 Updates the permissions on a workspace object. Workspace objects can inherit

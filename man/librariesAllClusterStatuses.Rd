@@ -6,9 +6,12 @@
 \usage{
 librariesAllClusterStatuses(client)
 }
+\arguments{
+\item{client}{Required. Instance of DatabricksClient()}
+}
 \description{
 Get the status of all libraries on all clusters. A status will be available
 for all libraries installed on this cluster via the API or the libraries UI
 as well as libraries set to be installed on all clusters via the libraries
-UI.#'
+UI.
 }

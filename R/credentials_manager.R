@@ -8,6 +8,9 @@ NULL
 #' Exchange tokens with an Identity Provider to get a new access token. It
 #' allows specifying scopes to determine token permissions.
 #' @param client Required. Instance of DatabricksClient()
+
+
+#'
 #'
 #' @param partition_id Required. The partition of Credentials store.
 #' @param scopes Required. Array of scopes for the token request.

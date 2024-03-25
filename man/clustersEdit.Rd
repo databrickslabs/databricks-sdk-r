@@ -46,7 +46,7 @@ clustersEdit(
 
 \item{spark_version}{Required. The Spark version of the cluster, e.g.}
 
-\item{apply_policy_default_values}{}
+\item{apply_policy_default_values}{This field has no description yet.}
 
 \item{autoscale}{Parameters needed in order to automatically scale clusters up and down based on load.}
 
@@ -66,7 +66,7 @@ clustersEdit(
 
 \item{data_security_mode}{Data security mode decides what data governance model to use when accessing data from a cluster.}
 
-\item{docker_image}{}
+\item{docker_image}{This field has no description yet.}
 
 \item{driver_instance_pool_id}{The optional ID of the instance pool for the driver of the cluster belongs.}
 
@@ -98,7 +98,11 @@ clustersEdit(
 
 \item{ssh_public_keys}{SSH public key contents that will be added to each Spark node in this cluster.}
 
-\item{workload_type}{}
+\item{workload_type}{This field has no description yet.}
+
+\item{timeout}{Time to wait for the operation to complete in minutes.}
+
+\item{callback}{Function to report the status of the operation. By default, it reports to console.}
 }
 \description{
 This is a long-running operation, which blocks until Clusters on Databricks reach

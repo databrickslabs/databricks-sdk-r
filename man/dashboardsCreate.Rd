@@ -27,7 +27,7 @@ dashboardsCreate(
 
 \item{run_as_role}{Sets the \strong{Run as} role for the object.}
 
-\item{tags}{}
+\item{tags}{This field has no description yet.}
 }
 \description{
 Create a dashboard object.

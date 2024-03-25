@@ -25,7 +25,7 @@ experimentsLogMetric(
 
 \item{run_id}{ID of the run under which to log the metric.}
 
-\item{run_uuid}{\link{Deprecated, use run_id instead} ID of the run under which to log the metric.}
+\item{run_uuid}{Deprecated, use run_id instead. ID of the run under which to log the metric.}
 
 \item{step}{Step at which to log the metric.}
 }

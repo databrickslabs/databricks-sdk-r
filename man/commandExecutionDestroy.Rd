@@ -9,9 +9,9 @@ commandExecutionDestroy(client, cluster_id, context_id)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{cluster_id}{Required.}
+\item{cluster_id}{Required. This field has no description yet.}
 
-\item{context_id}{Required.}
+\item{context_id}{Required. This field has no description yet.}
 }
 \description{
 Deletes an execution context.

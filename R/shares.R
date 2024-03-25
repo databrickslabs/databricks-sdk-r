@@ -9,6 +9,9 @@ NULL
 #' creation with **update**. The caller must be a metastore admin or have the
 #' **CREATE_SHARE** privilege on the metastore.
 #' @param client Required. Instance of DatabricksClient()
+
+
+#'
 #'
 #' @param comment User-provided free-form text description.
 #' @param name Required. Name of the share.
@@ -25,6 +28,9 @@ sharesCreate <- function(client, name, comment = NULL) {
 #' Deletes a data object share from the metastore. The caller must be an owner
 #' of the share.
 #' @param client Required. Instance of DatabricksClient()
+
+
+#'
 #'
 #' @param name Required. The name of the share.
 #'
@@ -40,6 +46,9 @@ sharesDelete <- function(client, name) {
 #' Gets a data object share from the metastore. The caller must be a metastore
 #' admin or the owner of the share.
 #' @param client Required. Instance of DatabricksClient()
+
+
+#'
 #'
 #' @param include_shared_data Query for data to include in the share.
 #' @param name Required. The name of the share.
@@ -55,7 +64,9 @@ sharesGet <- function(client, name, include_shared_data = NULL) {
 #' 
 #' Gets an array of data object shares from the metastore. The caller must be a
 #' metastore admin or the owner of the share. There is no guarantee of a
-#' specific ordering of the elements in the array.#'
+#' specific ordering of the elements in the array.
+#' @param client Required. Instance of DatabricksClient()
+#'
 #' @return `data.frame` with all of the response pages.
 #'
 #' @rdname sharesList
@@ -72,6 +83,9 @@ sharesList <- function(client) {
 #' Gets the permissions for a data share from the metastore. The caller must be
 #' a metastore admin or the owner of the share.
 #' @param client Required. Instance of DatabricksClient()
+
+
+#'
 #'
 #' @param name Required. The name of the share.
 #'
@@ -101,6 +115,9 @@ sharesSharePermissions <- function(client, name) {
 #' 
 #' Table removals through **update** do not require additional privileges.
 #' @param client Required. Instance of DatabricksClient()
+
+
+#'
 #'
 #' @param comment User-provided free-form text description.
 #' @param name Required. The name of the share.
@@ -124,6 +141,9 @@ sharesUpdate <- function(client, name, comment = NULL, new_name = NULL, owner = 
 #' For new recipient grants, the user must also be the owner of the recipients.
 #' recipient revocations do not require additional privileges.
 #' @param client Required. Instance of DatabricksClient()
+
+
+#'
 #'
 #' @param changes Array of permission changes.
 #' @param name Required. The name of the share.

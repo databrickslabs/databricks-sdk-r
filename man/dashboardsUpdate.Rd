@@ -9,7 +9,7 @@ dashboardsUpdate(client, dashboard_id, name = NULL, run_as_role = NULL)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{dashboard_id}{Required.}
+\item{dashboard_id}{Required. This field has no description yet.}
 
 \item{name}{The title of this dashboard that appears in list views and at the top of the dashboard page.}
 

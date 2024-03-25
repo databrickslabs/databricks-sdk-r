@@ -6,7 +6,10 @@
 \usage{
 usersGetPermissions(client)
 }
+\arguments{
+\item{client}{Required. Instance of DatabricksClient()}
+}
 \description{
 Gets the permissions of all passwords. Passwords can inherit permissions from
-their root object.#'
+their root object.
 }

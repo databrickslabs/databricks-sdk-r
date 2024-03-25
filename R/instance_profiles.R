@@ -8,6 +8,9 @@ NULL
 #' In the UI, you can select the instance profile when launching clusters. This
 #' API is only available to admin users.
 #' @param client Required. Instance of DatabricksClient()
+
+
+#'
 #'
 #' @param iam_role_arn The AWS IAM role ARN of the role associated with the instance profile.
 #' @param instance_profile_arn Required. The AWS ARN of the instance profile to register with Databricks.
@@ -41,6 +44,9 @@ instanceProfilesAdd <- function(client, instance_profile_arn, iam_role_arn = NUL
 #' [Databricks SQL Serverless]: https://docs.databricks.com/sql/admin/serverless.html
 #' [Enable serverless SQL warehouses]: https://docs.databricks.com/sql/admin/serverless.html
 #' @param client Required. Instance of DatabricksClient()
+
+
+#'
 #'
 #' @param iam_role_arn The AWS IAM role ARN of the role associated with the instance profile.
 #' @param instance_profile_arn Required. The AWS ARN of the instance profile to register with Databricks.
@@ -59,7 +65,9 @@ instanceProfilesEdit <- function(client, instance_profile_arn, iam_role_arn = NU
 #' 
 #' List the instance profiles that the calling user can use to launch a cluster.
 #' 
-#' This API is available to all users.#'
+#' This API is available to all users.
+#' @param client Required. Instance of DatabricksClient()
+#'
 #' @return `data.frame` with all of the response pages.
 #'
 #' @rdname instanceProfilesList
@@ -78,6 +86,9 @@ instanceProfilesList <- function(client) {
 #' 
 #' This API is only accessible to admin users.
 #' @param client Required. Instance of DatabricksClient()
+
+
+#'
 #'
 #' @param instance_profile_arn Required. The ARN of the instance profile to remove.
 #'

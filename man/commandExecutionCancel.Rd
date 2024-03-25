@@ -16,11 +16,15 @@ commandExecutionCancel(
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{cluster_id}{}
+\item{cluster_id}{This field has no description yet.}
 
-\item{command_id}{}
+\item{command_id}{This field has no description yet.}
 
-\item{context_id}{}
+\item{context_id}{This field has no description yet.}
+
+\item{timeout}{Time to wait for the operation to complete in minutes.}
+
+\item{callback}{Function to report the status of the operation. By default, it reports to console.}
 }
 \description{
 This is a long-running operation, which blocks until Command Execution on Databricks reach

@@ -13,9 +13,9 @@ modelRegistryGetModel(client, name)
 }
 \description{
 Get the details of a model. This is a Databricks workspace version of the
-\link{MLflow endpoint} that also returns the model's Databricks workspace ID and
+MLflow endpoint that also returns the model's Databricks workspace ID and
 the permission level of the requesting user on the model.
 }
 \details{
-
+MLflow endpoint: https://www.mlflow.org/docs/latest/rest-api.html#get-registeredmodel
 }

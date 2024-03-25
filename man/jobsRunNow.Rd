@@ -37,7 +37,7 @@ jobsRunNow(
 
 \item{notebook_params}{A map from keys to values for jobs with notebook task, for example \verb{'notebook_params': \{'name': 'john doe', 'age': '35'\}}.}
 
-\item{pipeline_params}{}
+\item{pipeline_params}{This field has no description yet.}
 
 \item{python_named_params}{A map from keys to values for jobs with Python wheel task, for example \verb{'python_named_params': \{'name': 'task', 'data': 'dbfs:/path/to/data.json'\}}.}
 
@@ -48,6 +48,10 @@ jobsRunNow(
 \item{spark_submit_params}{A list of parameters for jobs with spark submit task, for example \verb{'spark_submit_params': ['--class', 'org.apache.spark.examples.SparkPi']}.}
 
 \item{sql_params}{A map from keys to values for jobs with SQL task, for example \verb{'sql_params': \{'name': 'john doe', 'age': '35'\}}.}
+
+\item{timeout}{Time to wait for the operation to complete in minutes.}
+
+\item{callback}{Function to report the status of the operation. By default, it reports to console.}
 }
 \description{
 This is a long-running operation, which blocks until Jobs on Databricks reach

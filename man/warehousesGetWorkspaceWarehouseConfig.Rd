@@ -6,7 +6,10 @@
 \usage{
 warehousesGetWorkspaceWarehouseConfig(client)
 }
+\arguments{
+\item{client}{Required. Instance of DatabricksClient()}
+}
 \description{
 Gets the workspace level configuration that is shared by all SQL warehouses
-in a workspace.#'
+in a workspace.
 }

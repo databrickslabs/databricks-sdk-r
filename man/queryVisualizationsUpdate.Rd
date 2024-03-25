@@ -20,7 +20,7 @@ queryVisualizationsUpdate(
 
 \item{id}{The UUID for this visualization.}
 
-\item{created_at}{}
+\item{created_at}{This field has no description yet.}
 
 \item{description}{A short description of this visualization.}
 
@@ -30,7 +30,7 @@ queryVisualizationsUpdate(
 
 \item{type}{The type of visualization: chart, table, pivot table, and so on.}
 
-\item{updated_at}{}
+\item{updated_at}{This field has no description yet.}
 }
 \description{
 Edit existing visualization.

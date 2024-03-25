@@ -7,6 +7,9 @@ NULL
 #' 
 #' Gets an activation URL for a share.
 #' @param client Required. Instance of DatabricksClient()
+
+
+#'
 #'
 #' @param activation_url Required. The one time activation url.
 #'
@@ -23,6 +26,9 @@ recipientActivationGetActivationUrlInfo <- function(client, activation_url) {
 #' Retrieve access token with an activation url. This is a public API without
 #' any authentication.
 #' @param client Required. Instance of DatabricksClient()
+
+
+#'
 #'
 #' @param activation_url Required. The one time activation url.
 #'

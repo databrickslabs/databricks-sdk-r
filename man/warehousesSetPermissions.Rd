@@ -11,7 +11,7 @@ warehousesSetPermissions(client, warehouse_id, access_control_list = NULL)
 
 \item{warehouse_id}{Required. The SQL warehouse for which to get or manage permissions.}
 
-\item{access_control_list}{}
+\item{access_control_list}{This field has no description yet.}
 }
 \description{
 Sets permissions on a SQL warehouse. SQL warehouses can inherit permissions

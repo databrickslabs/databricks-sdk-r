@@ -11,7 +11,7 @@ experimentsGetRun(client, run_id, run_uuid = NULL)
 
 \item{run_id}{Required. ID of the run to fetch.}
 
-\item{run_uuid}{\link{Deprecated, use run_id instead} ID of the run to fetch.}
+\item{run_uuid}{Deprecated, use run_id instead. ID of the run to fetch.}
 }
 \description{
 Gets the metadata, metrics, params, and tags for a run. In the case where

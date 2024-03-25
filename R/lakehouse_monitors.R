@@ -16,6 +16,9 @@ NULL
 #' Additionally, the call must be made from the workspace where the monitor was
 #' created.
 #' @param client Required. Instance of DatabricksClient()
+
+
+#'
 #'
 #' @param full_name Required. Full name of the table.
 #' @param refresh_id Required. ID of the refresh.
@@ -43,6 +46,9 @@ lakehouseMonitorsCancelRefresh <- function(client, full_name, refresh_id) {
 #' Workspace assets, such as the dashboard, will be created in the workspace
 #' where this call was made.
 #' @param client Required. Instance of DatabricksClient()
+
+
+#'
 #'
 #' @param assets_dir Required. The directory to store monitoring assets (e.g.
 #' @param baseline_table_name Name of the baseline table from which drift metrics are computed from.
@@ -90,6 +96,9 @@ lakehouseMonitorsCreate <- function(client, full_name, assets_dir, output_schema
 #' Note that the metric tables and dashboard will not be deleted as part of this
 #' call; those assets must be manually cleaned up (if desired).
 #' @param client Required. Instance of DatabricksClient()
+
+
+#'
 #'
 #' @param full_name Required. Full name of the table.
 #'
@@ -116,6 +125,9 @@ lakehouseMonitorsDelete <- function(client, full_name) {
 #' dashboard) may be filtered out if the caller is in a different workspace than
 #' where the monitor was created.
 #' @param client Required. Instance of DatabricksClient()
+
+
+#'
 #'
 #' @param full_name Required. Full name of the table.
 #'
@@ -140,6 +152,9 @@ lakehouseMonitorsGet <- function(client, full_name) {
 #' Additionally, the call must be made from the workspace where the monitor was
 #' created.
 #' @param client Required. Instance of DatabricksClient()
+
+
+#'
 #'
 #' @param full_name Required. Full name of the table.
 #' @param refresh_id Required. ID of the refresh.
@@ -166,6 +181,9 @@ lakehouseMonitorsGetRefresh <- function(client, full_name, refresh_id) {
 #' Additionally, the call must be made from the workspace where the monitor was
 #' created.
 #' @param client Required. Instance of DatabricksClient()
+
+
+#'
 #'
 #' @param full_name Required. Full name of the table.
 #'
@@ -191,6 +209,9 @@ lakehouseMonitorsListRefreshes <- function(client, full_name) {
 #' Additionally, the call must be made from the workspace where the monitor was
 #' created.
 #' @param client Required. Instance of DatabricksClient()
+
+
+#'
 #'
 #' @param full_name Required. Full name of the table.
 #'
@@ -218,6 +239,9 @@ lakehouseMonitorsRunRefresh <- function(client, full_name) {
 #' Certain configuration fields, such as output asset identifiers, cannot be
 #' updated.
 #' @param client Required. Instance of DatabricksClient()
+
+
+#'
 #'
 #' @param baseline_table_name Name of the baseline table from which drift metrics are computed from.
 #' @param custom_metrics Custom metrics to compute on the monitored table.

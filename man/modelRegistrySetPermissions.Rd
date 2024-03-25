@@ -15,7 +15,7 @@ modelRegistrySetPermissions(
 
 \item{registered_model_id}{Required. The registered model for which to get or manage permissions.}
 
-\item{access_control_list}{}
+\item{access_control_list}{This field has no description yet.}
 }
 \description{
 Sets permissions on a registered model. Registered models can inherit

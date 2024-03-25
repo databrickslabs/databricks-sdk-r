@@ -23,9 +23,9 @@ modelRegistryUpdateWebhook(
 
 \item{events}{Events that can trigger a registry webhook: * \code{MODEL_VERSION_CREATED}: A new model version was created for the associated model.}
 
-\item{http_url_spec}{}
+\item{http_url_spec}{This field has no description yet.}
 
-\item{job_spec}{}
+\item{job_spec}{This field has no description yet.}
 
 \item{status}{Enable or disable triggering the webhook, or put the webhook into test mode.}
 }

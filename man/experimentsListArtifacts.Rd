@@ -21,7 +21,7 @@ experimentsListArtifacts(
 
 \item{run_id}{ID of the run whose artifacts to list.}
 
-\item{run_uuid}{\link{Deprecated, use run_id instead} ID of the run whose artifacts to list.}
+\item{run_uuid}{Deprecated, use run_id instead. ID of the run whose artifacts to list.}
 }
 \value{
 \code{data.frame} with all of the response pages.

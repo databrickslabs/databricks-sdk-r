@@ -8,6 +8,9 @@ NULL
 #' The scope name must consist of alphanumeric characters, dashes, underscores,
 #' and periods, and may not exceed 128 characters.
 #' @param client Required. Instance of DatabricksClient()
+
+
+#'
 #'
 #' @param backend_azure_keyvault The metadata for the secret scope if the type is `AZURE_KEYVAULT`.
 #' @param initial_manage_principal The principal that is initially granted `MANAGE` permission to the created scope.
@@ -32,6 +35,9 @@ secretsCreateScope <- function(client, scope, backend_azure_keyvault = NULL, ini
 #' Throws `PERMISSION_DENIED` if the user does not have permission to make this
 #' API call.
 #' @param client Required. Instance of DatabricksClient()
+
+
+#'
 #'
 #' @param principal Required. The principal to remove an existing ACL from.
 #' @param scope Required. The name of the scope to remove permissions from.
@@ -51,6 +57,9 @@ secretsDeleteAcl <- function(client, scope, principal) {
 #' `PERMISSION_DENIED` if the user does not have permission to make this API
 #' call.
 #' @param client Required. Instance of DatabricksClient()
+
+
+#'
 #'
 #' @param scope Required. Name of the scope to delete.
 #'
@@ -70,6 +79,9 @@ secretsDeleteScope <- function(client, scope) {
 #' Throws `PERMISSION_DENIED` if the user does not have permission to make this
 #' API call.
 #' @param client Required. Instance of DatabricksClient()
+
+
+#'
 #'
 #' @param key Required. Name of the secret to delete.
 #' @param scope Required. The name of the scope that contains the secret to delete.
@@ -90,6 +102,9 @@ secretsDeleteSecret <- function(client, scope, key) {
 #' `PERMISSION_DENIED` if the user does not have permission to make this API
 #' call.
 #' @param client Required. Instance of DatabricksClient()
+
+
+#'
 #'
 #' @param principal Required. The principal to fetch ACL information for.
 #' @param scope Required. The name of the scope to fetch ACL information from.
@@ -116,6 +131,9 @@ secretsGetAcl <- function(client, scope, principal) {
 #' this API call. Throws ``RESOURCE_DOES_NOT_EXIST`` if no such secret or secret
 #' scope exists.
 #' @param client Required. Instance of DatabricksClient()
+
+
+#'
 #'
 #' @param key Required. The key to fetch secret for.
 #' @param scope Required. The name of the scope to fetch secret information from.
@@ -136,6 +154,9 @@ secretsGetSecret <- function(client, scope, key) {
 #' `PERMISSION_DENIED` if the user does not have permission to make this API
 #' call.
 #' @param client Required. Instance of DatabricksClient()
+
+
+#'
 #'
 #' @param scope Required. The name of the scope to fetch ACL information from.
 #'
@@ -156,7 +177,9 @@ secretsListAcls <- function(client, scope) {
 #' Lists all secret scopes available in the workspace.
 #' 
 #' Throws `PERMISSION_DENIED` if the user does not have permission to make this
-#' API call.#'
+#' API call.
+#' @param client Required. Instance of DatabricksClient()
+#'
 #' @return `data.frame` with all of the response pages.
 #'
 #' @rdname secretsListScopes
@@ -179,6 +202,9 @@ secretsListScopes <- function(client) {
 #' `PERMISSION_DENIED` if the user does not have permission to make this API
 #' call.
 #' @param client Required. Instance of DatabricksClient()
+
+
+#'
 #'
 #' @param scope Required. The name of the scope to list secrets within.
 #'
@@ -223,6 +249,9 @@ secretsListSecrets <- function(client, scope) {
 #' Throws `PERMISSION_DENIED` if the user does not have permission to make this
 #' API call.
 #' @param client Required. Instance of DatabricksClient()
+
+
+#'
 #'
 #' @param permission Required. The permission level applied to the principal.
 #' @param principal Required. The principal in which the permission is applied.
@@ -257,6 +286,9 @@ secretsPutAcl <- function(client, scope, principal, permission) {
 #' Throws `PERMISSION_DENIED` if the user does not have permission to make this
 #' API call.
 #' @param client Required. Instance of DatabricksClient()
+
+
+#'
 #'
 #' @param bytes_value If specified, value will be stored as bytes.
 #' @param key Required. A unique name to identify the secret.

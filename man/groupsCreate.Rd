@@ -24,13 +24,13 @@ groupsCreate(
 
 \item{entitlements}{Entitlements assigned to the group.}
 
-\item{external_id}{}
+\item{external_id}{This field has no description yet.}
 
-\item{groups}{}
+\item{groups}{This field has no description yet.}
 
 \item{id}{Databricks group ID.}
 
-\item{members}{}
+\item{members}{This field has no description yet.}
 
 \item{meta}{Container for the group identifier.}
 

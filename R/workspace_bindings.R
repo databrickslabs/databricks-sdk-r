@@ -8,6 +8,9 @@ NULL
 #' Gets workspace bindings of the catalog. The caller must be a metastore admin
 #' or an owner of the catalog.
 #' @param client Required. Instance of DatabricksClient()
+
+
+#'
 #'
 #' @param name Required. The name of the catalog.
 #'
@@ -24,6 +27,9 @@ workspaceBindingsGet <- function(client, name) {
 #' Gets workspace bindings of the securable. The caller must be a metastore
 #' admin or an owner of the securable.
 #' @param client Required. Instance of DatabricksClient()
+
+
+#'
 #'
 #' @param securable_name Required. The name of the securable.
 #' @param securable_type Required. The type of the securable.
@@ -41,6 +47,9 @@ workspaceBindingsGetBindings <- function(client, securable_type, securable_name)
 #' Updates workspace bindings of the catalog. The caller must be a metastore
 #' admin or an owner of the catalog.
 #' @param client Required. Instance of DatabricksClient()
+
+
+#'
 #'
 #' @param assign_workspaces A list of workspace IDs.
 #' @param name Required. The name of the catalog.
@@ -59,6 +68,9 @@ workspaceBindingsUpdate <- function(client, name, assign_workspaces = NULL, unas
 #' Updates workspace bindings of the securable. The caller must be a metastore
 #' admin or an owner of the securable.
 #' @param client Required. Instance of DatabricksClient()
+
+
+#'
 #'
 #' @param add List of workspace bindings.
 #' @param remove List of workspace bindings.

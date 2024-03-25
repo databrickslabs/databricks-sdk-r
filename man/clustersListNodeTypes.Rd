@@ -6,7 +6,10 @@
 \usage{
 clustersListNodeTypes(client)
 }
+\arguments{
+\item{client}{Required. Instance of DatabricksClient()}
+}
 \description{
 Returns a list of supported Spark node types. These node types can be used to
-launch a cluster.#'
+launch a cluster.
 }

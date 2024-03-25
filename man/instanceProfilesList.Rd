@@ -6,6 +6,9 @@
 \usage{
 instanceProfilesList(client)
 }
+\arguments{
+\item{client}{Required. Instance of DatabricksClient()}
+}
 \value{
 \code{data.frame} with all of the response pages.
 }
@@ -13,5 +16,5 @@ instanceProfilesList(client)
 List the instance profiles that the calling user can use to launch a cluster.
 }
 \details{
-This API is available to all users.#'
+This API is available to all users.
 }

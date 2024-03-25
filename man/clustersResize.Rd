@@ -21,6 +21,10 @@ clustersResize(
 \item{autoscale}{Parameters needed in order to automatically scale clusters up and down based on load.}
 
 \item{num_workers}{Number of worker nodes that this cluster should have.}
+
+\item{timeout}{Time to wait for the operation to complete in minutes.}
+
+\item{callback}{Function to report the status of the operation. By default, it reports to console.}
 }
 \description{
 This is a long-running operation, which blocks until Clusters on Databricks reach

@@ -28,9 +28,9 @@ modelRegistryTransitionStage(
 }
 \description{
 Transition a model version's stage. This is a Databricks workspace version of
-the \link{MLflow endpoint} that also accepts a comment associated with the
+the MLflow endpoint that also accepts a comment associated with the
 transition to be recorded.',
 }
 \details{
-
+MLflow endpoint: https://www.mlflow.org/docs/latest/rest-api.html#transition-modelversion-stage
 }

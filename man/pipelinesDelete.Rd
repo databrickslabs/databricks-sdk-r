@@ -9,7 +9,7 @@ pipelinesDelete(client, pipeline_id)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{pipeline_id}{Required.}
+\item{pipeline_id}{Required. This field has no description yet.}
 }
 \description{
 Deletes a pipeline.

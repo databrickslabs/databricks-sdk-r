@@ -10,6 +10,8 @@ NULL
 #' authenticated token. If the user's token quota is exceeded, this call returns
 #' an error **QUOTA_EXCEEDED**.
 #' @param client Required. Instance of DatabricksClient()
+
+
 #'
 #' @param comment Optional description to attach to the token.
 #' @param lifetime_seconds The lifetime of the token, in seconds.
@@ -28,6 +30,9 @@ tokensCreate <- function(client, comment = NULL, lifetime_seconds = NULL) {
 #' If a token with the specified ID is not valid, this call returns an error
 #' **RESOURCE_DOES_NOT_EXIST**.
 #' @param client Required. Instance of DatabricksClient()
+
+
+#'
 #'
 #' @param token_id Required. The ID of the token to be revoked.
 #'
@@ -40,7 +45,9 @@ tokensDelete <- function(client, token_id) {
 
 #' List tokens.
 #' 
-#' Lists all the valid tokens for a user-workspace pair.#'
+#' Lists all the valid tokens for a user-workspace pair.
+#' @param client Required. Instance of DatabricksClient()
+#'
 #' @return `data.frame` with all of the response pages.
 #'
 #' @rdname tokensList

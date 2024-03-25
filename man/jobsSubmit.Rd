@@ -40,11 +40,15 @@ jobsSubmit(
 
 \item{run_name}{An optional name for the run.}
 
-\item{tasks}{}
+\item{tasks}{This field has no description yet.}
 
 \item{timeout_seconds}{An optional timeout applied to each run of this job.}
 
 \item{webhook_notifications}{A collection of system notification IDs to notify when the run begins or completes.}
+
+\item{timeout}{Time to wait for the operation to complete in minutes.}
+
+\item{callback}{Function to report the status of the operation. By default, it reports to console.}
 }
 \description{
 This is a long-running operation, which blocks until Jobs on Databricks reach

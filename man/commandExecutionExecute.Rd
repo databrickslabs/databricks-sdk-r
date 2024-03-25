@@ -23,7 +23,11 @@ commandExecutionExecute(
 
 \item{context_id}{Running context id.}
 
-\item{language}{}
+\item{language}{This field has no description yet.}
+
+\item{timeout}{Time to wait for the operation to complete in minutes.}
+
+\item{callback}{Function to report the status of the operation. By default, it reports to console.}
 }
 \description{
 This is a long-running operation, which blocks until Command Execution on Databricks reach

@@ -9,7 +9,7 @@ alertsGet(client, alert_id)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{alert_id}{Required.}
+\item{alert_id}{Required. This field has no description yet.}
 }
 \description{
 Gets an alert.

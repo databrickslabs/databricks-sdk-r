@@ -3,16 +3,21 @@
 #' @importFrom stats runif
 NULL
 
-{{range .Methods}}{{.Comment "#' " 80}}{{if .Request}}
+{{range .Methods}}{{.Comment "#' " 80}}
+#' @param client Required. Instance of DatabricksClient()
+{{if .Request}}
 {{if and .Wait (not .IsCrudRead)}}#'
 #' @description
 #' This is a long-running operation, which blocks until {{.Service.TitleName}} on Databricks reach
 #' {{range $i, $s := .Wait.Success}}{{if $i}} or {{end}}{{.Content}}{{end}} state with the timeout of {{.Wait.Timeout}} minutes, that you can change via `timeout` parameter.
 #' By default, the state of Databricks {{.Service.TitleName}} is reported to console. You can change this behavior
 #' by changing the `callback` parameter.
-{{end}}#' @param client Required. Instance of DatabricksClient()
-#'{{range .Request.Fields}}
-#' @param {{.SnakeName}} {{if .Required}}Required. {{end}}{{.Summary}}{{end}}
+#' @param timeout Time to wait for the operation to complete in minutes.
+#' @param callback Function to report the status of the operation. By default, it reports to console.
+{{end}}
+{{if .Request.RequiredFields}}#'
+{{end}}#'{{range .Request.Fields}}
+#' @param {{.SnakeName}} {{if .Required}}Required. {{end}}{{with .Summary}}{{.}}{{else}}This field has no description yet.{{end}}{{end}}
 {{end}}{{if .Pagination}}#'
 #' @return `data.frame` with all of the response pages.
 {{end}}#'

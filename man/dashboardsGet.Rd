@@ -9,7 +9,7 @@ dashboardsGet(client, dashboard_id)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{dashboard_id}{Required.}
+\item{dashboard_id}{Required. This field has no description yet.}
 }
 \description{
 Returns a JSON representation of a dashboard object, including its

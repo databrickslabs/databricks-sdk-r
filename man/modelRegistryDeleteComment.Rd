@@ -9,7 +9,7 @@ modelRegistryDeleteComment(client, id)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{id}{Required.}
+\item{id}{Required. This field has no description yet.}
 }
 \description{
 Deletes a comment on a model version.

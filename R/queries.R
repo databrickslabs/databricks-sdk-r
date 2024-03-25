@@ -15,6 +15,8 @@ NULL
 #' 
 #' **Note**: You cannot add a visualization until you create the query.
 #' @param client Required. Instance of DatabricksClient()
+
+
 #'
 #' @param data_source_id Data source ID maps to the ID of the data source used by the resource and is distinct from the warehouse ID.
 #' @param description General description that conveys additional information about this query such as usage notes.
@@ -39,8 +41,11 @@ queriesCreate <- function(client, data_source_id = NULL, description = NULL, nam
 #' searches and list views, and they cannot be used for alerts. The trash is
 #' deleted after 30 days.
 #' @param client Required. Instance of DatabricksClient()
+
+
 #'
-#' @param query_id Required. 
+#'
+#' @param query_id Required. This field has no description yet.
 #'
 #' @rdname queriesDelete
 #' @export
@@ -54,8 +59,11 @@ queriesDelete <- function(client, query_id) {
 #' Retrieve a query object definition along with contextual permissions
 #' information about the currently authenticated user.
 #' @param client Required. Instance of DatabricksClient()
+
+
 #'
-#' @param query_id Required. 
+#'
+#' @param query_id Required. This field has no description yet.
 #'
 #' @rdname queriesGet
 #' @export
@@ -72,6 +80,8 @@ queriesGet <- function(client, query_id) {
 #' ### **Warning: Calling this API concurrently 10 or more times could result in
 #' throttling, service degradation, or a temporary ban.**
 #' @param client Required. Instance of DatabricksClient()
+
+
 #'
 #' @param order Name of query attribute to order by.
 #' @param page Page number to retrieve.
@@ -107,8 +117,11 @@ queriesList <- function(client, order = NULL, page = NULL, page_size = NULL, q =
 #' Restore a query that has been moved to the trash. A restored query appears in
 #' list views and searches. You can use restored queries for alerts.
 #' @param client Required. Instance of DatabricksClient()
+
+
 #'
-#' @param query_id Required. 
+#'
+#' @param query_id Required. This field has no description yet.
 #'
 #' @rdname queriesRestore
 #' @export
@@ -123,13 +136,16 @@ queriesRestore <- function(client, query_id) {
 #' 
 #' **Note**: You cannot undo this operation.
 #' @param client Required. Instance of DatabricksClient()
+
+
+#'
 #'
 #' @param data_source_id Data source ID maps to the ID of the data source used by the resource and is distinct from the warehouse ID.
 #' @param description General description that conveys additional information about this query such as usage notes.
 #' @param name The title of this query that appears in list views, widget headings, and on the query page.
 #' @param options Exclusively used for storing a list parameter definitions.
 #' @param query The text of the query to be run.
-#' @param query_id Required. 
+#' @param query_id Required. This field has no description yet.
 #' @param run_as_role Sets the **Run as** role for the object.
 #'
 #' @rdname queriesUpdate

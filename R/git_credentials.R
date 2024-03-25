@@ -10,6 +10,9 @@ NULL
 #' exists will fail. Use the PATCH endpoint to update existing credentials, or
 #' the DELETE endpoint to delete existing credentials.
 #' @param client Required. Instance of DatabricksClient()
+
+
+#'
 #'
 #' @param git_provider Required. Git provider.
 #' @param git_username Git username.
@@ -26,6 +29,9 @@ gitCredentialsCreate <- function(client, git_provider, git_username = NULL, pers
 #' 
 #' Deletes the specified Git credential.
 #' @param client Required. Instance of DatabricksClient()
+
+
+#'
 #'
 #' @param credential_id Required. The ID for the corresponding credential to access.
 #'
@@ -40,6 +46,9 @@ gitCredentialsDelete <- function(client, credential_id) {
 #' 
 #' Gets the Git credential with the specified credential ID.
 #' @param client Required. Instance of DatabricksClient()
+
+
+#'
 #'
 #' @param credential_id Required. The ID for the corresponding credential to access.
 #'
@@ -53,7 +62,9 @@ gitCredentialsGet <- function(client, credential_id) {
 #' Get Git credentials.
 #' 
 #' Lists the calling user's Git credentials. One credential per user is
-#' supported.#'
+#' supported.
+#' @param client Required. Instance of DatabricksClient()
+#'
 #' @return `data.frame` with all of the response pages.
 #'
 #' @rdname gitCredentialsList
@@ -69,6 +80,9 @@ gitCredentialsList <- function(client) {
 #' 
 #' Updates the specified Git credential.
 #' @param client Required. Instance of DatabricksClient()
+
+
+#'
 #'
 #' @param credential_id Required. The ID for the corresponding credential to access.
 #' @param git_provider Git provider.

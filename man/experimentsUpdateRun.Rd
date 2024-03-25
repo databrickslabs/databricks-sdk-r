@@ -19,7 +19,7 @@ experimentsUpdateRun(
 
 \item{run_id}{ID of the run to update.}
 
-\item{run_uuid}{\link{Deprecated, use run_id instead} ID of the run to update.}
+\item{run_uuid}{Deprecated, use run_id instead. ID of the run to update.}
 
 \item{status}{Updated status of the run.}
 }
