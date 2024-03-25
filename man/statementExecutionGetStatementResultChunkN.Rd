@@ -11,7 +11,7 @@ statementExecutionGetStatementResultChunkN(client, statement_id, chunk_index)
 
 \item{statement_id}{Required. The statement ID is returned upon successfully submitting a SQL statement, and is a required reference for all subsequent calls.}
 
-\item{chunk_index}{Required.}
+\item{chunk_index}{Required. This field has no description yet.}
 }
 \description{
 After the statement execution has \code{SUCCEEDED}, this request can be used to

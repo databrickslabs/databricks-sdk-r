@@ -45,7 +45,7 @@ queriesCreate <- function(client, data_source_id = NULL, description = NULL, nam
 
 #'
 #'
-#' @param query_id Required. 
+#' @param query_id Required. This field has no description yet.
 #'
 #' @rdname queriesDelete
 #' @export
@@ -63,7 +63,7 @@ queriesDelete <- function(client, query_id) {
 
 #'
 #'
-#' @param query_id Required. 
+#' @param query_id Required. This field has no description yet.
 #'
 #' @rdname queriesGet
 #' @export
@@ -121,7 +121,7 @@ queriesList <- function(client, order = NULL, page = NULL, page_size = NULL, q =
 
 #'
 #'
-#' @param query_id Required. 
+#' @param query_id Required. This field has no description yet.
 #'
 #' @rdname queriesRestore
 #' @export
@@ -145,7 +145,7 @@ queriesRestore <- function(client, query_id) {
 #' @param name The title of this query that appears in list views, widget headings, and on the query page.
 #' @param options Exclusively used for storing a list parameter definitions.
 #' @param query The text of the query to be run.
-#' @param query_id Required. 
+#' @param query_id Required. This field has no description yet.
 #' @param run_as_role Sets the **Run as** role for the object.
 #'
 #' @rdname queriesUpdate

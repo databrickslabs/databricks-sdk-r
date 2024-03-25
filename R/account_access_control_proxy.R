@@ -54,7 +54,7 @@ accountAccessControlProxyGetRuleSet <- function(client, name, etag) {
 #'
 #'
 #' @param name Required. Name of the rule set.
-#' @param rule_set Required. 
+#' @param rule_set Required. This field has no description yet.
 #'
 #' @rdname accountAccessControlProxyUpdateRuleSet
 #' @export

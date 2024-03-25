@@ -20,9 +20,9 @@ NULL
 #' @param callback Function to report the status of the operation. By default, it reports to console.
 
 #'
-#' @param cluster_id 
-#' @param command_id 
-#' @param context_id 
+#' @param cluster_id This field has no description yet.
+#' @param command_id This field has no description yet.
+#' @param context_id This field has no description yet.
 #'
 #' @rdname commandExecutionCancel
 #' @export
@@ -82,9 +82,9 @@ commandExecutionCancel <- function(client, cluster_id = NULL, command_id = NULL,
 
 #'
 #'
-#' @param cluster_id Required. 
-#' @param command_id Required. 
-#' @param context_id Required. 
+#' @param cluster_id Required. This field has no description yet.
+#' @param command_id Required. This field has no description yet.
+#' @param context_id Required. This field has no description yet.
 #'
 #' @rdname commandExecutionCommandStatus
 #' @export
@@ -101,8 +101,8 @@ commandExecutionCommandStatus <- function(client, cluster_id, context_id, comman
 
 #'
 #'
-#' @param cluster_id Required. 
-#' @param context_id Required. 
+#' @param cluster_id Required. This field has no description yet.
+#' @param context_id Required. This field has no description yet.
 #'
 #' @rdname commandExecutionContextStatus
 #' @export
@@ -129,7 +129,7 @@ commandExecutionContextStatus <- function(client, cluster_id, context_id) {
 
 #'
 #' @param cluster_id Running cluster id.
-#' @param language 
+#' @param language This field has no description yet.
 #'
 #' @rdname commandExecutionCreate
 #' @export
@@ -182,8 +182,8 @@ commandExecutionCreate <- function(client, cluster_id = NULL, language = NULL, t
 
 #'
 #'
-#' @param cluster_id Required. 
-#' @param context_id Required. 
+#' @param cluster_id Required. This field has no description yet.
+#' @param context_id Required. This field has no description yet.
 #'
 #' @rdname commandExecutionDestroy
 #' @export
@@ -214,7 +214,7 @@ commandExecutionDestroy <- function(client, cluster_id, context_id) {
 #' @param cluster_id Running cluster id.
 #' @param command Executable code.
 #' @param context_id Running context id.
-#' @param language 
+#' @param language This field has no description yet.
 #'
 #' @rdname commandExecutionExecute
 #' @export

@@ -17,7 +17,7 @@ NULL
 {{end}}
 {{if .Request.RequiredFields}}#'
 {{end}}#'{{range .Request.Fields}}
-#' @param {{.SnakeName}} {{if .Required}}Required. {{end}}{{.Summary}}{{end}}
+#' @param {{.SnakeName}} {{if .Required}}Required. {{end}}{{with .Summary}}{{.}}{{else}}This field has no description yet.{{end}}{{end}}
 {{end}}{{if .Pagination}}#'
 #' @return `data.frame` with all of the response pages.
 {{end}}#'

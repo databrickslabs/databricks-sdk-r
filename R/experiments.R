@@ -655,7 +655,7 @@ experimentsSetExperimentTag <- function(client, experiment_id, key, value) {
 
 #'
 #'
-#' @param access_control_list 
+#' @param access_control_list This field has no description yet.
 #' @param experiment_id Required. The experiment for which to get or manage permissions.
 #'
 #' @rdname experimentsSetPermissions
@@ -714,7 +714,7 @@ experimentsUpdateExperiment <- function(client, experiment_id, new_name = NULL) 
 
 #'
 #'
-#' @param access_control_list 
+#' @param access_control_list This field has no description yet.
 #' @param experiment_id Required. The experiment for which to get or manage permissions.
 #'
 #' @rdname experimentsUpdatePermissions

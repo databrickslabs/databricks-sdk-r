@@ -11,7 +11,7 @@ filesUpload(client, file_path, contents, overwrite = NULL)
 
 \item{file_path}{Required. The absolute path of the file.}
 
-\item{contents}{}
+\item{contents}{This field has no description yet.}
 
 \item{overwrite}{If true, an existing file will be overwritten.}
 }

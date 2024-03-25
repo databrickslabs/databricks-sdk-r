@@ -13,7 +13,7 @@ ipAccessListsCreate(client, label, list_type, ip_addresses = NULL)
 
 \item{list_type}{Required. Type of IP access list.}
 
-\item{ip_addresses}{}
+\item{ip_addresses}{This field has no description yet.}
 }
 \description{
 Creates an IP access list for this workspace.

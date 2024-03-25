@@ -18,7 +18,7 @@ NULL
 #' @param configuration String-String configuration for this pipeline execution.
 #' @param continuous Whether the pipeline is continuous or triggered.
 #' @param development Whether the pipeline is in Development mode.
-#' @param dry_run 
+#' @param dry_run This field has no description yet.
 #' @param edition Pipeline product edition.
 #' @param filters Filters on which Pipeline packages to include in the deployed graph.
 #' @param id Unique identifier for this pipeline.
@@ -55,7 +55,7 @@ pipelinesCreate <- function(client, allow_duplicate_names = NULL, catalog = NULL
 
 #'
 #'
-#' @param pipeline_id Required. 
+#' @param pipeline_id Required. This field has no description yet.
 #'
 #' @rdname pipelinesDelete
 #' @export
@@ -70,7 +70,7 @@ pipelinesDelete <- function(client, pipeline_id) {
 
 #'
 #'
-#' @param pipeline_id Required. 
+#' @param pipeline_id Required. This field has no description yet.
 #'
 #' @rdname pipelinesGet
 #' @export
@@ -146,7 +146,7 @@ pipelinesGetUpdate <- function(client, pipeline_id, update_id) {
 #' @param max_results Max number of entries to return in a single page.
 #' @param order_by A string indicating a sort order by timestamp for the results, for example, ['timestamp asc'].
 #' @param page_token Page token returned by previous call.
-#' @param pipeline_id Required. 
+#' @param pipeline_id Required. This field has no description yet.
 #'
 #' @return `data.frame` with all of the response pages.
 #'
@@ -244,7 +244,7 @@ pipelinesListUpdates <- function(client, pipeline_id, max_results = NULL, page_t
 
 #'
 #'
-#' @param access_control_list 
+#' @param access_control_list This field has no description yet.
 #' @param pipeline_id Required. The pipeline for which to get or manage permissions.
 #'
 #' @rdname pipelinesSetPermissions
@@ -265,10 +265,10 @@ pipelinesSetPermissions <- function(client, pipeline_id, access_control_list = N
 
 #'
 #'
-#' @param cause 
+#' @param cause This field has no description yet.
 #' @param full_refresh If true, this update will reset all tables before running.
 #' @param full_refresh_selection A list of tables to update with fullRefresh.
-#' @param pipeline_id Required. 
+#' @param pipeline_id Required. This field has no description yet.
 #' @param refresh_selection A list of tables to update without fullRefresh.
 #' @param validate_only If true, this update only validates the correctness of pipeline source code but does not materialize or publish any datasets.
 #'
@@ -299,7 +299,7 @@ pipelinesStartUpdate <- function(client, pipeline_id, cause = NULL, full_refresh
 
 #'
 #'
-#' @param pipeline_id Required. 
+#' @param pipeline_id Required. This field has no description yet.
 #'
 #' @rdname pipelinesStop
 #' @export
@@ -397,7 +397,7 @@ pipelinesUpdate <- function(client, pipeline_id, allow_duplicate_names = NULL, c
 
 #'
 #'
-#' @param access_control_list 
+#' @param access_control_list This field has no description yet.
 #' @param pipeline_id Required. The pipeline for which to get or manage permissions.
 #'
 #' @rdname pipelinesUpdatePermissions

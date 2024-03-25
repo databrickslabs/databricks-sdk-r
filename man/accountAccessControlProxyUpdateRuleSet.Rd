@@ -11,7 +11,7 @@ accountAccessControlProxyUpdateRuleSet(client, name, rule_set)
 
 \item{name}{Required. Name of the rule set.}
 
-\item{rule_set}{Required.}
+\item{rule_set}{Required. This field has no description yet.}
 }
 \description{
 Replace the rules of a rule set. First, use a GET rule set request to read

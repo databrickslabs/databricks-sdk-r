@@ -9,7 +9,7 @@ pipelinesStop(client, pipeline_id, timeout = 20, callback = cli_reporter)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{pipeline_id}{Required.}
+\item{pipeline_id}{Required. This field has no description yet.}
 
 \item{timeout}{Time to wait for the operation to complete in minutes.}
 

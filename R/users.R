@@ -16,9 +16,9 @@ NULL
 #' @param emails All the emails associated with the Databricks user.
 #' @param entitlements Entitlements assigned to the user.
 #' @param external_id External ID is not currently supported.
-#' @param groups 
+#' @param groups This field has no description yet.
 #' @param id Databricks user ID.
-#' @param name 
+#' @param name This field has no description yet.
 #' @param roles Corresponds to AWS instance profile/arn role.
 #' @param schemas The schema of the user.
 #' @param user_name Email address of the Databricks user.
@@ -152,7 +152,7 @@ usersList <- function(client, attributes = NULL, count = NULL, excluded_attribut
 #'
 #'
 #' @param id Required. Unique ID for a user in the Databricks workspace.
-#' @param operations 
+#' @param operations This field has no description yet.
 #' @param schemas The schema of the patch request.
 #'
 #' @rdname usersPatch
@@ -170,7 +170,7 @@ usersPatch <- function(client, id, operations = NULL, schemas = NULL) {
 
 
 #'
-#' @param access_control_list 
+#' @param access_control_list This field has no description yet.
 #'
 #' @rdname usersSetPermissions
 #' @export
@@ -192,9 +192,9 @@ usersSetPermissions <- function(client, access_control_list = NULL) {
 #' @param emails All the emails associated with the Databricks user.
 #' @param entitlements Entitlements assigned to the user.
 #' @param external_id External ID is not currently supported.
-#' @param groups 
+#' @param groups This field has no description yet.
 #' @param id Databricks user ID.
-#' @param name 
+#' @param name This field has no description yet.
 #' @param roles Corresponds to AWS instance profile/arn role.
 #' @param schemas The schema of the user.
 #' @param user_name Email address of the Databricks user.
@@ -218,7 +218,7 @@ usersUpdate <- function(client, id, active = NULL, display_name = NULL, emails =
 
 
 #'
-#' @param access_control_list 
+#' @param access_control_list This field has no description yet.
 #'
 #' @rdname usersUpdatePermissions
 #' @export

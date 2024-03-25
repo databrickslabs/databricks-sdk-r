@@ -23,7 +23,7 @@ volumesCreate(
 
 \item{name}{Required. The name of the volume.}
 
-\item{volume_type}{Required.}
+\item{volume_type}{Required. This field has no description yet.}
 
 \item{comment}{The comment attached to the volume.}
 

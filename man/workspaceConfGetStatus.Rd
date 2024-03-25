@@ -9,7 +9,7 @@ workspaceConfGetStatus(client, keys)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{keys}{Required.}
+\item{keys}{Required. This field has no description yet.}
 }
 \description{
 Gets the configuration status for a workspace.

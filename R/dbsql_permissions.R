@@ -32,7 +32,7 @@ dbsqlPermissionsGet <- function(client, object_type, object_id) {
 
 #'
 #'
-#' @param access_control_list 
+#' @param access_control_list This field has no description yet.
 #' @param object_id Required. Object ID.
 #' @param object_type Required. The type of object permission to set.
 #'

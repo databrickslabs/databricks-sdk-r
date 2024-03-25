@@ -11,7 +11,7 @@ reposSetPermissions(client, repo_id, access_control_list = NULL)
 
 \item{repo_id}{Required. The repo for which to get or manage permissions.}
 
-\item{access_control_list}{}
+\item{access_control_list}{This field has no description yet.}
 }
 \description{
 Sets permissions on a repo. Repos can inherit permissions from their root

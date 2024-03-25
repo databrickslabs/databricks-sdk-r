@@ -14,7 +14,7 @@ NULL
 #' @param name Required. The title of this dashboard that appears in list views and at the top of the dashboard page.
 #' @param parent The identifier of the workspace folder containing the object.
 #' @param run_as_role Sets the **Run as** role for the object.
-#' @param tags 
+#' @param tags This field has no description yet.
 #'
 #' @rdname dashboardsCreate
 #' @export
@@ -34,7 +34,7 @@ dashboardsCreate <- function(client, name, dashboard_filters_enabled = NULL, is_
 
 #'
 #'
-#' @param dashboard_id Required. 
+#' @param dashboard_id Required. This field has no description yet.
 #'
 #' @rdname dashboardsDelete
 #' @export
@@ -52,7 +52,7 @@ dashboardsDelete <- function(client, dashboard_id) {
 
 #'
 #'
-#' @param dashboard_id Required. 
+#' @param dashboard_id Required. This field has no description yet.
 #'
 #' @rdname dashboardsGet
 #' @export
@@ -108,7 +108,7 @@ dashboardsList <- function(client, order = NULL, page = NULL, page_size = NULL, 
 
 #'
 #'
-#' @param dashboard_id Required. 
+#' @param dashboard_id Required. This field has no description yet.
 #'
 #' @rdname dashboardsRestore
 #' @export
@@ -129,7 +129,7 @@ dashboardsRestore <- function(client, dashboard_id) {
 
 #'
 #'
-#' @param dashboard_id Required. 
+#' @param dashboard_id Required. This field has no description yet.
 #' @param name The title of this dashboard that appears in list views and at the top of the dashboard page.
 #' @param run_as_role Sets the **Run as** role for the object.
 #'

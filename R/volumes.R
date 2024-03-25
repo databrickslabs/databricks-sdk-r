@@ -33,7 +33,7 @@ NULL
 #' @param name Required. The name of the volume.
 #' @param schema_name Required. The name of the schema where the volume is.
 #' @param storage_location The storage location on the cloud.
-#' @param volume_type Required. 
+#' @param volume_type Required. This field has no description yet.
 #'
 #' @rdname volumesCreate
 #' @export

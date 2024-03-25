@@ -13,10 +13,10 @@ NULL
 #'
 #' @param display_name String that represents a human-readable group name.
 #' @param entitlements Entitlements assigned to the group.
-#' @param external_id 
-#' @param groups 
+#' @param external_id This field has no description yet.
+#' @param groups This field has no description yet.
 #' @param id Databricks group ID.
-#' @param members 
+#' @param members This field has no description yet.
 #' @param meta Container for the group identifier.
 #' @param roles Corresponds to AWS instance profile/arn role.
 #' @param schemas The schema of the group.
@@ -115,7 +115,7 @@ groupsList <- function(client, attributes = NULL, count = NULL, excluded_attribu
 #'
 #'
 #' @param id Required. Unique ID for a group in the Databricks workspace.
-#' @param operations 
+#' @param operations This field has no description yet.
 #' @param schemas The schema of the patch request.
 #'
 #' @rdname groupsPatch
@@ -135,10 +135,10 @@ groupsPatch <- function(client, id, operations = NULL, schemas = NULL) {
 #'
 #' @param display_name String that represents a human-readable group name.
 #' @param entitlements Entitlements assigned to the group.
-#' @param external_id 
-#' @param groups 
+#' @param external_id This field has no description yet.
+#' @param groups This field has no description yet.
 #' @param id Databricks group ID.
-#' @param members 
+#' @param members This field has no description yet.
 #' @param meta Container for the group identifier.
 #' @param roles Corresponds to AWS instance profile/arn role.
 #' @param schemas The schema of the group.

@@ -18,7 +18,7 @@ queriesUpdate(
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{query_id}{Required.}
+\item{query_id}{Required. This field has no description yet.}
 
 \item{data_source_id}{Data source ID maps to the ID of the data source used by the resource and is distinct from the warehouse ID.}
 

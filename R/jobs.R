@@ -440,7 +440,7 @@ jobsListRuns <- function(client, active_only = NULL, completed_only = NULL, expa
 #' @param job_parameters Job-level parameters used in the run.
 #' @param latest_repair_id The ID of the latest repair.
 #' @param notebook_params A map from keys to values for jobs with notebook task, for example `'notebook_params': {'name': 'john doe', 'age': '35'}`.
-#' @param pipeline_params 
+#' @param pipeline_params This field has no description yet.
 #' @param python_named_params A map from keys to values for jobs with Python wheel task, for example `'python_named_params': {'name': 'task', 'data': 'dbfs:/path/to/data.json'}`.
 #' @param python_params A list of parameters for jobs with Python tasks, for example `'python_params': ['john doe', '35']`.
 #' @param rerun_all_failed_tasks If true, repair all failed tasks.
@@ -545,7 +545,7 @@ jobsReset <- function(client, job_id, new_settings) {
 #' @param job_id Required. The ID of the job to be executed.
 #' @param job_parameters Job-level parameters used in the run.
 #' @param notebook_params A map from keys to values for jobs with notebook task, for example `'notebook_params': {'name': 'john doe', 'age': '35'}`.
-#' @param pipeline_params 
+#' @param pipeline_params This field has no description yet.
 #' @param python_named_params A map from keys to values for jobs with Python wheel task, for example `'python_named_params': {'name': 'task', 'data': 'dbfs:/path/to/data.json'}`.
 #' @param python_params A list of parameters for jobs with Python tasks, for example `'python_params': ['john doe', '35']`.
 #' @param queue The queue settings of the run.
@@ -613,7 +613,7 @@ jobsRunNow <- function(client, job_id, dbt_commands = NULL, idempotency_token = 
 
 #'
 #'
-#' @param access_control_list 
+#' @param access_control_list This field has no description yet.
 #' @param job_id Required. The job for which to get or manage permissions.
 #'
 #' @rdname jobsSetPermissions
@@ -649,7 +649,7 @@ jobsSetPermissions <- function(client, job_id, access_control_list = NULL) {
 #' @param notification_settings Optional notification settings that are used when sending notifications to each of the `email_notifications` and `webhook_notifications` for this run.
 #' @param queue The queue settings of the one-time run.
 #' @param run_name An optional name for the run.
-#' @param tasks 
+#' @param tasks This field has no description yet.
 #' @param timeout_seconds An optional timeout applied to each run of this job.
 #' @param webhook_notifications A collection of system notification IDs to notify when the run begins or completes.
 #'
@@ -733,7 +733,7 @@ jobsUpdate <- function(client, job_id, fields_to_remove = NULL, new_settings = N
 
 #'
 #'
-#' @param access_control_list 
+#' @param access_control_list This field has no description yet.
 #' @param job_id Required. The job for which to get or manage permissions.
 #'
 #' @rdname jobsUpdatePermissions

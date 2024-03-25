@@ -39,7 +39,7 @@ jobsRepairRun(
 
 \item{notebook_params}{A map from keys to values for jobs with notebook task, for example \verb{'notebook_params': \{'name': 'john doe', 'age': '35'\}}.}
 
-\item{pipeline_params}{}
+\item{pipeline_params}{This field has no description yet.}
 
 \item{python_named_params}{A map from keys to values for jobs with Python wheel task, for example \verb{'python_named_params': \{'name': 'task', 'data': 'dbfs:/path/to/data.json'\}}.}
 

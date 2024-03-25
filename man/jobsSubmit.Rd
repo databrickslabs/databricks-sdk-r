@@ -40,7 +40,7 @@ jobsSubmit(
 
 \item{run_name}{An optional name for the run.}
 
-\item{tasks}{}
+\item{tasks}{This field has no description yet.}
 
 \item{timeout_seconds}{An optional timeout applied to each run of this job.}
 

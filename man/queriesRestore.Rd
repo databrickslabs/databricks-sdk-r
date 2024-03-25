@@ -9,7 +9,7 @@ queriesRestore(client, query_id)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{query_id}{Required.}
+\item{query_id}{Required. This field has no description yet.}
 }
 \description{
 Restore a query that has been moved to the trash. A restored query appears in

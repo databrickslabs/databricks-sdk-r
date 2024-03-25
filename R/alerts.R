@@ -37,7 +37,7 @@ alertsCreate <- function(client, name, options, query_id, parent = NULL, rearm =
 
 #'
 #'
-#' @param alert_id Required. 
+#' @param alert_id Required. This field has no description yet.
 #'
 #' @rdname alertsDelete
 #' @export
@@ -54,7 +54,7 @@ alertsDelete <- function(client, alert_id) {
 
 #'
 #'
-#' @param alert_id Required. 
+#' @param alert_id Required. This field has no description yet.
 #'
 #' @rdname alertsGet
 #' @export
@@ -82,7 +82,7 @@ alertsList <- function(client) {
 
 #'
 #'
-#' @param alert_id Required. 
+#' @param alert_id Required. This field has no description yet.
 #' @param name Required. Name of the alert.
 #' @param options Required. Alert configuration options.
 #' @param query_id Required. Query ID.

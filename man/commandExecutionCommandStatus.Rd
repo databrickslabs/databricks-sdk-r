@@ -9,11 +9,11 @@ commandExecutionCommandStatus(client, cluster_id, context_id, command_id)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{cluster_id}{Required.}
+\item{cluster_id}{Required. This field has no description yet.}
 
-\item{context_id}{Required.}
+\item{context_id}{Required. This field has no description yet.}
 
-\item{command_id}{Required.}
+\item{command_id}{Required. This field has no description yet.}
 }
 \description{
 Gets the status of and, if available, the results from a currently executing

@@ -194,7 +194,7 @@ workspaceMkdirs <- function(client, path) {
 
 #'
 #'
-#' @param access_control_list 
+#' @param access_control_list This field has no description yet.
 #' @param workspace_object_id Required. The workspace object for which to get or manage permissions.
 #' @param workspace_object_type Required. The workspace object type for which to get or manage permissions.
 #'
@@ -216,7 +216,7 @@ workspaceSetPermissions <- function(client, workspace_object_type, workspace_obj
 
 #'
 #'
-#' @param access_control_list 
+#' @param access_control_list This field has no description yet.
 #' @param workspace_object_id Required. The workspace object for which to get or manage permissions.
 #' @param workspace_object_type Required. The workspace object type for which to get or manage permissions.
 #'

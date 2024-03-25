@@ -18,7 +18,7 @@ permissionsUpdate(
 
 \item{request_object_id}{Required. The id of the request object.}
 
-\item{access_control_list}{}
+\item{access_control_list}{This field has no description yet.}
 }
 \description{
 Updates the permissions on an object. Objects can inherit permissions from

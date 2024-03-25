@@ -110,7 +110,7 @@ tokenManagementList <- function(client, created_by_id = NULL, created_by_usernam
 
 
 #'
-#' @param access_control_list 
+#' @param access_control_list This field has no description yet.
 #'
 #' @rdname tokenManagementSetPermissions
 #' @export
@@ -127,7 +127,7 @@ tokenManagementSetPermissions <- function(client, access_control_list = NULL) {
 
 
 #'
-#' @param access_control_list 
+#' @param access_control_list This field has no description yet.
 #'
 #' @rdname tokenManagementUpdatePermissions
 #' @export

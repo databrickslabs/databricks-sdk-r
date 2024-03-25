@@ -10,7 +10,7 @@ NULL
 #'
 #'
 #' @param dashboard_id Required. Dashboard ID returned by :method:dashboards/create.
-#' @param options Required. 
+#' @param options Required. This field has no description yet.
 #' @param text If this is a textbox widget, the application displays this text.
 #' @param visualization_id Query Vizualization ID returned by :method:queryvisualizations/create.
 #' @param width Required. Width of a widget.
@@ -47,7 +47,7 @@ dashboardWidgetsDelete <- function(client, id) {
 #'
 #' @param dashboard_id Required. Dashboard ID returned by :method:dashboards/create.
 #' @param id Required. Widget ID returned by :method:dashboardwidgets/create.
-#' @param options Required. 
+#' @param options Required. This field has no description yet.
 #' @param text If this is a textbox widget, the application displays this text.
 #' @param visualization_id Query Vizualization ID returned by :method:queryvisualizations/create.
 #' @param width Required. Width of a widget.

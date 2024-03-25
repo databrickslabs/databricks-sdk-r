@@ -9,7 +9,7 @@ queriesGet(client, query_id)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{query_id}{Required.}
+\item{query_id}{Required. This field has no description yet.}
 }
 \description{
 Retrieve a query object definition along with contextual permissions

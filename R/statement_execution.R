@@ -92,7 +92,7 @@ statementExecutionGetStatement <- function(client, statement_id) {
 
 #'
 #'
-#' @param chunk_index Required. 
+#' @param chunk_index Required. This field has no description yet.
 #' @param statement_id Required. The statement ID is returned upon successfully submitting a SQL statement, and is a required reference for all subsequent calls.
 #'
 #' @rdname statementExecutionGetStatementResultChunkN

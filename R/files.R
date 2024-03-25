@@ -173,7 +173,7 @@ filesListDirectoryContents <- function(client, directory_path, page_size = NULL,
 
 #'
 #'
-#' @param contents 
+#' @param contents This field has no description yet.
 #' @param file_path Required. The absolute path of the file.
 #' @param overwrite If true, an existing file will be overwritten.
 #'

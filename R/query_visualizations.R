@@ -45,13 +45,13 @@ queryVisualizationsDelete <- function(client, id) {
 
 #'
 #'
-#' @param created_at 
+#' @param created_at This field has no description yet.
 #' @param description A short description of this visualization.
 #' @param id The UUID for this visualization.
 #' @param name The name of the visualization that appears on dashboards and the query screen.
 #' @param options The options object varies widely from one visualization type to the next and is unsupported.
 #' @param type The type of visualization: chart, table, pivot table, and so on.
-#' @param updated_at 
+#' @param updated_at This field has no description yet.
 #'
 #' @rdname queryVisualizationsUpdate
 #' @export

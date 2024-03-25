@@ -51,7 +51,7 @@ permissionsGetPermissionLevels <- function(client, request_object_type, request_
 
 #'
 #'
-#' @param access_control_list 
+#' @param access_control_list This field has no description yet.
 #' @param request_object_id Required. The id of the request object.
 #' @param request_object_type Required. The type of the request object.
 #'
@@ -72,7 +72,7 @@ permissionsSet <- function(client, request_object_type, request_object_id, acces
 
 #'
 #'
-#' @param access_control_list 
+#' @param access_control_list This field has no description yet.
 #' @param request_object_id Required. The id of the request object.
 #' @param request_object_type Required. The type of the request object.
 #'

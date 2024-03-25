@@ -46,7 +46,7 @@ clustersChangeOwner <- function(client, cluster_id, owner_username) {
 
 #'
 #'
-#' @param apply_policy_default_values 
+#' @param apply_policy_default_values This field has no description yet.
 #' @param autoscale Parameters needed in order to automatically scale clusters up and down based on load.
 #' @param autotermination_minutes Automatically terminates the cluster after it is inactive for this time in minutes.
 #' @param aws_attributes Attributes related to clusters running on Amazon Web Services.
@@ -56,7 +56,7 @@ clustersChangeOwner <- function(client, cluster_id, owner_username) {
 #' @param cluster_source Determines whether the cluster was created by a user through the UI, created by the Databricks Jobs Scheduler, or through an API request.
 #' @param custom_tags Additional tags for cluster resources.
 #' @param data_security_mode Data security mode decides what data governance model to use when accessing data from a cluster.
-#' @param docker_image 
+#' @param docker_image This field has no description yet.
 #' @param driver_instance_pool_id The optional ID of the instance pool for the driver of the cluster belongs.
 #' @param driver_node_type_id The node type of the Spark driver.
 #' @param enable_elastic_disk Autoscaling Local Storage: when enabled, this cluster will dynamically acquire additional disk space when its Spark workers are running low on disk space.
@@ -73,7 +73,7 @@ clustersChangeOwner <- function(client, cluster_id, owner_username) {
 #' @param spark_env_vars An object containing a set of optional, user-specified environment variable key-value pairs.
 #' @param spark_version Required. The Spark version of the cluster, e.g.
 #' @param ssh_public_keys SSH public key contents that will be added to each Spark node in this cluster.
-#' @param workload_type 
+#' @param workload_type This field has no description yet.
 #'
 #' @rdname clustersCreate
 #' @export
@@ -224,7 +224,7 @@ clustersDelete <- function(client, cluster_id, timeout = 20, callback = cli_repo
 
 #'
 #'
-#' @param apply_policy_default_values 
+#' @param apply_policy_default_values This field has no description yet.
 #' @param autoscale Parameters needed in order to automatically scale clusters up and down based on load.
 #' @param autotermination_minutes Automatically terminates the cluster after it is inactive for this time in minutes.
 #' @param aws_attributes Attributes related to clusters running on Amazon Web Services.
@@ -235,7 +235,7 @@ clustersDelete <- function(client, cluster_id, timeout = 20, callback = cli_repo
 #' @param cluster_source Determines whether the cluster was created by a user through the UI, created by the Databricks Jobs Scheduler, or through an API request.
 #' @param custom_tags Additional tags for cluster resources.
 #' @param data_security_mode Data security mode decides what data governance model to use when accessing data from a cluster.
-#' @param docker_image 
+#' @param docker_image This field has no description yet.
 #' @param driver_instance_pool_id The optional ID of the instance pool for the driver of the cluster belongs.
 #' @param driver_node_type_id The node type of the Spark driver.
 #' @param enable_elastic_disk Autoscaling Local Storage: when enabled, this cluster will dynamically acquire additional disk space when its Spark workers are running low on disk space.
@@ -252,7 +252,7 @@ clustersDelete <- function(client, cluster_id, timeout = 20, callback = cli_repo
 #' @param spark_env_vars An object containing a set of optional, user-specified environment variable key-value pairs.
 #' @param spark_version Required. The Spark version of the cluster, e.g.
 #' @param ssh_public_keys SSH public key contents that will be added to each Spark node in this cluster.
-#' @param workload_type 
+#' @param workload_type This field has no description yet.
 #'
 #' @rdname clustersEdit
 #' @export
@@ -639,7 +639,7 @@ clustersRestart <- function(client, cluster_id, restart_user = NULL, timeout = 2
 
 #'
 #'
-#' @param access_control_list 
+#' @param access_control_list This field has no description yet.
 #' @param cluster_id Required. The cluster for which to get or manage permissions.
 #'
 #' @rdname clustersSetPermissions
@@ -756,7 +756,7 @@ clustersUnpin <- function(client, cluster_id) {
 
 #'
 #'
-#' @param access_control_list 
+#' @param access_control_list This field has no description yet.
 #' @param cluster_id Required. The cluster for which to get or manage permissions.
 #'
 #' @rdname clustersUpdatePermissions

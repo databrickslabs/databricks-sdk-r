@@ -140,7 +140,7 @@ reposList <- function(client, next_page_token = NULL, path_prefix = NULL) {
 
 #'
 #'
-#' @param access_control_list 
+#' @param access_control_list This field has no description yet.
 #' @param repo_id Required. The repo for which to get or manage permissions.
 #'
 #' @rdname reposSetPermissions
@@ -180,7 +180,7 @@ reposUpdate <- function(client, repo_id, branch = NULL, sparse_checkout = NULL, 
 
 #'
 #'
-#' @param access_control_list 
+#' @param access_control_list This field has no description yet.
 #' @param repo_id Required. The repo for which to get or manage permissions.
 #'
 #' @rdname reposUpdatePermissions

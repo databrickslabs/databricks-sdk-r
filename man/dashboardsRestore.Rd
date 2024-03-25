@@ -9,7 +9,7 @@ dashboardsRestore(client, dashboard_id)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{dashboard_id}{Required.}
+\item{dashboard_id}{Required. This field has no description yet.}
 }
 \description{
 A restored dashboard appears in list views and searches and can be shared.

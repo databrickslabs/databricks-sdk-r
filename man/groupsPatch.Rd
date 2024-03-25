@@ -11,7 +11,7 @@ groupsPatch(client, id, operations = NULL, schemas = NULL)
 
 \item{id}{Required. Unique ID for a group in the Databricks workspace.}
 
-\item{operations}{}
+\item{operations}{This field has no description yet.}
 
 \item{schemas}{The schema of the patch request.}
 }

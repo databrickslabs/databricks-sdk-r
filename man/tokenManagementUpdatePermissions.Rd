@@ -9,7 +9,7 @@ tokenManagementUpdatePermissions(client, access_control_list = NULL)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{access_control_list}{}
+\item{access_control_list}{This field has no description yet.}
 }
 \description{
 Updates the permissions on all tokens. Tokens can inherit permissions from

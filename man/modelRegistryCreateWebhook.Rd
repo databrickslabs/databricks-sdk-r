@@ -21,9 +21,9 @@ modelRegistryCreateWebhook(
 
 \item{description}{User-specified description for the webhook.}
 
-\item{http_url_spec}{}
+\item{http_url_spec}{This field has no description yet.}
 
-\item{job_spec}{}
+\item{job_spec}{This field has no description yet.}
 
 \item{model_name}{Name of the model whose events would trigger this webhook.}
 

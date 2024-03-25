@@ -17,7 +17,7 @@ commandExecutionCreate(
 
 \item{cluster_id}{Running cluster id.}
 
-\item{language}{}
+\item{language}{This field has no description yet.}
 
 \item{timeout}{Time to wait for the operation to complete in minutes.}
 

@@ -14,8 +14,8 @@ NULL
 #' @param application_id UUID relating to the service principal.
 #' @param display_name String that represents a concatenation of given and family names.
 #' @param entitlements Entitlements assigned to the service principal.
-#' @param external_id 
-#' @param groups 
+#' @param external_id This field has no description yet.
+#' @param groups This field has no description yet.
 #' @param id Databricks service principal ID.
 #' @param roles Corresponds to AWS instance profile/arn role.
 #' @param schemas The schema of the List response.
@@ -118,7 +118,7 @@ servicePrincipalsList <- function(client, attributes = NULL, count = NULL, exclu
 #'
 #'
 #' @param id Required. Unique ID for a service principal in the Databricks workspace.
-#' @param operations 
+#' @param operations This field has no description yet.
 #' @param schemas The schema of the patch request.
 #'
 #' @rdname servicePrincipalsPatch
@@ -143,8 +143,8 @@ servicePrincipalsPatch <- function(client, id, operations = NULL, schemas = NULL
 #' @param application_id UUID relating to the service principal.
 #' @param display_name String that represents a concatenation of given and family names.
 #' @param entitlements Entitlements assigned to the service principal.
-#' @param external_id 
-#' @param groups 
+#' @param external_id This field has no description yet.
+#' @param groups This field has no description yet.
 #' @param id Databricks service principal ID.
 #' @param roles Corresponds to AWS instance profile/arn role.
 #' @param schemas The schema of the List response.

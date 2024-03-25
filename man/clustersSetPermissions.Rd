@@ -11,7 +11,7 @@ clustersSetPermissions(client, cluster_id, access_control_list = NULL)
 
 \item{cluster_id}{Required. The cluster for which to get or manage permissions.}
 
-\item{access_control_list}{}
+\item{access_control_list}{This field has no description yet.}
 }
 \description{
 Sets permissions on a cluster. Clusters can inherit permissions from their

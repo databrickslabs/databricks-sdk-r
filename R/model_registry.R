@@ -125,8 +125,8 @@ modelRegistryCreateTransitionRequest <- function(client, name, version, stage, c
 #'
 #' @param description User-specified description for the webhook.
 #' @param events Required. Events that can trigger a registry webhook: * `MODEL_VERSION_CREATED`: A new model version was created for the associated model.
-#' @param http_url_spec 
-#' @param job_spec 
+#' @param http_url_spec This field has no description yet.
+#' @param job_spec This field has no description yet.
 #' @param model_name Name of the model whose events would trigger this webhook.
 #' @param status Enable or disable triggering the webhook, or put the webhook into test mode.
 #'
@@ -147,7 +147,7 @@ modelRegistryCreateWebhook <- function(client, events, description = NULL, http_
 
 #'
 #'
-#' @param id Required. 
+#' @param id Required. This field has no description yet.
 #'
 #' @rdname modelRegistryDeleteComment
 #' @export
@@ -644,7 +644,7 @@ modelRegistrySetModelVersionTag <- function(client, name, version, key, value) {
 
 #'
 #'
-#' @param access_control_list 
+#' @param access_control_list This field has no description yet.
 #' @param registered_model_id Required. The registered model for which to get or manage permissions.
 #'
 #' @rdname modelRegistrySetPermissions
@@ -767,7 +767,7 @@ modelRegistryUpdateModelVersion <- function(client, name, version, description =
 
 #'
 #'
-#' @param access_control_list 
+#' @param access_control_list This field has no description yet.
 #' @param registered_model_id Required. The registered model for which to get or manage permissions.
 #'
 #' @rdname modelRegistryUpdatePermissions
@@ -790,9 +790,9 @@ modelRegistryUpdatePermissions <- function(client, registered_model_id, access_c
 #'
 #' @param description User-specified description for the webhook.
 #' @param events Events that can trigger a registry webhook: * `MODEL_VERSION_CREATED`: A new model version was created for the associated model.
-#' @param http_url_spec 
+#' @param http_url_spec This field has no description yet.
 #' @param id Required. Webhook ID.
-#' @param job_spec 
+#' @param job_spec This field has no description yet.
 #' @param status Enable or disable triggering the webhook, or put the webhook into test mode.
 #'
 #' @rdname modelRegistryUpdateWebhook

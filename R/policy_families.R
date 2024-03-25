@@ -11,7 +11,7 @@ NULL
 
 #'
 #'
-#' @param policy_family_id Required. 
+#' @param policy_family_id Required. This field has no description yet.
 #'
 #' @rdname policyFamiliesGet
 #' @export

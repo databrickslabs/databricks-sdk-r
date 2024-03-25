@@ -21,7 +21,7 @@ dashboardWidgetsUpdate(
 
 \item{dashboard_id}{Required. Dashboard ID returned by :method:dashboards/create.}
 
-\item{options}{Required.}
+\item{options}{Required. This field has no description yet.}
 
 \item{width}{Required. Width of a widget.}
 

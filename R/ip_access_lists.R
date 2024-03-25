@@ -26,7 +26,7 @@ NULL
 
 #'
 #'
-#' @param ip_addresses 
+#' @param ip_addresses This field has no description yet.
 #' @param label Required. Label for the IP access list.
 #' @param list_type Required. Type of IP access list.
 #'
@@ -108,7 +108,7 @@ ipAccessListsList <- function(client) {
 #'
 #' @param enabled Required. Specifies whether this IP access list is enabled.
 #' @param ip_access_list_id Required. The ID for the corresponding IP access list.
-#' @param ip_addresses 
+#' @param ip_addresses This field has no description yet.
 #' @param label Required. Label for the IP access list.
 #' @param list_type Required. Type of IP access list.
 #'
@@ -147,7 +147,7 @@ ipAccessListsReplace <- function(client, ip_access_list_id, label, list_type, en
 #'
 #' @param enabled Specifies whether this IP access list is enabled.
 #' @param ip_access_list_id Required. The ID for the corresponding IP access list.
-#' @param ip_addresses 
+#' @param ip_addresses This field has no description yet.
 #' @param label Label for the IP access list.
 #' @param list_type Type of IP access list.
 #'

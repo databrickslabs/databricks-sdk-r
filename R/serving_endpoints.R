@@ -288,7 +288,7 @@ servingEndpointsQuery <- function(client, name, dataframe_records = NULL, datafr
 
 #'
 #'
-#' @param access_control_list 
+#' @param access_control_list This field has no description yet.
 #' @param serving_endpoint_id Required. The serving endpoint for which to get or manage permissions.
 #'
 #' @rdname servingEndpointsSetPermissions
@@ -379,7 +379,7 @@ servingEndpointsUpdateConfig <- function(client, name, auto_capture_config = NUL
 
 #'
 #'
-#' @param access_control_list 
+#' @param access_control_list This field has no description yet.
 #' @param serving_endpoint_id Required. The serving endpoint for which to get or manage permissions.
 #'
 #' @rdname servingEndpointsUpdatePermissions

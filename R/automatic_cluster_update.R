@@ -34,7 +34,7 @@ automaticClusterUpdateGet <- function(client, etag = NULL) {
 #'
 #' @param allow_missing Required. This should always be set to true for Settings API.
 #' @param field_mask Required. Field mask is required to be passed into the PATCH request.
-#' @param setting Required. 
+#' @param setting Required. This field has no description yet.
 #'
 #' @rdname automaticClusterUpdateUpdate
 #' @export

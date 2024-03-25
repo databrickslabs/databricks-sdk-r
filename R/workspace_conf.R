@@ -11,7 +11,7 @@ NULL
 
 #'
 #'
-#' @param keys Required. 
+#' @param keys Required. This field has no description yet.
 #'
 #' @rdname workspaceConfGetStatus
 #' @export

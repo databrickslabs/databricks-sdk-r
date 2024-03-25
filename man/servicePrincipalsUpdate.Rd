@@ -30,9 +30,9 @@ servicePrincipalsUpdate(
 
 \item{entitlements}{Entitlements assigned to the service principal.}
 
-\item{external_id}{}
+\item{external_id}{This field has no description yet.}
 
-\item{groups}{}
+\item{groups}{This field has no description yet.}
 
 \item{roles}{Corresponds to AWS instance profile/arn role.}
 

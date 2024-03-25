@@ -280,7 +280,7 @@ warehousesList <- function(client, run_as_user_id = NULL) {
 
 #'
 #'
-#' @param access_control_list 
+#' @param access_control_list This field has no description yet.
 #' @param warehouse_id Required. The SQL warehouse for which to get or manage permissions.
 #'
 #' @rdname warehousesSetPermissions
@@ -452,7 +452,7 @@ warehousesStop <- function(client, id, timeout = 20, callback = cli_reporter) {
 
 #'
 #'
-#' @param access_control_list 
+#' @param access_control_list This field has no description yet.
 #' @param warehouse_id Required. The SQL warehouse for which to get or manage permissions.
 #'
 #' @rdname warehousesUpdatePermissions

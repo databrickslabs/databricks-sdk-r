@@ -16,11 +16,11 @@ commandExecutionCancel(
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{cluster_id}{}
+\item{cluster_id}{This field has no description yet.}
 
-\item{command_id}{}
+\item{command_id}{This field has no description yet.}
 
-\item{context_id}{}
+\item{context_id}{This field has no description yet.}
 
 \item{timeout}{Time to wait for the operation to complete in minutes.}
 

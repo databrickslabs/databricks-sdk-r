@@ -13,7 +13,7 @@ dbsqlPermissionsSet(client, object_type, object_id, access_control_list = NULL)
 
 \item{object_id}{Required. Object ID.}
 
-\item{access_control_list}{}
+\item{access_control_list}{This field has no description yet.}
 }
 \description{
 Sets the access control list (ACL) for a specified object. This operation

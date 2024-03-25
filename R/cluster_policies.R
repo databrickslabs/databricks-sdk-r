@@ -163,7 +163,7 @@ clusterPoliciesList <- function(client, sort_column = NULL, sort_order = NULL) {
 
 #'
 #'
-#' @param access_control_list 
+#' @param access_control_list This field has no description yet.
 #' @param cluster_policy_id Required. The cluster policy for which to get or manage permissions.
 #'
 #' @rdname clusterPoliciesSetPermissions
@@ -183,7 +183,7 @@ clusterPoliciesSetPermissions <- function(client, cluster_policy_id, access_cont
 
 #'
 #'
-#' @param access_control_list 
+#' @param access_control_list This field has no description yet.
 #' @param cluster_policy_id Required. The cluster policy for which to get or manage permissions.
 #'
 #' @rdname clusterPoliciesUpdatePermissions

@@ -188,7 +188,7 @@ tablesListSummaries <- function(client, catalog_name, max_results = NULL, page_t
 #'
 #'
 #' @param full_name Required. Full name of the table.
-#' @param owner 
+#' @param owner This field has no description yet.
 #'
 #' @rdname tablesUpdate
 #' @export

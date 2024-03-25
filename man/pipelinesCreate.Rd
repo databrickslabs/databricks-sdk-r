@@ -44,7 +44,7 @@ pipelinesCreate(
 
 \item{development}{Whether the pipeline is in Development mode.}
 
-\item{dry_run}{}
+\item{dry_run}{This field has no description yet.}
 
 \item{edition}{Pipeline product edition.}
 

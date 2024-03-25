@@ -17,9 +17,9 @@ pipelinesStartUpdate(
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{pipeline_id}{Required.}
+\item{pipeline_id}{Required. This field has no description yet.}
 
-\item{cause}{}
+\item{cause}{This field has no description yet.}
 
 \item{full_refresh}{If true, this update will reset all tables before running.}
 
