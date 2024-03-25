@@ -61,7 +61,7 @@ tablesExists <- function(client, full_name) {
 #' @rdname tablesGet
 #' @export
 tablesGet <- function(client, full_name, include_browse = NULL, include_delta_metadata = NULL) {
-  query <- list(, include_browse = include_browse, include_delta_metadata = include_delta_metadata)
+  query <- list(include_browse = include_browse, include_delta_metadata = include_delta_metadata)
   client$do("GET", paste("/api/2.1/unity-catalog/tables/", full_name, sep = ""),
     query = query)
 }
@@ -175,7 +175,7 @@ tablesListSummaries <- function(client, catalog_name, max_results = NULL, page_t
 #' @rdname tablesUpdate
 #' @export
 tablesUpdate <- function(client, full_name, owner = NULL) {
-  body <- list(, owner = owner)
+  body <- list(owner = owner)
   client$do("PATCH", paste("/api/2.1/unity-catalog/tables/", full_name, sep = ""),
     body = body)
 }

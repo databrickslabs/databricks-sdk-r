@@ -63,7 +63,7 @@ lakeviewGetPublished <- function(client, dashboard_id) {
 #' @rdname lakeviewPublish
 #' @export
 lakeviewPublish <- function(client, dashboard_id, embed_credentials = NULL, warehouse_id = NULL) {
-  body <- list(, embed_credentials = embed_credentials, warehouse_id = warehouse_id)
+  body <- list(embed_credentials = embed_credentials, warehouse_id = warehouse_id)
   client$do("POST", paste("/api/2.0/lakeview/dashboards/", dashboard_id, "/published",
     , sep = ""), body = body)
 }
@@ -97,7 +97,7 @@ lakeviewTrash <- function(client, dashboard_id) {
 #' @export
 lakeviewUpdate <- function(client, dashboard_id, display_name = NULL, etag = NULL,
   serialized_dashboard = NULL, warehouse_id = NULL) {
-  body <- list(, display_name = display_name, etag = etag, serialized_dashboard = serialized_dashboard,
+  body <- list(display_name = display_name, etag = etag, serialized_dashboard = serialized_dashboard,
     warehouse_id = warehouse_id)
   client$do("PATCH", paste("/api/2.0/lakeview/dashboards/", dashboard_id, sep = ""),
     body = body)

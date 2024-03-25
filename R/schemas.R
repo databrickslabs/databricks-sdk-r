@@ -53,7 +53,7 @@ schemasDelete <- function(client, full_name) {
 #' @rdname schemasGet
 #' @export
 schemasGet <- function(client, full_name, include_browse = NULL) {
-  query <- list(, include_browse = include_browse)
+  query <- list(include_browse = include_browse)
   client$do("GET", paste("/api/2.1/unity-catalog/schemas/", full_name, sep = ""),
     query = query)
 }

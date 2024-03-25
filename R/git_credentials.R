@@ -79,7 +79,7 @@ gitCredentialsList <- function(client) {
 #' @export
 gitCredentialsUpdate <- function(client, credential_id, git_provider = NULL, git_username = NULL,
   personal_access_token = NULL) {
-  body <- list(, git_provider = git_provider, git_username = git_username, personal_access_token = personal_access_token)
+  body <- list(git_provider = git_provider, git_username = git_username, personal_access_token = personal_access_token)
   client$do("PATCH", paste("/api/2.0/git-credentials/", credential_id, sep = ""),
     body = body)
 }

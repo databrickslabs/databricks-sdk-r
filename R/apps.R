@@ -57,7 +57,7 @@ appsGetApp <- function(client, name) {
 #' @rdname appsGetAppDeploymentStatus
 #' @export
 appsGetAppDeploymentStatus <- function(client, deployment_id, include_app_log = NULL) {
-  query <- list(, include_app_log = include_app_log)
+  query <- list(include_app_log = include_app_log)
   client$do("GET", paste("/api/2.0/preview/apps/deployments/", deployment_id, sep = ""),
     query = query)
 }

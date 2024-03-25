@@ -126,7 +126,7 @@ functionsList <- function(client, catalog_name, schema_name, include_browse = NU
 #' @rdname functionsUpdate
 #' @export
 functionsUpdate <- function(client, name, owner = NULL) {
-  body <- list(, owner = owner)
+  body <- list(owner = owner)
   client$do("PATCH", paste("/api/2.1/unity-catalog/functions/", name, sep = ""),
     body = body)
 }

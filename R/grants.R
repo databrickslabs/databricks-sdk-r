@@ -15,7 +15,7 @@ NULL
 #' @rdname grantsGet
 #' @export
 grantsGet <- function(client, securable_type, full_name, principal = NULL) {
-  query <- list(, principal = principal)
+  query <- list(principal = principal)
   client$do("GET", paste("/api/2.1/unity-catalog/permissions/", securable_type,
     "/", full_name, sep = ""), query = query)
 }
@@ -32,7 +32,7 @@ grantsGet <- function(client, securable_type, full_name, principal = NULL) {
 #' @rdname grantsGetEffective
 #' @export
 grantsGetEffective <- function(client, securable_type, full_name, principal = NULL) {
-  query <- list(, principal = principal)
+  query <- list(principal = principal)
   client$do("GET", paste("/api/2.1/unity-catalog/effective-permissions/", securable_type,
     "/", full_name, sep = ""), query = query)
 }

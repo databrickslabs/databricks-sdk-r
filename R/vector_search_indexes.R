@@ -35,7 +35,7 @@ vectorSearchIndexesCreateIndex <- function(client, name, endpoint_name, primary_
 #' @rdname vectorSearchIndexesDeleteDataVectorIndex
 #' @export
 vectorSearchIndexesDeleteDataVectorIndex <- function(client, index_name, primary_keys) {
-  body <- list(, primary_keys = primary_keys)
+  body <- list(primary_keys = primary_keys)
   client$do("POST", paste("/api/2.0/vector-search/indexes/", index_name, "/delete-data",
     , sep = ""), body = body)
 }
@@ -149,7 +149,7 @@ vectorSearchIndexesSyncIndex <- function(client, index_name) {
 #' @rdname vectorSearchIndexesUpsertDataVectorIndex
 #' @export
 vectorSearchIndexesUpsertDataVectorIndex <- function(client, index_name, inputs_json) {
-  body <- list(, inputs_json = inputs_json)
+  body <- list(inputs_json = inputs_json)
   client$do("POST", paste("/api/2.0/vector-search/indexes/", index_name, "/upsert-data",
     , sep = ""), body = body)
 }
