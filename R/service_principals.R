@@ -7,8 +7,6 @@ NULL
 #' 
 #' Creates a new service principal in the Databricks workspace.
 #' @param client Required. Instance of DatabricksClient()
-
-
 #'
 #' @param active If this user is active.
 #' @param application_id UUID relating to the service principal.
@@ -30,14 +28,10 @@ servicePrincipalsCreate <- function(client, active = NULL, application_id = NULL
     roles = roles, schemas = schemas)
   client$do("POST", "/api/2.0/preview/scim/v2/ServicePrincipals", body = body)
 }
-
 #' Delete a service principal.
 #' 
 #' Delete a single service principal in the Databricks workspace.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param id Required. Unique ID for a service principal in the Databricks workspace.
 #'
@@ -48,15 +42,11 @@ servicePrincipalsDelete <- function(client, id) {
   client$do("DELETE", paste("/api/2.0/preview/scim/v2/ServicePrincipals/", id,
     sep = ""))
 }
-
 #' Get service principal details.
 #' 
 #' Gets the details for a single service principal define in the Databricks
 #' workspace.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param id Required. Unique ID for a service principal in the Databricks workspace.
 #'
@@ -66,13 +56,10 @@ servicePrincipalsGet <- function(client, id) {
 
   client$do("GET", paste("/api/2.0/preview/scim/v2/ServicePrincipals/", id, sep = ""))
 }
-
 #' List service principals.
 #' 
 #' Gets the set of service principals associated with a Databricks workspace.
 #' @param client Required. Instance of DatabricksClient()
-
-
 #'
 #' @param attributes Comma-separated list of attributes to return in response.
 #' @param count Desired number of results per page.
@@ -107,15 +94,11 @@ servicePrincipalsList <- function(client, attributes = NULL, count = NULL, exclu
   return(results)
 
 }
-
 #' Update service principal details.
 #' 
 #' Partially updates the details of a single service principal in the Databricks
 #' workspace.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param id Required. Unique ID for a service principal in the Databricks workspace.
 #' @param operations This field has no description yet.
@@ -128,16 +111,12 @@ servicePrincipalsPatch <- function(client, id, operations = NULL, schemas = NULL
   client$do("PATCH", paste("/api/2.0/preview/scim/v2/ServicePrincipals/", id, sep = ""),
     body = body)
 }
-
 #' Replace service principal.
 #' 
 #' Updates the details of a single service principal.
 #' 
 #' This action replaces the existing service principal with the same name.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param active If this user is active.
 #' @param application_id UUID relating to the service principal.
@@ -160,4 +139,9 @@ servicePrincipalsUpdate <- function(client, id, active = NULL, application_id = 
   client$do("PUT", paste("/api/2.0/preview/scim/v2/ServicePrincipals/", id, sep = ""),
     body = body)
 }
+
+
+
+
+
 

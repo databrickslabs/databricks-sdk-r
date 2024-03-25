@@ -9,9 +9,7 @@ commandExecutionExecute(
   cluster_id = NULL,
   command = NULL,
   context_id = NULL,
-  language = NULL,
-  timeout = 20,
-  callback = cli_reporter
+  language = NULL
 )
 }
 \arguments{
@@ -24,21 +22,12 @@ commandExecutionExecute(
 \item{context_id}{Running context id.}
 
 \item{language}{This field has no description yet.}
-
-\item{timeout}{Time to wait for the operation to complete in minutes.}
-
-\item{callback}{Function to report the status of the operation. By default, it reports to console.}
 }
 \description{
-This is a long-running operation, which blocks until Command Execution on Databricks reach
-Finished or Error state with the timeout of 20 minutes, that you can change via \code{timeout} parameter.
-By default, the state of Databricks Command Execution is reported to console. You can change this behavior
-by changing the \code{callback} parameter.
-}
-\details{
 Runs a cluster command in the given execution context, using the provided
 language.
-
+}
+\details{
 If successful, it returns an ID for tracking the status of the command's
 execution.
 }

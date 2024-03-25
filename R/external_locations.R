@@ -9,9 +9,6 @@ NULL
 #' metastore admin or have the **CREATE_EXTERNAL_LOCATION** privilege on both
 #' the metastore and the associated storage credential.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param access_point The AWS access point to use when accesing s3 for this external location.
 #' @param comment User-provided free-form text description.
@@ -31,15 +28,11 @@ externalLocationsCreate <- function(client, name, url, credential_name, access_p
     skip_validation = skip_validation, url = url)
   client$do("POST", "/api/2.1/unity-catalog/external-locations", body = body)
 }
-
 #' Delete an external location.
 #' 
 #' Deletes the specified external location from the metastore. The caller must
 #' be the owner of the external location.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param force Force deletion even if there are dependent external tables or mounts.
 #' @param name Required. Name of the external location.
@@ -51,16 +44,12 @@ externalLocationsDelete <- function(client, name, force = NULL) {
   client$do("DELETE", paste("/api/2.1/unity-catalog/external-locations/", name,
     sep = ""), query = query)
 }
-
 #' Get an external location.
 #' 
 #' Gets an external location from the metastore. The caller must be either a
 #' metastore admin, the owner of the external location, or a user that has some
 #' privilege on the external location.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param include_browse Whether to include external locations in the response for which the principal can only access selective metadata for.
 #' @param name Required. Name of the external location.
@@ -72,7 +61,6 @@ externalLocationsGet <- function(client, name, include_browse = NULL) {
   client$do("GET", paste("/api/2.1/unity-catalog/external-locations/", name, sep = ""),
     query = query)
 }
-
 #' List external locations.
 #' 
 #' Gets an array of external locations (__ExternalLocationInfo__ objects) from
@@ -81,8 +69,6 @@ externalLocationsGet <- function(client, name, include_browse = NULL) {
 #' location. There is no guarantee of a specific ordering of the elements in the
 #' array.
 #' @param client Required. Instance of DatabricksClient()
-
-
 #'
 #' @param include_browse Whether to include external locations in the response for which the principal can only access selective metadata for.
 #' @param max_results Maximum number of external locations to return.
@@ -112,16 +98,12 @@ externalLocationsList <- function(client, include_browse = NULL, max_results = N
   return(results)
 
 }
-
 #' Update an external location.
 #' 
 #' Updates an external location in the metastore. The caller must be the owner
 #' of the external location, or be a metastore admin. In the second case, the
 #' admin can only update the name of the external location.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param access_point The AWS access point to use when accesing s3 for this external location.
 #' @param comment User-provided free-form text description.
@@ -147,4 +129,8 @@ externalLocationsUpdate <- function(client, name, access_point = NULL, comment =
   client$do("PATCH", paste("/api/2.1/unity-catalog/external-locations/", name,
     sep = ""), body = body)
 }
+
+
+
+
 

@@ -5,9 +5,6 @@ NULL
 
 #' Add visualization to a query.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param description A short description of this visualization.
 #' @param name The name of the visualization that appears on dashboards and the query screen.
@@ -23,12 +20,8 @@ queryVisualizationsCreate <- function(client, query_id, type, options, descripti
     type = type)
   client$do("POST", "/api/2.0/preview/sql/visualizations", body = body)
 }
-
 #' Remove visualization.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param id Required. Widget ID returned by :method:queryvizualisations/create.
 #'
@@ -38,12 +31,8 @@ queryVisualizationsDelete <- function(client, id) {
 
   client$do("DELETE", paste("/api/2.0/preview/sql/visualizations/", id, sep = ""))
 }
-
 #' Edit existing visualization.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param created_at This field has no description yet.
 #' @param description A short description of this visualization.
@@ -62,4 +51,6 @@ queryVisualizationsUpdate <- function(client, id, created_at = NULL, description
   client$do("POST", paste("/api/2.0/preview/sql/visualizations/", id, sep = ""),
     body = body)
 }
+
+
 

@@ -11,9 +11,6 @@ NULL
 #' specify connection details and configurations for interaction with the
 #' external server.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param comment User-provided free-form text description.
 #' @param connection_type Required. The type of connection.
@@ -30,14 +27,10 @@ connectionsCreate <- function(client, name, connection_type, options, comment = 
     options = options, properties = properties, read_only = read_only)
   client$do("POST", "/api/2.1/unity-catalog/connections", body = body)
 }
-
 #' Delete a connection.
 #' 
 #' Deletes the connection that matches the supplied name.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param name Required. The name of the connection to be deleted.
 #'
@@ -47,14 +40,10 @@ connectionsDelete <- function(client, name) {
 
   client$do("DELETE", paste("/api/2.1/unity-catalog/connections/", name, sep = ""))
 }
-
 #' Get a connection.
 #' 
 #' Gets a connection from it's name.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param name Required. Name of the connection.
 #'
@@ -64,7 +53,6 @@ connectionsGet <- function(client, name) {
 
   client$do("GET", paste("/api/2.1/unity-catalog/connections/", name, sep = ""))
 }
-
 #' List connections.
 #' 
 #' List all connections.
@@ -80,14 +68,10 @@ connectionsList <- function(client) {
   return(json$connections)
 
 }
-
 #' Update a connection.
 #' 
 #' Updates the connection that matches the supplied name.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param name Required. Name of the connection.
 #' @param new_name New name for the connection.
@@ -101,4 +85,8 @@ connectionsUpdate <- function(client, name, options, new_name = NULL, owner = NU
   client$do("PATCH", paste("/api/2.1/unity-catalog/connections/", name, sep = ""),
     body = body)
 }
+
+
+
+
 

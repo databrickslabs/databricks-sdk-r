@@ -8,9 +8,6 @@ NULL
 #' Requests that an executing statement be canceled. Callers must poll for
 #' status to see the terminal state.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param statement_id Required. The statement ID is returned upon successfully submitting a SQL statement, and is a required reference for all subsequent calls.
 #'
@@ -21,12 +18,8 @@ statementExecutionCancelExecution <- function(client, statement_id) {
   client$do("POST", paste("/api/2.0/sql/statements/", statement_id, "/cancel",
     , sep = ""))
 }
-
 #' Execute a SQL statement.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param byte_limit Applies the given byte limit to the statement's result size.
 #' @param catalog Sets default catalog for statement execution, similar to [`USE CATALOG`](https://docs.databricks.com/sql/language-manual/sql-ref-syntax-ddl-use-catalog.html) in SQL.
@@ -51,7 +44,6 @@ statementExecutionExecuteStatement <- function(client, statement, warehouse_id, 
     warehouse_id = warehouse_id)
   client$do("POST", "/api/2.0/sql/statements/", body = body)
 }
-
 #' Get status, manifest, and result first chunk.
 #' 
 #' This request can be used to poll for the statement's status. When the
@@ -64,9 +56,6 @@ statementExecutionExecuteStatement <- function(client, statement, warehouse_id, 
 #' **NOTE** This call currently might take up to 5 seconds to get the latest
 #' status and result.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param statement_id Required. The statement ID is returned upon successfully submitting a SQL statement, and is a required reference for all subsequent calls.
 #'
@@ -76,7 +65,6 @@ statementExecutionGetStatement <- function(client, statement_id) {
 
   client$do("GET", paste("/api/2.0/sql/statements/", statement_id, sep = ""))
 }
-
 #' Get result chunk by index.
 #' 
 #' After the statement execution has `SUCCEEDED`, this request can be used to
@@ -88,9 +76,6 @@ statementExecutionGetStatement <- function(client, statement_id) {
 #' similarly includes the `next_chunk_index` and `next_chunk_internal_link`
 #' fields for simple iteration through the result set.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param chunk_index Required. This field has no description yet.
 #' @param statement_id Required. The statement ID is returned upon successfully submitting a SQL statement, and is a required reference for all subsequent calls.
@@ -102,4 +87,7 @@ statementExecutionGetStatementResultChunkN <- function(client, statement_id, chu
   client$do("GET", paste("/api/2.0/sql/statements/", statement_id, "/result/chunks/",
     chunk_index, sep = ""))
 }
+
+
+
 

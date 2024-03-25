@@ -19,9 +19,7 @@ warehousesEdit(
   name = NULL,
   spot_instance_policy = NULL,
   tags = NULL,
-  warehouse_type = NULL,
-  timeout = 20,
-  callback = cli_reporter
+  warehouse_type = NULL
 )
 }
 \arguments{
@@ -54,17 +52,7 @@ warehousesEdit(
 \item{tags}{A set of key-value pairs that will be tagged on all resources (e.g., AWS instances and EBS volumes) associated with this SQL warehouse.}
 
 \item{warehouse_type}{Warehouse type: \code{PRO} or \code{CLASSIC}.}
-
-\item{timeout}{Time to wait for the operation to complete in minutes.}
-
-\item{callback}{Function to report the status of the operation. By default, it reports to console.}
 }
 \description{
-This is a long-running operation, which blocks until Warehouses on Databricks reach
-RUNNING state with the timeout of 20 minutes, that you can change via \code{timeout} parameter.
-By default, the state of Databricks Warehouses is reported to console. You can change this behavior
-by changing the \code{callback} parameter.
-}
-\details{
 Updates the configuration for a SQL warehouse.
 }

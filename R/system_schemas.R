@@ -8,9 +8,6 @@ NULL
 #' Disables the system schema and removes it from the system catalog. The caller
 #' must be an account admin or a metastore admin.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param metastore_id Required. The metastore ID under which the system schema lives.
 #' @param schema_name Required. Full name of the system schema.
@@ -22,15 +19,11 @@ systemSchemasDisable <- function(client, metastore_id, schema_name) {
   client$do("DELETE", paste("/api/2.1/unity-catalog/metastores/", metastore_id,
     "/systemschemas/", schema_name, sep = ""))
 }
-
 #' Enable a system schema.
 #' 
 #' Enables the system schema and adds it to the system catalog. The caller must
 #' be an account admin or a metastore admin.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param metastore_id Required. The metastore ID under which the system schema lives.
 #' @param schema_name Required. Full name of the system schema.
@@ -42,15 +35,11 @@ systemSchemasEnable <- function(client, metastore_id, schema_name) {
   client$do("PUT", paste("/api/2.1/unity-catalog/metastores/", metastore_id, "/systemschemas/",
     schema_name, sep = ""))
 }
-
 #' List system schemas.
 #' 
 #' Gets an array of system schemas for a metastore. The caller must be an
 #' account admin or a metastore admin.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param metastore_id Required. The ID for the metastore in which the system schema resides.
 #'
@@ -66,4 +55,6 @@ systemSchemasList <- function(client, metastore_id) {
   return(json$schemas)
 
 }
+
+
 

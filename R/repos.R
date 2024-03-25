@@ -9,9 +9,6 @@ NULL
 #' specified. Note that repos created programmatically must be linked to a
 #' remote Git repo, unlike repos created in the browser.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param path Desired path for the repo in the workspace.
 #' @param provider Required. Git provider.
@@ -25,14 +22,10 @@ reposCreate <- function(client, url, provider, path = NULL, sparse_checkout = NU
     url = url)
   client$do("POST", "/api/2.0/repos", body = body)
 }
-
 #' Delete a repo.
 #' 
 #' Deletes the specified repo.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param repo_id Required. The ID for the corresponding repo to access.
 #'
@@ -42,14 +35,10 @@ reposDelete <- function(client, repo_id) {
 
   client$do("DELETE", paste("/api/2.0/repos/", repo_id, sep = ""))
 }
-
 #' Get a repo.
 #' 
 #' Returns the repo with the given repo ID.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param repo_id Required. The ID for the corresponding repo to access.
 #'
@@ -59,14 +48,10 @@ reposGet <- function(client, repo_id) {
 
   client$do("GET", paste("/api/2.0/repos/", repo_id, sep = ""))
 }
-
 #' Get repo permission levels.
 #' 
 #' Gets the permission levels that a user can have on an object.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param repo_id Required. The repo for which to get or manage permissions.
 #'
@@ -77,15 +62,11 @@ reposGetPermissionLevels <- function(client, repo_id) {
   client$do("GET", paste("/api/2.0/permissions/repos/", repo_id, "/permissionLevels",
     , sep = ""))
 }
-
 #' Get repo permissions.
 #' 
 #' Gets the permissions of a repo. Repos can inherit permissions from their root
 #' object.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param repo_id Required. The repo for which to get or manage permissions.
 #'
@@ -95,14 +76,11 @@ reposGetPermissions <- function(client, repo_id) {
 
   client$do("GET", paste("/api/2.0/permissions/repos/", repo_id, sep = ""))
 }
-
 #' Get repos.
 #' 
 #' Returns repos that the calling user has Manage permissions on. Results are
 #' paginated with each page containing twenty repos.
 #' @param client Required. Instance of DatabricksClient()
-
-
 #'
 #' @param next_page_token Token used to get the next page of results.
 #' @param path_prefix Filters repos that have paths starting with the given path prefix.
@@ -130,15 +108,11 @@ reposList <- function(client, next_page_token = NULL, path_prefix = NULL) {
   return(results)
 
 }
-
 #' Set repo permissions.
 #' 
 #' Sets permissions on a repo. Repos can inherit permissions from their root
 #' object.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param access_control_list This field has no description yet.
 #' @param repo_id Required. The repo for which to get or manage permissions.
@@ -149,15 +123,11 @@ reposSetPermissions <- function(client, repo_id, access_control_list = NULL) {
   body <- list(access_control_list = access_control_list)
   client$do("PUT", paste("/api/2.0/permissions/repos/", repo_id, sep = ""), body = body)
 }
-
 #' Update a repo.
 #' 
 #' Updates the repo to a different branch or tag, or updates the repo to the
 #' latest commit on the same branch.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param branch Branch that the local version of the repo is checked out to.
 #' @param repo_id Required. The ID for the corresponding repo to access.
@@ -170,15 +140,11 @@ reposUpdate <- function(client, repo_id, branch = NULL, sparse_checkout = NULL, 
   body <- list(branch = branch, sparse_checkout = sparse_checkout, tag = tag)
   client$do("PATCH", paste("/api/2.0/repos/", repo_id, sep = ""), body = body)
 }
-
 #' Update repo permissions.
 #' 
 #' Updates the permissions on a repo. Repos can inherit permissions from their
 #' root object.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param access_control_list This field has no description yet.
 #' @param repo_id Required. The repo for which to get or manage permissions.
@@ -189,4 +155,12 @@ reposUpdatePermissions <- function(client, repo_id, access_control_list = NULL) 
   body <- list(access_control_list = access_control_list)
   client$do("PATCH", paste("/api/2.0/permissions/repos/", repo_id, sep = ""), body = body)
 }
+
+
+
+
+
+
+
+
 

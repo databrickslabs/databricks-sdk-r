@@ -7,9 +7,6 @@ NULL
 #' 
 #' Creates a new global init script in this workspace.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param enabled Specifies whether the script is enabled.
 #' @param name Required. The name of the script.
@@ -22,14 +19,10 @@ globalInitScriptsCreate <- function(client, name, script, enabled = NULL, positi
   body <- list(enabled = enabled, name = name, position = position, script = script)
   client$do("POST", "/api/2.0/global-init-scripts", body = body)
 }
-
 #' Delete init script.
 #' 
 #' Deletes a global init script.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param script_id Required. The ID of the global init script.
 #'
@@ -39,14 +32,10 @@ globalInitScriptsDelete <- function(client, script_id) {
 
   client$do("DELETE", paste("/api/2.0/global-init-scripts/", script_id, sep = ""))
 }
-
 #' Get an init script.
 #' 
 #' Gets all the details of a script, including its Base64-encoded contents.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param script_id Required. The ID of the global init script.
 #'
@@ -56,7 +45,6 @@ globalInitScriptsGet <- function(client, script_id) {
 
   client$do("GET", paste("/api/2.0/global-init-scripts/", script_id, sep = ""))
 }
-
 #' Get init scripts.
 #' 
 #' Get a list of all global init scripts for this workspace. This returns all
@@ -75,15 +63,11 @@ globalInitScriptsList <- function(client) {
   return(json$scripts)
 
 }
-
 #' Update init script.
 #' 
 #' Updates a global init script, specifying only the fields to change. All
 #' fields are optional. Unspecified fields retain their current value.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param enabled Specifies whether the script is enabled.
 #' @param name Required. The name of the script.
@@ -99,4 +83,8 @@ globalInitScriptsUpdate <- function(client, script_id, name, script, enabled = N
   client$do("PATCH", paste("/api/2.0/global-init-scripts/", script_id, sep = ""),
     body = body)
 }
+
+
+
+
 

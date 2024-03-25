@@ -11,9 +11,6 @@ NULL
 #' created: - **USE_CATALOG** on the function's parent catalog - **USE_SCHEMA**
 #' and **CREATE_FUNCTION** on the function's parent schema
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param function_info Required. Partial __FunctionInfo__ specifying the function to be created.
 #'
@@ -23,7 +20,6 @@ functionsCreate <- function(client, function_info) {
   body <- list(function_info = function_info)
   client$do("POST", "/api/2.1/unity-catalog/functions", body = body)
 }
-
 #' Delete a function.
 #' 
 #' Deletes the function that matches the supplied name. For the deletion to
@@ -34,9 +30,6 @@ functionsCreate <- function(client, function_info) {
 #' privilege on its parent catalog and the **USE_SCHEMA** privilege on its
 #' parent schema
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param force Force deletion even if the function is notempty.
 #' @param name Required. The fully-qualified name of the function (of the form __catalog_name__.__schema_name__.__function__name__).
@@ -48,7 +41,6 @@ functionsDelete <- function(client, name, force = NULL) {
   client$do("DELETE", paste("/api/2.1/unity-catalog/functions/", name, sep = ""),
     query = query)
 }
-
 #' Get a function.
 #' 
 #' Gets a function from within a parent catalog and schema. For the fetch to
@@ -59,9 +51,6 @@ functionsDelete <- function(client, name, force = NULL) {
 #' catalog, the **USE_SCHEMA** privilege on the function's parent schema, and
 #' the **EXECUTE** privilege on the function itself
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param include_browse Whether to include functions in the response for which the principal can only access selective metadata for.
 #' @param name Required. The fully-qualified name of the function (of the form __catalog_name__.__schema_name__.__function__name__).
@@ -73,7 +62,6 @@ functionsGet <- function(client, name, include_browse = NULL) {
   client$do("GET", paste("/api/2.1/unity-catalog/functions/", name, sep = ""),
     query = query)
 }
-
 #' List functions.
 #' 
 #' List functions within the specified parent catalog and schema. If the user is
@@ -84,9 +72,6 @@ functionsGet <- function(client, name, include_browse = NULL) {
 #' is the owner. There is no guarantee of a specific ordering of the elements in
 #' the array.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param catalog_name Required. Name of parent catalog for functions of interest.
 #' @param include_browse Whether to include functions in the response for which the principal can only access selective metadata for.
@@ -119,7 +104,6 @@ functionsList <- function(client, catalog_name, schema_name, include_browse = NU
   return(results)
 
 }
-
 #' Update a function.
 #' 
 #' Updates the function that matches the supplied name. Only the owner of the
@@ -131,9 +115,6 @@ functionsList <- function(client, catalog_name, schema_name, include_browse = NU
 #' privilege on its parent catalog as well as the **USE_SCHEMA** privilege on
 #' the function's parent schema.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param name Required. The fully-qualified name of the function (of the form __catalog_name__.__schema_name__.__function__name__).
 #' @param owner Username of current owner of function.
@@ -145,4 +126,8 @@ functionsUpdate <- function(client, name, owner = NULL) {
   client$do("PATCH", paste("/api/2.1/unity-catalog/functions/", name, sep = ""),
     body = body)
 }
+
+
+
+
 

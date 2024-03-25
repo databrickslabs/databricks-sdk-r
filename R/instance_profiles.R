@@ -8,9 +8,6 @@ NULL
 #' In the UI, you can select the instance profile when launching clusters. This
 #' API is only available to admin users.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param iam_role_arn The AWS IAM role ARN of the role associated with the instance profile.
 #' @param instance_profile_arn Required. The AWS ARN of the instance profile to register with Databricks.
@@ -25,7 +22,6 @@ instanceProfilesAdd <- function(client, instance_profile_arn, iam_role_arn = NUL
     is_meta_instance_profile = is_meta_instance_profile, skip_validation = skip_validation)
   client$do("POST", "/api/2.0/instance-profiles/add", body = body)
 }
-
 #' Edit an instance profile.
 #' 
 #' The only supported field to change is the optional IAM role ARN associated
@@ -44,9 +40,6 @@ instanceProfilesAdd <- function(client, instance_profile_arn, iam_role_arn = NUL
 #' [Databricks SQL Serverless]: https://docs.databricks.com/sql/admin/serverless.html
 #' [Enable serverless SQL warehouses]: https://docs.databricks.com/sql/admin/serverless.html
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param iam_role_arn The AWS IAM role ARN of the role associated with the instance profile.
 #' @param instance_profile_arn Required. The AWS ARN of the instance profile to register with Databricks.
@@ -60,7 +53,6 @@ instanceProfilesEdit <- function(client, instance_profile_arn, iam_role_arn = NU
     is_meta_instance_profile = is_meta_instance_profile)
   client$do("POST", "/api/2.0/instance-profiles/edit", body = body)
 }
-
 #' List available instance profiles.
 #' 
 #' List the instance profiles that the calling user can use to launch a cluster.
@@ -78,7 +70,6 @@ instanceProfilesList <- function(client) {
   return(json$instance_profiles)
 
 }
-
 #' Remove the instance profile.
 #' 
 #' Remove the instance profile with the provided ARN. Existing clusters with
@@ -86,9 +77,6 @@ instanceProfilesList <- function(client) {
 #' 
 #' This API is only accessible to admin users.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param instance_profile_arn Required. The ARN of the instance profile to remove.
 #'
@@ -98,4 +86,7 @@ instanceProfilesRemove <- function(client, instance_profile_arn) {
   body <- list(instance_profile_arn = instance_profile_arn)
   client$do("POST", "/api/2.0/instance-profiles/remove", body = body)
 }
+
+
+
 

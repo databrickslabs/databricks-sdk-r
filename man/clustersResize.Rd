@@ -4,14 +4,7 @@
 \alias{clustersResize}
 \title{Resize cluster.}
 \usage{
-clustersResize(
-  client,
-  cluster_id,
-  autoscale = NULL,
-  num_workers = NULL,
-  timeout = 20,
-  callback = cli_reporter
-)
+clustersResize(client, cluster_id, autoscale = NULL, num_workers = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
@@ -21,18 +14,8 @@ clustersResize(
 \item{autoscale}{Parameters needed in order to automatically scale clusters up and down based on load.}
 
 \item{num_workers}{Number of worker nodes that this cluster should have.}
-
-\item{timeout}{Time to wait for the operation to complete in minutes.}
-
-\item{callback}{Function to report the status of the operation. By default, it reports to console.}
 }
 \description{
-This is a long-running operation, which blocks until Clusters on Databricks reach
-RUNNING state with the timeout of 20 minutes, that you can change via \code{timeout} parameter.
-By default, the state of Databricks Clusters is reported to console. You can change this behavior
-by changing the \code{callback} parameter.
-}
-\details{
 Resizes a cluster to have a desired number of workers. This will fail unless
 the cluster is in a \code{RUNNING} state.
 }

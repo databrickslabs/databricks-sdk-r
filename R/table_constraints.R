@@ -16,9 +16,6 @@ NULL
 #' referenced parent table's schema, and be the owner of the referenced parent
 #' table.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param constraint Required. A table constraint, as defined by *one* of the following fields being set: __primary_key_constraint__, __foreign_key_constraint__, __named_table_constraint__.
 #' @param full_name_arg Required. The full name of the table referenced by the constraint.
@@ -29,7 +26,6 @@ tableConstraintsCreate <- function(client, full_name_arg, constraint) {
   body <- list(constraint = constraint, full_name_arg = full_name_arg)
   client$do("POST", "/api/2.1/unity-catalog/constraints", body = body)
 }
-
 #' Delete a table constraint.
 #' 
 #' Deletes a table constraint.
@@ -42,9 +38,6 @@ tableConstraintsCreate <- function(client, full_name_arg, constraint) {
 #' **USE_CATALOG** privilege on the table's catalog, the **USE_SCHEMA**
 #' privilege on the table's schema, and be the owner of the table.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param cascade Required. If true, try deleting all child constraints of the current constraint.
 #' @param constraint_name Required. The name of the constraint to delete.
@@ -57,4 +50,5 @@ tableConstraintsDelete <- function(client, full_name, constraint_name, cascade) 
   client$do("DELETE", paste("/api/2.1/unity-catalog/constraints/", full_name, sep = ""),
     query = query)
 }
+
 

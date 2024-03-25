@@ -22,8 +22,8 @@ library(dplyr)
 library(databricks)
 client <- DatabricksClient()
 running <- clustersList(client) %>% filter(state == 'RUNNING')
-context <- commandExecutionCreate(client, cluster_id=running$cluster_id, language='python')
-res <- commandExecutionExecute(client, cluster_id=running$cluster_id, context_id=context$id, language='sql', command='show tables')
+context <- commandExecutionCreateAndWait(client, cluster_id=running$cluster_id, language='python')
+res <- commandExecutionExecuteAndWait(client, cluster_id=running$cluster_id, context_id=context$id, language='sql', command='show tables')
 res
 ```
 
@@ -46,7 +46,7 @@ All `list` methods (and those, which return any list of results), do consistentl
 All long-running operations do poll Databricks backend until the entity reaches desired state:
 
 ```r
-> clustersCreate(client, spark_version = "12.x-snapshot-scala2.12", cluster_name = "r-sdk-cluster", num_workers = 1, autotermination_minutes=20, node_type_id="i3.xlarge")
+> clustersCreateAndWait(client, spark_version = "12.x-snapshot-scala2.12", cluster_name = "r-sdk-cluster", num_workers = 1, autotermination_minutes=20, node_type_id="i3.xlarge")
 PENDING: Finding instances for new nodes, acquiring more instances if necessary
 ```
 

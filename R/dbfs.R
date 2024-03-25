@@ -12,9 +12,6 @@ NULL
 #' If the block of data exceeds 1 MB, this call will throw an exception with
 #' ``MAX_BLOCK_SIZE_EXCEEDED``.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param data Required. The base64-encoded data to append to the stream.
 #' @param handle Required. The handle on an open stream.
@@ -25,15 +22,11 @@ dbfsAddBlock <- function(client, handle, data) {
   body <- list(data = data, handle = handle)
   client$do("POST", "/api/2.0/dbfs/add-block", body = body)
 }
-
 #' Close the stream.
 #' 
 #' Closes the stream specified by the input handle. If the handle does not
 #' exist, this call throws an exception with ``RESOURCE_DOES_NOT_EXIST``.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param handle Required. The handle on an open stream.
 #'
@@ -43,7 +36,6 @@ dbfsClose <- function(client, handle) {
   body <- list(handle = handle)
   client$do("POST", "/api/2.0/dbfs/close", body = body)
 }
-
 #' Open a stream.
 #' 
 #' Opens a stream to write to a file and returns a handle to this stream. There
@@ -57,9 +49,6 @@ dbfsClose <- function(client, handle) {
 #' ``add-block`` calls with the handle you have. 3. Issue a ``close`` call with
 #' the handle you have.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param overwrite The flag that specifies whether to overwrite existing file/files.
 #' @param path Required. The path of the new file.
@@ -70,7 +59,6 @@ dbfsCreate <- function(client, path, overwrite = NULL) {
   body <- list(overwrite = overwrite, path = path)
   client$do("POST", "/api/2.0/dbfs/create", body = body)
 }
-
 #' Delete a file/directory.
 #' 
 #' Delete the file or directory (optionally recursively delete all files in the
@@ -92,9 +80,6 @@ dbfsCreate <- function(client, path, overwrite = NULL) {
 #' such as selective deletes, and the possibility to automate periodic delete
 #' jobs.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param path Required. The path of the file or directory to delete.
 #' @param recursive Whether or not to recursively delete the directory's contents.
@@ -105,15 +90,11 @@ dbfsDelete <- function(client, path, recursive = NULL) {
   body <- list(path = path, recursive = recursive)
   client$do("POST", "/api/2.0/dbfs/delete", body = body)
 }
-
 #' Get the information of a file or directory.
 #' 
 #' Gets the file information for a file or directory. If the file or directory
 #' does not exist, this call throws an exception with `RESOURCE_DOES_NOT_EXIST`.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param path Required. The path of the file or directory.
 #'
@@ -123,7 +104,6 @@ dbfsGetStatus <- function(client, path) {
   query <- list(path = path)
   client$do("GET", "/api/2.0/dbfs/get-status", query = query)
 }
-
 #' List directory contents or file details.
 #' 
 #' List the contents of a directory, or details of the file. If the file or
@@ -138,9 +118,6 @@ dbfsGetStatus <- function(client, path) {
 #' system utility (dbutils.fs)](/dev-tools/databricks-utils.html#dbutils-fs),
 #' which provides the same functionality without timing out.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param path Required. The path of the file or directory.
 #'
@@ -155,7 +132,6 @@ dbfsList <- function(client, path) {
   return(json$files)
 
 }
-
 #' Create a directory.
 #' 
 #' Creates the given directory and necessary parent directories if they do not
@@ -164,9 +140,6 @@ dbfsList <- function(client, path) {
 #' this operation fails, it might have succeeded in creating some of the
 #' necessary parent directories.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param path Required. The path of the new directory.
 #'
@@ -176,7 +149,6 @@ dbfsMkdirs <- function(client, path) {
   body <- list(path = path)
   client$do("POST", "/api/2.0/dbfs/mkdirs", body = body)
 }
-
 #' Move a file.
 #' 
 #' Moves a file from one location to another location within DBFS. If the source
@@ -185,9 +157,6 @@ dbfsMkdirs <- function(client, path) {
 #' this call throws an exception with `RESOURCE_ALREADY_EXISTS`. If the given
 #' source path is a directory, this call always recursively moves all files.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param destination_path Required. The destination path of the file or directory.
 #' @param source_path Required. The source path of the file or directory.
@@ -198,7 +167,6 @@ dbfsMove <- function(client, source_path, destination_path) {
   body <- list(destination_path = destination_path, source_path = source_path)
   client$do("POST", "/api/2.0/dbfs/move", body = body)
 }
-
 #' Upload a file.
 #' 
 #' Uploads a file through the use of multipart form post. It is mainly used for
@@ -214,9 +182,6 @@ dbfsMove <- function(client, source_path, destination_path) {
 #' If you want to upload large files, use the streaming upload. For details, see
 #' :method:dbfs/create, :method:dbfs/addBlock, :method:dbfs/close.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param contents This parameter might be absent, and instead a posted file will be used.
 #' @param overwrite The flag that specifies whether to overwrite existing file/files.
@@ -228,7 +193,6 @@ dbfsPut <- function(client, path, contents = NULL, overwrite = NULL) {
   body <- list(contents = contents, overwrite = overwrite, path = path)
   client$do("POST", "/api/2.0/dbfs/put", body = body)
 }
-
 #' Get the contents of a file.
 #' 
 #' Returns the contents of a file. If the file does not exist, this call throws
@@ -240,9 +204,6 @@ dbfsPut <- function(client, path, contents = NULL, overwrite = NULL) {
 #' If `offset + length` exceeds the number of bytes in a file, it reads the
 #' contents until the end of file.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param length The number of bytes to read starting from the offset.
 #' @param offset The offset to read from in bytes.
@@ -254,4 +215,13 @@ dbfsRead <- function(client, path, length = NULL, offset = NULL) {
   query <- list(length = length, offset = offset, path = path)
   client$do("GET", "/api/2.0/dbfs/read", query = query)
 }
+
+
+
+
+
+
+
+
+
 

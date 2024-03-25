@@ -4,13 +4,7 @@
 \alias{vectorSearchEndpointsCreateEndpoint}
 \title{Create an endpoint.}
 \usage{
-vectorSearchEndpointsCreateEndpoint(
-  client,
-  name,
-  endpoint_type,
-  timeout = 20,
-  callback = cli_reporter
-)
+vectorSearchEndpointsCreateEndpoint(client, name, endpoint_type)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
@@ -18,17 +12,7 @@ vectorSearchEndpointsCreateEndpoint(
 \item{name}{Required. Name of endpoint.}
 
 \item{endpoint_type}{Required. Type of endpoint.}
-
-\item{timeout}{Time to wait for the operation to complete in minutes.}
-
-\item{callback}{Function to report the status of the operation. By default, it reports to console.}
 }
 \description{
-This is a long-running operation, which blocks until Vector Search Endpoints on Databricks reach
-ONLINE state with the timeout of 20 minutes, that you can change via \code{timeout} parameter.
-By default, the state of Databricks Vector Search Endpoints is reported to console. You can change this behavior
-by changing the \code{callback} parameter.
-}
-\details{
 Create a new endpoint.
 }

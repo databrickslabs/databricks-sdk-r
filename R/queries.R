@@ -15,8 +15,6 @@ NULL
 #' 
 #' **Note**: You cannot add a visualization until you create the query.
 #' @param client Required. Instance of DatabricksClient()
-
-
 #'
 #' @param data_source_id Data source ID maps to the ID of the data source used by the resource and is distinct from the warehouse ID.
 #' @param description General description that conveys additional information about this query such as usage notes.
@@ -34,16 +32,12 @@ queriesCreate <- function(client, data_source_id = NULL, description = NULL, nam
     options = options, parent = parent, query = query, run_as_role = run_as_role)
   client$do("POST", "/api/2.0/preview/sql/queries", body = body)
 }
-
 #' Delete a query.
 #' 
 #' Moves a query to the trash. Trashed queries immediately disappear from
 #' searches and list views, and they cannot be used for alerts. The trash is
 #' deleted after 30 days.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param query_id Required. This field has no description yet.
 #'
@@ -53,15 +47,11 @@ queriesDelete <- function(client, query_id) {
 
   client$do("DELETE", paste("/api/2.0/preview/sql/queries/", query_id, sep = ""))
 }
-
 #' Get a query definition.
 #' 
 #' Retrieve a query object definition along with contextual permissions
 #' information about the currently authenticated user.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param query_id Required. This field has no description yet.
 #'
@@ -71,7 +61,6 @@ queriesGet <- function(client, query_id) {
 
   client$do("GET", paste("/api/2.0/preview/sql/queries/", query_id, sep = ""))
 }
-
 #' Get a list of queries.
 #' 
 #' Gets a list of queries. Optionally, this list can be filtered by a search
@@ -80,8 +69,6 @@ queriesGet <- function(client, query_id) {
 #' ### **Warning: Calling this API concurrently 10 or more times could result in
 #' throttling, service degradation, or a temporary ban.**
 #' @param client Required. Instance of DatabricksClient()
-
-
 #'
 #' @param order Name of query attribute to order by.
 #' @param page Page number to retrieve.
@@ -111,15 +98,11 @@ queriesList <- function(client, order = NULL, page = NULL, page_size = NULL, q =
   return(results)
 
 }
-
 #' Restore a query.
 #' 
 #' Restore a query that has been moved to the trash. A restored query appears in
 #' list views and searches. You can use restored queries for alerts.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param query_id Required. This field has no description yet.
 #'
@@ -129,16 +112,12 @@ queriesRestore <- function(client, query_id) {
 
   client$do("POST", paste("/api/2.0/preview/sql/queries/trash/", query_id, sep = ""))
 }
-
 #' Change a query definition.
 #' 
 #' Modify this query definition.
 #' 
 #' **Note**: You cannot undo this operation.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param data_source_id Data source ID maps to the ID of the data source used by the resource and is distinct from the warehouse ID.
 #' @param description General description that conveys additional information about this query such as usage notes.
@@ -157,4 +136,9 @@ queriesUpdate <- function(client, query_id, data_source_id = NULL, description =
   client$do("POST", paste("/api/2.0/preview/sql/queries/", query_id, sep = ""),
     body = body)
 }
+
+
+
+
+
 

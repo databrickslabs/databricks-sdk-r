@@ -18,9 +18,6 @@ NULL
 #' caller must have the **CREATE MODEL** or **CREATE FUNCTION** privilege on the
 #' parent schema.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param catalog_name Required. The name of the catalog where the schema and the registered model reside.
 #' @param comment The comment attached to the registered model.
@@ -36,7 +33,6 @@ registeredModelsCreate <- function(client, catalog_name, schema_name, name, comm
     storage_location = storage_location)
   client$do("POST", "/api/2.1/unity-catalog/models", body = body)
 }
-
 #' Delete a Registered Model.
 #' 
 #' Deletes a registered model and all its model versions from the specified
@@ -47,9 +43,6 @@ registeredModelsCreate <- function(client, catalog_name, schema_name, name, comm
 #' **USE_CATALOG** privilege on the parent catalog and the **USE_SCHEMA**
 #' privilege on the parent schema.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param full_name Required. The three-level (fully qualified) name of the registered model.
 #'
@@ -59,7 +52,6 @@ registeredModelsDelete <- function(client, full_name) {
 
   client$do("DELETE", paste("/api/2.1/unity-catalog/models/", full_name, sep = ""))
 }
-
 #' Delete a Registered Model Alias.
 #' 
 #' Deletes a registered model alias.
@@ -69,9 +61,6 @@ registeredModelsDelete <- function(client, full_name) {
 #' **USE_CATALOG** privilege on the parent catalog and the **USE_SCHEMA**
 #' privilege on the parent schema.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param alias Required. The name of the alias.
 #' @param full_name Required. The three-level (fully qualified) name of the registered model.
@@ -83,7 +72,6 @@ registeredModelsDeleteAlias <- function(client, full_name, alias) {
   client$do("DELETE", paste("/api/2.1/unity-catalog/models/", full_name, "/aliases/",
     alias, sep = ""))
 }
-
 #' Get a Registered Model.
 #' 
 #' Get a registered model.
@@ -93,9 +81,6 @@ registeredModelsDeleteAlias <- function(client, full_name, alias) {
 #' be the owner or have the **USE_CATALOG** privilege on the parent catalog and
 #' the **USE_SCHEMA** privilege on the parent schema.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param full_name Required. The three-level (fully qualified) name of the registered model.
 #' @param include_browse Whether to include registered models in the response for which the principal can only access selective metadata for.
@@ -107,7 +92,6 @@ registeredModelsGet <- function(client, full_name, include_browse = NULL) {
   client$do("GET", paste("/api/2.1/unity-catalog/models/", full_name, sep = ""),
     query = query)
 }
-
 #' List Registered Models.
 #' 
 #' List registered models. You can list registered models under a particular
@@ -123,8 +107,6 @@ registeredModelsGet <- function(client, full_name, include_browse = NULL) {
 #' 
 #' There is no guarantee of a specific ordering of the elements in the response.
 #' @param client Required. Instance of DatabricksClient()
-
-
 #'
 #' @param catalog_name The identifier of the catalog under which to list registered models.
 #' @param include_browse Whether to include registered models in the response for which the principal can only access selective metadata for.
@@ -157,7 +139,6 @@ registeredModelsList <- function(client, catalog_name = NULL, include_browse = N
   return(results)
 
 }
-
 #' Set a Registered Model Alias.
 #' 
 #' Set an alias on the specified registered model.
@@ -167,9 +148,6 @@ registeredModelsList <- function(client, catalog_name = NULL, include_browse = N
 #' **USE_CATALOG** privilege on the parent catalog and the **USE_SCHEMA**
 #' privilege on the parent schema.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param alias Required. The name of the alias.
 #' @param full_name Required. Full name of the registered model.
@@ -182,7 +160,6 @@ registeredModelsSetAlias <- function(client, full_name, alias, version_num) {
   client$do("PUT", paste("/api/2.1/unity-catalog/models/", full_name, "/aliases/",
     alias, sep = ""), body = body)
 }
-
 #' Update a Registered Model.
 #' 
 #' Updates the specified registered model.
@@ -195,9 +172,6 @@ registeredModelsSetAlias <- function(client, full_name, alias, version_num) {
 #' Currently only the name, the owner or the comment of the registered model can
 #' be updated.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param comment The comment attached to the registered model.
 #' @param full_name Required. The three-level (fully qualified) name of the registered model.
@@ -212,4 +186,10 @@ registeredModelsUpdate <- function(client, full_name, comment = NULL, new_name =
   client$do("PATCH", paste("/api/2.1/unity-catalog/models/", full_name, sep = ""),
     body = body)
 }
+
+
+
+
+
+
 

@@ -8,8 +8,6 @@ NULL
 #' Creates a new data processing pipeline based on the requested configuration.
 #' If successful, this method returns the ID of the new pipeline.
 #' @param client Required. Instance of DatabricksClient()
-
-
 #'
 #' @param allow_duplicate_names If false, deployment will fail if name conflicts with that of another pipeline.
 #' @param catalog A catalog in Unity Catalog to publish data from this pipeline to.
@@ -46,14 +44,10 @@ pipelinesCreate <- function(client, allow_duplicate_names = NULL, catalog = NULL
     trigger = trigger)
   client$do("POST", "/api/2.0/pipelines", body = body)
 }
-
 #' Delete a pipeline.
 #' 
 #' Deletes a pipeline.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param pipeline_id Required. This field has no description yet.
 #'
@@ -63,12 +57,8 @@ pipelinesDelete <- function(client, pipeline_id) {
 
   client$do("DELETE", paste("/api/2.0/pipelines/", pipeline_id, sep = ""))
 }
-
 #' Get a pipeline.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param pipeline_id Required. This field has no description yet.
 #'
@@ -78,14 +68,10 @@ pipelinesGet <- function(client, pipeline_id) {
 
   client$do("GET", paste("/api/2.0/pipelines/", pipeline_id, sep = ""))
 }
-
 #' Get pipeline permission levels.
 #' 
 #' Gets the permission levels that a user can have on an object.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param pipeline_id Required. The pipeline for which to get or manage permissions.
 #'
@@ -96,15 +82,11 @@ pipelinesGetPermissionLevels <- function(client, pipeline_id) {
   client$do("GET", paste("/api/2.0/permissions/pipelines/", pipeline_id, "/permissionLevels",
     , sep = ""))
 }
-
 #' Get pipeline permissions.
 #' 
 #' Gets the permissions of a pipeline. Pipelines can inherit permissions from
 #' their root object.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param pipeline_id Required. The pipeline for which to get or manage permissions.
 #'
@@ -114,14 +96,10 @@ pipelinesGetPermissions <- function(client, pipeline_id) {
 
   client$do("GET", paste("/api/2.0/permissions/pipelines/", pipeline_id, sep = ""))
 }
-
 #' Get a pipeline update.
 #' 
 #' Gets an update from an active pipeline.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param pipeline_id Required. The ID of the pipeline.
 #' @param update_id Required. The ID of the update.
@@ -133,14 +111,10 @@ pipelinesGetUpdate <- function(client, pipeline_id, update_id) {
   client$do("GET", paste("/api/2.0/pipelines/", pipeline_id, "/updates/", update_id,
     sep = ""))
 }
-
 #' List pipeline events.
 #' 
 #' Retrieves events for a pipeline.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param filter Criteria to select a subset of results, expressed using a SQL-like syntax.
 #' @param max_results Max number of entries to return in a single page.
@@ -174,13 +148,10 @@ pipelinesListPipelineEvents <- function(client, pipeline_id, filter = NULL, max_
   return(results)
 
 }
-
 #' List pipelines.
 #' 
 #' Lists pipelines defined in the Delta Live Tables system.
 #' @param client Required. Instance of DatabricksClient()
-
-
 #'
 #' @param filter Select a subset of results based on the specified criteria.
 #' @param max_results The maximum number of entries to return in a single page.
@@ -212,14 +183,10 @@ pipelinesListPipelines <- function(client, filter = NULL, max_results = NULL, or
   return(results)
 
 }
-
 #' List pipeline updates.
 #' 
 #' List updates for an active pipeline.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param max_results Max number of entries to return in a single page.
 #' @param page_token Page token returned by previous call.
@@ -234,15 +201,11 @@ pipelinesListUpdates <- function(client, pipeline_id, max_results = NULL, page_t
   client$do("GET", paste("/api/2.0/pipelines/", pipeline_id, "/updates", , sep = ""),
     query = query)
 }
-
 #' Set pipeline permissions.
 #' 
 #' Sets permissions on a pipeline. Pipelines can inherit permissions from their
 #' root object.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param access_control_list This field has no description yet.
 #' @param pipeline_id Required. The pipeline for which to get or manage permissions.
@@ -254,16 +217,12 @@ pipelinesSetPermissions <- function(client, pipeline_id, access_control_list = N
   client$do("PUT", paste("/api/2.0/permissions/pipelines/", pipeline_id, sep = ""),
     body = body)
 }
-
 #' Start a pipeline.
 #' 
 #' Starts a new update for the pipeline. If there is already an active update
 #' for the pipeline, the request will fail and the active update will remain
 #' running.
 #' @param client Required. Instance of DatabricksClient()
-
-
-#'
 #'
 #' @param cause This field has no description yet.
 #' @param full_refresh If true, this update will reset all tables before running.
@@ -281,6 +240,87 @@ pipelinesStartUpdate <- function(client, pipeline_id, cause = NULL, full_refresh
   client$do("POST", paste("/api/2.0/pipelines/", pipeline_id, "/updates", , sep = ""),
     body = body)
 }
+#' Stop a pipeline.
+#' 
+#' Stops the pipeline by canceling the active update. If there is no active
+#' update for the pipeline, this request is a no-op.
+#' @param client Required. Instance of DatabricksClient()
+#'
+#' @param pipeline_id Required. This field has no description yet.
+#'
+#' @rdname pipelinesStop
+#' @export
+pipelinesStop <- function(client, pipeline_id) {
+
+  client$do("POST", paste("/api/2.0/pipelines/", pipeline_id, "/stop", , sep = ""))
+}
+#' Edit a pipeline.
+#' 
+#' Updates a pipeline with the supplied configuration.
+#' @param client Required. Instance of DatabricksClient()
+#'
+#' @param allow_duplicate_names If false, deployment will fail if name has changed and conflicts the name of another pipeline.
+#' @param catalog A catalog in Unity Catalog to publish data from this pipeline to.
+#' @param channel DLT Release Channel that specifies which version to use.
+#' @param clusters Cluster settings for this pipeline deployment.
+#' @param configuration String-String configuration for this pipeline execution.
+#' @param continuous Whether the pipeline is continuous or triggered.
+#' @param development Whether the pipeline is in Development mode.
+#' @param edition Pipeline product edition.
+#' @param expected_last_modified If present, the last-modified time of the pipeline settings before the edit.
+#' @param filters Filters on which Pipeline packages to include in the deployed graph.
+#' @param id Unique identifier for this pipeline.
+#' @param libraries Libraries or code needed by this deployment.
+#' @param name Friendly identifier for this pipeline.
+#' @param notifications List of notification settings for this pipeline.
+#' @param photon Whether Photon is enabled for this pipeline.
+#' @param pipeline_id Unique identifier for this pipeline.
+#' @param serverless Whether serverless compute is enabled for this pipeline.
+#' @param storage DBFS root directory for storing checkpoints and tables.
+#' @param target Target schema (database) to add tables in this pipeline to.
+#' @param trigger Which pipeline trigger to use.
+#'
+#' @rdname pipelinesUpdate
+#' @export
+pipelinesUpdate <- function(client, pipeline_id, allow_duplicate_names = NULL, catalog = NULL,
+  channel = NULL, clusters = NULL, configuration = NULL, continuous = NULL, development = NULL,
+  edition = NULL, expected_last_modified = NULL, filters = NULL, id = NULL, libraries = NULL,
+  name = NULL, notifications = NULL, photon = NULL, serverless = NULL, storage = NULL,
+  target = NULL, trigger = NULL) {
+  body <- list(allow_duplicate_names = allow_duplicate_names, catalog = catalog,
+    channel = channel, clusters = clusters, configuration = configuration, continuous = continuous,
+    development = development, edition = edition, expected_last_modified = expected_last_modified,
+    filters = filters, id = id, libraries = libraries, name = name, notifications = notifications,
+    photon = photon, pipeline_id = pipeline_id, serverless = serverless, storage = storage,
+    target = target, trigger = trigger)
+  client$do("PUT", paste("/api/2.0/pipelines/", pipeline_id, sep = ""), body = body)
+}
+#' Update pipeline permissions.
+#' 
+#' Updates the permissions on a pipeline. Pipelines can inherit permissions from
+#' their root object.
+#' @param client Required. Instance of DatabricksClient()
+#'
+#' @param access_control_list This field has no description yet.
+#' @param pipeline_id Required. The pipeline for which to get or manage permissions.
+#'
+#' @rdname pipelinesUpdatePermissions
+#' @export
+pipelinesUpdatePermissions <- function(client, pipeline_id, access_control_list = NULL) {
+  body <- list(access_control_list = access_control_list)
+  client$do("PATCH", paste("/api/2.0/permissions/pipelines/", pipeline_id, sep = ""),
+    body = body)
+}
+
+
+
+
+
+
+
+
+
+
 
 #' Stop a pipeline.
 #' 
@@ -296,14 +336,12 @@ pipelinesStartUpdate <- function(client, pipeline_id, cause = NULL, full_refresh
 #' by changing the `callback` parameter.
 #' @param timeout Time to wait for the operation to complete in minutes.
 #' @param callback Function to report the status of the operation. By default, it reports to console.
-
-#'
 #'
 #' @param pipeline_id Required. This field has no description yet.
 #'
-#' @rdname pipelinesStop
+#' @rdname pipelinesStopAndWait
 #' @export
-pipelinesStop <- function(client, pipeline_id, timeout = 20, callback = cli_reporter) {
+pipelinesStopAndWait <- function(client, pipeline_id, timeout = 20, callback = cli_reporter) {
 
   op_response <- client$do("POST", paste("/api/2.0/pipelines/", pipeline_id, "/stop",
     , sep = ""))
@@ -343,68 +381,5 @@ pipelinesStop <- function(client, pipeline_id, timeout = 20, callback = cli_repo
   rlang::abort(msg, call = rlang::caller_env())
 }
 
-#' Edit a pipeline.
-#' 
-#' Updates a pipeline with the supplied configuration.
-#' @param client Required. Instance of DatabricksClient()
 
-
-#'
-#'
-#' @param allow_duplicate_names If false, deployment will fail if name has changed and conflicts the name of another pipeline.
-#' @param catalog A catalog in Unity Catalog to publish data from this pipeline to.
-#' @param channel DLT Release Channel that specifies which version to use.
-#' @param clusters Cluster settings for this pipeline deployment.
-#' @param configuration String-String configuration for this pipeline execution.
-#' @param continuous Whether the pipeline is continuous or triggered.
-#' @param development Whether the pipeline is in Development mode.
-#' @param edition Pipeline product edition.
-#' @param expected_last_modified If present, the last-modified time of the pipeline settings before the edit.
-#' @param filters Filters on which Pipeline packages to include in the deployed graph.
-#' @param id Unique identifier for this pipeline.
-#' @param libraries Libraries or code needed by this deployment.
-#' @param name Friendly identifier for this pipeline.
-#' @param notifications List of notification settings for this pipeline.
-#' @param photon Whether Photon is enabled for this pipeline.
-#' @param pipeline_id Unique identifier for this pipeline.
-#' @param serverless Whether serverless compute is enabled for this pipeline.
-#' @param storage DBFS root directory for storing checkpoints and tables.
-#' @param target Target schema (database) to add tables in this pipeline to.
-#' @param trigger Which pipeline trigger to use.
-#'
-#' @rdname pipelinesUpdate
-#' @export
-pipelinesUpdate <- function(client, pipeline_id, allow_duplicate_names = NULL, catalog = NULL,
-  channel = NULL, clusters = NULL, configuration = NULL, continuous = NULL, development = NULL,
-  edition = NULL, expected_last_modified = NULL, filters = NULL, id = NULL, libraries = NULL,
-  name = NULL, notifications = NULL, photon = NULL, serverless = NULL, storage = NULL,
-  target = NULL, trigger = NULL) {
-  body <- list(allow_duplicate_names = allow_duplicate_names, catalog = catalog,
-    channel = channel, clusters = clusters, configuration = configuration, continuous = continuous,
-    development = development, edition = edition, expected_last_modified = expected_last_modified,
-    filters = filters, id = id, libraries = libraries, name = name, notifications = notifications,
-    photon = photon, pipeline_id = pipeline_id, serverless = serverless, storage = storage,
-    target = target, trigger = trigger)
-  client$do("PUT", paste("/api/2.0/pipelines/", pipeline_id, sep = ""), body = body)
-}
-
-#' Update pipeline permissions.
-#' 
-#' Updates the permissions on a pipeline. Pipelines can inherit permissions from
-#' their root object.
-#' @param client Required. Instance of DatabricksClient()
-
-
-#'
-#'
-#' @param access_control_list This field has no description yet.
-#' @param pipeline_id Required. The pipeline for which to get or manage permissions.
-#'
-#' @rdname pipelinesUpdatePermissions
-#' @export
-pipelinesUpdatePermissions <- function(client, pipeline_id, access_control_list = NULL) {
-  body <- list(access_control_list = access_control_list)
-  client$do("PATCH", paste("/api/2.0/permissions/pipelines/", pipeline_id, sep = ""),
-    body = body)
-}
 
