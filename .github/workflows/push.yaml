@@ -26,10 +26,10 @@ jobs:
           r-version: release
           use-public-rspm: true
 
-      - name: Install dependencies
-        run: |
-          Rscript -e "if (!require(devtools)) install.packages('devtools', repos = 'https://cran.rstudio.com')"
-          Rscript -e "devtools::install_dev_deps('.')"
+      - uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          extra-packages: any::rcmdcheck
+          needs: check
       
       - name: Run tests
         run: |
