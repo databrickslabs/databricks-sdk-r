@@ -30,9 +30,9 @@ NULL
 
 {{- define "method-serialize" -}}
     {{if .Request}}
-    {{if .Request.HasQueryField}}{{$showComma := false}}query <- list({{range $i, $x := .Request.Fields}}{{if .IsQuery}}
+    {{if .Request.HasQueryField}}{{$showComma := false}}query <- list({{range .Request.Fields}}{{if .IsQuery}}
         {{if $showComma }}, {{end}}{{.Name}} = {{.SnakeName}}{{$showComma = true}}{{end}}{{end}}){{end -}}
-    {{- if .Request.HasJsonField}}{{$showComma := false}}body <- list({{range $i, $x := .Request.Fields}}{{if .IsJson}}
+    {{- if .Request.HasJsonField}}{{$showComma := false}}body <- list({{range .Request.Fields}}{{if .IsJson}}
         {{if $showComma}}, {{end}}{{.Name}} = {{.SnakeName}}{{$showComma = true}}{{end}}{{end}}){{end -}}
     {{- end}}
 {{- end -}}
