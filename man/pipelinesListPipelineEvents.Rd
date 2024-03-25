@@ -22,7 +22,7 @@ pipelinesListPipelineEvents(
 
 \item{max_results}{Max number of entries to return in a single page.}
 
-\item{order_by}{A string indicating a sort order by timestamp for the results, for example, \link{'timestamp asc'}.}
+\item{order_by}{A string indicating a sort order by timestamp for the results, for example, timestamp asc.}
 
 \item{page_token}{Page token returned by previous call.}
 }

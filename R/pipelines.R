@@ -144,7 +144,7 @@ pipelinesGetUpdate <- function(client, pipeline_id, update_id) {
 #'
 #' @param filter Criteria to select a subset of results, expressed using a SQL-like syntax.
 #' @param max_results Max number of entries to return in a single page.
-#' @param order_by A string indicating a sort order by timestamp for the results, for example, ['timestamp asc'].
+#' @param order_by A string indicating a sort order by timestamp for the results, for example, timestamp asc.
 #' @param page_token Page token returned by previous call.
 #' @param pipeline_id Required. This field has no description yet.
 #'

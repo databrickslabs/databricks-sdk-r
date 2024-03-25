@@ -296,10 +296,10 @@ modelRegistryGetLatestVersions <- function(client, name, stages = NULL) {
 #' Get model.
 #' 
 #' Get the details of a model. This is a Databricks workspace version of the
-#' [MLflow endpoint] that also returns the model's Databricks workspace ID and
+#' MLflow endpoint that also returns the model's Databricks workspace ID and
 #' the permission level of the requesting user on the model.
 #' 
-#' [MLflow endpoint]: https://www.mlflow.org/docs/latest/rest-api.html#get-registeredmodel
+#' MLflow endpoint: https://www.mlflow.org/docs/latest/rest-api.html#get-registeredmodel
 #' @param client Required. Instance of DatabricksClient()
 
 
@@ -678,10 +678,10 @@ modelRegistryTestRegistryWebhook <- function(client, id, event = NULL) {
 #' Transition a stage.
 #' 
 #' Transition a model version's stage. This is a Databricks workspace version of
-#' the [MLflow endpoint] that also accepts a comment associated with the
+#' the MLflow endpoint that also accepts a comment associated with the
 #' transition to be recorded.',
 #' 
-#' [MLflow endpoint]: https://www.mlflow.org/docs/latest/rest-api.html#transition-modelversion-stage
+#' MLflow endpoint: https://www.mlflow.org/docs/latest/rest-api.html#transition-modelversion-stage
 #' @param client Required. Instance of DatabricksClient()
 
 
