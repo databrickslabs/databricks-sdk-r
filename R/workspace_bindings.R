@@ -9,6 +9,8 @@ NULL
 #' or an owner of the catalog.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param name Required. The name of the catalog.
 #'
@@ -26,6 +28,8 @@ workspaceBindingsGet <- function(client, name) {
 #' admin or an owner of the securable.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param securable_name Required. The name of the securable.
 #' @param securable_type Required. The type of the securable.
@@ -44,6 +48,8 @@ workspaceBindingsGetBindings <- function(client, securable_type, securable_name)
 #' admin or an owner of the catalog.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param assign_workspaces A list of workspace IDs.
 #' @param name Required. The name of the catalog.
@@ -63,6 +69,8 @@ workspaceBindingsUpdate <- function(client, name, assign_workspaces = NULL, unas
 #' admin or an owner of the securable.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param add List of workspace bindings.
 #' @param remove List of workspace bindings.

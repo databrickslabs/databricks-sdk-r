@@ -11,6 +11,8 @@ NULL
 #' the DELETE endpoint to delete existing credentials.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param git_provider Required. Git provider.
 #' @param git_username Git username.
@@ -28,6 +30,8 @@ gitCredentialsCreate <- function(client, git_provider, git_username = NULL, pers
 #' Deletes the specified Git credential.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param credential_id Required. The ID for the corresponding credential to access.
 #'
@@ -43,6 +47,8 @@ gitCredentialsDelete <- function(client, credential_id) {
 #' Gets the Git credential with the specified credential ID.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param credential_id Required. The ID for the corresponding credential to access.
 #'
@@ -75,6 +81,8 @@ gitCredentialsList <- function(client) {
 #' Updates the specified Git credential.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param credential_id Required. The ID for the corresponding credential to access.
 #' @param git_provider Git provider.

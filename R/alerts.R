@@ -10,6 +10,8 @@ NULL
 #' notification destinations if the condition was met.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param name Required. Name of the alert.
 #' @param options Required. Alert configuration options.
@@ -32,6 +34,8 @@ alertsCreate <- function(client, name, options, query_id, parent = NULL, rearm =
 #' the trash.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param alert_id Required. 
 #'
@@ -47,6 +51,8 @@ alertsDelete <- function(client, alert_id) {
 #' Gets an alert.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param alert_id Required. 
 #'
@@ -73,6 +79,8 @@ alertsList <- function(client) {
 #' Updates an alert.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param alert_id Required. 
 #' @param name Required. Name of the alert.

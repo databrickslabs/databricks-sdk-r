@@ -12,6 +12,8 @@ NULL
 #' external server.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param comment User-provided free-form text description.
 #' @param connection_type Required. The type of connection.
@@ -34,6 +36,8 @@ connectionsCreate <- function(client, name, connection_type, options, comment = 
 #' Deletes the connection that matches the supplied name.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param name Required. The name of the connection to be deleted.
 #'
@@ -49,6 +53,8 @@ connectionsDelete <- function(client, name) {
 #' Gets a connection from it's name.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param name Required. Name of the connection.
 #'
@@ -80,6 +86,8 @@ connectionsList <- function(client) {
 #' Updates the connection that matches the supplied name.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param name Required. Name of the connection.
 #' @param new_name New name for the connection.

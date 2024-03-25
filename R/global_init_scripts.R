@@ -8,6 +8,8 @@ NULL
 #' Creates a new global init script in this workspace.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param enabled Specifies whether the script is enabled.
 #' @param name Required. The name of the script.
@@ -26,6 +28,8 @@ globalInitScriptsCreate <- function(client, name, script, enabled = NULL, positi
 #' Deletes a global init script.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param script_id Required. The ID of the global init script.
 #'
@@ -41,6 +45,8 @@ globalInitScriptsDelete <- function(client, script_id) {
 #' Gets all the details of a script, including its Base64-encoded contents.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param script_id Required. The ID of the global init script.
 #'
@@ -76,6 +82,8 @@ globalInitScriptsList <- function(client) {
 #' fields are optional. Unspecified fields retain their current value.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param enabled Specifies whether the script is enabled.
 #' @param name Required. The name of the script.

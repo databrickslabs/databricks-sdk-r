@@ -12,6 +12,8 @@ NULL
 #' and **CREATE_FUNCTION** on the function's parent schema
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param function_info Required. Partial __FunctionInfo__ specifying the function to be created.
 #'
@@ -33,6 +35,8 @@ functionsCreate <- function(client, function_info) {
 #' parent schema
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param force Force deletion even if the function is notempty.
 #' @param name Required. The fully-qualified name of the function (of the form __catalog_name__.__schema_name__.__function__name__).
@@ -56,6 +60,8 @@ functionsDelete <- function(client, name, force = NULL) {
 #' the **EXECUTE** privilege on the function itself
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param include_browse Whether to include functions in the response for which the principal can only access selective metadata for.
 #' @param name Required. The fully-qualified name of the function (of the form __catalog_name__.__schema_name__.__function__name__).
@@ -79,6 +85,8 @@ functionsGet <- function(client, name, include_browse = NULL) {
 #' the array.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param catalog_name Required. Name of parent catalog for functions of interest.
 #' @param include_browse Whether to include functions in the response for which the principal can only access selective metadata for.
@@ -124,6 +132,8 @@ functionsList <- function(client, catalog_name, schema_name, include_browse = NU
 #' the function's parent schema.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param name Required. The fully-qualified name of the function (of the form __catalog_name__.__schema_name__.__function__name__).
 #' @param owner Username of current owner of function.

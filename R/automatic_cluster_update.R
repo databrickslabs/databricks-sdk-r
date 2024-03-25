@@ -8,6 +8,7 @@ NULL
 #' Gets the automatic cluster update setting.
 #' @param client Required. Instance of DatabricksClient()
 
+
 #'
 #' @param etag etag used for versioning.
 #'
@@ -28,6 +29,8 @@ automaticClusterUpdateGet <- function(client, etag = NULL) {
 #' request must be retried by using the fresh etag in the 409 response.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param allow_missing Required. This should always be set to true for Settings API.
 #' @param field_mask Required. Field mask is required to be passed into the PATCH request.

@@ -10,6 +10,8 @@ NULL
 #' the role.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param resource Required. The resource name for which assignable roles will be listed.
 #'
@@ -28,6 +30,8 @@ accountAccessControlProxyGetAssignableRolesForResource <- function(client, resou
 #' default rule set for each resource is supported.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param etag Required. Etag used for versioning.
 #' @param name Required. The ruleset name associated with the request.
@@ -46,6 +50,8 @@ accountAccessControlProxyGetRuleSet <- function(client, name, etag) {
 #' prevent conflicts between concurrent updates.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param name Required. Name of the rule set.
 #' @param rule_set Required. 

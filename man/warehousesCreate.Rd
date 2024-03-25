@@ -51,6 +51,10 @@ warehousesCreate(
 \item{tags}{A set of key-value pairs that will be tagged on all resources (e.g., AWS instances and EBS volumes) associated with this SQL warehouse.}
 
 \item{warehouse_type}{Warehouse type: \code{PRO} or \code{CLASSIC}.}
+
+\item{timeout}{Time to wait for the operation to complete in minutes.}
+
+\item{callback}{Function to report the status of the operation. By default, it reports to console.}
 }
 \description{
 This is a long-running operation, which blocks until Warehouses on Databricks reach

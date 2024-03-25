@@ -9,6 +9,8 @@ NULL
 #' metastore admin or have the **CREATE_CLEAN_ROOM** privilege on the metastore.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param comment User-provided free-form text description.
 #' @param name Required. Name of the clean room.
@@ -27,6 +29,8 @@ cleanRoomsCreate <- function(client, name, remote_detailed_info, comment = NULL)
 #' owner of the clean room.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param name Required. The name of the clean room.
 #'
@@ -43,6 +47,8 @@ cleanRoomsDelete <- function(client, name) {
 #' metastore admin or the owner of the clean room.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param include_remote_details Whether to include remote details (central) on the clean room.
 #' @param name Required. The name of the clean room.
@@ -61,6 +67,7 @@ cleanRoomsGet <- function(client, name, include_remote_details = NULL) {
 #' be a metastore admin or the owner of the clean room. There is no guarantee of
 #' a specific ordering of the elements in the array.
 #' @param client Required. Instance of DatabricksClient()
+
 
 #'
 #' @param max_results Maximum number of clean rooms to return.
@@ -109,6 +116,8 @@ cleanRoomsList <- function(client, max_results = NULL, page_token = NULL) {
 #' Table removals through **update** do not require additional privileges.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param catalog_updates Array of shared data object updates.
 #' @param comment User-provided free-form text description.

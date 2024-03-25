@@ -8,6 +8,8 @@ NULL
 #' Creates a new instance pool using idle and ready-to-use cloud instances.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param aws_attributes Attributes related to instance pools running on Amazon Web Services.
 #' @param azure_attributes Attributes related to instance pools running on Azure.
@@ -44,6 +46,8 @@ instancePoolsCreate <- function(client, instance_pool_name, node_type_id, aws_at
 #' terminated asynchronously.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param instance_pool_id Required. The instance pool to be terminated.
 #'
@@ -59,6 +63,8 @@ instancePoolsDelete <- function(client, instance_pool_id) {
 #' Modifies the configuration of an existing instance pool.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param custom_tags Additional tags for pool resources.
 #' @param idle_instance_autotermination_minutes Automatically terminates the extra instances in the pool cache after they are inactive for this time in minutes if min_idle_instances requirement is already met.
@@ -84,6 +90,8 @@ instancePoolsEdit <- function(client, instance_pool_id, instance_pool_name, node
 #' Retrieve the information for an instance pool based on its identifier.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param instance_pool_id Required. The canonical unique identifier for the instance pool.
 #'
@@ -99,6 +107,8 @@ instancePoolsGet <- function(client, instance_pool_id) {
 #' Gets the permission levels that a user can have on an object.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param instance_pool_id Required. The instance pool for which to get or manage permissions.
 #'
@@ -116,6 +126,8 @@ instancePoolsGetPermissionLevels <- function(client, instance_pool_id) {
 #' permissions from their root object.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param instance_pool_id Required. The instance pool for which to get or manage permissions.
 #'
@@ -149,6 +161,8 @@ instancePoolsList <- function(client) {
 #' from their root object.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param access_control_list 
 #' @param instance_pool_id Required. The instance pool for which to get or manage permissions.
@@ -167,6 +181,8 @@ instancePoolsSetPermissions <- function(client, instance_pool_id, access_control
 #' permissions from their root object.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param access_control_list 
 #' @param instance_pool_id Required. The instance pool for which to get or manage permissions.

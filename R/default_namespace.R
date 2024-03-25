@@ -12,6 +12,7 @@ NULL
 #' request must be retried by using the fresh etag in the 409 response.
 #' @param client Required. Instance of DatabricksClient()
 
+
 #'
 #' @param etag etag used for versioning.
 #'
@@ -27,6 +28,7 @@ defaultNamespaceDelete <- function(client, etag = NULL) {
 #' 
 #' Gets the default namespace setting.
 #' @param client Required. Instance of DatabricksClient()
+
 
 #'
 #' @param etag etag used for versioning.
@@ -50,6 +52,8 @@ defaultNamespaceGet <- function(client, etag = NULL) {
 #' the request must be retried by using the fresh etag in the 409 response.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param allow_missing Required. This should always be set to true for Settings API.
 #' @param field_mask Required. Field mask is required to be passed into the PATCH request.

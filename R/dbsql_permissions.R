@@ -9,6 +9,8 @@ NULL
 #' object.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param object_id Required. Object ID.
 #' @param object_type Required. The type of object permissions to check.
@@ -27,6 +29,8 @@ dbsqlPermissionsGet <- function(client, object_type, object_id) {
 #' will complete rewrite the ACL.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param access_control_list 
 #' @param object_id Required. Object ID.
@@ -46,6 +50,8 @@ dbsqlPermissionsSet <- function(client, object_type, object_id, access_control_l
 #' Requires an admin API key.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param new_owner Email address for the new owner, who must exist in the workspace.
 #' @param object_id Required. The ID of the object on which to change ownership.

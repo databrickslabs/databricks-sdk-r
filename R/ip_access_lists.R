@@ -23,6 +23,8 @@ NULL
 #' :method:workspaceconf/setStatus
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param ip_addresses 
 #' @param label Required. Label for the IP access list.
@@ -40,6 +42,8 @@ ipAccessListsCreate <- function(client, label, list_type, ip_addresses = NULL) {
 #' Deletes an IP access list, specified by its list ID.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param ip_access_list_id Required. The ID for the corresponding IP access list.
 #'
@@ -55,6 +59,8 @@ ipAccessListsDelete <- function(client, ip_access_list_id) {
 #' Gets an IP access list, specified by its list ID.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param ip_access_list_id Required. The ID for the corresponding IP access list.
 #'
@@ -97,6 +103,8 @@ ipAccessListsList <- function(client) {
 #' feature. See :method:workspaceconf/setStatus.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param enabled Required. Specifies whether this IP access list is enabled.
 #' @param ip_access_list_id Required. The ID for the corresponding IP access list.
@@ -134,6 +142,8 @@ ipAccessListsReplace <- function(client, ip_access_list_id, label, list_type, en
 #' :method:workspaceconf/setStatus.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param enabled Specifies whether this IP access list is enabled.
 #' @param ip_access_list_id Required. The ID for the corresponding IP access list.

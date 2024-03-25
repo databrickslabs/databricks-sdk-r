@@ -9,6 +9,8 @@ NULL
 #' group.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param from_workspace_group_name Required. The name of the workspace group that permissions will be migrated from.
 #' @param size The maximum number of permissions that will be migrated.

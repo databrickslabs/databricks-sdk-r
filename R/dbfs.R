@@ -13,6 +13,8 @@ NULL
 #' ``MAX_BLOCK_SIZE_EXCEEDED``.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param data Required. The base64-encoded data to append to the stream.
 #' @param handle Required. The handle on an open stream.
@@ -30,6 +32,8 @@ dbfsAddBlock <- function(client, handle, data) {
 #' exist, this call throws an exception with ``RESOURCE_DOES_NOT_EXIST``.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param handle Required. The handle on an open stream.
 #'
@@ -54,6 +58,8 @@ dbfsClose <- function(client, handle) {
 #' the handle you have.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param overwrite The flag that specifies whether to overwrite existing file/files.
 #' @param path Required. The path of the new file.
@@ -87,6 +93,8 @@ dbfsCreate <- function(client, path, overwrite = NULL) {
 #' jobs.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param path Required. The path of the file or directory to delete.
 #' @param recursive Whether or not to recursively delete the directory's contents.
@@ -104,6 +112,8 @@ dbfsDelete <- function(client, path, recursive = NULL) {
 #' does not exist, this call throws an exception with `RESOURCE_DOES_NOT_EXIST`.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param path Required. The path of the file or directory.
 #'
@@ -129,6 +139,8 @@ dbfsGetStatus <- function(client, path) {
 #' which provides the same functionality without timing out.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param path Required. The path of the file or directory.
 #'
@@ -153,6 +165,8 @@ dbfsList <- function(client, path) {
 #' necessary parent directories.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param path Required. The path of the new directory.
 #'
@@ -172,6 +186,8 @@ dbfsMkdirs <- function(client, path) {
 #' source path is a directory, this call always recursively moves all files.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param destination_path Required. The destination path of the file or directory.
 #' @param source_path Required. The source path of the file or directory.
@@ -199,6 +215,8 @@ dbfsMove <- function(client, source_path, destination_path) {
 #' :method:dbfs/create, :method:dbfs/addBlock, :method:dbfs/close.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param contents This parameter might be absent, and instead a posted file will be used.
 #' @param overwrite The flag that specifies whether to overwrite existing file/files.
@@ -223,6 +241,8 @@ dbfsPut <- function(client, path, contents = NULL, overwrite = NULL) {
 #' contents until the end of file.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param length The number of bytes to read starting from the offset.
 #' @param offset The offset to read from in bytes.

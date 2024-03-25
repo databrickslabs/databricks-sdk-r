@@ -11,6 +11,7 @@ NULL
 #' an error **QUOTA_EXCEEDED**.
 #' @param client Required. Instance of DatabricksClient()
 
+
 #'
 #' @param comment Optional description to attach to the token.
 #' @param lifetime_seconds The lifetime of the token, in seconds.
@@ -30,6 +31,8 @@ tokensCreate <- function(client, comment = NULL, lifetime_seconds = NULL) {
 #' **RESOURCE_DOES_NOT_EXIST**.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param token_id Required. The ID of the token to be revoked.
 #'

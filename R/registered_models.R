@@ -19,6 +19,8 @@ NULL
 #' parent schema.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param catalog_name Required. The name of the catalog where the schema and the registered model reside.
 #' @param comment The comment attached to the registered model.
@@ -46,6 +48,8 @@ registeredModelsCreate <- function(client, catalog_name, schema_name, name, comm
 #' privilege on the parent schema.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param full_name Required. The three-level (fully qualified) name of the registered model.
 #'
@@ -66,6 +70,8 @@ registeredModelsDelete <- function(client, full_name) {
 #' privilege on the parent schema.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param alias Required. The name of the alias.
 #' @param full_name Required. The three-level (fully qualified) name of the registered model.
@@ -88,6 +94,8 @@ registeredModelsDeleteAlias <- function(client, full_name, alias) {
 #' the **USE_SCHEMA** privilege on the parent schema.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param full_name Required. The three-level (fully qualified) name of the registered model.
 #' @param include_browse Whether to include registered models in the response for which the principal can only access selective metadata for.
@@ -115,6 +123,7 @@ registeredModelsGet <- function(client, full_name, include_browse = NULL) {
 #' 
 #' There is no guarantee of a specific ordering of the elements in the response.
 #' @param client Required. Instance of DatabricksClient()
+
 
 #'
 #' @param catalog_name The identifier of the catalog under which to list registered models.
@@ -159,6 +168,8 @@ registeredModelsList <- function(client, catalog_name = NULL, include_browse = N
 #' privilege on the parent schema.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param alias Required. The name of the alias.
 #' @param full_name Required. Full name of the registered model.
@@ -185,6 +196,8 @@ registeredModelsSetAlias <- function(client, full_name, alias, version_num) {
 #' be updated.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param comment The comment attached to the registered model.
 #' @param full_name Required. The three-level (fully qualified) name of the registered model.

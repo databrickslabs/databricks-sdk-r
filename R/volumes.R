@@ -25,6 +25,8 @@ NULL
 #' of other tables, nor volumes, or catalogs or schemas.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param catalog_name Required. The name of the catalog where the schema and the volume are.
 #' @param comment The comment attached to the volume.
@@ -52,6 +54,8 @@ volumesCreate <- function(client, catalog_name, schema_name, name, volume_type, 
 #' parent schema.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param name Required. The three-level (fully qualified) name of the volume.
 #'
@@ -77,6 +81,8 @@ volumesDelete <- function(client, name) {
 #' There is no guarantee of a specific ordering of the elements in the array.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param catalog_name Required. The identifier of the catalog.
 #' @param include_browse Whether to include volumes in the response for which the principal can only access selective metadata for.
@@ -120,6 +126,8 @@ volumesList <- function(client, catalog_name, schema_name, include_browse = NULL
 #' the **USE_SCHEMA** privilege on the parent schema.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param include_browse Whether to include volumes in the response for which the principal can only access selective metadata for.
 #' @param name Required. The three-level (fully qualified) name of the volume.
@@ -144,6 +152,8 @@ volumesRead <- function(client, name, include_browse = NULL) {
 #' updated.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param comment The comment attached to the volume.
 #' @param name Required. The three-level (fully qualified) name of the volume.

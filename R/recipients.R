@@ -10,6 +10,8 @@ NULL
 #' **CREATE_RECIPIENT** privilege on the metastore.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param authentication_type Required. The delta sharing authentication type.
 #' @param comment Description about the recipient.
@@ -36,6 +38,8 @@ recipientsCreate <- function(client, name, authentication_type, comment = NULL, 
 #' owner of the recipient.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param name Required. Name of the recipient.
 #'
@@ -53,6 +57,8 @@ recipientsDelete <- function(client, name) {
 #' * the caller is the owner of the share recipient, or: * is a metastore admin
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param name Required. Name of the recipient.
 #'
@@ -70,6 +76,7 @@ recipientsGet <- function(client, name) {
 #' * the caller is a metastore admin, or * the caller is the owner. There is no
 #' guarantee of a specific ordering of the elements in the array.
 #' @param client Required. Instance of DatabricksClient()
+
 
 #'
 #' @param data_recipient_global_metastore_id If not provided, all recipients will be returned.
@@ -92,6 +99,8 @@ recipientsList <- function(client, data_recipient_global_metastore_id = NULL) {
 #' the provided token info. The caller must be the owner of the recipient.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param existing_token_expire_in_seconds Required. The expiration time of the bearer token in ISO 8601 format.
 #' @param name Required. The name of the recipient.
@@ -110,6 +119,8 @@ recipientsRotateToken <- function(client, name, existing_token_expire_in_seconds
 #' metastore admin or the owner of the Recipient.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param name Required. The name of the Recipient.
 #'
@@ -129,6 +140,8 @@ recipientsSharePermissions <- function(client, name) {
 #' recipient.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param comment Description about the recipient.
 #' @param ip_access_list IP Access List.

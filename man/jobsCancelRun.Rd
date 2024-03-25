@@ -10,6 +10,10 @@ jobsCancelRun(client, run_id, timeout = 20, callback = cli_reporter)
 \item{client}{Required. Instance of DatabricksClient()}
 
 \item{run_id}{Required. This field is required.}
+
+\item{timeout}{Time to wait for the operation to complete in minutes.}
+
+\item{callback}{Function to report the status of the operation. By default, it reports to console.}
 }
 \description{
 This is a long-running operation, which blocks until Jobs on Databricks reach

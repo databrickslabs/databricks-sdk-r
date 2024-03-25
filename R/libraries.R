@@ -36,6 +36,8 @@ librariesAllClusterStatuses <- function(client) {
 #' guarantee.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param cluster_id Required. Unique identifier of the cluster whose status should be retrieved.
 #'
@@ -61,6 +63,8 @@ librariesClusterStatus <- function(client, cluster_id) {
 #' installed on all clusters via the libraries UI.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param cluster_id Required. Unique identifier for the cluster on which to install these libraries.
 #' @param libraries Required. The libraries to install.
@@ -79,6 +83,8 @@ librariesInstall <- function(client, cluster_id, libraries) {
 #' not installed on the cluster will have no impact but is not an error.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param cluster_id Required. Unique identifier for the cluster on which to uninstall these libraries.
 #' @param libraries Required. The libraries to uninstall.

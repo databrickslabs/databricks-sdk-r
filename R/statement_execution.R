@@ -9,6 +9,8 @@ NULL
 #' status to see the terminal state.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param statement_id Required. The statement ID is returned upon successfully submitting a SQL statement, and is a required reference for all subsequent calls.
 #'
@@ -23,6 +25,8 @@ statementExecutionCancelExecution <- function(client, statement_id) {
 #' Execute a SQL statement.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param byte_limit Applies the given byte limit to the statement's result size.
 #' @param catalog Sets default catalog for statement execution, similar to [`USE CATALOG`](https://docs.databricks.com/sql/language-manual/sql-ref-syntax-ddl-use-catalog.html) in SQL.
@@ -61,6 +65,8 @@ statementExecutionExecuteStatement <- function(client, statement, warehouse_id, 
 #' status and result.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param statement_id Required. The statement ID is returned upon successfully submitting a SQL statement, and is a required reference for all subsequent calls.
 #'
@@ -83,6 +89,8 @@ statementExecutionGetStatement <- function(client, statement_id) {
 #' fields for simple iteration through the result set.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param chunk_index Required. 
 #' @param statement_id Required. The statement ID is returned upon successfully submitting a SQL statement, and is a required reference for all subsequent calls.

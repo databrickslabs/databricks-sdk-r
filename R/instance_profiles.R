@@ -9,6 +9,8 @@ NULL
 #' API is only available to admin users.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param iam_role_arn The AWS IAM role ARN of the role associated with the instance profile.
 #' @param instance_profile_arn Required. The AWS ARN of the instance profile to register with Databricks.
@@ -43,6 +45,8 @@ instanceProfilesAdd <- function(client, instance_profile_arn, iam_role_arn = NUL
 #' [Enable serverless SQL warehouses]: https://docs.databricks.com/sql/admin/serverless.html
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param iam_role_arn The AWS IAM role ARN of the role associated with the instance profile.
 #' @param instance_profile_arn Required. The AWS ARN of the instance profile to register with Databricks.
@@ -83,6 +87,8 @@ instanceProfilesList <- function(client) {
 #' This API is only accessible to admin users.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param instance_profile_arn Required. The ARN of the instance profile to remove.
 #'

@@ -8,6 +8,8 @@ NULL
 #' Creates and deploys an application.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param manifest Required. Manifest that specifies the application requirements.
 #' @param resources Information passed at app deployment time to fulfill app dependencies.
@@ -24,6 +26,8 @@ appsCreate <- function(client, manifest, resources = NULL) {
 #' Delete an application definition
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param name Required. The name of an application.
 #'
@@ -39,6 +43,8 @@ appsDeleteApp <- function(client, name) {
 #' Get an application definition
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param name Required. The name of an application.
 #'
@@ -54,6 +60,8 @@ appsGetApp <- function(client, name) {
 #' Get deployment status for an application
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param deployment_id Required. The deployment id for an application.
 #' @param include_app_log Boolean flag to include application logs.
@@ -82,6 +90,8 @@ appsGetApps <- function(client) {
 #' Get deployment events for an application
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param name Required. The name of an application.
 #'

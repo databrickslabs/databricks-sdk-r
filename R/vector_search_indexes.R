@@ -8,6 +8,8 @@ NULL
 #' Create a new index.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param delta_sync_index_spec Specification for Delta Sync Index.
 #' @param direct_access_index_spec Specification for Direct Vector Access Index.
@@ -30,6 +32,8 @@ vectorSearchIndexesCreateIndex <- function(client, name, endpoint_name, primary_
 #' Handles the deletion of data from a specified vector index.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param index_name Required. Name of the vector index where data is to be deleted.
 #' @param primary_keys Required. List of primary keys for the data to be deleted.
@@ -47,6 +51,8 @@ vectorSearchIndexesDeleteDataVectorIndex <- function(client, index_name, primary
 #' Delete an index.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param index_name Required. Name of the index.
 #'
@@ -62,6 +68,8 @@ vectorSearchIndexesDeleteIndex <- function(client, index_name) {
 #' Get an index.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param index_name Required. Name of the index.
 #'
@@ -77,6 +85,8 @@ vectorSearchIndexesGetIndex <- function(client, index_name) {
 #' List all indexes in the given endpoint.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param endpoint_name Required. Name of the endpoint.
 #' @param page_token Token for pagination.
@@ -110,6 +120,8 @@ vectorSearchIndexesListIndexes <- function(client, endpoint_name, page_token = N
 #' Query the specified vector index.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param columns Required. List of column names to include in the response.
 #' @param filters_json JSON string representing query filters.
@@ -134,6 +146,8 @@ vectorSearchIndexesQueryIndex <- function(client, index_name, columns, filters_j
 #' Triggers a synchronization process for a specified vector index.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param index_name Required. Name of the vector index to synchronize.
 #'
@@ -150,6 +164,8 @@ vectorSearchIndexesSyncIndex <- function(client, index_name) {
 #' Handles the upserting of data into a specified vector index.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param index_name Required. Name of the vector index where data is to be upserted.
 #' @param inputs_json Required. JSON string representing the data to be upserted.

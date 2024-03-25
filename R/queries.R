@@ -16,6 +16,7 @@ NULL
 #' **Note**: You cannot add a visualization until you create the query.
 #' @param client Required. Instance of DatabricksClient()
 
+
 #'
 #' @param data_source_id Data source ID maps to the ID of the data source used by the resource and is distinct from the warehouse ID.
 #' @param description General description that conveys additional information about this query such as usage notes.
@@ -41,6 +42,8 @@ queriesCreate <- function(client, data_source_id = NULL, description = NULL, nam
 #' deleted after 30 days.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param query_id Required. 
 #'
@@ -57,6 +60,8 @@ queriesDelete <- function(client, query_id) {
 #' information about the currently authenticated user.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param query_id Required. 
 #'
@@ -75,6 +80,7 @@ queriesGet <- function(client, query_id) {
 #' ### **Warning: Calling this API concurrently 10 or more times could result in
 #' throttling, service degradation, or a temporary ban.**
 #' @param client Required. Instance of DatabricksClient()
+
 
 #'
 #' @param order Name of query attribute to order by.
@@ -112,6 +118,8 @@ queriesList <- function(client, order = NULL, page = NULL, page_size = NULL, q =
 #' list views and searches. You can use restored queries for alerts.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param query_id Required. 
 #'
@@ -129,6 +137,8 @@ queriesRestore <- function(client, query_id) {
 #' **Note**: You cannot undo this operation.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param data_source_id Data source ID maps to the ID of the data source used by the resource and is distinct from the warehouse ID.
 #' @param description General description that conveys additional information about this query such as usage notes.

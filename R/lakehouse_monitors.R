@@ -17,6 +17,8 @@ NULL
 #' created.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param full_name Required. Full name of the table.
 #' @param refresh_id Required. ID of the refresh.
@@ -45,6 +47,8 @@ lakehouseMonitorsCancelRefresh <- function(client, full_name, refresh_id) {
 #' where this call was made.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param assets_dir Required. The directory to store monitoring assets (e.g.
 #' @param baseline_table_name Name of the baseline table from which drift metrics are computed from.
@@ -93,6 +97,8 @@ lakehouseMonitorsCreate <- function(client, full_name, assets_dir, output_schema
 #' call; those assets must be manually cleaned up (if desired).
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param full_name Required. Full name of the table.
 #'
@@ -120,6 +126,8 @@ lakehouseMonitorsDelete <- function(client, full_name) {
 #' where the monitor was created.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param full_name Required. Full name of the table.
 #'
@@ -145,6 +153,8 @@ lakehouseMonitorsGet <- function(client, full_name) {
 #' created.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param full_name Required. Full name of the table.
 #' @param refresh_id Required. ID of the refresh.
@@ -172,6 +182,8 @@ lakehouseMonitorsGetRefresh <- function(client, full_name, refresh_id) {
 #' created.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param full_name Required. Full name of the table.
 #'
@@ -198,6 +210,8 @@ lakehouseMonitorsListRefreshes <- function(client, full_name) {
 #' created.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param full_name Required. Full name of the table.
 #'
@@ -226,6 +240,8 @@ lakehouseMonitorsRunRefresh <- function(client, full_name) {
 #' updated.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param baseline_table_name Name of the baseline table from which drift metrics are computed from.
 #' @param custom_metrics Custom metrics to compute on the monitored table.

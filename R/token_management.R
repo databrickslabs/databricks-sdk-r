@@ -8,6 +8,8 @@ NULL
 #' Creates a token on behalf of a service principal.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param application_id Required. Application ID of the service principal.
 #' @param comment Comment that describes the purpose of the token.
@@ -26,6 +28,8 @@ tokenManagementCreateOboToken <- function(client, application_id, comment = NULL
 #' Deletes a token, specified by its ID.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param token_id Required. The ID of the token to get.
 #'
@@ -41,6 +45,8 @@ tokenManagementDelete <- function(client, token_id) {
 #' Gets information about a token, specified by its ID.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param token_id Required. The ID of the token to get.
 #'
@@ -79,6 +85,7 @@ tokenManagementGetPermissions <- function(client) {
 #' Lists all tokens associated with the specified workspace or user.
 #' @param client Required. Instance of DatabricksClient()
 
+
 #'
 #' @param created_by_id User ID of the user that created the token.
 #' @param created_by_username Username of the user that created the token.
@@ -101,6 +108,7 @@ tokenManagementList <- function(client, created_by_id = NULL, created_by_usernam
 #' root object.
 #' @param client Required. Instance of DatabricksClient()
 
+
 #'
 #' @param access_control_list 
 #'
@@ -116,6 +124,7 @@ tokenManagementSetPermissions <- function(client, access_control_list = NULL) {
 #' Updates the permissions on all tokens. Tokens can inherit permissions from
 #' their root object.
 #' @param client Required. Instance of DatabricksClient()
+
 
 #'
 #' @param access_control_list 

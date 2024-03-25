@@ -18,6 +18,10 @@ commandExecutionCreate(
 \item{cluster_id}{Running cluster id.}
 
 \item{language}{}
+
+\item{timeout}{Time to wait for the operation to complete in minutes.}
+
+\item{callback}{Function to report the status of the operation. By default, it reports to console.}
 }
 \description{
 This is a long-running operation, which blocks until Command Execution on Databricks reach

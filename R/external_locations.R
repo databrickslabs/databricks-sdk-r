@@ -10,6 +10,8 @@ NULL
 #' the metastore and the associated storage credential.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param access_point The AWS access point to use when accesing s3 for this external location.
 #' @param comment User-provided free-form text description.
@@ -36,6 +38,8 @@ externalLocationsCreate <- function(client, name, url, credential_name, access_p
 #' be the owner of the external location.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param force Force deletion even if there are dependent external tables or mounts.
 #' @param name Required. Name of the external location.
@@ -55,6 +59,8 @@ externalLocationsDelete <- function(client, name, force = NULL) {
 #' privilege on the external location.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param include_browse Whether to include external locations in the response for which the principal can only access selective metadata for.
 #' @param name Required. Name of the external location.
@@ -75,6 +81,7 @@ externalLocationsGet <- function(client, name, include_browse = NULL) {
 #' location. There is no guarantee of a specific ordering of the elements in the
 #' array.
 #' @param client Required. Instance of DatabricksClient()
+
 
 #'
 #' @param include_browse Whether to include external locations in the response for which the principal can only access selective metadata for.
@@ -113,6 +120,8 @@ externalLocationsList <- function(client, include_browse = NULL, max_results = N
 #' admin can only update the name of the external location.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param access_point The AWS access point to use when accesing s3 for this external location.
 #' @param comment User-provided free-form text description.

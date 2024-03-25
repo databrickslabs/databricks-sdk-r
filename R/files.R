@@ -11,6 +11,8 @@ NULL
 #' (it will succeed if the directory already exists).
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param directory_path Required. The absolute path of a directory.
 #'
@@ -26,6 +28,8 @@ filesCreateDirectory <- function(client, directory_path) {
 #' Deletes a file. If the request is successful, there is no response body.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param file_path Required. The absolute path of the file.
 #'
@@ -45,6 +49,8 @@ filesDelete <- function(client, file_path) {
 #' subdirectory recursively.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param directory_path Required. The absolute path of a directory.
 #'
@@ -61,6 +67,8 @@ filesDeleteDirectory <- function(client, directory_path) {
 #' This is a standard HTTP file download, not a JSON RPC.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param file_path Required. The absolute path of the file.
 #'
@@ -84,6 +92,8 @@ filesDownload <- function(client, file_path) {
 #' succeed if the directory already exists).
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param directory_path Required. The absolute path of a directory.
 #'
@@ -100,6 +110,8 @@ filesGetDirectoryMetadata <- function(client, directory_path) {
 #' There is no response body.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param file_path Required. The absolute path of the file.
 #'
@@ -116,6 +128,8 @@ filesGetMetadata <- function(client, file_path) {
 #' specified path, the API returns a HTTP 404 error.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param directory_path Required. The absolute path of a directory.
 #' @param page_size The maximum number of directory entries to return.
@@ -156,6 +170,8 @@ filesListDirectoryContents <- function(client, directory_path, page_size = NULL,
 #' there is no response body.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param contents 
 #' @param file_path Required. The absolute path of the file.

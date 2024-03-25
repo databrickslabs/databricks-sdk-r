@@ -14,6 +14,9 @@ NULL
 #' RUNNING state with the timeout of 20 minutes, that you can change via `timeout` parameter.
 #' By default, the state of Databricks Warehouses is reported to console. You can change this behavior
 #' by changing the `callback` parameter.
+#' @param timeout Time to wait for the operation to complete in minutes.
+#' @param callback Function to report the status of the operation. By default, it reports to console.
+
 #'
 #' @param auto_stop_mins The amount of time in minutes that a SQL warehouse must be idle (i.e., no RUNNING queries) before it is automatically stopped.
 #' @param channel Channel Details.
@@ -86,6 +89,8 @@ warehousesCreate <- function(client, auto_stop_mins = NULL, channel = NULL, clus
 #' Deletes a SQL warehouse.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param id Required. Required.
 #'
@@ -107,6 +112,10 @@ warehousesDelete <- function(client, id) {
 #' RUNNING state with the timeout of 20 minutes, that you can change via `timeout` parameter.
 #' By default, the state of Databricks Warehouses is reported to console. You can change this behavior
 #' by changing the `callback` parameter.
+#' @param timeout Time to wait for the operation to complete in minutes.
+#' @param callback Function to report the status of the operation. By default, it reports to console.
+
+#'
 #'
 #' @param auto_stop_mins The amount of time in minutes that a SQL warehouse must be idle (i.e., no RUNNING queries) before it is automatically stopped.
 #' @param channel Channel Details.
@@ -181,6 +190,8 @@ warehousesEdit <- function(client, id, auto_stop_mins = NULL, channel = NULL, cl
 #' Gets the information for a single SQL warehouse.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param id Required. Required.
 #'
@@ -196,6 +207,8 @@ warehousesGet <- function(client, id) {
 #' Gets the permission levels that a user can have on an object.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param warehouse_id Required. The SQL warehouse for which to get or manage permissions.
 #'
@@ -213,6 +226,8 @@ warehousesGetPermissionLevels <- function(client, warehouse_id) {
 #' permissions from their root object.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param warehouse_id Required. The SQL warehouse for which to get or manage permissions.
 #'
@@ -240,6 +255,7 @@ warehousesGetWorkspaceWarehouseConfig <- function(client) {
 #' Lists all SQL warehouses that a user has manager permissions on.
 #' @param client Required. Instance of DatabricksClient()
 
+
 #'
 #' @param run_as_user_id Service Principal which will be used to fetch the list of warehouses.
 #'
@@ -261,6 +277,8 @@ warehousesList <- function(client, run_as_user_id = NULL) {
 #' from their root object.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param access_control_list 
 #' @param warehouse_id Required. The SQL warehouse for which to get or manage permissions.
@@ -278,6 +296,7 @@ warehousesSetPermissions <- function(client, warehouse_id, access_control_list =
 #' Sets the workspace level configuration that is shared by all SQL warehouses
 #' in a workspace.
 #' @param client Required. Instance of DatabricksClient()
+
 
 #'
 #' @param channel Optional: Channel selection details.
@@ -314,6 +333,10 @@ warehousesSetWorkspaceWarehouseConfig <- function(client, channel = NULL, config
 #' RUNNING state with the timeout of 20 minutes, that you can change via `timeout` parameter.
 #' By default, the state of Databricks Warehouses is reported to console. You can change this behavior
 #' by changing the `callback` parameter.
+#' @param timeout Time to wait for the operation to complete in minutes.
+#' @param callback Function to report the status of the operation. By default, it reports to console.
+
+#'
 #'
 #' @param id Required. Required.
 #'
@@ -373,6 +396,10 @@ warehousesStart <- function(client, id, timeout = 20, callback = cli_reporter) {
 #' STOPPED state with the timeout of 20 minutes, that you can change via `timeout` parameter.
 #' By default, the state of Databricks Warehouses is reported to console. You can change this behavior
 #' by changing the `callback` parameter.
+#' @param timeout Time to wait for the operation to complete in minutes.
+#' @param callback Function to report the status of the operation. By default, it reports to console.
+
+#'
 #'
 #' @param id Required. Required.
 #'
@@ -422,6 +449,8 @@ warehousesStop <- function(client, id, timeout = 20, callback = cli_reporter) {
 #' permissions from their root object.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param access_control_list 
 #' @param warehouse_id Required. The SQL warehouse for which to get or manage permissions.

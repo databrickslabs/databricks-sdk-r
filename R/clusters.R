@@ -10,6 +10,8 @@ NULL
 #' can be supplied as an argument to `owner_username`.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param cluster_id Required. <needs content added>.
 #' @param owner_username Required. New owner of the cluster_id after this RPC.
@@ -39,6 +41,10 @@ clustersChangeOwner <- function(client, cluster_id, owner_username) {
 #' RUNNING state with the timeout of 20 minutes, that you can change via `timeout` parameter.
 #' By default, the state of Databricks Clusters is reported to console. You can change this behavior
 #' by changing the `callback` parameter.
+#' @param timeout Time to wait for the operation to complete in minutes.
+#' @param callback Function to report the status of the operation. By default, it reports to console.
+
+#'
 #'
 #' @param apply_policy_default_values 
 #' @param autoscale Parameters needed in order to automatically scale clusters up and down based on load.
@@ -143,6 +149,10 @@ clustersCreate <- function(client, spark_version, apply_policy_default_values = 
 #' TERMINATED state with the timeout of 20 minutes, that you can change via `timeout` parameter.
 #' By default, the state of Databricks Clusters is reported to console. You can change this behavior
 #' by changing the `callback` parameter.
+#' @param timeout Time to wait for the operation to complete in minutes.
+#' @param callback Function to report the status of the operation. By default, it reports to console.
+
+#'
 #'
 #' @param cluster_id Required. The cluster to be terminated.
 #'
@@ -209,6 +219,10 @@ clustersDelete <- function(client, cluster_id, timeout = 20, callback = cli_repo
 #' RUNNING state with the timeout of 20 minutes, that you can change via `timeout` parameter.
 #' By default, the state of Databricks Clusters is reported to console. You can change this behavior
 #' by changing the `callback` parameter.
+#' @param timeout Time to wait for the operation to complete in minutes.
+#' @param callback Function to report the status of the operation. By default, it reports to console.
+
+#'
 #'
 #' @param apply_policy_default_values 
 #' @param autoscale Parameters needed in order to automatically scale clusters up and down based on load.
@@ -306,6 +320,8 @@ clustersEdit <- function(client, cluster_id, spark_version, apply_policy_default
 #' nparameters necessary to request the next page of events.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param cluster_id Required. The ID of the cluster to retrieve events about.
 #' @param end_time The end time in epoch milliseconds.
@@ -347,6 +363,8 @@ clustersEvents <- function(client, cluster_id, end_time = NULL, event_types = NU
 #' described while they are running, or up to 60 days after they are terminated.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param cluster_id Required. The cluster about which to retrieve information.
 #'
@@ -362,6 +380,8 @@ clustersGet <- function(client, cluster_id) {
 #' Gets the permission levels that a user can have on an object.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param cluster_id Required. The cluster for which to get or manage permissions.
 #'
@@ -379,6 +399,8 @@ clustersGetPermissionLevels <- function(client, cluster_id) {
 #' their root object.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param cluster_id Required. The cluster for which to get or manage permissions.
 #'
@@ -401,6 +423,7 @@ clustersGetPermissions <- function(client, cluster_id) {
 #' clusters, all 45 terminated all-purpose clusters, and the 30 most recently
 #' terminated job clusters.
 #' @param client Required. Instance of DatabricksClient()
+
 
 #'
 #' @param can_use_client Filter clusters based on what type of client it can be used for.
@@ -451,6 +474,8 @@ clustersListZones <- function(client) {
 #' deleted clusters.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param cluster_id Required. The cluster to be deleted.
 #'
@@ -468,6 +493,8 @@ clustersPermanentDelete <- function(client, cluster_id) {
 #' effect. This API can only be called by workspace admins.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param cluster_id Required. <needs content added>.
 #'
@@ -490,6 +517,10 @@ clustersPin <- function(client, cluster_id) {
 #' RUNNING state with the timeout of 20 minutes, that you can change via `timeout` parameter.
 #' By default, the state of Databricks Clusters is reported to console. You can change this behavior
 #' by changing the `callback` parameter.
+#' @param timeout Time to wait for the operation to complete in minutes.
+#' @param callback Function to report the status of the operation. By default, it reports to console.
+
+#'
 #'
 #' @param autoscale Parameters needed in order to automatically scale clusters up and down based on load.
 #' @param cluster_id Required. The cluster to be resized.
@@ -549,6 +580,10 @@ clustersResize <- function(client, cluster_id, autoscale = NULL, num_workers = N
 #' RUNNING state with the timeout of 20 minutes, that you can change via `timeout` parameter.
 #' By default, the state of Databricks Clusters is reported to console. You can change this behavior
 #' by changing the `callback` parameter.
+#' @param timeout Time to wait for the operation to complete in minutes.
+#' @param callback Function to report the status of the operation. By default, it reports to console.
+
+#'
 #'
 #' @param cluster_id Required. The cluster to be started.
 #' @param restart_user <needs content added>.
@@ -601,6 +636,8 @@ clustersRestart <- function(client, cluster_id, restart_user = NULL, timeout = 2
 #' root object.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param access_control_list 
 #' @param cluster_id Required. The cluster for which to get or manage permissions.
@@ -643,6 +680,10 @@ clustersSparkVersions <- function(client) {
 #' RUNNING state with the timeout of 20 minutes, that you can change via `timeout` parameter.
 #' By default, the state of Databricks Clusters is reported to console. You can change this behavior
 #' by changing the `callback` parameter.
+#' @param timeout Time to wait for the operation to complete in minutes.
+#' @param callback Function to report the status of the operation. By default, it reports to console.
+
+#'
 #'
 #' @param cluster_id Required. The cluster to be started.
 #'
@@ -694,6 +735,8 @@ clustersStart <- function(client, cluster_id, timeout = 20, callback = cli_repor
 #' This API can only be called by workspace admins.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param cluster_id Required. <needs content added>.
 #'
@@ -710,6 +753,8 @@ clustersUnpin <- function(client, cluster_id) {
 #' their root object.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param access_control_list 
 #' @param cluster_id Required. The cluster for which to get or manage permissions.

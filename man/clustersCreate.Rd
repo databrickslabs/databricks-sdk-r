@@ -96,6 +96,10 @@ clustersCreate(
 \item{ssh_public_keys}{SSH public key contents that will be added to each Spark node in this cluster.}
 
 \item{workload_type}{}
+
+\item{timeout}{Time to wait for the operation to complete in minutes.}
+
+\item{callback}{Function to report the status of the operation. By default, it reports to console.}
 }
 \description{
 This is a long-running operation, which blocks until Clusters on Databricks reach

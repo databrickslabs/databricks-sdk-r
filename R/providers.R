@@ -9,6 +9,8 @@ NULL
 #' authentication type. The caller must be an admin on the metastore.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param authentication_type Required. The delta sharing authentication type.
 #' @param comment Description about the provider.
@@ -29,6 +31,8 @@ providersCreate <- function(client, name, authentication_type, comment = NULL, r
 #' the owner of the provider.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param name Required. Name of the provider.
 #'
@@ -46,6 +50,8 @@ providersDelete <- function(client, name) {
 #' provider.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param name Required. Name of the provider.
 #'
@@ -63,6 +69,7 @@ providersGet <- function(client, name) {
 #' the caller are not included in the response. There is no guarantee of a
 #' specific ordering of the elements in the array.
 #' @param client Required. Instance of DatabricksClient()
+
 
 #'
 #' @param data_provider_global_metastore_id If not provided, all providers will be returned.
@@ -86,6 +93,8 @@ providersList <- function(client, data_provider_global_metastore_id = NULL) {
 #' * the caller is a metastore admin, or * the caller is the owner.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param name Required. Name of the provider in which to list shares.
 #'
@@ -110,6 +119,8 @@ providersListShares <- function(client, name) {
 #' provider.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param comment Description about the provider.
 #' @param name Required. Name of the provider.

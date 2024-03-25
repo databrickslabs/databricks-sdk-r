@@ -10,6 +10,8 @@ NULL
 #' catalog.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param catalog_name Required. Name of parent catalog.
 #' @param comment User-provided free-form text description.
@@ -32,6 +34,8 @@ schemasCreate <- function(client, name, catalog_name, comment = NULL, properties
 #' owner of the schema or an owner of the parent catalog.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param full_name Required. Full name of the schema.
 #'
@@ -49,6 +53,8 @@ schemasDelete <- function(client, full_name) {
 #' **USE_SCHEMA** privilege on the schema.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param full_name Required. Full name of the schema.
 #' @param include_browse Whether to include schemas in the response for which the principal can only access selective metadata for.
@@ -70,6 +76,8 @@ schemasGet <- function(client, full_name, include_browse = NULL) {
 #' There is no guarantee of a specific ordering of the elements in the array.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param catalog_name Required. Parent catalog for schemas of interest.
 #' @param include_browse Whether to include schemas in the response for which the principal can only access selective metadata for.
@@ -111,6 +119,8 @@ schemasList <- function(client, catalog_name, include_browse = NULL, max_results
 #' on the parent catalog.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param comment User-provided free-form text description.
 #' @param enable_predictive_optimization Whether predictive optimization should be enabled for this object and objects under it.

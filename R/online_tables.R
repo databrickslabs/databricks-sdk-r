@@ -8,6 +8,7 @@ NULL
 #' Create a new Online Table.
 #' @param client Required. Instance of DatabricksClient()
 
+
 #'
 #' @param name Full three-part (catalog, schema, table) name of the table.
 #' @param spec Specification of the online table.
@@ -26,6 +27,8 @@ onlineTablesCreate <- function(client, name = NULL, spec = NULL) {
 #' Table was created, this will lose the data forever!
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param name Required. Full three-part (catalog, schema, table) name of the table.
 #'
@@ -41,6 +44,8 @@ onlineTablesDelete <- function(client, name) {
 #' Get information about an existing online table and its status.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param name Required. Full three-part (catalog, schema, table) name of the table.
 #'

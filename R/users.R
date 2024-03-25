@@ -9,6 +9,7 @@ NULL
 #' added to the Databricks account.
 #' @param client Required. Instance of DatabricksClient()
 
+
 #'
 #' @param active If this user is active.
 #' @param display_name String that represents a concatenation of given and family names.
@@ -39,6 +40,8 @@ usersCreate <- function(client, active = NULL, display_name = NULL, emails = NUL
 #' objects associated with the user.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param id Required. Unique ID for a user in the Databricks workspace.
 #'
@@ -54,6 +57,8 @@ usersDelete <- function(client, id) {
 #' Gets information for a specific user in Databricks workspace.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param attributes Comma-separated list of attributes to return in response.
 #' @param count Desired number of results per page.
@@ -101,6 +106,7 @@ usersGetPermissions <- function(client) {
 #' Gets details for all the users associated with a Databricks workspace.
 #' @param client Required. Instance of DatabricksClient()
 
+
 #'
 #' @param attributes Comma-separated list of attributes to return in response.
 #' @param count Desired number of results per page.
@@ -142,6 +148,8 @@ usersList <- function(client, attributes = NULL, count = NULL, excluded_attribut
 #' specific user attributes.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param id Required. Unique ID for a user in the Databricks workspace.
 #' @param operations 
@@ -160,6 +168,7 @@ usersPatch <- function(client, id, operations = NULL, schemas = NULL) {
 #' their root object.
 #' @param client Required. Instance of DatabricksClient()
 
+
 #'
 #' @param access_control_list 
 #'
@@ -175,6 +184,8 @@ usersSetPermissions <- function(client, access_control_list = NULL) {
 #' Replaces a user's information with the data supplied in request.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param active If this user is active.
 #' @param display_name String that represents a concatenation of given and family names.
@@ -204,6 +215,7 @@ usersUpdate <- function(client, id, active = NULL, display_name = NULL, emails =
 #' Updates the permissions on all passwords. Passwords can inherit permissions
 #' from their root object.
 #' @param client Required. Instance of DatabricksClient()
+
 
 #'
 #' @param access_control_list 

@@ -6,6 +6,8 @@ NULL
 #' Add visualization to a query.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param description A short description of this visualization.
 #' @param name The name of the visualization that appears on dashboards and the query screen.
@@ -25,6 +27,8 @@ queryVisualizationsCreate <- function(client, query_id, type, options, descripti
 #' Remove visualization.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param id Required. Widget ID returned by :method:queryvizualisations/create.
 #'
@@ -38,6 +42,8 @@ queryVisualizationsDelete <- function(client, id) {
 #' Edit existing visualization.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param created_at 
 #' @param description A short description of this visualization.

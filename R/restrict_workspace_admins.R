@@ -13,6 +13,7 @@ NULL
 #' response.
 #' @param client Required. Instance of DatabricksClient()
 
+
 #'
 #' @param etag etag used for versioning.
 #'
@@ -28,6 +29,7 @@ restrictWorkspaceAdminsDelete <- function(client, etag = NULL) {
 #' 
 #' Gets the restrict workspace admins setting.
 #' @param client Required. Instance of DatabricksClient()
+
 
 #'
 #' @param etag etag used for versioning.
@@ -49,6 +51,8 @@ restrictWorkspaceAdminsGet <- function(client, etag = NULL) {
 #' must be retried by using the fresh etag in the 409 response.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param allow_missing Required. This should always be set to true for Settings API.
 #' @param field_mask Required. Field mask is required to be passed into the PATCH request.

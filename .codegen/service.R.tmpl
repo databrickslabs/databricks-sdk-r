@@ -12,6 +12,10 @@ NULL
 #' {{range $i, $s := .Wait.Success}}{{if $i}} or {{end}}{{.Content}}{{end}} state with the timeout of {{.Wait.Timeout}} minutes, that you can change via `timeout` parameter.
 #' By default, the state of Databricks {{.Service.TitleName}} is reported to console. You can change this behavior
 #' by changing the `callback` parameter.
+#' @param timeout Time to wait for the operation to complete in minutes.
+#' @param callback Function to report the status of the operation. By default, it reports to console.
+{{end}}
+{{if .Request.RequiredFields}}#'
 {{end}}#'{{range .Request.Fields}}
 #' @param {{.SnakeName}} {{if .Required}}Required. {{end}}{{.Summary}}{{end}}
 {{end}}{{if .Pagination}}#'

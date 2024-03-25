@@ -10,6 +10,8 @@ NULL
 #' and __default_catalog_name__. The caller must be an account admin.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param default_catalog_name Required. The name of the default catalog in the metastore.
 #' @param metastore_id Required. The unique ID of the metastore.
@@ -32,6 +34,8 @@ metastoresAssign <- function(client, workspace_id, metastore_id, default_catalog
 #' System User instead.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param name Required. The user-specified name of the metastore.
 #' @param region Cloud region which the metastore serves (e.g., `us-west-2`, `westus`).
@@ -60,6 +64,8 @@ metastoresCurrent <- function(client) {
 #' Deletes a metastore. The caller must be a metastore admin.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param force Force deletion even if the metastore is not empty.
 #' @param id Required. Unique ID of the metastore.
@@ -78,6 +84,8 @@ metastoresDelete <- function(client, id, force = NULL) {
 #' admin to retrieve this info.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param id Required. Unique ID of the metastore.
 #'
@@ -123,6 +131,8 @@ metastoresSummary <- function(client) {
 #' Deletes a metastore assignment. The caller must be an account administrator.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param metastore_id Required. Query for the ID of the metastore to delete.
 #' @param workspace_id Required. A workspace ID.
@@ -142,6 +152,8 @@ metastoresUnassign <- function(client, workspace_id, metastore_id) {
 #' ownership is updated to the System User.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param delta_sharing_organization_name The organization name of a Delta Sharing entity, to be used in Databricks-to-Databricks Delta Sharing as the official name.
 #' @param delta_sharing_recipient_token_lifetime_in_seconds The lifetime of delta sharing recipient token in seconds.
@@ -174,6 +186,8 @@ metastoresUpdate <- function(client, id, delta_sharing_organization_name = NULL,
 #' admin.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param default_catalog_name The name of the default catalog for the metastore.
 #' @param metastore_id The unique ID of the metastore.

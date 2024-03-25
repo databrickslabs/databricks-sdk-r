@@ -8,6 +8,8 @@ NULL
 #' Creates a new storage credential.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param aws_iam_role The AWS IAM role configuration.
 #' @param azure_managed_identity The Azure managed identity configuration.
@@ -37,6 +39,8 @@ storageCredentialsCreate <- function(client, name, aws_iam_role = NULL, azure_ma
 #' of the storage credential.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param force Force deletion even if there are dependent external locations or external tables.
 #' @param name Required. Name of the storage credential.
@@ -56,6 +60,8 @@ storageCredentialsDelete <- function(client, name, force = NULL) {
 #' storage credential.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param name Required. Name of the storage credential.
 #'
@@ -74,6 +80,7 @@ storageCredentialsGet <- function(client, name) {
 #' credentials is unrestricted. There is no guarantee of a specific ordering of
 #' the elements in the array.
 #' @param client Required. Instance of DatabricksClient()
+
 
 #'
 #' @param max_results Maximum number of storage credentials to return.
@@ -108,6 +115,8 @@ storageCredentialsList <- function(client, max_results = NULL, page_token = NULL
 #' Updates a storage credential on the metastore.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param aws_iam_role The AWS IAM role configuration.
 #' @param azure_managed_identity The Azure managed identity configuration.
@@ -152,6 +161,7 @@ storageCredentialsUpdate <- function(client, name, aws_iam_role = NULL, azure_ma
 #' the **CREATE_EXTERNAL_LOCATION** privilege on the metastore and the storage
 #' credential.
 #' @param client Required. Instance of DatabricksClient()
+
 
 #'
 #' @param aws_iam_role The AWS IAM role configuration.

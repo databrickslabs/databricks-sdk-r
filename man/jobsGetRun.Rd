@@ -21,6 +21,10 @@ jobsGetRun(
 \item{include_history}{Whether to include the repair history in the response.}
 
 \item{include_resolved_values}{Whether to include resolved parameter values in the response.}
+
+\item{timeout}{Time to wait for the operation to complete in minutes.}
+
+\item{callback}{Function to report the status of the operation. By default, it reports to console.}
 }
 \description{
 This is a long-running operation, which blocks until Jobs on Databricks reach

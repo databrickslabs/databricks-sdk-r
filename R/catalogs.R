@@ -9,6 +9,8 @@ NULL
 #' metastore admin or has the **CREATE_CATALOG** privilege.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param comment User-provided free-form text description.
 #' @param connection_name The name of the connection to an external data source.
@@ -35,6 +37,8 @@ catalogsCreate <- function(client, name, comment = NULL, connection_name = NULL,
 #' metastore admin or the owner of the catalog.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param force Force deletion even if the catalog is not empty.
 #' @param name Required. The name of the catalog.
@@ -54,6 +58,8 @@ catalogsDelete <- function(client, name, force = NULL) {
 #' privilege set for their account.
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param include_browse Whether to include catalogs in the response for which the principal can only access selective metadata for.
 #' @param name Required. The name of the catalog.
@@ -73,6 +79,7 @@ catalogsGet <- function(client, name, include_browse = NULL) {
 #' retrieved. There is no guarantee of a specific ordering of the elements in
 #' the array.
 #' @param client Required. Instance of DatabricksClient()
+
 
 #'
 #' @param include_browse Whether to include catalogs in the response for which the principal can only access selective metadata for.
@@ -96,6 +103,8 @@ catalogsList <- function(client, include_browse = NULL) {
 #' of the catalog).
 #' @param client Required. Instance of DatabricksClient()
 
+
+#'
 #'
 #' @param comment User-provided free-form text description.
 #' @param enable_predictive_optimization Whether predictive optimization should be enabled for this object and objects under it.
