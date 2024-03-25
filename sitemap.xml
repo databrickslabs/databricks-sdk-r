@@ -139,10 +139,19 @@
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/clustersCreate.html</loc>
   </url>
   <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/clustersCreateAndWait.html</loc>
+  </url>
+  <url>
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/clustersDelete.html</loc>
   </url>
   <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/clustersDeleteAndWait.html</loc>
+  </url>
+  <url>
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/clustersEdit.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/clustersEditAndWait.html</loc>
   </url>
   <url>
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/clustersEvents.html</loc>
@@ -175,7 +184,13 @@
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/clustersResize.html</loc>
   </url>
   <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/clustersResizeAndWait.html</loc>
+  </url>
+  <url>
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/clustersRestart.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/clustersRestartAndWait.html</loc>
   </url>
   <url>
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/clustersSetPermissions.html</loc>
@@ -187,6 +202,9 @@
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/clustersStart.html</loc>
   </url>
   <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/clustersStartAndWait.html</loc>
+  </url>
+  <url>
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/clustersUnpin.html</loc>
   </url>
   <url>
@@ -194,6 +212,9 @@
   </url>
   <url>
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/commandExecutionCancel.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/commandExecutionCancelAndWait.html</loc>
   </url>
   <url>
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/commandExecutionCommandStatus.html</loc>
@@ -205,10 +226,16 @@
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/commandExecutionCreate.html</loc>
   </url>
   <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/commandExecutionCreateAndWait.html</loc>
+  </url>
+  <url>
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/commandExecutionDestroy.html</loc>
   </url>
   <url>
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/commandExecutionExecute.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/commandExecutionExecuteAndWait.html</loc>
   </url>
   <url>
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/connectionsCreate.html</loc>
@@ -592,6 +619,9 @@
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/jobsCancelRun.html</loc>
   </url>
   <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/jobsCancelRunAndWait.html</loc>
+  </url>
+  <url>
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/jobsCreate.html</loc>
   </url>
   <url>
@@ -616,6 +646,9 @@
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/jobsGetRun.html</loc>
   </url>
   <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/jobsGetRunAndWait.html</loc>
+  </url>
+  <url>
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/jobsGetRunOutput.html</loc>
   </url>
   <url>
@@ -628,16 +661,25 @@
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/jobsRepairRun.html</loc>
   </url>
   <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/jobsRepairRunAndWait.html</loc>
+  </url>
+  <url>
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/jobsReset.html</loc>
   </url>
   <url>
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/jobsRunNow.html</loc>
   </url>
   <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/jobsRunNowAndWait.html</loc>
+  </url>
+  <url>
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/jobsSetPermissions.html</loc>
   </url>
   <url>
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/jobsSubmit.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/jobsSubmitAndWait.html</loc>
   </url>
   <url>
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/jobsUpdate.html</loc>
@@ -913,6 +955,9 @@
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/pipelinesStop.html</loc>
   </url>
   <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/pipelinesStopAndWait.html</loc>
+  </url>
+  <url>
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/pipelinesUpdate.html</loc>
   </url>
   <url>
@@ -1129,6 +1174,9 @@
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/servingEndpointsCreate.html</loc>
   </url>
   <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/servingEndpointsCreateAndWait.html</loc>
+  </url>
+  <url>
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/servingEndpointsDelete.html</loc>
   </url>
   <url>
@@ -1163,6 +1211,9 @@
   </url>
   <url>
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/servingEndpointsUpdateConfig.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/servingEndpointsUpdateConfigAndWait.html</loc>
   </url>
   <url>
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/servingEndpointsUpdatePermissions.html</loc>
@@ -1318,6 +1369,9 @@
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/vectorSearchEndpointsCreateEndpoint.html</loc>
   </url>
   <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/vectorSearchEndpointsCreateEndpointAndWait.html</loc>
+  </url>
+  <url>
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/vectorSearchEndpointsDeleteEndpoint.html</loc>
   </url>
   <url>
@@ -1369,10 +1423,16 @@
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/warehousesCreate.html</loc>
   </url>
   <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/warehousesCreateAndWait.html</loc>
+  </url>
+  <url>
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/warehousesDelete.html</loc>
   </url>
   <url>
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/warehousesEdit.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/warehousesEditAndWait.html</loc>
   </url>
   <url>
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/warehousesGet.html</loc>
@@ -1399,7 +1459,13 @@
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/warehousesStart.html</loc>
   </url>
   <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/warehousesStartAndWait.html</loc>
+  </url>
+  <url>
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/warehousesStop.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/warehousesStopAndWait.html</loc>
   </url>
   <url>
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/warehousesUpdatePermissions.html</loc>
