@@ -12,7 +12,10 @@ servicePrincipalsDelete(client, id)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{id}{Required. Unique ID for a service principal in the Databricks workspace.}
+\item{id}{Required. Unique ID for a service principal in the Databricks workspace.
+
+See the \href{https://docs.databricks.com/api/workspace/serviceprincipals/delete}{API documentation} for more
+information on the request and response field structure.}
 }
 \description{
 Delete a single service principal in the Databricks workspace.

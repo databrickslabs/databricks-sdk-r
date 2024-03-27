@@ -12,7 +12,10 @@ experimentsDeleteRun(client, run_id)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{run_id}{Required. ID of the run to delete.}
+\item{run_id}{Required. ID of the run to delete.
+
+See the \href{https://docs.databricks.com/api/workspace/experiments/deleterun}{API documentation} for more
+information on the request and response field structure.}
 }
 \description{
 Marks a run for deletion.

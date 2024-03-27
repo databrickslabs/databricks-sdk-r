@@ -12,7 +12,10 @@ catalogsDelete(client, name, force = NULL)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{name}{Required. The name of the catalog.}
+\item{name}{Required. The name of the catalog.
+
+See the \href{https://docs.databricks.com/api/workspace/catalogs/delete}{API documentation} for more
+information on the request and response field structure.}
 
 \item{force}{Force deletion even if the catalog is not empty.}
 }

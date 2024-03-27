@@ -14,7 +14,10 @@ experimentsLogModel(client, model_json = NULL, run_id = NULL)
 
 \item{model_json}{MLmodel file in json format.}
 
-\item{run_id}{ID of the run to log under.}
+\item{run_id}{ID of the run to log under.
+
+See the \href{https://docs.databricks.com/api/workspace/experiments/logmodel}{API documentation} for more
+information on the request and response field structure.}
 }
 \description{
 \strong{NOTE:} Experimental: This API may change or be removed in a future release

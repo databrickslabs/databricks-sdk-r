@@ -26,7 +26,10 @@ workspaceBindingsUpdate(
 
 \item{assign_workspaces}{A list of workspace IDs.}
 
-\item{unassign_workspaces}{A list of workspace IDs.}
+\item{unassign_workspaces}{A list of workspace IDs.
+
+See the \href{https://docs.databricks.com/api/workspace/workspacebindings/update}{API documentation} for more
+information on the request and response field structure.}
 }
 \description{
 Updates workspace bindings of the catalog. The caller must be a metastore

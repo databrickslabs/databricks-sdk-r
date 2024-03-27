@@ -22,6 +22,9 @@ NULL
 #' @param tags A set of key-value pairs that will be tagged on all resources (e.g., AWS instances and EBS volumes) associated with this SQL warehouse.
 #' @param warehouse_type Warehouse type: `PRO` or `CLASSIC`.
 #'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/warehouses/create) for more 
+#' information on the request and response field structure.
+#'
 #' @rdname create_warehouse
 #' @alias warehousesCreate
 #' @export
@@ -46,6 +49,9 @@ warehousesCreate <- create_warehouse
 #' @param client Required. Instance of DatabricksClient()
 #'
 #' @param id Required. Required.
+#'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/warehouses/delete) for more 
+#' information on the request and response field structure.
 #'
 #' @rdname delete_warehouse
 #' @alias warehousesDelete
@@ -78,6 +84,9 @@ warehousesDelete <- delete_warehouse
 #' @param tags A set of key-value pairs that will be tagged on all resources (e.g., AWS instances and EBS volumes) associated with this SQL warehouse.
 #' @param warehouse_type Warehouse type: `PRO` or `CLASSIC`.
 #'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/warehouses/edit) for more 
+#' information on the request and response field structure.
+#'
 #' @rdname edit_warehouse
 #' @alias warehousesEdit
 #' @export
@@ -104,6 +113,9 @@ warehousesEdit <- edit_warehouse
 #'
 #' @param id Required. Required.
 #'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/warehouses/get) for more 
+#' information on the request and response field structure.
+#'
 #' @rdname get_warehouse
 #' @alias warehousesGet
 #' @export
@@ -121,6 +133,9 @@ warehousesGet <- get_warehouse
 #' @param client Required. Instance of DatabricksClient()
 #'
 #' @param warehouse_id Required. The SQL warehouse for which to get or manage permissions.
+#'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/warehouses/getpermissionlevels) for more 
+#' information on the request and response field structure.
 #'
 #' @rdname get_warehouse_permission_levels
 #' @alias warehousesGetPermissionLevels
@@ -142,6 +157,9 @@ warehousesGetPermissionLevels <- get_warehouse_permission_levels
 #'
 #' @param warehouse_id Required. The SQL warehouse for which to get or manage permissions.
 #'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/warehouses/getpermissions) for more 
+#' information on the request and response field structure.
+#'
 #' @rdname get_warehouse_permissions
 #' @alias warehousesGetPermissions
 #' @export
@@ -158,6 +176,9 @@ warehousesGetPermissions <- get_warehouse_permissions
 #' Gets the workspace level configuration that is shared by all SQL warehouses
 #' in a workspace.
 #' @param client Required. Instance of DatabricksClient()
+#'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/warehouses/getworkspacewarehouseconfig) for more 
+#' information on the request and response field structure.
 #'
 #' @rdname get_warehouse_workspace_config
 #' @alias warehousesGetWorkspaceWarehouseConfig
@@ -177,6 +198,9 @@ warehousesGetWorkspaceWarehouseConfig <- get_warehouse_workspace_config
 #' @param run_as_user_id Service Principal which will be used to fetch the list of warehouses.
 #'
 #' @return `data.frame` with all of the response pages.
+#'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/warehouses/list) for more 
+#' information on the request and response field structure.
 #'
 #' @rdname list_warehouses
 #' @alias warehousesList
@@ -200,6 +224,9 @@ warehousesList <- list_warehouses
 #'
 #' @param access_control_list This field has no description yet.
 #' @param warehouse_id Required. The SQL warehouse for which to get or manage permissions.
+#'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/warehouses/setpermissions) for more 
+#' information on the request and response field structure.
 #'
 #' @rdname set_warehouse_permissions
 #' @alias warehousesSetPermissions
@@ -229,6 +256,9 @@ warehousesSetPermissions <- set_warehouse_permissions
 #' @param security_policy Security policy for warehouses.
 #' @param sql_configuration_parameters SQL configuration parameters.
 #'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/warehouses/setworkspacewarehouseconfig) for more 
+#' information on the request and response field structure.
+#'
 #' @rdname set_warehouse_workspace_config
 #' @alias warehousesSetWorkspaceWarehouseConfig
 #' @export
@@ -253,6 +283,9 @@ warehousesSetWorkspaceWarehouseConfig <- set_warehouse_workspace_config
 #'
 #' @param id Required. Required.
 #'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/warehouses/start) for more 
+#' information on the request and response field structure.
+#'
 #' @rdname start_warehouse
 #' @alias warehousesStart
 #' @export
@@ -270,6 +303,9 @@ warehousesStart <- start_warehouse
 #' @param client Required. Instance of DatabricksClient()
 #'
 #' @param id Required. Required.
+#'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/warehouses/stop) for more 
+#' information on the request and response field structure.
 #'
 #' @rdname stop_warehouse
 #' @alias warehousesStop
@@ -290,6 +326,9 @@ warehousesStop <- stop_warehouse
 #'
 #' @param access_control_list This field has no description yet.
 #' @param warehouse_id Required. The SQL warehouse for which to get or manage permissions.
+#'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/warehouses/updatepermissions) for more 
+#' information on the request and response field structure.
 #'
 #' @rdname update_warehouse_permissions
 #' @alias warehousesUpdatePermissions

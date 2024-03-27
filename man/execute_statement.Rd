@@ -40,7 +40,10 @@ statementExecutionExecuteStatement(
 
 \item{statement}{Required. The SQL statement to execute.}
 
-\item{warehouse_id}{Required. Warehouse upon which to execute a statement.}
+\item{warehouse_id}{Required. Warehouse upon which to execute a statement.
+
+See the \href{https://docs.databricks.com/api/workspace/statementexecution/executestatement}{API documentation} for more
+information on the request and response field structure.}
 
 \item{byte_limit}{Applies the given byte limit to the statement's result size.}
 

@@ -12,7 +12,10 @@ tokenManagementSetPermissions(client, access_control_list = NULL)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{access_control_list}{This field has no description yet.}
+\item{access_control_list}{This field has no description yet.
+
+See the \href{https://docs.databricks.com/api/workspace/tokenmanagement/setpermissions}{API documentation} for more
+information on the request and response field structure.}
 }
 \description{
 Sets permissions on all tokens. Tokens can inherit permissions from their

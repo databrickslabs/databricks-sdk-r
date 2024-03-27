@@ -12,7 +12,10 @@ clustersDelete(client, cluster_id)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{cluster_id}{Required. The cluster to be terminated.}
+\item{cluster_id}{Required. The cluster to be terminated.
+
+See the \href{https://docs.databricks.com/api/workspace/clusters/delete}{API documentation} for more
+information on the request and response field structure.}
 }
 \description{
 Terminates the Spark cluster with the specified ID. The cluster is removed

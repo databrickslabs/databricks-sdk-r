@@ -58,7 +58,10 @@ usersUpdate(
 
 \item{schemas}{The schema of the user.}
 
-\item{user_name}{Email address of the Databricks user.}
+\item{user_name}{Email address of the Databricks user.
+
+See the \href{https://docs.databricks.com/api/workspace/users/update}{API documentation} for more
+information on the request and response field structure.}
 }
 \description{
 Replaces a user's information with the data supplied in request.

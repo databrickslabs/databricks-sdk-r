@@ -12,7 +12,10 @@ instancePoolsGet(client, instance_pool_id)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{instance_pool_id}{Required. The canonical unique identifier for the instance pool.}
+\item{instance_pool_id}{Required. The canonical unique identifier for the instance pool.
+
+See the \href{https://docs.databricks.com/api/workspace/instancepools/get}{API documentation} for more
+information on the request and response field structure.}
 }
 \description{
 Retrieve the information for an instance pool based on its identifier.

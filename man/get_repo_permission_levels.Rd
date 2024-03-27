@@ -12,7 +12,10 @@ reposGetPermissionLevels(client, repo_id)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{repo_id}{Required. The repo for which to get or manage permissions.}
+\item{repo_id}{Required. The repo for which to get or manage permissions.
+
+See the \href{https://docs.databricks.com/api/workspace/repos/getpermissionlevels}{API documentation} for more
+information on the request and response field structure.}
 }
 \description{
 Gets the permission levels that a user can have on an object.

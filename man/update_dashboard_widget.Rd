@@ -34,7 +34,10 @@ dashboardWidgetsUpdate(
 
 \item{options}{Required. This field has no description yet.}
 
-\item{width}{Required. Width of a widget.}
+\item{width}{Required. Width of a widget.
+
+See the \href{https://docs.databricks.com/api/workspace/dashboardwidgets/update}{API documentation} for more
+information on the request and response field structure.}
 
 \item{text}{If this is a textbox widget, the application displays this text.}
 

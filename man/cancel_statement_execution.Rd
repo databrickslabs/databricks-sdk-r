@@ -12,7 +12,10 @@ statementExecutionCancelExecution(client, statement_id)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{statement_id}{Required. The statement ID is returned upon successfully submitting a SQL statement, and is a required reference for all subsequent calls.}
+\item{statement_id}{Required. The statement ID is returned upon successfully submitting a SQL statement, and is a required reference for all subsequent calls.
+
+See the \href{https://docs.databricks.com/api/workspace/statementexecution/cancelexecution}{API documentation} for more
+information on the request and response field structure.}
 }
 \description{
 Requests that an executing statement be canceled. Callers must poll for

@@ -14,6 +14,9 @@ gitCredentialsList(client)
 }
 \value{
 \code{data.frame} with all of the response pages.
+
+See the \href{https://docs.databricks.com/api/workspace/gitcredentials/list}{API documentation} for more
+information on the request and response field structure.
 }
 \description{
 Lists the calling user's Git credentials. One credential per user is

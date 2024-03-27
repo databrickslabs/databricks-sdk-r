@@ -14,6 +14,9 @@ NULL
 #'
 #' @param function_info Required. Partial __FunctionInfo__ specifying the function to be created.
 #'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/functions/create) for more 
+#' information on the request and response field structure.
+#'
 #' @rdname create_function
 #' @alias functionsCreate
 #' @export
@@ -38,6 +41,9 @@ functionsCreate <- create_function
 #'
 #' @param force Force deletion even if the function is notempty.
 #' @param name Required. The fully-qualified name of the function (of the form __catalog_name__.__schema_name__.__function__name__).
+#'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/functions/delete) for more 
+#' information on the request and response field structure.
 #'
 #' @rdname delete_function
 #' @alias functionsDelete
@@ -64,6 +70,9 @@ functionsDelete <- delete_function
 #'
 #' @param include_browse Whether to include functions in the response for which the principal can only access selective metadata for.
 #' @param name Required. The fully-qualified name of the function (of the form __catalog_name__.__schema_name__.__function__name__).
+#'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/functions/get) for more 
+#' information on the request and response field structure.
 #'
 #' @rdname get_function
 #' @alias functionsGet
@@ -95,6 +104,9 @@ functionsGet <- get_function
 #' @param schema_name Required. Parent schema of functions.
 #'
 #' @return `data.frame` with all of the response pages.
+#'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/functions/list) for more 
+#' information on the request and response field structure.
 #'
 #' @rdname list_functions
 #' @alias functionsList
@@ -138,6 +150,9 @@ functionsList <- list_functions
 #'
 #' @param name Required. The fully-qualified name of the function (of the form __catalog_name__.__schema_name__.__function__name__).
 #' @param owner Username of current owner of function.
+#'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/functions/update) for more 
+#' information on the request and response field structure.
 #'
 #' @rdname update_function
 #' @alias functionsUpdate

@@ -10,7 +10,10 @@ list_cluster_node_types(client)
 clustersListNodeTypes(client)
 }
 \arguments{
-\item{client}{Required. Instance of DatabricksClient()}
+\item{client}{Required. Instance of DatabricksClient()
+
+See the \href{https://docs.databricks.com/api/workspace/clusters/listnodetypes}{API documentation} for more
+information on the request and response field structure.}
 }
 \description{
 Returns a list of supported Spark node types. These node types can be used to

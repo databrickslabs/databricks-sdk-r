@@ -19,6 +19,9 @@ NULL
 #' @param properties_kvpairs Recipient properties as map of string key-value pairs.
 #' @param sharing_code The one-time sharing code provided by the data recipient.
 #'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/recipients/create) for more 
+#' information on the request and response field structure.
+#'
 #' @rdname create_recipient
 #' @alias recipientsCreate
 #' @export
@@ -41,6 +44,9 @@ recipientsCreate <- create_recipient
 #'
 #' @param name Required. Name of the recipient.
 #'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/recipients/delete) for more 
+#' information on the request and response field structure.
+#'
 #' @rdname delete_recipient
 #' @alias recipientsDelete
 #' @export
@@ -60,6 +66,9 @@ recipientsDelete <- delete_recipient
 #' @param client Required. Instance of DatabricksClient()
 #'
 #' @param name Required. Name of the recipient.
+#'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/recipients/get) for more 
+#' information on the request and response field structure.
 #'
 #' @rdname get_recipient
 #' @alias recipientsGet
@@ -84,6 +93,9 @@ recipientsGet <- get_recipient
 #'
 #' @return `data.frame` with all of the response pages.
 #'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/recipients/list) for more 
+#' information on the request and response field structure.
+#'
 #' @rdname list_recipients
 #' @alias recipientsList
 #' @export
@@ -107,6 +119,9 @@ recipientsList <- list_recipients
 #' @param existing_token_expire_in_seconds Required. The expiration time of the bearer token in ISO 8601 format.
 #' @param name Required. The name of the recipient.
 #'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/recipients/rotatetoken) for more 
+#' information on the request and response field structure.
+#'
 #' @rdname rotate_recipient_token
 #' @alias recipientsRotateToken
 #' @export
@@ -126,6 +141,9 @@ recipientsRotateToken <- rotate_recipient_token
 #' @param client Required. Instance of DatabricksClient()
 #'
 #' @param name Required. The name of the Recipient.
+#'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/recipients/sharepermissions) for more 
+#' information on the request and response field structure.
 #'
 #' @rdname share_recipient_permissions
 #' @alias recipientsSharePermissions
@@ -153,6 +171,9 @@ recipientsSharePermissions <- share_recipient_permissions
 #' @param new_name New name for the recipient.
 #' @param owner Username of the recipient owner.
 #' @param properties_kvpairs Recipient properties as map of string key-value pairs.
+#'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/recipients/update) for more 
+#' information on the request and response field structure.
 #'
 #' @rdname update_recipient
 #' @alias recipientsUpdate

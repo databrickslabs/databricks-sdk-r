@@ -14,6 +14,9 @@ NULL
 #' @param command_id This field has no description yet.
 #' @param context_id This field has no description yet.
 #'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/commandexecution/cancel) for more 
+#' information on the request and response field structure.
+#'
 #' @rdname cancel_command_execution
 #' @alias commandExecutionCancel
 #' @export
@@ -38,6 +41,9 @@ commandExecutionCancel <- cancel_command_execution
 #' @param command_id Required. This field has no description yet.
 #' @param context_id Required. This field has no description yet.
 #'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/commandexecution/commandstatus) for more 
+#' information on the request and response field structure.
+#'
 #' @rdname command_execution_status
 #' @alias commandExecutionCommandStatus
 #' @export
@@ -56,6 +62,9 @@ commandExecutionCommandStatus <- command_execution_status
 #'
 #' @param cluster_id Required. This field has no description yet.
 #' @param context_id Required. This field has no description yet.
+#'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/commandexecution/contextstatus) for more 
+#' information on the request and response field structure.
 #'
 #' @rdname context_command_execution_status
 #' @alias commandExecutionContextStatus
@@ -78,6 +87,9 @@ commandExecutionContextStatus <- context_command_execution_status
 #' @param cluster_id Running cluster id.
 #' @param language This field has no description yet.
 #'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/commandexecution/create) for more 
+#' information on the request and response field structure.
+#'
 #' @rdname create_command_execution
 #' @alias commandExecutionCreate
 #' @export
@@ -96,6 +108,9 @@ commandExecutionCreate <- create_command_execution
 #'
 #' @param cluster_id Required. This field has no description yet.
 #' @param context_id Required. This field has no description yet.
+#'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/commandexecution/destroy) for more 
+#' information on the request and response field structure.
 #'
 #' @rdname destroy_command_execution
 #' @alias commandExecutionDestroy
@@ -121,6 +136,9 @@ commandExecutionDestroy <- destroy_command_execution
 #' @param command Executable code.
 #' @param context_id Running context id.
 #' @param language This field has no description yet.
+#'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/commandexecution/execute) for more 
+#' information on the request and response field structure.
 #'
 #' @rdname execute_command
 #' @alias commandExecutionExecute

@@ -12,7 +12,10 @@ instanceProfilesRemove(client, instance_profile_arn)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{instance_profile_arn}{Required. The ARN of the instance profile to remove.}
+\item{instance_profile_arn}{Required. The ARN of the instance profile to remove.
+
+See the \href{https://docs.databricks.com/api/workspace/instanceprofiles/remove}{API documentation} for more
+information on the request and response field structure.}
 }
 \description{
 Remove the instance profile with the provided ARN. Existing clusters with

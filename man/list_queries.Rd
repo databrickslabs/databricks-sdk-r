@@ -22,6 +22,9 @@ queriesList(client, order = NULL, page = NULL, page_size = NULL, q = NULL)
 }
 \value{
 \code{data.frame} with all of the response pages.
+
+See the \href{https://docs.databricks.com/api/workspace/queries/list}{API documentation} for more
+information on the request and response field structure.
 }
 \description{
 Gets a list of queries. Optionally, this list can be filtered by a search

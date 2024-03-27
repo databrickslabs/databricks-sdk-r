@@ -12,7 +12,10 @@ recipientActivationGetActivationUrlInfo(client, activation_url)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{activation_url}{Required. The one time activation url.}
+\item{activation_url}{Required. The one time activation url.
+
+See the \href{https://docs.databricks.com/api/workspace/recipientactivation/getactivationurlinfo}{API documentation} for more
+information on the request and response field structure.}
 }
 \description{
 Gets an activation URL for a share.

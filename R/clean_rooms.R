@@ -13,6 +13,9 @@ NULL
 #' @param name Required. Name of the clean room.
 #' @param remote_detailed_info Required. Central clean room details.
 #'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/cleanrooms/create) for more 
+#' information on the request and response field structure.
+#'
 #' @rdname create_clean_room
 #' @alias cleanRoomsCreate
 #' @export
@@ -31,6 +34,9 @@ cleanRoomsCreate <- create_clean_room
 #' @param client Required. Instance of DatabricksClient()
 #'
 #' @param name Required. The name of the clean room.
+#'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/cleanrooms/delete) for more 
+#' information on the request and response field structure.
 #'
 #' @rdname delete_clean_room
 #' @alias cleanRoomsDelete
@@ -51,6 +57,9 @@ cleanRoomsDelete <- delete_clean_room
 #'
 #' @param include_remote_details Whether to include remote details (central) on the clean room.
 #' @param name Required. The name of the clean room.
+#'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/cleanrooms/get) for more 
+#' information on the request and response field structure.
 #'
 #' @rdname get_clean_room
 #' @alias cleanRoomsGet
@@ -75,6 +84,9 @@ cleanRoomsGet <- get_clean_room
 #' @param page_token Opaque pagination token to go to next page based on previous query.
 #'
 #' @return `data.frame` with all of the response pages.
+#'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/cleanrooms/list) for more 
+#' information on the request and response field structure.
 #'
 #' @rdname list_clean_rooms
 #' @alias cleanRoomsList
@@ -125,6 +137,9 @@ cleanRoomsList <- list_clean_rooms
 #' @param comment User-provided free-form text description.
 #' @param name Required. The name of the clean room.
 #' @param owner Username of current owner of clean room.
+#'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/cleanrooms/update) for more 
+#' information on the request and response field structure.
 #'
 #' @rdname update_clean_room
 #' @alias cleanRoomsUpdate

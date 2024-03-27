@@ -12,7 +12,10 @@ sharesGet(client, name, include_shared_data = NULL)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{name}{Required. The name of the share.}
+\item{name}{Required. The name of the share.
+
+See the \href{https://docs.databricks.com/api/workspace/shares/get}{API documentation} for more
+information on the request and response field structure.}
 
 \item{include_shared_data}{Query for data to include in the share.}
 }

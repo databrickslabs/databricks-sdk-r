@@ -12,7 +12,10 @@ clusterPoliciesDelete(client, policy_id)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{policy_id}{Required. The ID of the policy to delete.}
+\item{policy_id}{Required. The ID of the policy to delete.
+
+See the \href{https://docs.databricks.com/api/workspace/clusterpolicies/delete}{API documentation} for more
+information on the request and response field structure.}
 }
 \description{
 Delete a policy for a cluster. Clusters governed by this policy can still

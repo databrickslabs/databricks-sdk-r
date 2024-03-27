@@ -10,6 +10,9 @@ NULL
 #' you need only a SQL warehouse's `id` to create new queries against it.
 #' @param client Required. Instance of DatabricksClient()
 #'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/datasources/list) for more 
+#' information on the request and response field structure.
+#'
 #' @rdname list_data_sources
 #' @alias dataSourcesList
 #' @export

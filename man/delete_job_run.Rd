@@ -12,7 +12,10 @@ jobsDeleteRun(client, run_id)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{run_id}{Required. The canonical identifier of the run for which to retrieve the metadata.}
+\item{run_id}{Required. The canonical identifier of the run for which to retrieve the metadata.
+
+See the \href{https://docs.databricks.com/api/workspace/jobs/deleterun}{API documentation} for more
+information on the request and response field structure.}
 }
 \description{
 Deletes a non-active run. Returns an error if the run is active.

@@ -34,7 +34,10 @@ externalLocationsCreate(
 
 \item{name}{Required. Name of the external location.}
 
-\item{url}{Required. Path URL of the external location.}
+\item{url}{Required. Path URL of the external location.
+
+See the \href{https://docs.databricks.com/api/workspace/externallocations/create}{API documentation} for more
+information on the request and response field structure.}
 
 \item{credential_name}{Required. Name of the storage credential used with this location.}
 

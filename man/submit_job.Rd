@@ -58,7 +58,10 @@ jobsSubmit(
 
 \item{timeout_seconds}{An optional timeout applied to each run of this job.}
 
-\item{webhook_notifications}{A collection of system notification IDs to notify when the run begins or completes.}
+\item{webhook_notifications}{A collection of system notification IDs to notify when the run begins or completes.
+
+See the \href{https://docs.databricks.com/api/workspace/jobs/submit}{API documentation} for more
+information on the request and response field structure.}
 }
 \description{
 Submit a one-time run. This endpoint allows you to submit a workload directly

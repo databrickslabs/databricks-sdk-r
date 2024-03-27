@@ -12,7 +12,10 @@ tableConstraintsCreate(client, full_name_arg, constraint)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{full_name_arg}{Required. The full name of the table referenced by the constraint.}
+\item{full_name_arg}{Required. The full name of the table referenced by the constraint.
+
+See the \href{https://docs.databricks.com/api/workspace/tableconstraints/create}{API documentation} for more
+information on the request and response field structure.}
 
 \item{constraint}{Required. A table constraint, as defined by \emph{one} of the following fields being set: \strong{primary_key_constraint}, \strong{foreign_key_constraint}, \strong{named_table_constraint}.}
 }

@@ -14,7 +14,10 @@ librariesInstall(client, cluster_id, libraries)
 
 \item{cluster_id}{Required. Unique identifier for the cluster on which to install these libraries.}
 
-\item{libraries}{Required. The libraries to install.}
+\item{libraries}{Required. The libraries to install.
+
+See the \href{https://docs.databricks.com/api/workspace/libraries/install}{API documentation} for more
+information on the request and response field structure.}
 }
 \description{
 Add libraries to be installed on a cluster. The installation is asynchronous;

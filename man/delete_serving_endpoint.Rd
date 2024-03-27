@@ -12,7 +12,10 @@ servingEndpointsDelete(client, name)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{name}{Required. The name of the serving endpoint.}
+\item{name}{Required. The name of the serving endpoint.
+
+See the \href{https://docs.databricks.com/api/workspace/servingendpoints/delete}{API documentation} for more
+information on the request and response field structure.}
 }
 \description{
 Delete a serving endpoint.

@@ -12,7 +12,10 @@ lakeviewGet(client, dashboard_id)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{dashboard_id}{Required. UUID identifying the dashboard.}
+\item{dashboard_id}{Required. UUID identifying the dashboard.
+
+See the \href{https://docs.databricks.com/api/workspace/lakeview/get}{API documentation} for more
+information on the request and response field structure.}
 }
 \description{
 Get a draft dashboard.

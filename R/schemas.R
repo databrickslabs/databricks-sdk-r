@@ -16,6 +16,9 @@ NULL
 #' @param properties A map of key-value properties attached to the securable.
 #' @param storage_root Storage root URL for managed tables within schema.
 #'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/schemas/create) for more 
+#' information on the request and response field structure.
+#'
 #' @rdname create_schema
 #' @alias schemasCreate
 #' @export
@@ -37,6 +40,9 @@ schemasCreate <- create_schema
 #'
 #' @param full_name Required. Full name of the schema.
 #'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/schemas/delete) for more 
+#' information on the request and response field structure.
+#'
 #' @rdname delete_schema
 #' @alias schemasDelete
 #' @export
@@ -57,6 +63,9 @@ schemasDelete <- delete_schema
 #'
 #' @param full_name Required. Full name of the schema.
 #' @param include_browse Whether to include schemas in the response for which the principal can only access selective metadata for.
+#'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/schemas/get) for more 
+#' information on the request and response field structure.
 #'
 #' @rdname get_schema
 #' @alias schemasGet
@@ -85,6 +94,9 @@ schemasGet <- get_schema
 #' @param page_token Opaque pagination token to go to next page based on previous query.
 #'
 #' @return `data.frame` with all of the response pages.
+#'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/schemas/list) for more 
+#' information on the request and response field structure.
 #'
 #' @rdname list_schemas
 #' @alias schemasList
@@ -129,6 +141,9 @@ schemasList <- list_schemas
 #' @param new_name New name for the schema.
 #' @param owner Username of current owner of schema.
 #' @param properties A map of key-value properties attached to the securable.
+#'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/schemas/update) for more 
+#' information on the request and response field structure.
 #'
 #' @rdname update_schema
 #' @alias schemasUpdate

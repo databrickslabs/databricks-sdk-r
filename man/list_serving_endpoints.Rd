@@ -14,6 +14,9 @@ servingEndpointsList(client)
 }
 \value{
 \code{data.frame} with all of the response pages.
+
+See the \href{https://docs.databricks.com/api/workspace/servingendpoints/list}{API documentation} for more
+information on the request and response field structure.
 }
 \description{
 Get all serving endpoints.

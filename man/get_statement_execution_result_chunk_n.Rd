@@ -12,7 +12,10 @@ statementExecutionGetStatementResultChunkN(client, statement_id, chunk_index)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{statement_id}{Required. The statement ID is returned upon successfully submitting a SQL statement, and is a required reference for all subsequent calls.}
+\item{statement_id}{Required. The statement ID is returned upon successfully submitting a SQL statement, and is a required reference for all subsequent calls.
+
+See the \href{https://docs.databricks.com/api/workspace/statementexecution/getstatementresultchunkn}{API documentation} for more
+information on the request and response field structure.}
 
 \item{chunk_index}{Required. This field has no description yet.}
 }

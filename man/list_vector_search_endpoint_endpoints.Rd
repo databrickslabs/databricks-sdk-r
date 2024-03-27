@@ -16,6 +16,9 @@ vectorSearchEndpointsListEndpoints(client, page_token = NULL)
 }
 \value{
 \code{data.frame} with all of the response pages.
+
+See the \href{https://docs.databricks.com/api/workspace/vectorsearchendpoints/listendpoints}{API documentation} for more
+information on the request and response field structure.
 }
 \description{
 List all endpoints.

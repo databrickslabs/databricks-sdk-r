@@ -10,7 +10,10 @@ get_token_management_permission_levels(client)
 tokenManagementGetPermissionLevels(client)
 }
 \arguments{
-\item{client}{Required. Instance of DatabricksClient()}
+\item{client}{Required. Instance of DatabricksClient()
+
+See the \href{https://docs.databricks.com/api/workspace/tokenmanagement/getpermissionlevels}{API documentation} for more
+information on the request and response field structure.}
 }
 \description{
 Gets the permission levels that a user can have on an object.

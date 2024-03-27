@@ -12,6 +12,9 @@ NULL
 #' @param object_id Required. Object ID.
 #' @param object_type Required. The type of object permissions to check.
 #'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/dbsqlpermissions/get) for more 
+#' information on the request and response field structure.
+#'
 #' @rdname get_dbsql_permission
 #' @alias dbsqlPermissionsGet
 #' @export
@@ -34,6 +37,9 @@ dbsqlPermissionsGet <- get_dbsql_permission
 #' @param object_id Required. Object ID.
 #' @param object_type Required. The type of object permission to set.
 #'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/dbsqlpermissions/set) for more 
+#' information on the request and response field structure.
+#'
 #' @rdname set_dbsql_permission
 #' @alias dbsqlPermissionsSet
 #' @export
@@ -55,6 +61,9 @@ dbsqlPermissionsSet <- set_dbsql_permission
 #' @param new_owner Email address for the new owner, who must exist in the workspace.
 #' @param object_id Required. The ID of the object on which to change ownership.
 #' @param object_type Required. The type of object on which to change ownership.
+#'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/dbsqlpermissions/transferownership) for more 
+#' information on the request and response field structure.
 #'
 #' @rdname transfer_dbsql_permission_ownership
 #' @alias dbsqlPermissionsTransferOwnership

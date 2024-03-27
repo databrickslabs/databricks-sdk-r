@@ -15,6 +15,9 @@ NULL
 #' @param sparse_checkout If specified, the repo will be created with sparse checkout enabled.
 #' @param url Required. URL of the Git repository to be linked.
 #'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/repos/create) for more 
+#' information on the request and response field structure.
+#'
 #' @rdname create_repo
 #' @alias reposCreate
 #' @export
@@ -34,6 +37,9 @@ reposCreate <- create_repo
 #'
 #' @param repo_id Required. The ID for the corresponding repo to access.
 #'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/repos/delete) for more 
+#' information on the request and response field structure.
+#'
 #' @rdname delete_repo
 #' @alias reposDelete
 #' @export
@@ -52,6 +58,9 @@ reposDelete <- delete_repo
 #'
 #' @param repo_id Required. The ID for the corresponding repo to access.
 #'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/repos/get) for more 
+#' information on the request and response field structure.
+#'
 #' @rdname get_repo
 #' @alias reposGet
 #' @export
@@ -69,6 +78,9 @@ reposGet <- get_repo
 #' @param client Required. Instance of DatabricksClient()
 #'
 #' @param repo_id Required. The repo for which to get or manage permissions.
+#'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/repos/getpermissionlevels) for more 
+#' information on the request and response field structure.
 #'
 #' @rdname get_repo_permission_levels
 #' @alias reposGetPermissionLevels
@@ -89,6 +101,9 @@ reposGetPermissionLevels <- get_repo_permission_levels
 #' @param client Required. Instance of DatabricksClient()
 #'
 #' @param repo_id Required. The repo for which to get or manage permissions.
+#'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/repos/getpermissions) for more 
+#' information on the request and response field structure.
 #'
 #' @rdname get_repo_permissions
 #' @alias reposGetPermissions
@@ -111,6 +126,9 @@ reposGetPermissions <- get_repo_permissions
 #' @param path_prefix Filters repos that have paths starting with the given path prefix.
 #'
 #' @return `data.frame` with all of the response pages.
+#'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/repos/list) for more 
+#' information on the request and response field structure.
 #'
 #' @rdname list_repos
 #' @alias reposList
@@ -147,6 +165,9 @@ reposList <- list_repos
 #' @param access_control_list This field has no description yet.
 #' @param repo_id Required. The repo for which to get or manage permissions.
 #'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/repos/setpermissions) for more 
+#' information on the request and response field structure.
+#'
 #' @rdname set_repo_permissions
 #' @alias reposSetPermissions
 #' @export
@@ -169,6 +190,9 @@ reposSetPermissions <- set_repo_permissions
 #' @param sparse_checkout If specified, update the sparse checkout settings.
 #' @param tag Tag that the local version of the repo is checked out to.
 #'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/repos/update) for more 
+#' information on the request and response field structure.
+#'
 #' @rdname update_repo
 #' @alias reposUpdate
 #' @export
@@ -188,6 +212,9 @@ reposUpdate <- update_repo
 #'
 #' @param access_control_list This field has no description yet.
 #' @param repo_id Required. The repo for which to get or manage permissions.
+#'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/repos/updatepermissions) for more 
+#' information on the request and response field structure.
 #'
 #' @rdname update_repo_permissions
 #' @alias reposUpdatePermissions

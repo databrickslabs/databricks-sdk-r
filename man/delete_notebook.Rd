@@ -14,7 +14,10 @@ workspaceDelete(client, path, recursive = NULL)
 
 \item{path}{Required. The absolute path of the notebook or directory.}
 
-\item{recursive}{The flag that specifies whether to delete the object recursively.}
+\item{recursive}{The flag that specifies whether to delete the object recursively.
+
+See the \href{https://docs.databricks.com/api/workspace/workspace/delete}{API documentation} for more
+information on the request and response field structure.}
 }
 \description{
 Deletes an object or a directory (and optionally recursively deletes all

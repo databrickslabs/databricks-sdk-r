@@ -38,6 +38,9 @@ functionsList(
 }
 \value{
 \code{data.frame} with all of the response pages.
+
+See the \href{https://docs.databricks.com/api/workspace/functions/list}{API documentation} for more
+information on the request and response field structure.
 }
 \description{
 List functions within the specified parent catalog and schema. If the user is

@@ -90,7 +90,10 @@ pipelinesCreate(
 
 \item{target}{Target schema (database) to add tables in this pipeline to.}
 
-\item{trigger}{Which pipeline trigger to use.}
+\item{trigger}{Which pipeline trigger to use.
+
+See the \href{https://docs.databricks.com/api/workspace/pipelines/create}{API documentation} for more
+information on the request and response field structure.}
 }
 \description{
 Creates a new data processing pipeline based on the requested configuration.

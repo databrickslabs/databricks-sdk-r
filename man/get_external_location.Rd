@@ -12,7 +12,10 @@ externalLocationsGet(client, name, include_browse = NULL)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{name}{Required. Name of the external location.}
+\item{name}{Required. Name of the external location.
+
+See the \href{https://docs.databricks.com/api/workspace/externallocations/get}{API documentation} for more
+information on the request and response field structure.}
 
 \item{include_browse}{Whether to include external locations in the response for which the principal can only access selective metadata for.}
 }

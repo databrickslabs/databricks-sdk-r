@@ -12,7 +12,10 @@ catalogsGet(client, name, include_browse = NULL)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{name}{Required. The name of the catalog.}
+\item{name}{Required. The name of the catalog.
+
+See the \href{https://docs.databricks.com/api/workspace/catalogs/get}{API documentation} for more
+information on the request and response field structure.}
 
 \item{include_browse}{Whether to include catalogs in the response for which the principal can only access selective metadata for.}
 }

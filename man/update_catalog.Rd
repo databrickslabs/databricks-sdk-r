@@ -42,7 +42,10 @@ catalogsUpdate(
 
 \item{owner}{Username of current owner of catalog.}
 
-\item{properties}{A map of key-value properties attached to the securable.}
+\item{properties}{A map of key-value properties attached to the securable.
+
+See the \href{https://docs.databricks.com/api/workspace/catalogs/update}{API documentation} for more
+information on the request and response field structure.}
 }
 \description{
 Updates the catalog that matches the supplied name. The caller must be either

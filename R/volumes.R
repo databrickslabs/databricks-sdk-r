@@ -32,6 +32,9 @@ NULL
 #' @param storage_location The storage location on the cloud.
 #' @param volume_type Required. This field has no description yet.
 #'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/volumes/create) for more 
+#' information on the request and response field structure.
+#'
 #' @rdname create_volume
 #' @alias volumesCreate
 #' @export
@@ -56,6 +59,9 @@ volumesCreate <- create_volume
 #' @param client Required. Instance of DatabricksClient()
 #'
 #' @param name Required. The three-level (fully qualified) name of the volume.
+#'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/volumes/delete) for more 
+#' information on the request and response field structure.
 #'
 #' @rdname delete_volume
 #' @alias volumesDelete
@@ -90,6 +96,9 @@ volumesDelete <- delete_volume
 #' @param schema_name Required. The identifier of the schema.
 #'
 #' @return `data.frame` with all of the response pages.
+#'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/volumes/list) for more 
+#' information on the request and response field structure.
 #'
 #' @rdname list_volumes
 #' @alias volumesList
@@ -132,6 +141,9 @@ volumesList <- list_volumes
 #' @param include_browse Whether to include volumes in the response for which the principal can only access selective metadata for.
 #' @param name Required. The three-level (fully qualified) name of the volume.
 #'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/volumes/read) for more 
+#' information on the request and response field structure.
+#'
 #' @rdname read_volume
 #' @alias volumesRead
 #' @export
@@ -160,6 +172,9 @@ volumesRead <- read_volume
 #' @param name Required. The three-level (fully qualified) name of the volume.
 #' @param new_name New name for the volume.
 #' @param owner The identifier of the user who owns the volume.
+#'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/volumes/update) for more 
+#' information on the request and response field structure.
 #'
 #' @rdname update_volume
 #' @alias volumesUpdate

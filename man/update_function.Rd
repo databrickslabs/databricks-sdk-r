@@ -14,7 +14,10 @@ functionsUpdate(client, name, owner = NULL)
 
 \item{name}{Required. The fully-qualified name of the function (of the form \strong{catalog_name}.\strong{schema_name}.\strong{function__name}).}
 
-\item{owner}{Username of current owner of function.}
+\item{owner}{Username of current owner of function.
+
+See the \href{https://docs.databricks.com/api/workspace/functions/update}{API documentation} for more
+information on the request and response field structure.}
 }
 \description{
 Updates the function that matches the supplied name. Only the owner of the

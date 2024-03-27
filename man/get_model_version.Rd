@@ -19,7 +19,10 @@ modelVersionsGet(client, full_name, version, include_browse = NULL)
 
 \item{full_name}{Required. The three-level (fully qualified) name of the model version.}
 
-\item{version}{Required. The integer version number of the model version.}
+\item{version}{Required. The integer version number of the model version.
+
+See the \href{https://docs.databricks.com/api/workspace/modelversions/get}{API documentation} for more
+information on the request and response field structure.}
 
 \item{include_browse}{Whether to include model versions in the response for which the principal can only access selective metadata for.}
 

@@ -12,7 +12,10 @@ artifactAllowlistsGet(client, artifact_type)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{artifact_type}{Required. The artifact type of the allowlist.}
+\item{artifact_type}{Required. The artifact type of the allowlist.
+
+See the \href{https://docs.databricks.com/api/workspace/artifactallowlists/get}{API documentation} for more
+information on the request and response field structure.}
 }
 \description{
 Get the artifact allowlist of a certain artifact type. The caller must be a

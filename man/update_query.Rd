@@ -42,7 +42,10 @@ queriesUpdate(
 
 \item{query}{The text of the query to be run.}
 
-\item{run_as_role}{Sets the \strong{Run as} role for the object.}
+\item{run_as_role}{Sets the \strong{Run as} role for the object.
+
+See the \href{https://docs.databricks.com/api/workspace/queries/update}{API documentation} for more
+information on the request and response field structure.}
 }
 \description{
 Modify this query definition.

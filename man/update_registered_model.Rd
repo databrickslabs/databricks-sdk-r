@@ -30,7 +30,10 @@ registeredModelsUpdate(
 
 \item{new_name}{New name for the registered model.}
 
-\item{owner}{The identifier of the user who owns the registered model.}
+\item{owner}{The identifier of the user who owns the registered model.
+
+See the \href{https://docs.databricks.com/api/workspace/registeredmodels/update}{API documentation} for more
+information on the request and response field structure.}
 }
 \description{
 Updates the specified registered model.

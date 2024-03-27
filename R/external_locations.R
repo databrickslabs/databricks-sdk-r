@@ -19,6 +19,9 @@ NULL
 #' @param skip_validation Skips validation of the storage credential associated with the external location.
 #' @param url Required. Path URL of the external location.
 #'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/externallocations/create) for more 
+#' information on the request and response field structure.
+#'
 #' @rdname create_external_location
 #' @alias externalLocationsCreate
 #' @export
@@ -42,6 +45,9 @@ externalLocationsCreate <- create_external_location
 #' @param force Force deletion even if there are dependent external tables or mounts.
 #' @param name Required. Name of the external location.
 #'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/externallocations/delete) for more 
+#' information on the request and response field structure.
+#'
 #' @rdname delete_external_location
 #' @alias externalLocationsDelete
 #' @export
@@ -63,6 +69,9 @@ externalLocationsDelete <- delete_external_location
 #'
 #' @param include_browse Whether to include external locations in the response for which the principal can only access selective metadata for.
 #' @param name Required. Name of the external location.
+#'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/externallocations/get) for more 
+#' information on the request and response field structure.
 #'
 #' @rdname get_external_location
 #' @alias externalLocationsGet
@@ -90,6 +99,9 @@ externalLocationsGet <- get_external_location
 #' @param page_token Opaque pagination token to go to next page based on previous query.
 #'
 #' @return `data.frame` with all of the response pages.
+#'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/externallocations/list) for more 
+#' information on the request and response field structure.
 #'
 #' @rdname list_external_locations
 #' @alias externalLocationsList
@@ -136,6 +148,9 @@ externalLocationsList <- list_external_locations
 #' @param read_only Indicates whether the external location is read-only.
 #' @param skip_validation Skips validation of the storage credential associated with the external location.
 #' @param url Path URL of the external location.
+#'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/externallocations/update) for more 
+#' information on the request and response field structure.
 #'
 #' @rdname update_external_location
 #' @alias externalLocationsUpdate

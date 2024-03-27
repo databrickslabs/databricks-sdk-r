@@ -12,7 +12,10 @@ warehousesStop(client, id)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{id}{Required. Required.}
+\item{id}{Required. Required.
+
+See the \href{https://docs.databricks.com/api/workspace/warehouses/stop}{API documentation} for more
+information on the request and response field structure.}
 }
 \description{
 Stops a SQL warehouse.

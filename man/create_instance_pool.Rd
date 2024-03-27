@@ -66,7 +66,10 @@ instancePoolsCreate(
 
 \item{preloaded_docker_images}{Custom Docker Image BYOC.}
 
-\item{preloaded_spark_versions}{A list containing at most one preloaded Spark image version for the pool.}
+\item{preloaded_spark_versions}{A list containing at most one preloaded Spark image version for the pool.
+
+See the \href{https://docs.databricks.com/api/workspace/instancepools/create}{API documentation} for more
+information on the request and response field structure.}
 }
 \description{
 Creates a new instance pool using idle and ready-to-use cloud instances.

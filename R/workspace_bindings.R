@@ -11,6 +11,9 @@ NULL
 #'
 #' @param name Required. The name of the catalog.
 #'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/workspacebindings/get) for more 
+#' information on the request and response field structure.
+#'
 #' @rdname get_workspace_binding
 #' @alias workspaceBindingsGet
 #' @export
@@ -31,6 +34,9 @@ workspaceBindingsGet <- get_workspace_binding
 #'
 #' @param securable_name Required. The name of the securable.
 #' @param securable_type Required. The type of the securable.
+#'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/workspacebindings/getbindings) for more 
+#' information on the request and response field structure.
 #'
 #' @rdname get_workspace_binding_bindings
 #' @alias workspaceBindingsGetBindings
@@ -54,6 +60,9 @@ workspaceBindingsGetBindings <- get_workspace_binding_bindings
 #' @param name Required. The name of the catalog.
 #' @param unassign_workspaces A list of workspace IDs.
 #'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/workspacebindings/update) for more 
+#' information on the request and response field structure.
+#'
 #' @rdname update_workspace_binding
 #' @alias workspaceBindingsUpdate
 #' @export
@@ -76,6 +85,9 @@ workspaceBindingsUpdate <- update_workspace_binding
 #' @param remove List of workspace bindings.
 #' @param securable_name Required. The name of the securable.
 #' @param securable_type Required. The type of the securable.
+#'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/workspacebindings/updatebindings) for more 
+#' information on the request and response field structure.
 #'
 #' @rdname update_workspace_binding_bindings
 #' @alias workspaceBindingsUpdateBindings

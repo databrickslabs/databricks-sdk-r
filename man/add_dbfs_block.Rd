@@ -12,7 +12,10 @@ dbfsAddBlock(client, handle, data)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{handle}{Required. The handle on an open stream.}
+\item{handle}{Required. The handle on an open stream.
+
+See the \href{https://docs.databricks.com/api/workspace/dbfs/addblock}{API documentation} for more
+information on the request and response field structure.}
 
 \item{data}{Required. The base64-encoded data to append to the stream.}
 }

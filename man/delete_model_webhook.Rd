@@ -12,7 +12,10 @@ modelRegistryDeleteWebhook(client, id = NULL)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{id}{Webhook ID required to delete a registry webhook.}
+\item{id}{Webhook ID required to delete a registry webhook.
+
+See the \href{https://docs.databricks.com/api/workspace/modelregistry/deletewebhook}{API documentation} for more
+information on the request and response field structure.}
 }
 \description{
 \strong{NOTE:} This endpoint is in Public Preview.

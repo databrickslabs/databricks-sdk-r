@@ -26,7 +26,10 @@ commandExecutionCancel(
 
 \item{command_id}{This field has no description yet.}
 
-\item{context_id}{This field has no description yet.}
+\item{context_id}{This field has no description yet.
+
+See the \href{https://docs.databricks.com/api/workspace/commandexecution/cancel}{API documentation} for more
+information on the request and response field structure.}
 }
 \description{
 Cancels a currently running command within an execution context.

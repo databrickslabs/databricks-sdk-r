@@ -12,7 +12,10 @@ accountAccessControlProxyGetRuleSet(client, name, etag)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{name}{Required. The ruleset name associated with the request.}
+\item{name}{Required. The ruleset name associated with the request.
+
+See the \href{https://docs.databricks.com/api/workspace/accountaccesscontrolproxy/getruleset}{API documentation} for more
+information on the request and response field structure.}
 
 \item{etag}{Required. Etag used for versioning.}
 }

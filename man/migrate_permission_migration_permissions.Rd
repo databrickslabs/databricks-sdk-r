@@ -24,7 +24,10 @@ permissionMigrationMigratePermissions(
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{workspace_id}{Required. WorkspaceId of the associated workspace where the permission migration will occur.}
+\item{workspace_id}{Required. WorkspaceId of the associated workspace where the permission migration will occur.
+
+See the \href{https://docs.databricks.com/api/workspace/permissionmigration/migratepermissions}{API documentation} for more
+information on the request and response field structure.}
 
 \item{from_workspace_group_name}{Required. The name of the workspace group that permissions will be migrated from.}
 

@@ -10,7 +10,10 @@ current_metastore(client)
 metastoresCurrent(client)
 }
 \arguments{
-\item{client}{Required. Instance of DatabricksClient()}
+\item{client}{Required. Instance of DatabricksClient()
+
+See the \href{https://docs.databricks.com/api/workspace/metastores/current}{API documentation} for more
+information on the request and response field structure.}
 }
 \description{
 Gets the metastore assignment for the workspace being accessed.

@@ -34,7 +34,10 @@ volumesCreate(
 
 \item{name}{Required. The name of the volume.}
 
-\item{volume_type}{Required. This field has no description yet.}
+\item{volume_type}{Required. This field has no description yet.
+
+See the \href{https://docs.databricks.com/api/workspace/volumes/create}{API documentation} for more
+information on the request and response field structure.}
 
 \item{comment}{The comment attached to the volume.}
 

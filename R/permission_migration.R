@@ -14,6 +14,9 @@ NULL
 #' @param to_account_group_name Required. The name of the account group that permissions will be migrated to.
 #' @param workspace_id Required. WorkspaceId of the associated workspace where the permission migration will occur.
 #'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/permissionmigration/migratepermissions) for more 
+#' information on the request and response field structure.
+#'
 #' @rdname migrate_permission_migration_permissions
 #' @alias permissionMigrationMigratePermissions
 #' @export

@@ -12,7 +12,10 @@ vectorSearchEndpointsGetEndpoint(client, endpoint_name)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{endpoint_name}{Required. Name of the endpoint.}
+\item{endpoint_name}{Required. Name of the endpoint.
+
+See the \href{https://docs.databricks.com/api/workspace/vectorsearchendpoints/getendpoint}{API documentation} for more
+information on the request and response field structure.}
 }
 \description{
 Get an endpoint.

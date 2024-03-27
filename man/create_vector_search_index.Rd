@@ -32,7 +32,10 @@ vectorSearchIndexesCreateIndex(
 
 \item{endpoint_name}{Required. Name of the endpoint to be used for serving the index.}
 
-\item{primary_key}{Required. Primary key of the index.}
+\item{primary_key}{Required. Primary key of the index.
+
+See the \href{https://docs.databricks.com/api/workspace/vectorsearchindexes/createindex}{API documentation} for more
+information on the request and response field structure.}
 
 \item{index_type}{Required. There are 2 types of Vector Search indexes: - \code{DELTA_SYNC}: An index that automatically syncs with a source Delta Table, automatically and incrementally updating the index as the underlying data in the Delta Table changes.}
 

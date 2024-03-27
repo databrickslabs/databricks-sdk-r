@@ -34,7 +34,10 @@ lakeviewUpdate(
 
 \item{serialized_dashboard}{The contents of the dashboard in serialized string form.}
 
-\item{warehouse_id}{The warehouse ID used to run the dashboard.}
+\item{warehouse_id}{The warehouse ID used to run the dashboard.
+
+See the \href{https://docs.databricks.com/api/workspace/lakeview/update}{API documentation} for more
+information on the request and response field structure.}
 }
 \description{
 Update a draft dashboard.

@@ -16,6 +16,9 @@ NULL
 #' @param query_id Required. Query ID.
 #' @param rearm Number of seconds after being triggered before the alert rearms itself and can be triggered again.
 #'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/alerts/create) for more 
+#' information on the request and response field structure.
+#'
 #' @rdname create_alert
 #' @alias alertsCreate
 #' @export
@@ -37,6 +40,9 @@ alertsCreate <- create_alert
 #'
 #' @param alert_id Required. This field has no description yet.
 #'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/alerts/delete) for more 
+#' information on the request and response field structure.
+#'
 #' @rdname delete_alert
 #' @alias alertsDelete
 #' @export
@@ -55,6 +61,9 @@ alertsDelete <- delete_alert
 #'
 #' @param alert_id Required. This field has no description yet.
 #'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/alerts/get) for more 
+#' information on the request and response field structure.
+#'
 #' @rdname get_alert
 #' @alias alertsGet
 #' @export
@@ -70,6 +79,9 @@ alertsGet <- get_alert
 #' 
 #' Gets a list of alerts.
 #' @param client Required. Instance of DatabricksClient()
+#'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/alerts/list) for more 
+#' information on the request and response field structure.
 #'
 #' @rdname list_alerts
 #' @alias alertsList
@@ -91,6 +103,9 @@ alertsList <- list_alerts
 #' @param options Required. Alert configuration options.
 #' @param query_id Required. Query ID.
 #' @param rearm Number of seconds after being triggered before the alert rearms itself and can be triggered again.
+#'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/alerts/update) for more 
+#' information on the request and response field structure.
 #'
 #' @rdname update_alert
 #' @alias alertsUpdate

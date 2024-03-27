@@ -12,7 +12,10 @@ workspaceBindingsGet(client, name)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{name}{Required. The name of the catalog.}
+\item{name}{Required. The name of the catalog.
+
+See the \href{https://docs.databricks.com/api/workspace/workspacebindings/get}{API documentation} for more
+information on the request and response field structure.}
 }
 \description{
 Gets workspace bindings of the catalog. The caller must be a metastore admin

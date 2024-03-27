@@ -12,7 +12,10 @@ warehousesSetPermissions(client, warehouse_id, access_control_list = NULL)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{warehouse_id}{Required. The SQL warehouse for which to get or manage permissions.}
+\item{warehouse_id}{Required. The SQL warehouse for which to get or manage permissions.
+
+See the \href{https://docs.databricks.com/api/workspace/warehouses/setpermissions}{API documentation} for more
+information on the request and response field structure.}
 
 \item{access_control_list}{This field has no description yet.}
 }

@@ -46,7 +46,10 @@ metastoresUpdate(
 
 \item{privilege_model_version}{Privilege model version of the metastore, of the form \code{major.minor} (e.g., \code{1.0}).}
 
-\item{storage_root_credential_id}{UUID of storage credential to access the metastore storage_root.}
+\item{storage_root_credential_id}{UUID of storage credential to access the metastore storage_root.
+
+See the \href{https://docs.databricks.com/api/workspace/metastores/update}{API documentation} for more
+information on the request and response field structure.}
 }
 \description{
 Updates information for a specific metastore. The caller must be a metastore

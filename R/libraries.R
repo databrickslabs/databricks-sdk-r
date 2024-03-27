@@ -11,6 +11,9 @@ NULL
 #' UI.
 #' @param client Required. Instance of DatabricksClient()
 #'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/libraries/allclusterstatuses) for more 
+#' information on the request and response field structure.
+#'
 #' @rdname all_cluster_library_statuses
 #' @alias librariesAllClusterStatuses
 #' @export
@@ -44,6 +47,9 @@ librariesAllClusterStatuses <- all_cluster_library_statuses
 #'
 #' @return `data.frame` with all of the response pages.
 #'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/libraries/clusterstatus) for more 
+#' information on the request and response field structure.
+#'
 #' @rdname cluster_library_status
 #' @alias librariesClusterStatus
 #' @export
@@ -71,6 +77,9 @@ librariesClusterStatus <- cluster_library_status
 #' @param cluster_id Required. Unique identifier for the cluster on which to install these libraries.
 #' @param libraries Required. The libraries to install.
 #'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/libraries/install) for more 
+#' information on the request and response field structure.
+#'
 #' @rdname install_cluster_library
 #' @alias librariesInstall
 #' @export
@@ -91,6 +100,9 @@ librariesInstall <- install_cluster_library
 #'
 #' @param cluster_id Required. Unique identifier for the cluster on which to uninstall these libraries.
 #' @param libraries Required. The libraries to uninstall.
+#'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/libraries/uninstall) for more 
+#' information on the request and response field structure.
 #'
 #' @rdname uninstall_cluster_library
 #' @alias librariesUninstall

@@ -19,7 +19,10 @@ modelVersionsUpdate(client, full_name, version, comment = NULL)
 
 \item{full_name}{Required. The three-level (fully qualified) name of the model version.}
 
-\item{version}{Required. The integer version number of the model version.}
+\item{version}{Required. The integer version number of the model version.
+
+See the \href{https://docs.databricks.com/api/workspace/modelversions/update}{API documentation} for more
+information on the request and response field structure.}
 
 \item{comment}{The comment attached to the model version.}
 

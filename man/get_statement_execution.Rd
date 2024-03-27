@@ -12,7 +12,10 @@ statementExecutionGetStatement(client, statement_id)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{statement_id}{Required. The statement ID is returned upon successfully submitting a SQL statement, and is a required reference for all subsequent calls.}
+\item{statement_id}{Required. The statement ID is returned upon successfully submitting a SQL statement, and is a required reference for all subsequent calls.
+
+See the \href{https://docs.databricks.com/api/workspace/statementexecution/getstatement}{API documentation} for more
+information on the request and response field structure.}
 }
 \description{
 This request can be used to poll for the statement's status. When the

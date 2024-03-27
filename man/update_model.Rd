@@ -12,7 +12,10 @@ modelRegistryUpdateModel(client, name, description = NULL)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{name}{Required. Registered model unique name identifier.}
+\item{name}{Required. Registered model unique name identifier.
+
+See the \href{https://docs.databricks.com/api/workspace/modelregistry/updatemodel}{API documentation} for more
+information on the request and response field structure.}
 
 \item{description}{If provided, updates the description for this \code{registered_model}.}
 }

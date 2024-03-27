@@ -12,7 +12,10 @@ servingEndpointsExportMetrics(client, name)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{name}{Required. The name of the serving endpoint to retrieve metrics for.}
+\item{name}{Required. The name of the serving endpoint to retrieve metrics for.
+
+See the \href{https://docs.databricks.com/api/workspace/servingendpoints/exportmetrics}{API documentation} for more
+information on the request and response field structure.}
 }
 \description{
 Retrieves the metrics associated with the provided serving endpoint in either

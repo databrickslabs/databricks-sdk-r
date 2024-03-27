@@ -12,7 +12,10 @@ warehousesGetPermissionLevels(client, warehouse_id)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{warehouse_id}{Required. The SQL warehouse for which to get or manage permissions.}
+\item{warehouse_id}{Required. The SQL warehouse for which to get or manage permissions.
+
+See the \href{https://docs.databricks.com/api/workspace/warehouses/getpermissionlevels}{API documentation} for more
+information on the request and response field structure.}
 }
 \description{
 Gets the permission levels that a user can have on an object.
