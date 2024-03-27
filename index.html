@@ -80,20 +80,22 @@
 <h2 id="pagination">Pagination<a class="anchor" aria-label="anchor" href="#pagination"></a>
 </h2>
 <p>All <code>list</code> methods (and those, which return any list of results), do consistently return a <code>data.frame</code> of all entries from all pages, regardless of the underlying implementation.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">list_clusters</span>(client)[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,<span class="fu">c</span>(<span class="st">"cluster_id"</span>, <span class="st">"cluster_name"</span>, <span class="st">"state"</span>)]</span>
-<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>             cluster_id                                      cluster_name      state</span>
-<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a><span class="dv">1</span>  <span class="dv">1109-110110</span><span class="sc">-</span>kjfoeopq                              DEFAULT Test Cluster TERMINATED</span>
-<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a><span class="dv">2</span>  <span class="dv">0110-221212</span><span class="sc">-</span>oqqpodoa                               GO_SDK Test Cluster TERMINATED</span>
-<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a><span class="dv">3</span>  <span class="dv">1109-012301</span><span class="sc">-</span>qlwlwqpq                               BRICKS Test Cluster TERMINATED</span>
-<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a><span class="dv">4</span>  <span class="dv">1109-110012</span><span class="sc">-</span>qpwoepqq                               VSCODE Test Cluster TERMINATED</span>
-<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a><span class="dv">5</span>  <span class="dv">0110-201022</span><span class="sc">-</span>oqooqpqp                               JS_SDK Test Cluster TERMINATED</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="reference/list_clusters.html">list_clusters</a></span><span class="op">(</span><span class="va">client</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span>,<span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"cluster_id"</span>, <span class="st">"cluster_name"</span>, <span class="st">"state"</span><span class="op">)</span><span class="op">]</span></span>
+<span><span class="co">#              cluster_id                                      cluster_name      state</span></span>
+<span><span class="co"># 1  1109-110110-kjfoeopq                              DEFAULT Test Cluster TERMINATED</span></span>
+<span><span class="co"># 2  0110-221212-oqqpodoa                               GO_SDK Test Cluster TERMINATED</span></span>
+<span><span class="co"># 3  1109-012301-qlwlwqpq                               BRICKS Test Cluster TERMINATED</span></span>
+<span><span class="co"># 4  1109-110012-qpwoepqq                               VSCODE Test Cluster TERMINATED</span></span>
+<span><span class="co"># 5  0110-201022-oqooqpqp                               JS_SDK Test Cluster TERMINATED</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="long-running-operations">Long-running operations<a class="anchor" aria-label="anchor" href="#long-running-operations"></a>
 </h2>
 <p>All long-running operations do poll Databricks backend until the entity reaches desired state:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">create_cluster_and_wait</span>(client, <span class="at">spark_version =</span> <span class="st">"12.x-snapshot-scala2.12"</span>, <span class="at">cluster_name =</span> <span class="st">"r-sdk-cluster"</span>, <span class="at">num_workers =</span> <span class="dv">1</span>, <span class="at">autotermination_minutes=</span><span class="dv">20</span>, <span class="at">node_type_id=</span><span class="st">"i3.xlarge"</span>)</span>
-<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a>PENDING<span class="sc">:</span> Finding instances <span class="cf">for</span> new nodes, acquiring more instances <span class="cf">if</span> necessary</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="reference/create_cluster_and_wait.html">create_cluster_and_wait</a></span><span class="op">(</span><span class="va">client</span>, spark_version <span class="op">=</span> <span class="st">"12.x-snapshot-scala2.12"</span>, cluster_name <span class="op">=</span> <span class="st">"r-sdk-cluster"</span>, num_workers <span class="op">=</span> <span class="fl">1</span>, autotermination_minutes<span class="op">=</span><span class="fl">20</span>, node_type_id<span class="op">=</span><span class="st">"i3.xlarge"</span><span class="op">)</span></span>
+<span><span class="co"># PENDING: Finding instances for new nodes, acquiring more instances if necessary</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="interface-stability">Interface stability<a class="anchor" aria-label="anchor" href="#interface-stability"></a>
