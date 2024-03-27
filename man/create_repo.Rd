@@ -2,9 +2,12 @@
 % Please edit documentation in R/repos.R
 \name{create_repo}
 \alias{create_repo}
+\alias{reposCreate}
 \title{Create a repo.}
 \usage{
 create_repo(client, url, provider, path = NULL, sparse_checkout = NULL)
+
+reposCreate(client, url, provider, path = NULL, sparse_checkout = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

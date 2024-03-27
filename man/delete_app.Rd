@@ -2,9 +2,12 @@
 % Please edit documentation in R/apps.R
 \name{delete_app}
 \alias{delete_app}
+\alias{appsDeleteApp}
 \title{Delete an application.}
 \usage{
 delete_app(client, name)
+
+appsDeleteApp(client, name)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

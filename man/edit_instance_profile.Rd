@@ -2,9 +2,17 @@
 % Please edit documentation in R/instance_profiles.R
 \name{edit_instance_profile}
 \alias{edit_instance_profile}
+\alias{instanceProfilesEdit}
 \title{Edit an instance profile.}
 \usage{
 edit_instance_profile(
+  client,
+  instance_profile_arn,
+  iam_role_arn = NULL,
+  is_meta_instance_profile = NULL
+)
+
+instanceProfilesEdit(
   client,
   instance_profile_arn,
   iam_role_arn = NULL,

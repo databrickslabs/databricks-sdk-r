@@ -2,9 +2,12 @@
 % Please edit documentation in R/queries.R
 \name{get_query}
 \alias{get_query}
+\alias{queriesGet}
 \title{Get a query definition.}
 \usage{
 get_query(client, query_id)
+
+queriesGet(client, query_id)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

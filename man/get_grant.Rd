@@ -2,9 +2,12 @@
 % Please edit documentation in R/grants.R
 \name{get_grant}
 \alias{get_grant}
+\alias{grantsGet}
 \title{Get permissions.}
 \usage{
 get_grant(client, securable_type, full_name, principal = NULL)
+
+grantsGet(client, securable_type, full_name, principal = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

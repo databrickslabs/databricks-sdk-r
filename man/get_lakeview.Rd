@@ -2,9 +2,12 @@
 % Please edit documentation in R/lakeview.R
 \name{get_lakeview}
 \alias{get_lakeview}
+\alias{lakeviewGet}
 \title{Get dashboard.}
 \usage{
 get_lakeview(client, dashboard_id)
+
+lakeviewGet(client, dashboard_id)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

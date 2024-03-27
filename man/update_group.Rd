@@ -2,9 +2,23 @@
 % Please edit documentation in R/groups.R
 \name{update_group}
 \alias{update_group}
+\alias{groupsUpdate}
 \title{Replace a group.}
 \usage{
 update_group(
+  client,
+  id,
+  display_name = NULL,
+  entitlements = NULL,
+  external_id = NULL,
+  groups = NULL,
+  members = NULL,
+  meta = NULL,
+  roles = NULL,
+  schemas = NULL
+)
+
+groupsUpdate(
   client,
   id,
   display_name = NULL,

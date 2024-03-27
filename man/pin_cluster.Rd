@@ -2,9 +2,12 @@
 % Please edit documentation in R/clusters.R
 \name{pin_cluster}
 \alias{pin_cluster}
+\alias{clustersPin}
 \title{Pin cluster.}
 \usage{
 pin_cluster(client, cluster_id)
+
+clustersPin(client, cluster_id)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

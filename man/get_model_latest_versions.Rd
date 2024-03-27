@@ -2,9 +2,12 @@
 % Please edit documentation in R/model_registry.R
 \name{get_model_latest_versions}
 \alias{get_model_latest_versions}
+\alias{modelRegistryGetLatestVersions}
 \title{Get the latest version.}
 \usage{
 get_model_latest_versions(client, name, stages = NULL)
+
+modelRegistryGetLatestVersions(client, name, stages = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

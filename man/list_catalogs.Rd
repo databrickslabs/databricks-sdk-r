@@ -2,9 +2,12 @@
 % Please edit documentation in R/catalogs.R
 \name{list_catalogs}
 \alias{list_catalogs}
+\alias{catalogsList}
 \title{List catalogs.}
 \usage{
 list_catalogs(client, include_browse = NULL)
+
+catalogsList(client, include_browse = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

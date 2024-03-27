@@ -2,9 +2,12 @@
 % Please edit documentation in R/dbfs.R
 \name{delete_dbfs}
 \alias{delete_dbfs}
+\alias{dbfsDelete}
 \title{Delete a file/directory.}
 \usage{
 delete_dbfs(client, path, recursive = NULL)
+
+dbfsDelete(client, path, recursive = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

@@ -2,9 +2,19 @@
 % Please edit documentation in R/schemas.R
 \name{create_schema}
 \alias{create_schema}
+\alias{schemasCreate}
 \title{Create a schema.}
 \usage{
 create_schema(
+  client,
+  name,
+  catalog_name,
+  comment = NULL,
+  properties = NULL,
+  storage_root = NULL
+)
+
+schemasCreate(
   client,
   name,
   catalog_name,

@@ -2,9 +2,12 @@
 % Please edit documentation in R/libraries.R
 \name{uninstall_cluster_library}
 \alias{uninstall_cluster_library}
+\alias{librariesUninstall}
 \title{Uninstall libraries.}
 \usage{
 uninstall_cluster_library(client, cluster_id, libraries)
+
+librariesUninstall(client, cluster_id, libraries)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

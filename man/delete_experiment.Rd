@@ -2,9 +2,12 @@
 % Please edit documentation in R/experiments.R
 \name{delete_experiment}
 \alias{delete_experiment}
+\alias{experimentsDeleteExperiment}
 \title{Delete an experiment.}
 \usage{
 delete_experiment(client, experiment_id)
+
+experimentsDeleteExperiment(client, experiment_id)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

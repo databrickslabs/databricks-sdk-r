@@ -2,9 +2,12 @@
 % Please edit documentation in R/groups.R
 \name{get_group}
 \alias{get_group}
+\alias{groupsGet}
 \title{Get group details.}
 \usage{
 get_group(client, id)
+
+groupsGet(client, id)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

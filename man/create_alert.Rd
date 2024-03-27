@@ -2,9 +2,12 @@
 % Please edit documentation in R/alerts.R
 \name{create_alert}
 \alias{create_alert}
+\alias{alertsCreate}
 \title{Create an alert.}
 \usage{
 create_alert(client, name, options, query_id, parent = NULL, rearm = NULL)
+
+alertsCreate(client, name, options, query_id, parent = NULL, rearm = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

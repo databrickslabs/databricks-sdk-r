@@ -2,9 +2,19 @@
 % Please edit documentation in R/registered_models.R
 \name{create_registered_model}
 \alias{create_registered_model}
+\alias{registeredModelsCreate}
 \title{Create a Registered Model.}
 \usage{
 create_registered_model(
+  client,
+  catalog_name,
+  schema_name,
+  name,
+  comment = NULL,
+  storage_location = NULL
+)
+
+registeredModelsCreate(
   client,
   catalog_name,
   schema_name,

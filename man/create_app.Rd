@@ -2,9 +2,12 @@
 % Please edit documentation in R/apps.R
 \name{create_app}
 \alias{create_app}
+\alias{appsCreate}
 \title{Create and deploy an application.}
 \usage{
 create_app(client, manifest, resources = NULL)
+
+appsCreate(client, manifest, resources = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

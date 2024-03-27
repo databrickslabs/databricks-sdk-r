@@ -2,9 +2,12 @@
 % Please edit documentation in R/online_tables.R
 \name{delete_online_table}
 \alias{delete_online_table}
+\alias{onlineTablesDelete}
 \title{Delete an Online Table.}
 \usage{
 delete_online_table(client, name)
+
+onlineTablesDelete(client, name)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

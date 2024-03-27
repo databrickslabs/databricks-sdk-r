@@ -15,6 +15,7 @@ NULL
 #' @param skip_validation By default, Databricks validates that it has sufficient permissions to launch instances with the instance profile.
 #'
 #' @rdname add_instance_profile
+#' @alias instanceProfilesAdd
 #' @export
 add_instance_profile <- function(client, instance_profile_arn, iam_role_arn = NULL,
   is_meta_instance_profile = NULL, skip_validation = NULL) {
@@ -22,6 +23,10 @@ add_instance_profile <- function(client, instance_profile_arn, iam_role_arn = NU
     is_meta_instance_profile = is_meta_instance_profile, skip_validation = skip_validation)
   client$do("POST", "/api/2.0/instance-profiles/add", body = body)
 }
+
+#' @rdname add_instance_profile
+#' @export 
+instanceProfilesAdd <- add_instance_profile
 #' Edit an instance profile.
 #' 
 #' The only supported field to change is the optional IAM role ARN associated
@@ -46,6 +51,7 @@ add_instance_profile <- function(client, instance_profile_arn, iam_role_arn = NU
 #' @param is_meta_instance_profile Boolean flag indicating whether the instance profile should only be used in credential passthrough scenarios.
 #'
 #' @rdname edit_instance_profile
+#' @alias instanceProfilesEdit
 #' @export
 edit_instance_profile <- function(client, instance_profile_arn, iam_role_arn = NULL,
   is_meta_instance_profile = NULL) {
@@ -53,6 +59,10 @@ edit_instance_profile <- function(client, instance_profile_arn, iam_role_arn = N
     is_meta_instance_profile = is_meta_instance_profile)
   client$do("POST", "/api/2.0/instance-profiles/edit", body = body)
 }
+
+#' @rdname edit_instance_profile
+#' @export 
+instanceProfilesEdit <- edit_instance_profile
 #' List available instance profiles.
 #' 
 #' List the instance profiles that the calling user can use to launch a cluster.
@@ -63,6 +73,7 @@ edit_instance_profile <- function(client, instance_profile_arn, iam_role_arn = N
 #' @return `data.frame` with all of the response pages.
 #'
 #' @rdname list_instance_profiles
+#' @alias instanceProfilesList
 #' @export
 list_instance_profiles <- function(client) {
 
@@ -70,6 +81,10 @@ list_instance_profiles <- function(client) {
   return(json$instance_profiles)
 
 }
+
+#' @rdname list_instance_profiles
+#' @export 
+instanceProfilesList <- list_instance_profiles
 #' Remove the instance profile.
 #' 
 #' Remove the instance profile with the provided ARN. Existing clusters with
@@ -81,11 +96,16 @@ list_instance_profiles <- function(client) {
 #' @param instance_profile_arn Required. The ARN of the instance profile to remove.
 #'
 #' @rdname remove_instance_profile
+#' @alias instanceProfilesRemove
 #' @export
 remove_instance_profile <- function(client, instance_profile_arn) {
   body <- list(instance_profile_arn = instance_profile_arn)
   client$do("POST", "/api/2.0/instance-profiles/remove", body = body)
 }
+
+#' @rdname remove_instance_profile
+#' @export 
+instanceProfilesRemove <- remove_instance_profile
 
 
 

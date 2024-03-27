@@ -2,9 +2,12 @@
 % Please edit documentation in R/secrets.R
 \name{put_secret_acl}
 \alias{put_secret_acl}
+\alias{secretsPutAcl}
 \title{Create/update an ACL.}
 \usage{
 put_secret_acl(client, scope, principal, permission)
+
+secretsPutAcl(client, scope, principal, permission)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

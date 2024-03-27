@@ -2,9 +2,12 @@
 % Please edit documentation in R/clusters.R
 \name{start_cluster}
 \alias{start_cluster}
+\alias{clustersStart}
 \title{Start terminated cluster.}
 \usage{
 start_cluster(client, cluster_id)
+
+clustersStart(client, cluster_id)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

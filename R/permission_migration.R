@@ -15,6 +15,7 @@ NULL
 #' @param workspace_id Required. WorkspaceId of the associated workspace where the permission migration will occur.
 #'
 #' @rdname migrate_permission_migration_permissions
+#' @alias permissionMigrationMigratePermissions
 #' @export
 migrate_permission_migration_permissions <- function(client, workspace_id, from_workspace_group_name,
   to_account_group_name, size = NULL) {
@@ -22,4 +23,8 @@ migrate_permission_migration_permissions <- function(client, workspace_id, from_
     to_account_group_name = to_account_group_name, workspace_id = workspace_id)
   client$do("POST", "/api/2.0/permissionmigration", body = body)
 }
+
+#' @rdname migrate_permission_migration_permissions
+#' @export 
+permissionMigrationMigratePermissions <- migrate_permission_migration_permissions
 

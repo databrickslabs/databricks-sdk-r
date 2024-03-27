@@ -2,9 +2,25 @@
 % Please edit documentation in R/statement_execution.R
 \name{execute_statement}
 \alias{execute_statement}
+\alias{statementExecutionExecuteStatement}
 \title{Execute a SQL statement.}
 \usage{
 execute_statement(
+  client,
+  statement,
+  warehouse_id,
+  byte_limit = NULL,
+  catalog = NULL,
+  disposition = NULL,
+  format = NULL,
+  on_wait_timeout = NULL,
+  parameters = NULL,
+  row_limit = NULL,
+  schema = NULL,
+  wait_timeout = NULL
+)
+
+statementExecutionExecuteStatement(
   client,
   statement,
   warehouse_id,

@@ -2,9 +2,18 @@
 % Please edit documentation in R/command_execution.R
 \name{execute_command}
 \alias{execute_command}
+\alias{commandExecutionExecute}
 \title{Run a command.}
 \usage{
 execute_command(
+  client,
+  cluster_id = NULL,
+  command = NULL,
+  context_id = NULL,
+  language = NULL
+)
+
+commandExecutionExecute(
   client,
   cluster_id = NULL,
   command = NULL,

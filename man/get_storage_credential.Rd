@@ -2,9 +2,12 @@
 % Please edit documentation in R/storage_credentials.R
 \name{get_storage_credential}
 \alias{get_storage_credential}
+\alias{storageCredentialsGet}
 \title{Get a credential.}
 \usage{
 get_storage_credential(client, name)
+
+storageCredentialsGet(client, name)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

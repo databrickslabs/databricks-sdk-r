@@ -2,9 +2,12 @@
 % Please edit documentation in R/lakehouse_monitors.R
 \name{run_lakehouse_monitor_refresh}
 \alias{run_lakehouse_monitor_refresh}
+\alias{lakehouseMonitorsRunRefresh}
 \title{Queue a metric refresh for a monitor.}
 \usage{
 run_lakehouse_monitor_refresh(client, full_name)
+
+lakehouseMonitorsRunRefresh(client, full_name)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

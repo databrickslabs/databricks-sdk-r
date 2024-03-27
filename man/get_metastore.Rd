@@ -2,9 +2,12 @@
 % Please edit documentation in R/metastores.R
 \name{get_metastore}
 \alias{get_metastore}
+\alias{metastoresGet}
 \title{Get a metastore.}
 \usage{
 get_metastore(client, id)
+
+metastoresGet(client, id)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

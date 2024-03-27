@@ -2,11 +2,17 @@
 % Please edit documentation in R/experiments.R
 \name{set_experiment_tag}
 \alias{set_experiment_tag}
+\alias{experimentsSetExperimentTag}
+\alias{experimentsSetTag}
 \title{Set a tag.}
 \usage{
 set_experiment_tag(client, key, value, run_id = NULL, run_uuid = NULL)
 
+experimentsSetExperimentTag(client, experiment_id, key, value)
+
 set_experiment_tag(client, key, value, run_id = NULL, run_uuid = NULL)
+
+experimentsSetTag(client, key, value, run_id = NULL, run_uuid = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

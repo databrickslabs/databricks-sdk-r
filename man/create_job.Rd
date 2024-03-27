@@ -2,9 +2,37 @@
 % Please edit documentation in R/jobs.R
 \name{create_job}
 \alias{create_job}
+\alias{jobsCreate}
 \title{Create a new job.}
 \usage{
 create_job(
+  client,
+  access_control_list = NULL,
+  compute = NULL,
+  continuous = NULL,
+  deployment = NULL,
+  description = NULL,
+  edit_mode = NULL,
+  email_notifications = NULL,
+  format = NULL,
+  git_source = NULL,
+  health = NULL,
+  job_clusters = NULL,
+  max_concurrent_runs = NULL,
+  name = NULL,
+  notification_settings = NULL,
+  parameters = NULL,
+  queue = NULL,
+  run_as = NULL,
+  schedule = NULL,
+  tags = NULL,
+  tasks = NULL,
+  timeout_seconds = NULL,
+  trigger = NULL,
+  webhook_notifications = NULL
+)
+
+jobsCreate(
   client,
   access_control_list = NULL,
   compute = NULL,

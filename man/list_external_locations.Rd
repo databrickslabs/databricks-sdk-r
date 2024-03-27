@@ -2,9 +2,17 @@
 % Please edit documentation in R/external_locations.R
 \name{list_external_locations}
 \alias{list_external_locations}
+\alias{externalLocationsList}
 \title{List external locations.}
 \usage{
 list_external_locations(
+  client,
+  include_browse = NULL,
+  max_results = NULL,
+  page_token = NULL
+)
+
+externalLocationsList(
   client,
   include_browse = NULL,
   max_results = NULL,

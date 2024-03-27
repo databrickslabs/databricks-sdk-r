@@ -2,9 +2,12 @@
 % Please edit documentation in R/dbfs.R
 \name{close_dbfs}
 \alias{close_dbfs}
+\alias{dbfsClose}
 \title{Close the stream.}
 \usage{
 close_dbfs(client, handle)
+
+dbfsClose(client, handle)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

@@ -2,9 +2,17 @@
 % Please edit documentation in R/experiments.R
 \name{list_experiment_experiments}
 \alias{list_experiment_experiments}
+\alias{experimentsListExperiments}
 \title{List experiments.}
 \usage{
 list_experiment_experiments(
+  client,
+  max_results = NULL,
+  page_token = NULL,
+  view_type = NULL
+)
+
+experimentsListExperiments(
   client,
   max_results = NULL,
   page_token = NULL,

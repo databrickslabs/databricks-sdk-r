@@ -2,12 +2,15 @@
 % Please edit documentation in R/account_access_control_proxy.R
 \name{get_account_access_control_proxy_assignable_roles_for_resource}
 \alias{get_account_access_control_proxy_assignable_roles_for_resource}
+\alias{accountAccessControlProxyGetAssignableRolesForResource}
 \title{Get assignable roles for a resource.}
 \usage{
 get_account_access_control_proxy_assignable_roles_for_resource(
   client,
   resource
 )
+
+accountAccessControlProxyGetAssignableRolesForResource(client, resource)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

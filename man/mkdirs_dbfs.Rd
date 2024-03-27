@@ -2,9 +2,12 @@
 % Please edit documentation in R/dbfs.R
 \name{mkdirs_dbfs}
 \alias{mkdirs_dbfs}
+\alias{dbfsMkdirs}
 \title{Create a directory.}
 \usage{
 mkdirs_dbfs(client, path)
+
+dbfsMkdirs(client, path)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

@@ -2,9 +2,12 @@
 % Please edit documentation in R/token_management.R
 \name{get_token_management}
 \alias{get_token_management}
+\alias{tokenManagementGet}
 \title{Get token info.}
 \usage{
 get_token_management(client, token_id)
+
+tokenManagementGet(client, token_id)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

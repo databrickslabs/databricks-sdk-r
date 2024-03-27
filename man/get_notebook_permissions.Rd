@@ -2,9 +2,12 @@
 % Please edit documentation in R/workspace.R
 \name{get_notebook_permissions}
 \alias{get_notebook_permissions}
+\alias{workspaceGetPermissions}
 \title{Get workspace object permissions.}
 \usage{
 get_notebook_permissions(client, workspace_object_type, workspace_object_id)
+
+workspaceGetPermissions(client, workspace_object_type, workspace_object_id)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

@@ -2,9 +2,12 @@
 % Please edit documentation in R/repos.R
 \name{list_repos}
 \alias{list_repos}
+\alias{reposList}
 \title{Get repos.}
 \usage{
 list_repos(client, next_page_token = NULL, path_prefix = NULL)
+
+reposList(client, next_page_token = NULL, path_prefix = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

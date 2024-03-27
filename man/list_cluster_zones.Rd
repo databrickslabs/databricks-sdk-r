@@ -2,9 +2,12 @@
 % Please edit documentation in R/clusters.R
 \name{list_cluster_zones}
 \alias{list_cluster_zones}
+\alias{clustersListZones}
 \title{List availability zones.}
 \usage{
 list_cluster_zones(client)
+
+clustersListZones(client)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

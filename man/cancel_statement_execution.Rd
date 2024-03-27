@@ -2,9 +2,12 @@
 % Please edit documentation in R/statement_execution.R
 \name{cancel_statement_execution}
 \alias{cancel_statement_execution}
+\alias{statementExecutionCancelExecution}
 \title{Cancel statement execution.}
 \usage{
 cancel_statement_execution(client, statement_id)
+
+statementExecutionCancelExecution(client, statement_id)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

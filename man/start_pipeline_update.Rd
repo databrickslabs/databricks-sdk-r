@@ -2,9 +2,20 @@
 % Please edit documentation in R/pipelines.R
 \name{start_pipeline_update}
 \alias{start_pipeline_update}
+\alias{pipelinesStartUpdate}
 \title{Start a pipeline.}
 \usage{
 start_pipeline_update(
+  client,
+  pipeline_id,
+  cause = NULL,
+  full_refresh = NULL,
+  full_refresh_selection = NULL,
+  refresh_selection = NULL,
+  validate_only = NULL
+)
+
+pipelinesStartUpdate(
   client,
   pipeline_id,
   cause = NULL,

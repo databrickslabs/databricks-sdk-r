@@ -2,9 +2,12 @@
 % Please edit documentation in R/repos.R
 \name{get_repo_permissions}
 \alias{get_repo_permissions}
+\alias{reposGetPermissions}
 \title{Get repo permissions.}
 \usage{
 get_repo_permissions(client, repo_id)
+
+reposGetPermissions(client, repo_id)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

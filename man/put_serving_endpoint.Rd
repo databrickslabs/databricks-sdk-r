@@ -2,9 +2,12 @@
 % Please edit documentation in R/serving_endpoints.R
 \name{put_serving_endpoint}
 \alias{put_serving_endpoint}
+\alias{servingEndpointsPut}
 \title{Update rate limits of a serving endpoint.}
 \usage{
 put_serving_endpoint(client, name, rate_limits = NULL)
+
+servingEndpointsPut(client, name, rate_limits = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

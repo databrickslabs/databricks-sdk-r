@@ -2,9 +2,18 @@
 % Please edit documentation in R/model_registry.R
 \name{reject_model_transition_request}
 \alias{reject_model_transition_request}
+\alias{modelRegistryRejectTransitionRequest}
 \title{Reject a transition request.}
 \usage{
 reject_model_transition_request(client, name, version, stage, comment = NULL)
+
+modelRegistryRejectTransitionRequest(
+  client,
+  name,
+  version,
+  stage,
+  comment = NULL
+)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

@@ -2,9 +2,12 @@
 % Please edit documentation in R/external_locations.R
 \name{delete_external_location}
 \alias{delete_external_location}
+\alias{externalLocationsDelete}
 \title{Delete an external location.}
 \usage{
 delete_external_location(client, name, force = NULL)
+
+externalLocationsDelete(client, name, force = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

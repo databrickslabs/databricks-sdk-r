@@ -2,9 +2,12 @@
 % Please edit documentation in R/dashboards.R
 \name{update_dashboard}
 \alias{update_dashboard}
+\alias{dashboardsUpdate}
 \title{Change a dashboard definition.}
 \usage{
 update_dashboard(client, dashboard_id, name = NULL, run_as_role = NULL)
+
+dashboardsUpdate(client, dashboard_id, name = NULL, run_as_role = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

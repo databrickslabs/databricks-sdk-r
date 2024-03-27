@@ -2,9 +2,18 @@
 % Please edit documentation in R/model_versions.R
 \name{list_model_versions}
 \alias{list_model_versions}
+\alias{modelVersionsList}
 \title{List Model Versions.}
 \usage{
 list_model_versions(
+  client,
+  full_name,
+  include_browse = NULL,
+  max_results = NULL,
+  page_token = NULL
+)
+
+modelVersionsList(
   client,
   full_name,
   include_browse = NULL,

@@ -2,9 +2,12 @@
 % Please edit documentation in R/dashboards.R
 \name{restore_dashboard}
 \alias{restore_dashboard}
+\alias{dashboardsRestore}
 \title{Restore a dashboard.}
 \usage{
 restore_dashboard(client, dashboard_id)
+
+dashboardsRestore(client, dashboard_id)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

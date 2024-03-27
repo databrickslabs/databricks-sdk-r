@@ -2,9 +2,22 @@
 % Please edit documentation in R/cluster_policies.R
 \name{edit_cluster_policy}
 \alias{edit_cluster_policy}
+\alias{clusterPoliciesEdit}
 \title{Update a cluster policy.}
 \usage{
 edit_cluster_policy(
+  client,
+  policy_id,
+  name,
+  definition = NULL,
+  description = NULL,
+  libraries = NULL,
+  max_clusters_per_user = NULL,
+  policy_family_definition_overrides = NULL,
+  policy_family_id = NULL
+)
+
+clusterPoliciesEdit(
   client,
   policy_id,
   name,

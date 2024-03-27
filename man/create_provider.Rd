@@ -2,9 +2,18 @@
 % Please edit documentation in R/providers.R
 \name{create_provider}
 \alias{create_provider}
+\alias{providersCreate}
 \title{Create an auth provider.}
 \usage{
 create_provider(
+  client,
+  name,
+  authentication_type,
+  comment = NULL,
+  recipient_profile_str = NULL
+)
+
+providersCreate(
   client,
   name,
   authentication_type,

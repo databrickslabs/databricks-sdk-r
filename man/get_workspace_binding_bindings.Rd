@@ -2,9 +2,12 @@
 % Please edit documentation in R/workspace_bindings.R
 \name{get_workspace_binding_bindings}
 \alias{get_workspace_binding_bindings}
+\alias{workspaceBindingsGetBindings}
 \title{Get securable workspace bindings.}
 \usage{
 get_workspace_binding_bindings(client, securable_type, securable_name)
+
+workspaceBindingsGetBindings(client, securable_type, securable_name)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

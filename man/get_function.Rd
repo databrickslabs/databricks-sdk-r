@@ -2,9 +2,12 @@
 % Please edit documentation in R/functions.R
 \name{get_function}
 \alias{get_function}
+\alias{functionsGet}
 \title{Get a function.}
 \usage{
 get_function(client, name, include_browse = NULL)
+
+functionsGet(client, name, include_browse = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

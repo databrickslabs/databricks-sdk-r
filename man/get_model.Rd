@@ -2,9 +2,12 @@
 % Please edit documentation in R/model_registry.R
 \name{get_model}
 \alias{get_model}
+\alias{modelRegistryGetModel}
 \title{Get model.}
 \usage{
 get_model(client, name)
+
+modelRegistryGetModel(client, name)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

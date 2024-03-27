@@ -2,9 +2,12 @@
 % Please edit documentation in R/account_access_control_proxy.R
 \name{get_account_access_control_proxy_rule_set}
 \alias{get_account_access_control_proxy_rule_set}
+\alias{accountAccessControlProxyGetRuleSet}
 \title{Get a rule set.}
 \usage{
 get_account_access_control_proxy_rule_set(client, name, etag)
+
+accountAccessControlProxyGetRuleSet(client, name, etag)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

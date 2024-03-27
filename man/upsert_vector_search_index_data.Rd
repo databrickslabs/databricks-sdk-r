@@ -2,9 +2,12 @@
 % Please edit documentation in R/vector_search_indexes.R
 \name{upsert_vector_search_index_data}
 \alias{upsert_vector_search_index_data}
+\alias{vectorSearchIndexesUpsertDataVectorIndex}
 \title{Upsert data into an index.}
 \usage{
 upsert_vector_search_index_data(client, index_name, inputs_json)
+
+vectorSearchIndexesUpsertDataVectorIndex(client, index_name, inputs_json)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

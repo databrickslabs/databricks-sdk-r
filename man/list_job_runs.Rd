@@ -2,9 +2,24 @@
 % Please edit documentation in R/jobs.R
 \name{list_job_runs}
 \alias{list_job_runs}
+\alias{jobsListRuns}
 \title{List job runs.}
 \usage{
 list_job_runs(
+  client,
+  active_only = NULL,
+  completed_only = NULL,
+  expand_tasks = NULL,
+  job_id = NULL,
+  limit = NULL,
+  offset = NULL,
+  page_token = NULL,
+  run_type = NULL,
+  start_time_from = NULL,
+  start_time_to = NULL
+)
+
+jobsListRuns(
   client,
   active_only = NULL,
   completed_only = NULL,

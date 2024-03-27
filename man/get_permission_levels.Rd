@@ -2,9 +2,12 @@
 % Please edit documentation in R/permissions.R
 \name{get_permission_levels}
 \alias{get_permission_levels}
+\alias{permissionsGetPermissionLevels}
 \title{Get object permission levels.}
 \usage{
 get_permission_levels(client, request_object_type, request_object_id)
+
+permissionsGetPermissionLevels(client, request_object_type, request_object_id)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

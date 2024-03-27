@@ -2,9 +2,20 @@
 % Please edit documentation in R/model_registry.R
 \name{update_model_webhook}
 \alias{update_model_webhook}
+\alias{modelRegistryUpdateWebhook}
 \title{Update a webhook.}
 \usage{
 update_model_webhook(
+  client,
+  id,
+  description = NULL,
+  events = NULL,
+  http_url_spec = NULL,
+  job_spec = NULL,
+  status = NULL
+)
+
+modelRegistryUpdateWebhook(
   client,
   id,
   description = NULL,

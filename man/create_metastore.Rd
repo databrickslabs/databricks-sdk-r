@@ -2,9 +2,12 @@
 % Please edit documentation in R/metastores.R
 \name{create_metastore}
 \alias{create_metastore}
+\alias{metastoresCreate}
 \title{Create a metastore.}
 \usage{
 create_metastore(client, name, region = NULL, storage_root = NULL)
+
+metastoresCreate(client, name, region = NULL, storage_root = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

@@ -2,9 +2,12 @@
 % Please edit documentation in R/recipient_activation.R
 \name{retrieve_recipient_activation_token}
 \alias{retrieve_recipient_activation_token}
+\alias{recipientActivationRetrieveToken}
 \title{Get an access token.}
 \usage{
 retrieve_recipient_activation_token(client, activation_url)
+
+recipientActivationRetrieveToken(client, activation_url)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

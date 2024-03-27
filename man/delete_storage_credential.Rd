@@ -2,9 +2,12 @@
 % Please edit documentation in R/storage_credentials.R
 \name{delete_storage_credential}
 \alias{delete_storage_credential}
+\alias{storageCredentialsDelete}
 \title{Delete a credential.}
 \usage{
 delete_storage_credential(client, name, force = NULL)
+
+storageCredentialsDelete(client, name, force = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

@@ -2,9 +2,12 @@
 % Please edit documentation in R/cluster_policies.R
 \name{get_cluster_policy}
 \alias{get_cluster_policy}
+\alias{clusterPoliciesGet}
 \title{Get a cluster policy.}
 \usage{
 get_cluster_policy(client, policy_id)
+
+clusterPoliciesGet(client, policy_id)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

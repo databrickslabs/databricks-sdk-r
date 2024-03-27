@@ -2,9 +2,19 @@
 % Please edit documentation in R/pipelines.R
 \name{list_pipeline_events}
 \alias{list_pipeline_events}
+\alias{pipelinesListPipelineEvents}
 \title{List pipeline events.}
 \usage{
 list_pipeline_events(
+  client,
+  pipeline_id,
+  filter = NULL,
+  max_results = NULL,
+  order_by = NULL,
+  page_token = NULL
+)
+
+pipelinesListPipelineEvents(
   client,
   pipeline_id,
   filter = NULL,

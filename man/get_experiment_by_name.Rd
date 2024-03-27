@@ -2,9 +2,12 @@
 % Please edit documentation in R/experiments.R
 \name{get_experiment_by_name}
 \alias{get_experiment_by_name}
+\alias{experimentsGetByName}
 \title{Get metadata.}
 \usage{
 get_experiment_by_name(client, experiment_name)
+
+experimentsGetByName(client, experiment_name)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

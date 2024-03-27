@@ -2,9 +2,12 @@
 % Please edit documentation in R/lakehouse_monitors.R
 \name{get_lakehouse_monitor_refresh}
 \alias{get_lakehouse_monitor_refresh}
+\alias{lakehouseMonitorsGetRefresh}
 \title{Get refresh.}
 \usage{
 get_lakehouse_monitor_refresh(client, full_name, refresh_id)
+
+lakehouseMonitorsGetRefresh(client, full_name, refresh_id)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

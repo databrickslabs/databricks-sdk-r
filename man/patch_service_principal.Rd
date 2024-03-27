@@ -2,9 +2,12 @@
 % Please edit documentation in R/service_principals.R
 \name{patch_service_principal}
 \alias{patch_service_principal}
+\alias{servicePrincipalsPatch}
 \title{Update service principal details.}
 \usage{
 patch_service_principal(client, id, operations = NULL, schemas = NULL)
+
+servicePrincipalsPatch(client, id, operations = NULL, schemas = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

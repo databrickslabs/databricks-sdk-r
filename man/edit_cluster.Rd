@@ -2,9 +2,43 @@
 % Please edit documentation in R/clusters.R
 \name{edit_cluster}
 \alias{edit_cluster}
+\alias{clustersEdit}
 \title{Update cluster configuration.}
 \usage{
 edit_cluster(
+  client,
+  cluster_id,
+  spark_version,
+  apply_policy_default_values = NULL,
+  autoscale = NULL,
+  autotermination_minutes = NULL,
+  aws_attributes = NULL,
+  azure_attributes = NULL,
+  cluster_log_conf = NULL,
+  cluster_name = NULL,
+  cluster_source = NULL,
+  custom_tags = NULL,
+  data_security_mode = NULL,
+  docker_image = NULL,
+  driver_instance_pool_id = NULL,
+  driver_node_type_id = NULL,
+  enable_elastic_disk = NULL,
+  enable_local_disk_encryption = NULL,
+  gcp_attributes = NULL,
+  init_scripts = NULL,
+  instance_pool_id = NULL,
+  node_type_id = NULL,
+  num_workers = NULL,
+  policy_id = NULL,
+  runtime_engine = NULL,
+  single_user_name = NULL,
+  spark_conf = NULL,
+  spark_env_vars = NULL,
+  ssh_public_keys = NULL,
+  workload_type = NULL
+)
+
+clustersEdit(
   client,
   cluster_id,
   spark_version,

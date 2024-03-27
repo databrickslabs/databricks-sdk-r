@@ -2,9 +2,12 @@
 % Please edit documentation in R/volumes.R
 \name{read_volume}
 \alias{read_volume}
+\alias{volumesRead}
 \title{Get a Volume.}
 \usage{
 read_volume(client, name, include_browse = NULL)
+
+volumesRead(client, name, include_browse = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

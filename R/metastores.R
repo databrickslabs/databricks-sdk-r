@@ -15,12 +15,17 @@ NULL
 #' @param workspace_id Required. A workspace ID.
 #'
 #' @rdname assign_metastore
+#' @alias metastoresAssign
 #' @export
 assign_metastore <- function(client, workspace_id, metastore_id, default_catalog_name) {
   body <- list(default_catalog_name = default_catalog_name, metastore_id = metastore_id)
   client$do("PUT", paste("/api/2.1/unity-catalog/workspaces/", workspace_id, "/metastore",
     , sep = ""), body = body)
 }
+
+#' @rdname assign_metastore
+#' @export 
+metastoresAssign <- assign_metastore
 #' Create a metastore.
 #' 
 #' Creates a new metastore based on a provided name and optional storage root
@@ -35,21 +40,31 @@ assign_metastore <- function(client, workspace_id, metastore_id, default_catalog
 #' @param storage_root The storage root URL for metastore.
 #'
 #' @rdname create_metastore
+#' @alias metastoresCreate
 #' @export
 create_metastore <- function(client, name, region = NULL, storage_root = NULL) {
   body <- list(name = name, region = region, storage_root = storage_root)
   client$do("POST", "/api/2.1/unity-catalog/metastores", body = body)
 }
+
+#' @rdname create_metastore
+#' @export 
+metastoresCreate <- create_metastore
 #' Get metastore assignment for workspace.
 #' 
 #' Gets the metastore assignment for the workspace being accessed.
 #' @param client Required. Instance of DatabricksClient()
 #'
 #' @rdname current_metastore
+#' @alias metastoresCurrent
 #' @export
 current_metastore <- function(client) {
   client$do("GET", "/api/2.1/unity-catalog/current-metastore-assignment")
 }
+
+#' @rdname current_metastore
+#' @export 
+metastoresCurrent <- current_metastore
 #' Delete a metastore.
 #' 
 #' Deletes a metastore. The caller must be a metastore admin.
@@ -59,12 +74,17 @@ current_metastore <- function(client) {
 #' @param id Required. Unique ID of the metastore.
 #'
 #' @rdname delete_metastore
+#' @alias metastoresDelete
 #' @export
 delete_metastore <- function(client, id, force = NULL) {
   query <- list(force = force)
   client$do("DELETE", paste("/api/2.1/unity-catalog/metastores/", id, sep = ""),
     query = query)
 }
+
+#' @rdname delete_metastore
+#' @export 
+metastoresDelete <- delete_metastore
 #' Get a metastore.
 #' 
 #' Gets a metastore that matches the supplied ID. The caller must be a metastore
@@ -74,11 +94,16 @@ delete_metastore <- function(client, id, force = NULL) {
 #' @param id Required. Unique ID of the metastore.
 #'
 #' @rdname get_metastore
+#' @alias metastoresGet
 #' @export
 get_metastore <- function(client, id) {
 
   client$do("GET", paste("/api/2.1/unity-catalog/metastores/", id, sep = ""))
 }
+
+#' @rdname get_metastore
+#' @export 
+metastoresGet <- get_metastore
 #' List metastores.
 #' 
 #' Gets an array of the available metastores (as __MetastoreInfo__ objects). The
@@ -89,6 +114,7 @@ get_metastore <- function(client, id) {
 #' @return `data.frame` with all of the response pages.
 #'
 #' @rdname list_metastores
+#' @alias metastoresList
 #' @export
 list_metastores <- function(client) {
 
@@ -96,6 +122,10 @@ list_metastores <- function(client) {
   return(json$metastores)
 
 }
+
+#' @rdname list_metastores
+#' @export 
+metastoresList <- list_metastores
 #' Get a metastore summary.
 #' 
 #' Gets information about a metastore. This summary includes the storage
@@ -103,10 +133,15 @@ list_metastores <- function(client) {
 #' @param client Required. Instance of DatabricksClient()
 #'
 #' @rdname summary_metastore
+#' @alias metastoresSummary
 #' @export
 summary_metastore <- function(client) {
   client$do("GET", "/api/2.1/unity-catalog/metastore_summary")
 }
+
+#' @rdname summary_metastore
+#' @export 
+metastoresSummary <- summary_metastore
 #' Delete an assignment.
 #' 
 #' Deletes a metastore assignment. The caller must be an account administrator.
@@ -116,12 +151,17 @@ summary_metastore <- function(client) {
 #' @param workspace_id Required. A workspace ID.
 #'
 #' @rdname unassign_metastore
+#' @alias metastoresUnassign
 #' @export
 unassign_metastore <- function(client, workspace_id, metastore_id) {
   query <- list(metastore_id = metastore_id)
   client$do("DELETE", paste("/api/2.1/unity-catalog/workspaces/", workspace_id,
     "/metastore", , sep = ""), query = query)
 }
+
+#' @rdname unassign_metastore
+#' @export 
+metastoresUnassign <- unassign_metastore
 #' Update a metastore.
 #' 
 #' Updates information for a specific metastore. The caller must be a metastore
@@ -139,6 +179,7 @@ unassign_metastore <- function(client, workspace_id, metastore_id) {
 #' @param storage_root_credential_id UUID of storage credential to access the metastore storage_root.
 #'
 #' @rdname update_metastore
+#' @alias metastoresUpdate
 #' @export
 update_metastore <- function(client, id, delta_sharing_organization_name = NULL,
   delta_sharing_recipient_token_lifetime_in_seconds = NULL, delta_sharing_scope = NULL,
@@ -150,6 +191,10 @@ update_metastore <- function(client, id, delta_sharing_organization_name = NULL,
   client$do("PATCH", paste("/api/2.1/unity-catalog/metastores/", id, sep = ""),
     body = body)
 }
+
+#' @rdname update_metastore
+#' @export 
+metastoresUpdate <- update_metastore
 #' Update an assignment.
 #' 
 #' Updates a metastore assignment. This operation can be used to update
@@ -164,6 +209,7 @@ update_metastore <- function(client, id, delta_sharing_organization_name = NULL,
 #' @param workspace_id Required. A workspace ID.
 #'
 #' @rdname update_metastore_assignment
+#' @alias metastoresUpdateAssignment
 #' @export
 update_metastore_assignment <- function(client, workspace_id, default_catalog_name = NULL,
   metastore_id = NULL) {
@@ -171,6 +217,10 @@ update_metastore_assignment <- function(client, workspace_id, default_catalog_na
   client$do("PATCH", paste("/api/2.1/unity-catalog/workspaces/", workspace_id,
     "/metastore", , sep = ""), body = body)
 }
+
+#' @rdname update_metastore_assignment
+#' @export 
+metastoresUpdateAssignment <- update_metastore_assignment
 
 
 

@@ -2,9 +2,17 @@
 % Please edit documentation in R/token_management.R
 \name{create_obo_token}
 \alias{create_obo_token}
+\alias{tokenManagementCreateOboToken}
 \title{Create on-behalf token.}
 \usage{
 create_obo_token(
+  client,
+  application_id,
+  comment = NULL,
+  lifetime_seconds = NULL
+)
+
+tokenManagementCreateOboToken(
   client,
   application_id,
   comment = NULL,

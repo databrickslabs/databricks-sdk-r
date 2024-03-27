@@ -2,9 +2,12 @@
 % Please edit documentation in R/metastores.R
 \name{summary_metastore}
 \alias{summary_metastore}
+\alias{metastoresSummary}
 \title{Get a metastore summary.}
 \usage{
 summary_metastore(client)
+
+metastoresSummary(client)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

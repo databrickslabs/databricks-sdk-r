@@ -2,9 +2,12 @@
 % Please edit documentation in R/experiments.R
 \name{set_experiment_permissions}
 \alias{set_experiment_permissions}
+\alias{experimentsSetPermissions}
 \title{Set experiment permissions.}
 \usage{
 set_experiment_permissions(client, experiment_id, access_control_list = NULL)
+
+experimentsSetPermissions(client, experiment_id, access_control_list = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

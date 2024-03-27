@@ -2,9 +2,16 @@
 % Please edit documentation in R/cluster_policies.R
 \name{set_cluster_policy_permissions}
 \alias{set_cluster_policy_permissions}
+\alias{clusterPoliciesSetPermissions}
 \title{Set cluster policy permissions.}
 \usage{
 set_cluster_policy_permissions(
+  client,
+  cluster_policy_id,
+  access_control_list = NULL
+)
+
+clusterPoliciesSetPermissions(
   client,
   cluster_policy_id,
   access_control_list = NULL

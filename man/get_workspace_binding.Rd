@@ -2,9 +2,12 @@
 % Please edit documentation in R/workspace_bindings.R
 \name{get_workspace_binding}
 \alias{get_workspace_binding}
+\alias{workspaceBindingsGet}
 \title{Get catalog workspace bindings.}
 \usage{
 get_workspace_binding(client, name)
+
+workspaceBindingsGet(client, name)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

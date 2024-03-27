@@ -2,9 +2,12 @@
 % Please edit documentation in R/clusters.R
 \name{list_clusters}
 \alias{list_clusters}
+\alias{clustersList}
 \title{List all clusters.}
 \usage{
 list_clusters(client, can_use_client = NULL)
+
+clustersList(client, can_use_client = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

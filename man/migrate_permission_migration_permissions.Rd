@@ -2,9 +2,18 @@
 % Please edit documentation in R/permission_migration.R
 \name{migrate_permission_migration_permissions}
 \alias{migrate_permission_migration_permissions}
+\alias{permissionMigrationMigratePermissions}
 \title{Migrate Permissions.}
 \usage{
 migrate_permission_migration_permissions(
+  client,
+  workspace_id,
+  from_workspace_group_name,
+  to_account_group_name,
+  size = NULL
+)
+
+permissionMigrationMigratePermissions(
   client,
   workspace_id,
   from_workspace_group_name,

@@ -2,9 +2,12 @@
 % Please edit documentation in R/pipelines.R
 \name{update_pipeline_permissions}
 \alias{update_pipeline_permissions}
+\alias{pipelinesUpdatePermissions}
 \title{Update pipeline permissions.}
 \usage{
 update_pipeline_permissions(client, pipeline_id, access_control_list = NULL)
+
+pipelinesUpdatePermissions(client, pipeline_id, access_control_list = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

@@ -12,12 +12,17 @@ NULL
 #' @param statement_id Required. The statement ID is returned upon successfully submitting a SQL statement, and is a required reference for all subsequent calls.
 #'
 #' @rdname cancel_statement_execution
+#' @alias statementExecutionCancelExecution
 #' @export
 cancel_statement_execution <- function(client, statement_id) {
 
   client$do("POST", paste("/api/2.0/sql/statements/", statement_id, "/cancel",
     , sep = ""))
 }
+
+#' @rdname cancel_statement_execution
+#' @export 
+statementExecutionCancelExecution <- cancel_statement_execution
 #' Execute a SQL statement.
 #' @param client Required. Instance of DatabricksClient()
 #'
@@ -34,6 +39,7 @@ cancel_statement_execution <- function(client, statement_id) {
 #' @param warehouse_id Required. Warehouse upon which to execute a statement.
 #'
 #' @rdname execute_statement
+#' @alias statementExecutionExecuteStatement
 #' @export
 execute_statement <- function(client, statement, warehouse_id, byte_limit = NULL,
   catalog = NULL, disposition = NULL, format = NULL, on_wait_timeout = NULL, parameters = NULL,
@@ -44,6 +50,10 @@ execute_statement <- function(client, statement, warehouse_id, byte_limit = NULL
     warehouse_id = warehouse_id)
   client$do("POST", "/api/2.0/sql/statements/", body = body)
 }
+
+#' @rdname execute_statement
+#' @export 
+statementExecutionExecuteStatement <- execute_statement
 #' Get status, manifest, and result first chunk.
 #' 
 #' This request can be used to poll for the statement's status. When the
@@ -60,11 +70,16 @@ execute_statement <- function(client, statement, warehouse_id, byte_limit = NULL
 #' @param statement_id Required. The statement ID is returned upon successfully submitting a SQL statement, and is a required reference for all subsequent calls.
 #'
 #' @rdname get_statement_execution
+#' @alias statementExecutionGetStatement
 #' @export
 get_statement_execution <- function(client, statement_id) {
 
   client$do("GET", paste("/api/2.0/sql/statements/", statement_id, sep = ""))
 }
+
+#' @rdname get_statement_execution
+#' @export 
+statementExecutionGetStatement <- get_statement_execution
 #' Get result chunk by index.
 #' 
 #' After the statement execution has `SUCCEEDED`, this request can be used to
@@ -81,12 +96,17 @@ get_statement_execution <- function(client, statement_id) {
 #' @param statement_id Required. The statement ID is returned upon successfully submitting a SQL statement, and is a required reference for all subsequent calls.
 #'
 #' @rdname get_statement_execution_result_chunk_n
+#' @alias statementExecutionGetStatementResultChunkN
 #' @export
 get_statement_execution_result_chunk_n <- function(client, statement_id, chunk_index) {
 
   client$do("GET", paste("/api/2.0/sql/statements/", statement_id, "/result/chunks/",
     chunk_index, sep = ""))
 }
+
+#' @rdname get_statement_execution_result_chunk_n
+#' @export 
+statementExecutionGetStatementResultChunkN <- get_statement_execution_result_chunk_n
 
 
 

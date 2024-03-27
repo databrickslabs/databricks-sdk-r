@@ -2,9 +2,12 @@
 % Please edit documentation in R/queries.R
 \name{restore_query}
 \alias{restore_query}
+\alias{queriesRestore}
 \title{Restore a query.}
 \usage{
 restore_query(client, query_id)
+
+queriesRestore(client, query_id)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

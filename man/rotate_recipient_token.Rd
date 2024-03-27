@@ -2,9 +2,12 @@
 % Please edit documentation in R/recipients.R
 \name{rotate_recipient_token}
 \alias{rotate_recipient_token}
+\alias{recipientsRotateToken}
 \title{Rotate a token.}
 \usage{
 rotate_recipient_token(client, name, existing_token_expire_in_seconds)
+
+recipientsRotateToken(client, name, existing_token_expire_in_seconds)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

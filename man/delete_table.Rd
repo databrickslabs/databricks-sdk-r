@@ -2,9 +2,12 @@
 % Please edit documentation in R/tables.R
 \name{delete_table}
 \alias{delete_table}
+\alias{tablesDelete}
 \title{Delete a table.}
 \usage{
 delete_table(client, full_name)
+
+tablesDelete(client, full_name)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

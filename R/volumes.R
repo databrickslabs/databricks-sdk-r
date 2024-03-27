@@ -33,6 +33,7 @@ NULL
 #' @param volume_type Required. This field has no description yet.
 #'
 #' @rdname create_volume
+#' @alias volumesCreate
 #' @export
 create_volume <- function(client, catalog_name, schema_name, name, volume_type, comment = NULL,
   storage_location = NULL) {
@@ -40,6 +41,10 @@ create_volume <- function(client, catalog_name, schema_name, name, volume_type, 
     storage_location = storage_location, volume_type = volume_type)
   client$do("POST", "/api/2.1/unity-catalog/volumes", body = body)
 }
+
+#' @rdname create_volume
+#' @export 
+volumesCreate <- create_volume
 #' Delete a Volume.
 #' 
 #' Deletes a volume from the specified parent catalog and schema.
@@ -53,11 +58,16 @@ create_volume <- function(client, catalog_name, schema_name, name, volume_type, 
 #' @param name Required. The three-level (fully qualified) name of the volume.
 #'
 #' @rdname delete_volume
+#' @alias volumesDelete
 #' @export
 delete_volume <- function(client, name) {
 
   client$do("DELETE", paste("/api/2.1/unity-catalog/volumes/", name, sep = ""))
 }
+
+#' @rdname delete_volume
+#' @export 
+volumesDelete <- delete_volume
 #' List Volumes.
 #' 
 #' Gets an array of volumes for the current metastore under the parent catalog
@@ -82,6 +92,7 @@ delete_volume <- function(client, name) {
 #' @return `data.frame` with all of the response pages.
 #'
 #' @rdname list_volumes
+#' @alias volumesList
 #' @export
 list_volumes <- function(client, catalog_name, schema_name, include_browse = NULL,
   max_results = NULL, page_token = NULL) {
@@ -104,6 +115,10 @@ list_volumes <- function(client, catalog_name, schema_name, include_browse = NUL
   return(results)
 
 }
+
+#' @rdname list_volumes
+#' @export 
+volumesList <- list_volumes
 #' Get a Volume.
 #' 
 #' Gets a volume from the metastore for a specific catalog and schema.
@@ -118,11 +133,16 @@ list_volumes <- function(client, catalog_name, schema_name, include_browse = NUL
 #' @param name Required. The three-level (fully qualified) name of the volume.
 #'
 #' @rdname read_volume
+#' @alias volumesRead
 #' @export
 read_volume <- function(client, name, include_browse = NULL) {
   query <- list(include_browse = include_browse)
   client$do("GET", paste("/api/2.1/unity-catalog/volumes/", name, sep = ""), query = query)
 }
+
+#' @rdname read_volume
+#' @export 
+volumesRead <- read_volume
 #' Update a Volume.
 #' 
 #' Updates the specified volume under the specified parent catalog and schema.
@@ -142,12 +162,17 @@ read_volume <- function(client, name, include_browse = NULL) {
 #' @param owner The identifier of the user who owns the volume.
 #'
 #' @rdname update_volume
+#' @alias volumesUpdate
 #' @export
 update_volume <- function(client, name, comment = NULL, new_name = NULL, owner = NULL) {
   body <- list(comment = comment, new_name = new_name, owner = owner)
   client$do("PATCH", paste("/api/2.1/unity-catalog/volumes/", name, sep = ""),
     body = body)
 }
+
+#' @rdname update_volume
+#' @export 
+volumesUpdate <- update_volume
 
 
 

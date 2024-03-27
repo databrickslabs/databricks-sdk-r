@@ -2,9 +2,12 @@
 % Please edit documentation in R/serving_endpoints.R
 \name{build_serving_endpoint_logs}
 \alias{build_serving_endpoint_logs}
+\alias{servingEndpointsBuildLogs}
 \title{Get build logs for a served model.}
 \usage{
 build_serving_endpoint_logs(client, name, served_model_name)
+
+servingEndpointsBuildLogs(client, name, served_model_name)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

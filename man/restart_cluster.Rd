@@ -2,9 +2,12 @@
 % Please edit documentation in R/clusters.R
 \name{restart_cluster}
 \alias{restart_cluster}
+\alias{clustersRestart}
 \title{Restart cluster.}
 \usage{
 restart_cluster(client, cluster_id, restart_user = NULL)
+
+clustersRestart(client, cluster_id, restart_user = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

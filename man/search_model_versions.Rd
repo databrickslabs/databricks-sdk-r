@@ -2,9 +2,18 @@
 % Please edit documentation in R/model_registry.R
 \name{search_model_versions}
 \alias{search_model_versions}
+\alias{modelRegistrySearchModelVersions}
 \title{Searches model versions.}
 \usage{
 search_model_versions(
+  client,
+  filter = NULL,
+  max_results = NULL,
+  order_by = NULL,
+  page_token = NULL
+)
+
+modelRegistrySearchModelVersions(
   client,
   filter = NULL,
   max_results = NULL,

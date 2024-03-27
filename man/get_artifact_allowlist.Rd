@@ -2,9 +2,12 @@
 % Please edit documentation in R/artifact_allowlists.R
 \name{get_artifact_allowlist}
 \alias{get_artifact_allowlist}
+\alias{artifactAllowlistsGet}
 \title{Get an artifact allowlist.}
 \usage{
 get_artifact_allowlist(client, artifact_type)
+
+artifactAllowlistsGet(client, artifact_type)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

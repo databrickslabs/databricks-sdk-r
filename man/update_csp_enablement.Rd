@@ -2,9 +2,12 @@
 % Please edit documentation in R/csp_enablement.R
 \name{update_csp_enablement}
 \alias{update_csp_enablement}
+\alias{cspEnablementUpdate}
 \title{Update the compliance security profile setting.}
 \usage{
 update_csp_enablement(client, allow_missing, setting, field_mask)
+
+cspEnablementUpdate(client, allow_missing, setting, field_mask)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

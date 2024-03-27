@@ -2,9 +2,18 @@
 % Please edit documentation in R/experiments.R
 \name{log_experiment_batch}
 \alias{log_experiment_batch}
+\alias{experimentsLogBatch}
 \title{Log a batch.}
 \usage{
 log_experiment_batch(
+  client,
+  metrics = NULL,
+  params = NULL,
+  run_id = NULL,
+  tags = NULL
+)
+
+experimentsLogBatch(
   client,
   metrics = NULL,
   params = NULL,

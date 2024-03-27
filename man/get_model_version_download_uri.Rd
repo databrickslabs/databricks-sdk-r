@@ -2,9 +2,12 @@
 % Please edit documentation in R/model_registry.R
 \name{get_model_version_download_uri}
 \alias{get_model_version_download_uri}
+\alias{modelRegistryGetModelVersionDownloadUri}
 \title{Get a model version URI.}
 \usage{
 get_model_version_download_uri(client, name, version)
+
+modelRegistryGetModelVersionDownloadUri(client, name, version)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

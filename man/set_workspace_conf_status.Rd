@@ -2,9 +2,12 @@
 % Please edit documentation in R/workspace_conf.R
 \name{set_workspace_conf_status}
 \alias{set_workspace_conf_status}
+\alias{workspaceConfSetStatus}
 \title{Enable/disable features.}
 \usage{
 set_workspace_conf_status(client)
+
+workspaceConfSetStatus(client)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

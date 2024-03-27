@@ -2,9 +2,12 @@
 % Please edit documentation in R/instance_pools.R
 \name{get_instance_pool_permissions}
 \alias{get_instance_pool_permissions}
+\alias{instancePoolsGetPermissions}
 \title{Get instance pool permissions.}
 \usage{
 get_instance_pool_permissions(client, instance_pool_id)
+
+instancePoolsGetPermissions(client, instance_pool_id)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

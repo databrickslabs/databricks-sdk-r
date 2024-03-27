@@ -2,9 +2,12 @@
 % Please edit documentation in R/model_registry.R
 \name{list_model_models}
 \alias{list_model_models}
+\alias{modelRegistryListModels}
 \title{List models.}
 \usage{
 list_model_models(client, max_results = NULL, page_token = NULL)
+
+modelRegistryListModels(client, max_results = NULL, page_token = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

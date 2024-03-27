@@ -2,9 +2,12 @@
 % Please edit documentation in R/shares.R
 \name{share_permissions}
 \alias{share_permissions}
+\alias{sharesSharePermissions}
 \title{Get permissions.}
 \usage{
 share_permissions(client, name)
+
+sharesSharePermissions(client, name)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

@@ -2,9 +2,12 @@
 % Please edit documentation in R/warehouses.R
 \name{get_warehouse}
 \alias{get_warehouse}
+\alias{warehousesGet}
 \title{Get warehouse info.}
 \usage{
 get_warehouse(client, id)
+
+warehousesGet(client, id)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

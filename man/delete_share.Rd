@@ -2,9 +2,12 @@
 % Please edit documentation in R/shares.R
 \name{delete_share}
 \alias{delete_share}
+\alias{sharesDelete}
 \title{Delete a share.}
 \usage{
 delete_share(client, name)
+
+sharesDelete(client, name)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

@@ -2,9 +2,28 @@
 % Please edit documentation in R/warehouses.R
 \name{edit_warehouse}
 \alias{edit_warehouse}
+\alias{warehousesEdit}
 \title{Update a warehouse.}
 \usage{
 edit_warehouse(
+  client,
+  id,
+  auto_stop_mins = NULL,
+  channel = NULL,
+  cluster_size = NULL,
+  creator_name = NULL,
+  enable_photon = NULL,
+  enable_serverless_compute = NULL,
+  instance_profile_arn = NULL,
+  max_num_clusters = NULL,
+  min_num_clusters = NULL,
+  name = NULL,
+  spot_instance_policy = NULL,
+  tags = NULL,
+  warehouse_type = NULL
+)
+
+warehousesEdit(
   client,
   id,
   auto_stop_mins = NULL,

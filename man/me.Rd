@@ -2,9 +2,12 @@
 % Please edit documentation in R/current_user.R
 \name{me}
 \alias{me}
+\alias{currentUserMe}
 \title{Get current user info.}
 \usage{
 me(client)
+
+currentUserMe(client)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

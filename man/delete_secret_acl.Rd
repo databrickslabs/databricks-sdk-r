@@ -2,9 +2,12 @@
 % Please edit documentation in R/secrets.R
 \name{delete_secret_acl}
 \alias{delete_secret_acl}
+\alias{secretsDeleteAcl}
 \title{Delete an ACL.}
 \usage{
 delete_secret_acl(client, scope, principal)
+
+secretsDeleteAcl(client, scope, principal)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

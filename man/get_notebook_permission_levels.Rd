@@ -2,9 +2,16 @@
 % Please edit documentation in R/workspace.R
 \name{get_notebook_permission_levels}
 \alias{get_notebook_permission_levels}
+\alias{workspaceGetPermissionLevels}
 \title{Get workspace object permission levels.}
 \usage{
 get_notebook_permission_levels(
+  client,
+  workspace_object_type,
+  workspace_object_id
+)
+
+workspaceGetPermissionLevels(
   client,
   workspace_object_type,
   workspace_object_id

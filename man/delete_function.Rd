@@ -2,9 +2,12 @@
 % Please edit documentation in R/functions.R
 \name{delete_function}
 \alias{delete_function}
+\alias{functionsDelete}
 \title{Delete a function.}
 \usage{
 delete_function(client, name, force = NULL)
+
+functionsDelete(client, name, force = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

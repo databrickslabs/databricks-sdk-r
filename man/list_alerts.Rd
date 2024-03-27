@@ -2,9 +2,12 @@
 % Please edit documentation in R/alerts.R
 \name{list_alerts}
 \alias{list_alerts}
+\alias{alertsList}
 \title{Get alerts.}
 \usage{
 list_alerts(client)
+
+alertsList(client)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

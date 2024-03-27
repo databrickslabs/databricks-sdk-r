@@ -2,9 +2,12 @@
 % Please edit documentation in R/model_registry.R
 \name{create_model}
 \alias{create_model}
+\alias{modelRegistryCreateModel}
 \title{Create a model.}
 \usage{
 create_model(client, name, description = NULL, tags = NULL)
+
+modelRegistryCreateModel(client, name, description = NULL, tags = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

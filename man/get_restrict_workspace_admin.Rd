@@ -2,9 +2,12 @@
 % Please edit documentation in R/restrict_workspace_admins.R
 \name{get_restrict_workspace_admin}
 \alias{get_restrict_workspace_admin}
+\alias{restrictWorkspaceAdminsGet}
 \title{Get the restrict workspace admins setting.}
 \usage{
 get_restrict_workspace_admin(client, etag = NULL)
+
+restrictWorkspaceAdminsGet(client, etag = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

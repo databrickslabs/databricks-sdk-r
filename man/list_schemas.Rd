@@ -2,9 +2,18 @@
 % Please edit documentation in R/schemas.R
 \name{list_schemas}
 \alias{list_schemas}
+\alias{schemasList}
 \title{List schemas.}
 \usage{
 list_schemas(
+  client,
+  catalog_name,
+  include_browse = NULL,
+  max_results = NULL,
+  page_token = NULL
+)
+
+schemasList(
   client,
   catalog_name,
   include_browse = NULL,

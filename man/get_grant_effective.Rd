@@ -2,9 +2,12 @@
 % Please edit documentation in R/grants.R
 \name{get_grant_effective}
 \alias{get_grant_effective}
+\alias{grantsGetEffective}
 \title{Get effective permissions.}
 \usage{
 get_grant_effective(client, securable_type, full_name, principal = NULL)
+
+grantsGetEffective(client, securable_type, full_name, principal = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

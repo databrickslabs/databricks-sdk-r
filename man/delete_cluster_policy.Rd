@@ -2,9 +2,12 @@
 % Please edit documentation in R/cluster_policies.R
 \name{delete_cluster_policy}
 \alias{delete_cluster_policy}
+\alias{clusterPoliciesDelete}
 \title{Delete a cluster policy.}
 \usage{
 delete_cluster_policy(client, policy_id)
+
+clusterPoliciesDelete(client, policy_id)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

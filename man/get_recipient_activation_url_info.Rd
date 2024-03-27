@@ -2,9 +2,12 @@
 % Please edit documentation in R/recipient_activation.R
 \name{get_recipient_activation_url_info}
 \alias{get_recipient_activation_url_info}
+\alias{recipientActivationGetActivationUrlInfo}
 \title{Get a share activation URL.}
 \usage{
 get_recipient_activation_url_info(client, activation_url)
+
+recipientActivationGetActivationUrlInfo(client, activation_url)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

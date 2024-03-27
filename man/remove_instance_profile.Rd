@@ -2,9 +2,12 @@
 % Please edit documentation in R/instance_profiles.R
 \name{remove_instance_profile}
 \alias{remove_instance_profile}
+\alias{instanceProfilesRemove}
 \title{Remove the instance profile.}
 \usage{
 remove_instance_profile(client, instance_profile_arn)
+
+instanceProfilesRemove(client, instance_profile_arn)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

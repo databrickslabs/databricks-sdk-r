@@ -2,9 +2,12 @@
 % Please edit documentation in R/serving_endpoints.R
 \name{delete_serving_endpoint}
 \alias{delete_serving_endpoint}
+\alias{servingEndpointsDelete}
 \title{Delete a serving endpoint.}
 \usage{
 delete_serving_endpoint(client, name)
+
+servingEndpointsDelete(client, name)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

@@ -2,9 +2,12 @@
 % Please edit documentation in R/volumes.R
 \name{update_volume}
 \alias{update_volume}
+\alias{volumesUpdate}
 \title{Update a Volume.}
 \usage{
 update_volume(client, name, comment = NULL, new_name = NULL, owner = NULL)
+
+volumesUpdate(client, name, comment = NULL, new_name = NULL, owner = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

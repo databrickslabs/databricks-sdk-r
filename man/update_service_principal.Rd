@@ -2,9 +2,23 @@
 % Please edit documentation in R/service_principals.R
 \name{update_service_principal}
 \alias{update_service_principal}
+\alias{servicePrincipalsUpdate}
 \title{Replace service principal.}
 \usage{
 update_service_principal(
+  client,
+  id,
+  active = NULL,
+  application_id = NULL,
+  display_name = NULL,
+  entitlements = NULL,
+  external_id = NULL,
+  groups = NULL,
+  roles = NULL,
+  schemas = NULL
+)
+
+servicePrincipalsUpdate(
   client,
   id,
   active = NULL,

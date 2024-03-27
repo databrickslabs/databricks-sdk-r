@@ -2,9 +2,12 @@
 % Please edit documentation in R/workspace.R
 \name{get_notebook_status}
 \alias{get_notebook_status}
+\alias{workspaceGetStatus}
 \title{Get status.}
 \usage{
 get_notebook_status(client, path)
+
+workspaceGetStatus(client, path)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

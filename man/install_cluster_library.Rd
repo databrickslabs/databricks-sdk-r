@@ -2,9 +2,12 @@
 % Please edit documentation in R/libraries.R
 \name{install_cluster_library}
 \alias{install_cluster_library}
+\alias{librariesInstall}
 \title{Add a library.}
 \usage{
 install_cluster_library(client, cluster_id, libraries)
+
+librariesInstall(client, cluster_id, libraries)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

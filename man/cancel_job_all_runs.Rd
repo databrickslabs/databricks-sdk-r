@@ -2,9 +2,12 @@
 % Please edit documentation in R/jobs.R
 \name{cancel_job_all_runs}
 \alias{cancel_job_all_runs}
+\alias{jobsCancelAllRuns}
 \title{Cancel all runs of a job.}
 \usage{
 cancel_job_all_runs(client, all_queued_runs = NULL, job_id = NULL)
+
+jobsCancelAllRuns(client, all_queued_runs = NULL, job_id = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

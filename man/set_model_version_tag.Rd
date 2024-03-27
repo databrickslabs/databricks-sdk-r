@@ -2,9 +2,12 @@
 % Please edit documentation in R/model_registry.R
 \name{set_model_version_tag}
 \alias{set_model_version_tag}
+\alias{modelRegistrySetModelVersionTag}
 \title{Set a version tag.}
 \usage{
 set_model_version_tag(client, name, version, key, value)
+
+modelRegistrySetModelVersionTag(client, name, version, key, value)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

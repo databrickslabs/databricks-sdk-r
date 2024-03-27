@@ -2,9 +2,18 @@
 % Please edit documentation in R/clean_rooms.R
 \name{update_clean_room}
 \alias{update_clean_room}
+\alias{cleanRoomsUpdate}
 \title{Update a clean room.}
 \usage{
 update_clean_room(
+  client,
+  name,
+  catalog_updates = NULL,
+  comment = NULL,
+  owner = NULL
+)
+
+cleanRoomsUpdate(
   client,
   name,
   catalog_updates = NULL,

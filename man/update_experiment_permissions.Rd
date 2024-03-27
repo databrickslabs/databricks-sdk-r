@@ -2,6 +2,7 @@
 % Please edit documentation in R/experiments.R
 \name{update_experiment_permissions}
 \alias{update_experiment_permissions}
+\alias{experimentsUpdatePermissions}
 \title{Update experiment permissions.}
 \usage{
 update_experiment_permissions(
@@ -9,6 +10,8 @@ update_experiment_permissions(
   experiment_id,
   access_control_list = NULL
 )
+
+experimentsUpdatePermissions(client, experiment_id, access_control_list = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

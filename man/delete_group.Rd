@@ -2,9 +2,12 @@
 % Please edit documentation in R/groups.R
 \name{delete_group}
 \alias{delete_group}
+\alias{groupsDelete}
 \title{Delete a group.}
 \usage{
 delete_group(client, id)
+
+groupsDelete(client, id)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

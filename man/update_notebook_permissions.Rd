@@ -2,9 +2,17 @@
 % Please edit documentation in R/workspace.R
 \name{update_notebook_permissions}
 \alias{update_notebook_permissions}
+\alias{workspaceUpdatePermissions}
 \title{Update workspace object permissions.}
 \usage{
 update_notebook_permissions(
+  client,
+  workspace_object_type,
+  workspace_object_id,
+  access_control_list = NULL
+)
+
+workspaceUpdatePermissions(
   client,
   workspace_object_type,
   workspace_object_id,

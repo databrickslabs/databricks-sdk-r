@@ -2,9 +2,12 @@
 % Please edit documentation in R/model_registry.R
 \name{list_model_transition_requests}
 \alias{list_model_transition_requests}
+\alias{modelRegistryListTransitionRequests}
 \title{List transition requests.}
 \usage{
 list_model_transition_requests(client, name, version)
+
+modelRegistryListTransitionRequests(client, name, version)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

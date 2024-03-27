@@ -2,9 +2,18 @@
 % Please edit documentation in R/registered_models.R
 \name{update_registered_model}
 \alias{update_registered_model}
+\alias{registeredModelsUpdate}
 \title{Update a Registered Model.}
 \usage{
 update_registered_model(
+  client,
+  full_name,
+  comment = NULL,
+  new_name = NULL,
+  owner = NULL
+)
+
+registeredModelsUpdate(
   client,
   full_name,
   comment = NULL,

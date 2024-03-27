@@ -2,9 +2,12 @@
 % Please edit documentation in R/pipelines.R
 \name{stop_pipeline}
 \alias{stop_pipeline}
+\alias{pipelinesStop}
 \title{Stop a pipeline.}
 \usage{
 stop_pipeline(client, pipeline_id)
+
+pipelinesStop(client, pipeline_id)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

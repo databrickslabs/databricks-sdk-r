@@ -23,6 +23,7 @@ NULL
 #' @param warehouse_type Warehouse type: `PRO` or `CLASSIC`.
 #'
 #' @rdname create_warehouse
+#' @alias warehousesCreate
 #' @export
 create_warehouse <- function(client, auto_stop_mins = NULL, channel = NULL, cluster_size = NULL,
   creator_name = NULL, enable_photon = NULL, enable_serverless_compute = NULL,
@@ -35,6 +36,10 @@ create_warehouse <- function(client, auto_stop_mins = NULL, channel = NULL, clus
     tags = tags, warehouse_type = warehouse_type)
   client$do("POST", "/api/2.0/sql/warehouses", body = body)
 }
+
+#' @rdname create_warehouse
+#' @export 
+warehousesCreate <- create_warehouse
 #' Delete a warehouse.
 #' 
 #' Deletes a SQL warehouse.
@@ -43,11 +48,16 @@ create_warehouse <- function(client, auto_stop_mins = NULL, channel = NULL, clus
 #' @param id Required. Required.
 #'
 #' @rdname delete_warehouse
+#' @alias warehousesDelete
 #' @export
 delete_warehouse <- function(client, id) {
 
   client$do("DELETE", paste("/api/2.0/sql/warehouses/", id, sep = ""))
 }
+
+#' @rdname delete_warehouse
+#' @export 
+warehousesDelete <- delete_warehouse
 #' Update a warehouse.
 #' 
 #' Updates the configuration for a SQL warehouse.
@@ -69,6 +79,7 @@ delete_warehouse <- function(client, id) {
 #' @param warehouse_type Warehouse type: `PRO` or `CLASSIC`.
 #'
 #' @rdname edit_warehouse
+#' @alias warehousesEdit
 #' @export
 edit_warehouse <- function(client, id, auto_stop_mins = NULL, channel = NULL, cluster_size = NULL,
   creator_name = NULL, enable_photon = NULL, enable_serverless_compute = NULL,
@@ -82,6 +93,10 @@ edit_warehouse <- function(client, id, auto_stop_mins = NULL, channel = NULL, cl
   client$do("POST", paste("/api/2.0/sql/warehouses/", id, "/edit", , sep = ""),
     body = body)
 }
+
+#' @rdname edit_warehouse
+#' @export 
+warehousesEdit <- edit_warehouse
 #' Get warehouse info.
 #' 
 #' Gets the information for a single SQL warehouse.
@@ -90,11 +105,16 @@ edit_warehouse <- function(client, id, auto_stop_mins = NULL, channel = NULL, cl
 #' @param id Required. Required.
 #'
 #' @rdname get_warehouse
+#' @alias warehousesGet
 #' @export
 get_warehouse <- function(client, id) {
 
   client$do("GET", paste("/api/2.0/sql/warehouses/", id, sep = ""))
 }
+
+#' @rdname get_warehouse
+#' @export 
+warehousesGet <- get_warehouse
 #' Get SQL warehouse permission levels.
 #' 
 #' Gets the permission levels that a user can have on an object.
@@ -103,12 +123,17 @@ get_warehouse <- function(client, id) {
 #' @param warehouse_id Required. The SQL warehouse for which to get or manage permissions.
 #'
 #' @rdname get_warehouse_permission_levels
+#' @alias warehousesGetPermissionLevels
 #' @export
 get_warehouse_permission_levels <- function(client, warehouse_id) {
 
   client$do("GET", paste("/api/2.0/permissions/warehouses/", warehouse_id, "/permissionLevels",
     , sep = ""))
 }
+
+#' @rdname get_warehouse_permission_levels
+#' @export 
+warehousesGetPermissionLevels <- get_warehouse_permission_levels
 #' Get SQL warehouse permissions.
 #' 
 #' Gets the permissions of a SQL warehouse. SQL warehouses can inherit
@@ -118,11 +143,16 @@ get_warehouse_permission_levels <- function(client, warehouse_id) {
 #' @param warehouse_id Required. The SQL warehouse for which to get or manage permissions.
 #'
 #' @rdname get_warehouse_permissions
+#' @alias warehousesGetPermissions
 #' @export
 get_warehouse_permissions <- function(client, warehouse_id) {
 
   client$do("GET", paste("/api/2.0/permissions/warehouses/", warehouse_id, sep = ""))
 }
+
+#' @rdname get_warehouse_permissions
+#' @export 
+warehousesGetPermissions <- get_warehouse_permissions
 #' Get the workspace configuration.
 #' 
 #' Gets the workspace level configuration that is shared by all SQL warehouses
@@ -130,10 +160,15 @@ get_warehouse_permissions <- function(client, warehouse_id) {
 #' @param client Required. Instance of DatabricksClient()
 #'
 #' @rdname get_warehouse_workspace_config
+#' @alias warehousesGetWorkspaceWarehouseConfig
 #' @export
 get_warehouse_workspace_config <- function(client) {
   client$do("GET", "/api/2.0/sql/config/warehouses")
 }
+
+#' @rdname get_warehouse_workspace_config
+#' @export 
+warehousesGetWorkspaceWarehouseConfig <- get_warehouse_workspace_config
 #' List warehouses.
 #' 
 #' Lists all SQL warehouses that a user has manager permissions on.
@@ -144,6 +179,7 @@ get_warehouse_workspace_config <- function(client) {
 #' @return `data.frame` with all of the response pages.
 #'
 #' @rdname list_warehouses
+#' @alias warehousesList
 #' @export
 list_warehouses <- function(client, run_as_user_id = NULL) {
   query <- list(run_as_user_id = run_as_user_id)
@@ -152,6 +188,10 @@ list_warehouses <- function(client, run_as_user_id = NULL) {
   return(json$warehouses)
 
 }
+
+#' @rdname list_warehouses
+#' @export 
+warehousesList <- list_warehouses
 #' Set SQL warehouse permissions.
 #' 
 #' Sets permissions on a SQL warehouse. SQL warehouses can inherit permissions
@@ -162,12 +202,17 @@ list_warehouses <- function(client, run_as_user_id = NULL) {
 #' @param warehouse_id Required. The SQL warehouse for which to get or manage permissions.
 #'
 #' @rdname set_warehouse_permissions
+#' @alias warehousesSetPermissions
 #' @export
 set_warehouse_permissions <- function(client, warehouse_id, access_control_list = NULL) {
   body <- list(access_control_list = access_control_list)
   client$do("PUT", paste("/api/2.0/permissions/warehouses/", warehouse_id, sep = ""),
     body = body)
 }
+
+#' @rdname set_warehouse_permissions
+#' @export 
+warehousesSetPermissions <- set_warehouse_permissions
 #' Set the workspace configuration.
 #' 
 #' Sets the workspace level configuration that is shared by all SQL warehouses
@@ -185,6 +230,7 @@ set_warehouse_permissions <- function(client, warehouse_id, access_control_list 
 #' @param sql_configuration_parameters SQL configuration parameters.
 #'
 #' @rdname set_warehouse_workspace_config
+#' @alias warehousesSetWorkspaceWarehouseConfig
 #' @export
 set_warehouse_workspace_config <- function(client, channel = NULL, config_param = NULL,
   data_access_config = NULL, enabled_warehouse_types = NULL, global_param = NULL,
@@ -196,6 +242,10 @@ set_warehouse_workspace_config <- function(client, channel = NULL, config_param 
     security_policy = security_policy, sql_configuration_parameters = sql_configuration_parameters)
   client$do("PUT", "/api/2.0/sql/config/warehouses", body = body)
 }
+
+#' @rdname set_warehouse_workspace_config
+#' @export 
+warehousesSetWorkspaceWarehouseConfig <- set_warehouse_workspace_config
 #' Start a warehouse.
 #' 
 #' Starts a SQL warehouse.
@@ -204,11 +254,16 @@ set_warehouse_workspace_config <- function(client, channel = NULL, config_param 
 #' @param id Required. Required.
 #'
 #' @rdname start_warehouse
+#' @alias warehousesStart
 #' @export
 start_warehouse <- function(client, id) {
 
   client$do("POST", paste("/api/2.0/sql/warehouses/", id, "/start", , sep = ""))
 }
+
+#' @rdname start_warehouse
+#' @export 
+warehousesStart <- start_warehouse
 #' Stop a warehouse.
 #' 
 #' Stops a SQL warehouse.
@@ -217,11 +272,16 @@ start_warehouse <- function(client, id) {
 #' @param id Required. Required.
 #'
 #' @rdname stop_warehouse
+#' @alias warehousesStop
 #' @export
 stop_warehouse <- function(client, id) {
 
   client$do("POST", paste("/api/2.0/sql/warehouses/", id, "/stop", , sep = ""))
 }
+
+#' @rdname stop_warehouse
+#' @export 
+warehousesStop <- stop_warehouse
 #' Update SQL warehouse permissions.
 #' 
 #' Updates the permissions on a SQL warehouse. SQL warehouses can inherit
@@ -232,12 +292,17 @@ stop_warehouse <- function(client, id) {
 #' @param warehouse_id Required. The SQL warehouse for which to get or manage permissions.
 #'
 #' @rdname update_warehouse_permissions
+#' @alias warehousesUpdatePermissions
 #' @export
 update_warehouse_permissions <- function(client, warehouse_id, access_control_list = NULL) {
   body <- list(access_control_list = access_control_list)
   client$do("PATCH", paste("/api/2.0/permissions/warehouses/", warehouse_id, sep = ""),
     body = body)
 }
+
+#' @rdname update_warehouse_permissions
+#' @export 
+warehousesUpdatePermissions <- update_warehouse_permissions
 #' Create a warehouse.
 #' 
 #' Creates a new SQL warehouse.

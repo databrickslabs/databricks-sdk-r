@@ -2,9 +2,12 @@
 % Please edit documentation in R/warehouses.R
 \name{list_warehouses}
 \alias{list_warehouses}
+\alias{warehousesList}
 \title{List warehouses.}
 \usage{
 list_warehouses(client, run_as_user_id = NULL)
+
+warehousesList(client, run_as_user_id = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

@@ -2,9 +2,16 @@
 % Please edit documentation in R/serving_endpoints.R
 \name{set_serving_endpoint_permissions}
 \alias{set_serving_endpoint_permissions}
+\alias{servingEndpointsSetPermissions}
 \title{Set serving endpoint permissions.}
 \usage{
 set_serving_endpoint_permissions(
+  client,
+  serving_endpoint_id,
+  access_control_list = NULL
+)
+
+servingEndpointsSetPermissions(
   client,
   serving_endpoint_id,
   access_control_list = NULL

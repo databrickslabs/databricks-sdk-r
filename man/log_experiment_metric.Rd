@@ -2,9 +2,20 @@
 % Please edit documentation in R/experiments.R
 \name{log_experiment_metric}
 \alias{log_experiment_metric}
+\alias{experimentsLogMetric}
 \title{Log a metric.}
 \usage{
 log_experiment_metric(
+  client,
+  key,
+  value,
+  timestamp,
+  run_id = NULL,
+  run_uuid = NULL,
+  step = NULL
+)
+
+experimentsLogMetric(
   client,
   key,
   value,

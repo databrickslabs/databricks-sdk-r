@@ -2,9 +2,23 @@
 % Please edit documentation in R/storage_credentials.R
 \name{create_storage_credential}
 \alias{create_storage_credential}
+\alias{storageCredentialsCreate}
 \title{Create a storage credential.}
 \usage{
 create_storage_credential(
+  client,
+  name,
+  aws_iam_role = NULL,
+  azure_managed_identity = NULL,
+  azure_service_principal = NULL,
+  cloudflare_api_token = NULL,
+  comment = NULL,
+  databricks_gcp_service_account = NULL,
+  read_only = NULL,
+  skip_validation = NULL
+)
+
+storageCredentialsCreate(
   client,
   name,
   aws_iam_role = NULL,

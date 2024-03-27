@@ -2,9 +2,12 @@
 % Please edit documentation in R/model_registry.R
 \name{rename_model}
 \alias{rename_model}
+\alias{modelRegistryRenameModel}
 \title{Rename a model.}
 \usage{
 rename_model(client, name, new_name = NULL)
+
+modelRegistryRenameModel(client, name, new_name = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

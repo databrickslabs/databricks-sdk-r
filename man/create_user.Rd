@@ -2,9 +2,25 @@
 % Please edit documentation in R/users.R
 \name{create_user}
 \alias{create_user}
+\alias{usersCreate}
 \title{Create a new user.}
 \usage{
 create_user(
+  client,
+  active = NULL,
+  display_name = NULL,
+  emails = NULL,
+  entitlements = NULL,
+  external_id = NULL,
+  groups = NULL,
+  id = NULL,
+  name = NULL,
+  roles = NULL,
+  schemas = NULL,
+  user_name = NULL
+)
+
+usersCreate(
   client,
   active = NULL,
   display_name = NULL,

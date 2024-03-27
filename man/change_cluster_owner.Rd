@@ -2,9 +2,12 @@
 % Please edit documentation in R/clusters.R
 \name{change_cluster_owner}
 \alias{change_cluster_owner}
+\alias{clustersChangeOwner}
 \title{Change cluster owner.}
 \usage{
 change_cluster_owner(client, cluster_id, owner_username)
+
+clustersChangeOwner(client, cluster_id, owner_username)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

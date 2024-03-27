@@ -2,9 +2,12 @@
 % Please edit documentation in R/providers.R
 \name{get_provider}
 \alias{get_provider}
+\alias{providersGet}
 \title{Get a provider.}
 \usage{
 get_provider(client, name)
+
+providersGet(client, name)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

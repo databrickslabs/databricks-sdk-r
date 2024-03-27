@@ -2,9 +2,12 @@
 % Please edit documentation in R/experiments.R
 \name{log_experiment_inputs}
 \alias{log_experiment_inputs}
+\alias{experimentsLogInputs}
 \title{Log inputs to a run.}
 \usage{
 log_experiment_inputs(client, datasets = NULL, run_id = NULL)
+
+experimentsLogInputs(client, datasets = NULL, run_id = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

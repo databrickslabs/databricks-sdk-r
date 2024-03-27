@@ -2,9 +2,12 @@
 % Please edit documentation in R/shares.R
 \name{list_shares}
 \alias{list_shares}
+\alias{sharesList}
 \title{List shares.}
 \usage{
 list_shares(client)
+
+sharesList(client)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

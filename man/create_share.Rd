@@ -2,9 +2,12 @@
 % Please edit documentation in R/shares.R
 \name{create_share}
 \alias{create_share}
+\alias{sharesCreate}
 \title{Create a share.}
 \usage{
 create_share(client, name, comment = NULL)
+
+sharesCreate(client, name, comment = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

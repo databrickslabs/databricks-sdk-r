@@ -2,9 +2,21 @@
 % Please edit documentation in R/users.R
 \name{list_users}
 \alias{list_users}
+\alias{usersList}
 \title{List users.}
 \usage{
 list_users(
+  client,
+  attributes = NULL,
+  count = NULL,
+  excluded_attributes = NULL,
+  filter = NULL,
+  sort_by = NULL,
+  sort_order = NULL,
+  start_index = NULL
+)
+
+usersList(
   client,
   attributes = NULL,
   count = NULL,

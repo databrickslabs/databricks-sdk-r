@@ -2,9 +2,12 @@
 % Please edit documentation in R/secrets.R
 \name{list_secret_acls}
 \alias{list_secret_acls}
+\alias{secretsListAcls}
 \title{Lists ACLs.}
 \usage{
 list_secret_acls(client, scope)
+
+secretsListAcls(client, scope)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

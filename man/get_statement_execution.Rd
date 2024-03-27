@@ -2,9 +2,12 @@
 % Please edit documentation in R/statement_execution.R
 \name{get_statement_execution}
 \alias{get_statement_execution}
+\alias{statementExecutionGetStatement}
 \title{Get status, manifest, and result first chunk.}
 \usage{
 get_statement_execution(client, statement_id)
+
+statementExecutionGetStatement(client, statement_id)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

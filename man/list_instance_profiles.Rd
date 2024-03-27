@@ -2,9 +2,12 @@
 % Please edit documentation in R/instance_profiles.R
 \name{list_instance_profiles}
 \alias{list_instance_profiles}
+\alias{instanceProfilesList}
 \title{List available instance profiles.}
 \usage{
 list_instance_profiles(client)
+
+instanceProfilesList(client)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

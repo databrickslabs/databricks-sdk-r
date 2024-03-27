@@ -2,9 +2,17 @@
 % Please edit documentation in R/experiments.R
 \name{delete_experiment_runs}
 \alias{delete_experiment_runs}
+\alias{experimentsDeleteRuns}
 \title{Delete runs by creation time.}
 \usage{
 delete_experiment_runs(
+  client,
+  experiment_id,
+  max_timestamp_millis,
+  max_runs = NULL
+)
+
+experimentsDeleteRuns(
   client,
   experiment_id,
   max_timestamp_millis,

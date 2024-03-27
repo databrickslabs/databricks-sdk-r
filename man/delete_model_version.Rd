@@ -2,11 +2,17 @@
 % Please edit documentation in R/model_registry.R, R/model_versions.R
 \name{delete_model_version}
 \alias{delete_model_version}
+\alias{modelRegistryDeleteModelVersion}
+\alias{modelVersionsDelete}
 \title{Delete a model version.}
 \usage{
 delete_model_version(client, full_name, version)
 
+modelRegistryDeleteModelVersion(client, name, version)
+
 delete_model_version(client, full_name, version)
+
+modelVersionsDelete(client, full_name, version)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

@@ -2,9 +2,17 @@
 % Please edit documentation in R/experiments.R
 \name{create_experiment}
 \alias{create_experiment}
+\alias{experimentsCreateExperiment}
 \title{Create experiment.}
 \usage{
 create_experiment(client, name, artifact_location = NULL, tags = NULL)
+
+experimentsCreateExperiment(
+  client,
+  name,
+  artifact_location = NULL,
+  tags = NULL
+)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

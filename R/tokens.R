@@ -15,11 +15,16 @@ NULL
 #' @param lifetime_seconds The lifetime of the token, in seconds.
 #'
 #' @rdname create_token
+#' @alias tokensCreate
 #' @export
 create_token <- function(client, comment = NULL, lifetime_seconds = NULL) {
   body <- list(comment = comment, lifetime_seconds = lifetime_seconds)
   client$do("POST", "/api/2.0/token/create", body = body)
 }
+
+#' @rdname create_token
+#' @export 
+tokensCreate <- create_token
 #' Revoke token.
 #' 
 #' Revokes an access token.
@@ -31,11 +36,16 @@ create_token <- function(client, comment = NULL, lifetime_seconds = NULL) {
 #' @param token_id Required. The ID of the token to be revoked.
 #'
 #' @rdname delete_token
+#' @alias tokensDelete
 #' @export
 delete_token <- function(client, token_id) {
   body <- list(token_id = token_id)
   client$do("POST", "/api/2.0/token/delete", body = body)
 }
+
+#' @rdname delete_token
+#' @export 
+tokensDelete <- delete_token
 #' List tokens.
 #' 
 #' Lists all the valid tokens for a user-workspace pair.
@@ -44,6 +54,7 @@ delete_token <- function(client, token_id) {
 #' @return `data.frame` with all of the response pages.
 #'
 #' @rdname list_tokens
+#' @alias tokensList
 #' @export
 list_tokens <- function(client) {
 
@@ -51,6 +62,10 @@ list_tokens <- function(client) {
   return(json$token_infos)
 
 }
+
+#' @rdname list_tokens
+#' @export 
+tokensList <- list_tokens
 
 
 

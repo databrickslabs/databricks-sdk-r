@@ -2,9 +2,12 @@
 % Please edit documentation in R/tokens.R
 \name{create_token}
 \alias{create_token}
+\alias{tokensCreate}
 \title{Create a user token.}
 \usage{
 create_token(client, comment = NULL, lifetime_seconds = NULL)
+
+tokensCreate(client, comment = NULL, lifetime_seconds = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

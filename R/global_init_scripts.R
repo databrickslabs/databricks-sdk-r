@@ -14,11 +14,16 @@ NULL
 #' @param script Required. The Base64-encoded content of the script.
 #'
 #' @rdname create_global_init_script
+#' @alias globalInitScriptsCreate
 #' @export
 create_global_init_script <- function(client, name, script, enabled = NULL, position = NULL) {
   body <- list(enabled = enabled, name = name, position = position, script = script)
   client$do("POST", "/api/2.0/global-init-scripts", body = body)
 }
+
+#' @rdname create_global_init_script
+#' @export 
+globalInitScriptsCreate <- create_global_init_script
 #' Delete init script.
 #' 
 #' Deletes a global init script.
@@ -27,11 +32,16 @@ create_global_init_script <- function(client, name, script, enabled = NULL, posi
 #' @param script_id Required. The ID of the global init script.
 #'
 #' @rdname delete_global_init_script
+#' @alias globalInitScriptsDelete
 #' @export
 delete_global_init_script <- function(client, script_id) {
 
   client$do("DELETE", paste("/api/2.0/global-init-scripts/", script_id, sep = ""))
 }
+
+#' @rdname delete_global_init_script
+#' @export 
+globalInitScriptsDelete <- delete_global_init_script
 #' Get an init script.
 #' 
 #' Gets all the details of a script, including its Base64-encoded contents.
@@ -40,11 +50,16 @@ delete_global_init_script <- function(client, script_id) {
 #' @param script_id Required. The ID of the global init script.
 #'
 #' @rdname get_global_init_script
+#' @alias globalInitScriptsGet
 #' @export
 get_global_init_script <- function(client, script_id) {
 
   client$do("GET", paste("/api/2.0/global-init-scripts/", script_id, sep = ""))
 }
+
+#' @rdname get_global_init_script
+#' @export 
+globalInitScriptsGet <- get_global_init_script
 #' Get init scripts.
 #' 
 #' Get a list of all global init scripts for this workspace. This returns all
@@ -56,6 +71,7 @@ get_global_init_script <- function(client, script_id) {
 #' @return `data.frame` with all of the response pages.
 #'
 #' @rdname list_global_init_scripts
+#' @alias globalInitScriptsList
 #' @export
 list_global_init_scripts <- function(client) {
 
@@ -63,6 +79,10 @@ list_global_init_scripts <- function(client) {
   return(json$scripts)
 
 }
+
+#' @rdname list_global_init_scripts
+#' @export 
+globalInitScriptsList <- list_global_init_scripts
 #' Update init script.
 #' 
 #' Updates a global init script, specifying only the fields to change. All
@@ -76,6 +96,7 @@ list_global_init_scripts <- function(client) {
 #' @param script_id Required. The ID of the global init script.
 #'
 #' @rdname update_global_init_script
+#' @alias globalInitScriptsUpdate
 #' @export
 update_global_init_script <- function(client, script_id, name, script, enabled = NULL,
   position = NULL) {
@@ -83,6 +104,10 @@ update_global_init_script <- function(client, script_id, name, script, enabled =
   client$do("PATCH", paste("/api/2.0/global-init-scripts/", script_id, sep = ""),
     body = body)
 }
+
+#' @rdname update_global_init_script
+#' @export 
+globalInitScriptsUpdate <- update_global_init_script
 
 
 

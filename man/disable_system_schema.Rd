@@ -2,9 +2,12 @@
 % Please edit documentation in R/system_schemas.R
 \name{disable_system_schema}
 \alias{disable_system_schema}
+\alias{systemSchemasDisable}
 \title{Disable a system schema.}
 \usage{
 disable_system_schema(client, metastore_id, schema_name)
+
+systemSchemasDisable(client, metastore_id, schema_name)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

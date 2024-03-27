@@ -2,9 +2,27 @@
 % Please edit documentation in R/instance_pools.R
 \name{create_instance_pool}
 \alias{create_instance_pool}
+\alias{instancePoolsCreate}
 \title{Create a new instance pool.}
 \usage{
 create_instance_pool(
+  client,
+  instance_pool_name,
+  node_type_id,
+  aws_attributes = NULL,
+  azure_attributes = NULL,
+  custom_tags = NULL,
+  disk_spec = NULL,
+  enable_elastic_disk = NULL,
+  gcp_attributes = NULL,
+  idle_instance_autotermination_minutes = NULL,
+  max_capacity = NULL,
+  min_idle_instances = NULL,
+  preloaded_docker_images = NULL,
+  preloaded_spark_versions = NULL
+)
+
+instancePoolsCreate(
   client,
   instance_pool_name,
   node_type_id,

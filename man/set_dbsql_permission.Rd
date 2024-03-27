@@ -2,6 +2,7 @@
 % Please edit documentation in R/dbsql_permissions.R
 \name{set_dbsql_permission}
 \alias{set_dbsql_permission}
+\alias{dbsqlPermissionsSet}
 \title{Set object ACL.}
 \usage{
 set_dbsql_permission(
@@ -10,6 +11,8 @@ set_dbsql_permission(
   object_id,
   access_control_list = NULL
 )
+
+dbsqlPermissionsSet(client, object_type, object_id, access_control_list = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

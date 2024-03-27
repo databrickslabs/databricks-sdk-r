@@ -2,9 +2,12 @@
 % Please edit documentation in R/lakeview.R
 \name{get_lakeview_published}
 \alias{get_lakeview_published}
+\alias{lakeviewGetPublished}
 \title{Get published dashboard.}
 \usage{
 get_lakeview_published(client, dashboard_id)
+
+lakeviewGetPublished(client, dashboard_id)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

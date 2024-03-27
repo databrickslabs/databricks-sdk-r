@@ -2,9 +2,12 @@
 % Please edit documentation in R/jobs.R
 \name{export_job_run}
 \alias{export_job_run}
+\alias{jobsExportRun}
 \title{Export and retrieve a job run.}
 \usage{
 export_job_run(client, run_id, views_to_export = NULL)
+
+jobsExportRun(client, run_id, views_to_export = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

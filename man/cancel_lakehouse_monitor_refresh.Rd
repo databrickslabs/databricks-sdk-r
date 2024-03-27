@@ -2,9 +2,12 @@
 % Please edit documentation in R/lakehouse_monitors.R
 \name{cancel_lakehouse_monitor_refresh}
 \alias{cancel_lakehouse_monitor_refresh}
+\alias{lakehouseMonitorsCancelRefresh}
 \title{Cancel refresh.}
 \usage{
 cancel_lakehouse_monitor_refresh(client, full_name, refresh_id)
+
+lakehouseMonitorsCancelRefresh(client, full_name, refresh_id)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

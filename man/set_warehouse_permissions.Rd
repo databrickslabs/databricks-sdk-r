@@ -2,9 +2,12 @@
 % Please edit documentation in R/warehouses.R
 \name{set_warehouse_permissions}
 \alias{set_warehouse_permissions}
+\alias{warehousesSetPermissions}
 \title{Set SQL warehouse permissions.}
 \usage{
 set_warehouse_permissions(client, warehouse_id, access_control_list = NULL)
+
+warehousesSetPermissions(client, warehouse_id, access_control_list = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

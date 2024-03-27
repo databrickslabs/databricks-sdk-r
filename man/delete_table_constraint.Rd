@@ -2,9 +2,12 @@
 % Please edit documentation in R/table_constraints.R
 \name{delete_table_constraint}
 \alias{delete_table_constraint}
+\alias{tableConstraintsDelete}
 \title{Delete a table constraint.}
 \usage{
 delete_table_constraint(client, full_name, constraint_name, cascade)
+
+tableConstraintsDelete(client, full_name, constraint_name, cascade)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

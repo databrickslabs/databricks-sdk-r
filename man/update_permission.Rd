@@ -2,9 +2,17 @@
 % Please edit documentation in R/permissions.R
 \name{update_permission}
 \alias{update_permission}
+\alias{permissionsUpdate}
 \title{Update object permissions.}
 \usage{
 update_permission(
+  client,
+  request_object_type,
+  request_object_id,
+  access_control_list = NULL
+)
+
+permissionsUpdate(
   client,
   request_object_type,
   request_object_id,

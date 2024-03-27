@@ -2,9 +2,12 @@
 % Please edit documentation in R/clusters.R
 \name{resize_cluster}
 \alias{resize_cluster}
+\alias{clustersResize}
 \title{Resize cluster.}
 \usage{
 resize_cluster(client, cluster_id, autoscale = NULL, num_workers = NULL)
+
+clustersResize(client, cluster_id, autoscale = NULL, num_workers = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

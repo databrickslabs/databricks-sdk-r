@@ -2,9 +2,12 @@
 % Please edit documentation in R/csp_enablement.R
 \name{get_csp_enablement}
 \alias{get_csp_enablement}
+\alias{cspEnablementGet}
 \title{Get the compliance security profile setting.}
 \usage{
 get_csp_enablement(client, etag = NULL)
+
+cspEnablementGet(client, etag = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

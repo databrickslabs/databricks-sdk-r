@@ -2,9 +2,18 @@
 % Please edit documentation in R/secrets.R
 \name{create_secret_scope}
 \alias{create_secret_scope}
+\alias{secretsCreateScope}
 \title{Create a new secret scope.}
 \usage{
 create_secret_scope(
+  client,
+  scope,
+  backend_azure_keyvault = NULL,
+  initial_manage_principal = NULL,
+  scope_backend_type = NULL
+)
+
+secretsCreateScope(
   client,
   scope,
   backend_azure_keyvault = NULL,

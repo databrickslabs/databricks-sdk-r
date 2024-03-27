@@ -12,34 +12,49 @@ NULL
 #' @param name Required. Name of endpoint.
 #'
 #' @rdname create_vector_search_endpoint
+#' @alias vectorSearchEndpointsCreateEndpoint
 #' @export
 create_vector_search_endpoint <- function(client, name, endpoint_type) {
   body <- list(endpoint_type = endpoint_type, name = name)
   client$do("POST", "/api/2.0/vector-search/endpoints", body = body)
 }
+
+#' @rdname create_vector_search_endpoint
+#' @export 
+vectorSearchEndpointsCreateEndpoint <- create_vector_search_endpoint
 #' Delete an endpoint.
 #' @param client Required. Instance of DatabricksClient()
 #'
 #' @param endpoint_name Required. Name of the endpoint.
 #'
 #' @rdname delete_vector_search_endpoint
+#' @alias vectorSearchEndpointsDeleteEndpoint
 #' @export
 delete_vector_search_endpoint <- function(client, endpoint_name) {
 
   client$do("DELETE", paste("/api/2.0/vector-search/endpoints/", endpoint_name,
     sep = ""))
 }
+
+#' @rdname delete_vector_search_endpoint
+#' @export 
+vectorSearchEndpointsDeleteEndpoint <- delete_vector_search_endpoint
 #' Get an endpoint.
 #' @param client Required. Instance of DatabricksClient()
 #'
 #' @param endpoint_name Required. Name of the endpoint.
 #'
 #' @rdname get_vector_search_endpoint
+#' @alias vectorSearchEndpointsGetEndpoint
 #' @export
 get_vector_search_endpoint <- function(client, endpoint_name) {
 
   client$do("GET", paste("/api/2.0/vector-search/endpoints/", endpoint_name, sep = ""))
 }
+
+#' @rdname get_vector_search_endpoint
+#' @export 
+vectorSearchEndpointsGetEndpoint <- get_vector_search_endpoint
 #' List all endpoints.
 #' @param client Required. Instance of DatabricksClient()
 #'
@@ -48,6 +63,7 @@ get_vector_search_endpoint <- function(client, endpoint_name) {
 #' @return `data.frame` with all of the response pages.
 #'
 #' @rdname list_vector_search_endpoint_endpoints
+#' @alias vectorSearchEndpointsListEndpoints
 #' @export
 list_vector_search_endpoint_endpoints <- function(client, page_token = NULL) {
   query <- list(page_token = page_token)
@@ -68,6 +84,10 @@ list_vector_search_endpoint_endpoints <- function(client, page_token = NULL) {
   return(results)
 
 }
+
+#' @rdname list_vector_search_endpoint_endpoints
+#' @export 
+vectorSearchEndpointsListEndpoints <- list_vector_search_endpoint_endpoints
 #' Create an endpoint.
 #' 
 #' Create a new endpoint.

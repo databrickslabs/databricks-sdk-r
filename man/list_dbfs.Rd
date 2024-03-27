@@ -2,9 +2,12 @@
 % Please edit documentation in R/dbfs.R
 \name{list_dbfs}
 \alias{list_dbfs}
+\alias{dbfsList}
 \title{List directory contents or file details.}
 \usage{
 list_dbfs(client, path)
+
+dbfsList(client, path)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

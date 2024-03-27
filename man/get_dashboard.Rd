@@ -2,9 +2,12 @@
 % Please edit documentation in R/dashboards.R
 \name{get_dashboard}
 \alias{get_dashboard}
+\alias{dashboardsGet}
 \title{Retrieve a definition.}
 \usage{
 get_dashboard(client, dashboard_id)
+
+dashboardsGet(client, dashboard_id)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

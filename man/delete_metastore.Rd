@@ -2,9 +2,12 @@
 % Please edit documentation in R/metastores.R
 \name{delete_metastore}
 \alias{delete_metastore}
+\alias{metastoresDelete}
 \title{Delete a metastore.}
 \usage{
 delete_metastore(client, id, force = NULL)
+
+metastoresDelete(client, id, force = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

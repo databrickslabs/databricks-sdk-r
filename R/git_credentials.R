@@ -16,11 +16,16 @@ NULL
 #' @param personal_access_token The personal access token used to authenticate to the corresponding Git provider.
 #'
 #' @rdname create_git_credential
+#' @alias gitCredentialsCreate
 #' @export
 create_git_credential <- function(client, git_provider, git_username = NULL, personal_access_token = NULL) {
   body <- list(git_provider = git_provider, git_username = git_username, personal_access_token = personal_access_token)
   client$do("POST", "/api/2.0/git-credentials", body = body)
 }
+
+#' @rdname create_git_credential
+#' @export 
+gitCredentialsCreate <- create_git_credential
 #' Delete a credential.
 #' 
 #' Deletes the specified Git credential.
@@ -29,11 +34,16 @@ create_git_credential <- function(client, git_provider, git_username = NULL, per
 #' @param credential_id Required. The ID for the corresponding credential to access.
 #'
 #' @rdname delete_git_credential
+#' @alias gitCredentialsDelete
 #' @export
 delete_git_credential <- function(client, credential_id) {
 
   client$do("DELETE", paste("/api/2.0/git-credentials/", credential_id, sep = ""))
 }
+
+#' @rdname delete_git_credential
+#' @export 
+gitCredentialsDelete <- delete_git_credential
 #' Get a credential entry.
 #' 
 #' Gets the Git credential with the specified credential ID.
@@ -42,11 +52,16 @@ delete_git_credential <- function(client, credential_id) {
 #' @param credential_id Required. The ID for the corresponding credential to access.
 #'
 #' @rdname get_git_credential
+#' @alias gitCredentialsGet
 #' @export
 get_git_credential <- function(client, credential_id) {
 
   client$do("GET", paste("/api/2.0/git-credentials/", credential_id, sep = ""))
 }
+
+#' @rdname get_git_credential
+#' @export 
+gitCredentialsGet <- get_git_credential
 #' Get Git credentials.
 #' 
 #' Lists the calling user's Git credentials. One credential per user is
@@ -56,6 +71,7 @@ get_git_credential <- function(client, credential_id) {
 #' @return `data.frame` with all of the response pages.
 #'
 #' @rdname list_git_credentials
+#' @alias gitCredentialsList
 #' @export
 list_git_credentials <- function(client) {
 
@@ -63,6 +79,10 @@ list_git_credentials <- function(client) {
   return(json$credentials)
 
 }
+
+#' @rdname list_git_credentials
+#' @export 
+gitCredentialsList <- list_git_credentials
 #' Update a credential.
 #' 
 #' Updates the specified Git credential.
@@ -74,6 +94,7 @@ list_git_credentials <- function(client) {
 #' @param personal_access_token The personal access token used to authenticate to the corresponding Git provider.
 #'
 #' @rdname update_git_credential
+#' @alias gitCredentialsUpdate
 #' @export
 update_git_credential <- function(client, credential_id, git_provider = NULL, git_username = NULL,
   personal_access_token = NULL) {
@@ -81,6 +102,10 @@ update_git_credential <- function(client, credential_id, git_provider = NULL, gi
   client$do("PATCH", paste("/api/2.0/git-credentials/", credential_id, sep = ""),
     body = body)
 }
+
+#' @rdname update_git_credential
+#' @export 
+gitCredentialsUpdate <- update_git_credential
 
 
 

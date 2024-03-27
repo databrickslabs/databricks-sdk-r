@@ -2,9 +2,12 @@
 % Please edit documentation in R/account_access_control_proxy.R
 \name{update_account_access_control_proxy_rule_set}
 \alias{update_account_access_control_proxy_rule_set}
+\alias{accountAccessControlProxyUpdateRuleSet}
 \title{Update a rule set.}
 \usage{
 update_account_access_control_proxy_rule_set(client, name, rule_set)
+
+accountAccessControlProxyUpdateRuleSet(client, name, rule_set)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

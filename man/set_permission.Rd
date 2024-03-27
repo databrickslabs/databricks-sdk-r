@@ -2,9 +2,17 @@
 % Please edit documentation in R/permissions.R
 \name{set_permission}
 \alias{set_permission}
+\alias{permissionsSet}
 \title{Set object permissions.}
 \usage{
 set_permission(
+  client,
+  request_object_type,
+  request_object_id,
+  access_control_list = NULL
+)
+
+permissionsSet(
   client,
   request_object_type,
   request_object_id,

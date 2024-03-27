@@ -2,9 +2,12 @@
 % Please edit documentation in R/statement_execution.R
 \name{get_statement_execution_result_chunk_n}
 \alias{get_statement_execution_result_chunk_n}
+\alias{statementExecutionGetStatementResultChunkN}
 \title{Get result chunk by index.}
 \usage{
 get_statement_execution_result_chunk_n(client, statement_id, chunk_index)
+
+statementExecutionGetStatementResultChunkN(client, statement_id, chunk_index)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

@@ -2,9 +2,12 @@
 % Please edit documentation in R/metastores.R
 \name{current_metastore}
 \alias{current_metastore}
+\alias{metastoresCurrent}
 \title{Get metastore assignment for workspace.}
 \usage{
 current_metastore(client)
+
+metastoresCurrent(client)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

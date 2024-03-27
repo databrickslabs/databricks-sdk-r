@@ -2,9 +2,12 @@
 % Please edit documentation in R/serving_endpoints.R
 \name{get_serving_endpoint_permission_levels}
 \alias{get_serving_endpoint_permission_levels}
+\alias{servingEndpointsGetPermissionLevels}
 \title{Get serving endpoint permission levels.}
 \usage{
 get_serving_endpoint_permission_levels(client, serving_endpoint_id)
+
+servingEndpointsGetPermissionLevels(client, serving_endpoint_id)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

@@ -2,9 +2,17 @@
 % Please edit documentation in R/model_registry.R
 \name{list_model_webhooks}
 \alias{list_model_webhooks}
+\alias{modelRegistryListWebhooks}
 \title{List registry webhooks.}
 \usage{
 list_model_webhooks(
+  client,
+  events = NULL,
+  model_name = NULL,
+  page_token = NULL
+)
+
+modelRegistryListWebhooks(
   client,
   events = NULL,
   model_name = NULL,

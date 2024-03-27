@@ -2,9 +2,12 @@
 % Please edit documentation in R/experiments.R
 \name{log_experiment_param}
 \alias{log_experiment_param}
+\alias{experimentsLogParam}
 \title{Log a param.}
 \usage{
 log_experiment_param(client, key, value, run_id = NULL, run_uuid = NULL)
+
+experimentsLogParam(client, key, value, run_id = NULL, run_uuid = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

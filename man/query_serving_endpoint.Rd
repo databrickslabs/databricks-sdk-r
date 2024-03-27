@@ -2,9 +2,28 @@
 % Please edit documentation in R/serving_endpoints.R
 \name{query_serving_endpoint}
 \alias{query_serving_endpoint}
+\alias{servingEndpointsQuery}
 \title{Query a serving endpoint.}
 \usage{
 query_serving_endpoint(
+  client,
+  name,
+  dataframe_records = NULL,
+  dataframe_split = NULL,
+  extra_params = NULL,
+  input = NULL,
+  inputs = NULL,
+  instances = NULL,
+  max_tokens = NULL,
+  messages = NULL,
+  n = NULL,
+  prompt = NULL,
+  stop = NULL,
+  stream = NULL,
+  temperature = NULL
+)
+
+servingEndpointsQuery(
   client,
   name,
   dataframe_records = NULL,

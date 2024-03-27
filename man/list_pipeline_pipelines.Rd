@@ -2,9 +2,18 @@
 % Please edit documentation in R/pipelines.R
 \name{list_pipeline_pipelines}
 \alias{list_pipeline_pipelines}
+\alias{pipelinesListPipelines}
 \title{List pipelines.}
 \usage{
 list_pipeline_pipelines(
+  client,
+  filter = NULL,
+  max_results = NULL,
+  order_by = NULL,
+  page_token = NULL
+)
+
+pipelinesListPipelines(
   client,
   filter = NULL,
   max_results = NULL,

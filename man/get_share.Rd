@@ -2,9 +2,12 @@
 % Please edit documentation in R/shares.R
 \name{get_share}
 \alias{get_share}
+\alias{sharesGet}
 \title{Get a share.}
 \usage{
 get_share(client, name, include_shared_data = NULL)
+
+sharesGet(client, name, include_shared_data = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

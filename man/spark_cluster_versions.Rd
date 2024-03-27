@@ -2,9 +2,12 @@
 % Please edit documentation in R/clusters.R
 \name{spark_cluster_versions}
 \alias{spark_cluster_versions}
+\alias{clustersSparkVersions}
 \title{List available Spark versions.}
 \usage{
 spark_cluster_versions(client)
+
+clustersSparkVersions(client)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

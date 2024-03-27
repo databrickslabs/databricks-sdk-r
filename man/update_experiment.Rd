@@ -2,9 +2,12 @@
 % Please edit documentation in R/experiments.R
 \name{update_experiment}
 \alias{update_experiment}
+\alias{experimentsUpdateExperiment}
 \title{Update an experiment.}
 \usage{
 update_experiment(client, experiment_id, new_name = NULL)
+
+experimentsUpdateExperiment(client, experiment_id, new_name = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

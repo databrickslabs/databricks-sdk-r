@@ -18,12 +18,17 @@ NULL
 #' @param version Required. The integer version number of the model version.
 #'
 #' @rdname delete_model_version
+#' @alias modelVersionsDelete
 #' @export
 delete_model_version <- function(client, full_name, version) {
 
   client$do("DELETE", paste("/api/2.1/unity-catalog/models/", full_name, "/versions/",
     version, sep = ""))
 }
+
+#' @rdname delete_model_version
+#' @export 
+modelVersionsDelete <- delete_model_version
 #' Get a Model Version.
 #' 
 #' Get a model version.
@@ -39,12 +44,17 @@ delete_model_version <- function(client, full_name, version) {
 #' @param version Required. The integer version number of the model version.
 #'
 #' @rdname get_model_version
+#' @alias modelVersionsGet
 #' @export
 get_model_version <- function(client, full_name, version, include_browse = NULL) {
   query <- list(include_browse = include_browse)
   client$do("GET", paste("/api/2.1/unity-catalog/models/", full_name, "/versions/",
     version, sep = ""), query = query)
 }
+
+#' @rdname get_model_version
+#' @export 
+modelVersionsGet <- get_model_version
 #' Get Model Version By Alias.
 #' 
 #' Get a model version by alias.
@@ -59,12 +69,17 @@ get_model_version <- function(client, full_name, version, include_browse = NULL)
 #' @param full_name Required. The three-level (fully qualified) name of the registered model.
 #'
 #' @rdname get_model_version_by_alias
+#' @alias modelVersionsGetByAlias
 #' @export
 get_model_version_by_alias <- function(client, full_name, alias) {
 
   client$do("GET", paste("/api/2.1/unity-catalog/models/", full_name, "/aliases/",
     alias, sep = ""))
 }
+
+#' @rdname get_model_version_by_alias
+#' @export 
+modelVersionsGetByAlias <- get_model_version_by_alias
 #' List Model Versions.
 #' 
 #' List model versions. You can list model versions under a particular schema,
@@ -89,6 +104,7 @@ get_model_version_by_alias <- function(client, full_name, alias) {
 #' @return `data.frame` with all of the response pages.
 #'
 #' @rdname list_model_versions
+#' @alias modelVersionsList
 #' @export
 list_model_versions <- function(client, full_name, include_browse = NULL, max_results = NULL,
   page_token = NULL) {
@@ -111,6 +127,10 @@ list_model_versions <- function(client, full_name, include_browse = NULL, max_re
   return(results)
 
 }
+
+#' @rdname list_model_versions
+#' @export 
+modelVersionsList <- list_model_versions
 #' Update a Model Version.
 #' 
 #' Updates the specified model version.
@@ -128,12 +148,17 @@ list_model_versions <- function(client, full_name, include_browse = NULL, max_re
 #' @param version Required. The integer version number of the model version.
 #'
 #' @rdname update_model_version
+#' @alias modelVersionsUpdate
 #' @export
 update_model_version <- function(client, full_name, version, comment = NULL) {
   body <- list(comment = comment)
   client$do("PATCH", paste("/api/2.1/unity-catalog/models/", full_name, "/versions/",
     version, sep = ""), body = body)
 }
+
+#' @rdname update_model_version
+#' @export 
+modelVersionsUpdate <- update_model_version
 
 
 

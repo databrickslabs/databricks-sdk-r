@@ -2,9 +2,17 @@
 % Please edit documentation in R/workspace_bindings.R
 \name{update_workspace_binding}
 \alias{update_workspace_binding}
+\alias{workspaceBindingsUpdate}
 \title{Update catalog workspace bindings.}
 \usage{
 update_workspace_binding(
+  client,
+  name,
+  assign_workspaces = NULL,
+  unassign_workspaces = NULL
+)
+
+workspaceBindingsUpdate(
   client,
   name,
   assign_workspaces = NULL,

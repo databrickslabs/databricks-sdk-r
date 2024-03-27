@@ -2,9 +2,12 @@
 % Please edit documentation in R/clusters.R
 \name{permanent_cluster_delete}
 \alias{permanent_cluster_delete}
+\alias{clustersPermanentDelete}
 \title{Permanently delete cluster.}
 \usage{
 permanent_cluster_delete(client, cluster_id)
+
+clustersPermanentDelete(client, cluster_id)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

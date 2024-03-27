@@ -2,9 +2,12 @@
 % Please edit documentation in R/files.R
 \name{upload_file}
 \alias{upload_file}
+\alias{filesUpload}
 \title{Upload a file.}
 \usage{
 upload_file(client, file_path, contents, overwrite = NULL)
+
+filesUpload(client, file_path, contents, overwrite = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

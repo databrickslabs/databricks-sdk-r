@@ -2,9 +2,12 @@
 % Please edit documentation in R/jobs.R
 \name{delete_job_run}
 \alias{delete_job_run}
+\alias{jobsDeleteRun}
 \title{Delete a job run.}
 \usage{
 delete_job_run(client, run_id)
+
+jobsDeleteRun(client, run_id)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

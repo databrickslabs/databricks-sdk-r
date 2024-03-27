@@ -2,9 +2,12 @@
 % Please edit documentation in R/command_execution.R
 \name{create_command_execution}
 \alias{create_command_execution}
+\alias{commandExecutionCreate}
 \title{Create an execution context.}
 \usage{
 create_command_execution(client, cluster_id = NULL, language = NULL)
+
+commandExecutionCreate(client, cluster_id = NULL, language = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

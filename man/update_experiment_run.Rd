@@ -2,9 +2,18 @@
 % Please edit documentation in R/experiments.R
 \name{update_experiment_run}
 \alias{update_experiment_run}
+\alias{experimentsUpdateRun}
 \title{Update a run.}
 \usage{
 update_experiment_run(
+  client,
+  end_time = NULL,
+  run_id = NULL,
+  run_uuid = NULL,
+  status = NULL
+)
+
+experimentsUpdateRun(
   client,
   end_time = NULL,
   run_id = NULL,

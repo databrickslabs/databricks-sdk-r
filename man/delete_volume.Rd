@@ -2,9 +2,12 @@
 % Please edit documentation in R/volumes.R
 \name{delete_volume}
 \alias{delete_volume}
+\alias{volumesDelete}
 \title{Delete a Volume.}
 \usage{
 delete_volume(client, name)
+
+volumesDelete(client, name)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

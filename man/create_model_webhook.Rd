@@ -2,9 +2,20 @@
 % Please edit documentation in R/model_registry.R
 \name{create_model_webhook}
 \alias{create_model_webhook}
+\alias{modelRegistryCreateWebhook}
 \title{Create a webhook.}
 \usage{
 create_model_webhook(
+  client,
+  events,
+  description = NULL,
+  http_url_spec = NULL,
+  job_spec = NULL,
+  model_name = NULL,
+  status = NULL
+)
+
+modelRegistryCreateWebhook(
   client,
   events,
   description = NULL,

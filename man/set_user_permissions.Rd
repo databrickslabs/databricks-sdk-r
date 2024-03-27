@@ -2,9 +2,12 @@
 % Please edit documentation in R/users.R
 \name{set_user_permissions}
 \alias{set_user_permissions}
+\alias{usersSetPermissions}
 \title{Set password permissions.}
 \usage{
 set_user_permissions(client, access_control_list = NULL)
+
+usersSetPermissions(client, access_control_list = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

@@ -2,9 +2,12 @@
 % Please edit documentation in R/workspace_conf.R
 \name{get_workspace_conf_status}
 \alias{get_workspace_conf_status}
+\alias{workspaceConfGetStatus}
 \title{Check configuration status.}
 \usage{
 get_workspace_conf_status(client, keys)
+
+workspaceConfGetStatus(client, keys)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

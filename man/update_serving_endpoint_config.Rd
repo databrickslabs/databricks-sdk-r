@@ -2,9 +2,19 @@
 % Please edit documentation in R/serving_endpoints.R
 \name{update_serving_endpoint_config}
 \alias{update_serving_endpoint_config}
+\alias{servingEndpointsUpdateConfig}
 \title{Update config of a serving endpoint.}
 \usage{
 update_serving_endpoint_config(
+  client,
+  name,
+  auto_capture_config = NULL,
+  served_entities = NULL,
+  served_models = NULL,
+  traffic_config = NULL
+)
+
+servingEndpointsUpdateConfig(
   client,
   name,
   auto_capture_config = NULL,

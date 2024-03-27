@@ -2,9 +2,18 @@
 % Please edit documentation in R/lakeview.R
 \name{create_lakeview}
 \alias{create_lakeview}
+\alias{lakeviewCreate}
 \title{Create dashboard.}
 \usage{
 create_lakeview(
+  client,
+  display_name,
+  parent_path = NULL,
+  serialized_dashboard = NULL,
+  warehouse_id = NULL
+)
+
+lakeviewCreate(
   client,
   display_name,
   parent_path = NULL,

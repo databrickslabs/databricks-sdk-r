@@ -2,9 +2,20 @@
 % Please edit documentation in R/recipients.R
 \name{update_recipient}
 \alias{update_recipient}
+\alias{recipientsUpdate}
 \title{Update a share recipient.}
 \usage{
 update_recipient(
+  client,
+  name,
+  comment = NULL,
+  ip_access_list = NULL,
+  new_name = NULL,
+  owner = NULL,
+  properties_kvpairs = NULL
+)
+
+recipientsUpdate(
   client,
   name,
   comment = NULL,

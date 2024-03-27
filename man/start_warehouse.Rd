@@ -2,9 +2,12 @@
 % Please edit documentation in R/warehouses.R
 \name{start_warehouse}
 \alias{start_warehouse}
+\alias{warehousesStart}
 \title{Start a warehouse.}
 \usage{
 start_warehouse(client, id)
+
+warehousesStart(client, id)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

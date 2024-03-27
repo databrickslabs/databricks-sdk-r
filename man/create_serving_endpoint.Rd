@@ -2,9 +2,12 @@
 % Please edit documentation in R/serving_endpoints.R
 \name{create_serving_endpoint}
 \alias{create_serving_endpoint}
+\alias{servingEndpointsCreate}
 \title{Create a new serving endpoint.}
 \usage{
 create_serving_endpoint(client, name, config, rate_limits = NULL, tags = NULL)
+
+servingEndpointsCreate(client, name, config, rate_limits = NULL, tags = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

@@ -2,9 +2,12 @@
 % Please edit documentation in R/files.R
 \name{get_file_directory_metadata}
 \alias{get_file_directory_metadata}
+\alias{filesGetDirectoryMetadata}
 \title{Get directory metadata.}
 \usage{
 get_file_directory_metadata(client, directory_path)
+
+filesGetDirectoryMetadata(client, directory_path)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

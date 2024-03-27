@@ -2,9 +2,12 @@
 % Please edit documentation in R/git_credentials.R
 \name{delete_git_credential}
 \alias{delete_git_credential}
+\alias{gitCredentialsDelete}
 \title{Delete a credential.}
 \usage{
 delete_git_credential(client, credential_id)
+
+gitCredentialsDelete(client, credential_id)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

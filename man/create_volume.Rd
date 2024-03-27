@@ -2,9 +2,20 @@
 % Please edit documentation in R/volumes.R
 \name{create_volume}
 \alias{create_volume}
+\alias{volumesCreate}
 \title{Create a Volume.}
 \usage{
 create_volume(
+  client,
+  catalog_name,
+  schema_name,
+  name,
+  volume_type,
+  comment = NULL,
+  storage_location = NULL
+)
+
+volumesCreate(
   client,
   catalog_name,
   schema_name,

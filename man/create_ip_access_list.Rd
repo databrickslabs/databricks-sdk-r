@@ -2,9 +2,12 @@
 % Please edit documentation in R/ip_access_lists.R
 \name{create_ip_access_list}
 \alias{create_ip_access_list}
+\alias{ipAccessListsCreate}
 \title{Create access list.}
 \usage{
 create_ip_access_list(client, label, list_type, ip_addresses = NULL)
+
+ipAccessListsCreate(client, label, list_type, ip_addresses = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

@@ -2,9 +2,12 @@
 % Please edit documentation in R/clean_rooms.R
 \name{list_clean_rooms}
 \alias{list_clean_rooms}
+\alias{cleanRoomsList}
 \title{List clean rooms.}
 \usage{
 list_clean_rooms(client, max_results = NULL, page_token = NULL)
+
+cleanRoomsList(client, max_results = NULL, page_token = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

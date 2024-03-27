@@ -13,6 +13,7 @@ NULL
 #' @param resource Required. The resource name for which assignable roles will be listed.
 #'
 #' @rdname get_account_access_control_proxy_assignable_roles_for_resource
+#' @alias accountAccessControlProxyGetAssignableRolesForResource
 #' @export
 get_account_access_control_proxy_assignable_roles_for_resource <- function(client,
   resource) {
@@ -20,6 +21,10 @@ get_account_access_control_proxy_assignable_roles_for_resource <- function(clien
   client$do("GET", "/api/2.0/preview/accounts/access-control/assignable-roles",
     query = query)
 }
+
+#' @rdname get_account_access_control_proxy_assignable_roles_for_resource
+#' @export 
+accountAccessControlProxyGetAssignableRolesForResource <- get_account_access_control_proxy_assignable_roles_for_resource
 #' Get a rule set.
 #' 
 #' Get a rule set by its name. A rule set is always attached to a resource and
@@ -31,11 +36,16 @@ get_account_access_control_proxy_assignable_roles_for_resource <- function(clien
 #' @param name Required. The ruleset name associated with the request.
 #'
 #' @rdname get_account_access_control_proxy_rule_set
+#' @alias accountAccessControlProxyGetRuleSet
 #' @export
 get_account_access_control_proxy_rule_set <- function(client, name, etag) {
   query <- list(etag = etag, name = name)
   client$do("GET", "/api/2.0/preview/accounts/access-control/rule-sets", query = query)
 }
+
+#' @rdname get_account_access_control_proxy_rule_set
+#' @export 
+accountAccessControlProxyGetRuleSet <- get_account_access_control_proxy_rule_set
 #' Update a rule set.
 #' 
 #' Replace the rules of a rule set. First, use a GET rule set request to read
@@ -47,11 +57,16 @@ get_account_access_control_proxy_rule_set <- function(client, name, etag) {
 #' @param rule_set Required. This field has no description yet.
 #'
 #' @rdname update_account_access_control_proxy_rule_set
+#' @alias accountAccessControlProxyUpdateRuleSet
 #' @export
 update_account_access_control_proxy_rule_set <- function(client, name, rule_set) {
   body <- list(name = name, rule_set = rule_set)
   client$do("PUT", "/api/2.0/preview/accounts/access-control/rule-sets", body = body)
 }
+
+#' @rdname update_account_access_control_proxy_rule_set
+#' @export 
+accountAccessControlProxyUpdateRuleSet <- update_account_access_control_proxy_rule_set
 
 
 

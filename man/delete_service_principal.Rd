@@ -2,9 +2,12 @@
 % Please edit documentation in R/service_principals.R
 \name{delete_service_principal}
 \alias{delete_service_principal}
+\alias{servicePrincipalsDelete}
 \title{Delete a service principal.}
 \usage{
 delete_service_principal(client, id)
+
+servicePrincipalsDelete(client, id)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

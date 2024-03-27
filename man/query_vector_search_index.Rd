@@ -2,9 +2,21 @@
 % Please edit documentation in R/vector_search_indexes.R
 \name{query_vector_search_index}
 \alias{query_vector_search_index}
+\alias{vectorSearchIndexesQueryIndex}
 \title{Query an index.}
 \usage{
 query_vector_search_index(
+  client,
+  index_name,
+  columns,
+  filters_json = NULL,
+  num_results = NULL,
+  query_text = NULL,
+  query_vector = NULL,
+  score_threshold = NULL
+)
+
+vectorSearchIndexesQueryIndex(
   client,
   index_name,
   columns,

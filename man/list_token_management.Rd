@@ -2,9 +2,12 @@
 % Please edit documentation in R/token_management.R
 \name{list_token_management}
 \alias{list_token_management}
+\alias{tokenManagementList}
 \title{List all tokens.}
 \usage{
 list_token_management(client, created_by_id = NULL, created_by_username = NULL)
+
+tokenManagementList(client, created_by_id = NULL, created_by_username = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

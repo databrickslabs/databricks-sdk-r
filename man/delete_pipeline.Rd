@@ -2,9 +2,12 @@
 % Please edit documentation in R/pipelines.R
 \name{delete_pipeline}
 \alias{delete_pipeline}
+\alias{pipelinesDelete}
 \title{Delete a pipeline.}
 \usage{
 delete_pipeline(client, pipeline_id)
+
+pipelinesDelete(client, pipeline_id)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

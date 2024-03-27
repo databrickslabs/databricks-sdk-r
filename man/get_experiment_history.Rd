@@ -2,9 +2,19 @@
 % Please edit documentation in R/experiments.R
 \name{get_experiment_history}
 \alias{get_experiment_history}
+\alias{experimentsGetHistory}
 \title{Get history of a given metric within a run.}
 \usage{
 get_experiment_history(
+  client,
+  metric_key,
+  max_results = NULL,
+  page_token = NULL,
+  run_id = NULL,
+  run_uuid = NULL
+)
+
+experimentsGetHistory(
   client,
   metric_key,
   max_results = NULL,

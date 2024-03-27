@@ -15,11 +15,16 @@ NULL
 #' @param full_name Required. Full name of the table.
 #'
 #' @rdname delete_table
+#' @alias tablesDelete
 #' @export
 delete_table <- function(client, full_name) {
 
   client$do("DELETE", paste("/api/2.1/unity-catalog/tables/", full_name, sep = ""))
 }
+
+#' @rdname delete_table
+#' @export 
+tablesDelete <- delete_table
 #' Get boolean reflecting if table exists.
 #' 
 #' Gets if a table exists in the metastore for a specific catalog and schema.
@@ -35,12 +40,17 @@ delete_table <- function(client, full_name) {
 #' @param full_name Required. Full name of the table.
 #'
 #' @rdname exists_table
+#' @alias tablesExists
 #' @export
 exists_table <- function(client, full_name) {
 
   client$do("GET", paste("/api/2.1/unity-catalog/tables/", full_name, "/exists",
     , sep = ""))
 }
+
+#' @rdname exists_table
+#' @export 
+tablesExists <- exists_table
 #' Get a table.
 #' 
 #' Gets a table from the metastore for a specific catalog and schema. The caller
@@ -57,12 +67,17 @@ exists_table <- function(client, full_name) {
 #' @param include_delta_metadata Whether delta metadata should be included in the response.
 #'
 #' @rdname get_table
+#' @alias tablesGet
 #' @export
 get_table <- function(client, full_name, include_browse = NULL, include_delta_metadata = NULL) {
   query <- list(include_browse = include_browse, include_delta_metadata = include_delta_metadata)
   client$do("GET", paste("/api/2.1/unity-catalog/tables/", full_name, sep = ""),
     query = query)
 }
+
+#' @rdname get_table
+#' @export 
+tablesGet <- get_table
 #' List tables.
 #' 
 #' Gets an array of all tables for the current metastore under the parent
@@ -85,6 +100,7 @@ get_table <- function(client, full_name, include_browse = NULL, include_delta_me
 #' @return `data.frame` with all of the response pages.
 #'
 #' @rdname list_tables
+#' @alias tablesList
 #' @export
 list_tables <- function(client, catalog_name, schema_name, include_browse = NULL,
   include_delta_metadata = NULL, max_results = NULL, omit_columns = NULL, omit_properties = NULL,
@@ -109,6 +125,10 @@ list_tables <- function(client, catalog_name, schema_name, include_browse = NULL
   return(results)
 
 }
+
+#' @rdname list_tables
+#' @export 
+tablesList <- list_tables
 #' List table summaries.
 #' 
 #' Gets an array of summaries for tables for a schema and catalog within the
@@ -133,6 +153,7 @@ list_tables <- function(client, catalog_name, schema_name, include_browse = NULL
 #' @return `data.frame` with all of the response pages.
 #'
 #' @rdname list_table_summaries
+#' @alias tablesListSummaries
 #' @export
 list_table_summaries <- function(client, catalog_name, max_results = NULL, page_token = NULL,
   schema_name_pattern = NULL, table_name_pattern = NULL) {
@@ -155,6 +176,10 @@ list_table_summaries <- function(client, catalog_name, max_results = NULL, page_
   return(results)
 
 }
+
+#' @rdname list_table_summaries
+#' @export 
+tablesListSummaries <- list_table_summaries
 #' Update a table owner.
 #' 
 #' Change the owner of the table. The caller must be the owner of the parent
@@ -168,12 +193,17 @@ list_table_summaries <- function(client, catalog_name, max_results = NULL, page_
 #' @param owner This field has no description yet.
 #'
 #' @rdname update_table
+#' @alias tablesUpdate
 #' @export
 update_table <- function(client, full_name, owner = NULL) {
   body <- list(owner = owner)
   client$do("PATCH", paste("/api/2.1/unity-catalog/tables/", full_name, sep = ""),
     body = body)
 }
+
+#' @rdname update_table
+#' @export 
+tablesUpdate <- update_table
 
 
 

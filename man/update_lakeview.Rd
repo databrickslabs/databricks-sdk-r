@@ -2,9 +2,19 @@
 % Please edit documentation in R/lakeview.R
 \name{update_lakeview}
 \alias{update_lakeview}
+\alias{lakeviewUpdate}
 \title{Update dashboard.}
 \usage{
 update_lakeview(
+  client,
+  dashboard_id,
+  display_name = NULL,
+  etag = NULL,
+  serialized_dashboard = NULL,
+  warehouse_id = NULL
+)
+
+lakeviewUpdate(
   client,
   dashboard_id,
   display_name = NULL,

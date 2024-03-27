@@ -2,9 +2,12 @@
 % Please edit documentation in R/vector_search_indexes.R
 \name{delete_vector_search_index_data}
 \alias{delete_vector_search_index_data}
+\alias{vectorSearchIndexesDeleteDataVectorIndex}
 \title{Delete data from index.}
 \usage{
 delete_vector_search_index_data(client, index_name, primary_keys)
+
+vectorSearchIndexesDeleteDataVectorIndex(client, index_name, primary_keys)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

@@ -2,9 +2,12 @@
 % Please edit documentation in R/tables.R
 \name{exists_table}
 \alias{exists_table}
+\alias{tablesExists}
 \title{Get boolean reflecting if table exists.}
 \usage{
 exists_table(client, full_name)
+
+tablesExists(client, full_name)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

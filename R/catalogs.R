@@ -19,6 +19,7 @@ NULL
 #' @param storage_root Storage root URL for managed tables within catalog.
 #'
 #' @rdname create_catalog
+#' @alias catalogsCreate
 #' @export
 create_catalog <- function(client, name, comment = NULL, connection_name = NULL,
   options = NULL, properties = NULL, provider_name = NULL, share_name = NULL, storage_root = NULL) {
@@ -27,6 +28,10 @@ create_catalog <- function(client, name, comment = NULL, connection_name = NULL,
     share_name = share_name, storage_root = storage_root)
   client$do("POST", "/api/2.1/unity-catalog/catalogs", body = body)
 }
+
+#' @rdname create_catalog
+#' @export 
+catalogsCreate <- create_catalog
 #' Delete a catalog.
 #' 
 #' Deletes the catalog that matches the supplied name. The caller must be a
@@ -37,12 +42,17 @@ create_catalog <- function(client, name, comment = NULL, connection_name = NULL,
 #' @param name Required. The name of the catalog.
 #'
 #' @rdname delete_catalog
+#' @alias catalogsDelete
 #' @export
 delete_catalog <- function(client, name, force = NULL) {
   query <- list(force = force)
   client$do("DELETE", paste("/api/2.1/unity-catalog/catalogs/", name, sep = ""),
     query = query)
 }
+
+#' @rdname delete_catalog
+#' @export 
+catalogsDelete <- delete_catalog
 #' Get a catalog.
 #' 
 #' Gets the specified catalog in a metastore. The caller must be a metastore
@@ -54,11 +64,16 @@ delete_catalog <- function(client, name, force = NULL) {
 #' @param name Required. The name of the catalog.
 #'
 #' @rdname get_catalog
+#' @alias catalogsGet
 #' @export
 get_catalog <- function(client, name, include_browse = NULL) {
   query <- list(include_browse = include_browse)
   client$do("GET", paste("/api/2.1/unity-catalog/catalogs/", name, sep = ""), query = query)
 }
+
+#' @rdname get_catalog
+#' @export 
+catalogsGet <- get_catalog
 #' List catalogs.
 #' 
 #' Gets an array of catalogs in the metastore. If the caller is the metastore
@@ -73,6 +88,7 @@ get_catalog <- function(client, name, include_browse = NULL) {
 #' @return `data.frame` with all of the response pages.
 #'
 #' @rdname list_catalogs
+#' @alias catalogsList
 #' @export
 list_catalogs <- function(client, include_browse = NULL) {
   query <- list(include_browse = include_browse)
@@ -81,6 +97,10 @@ list_catalogs <- function(client, include_browse = NULL) {
   return(json$catalogs)
 
 }
+
+#' @rdname list_catalogs
+#' @export 
+catalogsList <- list_catalogs
 #' Update a catalog.
 #' 
 #' Updates the catalog that matches the supplied name. The caller must be either
@@ -97,6 +117,7 @@ list_catalogs <- function(client, include_browse = NULL) {
 #' @param properties A map of key-value properties attached to the securable.
 #'
 #' @rdname update_catalog
+#' @alias catalogsUpdate
 #' @export
 update_catalog <- function(client, name, comment = NULL, enable_predictive_optimization = NULL,
   isolation_mode = NULL, new_name = NULL, owner = NULL, properties = NULL) {
@@ -105,6 +126,10 @@ update_catalog <- function(client, name, comment = NULL, enable_predictive_optim
   client$do("PATCH", paste("/api/2.1/unity-catalog/catalogs/", name, sep = ""),
     body = body)
 }
+
+#' @rdname update_catalog
+#' @export 
+catalogsUpdate <- update_catalog
 
 
 

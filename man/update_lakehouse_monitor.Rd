@@ -2,9 +2,25 @@
 % Please edit documentation in R/lakehouse_monitors.R
 \name{update_lakehouse_monitor}
 \alias{update_lakehouse_monitor}
+\alias{lakehouseMonitorsUpdate}
 \title{Update a table monitor.}
 \usage{
 update_lakehouse_monitor(
+  client,
+  full_name,
+  output_schema_name,
+  baseline_table_name = NULL,
+  custom_metrics = NULL,
+  data_classification_config = NULL,
+  inference_log = NULL,
+  notifications = NULL,
+  schedule = NULL,
+  slicing_exprs = NULL,
+  snapshot = NULL,
+  time_series = NULL
+)
+
+lakehouseMonitorsUpdate(
   client,
   full_name,
   output_schema_name,

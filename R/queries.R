@@ -25,6 +25,7 @@ NULL
 #' @param run_as_role Sets the **Run as** role for the object.
 #'
 #' @rdname create_query
+#' @alias queriesCreate
 #' @export
 create_query <- function(client, data_source_id = NULL, description = NULL, name = NULL,
   options = NULL, parent = NULL, query = NULL, run_as_role = NULL) {
@@ -32,6 +33,10 @@ create_query <- function(client, data_source_id = NULL, description = NULL, name
     options = options, parent = parent, query = query, run_as_role = run_as_role)
   client$do("POST", "/api/2.0/preview/sql/queries", body = body)
 }
+
+#' @rdname create_query
+#' @export 
+queriesCreate <- create_query
 #' Delete a query.
 #' 
 #' Moves a query to the trash. Trashed queries immediately disappear from
@@ -42,11 +47,16 @@ create_query <- function(client, data_source_id = NULL, description = NULL, name
 #' @param query_id Required. This field has no description yet.
 #'
 #' @rdname delete_query
+#' @alias queriesDelete
 #' @export
 delete_query <- function(client, query_id) {
 
   client$do("DELETE", paste("/api/2.0/preview/sql/queries/", query_id, sep = ""))
 }
+
+#' @rdname delete_query
+#' @export 
+queriesDelete <- delete_query
 #' Get a query definition.
 #' 
 #' Retrieve a query object definition along with contextual permissions
@@ -56,11 +66,16 @@ delete_query <- function(client, query_id) {
 #' @param query_id Required. This field has no description yet.
 #'
 #' @rdname get_query
+#' @alias queriesGet
 #' @export
 get_query <- function(client, query_id) {
 
   client$do("GET", paste("/api/2.0/preview/sql/queries/", query_id, sep = ""))
 }
+
+#' @rdname get_query
+#' @export 
+queriesGet <- get_query
 #' Get a list of queries.
 #' 
 #' Gets a list of queries. Optionally, this list can be filtered by a search
@@ -78,6 +93,7 @@ get_query <- function(client, query_id) {
 #' @return `data.frame` with all of the response pages.
 #'
 #' @rdname list_queries
+#' @alias queriesList
 #' @export
 list_queries <- function(client, order = NULL, page = NULL, page_size = NULL, q = NULL) {
   query <- list(order = order, page = page, page_size = page_size, q = q)
@@ -98,6 +114,10 @@ list_queries <- function(client, order = NULL, page = NULL, page_size = NULL, q 
   return(results)
 
 }
+
+#' @rdname list_queries
+#' @export 
+queriesList <- list_queries
 #' Restore a query.
 #' 
 #' Restore a query that has been moved to the trash. A restored query appears in
@@ -107,11 +127,16 @@ list_queries <- function(client, order = NULL, page = NULL, page_size = NULL, q 
 #' @param query_id Required. This field has no description yet.
 #'
 #' @rdname restore_query
+#' @alias queriesRestore
 #' @export
 restore_query <- function(client, query_id) {
 
   client$do("POST", paste("/api/2.0/preview/sql/queries/trash/", query_id, sep = ""))
 }
+
+#' @rdname restore_query
+#' @export 
+queriesRestore <- restore_query
 #' Change a query definition.
 #' 
 #' Modify this query definition.
@@ -128,6 +153,7 @@ restore_query <- function(client, query_id) {
 #' @param run_as_role Sets the **Run as** role for the object.
 #'
 #' @rdname update_query
+#' @alias queriesUpdate
 #' @export
 update_query <- function(client, query_id, data_source_id = NULL, description = NULL,
   name = NULL, options = NULL, query = NULL, run_as_role = NULL) {
@@ -136,6 +162,10 @@ update_query <- function(client, query_id, data_source_id = NULL, description = 
   client$do("POST", paste("/api/2.0/preview/sql/queries/", query_id, sep = ""),
     body = body)
 }
+
+#' @rdname update_query
+#' @export 
+queriesUpdate <- update_query
 
 
 

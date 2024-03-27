@@ -2,9 +2,12 @@
 % Please edit documentation in R/dashboards.R
 \name{delete_dashboard}
 \alias{delete_dashboard}
+\alias{dashboardsDelete}
 \title{Remove a dashboard.}
 \usage{
 delete_dashboard(client, dashboard_id)
+
+dashboardsDelete(client, dashboard_id)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

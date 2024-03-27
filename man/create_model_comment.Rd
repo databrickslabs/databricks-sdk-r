@@ -2,9 +2,12 @@
 % Please edit documentation in R/model_registry.R
 \name{create_model_comment}
 \alias{create_model_comment}
+\alias{modelRegistryCreateComment}
 \title{Post a comment.}
 \usage{
 create_model_comment(client, name, version, comment)
+
+modelRegistryCreateComment(client, name, version, comment)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

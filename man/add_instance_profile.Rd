@@ -2,9 +2,18 @@
 % Please edit documentation in R/instance_profiles.R
 \name{add_instance_profile}
 \alias{add_instance_profile}
+\alias{instanceProfilesAdd}
 \title{Register an instance profile.}
 \usage{
 add_instance_profile(
+  client,
+  instance_profile_arn,
+  iam_role_arn = NULL,
+  is_meta_instance_profile = NULL,
+  skip_validation = NULL
+)
+
+instanceProfilesAdd(
   client,
   instance_profile_arn,
   iam_role_arn = NULL,

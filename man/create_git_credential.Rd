@@ -2,9 +2,17 @@
 % Please edit documentation in R/git_credentials.R
 \name{create_git_credential}
 \alias{create_git_credential}
+\alias{gitCredentialsCreate}
 \title{Create a credential entry.}
 \usage{
 create_git_credential(
+  client,
+  git_provider,
+  git_username = NULL,
+  personal_access_token = NULL
+)
+
+gitCredentialsCreate(
   client,
   git_provider,
   git_username = NULL,

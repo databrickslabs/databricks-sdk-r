@@ -2,9 +2,12 @@
 % Please edit documentation in R/model_registry.R
 \name{get_model_permission_levels}
 \alias{get_model_permission_levels}
+\alias{modelRegistryGetPermissionLevels}
 \title{Get registered model permission levels.}
 \usage{
 get_model_permission_levels(client, registered_model_id)
+
+modelRegistryGetPermissionLevels(client, registered_model_id)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

@@ -2,9 +2,22 @@
 % Please edit documentation in R/metastores.R
 \name{update_metastore}
 \alias{update_metastore}
+\alias{metastoresUpdate}
 \title{Update a metastore.}
 \usage{
 update_metastore(
+  client,
+  id,
+  delta_sharing_organization_name = NULL,
+  delta_sharing_recipient_token_lifetime_in_seconds = NULL,
+  delta_sharing_scope = NULL,
+  new_name = NULL,
+  owner = NULL,
+  privilege_model_version = NULL,
+  storage_root_credential_id = NULL
+)
+
+metastoresUpdate(
   client,
   id,
   delta_sharing_organization_name = NULL,

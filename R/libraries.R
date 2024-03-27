@@ -12,10 +12,15 @@ NULL
 #' @param client Required. Instance of DatabricksClient()
 #'
 #' @rdname all_cluster_library_statuses
+#' @alias librariesAllClusterStatuses
 #' @export
 all_cluster_library_statuses <- function(client) {
   client$do("GET", "/api/2.0/libraries/all-cluster-statuses")
 }
+
+#' @rdname all_cluster_library_statuses
+#' @export 
+librariesAllClusterStatuses <- all_cluster_library_statuses
 #' Get status.
 #' 
 #' Get the status of libraries on a cluster. A status will be available for all
@@ -40,6 +45,7 @@ all_cluster_library_statuses <- function(client) {
 #' @return `data.frame` with all of the response pages.
 #'
 #' @rdname cluster_library_status
+#' @alias librariesClusterStatus
 #' @export
 cluster_library_status <- function(client, cluster_id) {
   query <- list(cluster_id = cluster_id)
@@ -48,6 +54,10 @@ cluster_library_status <- function(client, cluster_id) {
   return(json$library_statuses)
 
 }
+
+#' @rdname cluster_library_status
+#' @export 
+librariesClusterStatus <- cluster_library_status
 #' Add a library.
 #' 
 #' Add libraries to be installed on a cluster. The installation is asynchronous;
@@ -62,11 +72,16 @@ cluster_library_status <- function(client, cluster_id) {
 #' @param libraries Required. The libraries to install.
 #'
 #' @rdname install_cluster_library
+#' @alias librariesInstall
 #' @export
 install_cluster_library <- function(client, cluster_id, libraries) {
   body <- list(cluster_id = cluster_id, libraries = libraries)
   client$do("POST", "/api/2.0/libraries/install", body = body)
 }
+
+#' @rdname install_cluster_library
+#' @export 
+librariesInstall <- install_cluster_library
 #' Uninstall libraries.
 #' 
 #' Set libraries to be uninstalled on a cluster. The libraries won't be
@@ -78,11 +93,16 @@ install_cluster_library <- function(client, cluster_id, libraries) {
 #' @param libraries Required. The libraries to uninstall.
 #'
 #' @rdname uninstall_cluster_library
+#' @alias librariesUninstall
 #' @export
 uninstall_cluster_library <- function(client, cluster_id, libraries) {
   body <- list(cluster_id = cluster_id, libraries = libraries)
   client$do("POST", "/api/2.0/libraries/uninstall", body = body)
 }
+
+#' @rdname uninstall_cluster_library
+#' @export 
+librariesUninstall <- uninstall_cluster_library
 
 
 

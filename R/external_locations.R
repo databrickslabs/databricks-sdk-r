@@ -20,6 +20,7 @@ NULL
 #' @param url Required. Path URL of the external location.
 #'
 #' @rdname create_external_location
+#' @alias externalLocationsCreate
 #' @export
 create_external_location <- function(client, name, url, credential_name, access_point = NULL,
   comment = NULL, encryption_details = NULL, read_only = NULL, skip_validation = NULL) {
@@ -28,6 +29,10 @@ create_external_location <- function(client, name, url, credential_name, access_
     skip_validation = skip_validation, url = url)
   client$do("POST", "/api/2.1/unity-catalog/external-locations", body = body)
 }
+
+#' @rdname create_external_location
+#' @export 
+externalLocationsCreate <- create_external_location
 #' Delete an external location.
 #' 
 #' Deletes the specified external location from the metastore. The caller must
@@ -38,12 +43,17 @@ create_external_location <- function(client, name, url, credential_name, access_
 #' @param name Required. Name of the external location.
 #'
 #' @rdname delete_external_location
+#' @alias externalLocationsDelete
 #' @export
 delete_external_location <- function(client, name, force = NULL) {
   query <- list(force = force)
   client$do("DELETE", paste("/api/2.1/unity-catalog/external-locations/", name,
     sep = ""), query = query)
 }
+
+#' @rdname delete_external_location
+#' @export 
+externalLocationsDelete <- delete_external_location
 #' Get an external location.
 #' 
 #' Gets an external location from the metastore. The caller must be either a
@@ -55,12 +65,17 @@ delete_external_location <- function(client, name, force = NULL) {
 #' @param name Required. Name of the external location.
 #'
 #' @rdname get_external_location
+#' @alias externalLocationsGet
 #' @export
 get_external_location <- function(client, name, include_browse = NULL) {
   query <- list(include_browse = include_browse)
   client$do("GET", paste("/api/2.1/unity-catalog/external-locations/", name, sep = ""),
     query = query)
 }
+
+#' @rdname get_external_location
+#' @export 
+externalLocationsGet <- get_external_location
 #' List external locations.
 #' 
 #' Gets an array of external locations (__ExternalLocationInfo__ objects) from
@@ -77,6 +92,7 @@ get_external_location <- function(client, name, include_browse = NULL) {
 #' @return `data.frame` with all of the response pages.
 #'
 #' @rdname list_external_locations
+#' @alias externalLocationsList
 #' @export
 list_external_locations <- function(client, include_browse = NULL, max_results = NULL,
   page_token = NULL) {
@@ -98,6 +114,10 @@ list_external_locations <- function(client, include_browse = NULL, max_results =
   return(results)
 
 }
+
+#' @rdname list_external_locations
+#' @export 
+externalLocationsList <- list_external_locations
 #' Update an external location.
 #' 
 #' Updates an external location in the metastore. The caller must be the owner
@@ -118,6 +138,7 @@ list_external_locations <- function(client, include_browse = NULL, max_results =
 #' @param url Path URL of the external location.
 #'
 #' @rdname update_external_location
+#' @alias externalLocationsUpdate
 #' @export
 update_external_location <- function(client, name, access_point = NULL, comment = NULL,
   credential_name = NULL, encryption_details = NULL, force = NULL, new_name = NULL,
@@ -129,6 +150,10 @@ update_external_location <- function(client, name, access_point = NULL, comment 
   client$do("PATCH", paste("/api/2.1/unity-catalog/external-locations/", name,
     sep = ""), body = body)
 }
+
+#' @rdname update_external_location
+#' @export 
+externalLocationsUpdate <- update_external_location
 
 
 

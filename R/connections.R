@@ -20,6 +20,7 @@ NULL
 #' @param read_only If the connection is read only.
 #'
 #' @rdname create_connection
+#' @alias connectionsCreate
 #' @export
 create_connection <- function(client, name, connection_type, options, comment = NULL,
   properties = NULL, read_only = NULL) {
@@ -27,6 +28,10 @@ create_connection <- function(client, name, connection_type, options, comment = 
     options = options, properties = properties, read_only = read_only)
   client$do("POST", "/api/2.1/unity-catalog/connections", body = body)
 }
+
+#' @rdname create_connection
+#' @export 
+connectionsCreate <- create_connection
 #' Delete a connection.
 #' 
 #' Deletes the connection that matches the supplied name.
@@ -35,11 +40,16 @@ create_connection <- function(client, name, connection_type, options, comment = 
 #' @param name Required. The name of the connection to be deleted.
 #'
 #' @rdname delete_connection
+#' @alias connectionsDelete
 #' @export
 delete_connection <- function(client, name) {
 
   client$do("DELETE", paste("/api/2.1/unity-catalog/connections/", name, sep = ""))
 }
+
+#' @rdname delete_connection
+#' @export 
+connectionsDelete <- delete_connection
 #' Get a connection.
 #' 
 #' Gets a connection from it's name.
@@ -48,11 +58,16 @@ delete_connection <- function(client, name) {
 #' @param name Required. Name of the connection.
 #'
 #' @rdname get_connection
+#' @alias connectionsGet
 #' @export
 get_connection <- function(client, name) {
 
   client$do("GET", paste("/api/2.1/unity-catalog/connections/", name, sep = ""))
 }
+
+#' @rdname get_connection
+#' @export 
+connectionsGet <- get_connection
 #' List connections.
 #' 
 #' List all connections.
@@ -61,6 +76,7 @@ get_connection <- function(client, name) {
 #' @return `data.frame` with all of the response pages.
 #'
 #' @rdname list_connections
+#' @alias connectionsList
 #' @export
 list_connections <- function(client) {
 
@@ -68,6 +84,10 @@ list_connections <- function(client) {
   return(json$connections)
 
 }
+
+#' @rdname list_connections
+#' @export 
+connectionsList <- list_connections
 #' Update a connection.
 #' 
 #' Updates the connection that matches the supplied name.
@@ -79,12 +99,17 @@ list_connections <- function(client) {
 #' @param owner Username of current owner of the connection.
 #'
 #' @rdname update_connection
+#' @alias connectionsUpdate
 #' @export
 update_connection <- function(client, name, options, new_name = NULL, owner = NULL) {
   body <- list(new_name = new_name, options = options, owner = owner)
   client$do("PATCH", paste("/api/2.1/unity-catalog/connections/", name, sep = ""),
     body = body)
 }
+
+#' @rdname update_connection
+#' @export 
+connectionsUpdate <- update_connection
 
 
 

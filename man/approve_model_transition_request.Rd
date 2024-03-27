@@ -2,9 +2,19 @@
 % Please edit documentation in R/model_registry.R
 \name{approve_model_transition_request}
 \alias{approve_model_transition_request}
+\alias{modelRegistryApproveTransitionRequest}
 \title{Approve transition request.}
 \usage{
 approve_model_transition_request(
+  client,
+  name,
+  version,
+  stage,
+  archive_existing_versions,
+  comment = NULL
+)
+
+modelRegistryApproveTransitionRequest(
   client,
   name,
   version,

@@ -2,9 +2,19 @@
 % Please edit documentation in R/workspace.R
 \name{import_notebook}
 \alias{import_notebook}
+\alias{workspaceImport}
 \title{Import a workspace object.}
 \usage{
 import_notebook(
+  client,
+  path,
+  content = NULL,
+  format = NULL,
+  language = NULL,
+  overwrite = NULL
+)
+
+workspaceImport(
   client,
   path,
   content = NULL,

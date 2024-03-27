@@ -16,12 +16,17 @@ NULL
 #' @param etag etag used for versioning.
 #'
 #' @rdname delete_restrict_workspace_admin
+#' @alias restrictWorkspaceAdminsDelete
 #' @export
 delete_restrict_workspace_admin <- function(client, etag = NULL) {
   query <- list(etag = etag)
   client$do("DELETE", "/api/2.0/settings/types/restrict_workspace_admins/names/default",
     query = query)
 }
+
+#' @rdname delete_restrict_workspace_admin
+#' @export 
+restrictWorkspaceAdminsDelete <- delete_restrict_workspace_admin
 #' Get the restrict workspace admins setting.
 #' 
 #' Gets the restrict workspace admins setting.
@@ -30,12 +35,17 @@ delete_restrict_workspace_admin <- function(client, etag = NULL) {
 #' @param etag etag used for versioning.
 #'
 #' @rdname get_restrict_workspace_admin
+#' @alias restrictWorkspaceAdminsGet
 #' @export
 get_restrict_workspace_admin <- function(client, etag = NULL) {
   query <- list(etag = etag)
   client$do("GET", "/api/2.0/settings/types/restrict_workspace_admins/names/default",
     query = query)
 }
+
+#' @rdname get_restrict_workspace_admin
+#' @export 
+restrictWorkspaceAdminsGet <- get_restrict_workspace_admin
 #' Update the restrict workspace admins setting.
 #' 
 #' Updates the restrict workspace admins setting for the workspace. A fresh etag
@@ -50,12 +60,17 @@ get_restrict_workspace_admin <- function(client, etag = NULL) {
 #' @param setting Required. This field has no description yet.
 #'
 #' @rdname update_restrict_workspace_admin
+#' @alias restrictWorkspaceAdminsUpdate
 #' @export
 update_restrict_workspace_admin <- function(client, allow_missing, setting, field_mask) {
   body <- list(allow_missing = allow_missing, field_mask = field_mask, setting = setting)
   client$do("PATCH", "/api/2.0/settings/types/restrict_workspace_admins/names/default",
     body = body)
 }
+
+#' @rdname update_restrict_workspace_admin
+#' @export 
+restrictWorkspaceAdminsUpdate <- update_restrict_workspace_admin
 
 
 

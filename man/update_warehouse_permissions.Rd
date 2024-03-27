@@ -2,9 +2,12 @@
 % Please edit documentation in R/warehouses.R
 \name{update_warehouse_permissions}
 \alias{update_warehouse_permissions}
+\alias{warehousesUpdatePermissions}
 \title{Update SQL warehouse permissions.}
 \usage{
 update_warehouse_permissions(client, warehouse_id, access_control_list = NULL)
+
+warehousesUpdatePermissions(client, warehouse_id, access_control_list = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

@@ -2,9 +2,20 @@
 % Please edit documentation in R/vector_search_indexes.R
 \name{create_vector_search_index}
 \alias{create_vector_search_index}
+\alias{vectorSearchIndexesCreateIndex}
 \title{Create an index.}
 \usage{
 create_vector_search_index(
+  client,
+  name,
+  endpoint_name,
+  primary_key,
+  index_type,
+  delta_sync_index_spec = NULL,
+  direct_access_index_spec = NULL
+)
+
+vectorSearchIndexesCreateIndex(
   client,
   name,
   endpoint_name,

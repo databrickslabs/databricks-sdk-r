@@ -2,9 +2,19 @@
 % Please edit documentation in R/functions.R
 \name{list_functions}
 \alias{list_functions}
+\alias{functionsList}
 \title{List functions.}
 \usage{
 list_functions(
+  client,
+  catalog_name,
+  schema_name,
+  include_browse = NULL,
+  max_results = NULL,
+  page_token = NULL
+)
+
+functionsList(
   client,
   catalog_name,
   schema_name,

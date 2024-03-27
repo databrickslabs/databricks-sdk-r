@@ -2,9 +2,12 @@
 % Please edit documentation in R/lakehouse_monitors.R
 \name{get_lakehouse_monitor}
 \alias{get_lakehouse_monitor}
+\alias{lakehouseMonitorsGet}
 \title{Get a table monitor.}
 \usage{
 get_lakehouse_monitor(client, full_name)
+
+lakehouseMonitorsGet(client, full_name)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

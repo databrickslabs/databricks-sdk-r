@@ -2,9 +2,12 @@
 % Please edit documentation in R/vector_search_endpoints.R
 \name{list_vector_search_endpoint_endpoints}
 \alias{list_vector_search_endpoint_endpoints}
+\alias{vectorSearchEndpointsListEndpoints}
 \title{List all endpoints.}
 \usage{
 list_vector_search_endpoint_endpoints(client, page_token = NULL)
+
+vectorSearchEndpointsListEndpoints(client, page_token = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

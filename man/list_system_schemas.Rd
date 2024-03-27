@@ -2,9 +2,12 @@
 % Please edit documentation in R/system_schemas.R
 \name{list_system_schemas}
 \alias{list_system_schemas}
+\alias{systemSchemasList}
 \title{List system schemas.}
 \usage{
 list_system_schemas(client, metastore_id)
+
+systemSchemasList(client, metastore_id)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

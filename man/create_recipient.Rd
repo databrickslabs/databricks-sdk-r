@@ -2,9 +2,22 @@
 % Please edit documentation in R/recipients.R
 \name{create_recipient}
 \alias{create_recipient}
+\alias{recipientsCreate}
 \title{Create a share recipient.}
 \usage{
 create_recipient(
+  client,
+  name,
+  authentication_type,
+  comment = NULL,
+  data_recipient_global_metastore_id = NULL,
+  ip_access_list = NULL,
+  owner = NULL,
+  properties_kvpairs = NULL,
+  sharing_code = NULL
+)
+
+recipientsCreate(
   client,
   name,
   authentication_type,

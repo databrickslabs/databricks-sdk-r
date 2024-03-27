@@ -2,9 +2,12 @@
 % Please edit documentation in R/experiments.R
 \name{get_experiment_run}
 \alias{get_experiment_run}
+\alias{experimentsGetRun}
 \title{Get a run.}
 \usage{
 get_experiment_run(client, run_id, run_uuid = NULL)
+
+experimentsGetRun(client, run_id, run_uuid = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

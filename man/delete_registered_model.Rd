@@ -2,9 +2,12 @@
 % Please edit documentation in R/registered_models.R
 \name{delete_registered_model}
 \alias{delete_registered_model}
+\alias{registeredModelsDelete}
 \title{Delete a Registered Model.}
 \usage{
 delete_registered_model(client, full_name)
+
+registeredModelsDelete(client, full_name)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

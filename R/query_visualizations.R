@@ -13,6 +13,7 @@ NULL
 #' @param type Required. The type of visualization: chart, table, pivot table, and so on.
 #'
 #' @rdname create_query_visualization
+#' @alias queryVisualizationsCreate
 #' @export
 create_query_visualization <- function(client, query_id, type, options, description = NULL,
   name = NULL) {
@@ -20,17 +21,26 @@ create_query_visualization <- function(client, query_id, type, options, descript
     type = type)
   client$do("POST", "/api/2.0/preview/sql/visualizations", body = body)
 }
+
+#' @rdname create_query_visualization
+#' @export 
+queryVisualizationsCreate <- create_query_visualization
 #' Remove visualization.
 #' @param client Required. Instance of DatabricksClient()
 #'
 #' @param id Required. Widget ID returned by :method:queryvizualisations/create.
 #'
 #' @rdname delete_query_visualization
+#' @alias queryVisualizationsDelete
 #' @export
 delete_query_visualization <- function(client, id) {
 
   client$do("DELETE", paste("/api/2.0/preview/sql/visualizations/", id, sep = ""))
 }
+
+#' @rdname delete_query_visualization
+#' @export 
+queryVisualizationsDelete <- delete_query_visualization
 #' Edit existing visualization.
 #' @param client Required. Instance of DatabricksClient()
 #'
@@ -43,6 +53,7 @@ delete_query_visualization <- function(client, id) {
 #' @param updated_at This field has no description yet.
 #'
 #' @rdname update_query_visualization
+#' @alias queryVisualizationsUpdate
 #' @export
 update_query_visualization <- function(client, id, created_at = NULL, description = NULL,
   name = NULL, options = NULL, type = NULL, updated_at = NULL) {
@@ -51,6 +62,10 @@ update_query_visualization <- function(client, id, created_at = NULL, descriptio
   client$do("POST", paste("/api/2.0/preview/sql/visualizations/", id, sep = ""),
     body = body)
 }
+
+#' @rdname update_query_visualization
+#' @export 
+queryVisualizationsUpdate <- update_query_visualization
 
 
 

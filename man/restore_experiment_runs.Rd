@@ -2,9 +2,17 @@
 % Please edit documentation in R/experiments.R
 \name{restore_experiment_runs}
 \alias{restore_experiment_runs}
+\alias{experimentsRestoreRuns}
 \title{Restore runs by deletion time.}
 \usage{
 restore_experiment_runs(
+  client,
+  experiment_id,
+  min_timestamp_millis,
+  max_runs = NULL
+)
+
+experimentsRestoreRuns(
   client,
   experiment_id,
   min_timestamp_millis,

@@ -30,6 +30,7 @@ NULL
 #' @param trigger Which pipeline trigger to use.
 #'
 #' @rdname create_pipeline
+#' @alias pipelinesCreate
 #' @export
 create_pipeline <- function(client, allow_duplicate_names = NULL, catalog = NULL,
   channel = NULL, clusters = NULL, configuration = NULL, continuous = NULL, development = NULL,
@@ -44,6 +45,10 @@ create_pipeline <- function(client, allow_duplicate_names = NULL, catalog = NULL
     trigger = trigger)
   client$do("POST", "/api/2.0/pipelines", body = body)
 }
+
+#' @rdname create_pipeline
+#' @export 
+pipelinesCreate <- create_pipeline
 #' Delete a pipeline.
 #' 
 #' Deletes a pipeline.
@@ -52,22 +57,32 @@ create_pipeline <- function(client, allow_duplicate_names = NULL, catalog = NULL
 #' @param pipeline_id Required. This field has no description yet.
 #'
 #' @rdname delete_pipeline
+#' @alias pipelinesDelete
 #' @export
 delete_pipeline <- function(client, pipeline_id) {
 
   client$do("DELETE", paste("/api/2.0/pipelines/", pipeline_id, sep = ""))
 }
+
+#' @rdname delete_pipeline
+#' @export 
+pipelinesDelete <- delete_pipeline
 #' Get a pipeline.
 #' @param client Required. Instance of DatabricksClient()
 #'
 #' @param pipeline_id Required. This field has no description yet.
 #'
 #' @rdname get_pipeline
+#' @alias pipelinesGet
 #' @export
 get_pipeline <- function(client, pipeline_id) {
 
   client$do("GET", paste("/api/2.0/pipelines/", pipeline_id, sep = ""))
 }
+
+#' @rdname get_pipeline
+#' @export 
+pipelinesGet <- get_pipeline
 #' Get pipeline permission levels.
 #' 
 #' Gets the permission levels that a user can have on an object.
@@ -76,12 +91,17 @@ get_pipeline <- function(client, pipeline_id) {
 #' @param pipeline_id Required. The pipeline for which to get or manage permissions.
 #'
 #' @rdname get_pipeline_permission_levels
+#' @alias pipelinesGetPermissionLevels
 #' @export
 get_pipeline_permission_levels <- function(client, pipeline_id) {
 
   client$do("GET", paste("/api/2.0/permissions/pipelines/", pipeline_id, "/permissionLevels",
     , sep = ""))
 }
+
+#' @rdname get_pipeline_permission_levels
+#' @export 
+pipelinesGetPermissionLevels <- get_pipeline_permission_levels
 #' Get pipeline permissions.
 #' 
 #' Gets the permissions of a pipeline. Pipelines can inherit permissions from
@@ -91,11 +111,16 @@ get_pipeline_permission_levels <- function(client, pipeline_id) {
 #' @param pipeline_id Required. The pipeline for which to get or manage permissions.
 #'
 #' @rdname get_pipeline_permissions
+#' @alias pipelinesGetPermissions
 #' @export
 get_pipeline_permissions <- function(client, pipeline_id) {
 
   client$do("GET", paste("/api/2.0/permissions/pipelines/", pipeline_id, sep = ""))
 }
+
+#' @rdname get_pipeline_permissions
+#' @export 
+pipelinesGetPermissions <- get_pipeline_permissions
 #' Get a pipeline update.
 #' 
 #' Gets an update from an active pipeline.
@@ -105,12 +130,17 @@ get_pipeline_permissions <- function(client, pipeline_id) {
 #' @param update_id Required. The ID of the update.
 #'
 #' @rdname get_pipeline_update
+#' @alias pipelinesGetUpdate
 #' @export
 get_pipeline_update <- function(client, pipeline_id, update_id) {
 
   client$do("GET", paste("/api/2.0/pipelines/", pipeline_id, "/updates/", update_id,
     sep = ""))
 }
+
+#' @rdname get_pipeline_update
+#' @export 
+pipelinesGetUpdate <- get_pipeline_update
 #' List pipeline events.
 #' 
 #' Retrieves events for a pipeline.
@@ -125,6 +155,7 @@ get_pipeline_update <- function(client, pipeline_id, update_id) {
 #' @return `data.frame` with all of the response pages.
 #'
 #' @rdname list_pipeline_events
+#' @alias pipelinesListPipelineEvents
 #' @export
 list_pipeline_events <- function(client, pipeline_id, filter = NULL, max_results = NULL,
   order_by = NULL, page_token = NULL) {
@@ -148,6 +179,10 @@ list_pipeline_events <- function(client, pipeline_id, filter = NULL, max_results
   return(results)
 
 }
+
+#' @rdname list_pipeline_events
+#' @export 
+pipelinesListPipelineEvents <- list_pipeline_events
 #' List pipelines.
 #' 
 #' Lists pipelines defined in the Delta Live Tables system.
@@ -161,6 +196,7 @@ list_pipeline_events <- function(client, pipeline_id, filter = NULL, max_results
 #' @return `data.frame` with all of the response pages.
 #'
 #' @rdname list_pipeline_pipelines
+#' @alias pipelinesListPipelines
 #' @export
 list_pipeline_pipelines <- function(client, filter = NULL, max_results = NULL, order_by = NULL,
   page_token = NULL) {
@@ -183,6 +219,10 @@ list_pipeline_pipelines <- function(client, filter = NULL, max_results = NULL, o
   return(results)
 
 }
+
+#' @rdname list_pipeline_pipelines
+#' @export 
+pipelinesListPipelines <- list_pipeline_pipelines
 #' List pipeline updates.
 #' 
 #' List updates for an active pipeline.
@@ -194,6 +234,7 @@ list_pipeline_pipelines <- function(client, filter = NULL, max_results = NULL, o
 #' @param until_update_id If present, returns updates until and including this update_id.
 #'
 #' @rdname list_pipeline_updates
+#' @alias pipelinesListUpdates
 #' @export
 list_pipeline_updates <- function(client, pipeline_id, max_results = NULL, page_token = NULL,
   until_update_id = NULL) {
@@ -201,6 +242,10 @@ list_pipeline_updates <- function(client, pipeline_id, max_results = NULL, page_
   client$do("GET", paste("/api/2.0/pipelines/", pipeline_id, "/updates", , sep = ""),
     query = query)
 }
+
+#' @rdname list_pipeline_updates
+#' @export 
+pipelinesListUpdates <- list_pipeline_updates
 #' Set pipeline permissions.
 #' 
 #' Sets permissions on a pipeline. Pipelines can inherit permissions from their
@@ -211,12 +256,17 @@ list_pipeline_updates <- function(client, pipeline_id, max_results = NULL, page_
 #' @param pipeline_id Required. The pipeline for which to get or manage permissions.
 #'
 #' @rdname set_pipeline_permissions
+#' @alias pipelinesSetPermissions
 #' @export
 set_pipeline_permissions <- function(client, pipeline_id, access_control_list = NULL) {
   body <- list(access_control_list = access_control_list)
   client$do("PUT", paste("/api/2.0/permissions/pipelines/", pipeline_id, sep = ""),
     body = body)
 }
+
+#' @rdname set_pipeline_permissions
+#' @export 
+pipelinesSetPermissions <- set_pipeline_permissions
 #' Start a pipeline.
 #' 
 #' Starts a new update for the pipeline. If there is already an active update
@@ -232,6 +282,7 @@ set_pipeline_permissions <- function(client, pipeline_id, access_control_list = 
 #' @param validate_only If true, this update only validates the correctness of pipeline source code but does not materialize or publish any datasets.
 #'
 #' @rdname start_pipeline_update
+#' @alias pipelinesStartUpdate
 #' @export
 start_pipeline_update <- function(client, pipeline_id, cause = NULL, full_refresh = NULL,
   full_refresh_selection = NULL, refresh_selection = NULL, validate_only = NULL) {
@@ -240,6 +291,10 @@ start_pipeline_update <- function(client, pipeline_id, cause = NULL, full_refres
   client$do("POST", paste("/api/2.0/pipelines/", pipeline_id, "/updates", , sep = ""),
     body = body)
 }
+
+#' @rdname start_pipeline_update
+#' @export 
+pipelinesStartUpdate <- start_pipeline_update
 #' Stop a pipeline.
 #' 
 #' Stops the pipeline by canceling the active update. If there is no active
@@ -249,11 +304,16 @@ start_pipeline_update <- function(client, pipeline_id, cause = NULL, full_refres
 #' @param pipeline_id Required. This field has no description yet.
 #'
 #' @rdname stop_pipeline
+#' @alias pipelinesStop
 #' @export
 stop_pipeline <- function(client, pipeline_id) {
 
   client$do("POST", paste("/api/2.0/pipelines/", pipeline_id, "/stop", , sep = ""))
 }
+
+#' @rdname stop_pipeline
+#' @export 
+pipelinesStop <- stop_pipeline
 #' Edit a pipeline.
 #' 
 #' Updates a pipeline with the supplied configuration.
@@ -281,6 +341,7 @@ stop_pipeline <- function(client, pipeline_id) {
 #' @param trigger Which pipeline trigger to use.
 #'
 #' @rdname update_pipeline
+#' @alias pipelinesUpdate
 #' @export
 update_pipeline <- function(client, pipeline_id, allow_duplicate_names = NULL, catalog = NULL,
   channel = NULL, clusters = NULL, configuration = NULL, continuous = NULL, development = NULL,
@@ -295,6 +356,10 @@ update_pipeline <- function(client, pipeline_id, allow_duplicate_names = NULL, c
     target = target, trigger = trigger)
   client$do("PUT", paste("/api/2.0/pipelines/", pipeline_id, sep = ""), body = body)
 }
+
+#' @rdname update_pipeline
+#' @export 
+pipelinesUpdate <- update_pipeline
 #' Update pipeline permissions.
 #' 
 #' Updates the permissions on a pipeline. Pipelines can inherit permissions from
@@ -305,12 +370,17 @@ update_pipeline <- function(client, pipeline_id, allow_duplicate_names = NULL, c
 #' @param pipeline_id Required. The pipeline for which to get or manage permissions.
 #'
 #' @rdname update_pipeline_permissions
+#' @alias pipelinesUpdatePermissions
 #' @export
 update_pipeline_permissions <- function(client, pipeline_id, access_control_list = NULL) {
   body <- list(access_control_list = access_control_list)
   client$do("PATCH", paste("/api/2.0/permissions/pipelines/", pipeline_id, sep = ""),
     body = body)
 }
+
+#' @rdname update_pipeline_permissions
+#' @export 
+pipelinesUpdatePermissions <- update_pipeline_permissions
 
 
 

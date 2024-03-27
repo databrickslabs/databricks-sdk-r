@@ -2,9 +2,12 @@
 % Please edit documentation in R/table_constraints.R
 \name{create_table_constraint}
 \alias{create_table_constraint}
+\alias{tableConstraintsCreate}
 \title{Create a table constraint.}
 \usage{
 create_table_constraint(client, full_name_arg, constraint)
+
+tableConstraintsCreate(client, full_name_arg, constraint)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

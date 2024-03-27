@@ -2,9 +2,12 @@
 % Please edit documentation in R/schemas.R
 \name{get_schema}
 \alias{get_schema}
+\alias{schemasGet}
 \title{Get a schema.}
 \usage{
 get_schema(client, full_name, include_browse = NULL)
+
+schemasGet(client, full_name, include_browse = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

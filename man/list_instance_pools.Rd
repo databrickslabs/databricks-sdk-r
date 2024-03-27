@@ -2,9 +2,12 @@
 % Please edit documentation in R/instance_pools.R
 \name{list_instance_pools}
 \alias{list_instance_pools}
+\alias{instancePoolsList}
 \title{List instance pool info.}
 \usage{
 list_instance_pools(client)
+
+instancePoolsList(client)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

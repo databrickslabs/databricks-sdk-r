@@ -2,9 +2,12 @@
 % Please edit documentation in R/files.R
 \name{download_file}
 \alias{download_file}
+\alias{filesDownload}
 \title{Download a file.}
 \usage{
 download_file(client, file_path)
+
+filesDownload(client, file_path)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

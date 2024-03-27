@@ -12,12 +12,17 @@ NULL
 #' @param served_model_name Required. The name of the served model that build logs will be retrieved for.
 #'
 #' @rdname build_serving_endpoint_logs
+#' @alias servingEndpointsBuildLogs
 #' @export
 build_serving_endpoint_logs <- function(client, name, served_model_name) {
 
   client$do("GET", paste("/api/2.0/serving-endpoints/", name, "/served-models/",
     served_model_name, "/build-logs", , sep = ""))
 }
+
+#' @rdname build_serving_endpoint_logs
+#' @export 
+servingEndpointsBuildLogs <- build_serving_endpoint_logs
 #' Create a new serving endpoint.
 #' @param client Required. Instance of DatabricksClient()
 #'
@@ -27,22 +32,32 @@ build_serving_endpoint_logs <- function(client, name, served_model_name) {
 #' @param tags Tags to be attached to the serving endpoint and automatically propagated to billing logs.
 #'
 #' @rdname create_serving_endpoint
+#' @alias servingEndpointsCreate
 #' @export
 create_serving_endpoint <- function(client, name, config, rate_limits = NULL, tags = NULL) {
   body <- list(config = config, name = name, rate_limits = rate_limits, tags = tags)
   client$do("POST", "/api/2.0/serving-endpoints", body = body)
 }
+
+#' @rdname create_serving_endpoint
+#' @export 
+servingEndpointsCreate <- create_serving_endpoint
 #' Delete a serving endpoint.
 #' @param client Required. Instance of DatabricksClient()
 #'
 #' @param name Required. The name of the serving endpoint.
 #'
 #' @rdname delete_serving_endpoint
+#' @alias servingEndpointsDelete
 #' @export
 delete_serving_endpoint <- function(client, name) {
 
   client$do("DELETE", paste("/api/2.0/serving-endpoints/", name, sep = ""))
 }
+
+#' @rdname delete_serving_endpoint
+#' @export 
+servingEndpointsDelete <- delete_serving_endpoint
 #' Get metrics of a serving endpoint.
 #' 
 #' Retrieves the metrics associated with the provided serving endpoint in either
@@ -52,11 +67,16 @@ delete_serving_endpoint <- function(client, name) {
 #' @param name Required. The name of the serving endpoint to retrieve metrics for.
 #'
 #' @rdname export_serving_endpoint_metrics
+#' @alias servingEndpointsExportMetrics
 #' @export
 export_serving_endpoint_metrics <- function(client, name) {
 
   client$do("GET", paste("/api/2.0/serving-endpoints/", name, "/metrics", , sep = ""))
 }
+
+#' @rdname export_serving_endpoint_metrics
+#' @export 
+servingEndpointsExportMetrics <- export_serving_endpoint_metrics
 #' Get a single serving endpoint.
 #' 
 #' Retrieves the details for a single serving endpoint.
@@ -65,11 +85,16 @@ export_serving_endpoint_metrics <- function(client, name) {
 #' @param name Required. The name of the serving endpoint.
 #'
 #' @rdname get_serving_endpoint
+#' @alias servingEndpointsGet
 #' @export
 get_serving_endpoint <- function(client, name) {
 
   client$do("GET", paste("/api/2.0/serving-endpoints/", name, sep = ""))
 }
+
+#' @rdname get_serving_endpoint
+#' @export 
+servingEndpointsGet <- get_serving_endpoint
 #' Get serving endpoint permission levels.
 #' 
 #' Gets the permission levels that a user can have on an object.
@@ -78,12 +103,17 @@ get_serving_endpoint <- function(client, name) {
 #' @param serving_endpoint_id Required. The serving endpoint for which to get or manage permissions.
 #'
 #' @rdname get_serving_endpoint_permission_levels
+#' @alias servingEndpointsGetPermissionLevels
 #' @export
 get_serving_endpoint_permission_levels <- function(client, serving_endpoint_id) {
 
   client$do("GET", paste("/api/2.0/permissions/serving-endpoints/", serving_endpoint_id,
     "/permissionLevels", , sep = ""))
 }
+
+#' @rdname get_serving_endpoint_permission_levels
+#' @export 
+servingEndpointsGetPermissionLevels <- get_serving_endpoint_permission_levels
 #' Get serving endpoint permissions.
 #' 
 #' Gets the permissions of a serving endpoint. Serving endpoints can inherit
@@ -93,18 +123,24 @@ get_serving_endpoint_permission_levels <- function(client, serving_endpoint_id) 
 #' @param serving_endpoint_id Required. The serving endpoint for which to get or manage permissions.
 #'
 #' @rdname get_serving_endpoint_permissions
+#' @alias servingEndpointsGetPermissions
 #' @export
 get_serving_endpoint_permissions <- function(client, serving_endpoint_id) {
 
   client$do("GET", paste("/api/2.0/permissions/serving-endpoints/", serving_endpoint_id,
     sep = ""))
 }
+
+#' @rdname get_serving_endpoint_permissions
+#' @export 
+servingEndpointsGetPermissions <- get_serving_endpoint_permissions
 #' Get all serving endpoints.
 #' @param client Required. Instance of DatabricksClient()
 #'
 #' @return `data.frame` with all of the response pages.
 #'
 #' @rdname list_serving_endpoints
+#' @alias servingEndpointsList
 #' @export
 list_serving_endpoints <- function(client) {
 
@@ -112,6 +148,10 @@ list_serving_endpoints <- function(client) {
   return(json$endpoints)
 
 }
+
+#' @rdname list_serving_endpoints
+#' @export 
+servingEndpointsList <- list_serving_endpoints
 #' Get the latest logs for a served model.
 #' 
 #' Retrieves the service logs associated with the provided served model.
@@ -121,12 +161,17 @@ list_serving_endpoints <- function(client) {
 #' @param served_model_name Required. The name of the served model that logs will be retrieved for.
 #'
 #' @rdname logs_serving_endpoint
+#' @alias servingEndpointsLogs
 #' @export
 logs_serving_endpoint <- function(client, name, served_model_name) {
 
   client$do("GET", paste("/api/2.0/serving-endpoints/", name, "/served-models/",
     served_model_name, "/logs", , sep = ""))
 }
+
+#' @rdname logs_serving_endpoint
+#' @export 
+servingEndpointsLogs <- logs_serving_endpoint
 #' Update tags of a serving endpoint.
 #' 
 #' Used to batch add and delete tags from a serving endpoint with a single API
@@ -138,12 +183,17 @@ logs_serving_endpoint <- function(client, name, served_model_name) {
 #' @param name Required. The name of the serving endpoint who's tags to patch.
 #'
 #' @rdname patch_serving_endpoint
+#' @alias servingEndpointsPatch
 #' @export
 patch_serving_endpoint <- function(client, name, add_tags = NULL, delete_tags = NULL) {
   body <- list(add_tags = add_tags, delete_tags = delete_tags)
   client$do("PATCH", paste("/api/2.0/serving-endpoints/", name, "/tags", , sep = ""),
     body = body)
 }
+
+#' @rdname patch_serving_endpoint
+#' @export 
+servingEndpointsPatch <- patch_serving_endpoint
 #' Update rate limits of a serving endpoint.
 #' 
 #' Used to update the rate limits of a serving endpoint. NOTE: only external and
@@ -154,12 +204,17 @@ patch_serving_endpoint <- function(client, name, add_tags = NULL, delete_tags = 
 #' @param rate_limits The list of endpoint rate limits.
 #'
 #' @rdname put_serving_endpoint
+#' @alias servingEndpointsPut
 #' @export
 put_serving_endpoint <- function(client, name, rate_limits = NULL) {
   body <- list(rate_limits = rate_limits)
   client$do("PUT", paste("/api/2.0/serving-endpoints/", name, "/rate-limits", ,
     sep = ""), body = body)
 }
+
+#' @rdname put_serving_endpoint
+#' @export 
+servingEndpointsPut <- put_serving_endpoint
 #' Query a serving endpoint.
 #' @param client Required. Instance of DatabricksClient()
 #'
@@ -179,6 +234,7 @@ put_serving_endpoint <- function(client, name, rate_limits = NULL) {
 #' @param temperature The temperature field used ONLY for __completions__ and __chat external & foundation model__ serving endpoints.
 #'
 #' @rdname query_serving_endpoint
+#' @alias servingEndpointsQuery
 #' @export
 query_serving_endpoint <- function(client, name, dataframe_records = NULL, dataframe_split = NULL,
   extra_params = NULL, input = NULL, inputs = NULL, instances = NULL, max_tokens = NULL,
@@ -190,6 +246,10 @@ query_serving_endpoint <- function(client, name, dataframe_records = NULL, dataf
   client$do("POST", paste("/serving-endpoints/", name, "/invocations", , sep = ""),
     body = body)
 }
+
+#' @rdname query_serving_endpoint
+#' @export 
+servingEndpointsQuery <- query_serving_endpoint
 #' Set serving endpoint permissions.
 #' 
 #' Sets permissions on a serving endpoint. Serving endpoints can inherit
@@ -200,12 +260,17 @@ query_serving_endpoint <- function(client, name, dataframe_records = NULL, dataf
 #' @param serving_endpoint_id Required. The serving endpoint for which to get or manage permissions.
 #'
 #' @rdname set_serving_endpoint_permissions
+#' @alias servingEndpointsSetPermissions
 #' @export
 set_serving_endpoint_permissions <- function(client, serving_endpoint_id, access_control_list = NULL) {
   body <- list(access_control_list = access_control_list)
   client$do("PUT", paste("/api/2.0/permissions/serving-endpoints/", serving_endpoint_id,
     sep = ""), body = body)
 }
+
+#' @rdname set_serving_endpoint_permissions
+#' @export 
+servingEndpointsSetPermissions <- set_serving_endpoint_permissions
 #' Update config of a serving endpoint.
 #' 
 #' Updates any combination of the serving endpoint's served entities, the
@@ -221,6 +286,7 @@ set_serving_endpoint_permissions <- function(client, serving_endpoint_id, access
 #' @param traffic_config The traffic config defining how invocations to the serving endpoint should be routed.
 #'
 #' @rdname update_serving_endpoint_config
+#' @alias servingEndpointsUpdateConfig
 #' @export
 update_serving_endpoint_config <- function(client, name, auto_capture_config = NULL,
   served_entities = NULL, served_models = NULL, traffic_config = NULL) {
@@ -229,6 +295,10 @@ update_serving_endpoint_config <- function(client, name, auto_capture_config = N
   client$do("PUT", paste("/api/2.0/serving-endpoints/", name, "/config", , sep = ""),
     body = body)
 }
+
+#' @rdname update_serving_endpoint_config
+#' @export 
+servingEndpointsUpdateConfig <- update_serving_endpoint_config
 #' Update serving endpoint permissions.
 #' 
 #' Updates the permissions on a serving endpoint. Serving endpoints can inherit
@@ -239,12 +309,17 @@ update_serving_endpoint_config <- function(client, name, auto_capture_config = N
 #' @param serving_endpoint_id Required. The serving endpoint for which to get or manage permissions.
 #'
 #' @rdname update_serving_endpoint_permissions
+#' @alias servingEndpointsUpdatePermissions
 #' @export
 update_serving_endpoint_permissions <- function(client, serving_endpoint_id, access_control_list = NULL) {
   body <- list(access_control_list = access_control_list)
   client$do("PATCH", paste("/api/2.0/permissions/serving-endpoints/", serving_endpoint_id,
     sep = ""), body = body)
 }
+
+#' @rdname update_serving_endpoint_permissions
+#' @export 
+servingEndpointsUpdatePermissions <- update_serving_endpoint_permissions
 
 #' Create a new serving endpoint.
 #' @param client Required. Instance of DatabricksClient()

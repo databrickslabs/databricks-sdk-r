@@ -2,9 +2,12 @@
 % Please edit documentation in R/jobs.R
 \name{update_job}
 \alias{update_job}
+\alias{jobsUpdate}
 \title{Update job settings partially.}
 \usage{
 update_job(client, job_id, fields_to_remove = NULL, new_settings = NULL)
+
+jobsUpdate(client, job_id, fields_to_remove = NULL, new_settings = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

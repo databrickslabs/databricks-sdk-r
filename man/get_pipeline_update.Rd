@@ -2,9 +2,12 @@
 % Please edit documentation in R/pipelines.R
 \name{get_pipeline_update}
 \alias{get_pipeline_update}
+\alias{pipelinesGetUpdate}
 \title{Get a pipeline update.}
 \usage{
 get_pipeline_update(client, pipeline_id, update_id)
+
+pipelinesGetUpdate(client, pipeline_id, update_id)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

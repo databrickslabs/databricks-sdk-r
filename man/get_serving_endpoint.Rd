@@ -2,9 +2,12 @@
 % Please edit documentation in R/serving_endpoints.R
 \name{get_serving_endpoint}
 \alias{get_serving_endpoint}
+\alias{servingEndpointsGet}
 \title{Get a single serving endpoint.}
 \usage{
 get_serving_endpoint(client, name)
+
+servingEndpointsGet(client, name)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

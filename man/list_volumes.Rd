@@ -2,9 +2,19 @@
 % Please edit documentation in R/volumes.R
 \name{list_volumes}
 \alias{list_volumes}
+\alias{volumesList}
 \title{List Volumes.}
 \usage{
 list_volumes(
+  client,
+  catalog_name,
+  schema_name,
+  include_browse = NULL,
+  max_results = NULL,
+  page_token = NULL
+)
+
+volumesList(
   client,
   catalog_name,
   schema_name,

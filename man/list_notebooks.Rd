@@ -2,9 +2,12 @@
 % Please edit documentation in R/workspace.R
 \name{list_notebooks}
 \alias{list_notebooks}
+\alias{workspaceList}
 \title{List contents.}
 \usage{
 list_notebooks(client, path, notebooks_modified_after = NULL)
+
+workspaceList(client, path, notebooks_modified_after = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

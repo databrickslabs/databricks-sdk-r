@@ -15,11 +15,16 @@ NULL
 #' @param function_info Required. Partial __FunctionInfo__ specifying the function to be created.
 #'
 #' @rdname create_function
+#' @alias functionsCreate
 #' @export
 create_function <- function(client, function_info) {
   body <- list(function_info = function_info)
   client$do("POST", "/api/2.1/unity-catalog/functions", body = body)
 }
+
+#' @rdname create_function
+#' @export 
+functionsCreate <- create_function
 #' Delete a function.
 #' 
 #' Deletes the function that matches the supplied name. For the deletion to
@@ -35,12 +40,17 @@ create_function <- function(client, function_info) {
 #' @param name Required. The fully-qualified name of the function (of the form __catalog_name__.__schema_name__.__function__name__).
 #'
 #' @rdname delete_function
+#' @alias functionsDelete
 #' @export
 delete_function <- function(client, name, force = NULL) {
   query <- list(force = force)
   client$do("DELETE", paste("/api/2.1/unity-catalog/functions/", name, sep = ""),
     query = query)
 }
+
+#' @rdname delete_function
+#' @export 
+functionsDelete <- delete_function
 #' Get a function.
 #' 
 #' Gets a function from within a parent catalog and schema. For the fetch to
@@ -56,12 +66,17 @@ delete_function <- function(client, name, force = NULL) {
 #' @param name Required. The fully-qualified name of the function (of the form __catalog_name__.__schema_name__.__function__name__).
 #'
 #' @rdname get_function
+#' @alias functionsGet
 #' @export
 get_function <- function(client, name, include_browse = NULL) {
   query <- list(include_browse = include_browse)
   client$do("GET", paste("/api/2.1/unity-catalog/functions/", name, sep = ""),
     query = query)
 }
+
+#' @rdname get_function
+#' @export 
+functionsGet <- get_function
 #' List functions.
 #' 
 #' List functions within the specified parent catalog and schema. If the user is
@@ -82,6 +97,7 @@ get_function <- function(client, name, include_browse = NULL) {
 #' @return `data.frame` with all of the response pages.
 #'
 #' @rdname list_functions
+#' @alias functionsList
 #' @export
 list_functions <- function(client, catalog_name, schema_name, include_browse = NULL,
   max_results = NULL, page_token = NULL) {
@@ -104,6 +120,10 @@ list_functions <- function(client, catalog_name, schema_name, include_browse = N
   return(results)
 
 }
+
+#' @rdname list_functions
+#' @export 
+functionsList <- list_functions
 #' Update a function.
 #' 
 #' Updates the function that matches the supplied name. Only the owner of the
@@ -120,12 +140,17 @@ list_functions <- function(client, catalog_name, schema_name, include_browse = N
 #' @param owner Username of current owner of function.
 #'
 #' @rdname update_function
+#' @alias functionsUpdate
 #' @export
 update_function <- function(client, name, owner = NULL) {
   body <- list(owner = owner)
   client$do("PATCH", paste("/api/2.1/unity-catalog/functions/", name, sep = ""),
     body = body)
 }
+
+#' @rdname update_function
+#' @export 
+functionsUpdate <- update_function
 
 
 

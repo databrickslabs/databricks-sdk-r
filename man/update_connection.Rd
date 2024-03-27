@@ -2,9 +2,12 @@
 % Please edit documentation in R/connections.R
 \name{update_connection}
 \alias{update_connection}
+\alias{connectionsUpdate}
 \title{Update a connection.}
 \usage{
 update_connection(client, name, options, new_name = NULL, owner = NULL)
+
+connectionsUpdate(client, name, options, new_name = NULL, owner = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

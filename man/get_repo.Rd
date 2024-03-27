@@ -2,9 +2,12 @@
 % Please edit documentation in R/repos.R
 \name{get_repo}
 \alias{get_repo}
+\alias{reposGet}
 \title{Get a repo.}
 \usage{
 get_repo(client, repo_id)
+
+reposGet(client, repo_id)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

@@ -2,9 +2,12 @@
 % Please edit documentation in R/token_management.R
 \name{get_token_management_permission_levels}
 \alias{get_token_management_permission_levels}
+\alias{tokenManagementGetPermissionLevels}
 \title{Get token permission levels.}
 \usage{
 get_token_management_permission_levels(client)
+
+tokenManagementGetPermissionLevels(client)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

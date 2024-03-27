@@ -2,9 +2,21 @@
 % Please edit documentation in R/clusters.R
 \name{events_cluster}
 \alias{events_cluster}
+\alias{clustersEvents}
 \title{List cluster activity events.}
 \usage{
 events_cluster(
+  client,
+  cluster_id,
+  end_time = NULL,
+  event_types = NULL,
+  limit = NULL,
+  offset = NULL,
+  order = NULL,
+  start_time = NULL
+)
+
+clustersEvents(
   client,
   cluster_id,
   end_time = NULL,

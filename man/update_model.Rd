@@ -2,9 +2,12 @@
 % Please edit documentation in R/model_registry.R
 \name{update_model}
 \alias{update_model}
+\alias{modelRegistryUpdateModel}
 \title{Update model.}
 \usage{
 update_model(client, name, description = NULL)
+
+modelRegistryUpdateModel(client, name, description = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

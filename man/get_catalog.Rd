@@ -2,9 +2,12 @@
 % Please edit documentation in R/catalogs.R
 \name{get_catalog}
 \alias{get_catalog}
+\alias{catalogsGet}
 \title{Get a catalog.}
 \usage{
 get_catalog(client, name, include_browse = NULL)
+
+catalogsGet(client, name, include_browse = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

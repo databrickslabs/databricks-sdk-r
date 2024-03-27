@@ -2,9 +2,12 @@
 % Please edit documentation in R/experiments.R
 \name{get_experiment_permission_levels}
 \alias{get_experiment_permission_levels}
+\alias{experimentsGetPermissionLevels}
 \title{Get experiment permission levels.}
 \usage{
 get_experiment_permission_levels(client, experiment_id)
+
+experimentsGetPermissionLevels(client, experiment_id)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

@@ -2,9 +2,22 @@
 % Please edit documentation in R/external_locations.R
 \name{create_external_location}
 \alias{create_external_location}
+\alias{externalLocationsCreate}
 \title{Create an external location.}
 \usage{
 create_external_location(
+  client,
+  name,
+  url,
+  credential_name,
+  access_point = NULL,
+  comment = NULL,
+  encryption_details = NULL,
+  read_only = NULL,
+  skip_validation = NULL
+)
+
+externalLocationsCreate(
   client,
   name,
   url,

@@ -2,9 +2,12 @@
 % Please edit documentation in R/dbfs.R
 \name{add_dbfs_block}
 \alias{add_dbfs_block}
+\alias{dbfsAddBlock}
 \title{Append data block.}
 \usage{
 add_dbfs_block(client, handle, data)
+
+dbfsAddBlock(client, handle, data)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

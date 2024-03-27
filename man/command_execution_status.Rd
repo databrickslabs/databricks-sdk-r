@@ -2,9 +2,12 @@
 % Please edit documentation in R/command_execution.R
 \name{command_execution_status}
 \alias{command_execution_status}
+\alias{commandExecutionCommandStatus}
 \title{Get command info.}
 \usage{
 command_execution_status(client, cluster_id, context_id, command_id)
+
+commandExecutionCommandStatus(client, cluster_id, context_id, command_id)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

@@ -2,9 +2,28 @@
 % Please edit documentation in R/lakehouse_monitors.R
 \name{create_lakehouse_monitor}
 \alias{create_lakehouse_monitor}
+\alias{lakehouseMonitorsCreate}
 \title{Create a table monitor.}
 \usage{
 create_lakehouse_monitor(
+  client,
+  full_name,
+  assets_dir,
+  output_schema_name,
+  baseline_table_name = NULL,
+  custom_metrics = NULL,
+  data_classification_config = NULL,
+  inference_log = NULL,
+  notifications = NULL,
+  schedule = NULL,
+  skip_builtin_dashboard = NULL,
+  slicing_exprs = NULL,
+  snapshot = NULL,
+  time_series = NULL,
+  warehouse_id = NULL
+)
+
+lakehouseMonitorsCreate(
   client,
   full_name,
   assets_dir,

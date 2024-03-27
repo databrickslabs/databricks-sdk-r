@@ -2,9 +2,12 @@
 % Please edit documentation in R/registered_models.R
 \name{get_registered_model}
 \alias{get_registered_model}
+\alias{registeredModelsGet}
 \title{Get a Registered Model.}
 \usage{
 get_registered_model(client, full_name, include_browse = NULL)
+
+registeredModelsGet(client, full_name, include_browse = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

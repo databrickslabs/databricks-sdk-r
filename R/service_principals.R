@@ -19,6 +19,7 @@ NULL
 #' @param schemas The schema of the List response.
 #'
 #' @rdname create_service_principal
+#' @alias servicePrincipalsCreate
 #' @export
 create_service_principal <- function(client, active = NULL, application_id = NULL,
   display_name = NULL, entitlements = NULL, external_id = NULL, groups = NULL,
@@ -28,6 +29,10 @@ create_service_principal <- function(client, active = NULL, application_id = NUL
     roles = roles, schemas = schemas)
   client$do("POST", "/api/2.0/preview/scim/v2/ServicePrincipals", body = body)
 }
+
+#' @rdname create_service_principal
+#' @export 
+servicePrincipalsCreate <- create_service_principal
 #' Delete a service principal.
 #' 
 #' Delete a single service principal in the Databricks workspace.
@@ -36,12 +41,17 @@ create_service_principal <- function(client, active = NULL, application_id = NUL
 #' @param id Required. Unique ID for a service principal in the Databricks workspace.
 #'
 #' @rdname delete_service_principal
+#' @alias servicePrincipalsDelete
 #' @export
 delete_service_principal <- function(client, id) {
 
   client$do("DELETE", paste("/api/2.0/preview/scim/v2/ServicePrincipals/", id,
     sep = ""))
 }
+
+#' @rdname delete_service_principal
+#' @export 
+servicePrincipalsDelete <- delete_service_principal
 #' Get service principal details.
 #' 
 #' Gets the details for a single service principal define in the Databricks
@@ -51,11 +61,16 @@ delete_service_principal <- function(client, id) {
 #' @param id Required. Unique ID for a service principal in the Databricks workspace.
 #'
 #' @rdname get_service_principal
+#' @alias servicePrincipalsGet
 #' @export
 get_service_principal <- function(client, id) {
 
   client$do("GET", paste("/api/2.0/preview/scim/v2/ServicePrincipals/", id, sep = ""))
 }
+
+#' @rdname get_service_principal
+#' @export 
+servicePrincipalsGet <- get_service_principal
 #' List service principals.
 #' 
 #' Gets the set of service principals associated with a Databricks workspace.
@@ -72,6 +87,7 @@ get_service_principal <- function(client, id) {
 #' @return `data.frame` with all of the response pages.
 #'
 #' @rdname list_service_principals
+#' @alias servicePrincipalsList
 #' @export
 list_service_principals <- function(client, attributes = NULL, count = NULL, excluded_attributes = NULL,
   filter = NULL, sort_by = NULL, sort_order = NULL, start_index = NULL) {
@@ -94,6 +110,10 @@ list_service_principals <- function(client, attributes = NULL, count = NULL, exc
   return(results)
 
 }
+
+#' @rdname list_service_principals
+#' @export 
+servicePrincipalsList <- list_service_principals
 #' Update service principal details.
 #' 
 #' Partially updates the details of a single service principal in the Databricks
@@ -105,12 +125,17 @@ list_service_principals <- function(client, attributes = NULL, count = NULL, exc
 #' @param schemas The schema of the patch request.
 #'
 #' @rdname patch_service_principal
+#' @alias servicePrincipalsPatch
 #' @export
 patch_service_principal <- function(client, id, operations = NULL, schemas = NULL) {
   body <- list(Operations = operations, schemas = schemas)
   client$do("PATCH", paste("/api/2.0/preview/scim/v2/ServicePrincipals/", id, sep = ""),
     body = body)
 }
+
+#' @rdname patch_service_principal
+#' @export 
+servicePrincipalsPatch <- patch_service_principal
 #' Replace service principal.
 #' 
 #' Updates the details of a single service principal.
@@ -129,6 +154,7 @@ patch_service_principal <- function(client, id, operations = NULL, schemas = NUL
 #' @param schemas The schema of the List response.
 #'
 #' @rdname update_service_principal
+#' @alias servicePrincipalsUpdate
 #' @export
 update_service_principal <- function(client, id, active = NULL, application_id = NULL,
   display_name = NULL, entitlements = NULL, external_id = NULL, groups = NULL,
@@ -139,6 +165,10 @@ update_service_principal <- function(client, id, active = NULL, application_id =
   client$do("PUT", paste("/api/2.0/preview/scim/v2/ServicePrincipals/", id, sep = ""),
     body = body)
 }
+
+#' @rdname update_service_principal
+#' @export 
+servicePrincipalsUpdate <- update_service_principal
 
 
 

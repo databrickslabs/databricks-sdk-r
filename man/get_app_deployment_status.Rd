@@ -2,9 +2,12 @@
 % Please edit documentation in R/apps.R
 \name{get_app_deployment_status}
 \alias{get_app_deployment_status}
+\alias{appsGetAppDeploymentStatus}
 \title{Get deployment status for an application.}
 \usage{
 get_app_deployment_status(client, deployment_id, include_app_log = NULL)
+
+appsGetAppDeploymentStatus(client, deployment_id, include_app_log = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

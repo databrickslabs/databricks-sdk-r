@@ -2,9 +2,21 @@
 % Please edit documentation in R/cluster_policies.R
 \name{create_cluster_policy}
 \alias{create_cluster_policy}
+\alias{clusterPoliciesCreate}
 \title{Create a new policy.}
 \usage{
 create_cluster_policy(
+  client,
+  name,
+  definition = NULL,
+  description = NULL,
+  libraries = NULL,
+  max_clusters_per_user = NULL,
+  policy_family_definition_overrides = NULL,
+  policy_family_id = NULL
+)
+
+clusterPoliciesCreate(
   client,
   name,
   definition = NULL,

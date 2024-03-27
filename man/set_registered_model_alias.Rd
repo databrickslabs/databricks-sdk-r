@@ -2,9 +2,12 @@
 % Please edit documentation in R/registered_models.R
 \name{set_registered_model_alias}
 \alias{set_registered_model_alias}
+\alias{registeredModelsSetAlias}
 \title{Set a Registered Model Alias.}
 \usage{
 set_registered_model_alias(client, full_name, alias, version_num)
+
+registeredModelsSetAlias(client, full_name, alias, version_num)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

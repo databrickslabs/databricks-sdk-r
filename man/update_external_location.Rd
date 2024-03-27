@@ -2,9 +2,25 @@
 % Please edit documentation in R/external_locations.R
 \name{update_external_location}
 \alias{update_external_location}
+\alias{externalLocationsUpdate}
 \title{Update an external location.}
 \usage{
 update_external_location(
+  client,
+  name,
+  access_point = NULL,
+  comment = NULL,
+  credential_name = NULL,
+  encryption_details = NULL,
+  force = NULL,
+  new_name = NULL,
+  owner = NULL,
+  read_only = NULL,
+  skip_validation = NULL,
+  url = NULL
+)
+
+externalLocationsUpdate(
   client,
   name,
   access_point = NULL,

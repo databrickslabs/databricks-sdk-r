@@ -2,9 +2,21 @@
 % Please edit documentation in R/groups.R
 \name{list_groups}
 \alias{list_groups}
+\alias{groupsList}
 \title{List group details.}
 \usage{
 list_groups(
+  client,
+  attributes = NULL,
+  count = NULL,
+  excluded_attributes = NULL,
+  filter = NULL,
+  sort_by = NULL,
+  sort_order = NULL,
+  start_index = NULL
+)
+
+groupsList(
   client,
   attributes = NULL,
   count = NULL,

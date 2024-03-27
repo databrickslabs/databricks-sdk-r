@@ -2,9 +2,18 @@
 % Please edit documentation in R/pipelines.R
 \name{list_pipeline_updates}
 \alias{list_pipeline_updates}
+\alias{pipelinesListUpdates}
 \title{List pipeline updates.}
 \usage{
 list_pipeline_updates(
+  client,
+  pipeline_id,
+  max_results = NULL,
+  page_token = NULL,
+  until_update_id = NULL
+)
+
+pipelinesListUpdates(
   client,
   pipeline_id,
   max_results = NULL,

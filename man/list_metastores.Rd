@@ -2,9 +2,12 @@
 % Please edit documentation in R/metastores.R
 \name{list_metastores}
 \alias{list_metastores}
+\alias{metastoresList}
 \title{List metastores.}
 \usage{
 list_metastores(client)
+
+metastoresList(client)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

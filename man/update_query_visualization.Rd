@@ -2,9 +2,21 @@
 % Please edit documentation in R/query_visualizations.R
 \name{update_query_visualization}
 \alias{update_query_visualization}
+\alias{queryVisualizationsUpdate}
 \title{Edit existing visualization.}
 \usage{
 update_query_visualization(
+  client,
+  id,
+  created_at = NULL,
+  description = NULL,
+  name = NULL,
+  options = NULL,
+  type = NULL,
+  updated_at = NULL
+)
+
+queryVisualizationsUpdate(
   client,
   id,
   created_at = NULL,

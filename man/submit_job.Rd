@@ -2,9 +2,25 @@
 % Please edit documentation in R/jobs.R
 \name{submit_job}
 \alias{submit_job}
+\alias{jobsSubmit}
 \title{Create and trigger a one-time run.}
 \usage{
 submit_job(
+  client,
+  access_control_list = NULL,
+  email_notifications = NULL,
+  git_source = NULL,
+  health = NULL,
+  idempotency_token = NULL,
+  notification_settings = NULL,
+  queue = NULL,
+  run_name = NULL,
+  tasks = NULL,
+  timeout_seconds = NULL,
+  webhook_notifications = NULL
+)
+
+jobsSubmit(
   client,
   access_control_list = NULL,
   email_notifications = NULL,

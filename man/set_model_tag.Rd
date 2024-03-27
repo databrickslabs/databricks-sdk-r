@@ -2,9 +2,12 @@
 % Please edit documentation in R/model_registry.R
 \name{set_model_tag}
 \alias{set_model_tag}
+\alias{modelRegistrySetModelTag}
 \title{Set a tag.}
 \usage{
 set_model_tag(client, name, key, value)
+
+modelRegistrySetModelTag(client, name, key, value)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

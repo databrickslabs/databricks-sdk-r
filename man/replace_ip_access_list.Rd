@@ -2,9 +2,19 @@
 % Please edit documentation in R/ip_access_lists.R
 \name{replace_ip_access_list}
 \alias{replace_ip_access_list}
+\alias{ipAccessListsReplace}
 \title{Replace access list.}
 \usage{
 replace_ip_access_list(
+  client,
+  ip_access_list_id,
+  label,
+  list_type,
+  enabled,
+  ip_addresses = NULL
+)
+
+ipAccessListsReplace(
   client,
   ip_access_list_id,
   label,

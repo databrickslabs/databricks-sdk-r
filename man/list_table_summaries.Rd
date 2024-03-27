@@ -2,9 +2,19 @@
 % Please edit documentation in R/tables.R
 \name{list_table_summaries}
 \alias{list_table_summaries}
+\alias{tablesListSummaries}
 \title{List table summaries.}
 \usage{
 list_table_summaries(
+  client,
+  catalog_name,
+  max_results = NULL,
+  page_token = NULL,
+  schema_name_pattern = NULL,
+  table_name_pattern = NULL
+)
+
+tablesListSummaries(
   client,
   catalog_name,
   max_results = NULL,

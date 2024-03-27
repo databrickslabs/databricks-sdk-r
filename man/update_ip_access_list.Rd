@@ -2,9 +2,19 @@
 % Please edit documentation in R/ip_access_lists.R
 \name{update_ip_access_list}
 \alias{update_ip_access_list}
+\alias{ipAccessListsUpdate}
 \title{Update access list.}
 \usage{
 update_ip_access_list(
+  client,
+  ip_access_list_id,
+  enabled = NULL,
+  ip_addresses = NULL,
+  label = NULL,
+  list_type = NULL
+)
+
+ipAccessListsUpdate(
   client,
   ip_access_list_id,
   enabled = NULL,

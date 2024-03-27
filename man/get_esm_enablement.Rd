@@ -2,9 +2,12 @@
 % Please edit documentation in R/esm_enablement.R
 \name{get_esm_enablement}
 \alias{get_esm_enablement}
+\alias{esmEnablementGet}
 \title{Get the enhanced security monitoring setting.}
 \usage{
 get_esm_enablement(client, etag = NULL)
+
+esmEnablementGet(client, etag = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

@@ -2,9 +2,12 @@
 % Please edit documentation in R/dbsql_permissions.R
 \name{get_dbsql_permission}
 \alias{get_dbsql_permission}
+\alias{dbsqlPermissionsGet}
 \title{Get object ACL.}
 \usage{
 get_dbsql_permission(client, object_type, object_id)
+
+dbsqlPermissionsGet(client, object_type, object_id)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

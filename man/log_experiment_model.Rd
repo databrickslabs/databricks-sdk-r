@@ -2,9 +2,12 @@
 % Please edit documentation in R/experiments.R
 \name{log_experiment_model}
 \alias{log_experiment_model}
+\alias{experimentsLogModel}
 \title{Log a model.}
 \usage{
 log_experiment_model(client, model_json = NULL, run_id = NULL)
+
+experimentsLogModel(client, model_json = NULL, run_id = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

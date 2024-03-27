@@ -2,9 +2,20 @@
 % Please edit documentation in R/connections.R
 \name{create_connection}
 \alias{create_connection}
+\alias{connectionsCreate}
 \title{Create a connection.}
 \usage{
 create_connection(
+  client,
+  name,
+  connection_type,
+  options,
+  comment = NULL,
+  properties = NULL,
+  read_only = NULL
+)
+
+connectionsCreate(
   client,
   name,
   connection_type,

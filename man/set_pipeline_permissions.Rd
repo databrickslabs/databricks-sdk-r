@@ -2,9 +2,12 @@
 % Please edit documentation in R/pipelines.R
 \name{set_pipeline_permissions}
 \alias{set_pipeline_permissions}
+\alias{pipelinesSetPermissions}
 \title{Set pipeline permissions.}
 \usage{
 set_pipeline_permissions(client, pipeline_id, access_control_list = NULL)
+
+pipelinesSetPermissions(client, pipeline_id, access_control_list = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

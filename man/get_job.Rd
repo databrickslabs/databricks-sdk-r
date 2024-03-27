@@ -2,9 +2,12 @@
 % Please edit documentation in R/jobs.R
 \name{get_job}
 \alias{get_job}
+\alias{jobsGet}
 \title{Get a single job.}
 \usage{
 get_job(client, job_id)
+
+jobsGet(client, job_id)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

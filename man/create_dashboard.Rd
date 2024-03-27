@@ -2,9 +2,20 @@
 % Please edit documentation in R/dashboards.R
 \name{create_dashboard}
 \alias{create_dashboard}
+\alias{dashboardsCreate}
 \title{Create a dashboard object.}
 \usage{
 create_dashboard(
+  client,
+  name,
+  dashboard_filters_enabled = NULL,
+  is_favorite = NULL,
+  parent = NULL,
+  run_as_role = NULL,
+  tags = NULL
+)
+
+dashboardsCreate(
   client,
   name,
   dashboard_filters_enabled = NULL,

@@ -19,6 +19,7 @@ NULL
 #' @param skip_validation Supplying true to this argument skips validation of the created credential.
 #'
 #' @rdname create_storage_credential
+#' @alias storageCredentialsCreate
 #' @export
 create_storage_credential <- function(client, name, aws_iam_role = NULL, azure_managed_identity = NULL,
   azure_service_principal = NULL, cloudflare_api_token = NULL, comment = NULL,
@@ -29,6 +30,10 @@ create_storage_credential <- function(client, name, aws_iam_role = NULL, azure_m
     name = name, read_only = read_only, skip_validation = skip_validation)
   client$do("POST", "/api/2.1/unity-catalog/storage-credentials", body = body)
 }
+
+#' @rdname create_storage_credential
+#' @export 
+storageCredentialsCreate <- create_storage_credential
 #' Delete a credential.
 #' 
 #' Deletes a storage credential from the metastore. The caller must be an owner
@@ -39,12 +44,17 @@ create_storage_credential <- function(client, name, aws_iam_role = NULL, azure_m
 #' @param name Required. Name of the storage credential.
 #'
 #' @rdname delete_storage_credential
+#' @alias storageCredentialsDelete
 #' @export
 delete_storage_credential <- function(client, name, force = NULL) {
   query <- list(force = force)
   client$do("DELETE", paste("/api/2.1/unity-catalog/storage-credentials/", name,
     sep = ""), query = query)
 }
+
+#' @rdname delete_storage_credential
+#' @export 
+storageCredentialsDelete <- delete_storage_credential
 #' Get a credential.
 #' 
 #' Gets a storage credential from the metastore. The caller must be a metastore
@@ -55,11 +65,16 @@ delete_storage_credential <- function(client, name, force = NULL) {
 #' @param name Required. Name of the storage credential.
 #'
 #' @rdname get_storage_credential
+#' @alias storageCredentialsGet
 #' @export
 get_storage_credential <- function(client, name) {
 
   client$do("GET", paste("/api/2.1/unity-catalog/storage-credentials/", name, sep = ""))
 }
+
+#' @rdname get_storage_credential
+#' @export 
+storageCredentialsGet <- get_storage_credential
 #' List credentials.
 #' 
 #' Gets an array of storage credentials (as __StorageCredentialInfo__ objects).
@@ -75,6 +90,7 @@ get_storage_credential <- function(client, name) {
 #' @return `data.frame` with all of the response pages.
 #'
 #' @rdname list_storage_credentials
+#' @alias storageCredentialsList
 #' @export
 list_storage_credentials <- function(client, max_results = NULL, page_token = NULL) {
   query <- list(max_results = max_results, page_token = page_token)
@@ -95,6 +111,10 @@ list_storage_credentials <- function(client, max_results = NULL, page_token = NU
   return(results)
 
 }
+
+#' @rdname list_storage_credentials
+#' @export 
+storageCredentialsList <- list_storage_credentials
 #' Update a credential.
 #' 
 #' Updates a storage credential on the metastore.
@@ -114,6 +134,7 @@ list_storage_credentials <- function(client, max_results = NULL, page_token = NU
 #' @param skip_validation Supplying true to this argument skips validation of the updated credential.
 #'
 #' @rdname update_storage_credential
+#' @alias storageCredentialsUpdate
 #' @export
 update_storage_credential <- function(client, name, aws_iam_role = NULL, azure_managed_identity = NULL,
   azure_service_principal = NULL, cloudflare_api_token = NULL, comment = NULL,
@@ -127,6 +148,10 @@ update_storage_credential <- function(client, name, aws_iam_role = NULL, azure_m
   client$do("PATCH", paste("/api/2.1/unity-catalog/storage-credentials/", name,
     sep = ""), body = body)
 }
+
+#' @rdname update_storage_credential
+#' @export 
+storageCredentialsUpdate <- update_storage_credential
 #' Validate a storage credential.
 #' 
 #' Validates a storage credential. At least one of __external_location_name__
@@ -154,6 +179,7 @@ update_storage_credential <- function(client, name, aws_iam_role = NULL, azure_m
 #' @param url The external location url to validate.
 #'
 #' @rdname validate_storage_credential
+#' @alias storageCredentialsValidate
 #' @export
 validate_storage_credential <- function(client, aws_iam_role = NULL, azure_managed_identity = NULL,
   azure_service_principal = NULL, cloudflare_api_token = NULL, databricks_gcp_service_account = NULL,
@@ -166,6 +192,10 @@ validate_storage_credential <- function(client, aws_iam_role = NULL, azure_manag
     url = url)
   client$do("POST", "/api/2.1/unity-catalog/validate-storage-credentials", body = body)
 }
+
+#' @rdname validate_storage_credential
+#' @export 
+storageCredentialsValidate <- validate_storage_credential
 
 
 

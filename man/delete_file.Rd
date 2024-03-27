@@ -2,9 +2,12 @@
 % Please edit documentation in R/files.R
 \name{delete_file}
 \alias{delete_file}
+\alias{filesDelete}
 \title{Delete a file.}
 \usage{
 delete_file(client, file_path)
+
+filesDelete(client, file_path)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

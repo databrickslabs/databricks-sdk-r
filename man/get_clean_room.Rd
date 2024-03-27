@@ -2,9 +2,12 @@
 % Please edit documentation in R/clean_rooms.R
 \name{get_clean_room}
 \alias{get_clean_room}
+\alias{cleanRoomsGet}
 \title{Get a clean room.}
 \usage{
 get_clean_room(client, name, include_remote_details = NULL)
+
+cleanRoomsGet(client, name, include_remote_details = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

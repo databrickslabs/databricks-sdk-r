@@ -2,9 +2,33 @@
 % Please edit documentation in R/pipelines.R
 \name{create_pipeline}
 \alias{create_pipeline}
+\alias{pipelinesCreate}
 \title{Create a pipeline.}
 \usage{
 create_pipeline(
+  client,
+  allow_duplicate_names = NULL,
+  catalog = NULL,
+  channel = NULL,
+  clusters = NULL,
+  configuration = NULL,
+  continuous = NULL,
+  development = NULL,
+  dry_run = NULL,
+  edition = NULL,
+  filters = NULL,
+  id = NULL,
+  libraries = NULL,
+  name = NULL,
+  notifications = NULL,
+  photon = NULL,
+  serverless = NULL,
+  storage = NULL,
+  target = NULL,
+  trigger = NULL
+)
+
+pipelinesCreate(
   client,
   allow_duplicate_names = NULL,
   catalog = NULL,

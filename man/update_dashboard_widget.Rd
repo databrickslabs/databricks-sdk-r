@@ -2,9 +2,20 @@
 % Please edit documentation in R/dashboard_widgets.R
 \name{update_dashboard_widget}
 \alias{update_dashboard_widget}
+\alias{dashboardWidgetsUpdate}
 \title{Update existing widget.}
 \usage{
 update_dashboard_widget(
+  client,
+  id,
+  dashboard_id,
+  options,
+  width,
+  text = NULL,
+  visualization_id = NULL
+)
+
+dashboardWidgetsUpdate(
   client,
   id,
   dashboard_id,

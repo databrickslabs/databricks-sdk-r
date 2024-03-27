@@ -2,9 +2,17 @@
 % Please edit documentation in R/command_execution.R
 \name{cancel_command_execution}
 \alias{cancel_command_execution}
+\alias{commandExecutionCancel}
 \title{Cancel a command.}
 \usage{
 cancel_command_execution(
+  client,
+  cluster_id = NULL,
+  command_id = NULL,
+  context_id = NULL
+)
+
+commandExecutionCancel(
   client,
   cluster_id = NULL,
   command_id = NULL,

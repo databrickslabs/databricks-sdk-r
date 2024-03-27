@@ -2,9 +2,12 @@
 % Please edit documentation in R/jobs.R
 \name{reset_job}
 \alias{reset_job}
+\alias{jobsReset}
 \title{Update all job settings (reset).}
 \usage{
 reset_job(client, job_id, new_settings)
+
+jobsReset(client, job_id, new_settings)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

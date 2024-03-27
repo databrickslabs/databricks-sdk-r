@@ -2,9 +2,12 @@
 % Please edit documentation in R/pipelines.R
 \name{get_pipeline_permissions}
 \alias{get_pipeline_permissions}
+\alias{pipelinesGetPermissions}
 \title{Get pipeline permissions.}
 \usage{
 get_pipeline_permissions(client, pipeline_id)
+
+pipelinesGetPermissions(client, pipeline_id)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

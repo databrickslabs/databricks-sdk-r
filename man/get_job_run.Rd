@@ -2,9 +2,17 @@
 % Please edit documentation in R/jobs.R
 \name{get_job_run}
 \alias{get_job_run}
+\alias{jobsGetRun}
 \title{Get a single job run.}
 \usage{
 get_job_run(
+  client,
+  run_id,
+  include_history = NULL,
+  include_resolved_values = NULL
+)
+
+jobsGetRun(
   client,
   run_id,
   include_history = NULL,

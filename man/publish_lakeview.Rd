@@ -2,9 +2,17 @@
 % Please edit documentation in R/lakeview.R
 \name{publish_lakeview}
 \alias{publish_lakeview}
+\alias{lakeviewPublish}
 \title{Publish dashboard.}
 \usage{
 publish_lakeview(
+  client,
+  dashboard_id,
+  embed_credentials = NULL,
+  warehouse_id = NULL
+)
+
+lakeviewPublish(
   client,
   dashboard_id,
   embed_credentials = NULL,

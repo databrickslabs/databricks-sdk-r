@@ -2,9 +2,12 @@
 % Please edit documentation in R/vector_search_indexes.R
 \name{sync_vector_search_index}
 \alias{sync_vector_search_index}
+\alias{vectorSearchIndexesSyncIndex}
 \title{Synchronize an index.}
 \usage{
 sync_vector_search_index(client, index_name)
+
+vectorSearchIndexesSyncIndex(client, index_name)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

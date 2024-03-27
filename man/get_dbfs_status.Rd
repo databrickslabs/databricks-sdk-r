@@ -2,9 +2,12 @@
 % Please edit documentation in R/dbfs.R
 \name{get_dbfs_status}
 \alias{get_dbfs_status}
+\alias{dbfsGetStatus}
 \title{Get the information of a file or directory.}
 \usage{
 get_dbfs_status(client, path)
+
+dbfsGetStatus(client, path)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

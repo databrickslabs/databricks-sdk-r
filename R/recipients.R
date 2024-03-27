@@ -20,6 +20,7 @@ NULL
 #' @param sharing_code The one-time sharing code provided by the data recipient.
 #'
 #' @rdname create_recipient
+#' @alias recipientsCreate
 #' @export
 create_recipient <- function(client, name, authentication_type, comment = NULL, data_recipient_global_metastore_id = NULL,
   ip_access_list = NULL, owner = NULL, properties_kvpairs = NULL, sharing_code = NULL) {
@@ -28,6 +29,10 @@ create_recipient <- function(client, name, authentication_type, comment = NULL, 
     sharing_code = sharing_code)
   client$do("POST", "/api/2.1/unity-catalog/recipients", body = body)
 }
+
+#' @rdname create_recipient
+#' @export 
+recipientsCreate <- create_recipient
 #' Delete a share recipient.
 #' 
 #' Deletes the specified recipient from the metastore. The caller must be the
@@ -37,11 +42,16 @@ create_recipient <- function(client, name, authentication_type, comment = NULL, 
 #' @param name Required. Name of the recipient.
 #'
 #' @rdname delete_recipient
+#' @alias recipientsDelete
 #' @export
 delete_recipient <- function(client, name) {
 
   client$do("DELETE", paste("/api/2.1/unity-catalog/recipients/", name, sep = ""))
 }
+
+#' @rdname delete_recipient
+#' @export 
+recipientsDelete <- delete_recipient
 #' Get a share recipient.
 #' 
 #' Gets a share recipient from the metastore if:
@@ -52,11 +62,16 @@ delete_recipient <- function(client, name) {
 #' @param name Required. Name of the recipient.
 #'
 #' @rdname get_recipient
+#' @alias recipientsGet
 #' @export
 get_recipient <- function(client, name) {
 
   client$do("GET", paste("/api/2.1/unity-catalog/recipients/", name, sep = ""))
 }
+
+#' @rdname get_recipient
+#' @export 
+recipientsGet <- get_recipient
 #' List share recipients.
 #' 
 #' Gets an array of all share recipients within the current metastore where:
@@ -70,6 +85,7 @@ get_recipient <- function(client, name) {
 #' @return `data.frame` with all of the response pages.
 #'
 #' @rdname list_recipients
+#' @alias recipientsList
 #' @export
 list_recipients <- function(client, data_recipient_global_metastore_id = NULL) {
   query <- list(data_recipient_global_metastore_id = data_recipient_global_metastore_id)
@@ -78,6 +94,10 @@ list_recipients <- function(client, data_recipient_global_metastore_id = NULL) {
   return(json$recipients)
 
 }
+
+#' @rdname list_recipients
+#' @export 
+recipientsList <- list_recipients
 #' Rotate a token.
 #' 
 #' Refreshes the specified recipient's delta sharing authentication token with
@@ -88,12 +108,17 @@ list_recipients <- function(client, data_recipient_global_metastore_id = NULL) {
 #' @param name Required. The name of the recipient.
 #'
 #' @rdname rotate_recipient_token
+#' @alias recipientsRotateToken
 #' @export
 rotate_recipient_token <- function(client, name, existing_token_expire_in_seconds) {
   body <- list(existing_token_expire_in_seconds = existing_token_expire_in_seconds)
   client$do("POST", paste("/api/2.1/unity-catalog/recipients/", name, "/rotate-token",
     , sep = ""), body = body)
 }
+
+#' @rdname rotate_recipient_token
+#' @export 
+recipientsRotateToken <- rotate_recipient_token
 #' Get recipient share permissions.
 #' 
 #' Gets the share permissions for the specified Recipient. The caller must be a
@@ -103,12 +128,17 @@ rotate_recipient_token <- function(client, name, existing_token_expire_in_second
 #' @param name Required. The name of the Recipient.
 #'
 #' @rdname share_recipient_permissions
+#' @alias recipientsSharePermissions
 #' @export
 share_recipient_permissions <- function(client, name) {
 
   client$do("GET", paste("/api/2.1/unity-catalog/recipients/", name, "/share-permissions",
     , sep = ""))
 }
+
+#' @rdname share_recipient_permissions
+#' @export 
+recipientsSharePermissions <- share_recipient_permissions
 #' Update a share recipient.
 #' 
 #' Updates an existing recipient in the metastore. The caller must be a
@@ -125,6 +155,7 @@ share_recipient_permissions <- function(client, name) {
 #' @param properties_kvpairs Recipient properties as map of string key-value pairs.
 #'
 #' @rdname update_recipient
+#' @alias recipientsUpdate
 #' @export
 update_recipient <- function(client, name, comment = NULL, ip_access_list = NULL,
   new_name = NULL, owner = NULL, properties_kvpairs = NULL) {
@@ -133,6 +164,10 @@ update_recipient <- function(client, name, comment = NULL, ip_access_list = NULL
   client$do("PATCH", paste("/api/2.1/unity-catalog/recipients/", name, sep = ""),
     body = body)
 }
+
+#' @rdname update_recipient
+#' @export 
+recipientsUpdate <- update_recipient
 
 
 

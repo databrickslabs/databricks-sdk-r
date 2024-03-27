@@ -2,9 +2,12 @@
 % Please edit documentation in R/secrets.R
 \name{get_secret}
 \alias{get_secret}
+\alias{secretsGetSecret}
 \title{Get a secret.}
 \usage{
 get_secret(client, scope, key)
+
+secretsGetSecret(client, scope, key)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

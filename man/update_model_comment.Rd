@@ -2,9 +2,12 @@
 % Please edit documentation in R/model_registry.R
 \name{update_model_comment}
 \alias{update_model_comment}
+\alias{modelRegistryUpdateComment}
 \title{Update a comment.}
 \usage{
 update_model_comment(client, id, comment)
+
+modelRegistryUpdateComment(client, id, comment)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

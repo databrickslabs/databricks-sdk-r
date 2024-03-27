@@ -2,9 +2,12 @@
 % Please edit documentation in R/command_execution.R
 \name{destroy_command_execution}
 \alias{destroy_command_execution}
+\alias{commandExecutionDestroy}
 \title{Delete an execution context.}
 \usage{
 destroy_command_execution(client, cluster_id, context_id)
+
+commandExecutionDestroy(client, cluster_id, context_id)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

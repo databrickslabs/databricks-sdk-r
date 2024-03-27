@@ -16,6 +16,7 @@ NULL
 #' @param primary_key Required. Primary key of the index.
 #'
 #' @rdname create_vector_search_index
+#' @alias vectorSearchIndexesCreateIndex
 #' @export
 create_vector_search_index <- function(client, name, endpoint_name, primary_key,
   index_type, delta_sync_index_spec = NULL, direct_access_index_spec = NULL) {
@@ -23,6 +24,10 @@ create_vector_search_index <- function(client, name, endpoint_name, primary_key,
     endpoint_name = endpoint_name, index_type = index_type, name = name, primary_key = primary_key)
   client$do("POST", "/api/2.0/vector-search/indexes", body = body)
 }
+
+#' @rdname create_vector_search_index
+#' @export 
+vectorSearchIndexesCreateIndex <- create_vector_search_index
 #' Delete data from index.
 #' 
 #' Handles the deletion of data from a specified vector index.
@@ -32,12 +37,17 @@ create_vector_search_index <- function(client, name, endpoint_name, primary_key,
 #' @param primary_keys Required. List of primary keys for the data to be deleted.
 #'
 #' @rdname delete_vector_search_index_data
+#' @alias vectorSearchIndexesDeleteDataVectorIndex
 #' @export
 delete_vector_search_index_data <- function(client, index_name, primary_keys) {
   body <- list(primary_keys = primary_keys)
   client$do("POST", paste("/api/2.0/vector-search/indexes/", index_name, "/delete-data",
     , sep = ""), body = body)
 }
+
+#' @rdname delete_vector_search_index_data
+#' @export 
+vectorSearchIndexesDeleteDataVectorIndex <- delete_vector_search_index_data
 #' Delete an index.
 #' 
 #' Delete an index.
@@ -46,11 +56,16 @@ delete_vector_search_index_data <- function(client, index_name, primary_keys) {
 #' @param index_name Required. Name of the index.
 #'
 #' @rdname delete_vector_search_index
+#' @alias vectorSearchIndexesDeleteIndex
 #' @export
 delete_vector_search_index <- function(client, index_name) {
 
   client$do("DELETE", paste("/api/2.0/vector-search/indexes/", index_name, sep = ""))
 }
+
+#' @rdname delete_vector_search_index
+#' @export 
+vectorSearchIndexesDeleteIndex <- delete_vector_search_index
 #' Get an index.
 #' 
 #' Get an index.
@@ -59,11 +74,16 @@ delete_vector_search_index <- function(client, index_name) {
 #' @param index_name Required. Name of the index.
 #'
 #' @rdname get_vector_search_index
+#' @alias vectorSearchIndexesGetIndex
 #' @export
 get_vector_search_index <- function(client, index_name) {
 
   client$do("GET", paste("/api/2.0/vector-search/indexes/", index_name, sep = ""))
 }
+
+#' @rdname get_vector_search_index
+#' @export 
+vectorSearchIndexesGetIndex <- get_vector_search_index
 #' List indexes.
 #' 
 #' List all indexes in the given endpoint.
@@ -75,6 +95,7 @@ get_vector_search_index <- function(client, index_name) {
 #' @return `data.frame` with all of the response pages.
 #'
 #' @rdname list_vector_search_index_indexes
+#' @alias vectorSearchIndexesListIndexes
 #' @export
 list_vector_search_index_indexes <- function(client, endpoint_name, page_token = NULL) {
   query <- list(endpoint_name = endpoint_name, page_token = page_token)
@@ -95,6 +116,10 @@ list_vector_search_index_indexes <- function(client, endpoint_name, page_token =
   return(results)
 
 }
+
+#' @rdname list_vector_search_index_indexes
+#' @export 
+vectorSearchIndexesListIndexes <- list_vector_search_index_indexes
 #' Query an index.
 #' 
 #' Query the specified vector index.
@@ -109,6 +134,7 @@ list_vector_search_index_indexes <- function(client, endpoint_name, page_token =
 #' @param score_threshold Threshold for the approximate nearest neighbor search.
 #'
 #' @rdname query_vector_search_index
+#' @alias vectorSearchIndexesQueryIndex
 #' @export
 query_vector_search_index <- function(client, index_name, columns, filters_json = NULL,
   num_results = NULL, query_text = NULL, query_vector = NULL, score_threshold = NULL) {
@@ -117,6 +143,10 @@ query_vector_search_index <- function(client, index_name, columns, filters_json 
   client$do("POST", paste("/api/2.0/vector-search/indexes/", index_name, "/query",
     , sep = ""), body = body)
 }
+
+#' @rdname query_vector_search_index
+#' @export 
+vectorSearchIndexesQueryIndex <- query_vector_search_index
 #' Synchronize an index.
 #' 
 #' Triggers a synchronization process for a specified vector index.
@@ -125,12 +155,17 @@ query_vector_search_index <- function(client, index_name, columns, filters_json 
 #' @param index_name Required. Name of the vector index to synchronize.
 #'
 #' @rdname sync_vector_search_index
+#' @alias vectorSearchIndexesSyncIndex
 #' @export
 sync_vector_search_index <- function(client, index_name) {
 
   client$do("POST", paste("/api/2.0/vector-search/indexes/", index_name, "/sync",
     , sep = ""))
 }
+
+#' @rdname sync_vector_search_index
+#' @export 
+vectorSearchIndexesSyncIndex <- sync_vector_search_index
 #' Upsert data into an index.
 #' 
 #' Handles the upserting of data into a specified vector index.
@@ -140,12 +175,17 @@ sync_vector_search_index <- function(client, index_name) {
 #' @param inputs_json Required. JSON string representing the data to be upserted.
 #'
 #' @rdname upsert_vector_search_index_data
+#' @alias vectorSearchIndexesUpsertDataVectorIndex
 #' @export
 upsert_vector_search_index_data <- function(client, index_name, inputs_json) {
   body <- list(inputs_json = inputs_json)
   client$do("POST", paste("/api/2.0/vector-search/indexes/", index_name, "/upsert-data",
     , sep = ""), body = body)
 }
+
+#' @rdname upsert_vector_search_index_data
+#' @export 
+vectorSearchIndexesUpsertDataVectorIndex <- upsert_vector_search_index_data
 
 
 

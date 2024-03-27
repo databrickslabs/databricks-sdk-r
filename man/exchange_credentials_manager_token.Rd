@@ -2,9 +2,12 @@
 % Please edit documentation in R/credentials_manager.R
 \name{exchange_credentials_manager_token}
 \alias{exchange_credentials_manager_token}
+\alias{credentialsManagerExchangeToken}
 \title{Exchange token.}
 \usage{
 exchange_credentials_manager_token(client, partition_id, token_type, scopes)
+
+credentialsManagerExchangeToken(client, partition_id, token_type, scopes)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

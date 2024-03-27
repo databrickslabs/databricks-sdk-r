@@ -2,11 +2,17 @@
 % Please edit documentation in R/model_registry.R, R/model_versions.R
 \name{update_model_version}
 \alias{update_model_version}
+\alias{modelRegistryUpdateModelVersion}
+\alias{modelVersionsUpdate}
 \title{Update model version.}
 \usage{
 update_model_version(client, full_name, version, comment = NULL)
 
+modelRegistryUpdateModelVersion(client, name, version, description = NULL)
+
 update_model_version(client, full_name, version, comment = NULL)
+
+modelVersionsUpdate(client, full_name, version, comment = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
@@ -17,9 +23,9 @@ update_model_version(client, full_name, version, comment = NULL)
 
 \item{comment}{The comment attached to the model version.}
 
-\item{description}{If provided, updates the description for this \code{registered_model}.}
-
 \item{name}{Required. Name of the registered model.}
+
+\item{description}{If provided, updates the description for this \code{registered_model}.}
 }
 \description{
 Updates the model version.

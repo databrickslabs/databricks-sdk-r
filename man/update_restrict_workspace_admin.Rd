@@ -2,9 +2,12 @@
 % Please edit documentation in R/restrict_workspace_admins.R
 \name{update_restrict_workspace_admin}
 \alias{update_restrict_workspace_admin}
+\alias{restrictWorkspaceAdminsUpdate}
 \title{Update the restrict workspace admins setting.}
 \usage{
 update_restrict_workspace_admin(client, allow_missing, setting, field_mask)
+
+restrictWorkspaceAdminsUpdate(client, allow_missing, setting, field_mask)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

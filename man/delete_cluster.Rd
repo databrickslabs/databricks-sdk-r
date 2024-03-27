@@ -2,9 +2,12 @@
 % Please edit documentation in R/clusters.R
 \name{delete_cluster}
 \alias{delete_cluster}
+\alias{clustersDelete}
 \title{Terminate cluster.}
 \usage{
 delete_cluster(client, cluster_id)
+
+clustersDelete(client, cluster_id)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

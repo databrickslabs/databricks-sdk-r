@@ -2,9 +2,12 @@
 % Please edit documentation in R/clusters.R
 \name{unpin_cluster}
 \alias{unpin_cluster}
+\alias{clustersUnpin}
 \title{Unpin cluster.}
 \usage{
 unpin_cluster(client, cluster_id)
+
+clustersUnpin(client, cluster_id)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

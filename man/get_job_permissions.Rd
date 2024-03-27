@@ -2,9 +2,12 @@
 % Please edit documentation in R/jobs.R
 \name{get_job_permissions}
 \alias{get_job_permissions}
+\alias{jobsGetPermissions}
 \title{Get job permissions.}
 \usage{
 get_job_permissions(client, job_id)
+
+jobsGetPermissions(client, job_id)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

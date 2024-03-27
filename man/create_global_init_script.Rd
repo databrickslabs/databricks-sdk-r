@@ -2,6 +2,7 @@
 % Please edit documentation in R/global_init_scripts.R
 \name{create_global_init_script}
 \alias{create_global_init_script}
+\alias{globalInitScriptsCreate}
 \title{Create init script.}
 \usage{
 create_global_init_script(
@@ -11,6 +12,8 @@ create_global_init_script(
   enabled = NULL,
   position = NULL
 )
+
+globalInitScriptsCreate(client, name, script, enabled = NULL, position = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

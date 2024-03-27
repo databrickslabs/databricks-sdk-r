@@ -2,9 +2,12 @@
 % Please edit documentation in R/connections.R
 \name{get_connection}
 \alias{get_connection}
+\alias{connectionsGet}
 \title{Get a connection.}
 \usage{
 get_connection(client, name)
+
+connectionsGet(client, name)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

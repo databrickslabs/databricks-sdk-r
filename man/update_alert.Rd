@@ -2,9 +2,12 @@
 % Please edit documentation in R/alerts.R
 \name{update_alert}
 \alias{update_alert}
+\alias{alertsUpdate}
 \title{Update an alert.}
 \usage{
 update_alert(client, alert_id, name, options, query_id, rearm = NULL)
+
+alertsUpdate(client, alert_id, name, options, query_id, rearm = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

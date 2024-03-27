@@ -2,9 +2,12 @@
 % Please edit documentation in R/dbfs.R
 \name{read_dbfs}
 \alias{read_dbfs}
+\alias{dbfsRead}
 \title{Get the contents of a file.}
 \usage{
 read_dbfs(client, path, length = NULL, offset = NULL)
+
+dbfsRead(client, path, length = NULL, offset = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

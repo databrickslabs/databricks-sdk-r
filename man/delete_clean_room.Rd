@@ -2,9 +2,12 @@
 % Please edit documentation in R/clean_rooms.R
 \name{delete_clean_room}
 \alias{delete_clean_room}
+\alias{cleanRoomsDelete}
 \title{Delete a clean room.}
 \usage{
 delete_clean_room(client, name)
+
+cleanRoomsDelete(client, name)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

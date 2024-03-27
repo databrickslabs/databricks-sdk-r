@@ -2,9 +2,21 @@
 % Please edit documentation in R/catalogs.R
 \name{update_catalog}
 \alias{update_catalog}
+\alias{catalogsUpdate}
 \title{Update a catalog.}
 \usage{
 update_catalog(
+  client,
+  name,
+  comment = NULL,
+  enable_predictive_optimization = NULL,
+  isolation_mode = NULL,
+  new_name = NULL,
+  owner = NULL,
+  properties = NULL
+)
+
+catalogsUpdate(
   client,
   name,
   comment = NULL,

@@ -2,9 +2,12 @@
 % Please edit documentation in R/connections.R
 \name{list_connections}
 \alias{list_connections}
+\alias{connectionsList}
 \title{List connections.}
 \usage{
 list_connections(client)
+
+connectionsList(client)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

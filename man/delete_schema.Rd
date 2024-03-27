@@ -2,9 +2,12 @@
 % Please edit documentation in R/schemas.R
 \name{delete_schema}
 \alias{delete_schema}
+\alias{schemasDelete}
 \title{Delete a schema.}
 \usage{
 delete_schema(client, full_name)
+
+schemasDelete(client, full_name)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

@@ -14,11 +14,16 @@ NULL
 #' @param owner_username Required. New owner of the cluster_id after this RPC.
 #'
 #' @rdname change_cluster_owner
+#' @alias clustersChangeOwner
 #' @export
 change_cluster_owner <- function(client, cluster_id, owner_username) {
   body <- list(cluster_id = cluster_id, owner_username = owner_username)
   client$do("POST", "/api/2.0/clusters/change-owner", body = body)
 }
+
+#' @rdname change_cluster_owner
+#' @export 
+clustersChangeOwner <- change_cluster_owner
 #' Create new cluster.
 #' 
 #' Creates a new Spark cluster. This method will acquire new instances from the
@@ -61,6 +66,7 @@ change_cluster_owner <- function(client, cluster_id, owner_username) {
 #' @param workload_type This field has no description yet.
 #'
 #' @rdname create_cluster
+#' @alias clustersCreate
 #' @export
 create_cluster <- function(client, spark_version, apply_policy_default_values = NULL,
   autoscale = NULL, autotermination_minutes = NULL, aws_attributes = NULL, azure_attributes = NULL,
@@ -83,6 +89,10 @@ create_cluster <- function(client, spark_version, apply_policy_default_values = 
     spark_version = spark_version, ssh_public_keys = ssh_public_keys, workload_type = workload_type)
   client$do("POST", "/api/2.0/clusters/create", body = body)
 }
+
+#' @rdname create_cluster
+#' @export 
+clustersCreate <- create_cluster
 #' Terminate cluster.
 #' 
 #' Terminates the Spark cluster with the specified ID. The cluster is removed
@@ -94,11 +104,16 @@ create_cluster <- function(client, spark_version, apply_policy_default_values = 
 #' @param cluster_id Required. The cluster to be terminated.
 #'
 #' @rdname delete_cluster
+#' @alias clustersDelete
 #' @export
 delete_cluster <- function(client, cluster_id) {
   body <- list(cluster_id = cluster_id)
   client$do("POST", "/api/2.0/clusters/delete", body = body)
 }
+
+#' @rdname delete_cluster
+#' @export 
+clustersDelete <- delete_cluster
 #' Update cluster configuration.
 #' 
 #' Updates the configuration of a cluster to match the provided attributes and
@@ -146,6 +161,7 @@ delete_cluster <- function(client, cluster_id) {
 #' @param workload_type This field has no description yet.
 #'
 #' @rdname edit_cluster
+#' @alias clustersEdit
 #' @export
 edit_cluster <- function(client, cluster_id, spark_version, apply_policy_default_values = NULL,
   autoscale = NULL, autotermination_minutes = NULL, aws_attributes = NULL, azure_attributes = NULL,
@@ -168,6 +184,10 @@ edit_cluster <- function(client, cluster_id, spark_version, apply_policy_default
     spark_version = spark_version, ssh_public_keys = ssh_public_keys, workload_type = workload_type)
   client$do("POST", "/api/2.0/clusters/edit", body = body)
 }
+
+#' @rdname edit_cluster
+#' @export 
+clustersEdit <- edit_cluster
 #' List cluster activity events.
 #' 
 #' Retrieves a list of events about the activity of a cluster. This API is
@@ -186,6 +206,7 @@ edit_cluster <- function(client, cluster_id, spark_version, apply_policy_default
 #' @return `data.frame` with all of the response pages.
 #'
 #' @rdname events_cluster
+#' @alias clustersEvents
 #' @export
 events_cluster <- function(client, cluster_id, end_time = NULL, event_types = NULL,
   limit = NULL, offset = NULL, order = NULL, start_time = NULL) {
@@ -208,6 +229,10 @@ events_cluster <- function(client, cluster_id, end_time = NULL, event_types = NU
   return(results)
 
 }
+
+#' @rdname events_cluster
+#' @export 
+clustersEvents <- events_cluster
 #' Get cluster info.
 #' 
 #' Retrieves the information for a cluster given its identifier. Clusters can be
@@ -217,11 +242,16 @@ events_cluster <- function(client, cluster_id, end_time = NULL, event_types = NU
 #' @param cluster_id Required. The cluster about which to retrieve information.
 #'
 #' @rdname get_cluster
+#' @alias clustersGet
 #' @export
 get_cluster <- function(client, cluster_id) {
   query <- list(cluster_id = cluster_id)
   client$do("GET", "/api/2.0/clusters/get", query = query)
 }
+
+#' @rdname get_cluster
+#' @export 
+clustersGet <- get_cluster
 #' Get cluster permission levels.
 #' 
 #' Gets the permission levels that a user can have on an object.
@@ -230,12 +260,17 @@ get_cluster <- function(client, cluster_id) {
 #' @param cluster_id Required. The cluster for which to get or manage permissions.
 #'
 #' @rdname get_cluster_permission_levels
+#' @alias clustersGetPermissionLevels
 #' @export
 get_cluster_permission_levels <- function(client, cluster_id) {
 
   client$do("GET", paste("/api/2.0/permissions/clusters/", cluster_id, "/permissionLevels",
     , sep = ""))
 }
+
+#' @rdname get_cluster_permission_levels
+#' @export 
+clustersGetPermissionLevels <- get_cluster_permission_levels
 #' Get cluster permissions.
 #' 
 #' Gets the permissions of a cluster. Clusters can inherit permissions from
@@ -245,11 +280,16 @@ get_cluster_permission_levels <- function(client, cluster_id) {
 #' @param cluster_id Required. The cluster for which to get or manage permissions.
 #'
 #' @rdname get_cluster_permissions
+#' @alias clustersGetPermissions
 #' @export
 get_cluster_permissions <- function(client, cluster_id) {
 
   client$do("GET", paste("/api/2.0/permissions/clusters/", cluster_id, sep = ""))
 }
+
+#' @rdname get_cluster_permissions
+#' @export 
+clustersGetPermissions <- get_cluster_permissions
 #' List all clusters.
 #' 
 #' Return information about all pinned clusters, active clusters, up to 200 of
@@ -268,6 +308,7 @@ get_cluster_permissions <- function(client, cluster_id) {
 #' @return `data.frame` with all of the response pages.
 #'
 #' @rdname list_clusters
+#' @alias clustersList
 #' @export
 list_clusters <- function(client, can_use_client = NULL) {
   query <- list(can_use_client = can_use_client)
@@ -276,6 +317,10 @@ list_clusters <- function(client, can_use_client = NULL) {
   return(json$clusters)
 
 }
+
+#' @rdname list_clusters
+#' @export 
+clustersList <- list_clusters
 #' List node types.
 #' 
 #' Returns a list of supported Spark node types. These node types can be used to
@@ -283,10 +328,15 @@ list_clusters <- function(client, can_use_client = NULL) {
 #' @param client Required. Instance of DatabricksClient()
 #'
 #' @rdname list_cluster_node_types
+#' @alias clustersListNodeTypes
 #' @export
 list_cluster_node_types <- function(client) {
   client$do("GET", "/api/2.0/clusters/list-node-types")
 }
+
+#' @rdname list_cluster_node_types
+#' @export 
+clustersListNodeTypes <- list_cluster_node_types
 #' List availability zones.
 #' 
 #' Returns a list of availability zones where clusters can be created in (For
@@ -294,10 +344,15 @@ list_cluster_node_types <- function(client) {
 #' @param client Required. Instance of DatabricksClient()
 #'
 #' @rdname list_cluster_zones
+#' @alias clustersListZones
 #' @export
 list_cluster_zones <- function(client) {
   client$do("GET", "/api/2.0/clusters/list-zones")
 }
+
+#' @rdname list_cluster_zones
+#' @export 
+clustersListZones <- list_cluster_zones
 #' Permanently delete cluster.
 #' 
 #' Permanently deletes a Spark cluster. This cluster is terminated and resources
@@ -311,11 +366,16 @@ list_cluster_zones <- function(client) {
 #' @param cluster_id Required. The cluster to be deleted.
 #'
 #' @rdname permanent_cluster_delete
+#' @alias clustersPermanentDelete
 #' @export
 permanent_cluster_delete <- function(client, cluster_id) {
   body <- list(cluster_id = cluster_id)
   client$do("POST", "/api/2.0/clusters/permanent-delete", body = body)
 }
+
+#' @rdname permanent_cluster_delete
+#' @export 
+clustersPermanentDelete <- permanent_cluster_delete
 #' Pin cluster.
 #' 
 #' Pinning a cluster ensures that the cluster will always be returned by the
@@ -326,11 +386,16 @@ permanent_cluster_delete <- function(client, cluster_id) {
 #' @param cluster_id Required. <needs content added>.
 #'
 #' @rdname pin_cluster
+#' @alias clustersPin
 #' @export
 pin_cluster <- function(client, cluster_id) {
   body <- list(cluster_id = cluster_id)
   client$do("POST", "/api/2.0/clusters/pin", body = body)
 }
+
+#' @rdname pin_cluster
+#' @export 
+clustersPin <- pin_cluster
 #' Resize cluster.
 #' 
 #' Resizes a cluster to have a desired number of workers. This will fail unless
@@ -342,11 +407,16 @@ pin_cluster <- function(client, cluster_id) {
 #' @param num_workers Number of worker nodes that this cluster should have.
 #'
 #' @rdname resize_cluster
+#' @alias clustersResize
 #' @export
 resize_cluster <- function(client, cluster_id, autoscale = NULL, num_workers = NULL) {
   body <- list(autoscale = autoscale, cluster_id = cluster_id, num_workers = num_workers)
   client$do("POST", "/api/2.0/clusters/resize", body = body)
 }
+
+#' @rdname resize_cluster
+#' @export 
+clustersResize <- resize_cluster
 #' Restart cluster.
 #' 
 #' Restarts a Spark cluster with the supplied ID. If the cluster is not
@@ -357,11 +427,16 @@ resize_cluster <- function(client, cluster_id, autoscale = NULL, num_workers = N
 #' @param restart_user <needs content added>.
 #'
 #' @rdname restart_cluster
+#' @alias clustersRestart
 #' @export
 restart_cluster <- function(client, cluster_id, restart_user = NULL) {
   body <- list(cluster_id = cluster_id, restart_user = restart_user)
   client$do("POST", "/api/2.0/clusters/restart", body = body)
 }
+
+#' @rdname restart_cluster
+#' @export 
+clustersRestart <- restart_cluster
 #' Set cluster permissions.
 #' 
 #' Sets permissions on a cluster. Clusters can inherit permissions from their
@@ -372,12 +447,17 @@ restart_cluster <- function(client, cluster_id, restart_user = NULL) {
 #' @param cluster_id Required. The cluster for which to get or manage permissions.
 #'
 #' @rdname set_cluster_permissions
+#' @alias clustersSetPermissions
 #' @export
 set_cluster_permissions <- function(client, cluster_id, access_control_list = NULL) {
   body <- list(access_control_list = access_control_list)
   client$do("PUT", paste("/api/2.0/permissions/clusters/", cluster_id, sep = ""),
     body = body)
 }
+
+#' @rdname set_cluster_permissions
+#' @export 
+clustersSetPermissions <- set_cluster_permissions
 #' List available Spark versions.
 #' 
 #' Returns the list of available Spark versions. These versions can be used to
@@ -385,10 +465,15 @@ set_cluster_permissions <- function(client, cluster_id, access_control_list = NU
 #' @param client Required. Instance of DatabricksClient()
 #'
 #' @rdname spark_cluster_versions
+#' @alias clustersSparkVersions
 #' @export
 spark_cluster_versions <- function(client) {
   client$do("GET", "/api/2.0/clusters/spark-versions")
 }
+
+#' @rdname spark_cluster_versions
+#' @export 
+clustersSparkVersions <- spark_cluster_versions
 #' Start terminated cluster.
 #' 
 #' Starts a terminated Spark cluster with the supplied ID. This works similar to
@@ -404,11 +489,16 @@ spark_cluster_versions <- function(client) {
 #' @param cluster_id Required. The cluster to be started.
 #'
 #' @rdname start_cluster
+#' @alias clustersStart
 #' @export
 start_cluster <- function(client, cluster_id) {
   body <- list(cluster_id = cluster_id)
   client$do("POST", "/api/2.0/clusters/start", body = body)
 }
+
+#' @rdname start_cluster
+#' @export 
+clustersStart <- start_cluster
 #' Unpin cluster.
 #' 
 #' Unpinning a cluster will allow the cluster to eventually be removed from the
@@ -419,11 +509,16 @@ start_cluster <- function(client, cluster_id) {
 #' @param cluster_id Required. <needs content added>.
 #'
 #' @rdname unpin_cluster
+#' @alias clustersUnpin
 #' @export
 unpin_cluster <- function(client, cluster_id) {
   body <- list(cluster_id = cluster_id)
   client$do("POST", "/api/2.0/clusters/unpin", body = body)
 }
+
+#' @rdname unpin_cluster
+#' @export 
+clustersUnpin <- unpin_cluster
 #' Update cluster permissions.
 #' 
 #' Updates the permissions on a cluster. Clusters can inherit permissions from
@@ -434,12 +529,17 @@ unpin_cluster <- function(client, cluster_id) {
 #' @param cluster_id Required. The cluster for which to get or manage permissions.
 #'
 #' @rdname update_cluster_permissions
+#' @alias clustersUpdatePermissions
 #' @export
 update_cluster_permissions <- function(client, cluster_id, access_control_list = NULL) {
   body <- list(access_control_list = access_control_list)
   client$do("PATCH", paste("/api/2.0/permissions/clusters/", cluster_id, sep = ""),
     body = body)
 }
+
+#' @rdname update_cluster_permissions
+#' @export 
+clustersUpdatePermissions <- update_cluster_permissions
 
 #' Create new cluster.
 #' 

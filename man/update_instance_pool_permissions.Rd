@@ -2,9 +2,16 @@
 % Please edit documentation in R/instance_pools.R
 \name{update_instance_pool_permissions}
 \alias{update_instance_pool_permissions}
+\alias{instancePoolsUpdatePermissions}
 \title{Update instance pool permissions.}
 \usage{
 update_instance_pool_permissions(
+  client,
+  instance_pool_id,
+  access_control_list = NULL
+)
+
+instancePoolsUpdatePermissions(
   client,
   instance_pool_id,
   access_control_list = NULL

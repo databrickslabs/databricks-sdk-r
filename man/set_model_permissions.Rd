@@ -2,9 +2,16 @@
 % Please edit documentation in R/model_registry.R
 \name{set_model_permissions}
 \alias{set_model_permissions}
+\alias{modelRegistrySetPermissions}
 \title{Set registered model permissions.}
 \usage{
 set_model_permissions(client, registered_model_id, access_control_list = NULL)
+
+modelRegistrySetPermissions(
+  client,
+  registered_model_id,
+  access_control_list = NULL
+)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

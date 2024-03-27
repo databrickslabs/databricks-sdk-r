@@ -2,9 +2,12 @@
 % Please edit documentation in R/online_tables.R
 \name{get_online_table}
 \alias{get_online_table}
+\alias{onlineTablesGet}
 \title{Get an Online Table.}
 \usage{
 get_online_table(client, name)
+
+onlineTablesGet(client, name)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

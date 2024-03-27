@@ -2,9 +2,12 @@
 % Please edit documentation in R/secrets.R
 \name{get_secret_acl}
 \alias{get_secret_acl}
+\alias{secretsGetAcl}
 \title{Get secret ACL details.}
 \usage{
 get_secret_acl(client, scope, principal)
+
+secretsGetAcl(client, scope, principal)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

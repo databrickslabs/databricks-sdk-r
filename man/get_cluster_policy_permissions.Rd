@@ -2,9 +2,12 @@
 % Please edit documentation in R/cluster_policies.R
 \name{get_cluster_policy_permissions}
 \alias{get_cluster_policy_permissions}
+\alias{clusterPoliciesGetPermissions}
 \title{Get cluster policy permissions.}
 \usage{
 get_cluster_policy_permissions(client, cluster_policy_id)
+
+clusterPoliciesGetPermissions(client, cluster_policy_id)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

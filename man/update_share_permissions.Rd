@@ -2,9 +2,12 @@
 % Please edit documentation in R/shares.R
 \name{update_share_permissions}
 \alias{update_share_permissions}
+\alias{sharesUpdatePermissions}
 \title{Update permissions.}
 \usage{
 update_share_permissions(client, name, changes = NULL)
+
+sharesUpdatePermissions(client, name, changes = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

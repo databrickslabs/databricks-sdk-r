@@ -2,9 +2,12 @@
 % Please edit documentation in R/users.R
 \name{get_user_permission_levels}
 \alias{get_user_permission_levels}
+\alias{usersGetPermissionLevels}
 \title{Get password permission levels.}
 \usage{
 get_user_permission_levels(client)
+
+usersGetPermissionLevels(client)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

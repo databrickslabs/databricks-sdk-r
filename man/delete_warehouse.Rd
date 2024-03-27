@@ -2,9 +2,12 @@
 % Please edit documentation in R/warehouses.R
 \name{delete_warehouse}
 \alias{delete_warehouse}
+\alias{warehousesDelete}
 \title{Delete a warehouse.}
 \usage{
 delete_warehouse(client, id)
+
+warehousesDelete(client, id)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

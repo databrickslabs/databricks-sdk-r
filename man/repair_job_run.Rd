@@ -2,9 +2,28 @@
 % Please edit documentation in R/jobs.R
 \name{repair_job_run}
 \alias{repair_job_run}
+\alias{jobsRepairRun}
 \title{Repair a job run.}
 \usage{
 repair_job_run(
+  client,
+  run_id,
+  dbt_commands = NULL,
+  jar_params = NULL,
+  job_parameters = NULL,
+  latest_repair_id = NULL,
+  notebook_params = NULL,
+  pipeline_params = NULL,
+  python_named_params = NULL,
+  python_params = NULL,
+  rerun_all_failed_tasks = NULL,
+  rerun_dependent_tasks = NULL,
+  rerun_tasks = NULL,
+  spark_submit_params = NULL,
+  sql_params = NULL
+)
+
+jobsRepairRun(
   client,
   run_id,
   dbt_commands = NULL,

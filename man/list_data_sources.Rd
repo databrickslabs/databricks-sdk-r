@@ -2,9 +2,12 @@
 % Please edit documentation in R/data_sources.R
 \name{list_data_sources}
 \alias{list_data_sources}
+\alias{dataSourcesList}
 \title{Get a list of SQL warehouses.}
 \usage{
 list_data_sources(client)
+
+dataSourcesList(client)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

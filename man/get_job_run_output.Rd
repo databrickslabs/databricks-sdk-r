@@ -2,9 +2,12 @@
 % Please edit documentation in R/jobs.R
 \name{get_job_run_output}
 \alias{get_job_run_output}
+\alias{jobsGetRunOutput}
 \title{Get the output for a single run.}
 \usage{
 get_job_run_output(client, run_id)
+
+jobsGetRunOutput(client, run_id)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

@@ -2,9 +2,12 @@
 % Please edit documentation in R/tokens.R
 \name{delete_token}
 \alias{delete_token}
+\alias{tokensDelete}
 \title{Revoke token.}
 \usage{
 delete_token(client, token_id)
+
+tokensDelete(client, token_id)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

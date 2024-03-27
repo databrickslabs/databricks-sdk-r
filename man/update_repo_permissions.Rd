@@ -2,9 +2,12 @@
 % Please edit documentation in R/repos.R
 \name{update_repo_permissions}
 \alias{update_repo_permissions}
+\alias{reposUpdatePermissions}
 \title{Update repo permissions.}
 \usage{
 update_repo_permissions(client, repo_id, access_control_list = NULL)
+
+reposUpdatePermissions(client, repo_id, access_control_list = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

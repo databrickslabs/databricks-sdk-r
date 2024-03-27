@@ -2,9 +2,12 @@
 % Please edit documentation in R/storage_credentials.R
 \name{list_storage_credentials}
 \alias{list_storage_credentials}
+\alias{storageCredentialsList}
 \title{List credentials.}
 \usage{
 list_storage_credentials(client, max_results = NULL, page_token = NULL)
+
+storageCredentialsList(client, max_results = NULL, page_token = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

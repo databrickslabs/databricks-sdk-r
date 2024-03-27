@@ -2,9 +2,12 @@
 % Please edit documentation in R/git_credentials.R
 \name{list_git_credentials}
 \alias{list_git_credentials}
+\alias{gitCredentialsList}
 \title{Get Git credentials.}
 \usage{
 list_git_credentials(client)
+
+gitCredentialsList(client)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

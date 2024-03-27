@@ -2,9 +2,12 @@
 % Please edit documentation in R/warehouses.R
 \name{get_warehouse_permission_levels}
 \alias{get_warehouse_permission_levels}
+\alias{warehousesGetPermissionLevels}
 \title{Get SQL warehouse permission levels.}
 \usage{
 get_warehouse_permission_levels(client, warehouse_id)
+
+warehousesGetPermissionLevels(client, warehouse_id)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

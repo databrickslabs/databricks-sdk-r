@@ -2,9 +2,20 @@
 % Please edit documentation in R/experiments.R
 \name{search_experiment_runs}
 \alias{search_experiment_runs}
+\alias{experimentsSearchRuns}
 \title{Search for runs.}
 \usage{
 search_experiment_runs(
+  client,
+  experiment_ids = NULL,
+  filter = NULL,
+  max_results = NULL,
+  order_by = NULL,
+  page_token = NULL,
+  run_view_type = NULL
+)
+
+experimentsSearchRuns(
   client,
   experiment_ids = NULL,
   filter = NULL,

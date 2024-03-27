@@ -17,6 +17,7 @@ NULL
 #' @param storage_root Storage root URL for managed tables within schema.
 #'
 #' @rdname create_schema
+#' @alias schemasCreate
 #' @export
 create_schema <- function(client, name, catalog_name, comment = NULL, properties = NULL,
   storage_root = NULL) {
@@ -24,6 +25,10 @@ create_schema <- function(client, name, catalog_name, comment = NULL, properties
     storage_root = storage_root)
   client$do("POST", "/api/2.1/unity-catalog/schemas", body = body)
 }
+
+#' @rdname create_schema
+#' @export 
+schemasCreate <- create_schema
 #' Delete a schema.
 #' 
 #' Deletes the specified schema from the parent catalog. The caller must be the
@@ -33,11 +38,16 @@ create_schema <- function(client, name, catalog_name, comment = NULL, properties
 #' @param full_name Required. Full name of the schema.
 #'
 #' @rdname delete_schema
+#' @alias schemasDelete
 #' @export
 delete_schema <- function(client, full_name) {
 
   client$do("DELETE", paste("/api/2.1/unity-catalog/schemas/", full_name, sep = ""))
 }
+
+#' @rdname delete_schema
+#' @export 
+schemasDelete <- delete_schema
 #' Get a schema.
 #' 
 #' Gets the specified schema within the metastore. The caller must be a
@@ -49,12 +59,17 @@ delete_schema <- function(client, full_name) {
 #' @param include_browse Whether to include schemas in the response for which the principal can only access selective metadata for.
 #'
 #' @rdname get_schema
+#' @alias schemasGet
 #' @export
 get_schema <- function(client, full_name, include_browse = NULL) {
   query <- list(include_browse = include_browse)
   client$do("GET", paste("/api/2.1/unity-catalog/schemas/", full_name, sep = ""),
     query = query)
 }
+
+#' @rdname get_schema
+#' @export 
+schemasGet <- get_schema
 #' List schemas.
 #' 
 #' Gets an array of schemas for a catalog in the metastore. If the caller is the
@@ -72,6 +87,7 @@ get_schema <- function(client, full_name, include_browse = NULL) {
 #' @return `data.frame` with all of the response pages.
 #'
 #' @rdname list_schemas
+#' @alias schemasList
 #' @export
 list_schemas <- function(client, catalog_name, include_browse = NULL, max_results = NULL,
   page_token = NULL) {
@@ -94,6 +110,10 @@ list_schemas <- function(client, catalog_name, include_browse = NULL, max_result
   return(results)
 
 }
+
+#' @rdname list_schemas
+#' @export 
+schemasList <- list_schemas
 #' Update a schema.
 #' 
 #' Updates a schema for a catalog. The caller must be the owner of the schema or
@@ -111,6 +131,7 @@ list_schemas <- function(client, catalog_name, include_browse = NULL, max_result
 #' @param properties A map of key-value properties attached to the securable.
 #'
 #' @rdname update_schema
+#' @alias schemasUpdate
 #' @export
 update_schema <- function(client, full_name, comment = NULL, enable_predictive_optimization = NULL,
   new_name = NULL, owner = NULL, properties = NULL) {
@@ -119,6 +140,10 @@ update_schema <- function(client, full_name, comment = NULL, enable_predictive_o
   client$do("PATCH", paste("/api/2.1/unity-catalog/schemas/", full_name, sep = ""),
     body = body)
 }
+
+#' @rdname update_schema
+#' @export 
+schemasUpdate <- update_schema
 
 
 

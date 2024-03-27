@@ -2,9 +2,23 @@
 % Please edit documentation in R/service_principals.R
 \name{create_service_principal}
 \alias{create_service_principal}
+\alias{servicePrincipalsCreate}
 \title{Create a service principal.}
 \usage{
 create_service_principal(
+  client,
+  active = NULL,
+  application_id = NULL,
+  display_name = NULL,
+  entitlements = NULL,
+  external_id = NULL,
+  groups = NULL,
+  id = NULL,
+  roles = NULL,
+  schemas = NULL
+)
+
+servicePrincipalsCreate(
   client,
   active = NULL,
   application_id = NULL,

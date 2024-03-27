@@ -2,9 +2,12 @@
 % Please edit documentation in R/dbfs.R
 \name{put_dbfs}
 \alias{put_dbfs}
+\alias{dbfsPut}
 \title{Upload a file.}
 \usage{
 put_dbfs(client, path, contents = NULL, overwrite = NULL)
+
+dbfsPut(client, path, contents = NULL, overwrite = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

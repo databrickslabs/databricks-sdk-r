@@ -2,9 +2,23 @@
 % Please edit documentation in R/warehouses.R
 \name{set_warehouse_workspace_config}
 \alias{set_warehouse_workspace_config}
+\alias{warehousesSetWorkspaceWarehouseConfig}
 \title{Set the workspace configuration.}
 \usage{
 set_warehouse_workspace_config(
+  client,
+  channel = NULL,
+  config_param = NULL,
+  data_access_config = NULL,
+  enabled_warehouse_types = NULL,
+  global_param = NULL,
+  google_service_account = NULL,
+  instance_profile_arn = NULL,
+  security_policy = NULL,
+  sql_configuration_parameters = NULL
+)
+
+warehousesSetWorkspaceWarehouseConfig(
   client,
   channel = NULL,
   config_param = NULL,

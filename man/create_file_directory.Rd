@@ -2,9 +2,12 @@
 % Please edit documentation in R/files.R
 \name{create_file_directory}
 \alias{create_file_directory}
+\alias{filesCreateDirectory}
 \title{Create a directory.}
 \usage{
 create_file_directory(client, directory_path)
+
+filesCreateDirectory(client, directory_path)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

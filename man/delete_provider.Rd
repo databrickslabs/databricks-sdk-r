@@ -2,9 +2,12 @@
 % Please edit documentation in R/providers.R
 \name{delete_provider}
 \alias{delete_provider}
+\alias{providersDelete}
 \title{Delete a provider.}
 \usage{
 delete_provider(client, name)
+
+providersDelete(client, name)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

@@ -2,9 +2,34 @@
 % Please edit documentation in R/pipelines.R
 \name{update_pipeline}
 \alias{update_pipeline}
+\alias{pipelinesUpdate}
 \title{Edit a pipeline.}
 \usage{
 update_pipeline(
+  client,
+  pipeline_id,
+  allow_duplicate_names = NULL,
+  catalog = NULL,
+  channel = NULL,
+  clusters = NULL,
+  configuration = NULL,
+  continuous = NULL,
+  development = NULL,
+  edition = NULL,
+  expected_last_modified = NULL,
+  filters = NULL,
+  id = NULL,
+  libraries = NULL,
+  name = NULL,
+  notifications = NULL,
+  photon = NULL,
+  serverless = NULL,
+  storage = NULL,
+  target = NULL,
+  trigger = NULL
+)
+
+pipelinesUpdate(
   client,
   pipeline_id,
   allow_duplicate_names = NULL,

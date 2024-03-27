@@ -2,9 +2,12 @@
 % Please edit documentation in R/global_init_scripts.R
 \name{list_global_init_scripts}
 \alias{list_global_init_scripts}
+\alias{globalInitScriptsList}
 \title{Get init scripts.}
 \usage{
 list_global_init_scripts(client)
+
+globalInitScriptsList(client)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

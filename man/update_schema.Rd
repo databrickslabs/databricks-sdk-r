@@ -2,9 +2,20 @@
 % Please edit documentation in R/schemas.R
 \name{update_schema}
 \alias{update_schema}
+\alias{schemasUpdate}
 \title{Update a schema.}
 \usage{
 update_schema(
+  client,
+  full_name,
+  comment = NULL,
+  enable_predictive_optimization = NULL,
+  new_name = NULL,
+  owner = NULL,
+  properties = NULL
+)
+
+schemasUpdate(
   client,
   full_name,
   comment = NULL,

@@ -2,9 +2,12 @@
 % Please edit documentation in R/jobs.R
 \name{cancel_job_run}
 \alias{cancel_job_run}
+\alias{jobsCancelRun}
 \title{Cancel a run.}
 \usage{
 cancel_job_run(client, run_id)
+
+jobsCancelRun(client, run_id)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

@@ -2,9 +2,12 @@
 % Please edit documentation in R/users.R
 \name{patch_user}
 \alias{patch_user}
+\alias{usersPatch}
 \title{Update user details.}
 \usage{
 patch_user(client, id, operations = NULL, schemas = NULL)
+
+usersPatch(client, id, operations = NULL, schemas = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

@@ -2,9 +2,12 @@
 % Please edit documentation in R/policy_families.R
 \name{get_cluster_policy_family}
 \alias{get_cluster_policy_family}
+\alias{policyFamiliesGet}
 \title{Get policy family information.}
 \usage{
 get_cluster_policy_family(client, policy_family_id)
+
+policyFamiliesGet(client, policy_family_id)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

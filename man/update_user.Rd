@@ -2,9 +2,25 @@
 % Please edit documentation in R/users.R
 \name{update_user}
 \alias{update_user}
+\alias{usersUpdate}
 \title{Replace a user.}
 \usage{
 update_user(
+  client,
+  id,
+  active = NULL,
+  display_name = NULL,
+  emails = NULL,
+  entitlements = NULL,
+  external_id = NULL,
+  groups = NULL,
+  name = NULL,
+  roles = NULL,
+  schemas = NULL,
+  user_name = NULL
+)
+
+usersUpdate(
   client,
   id,
   active = NULL,

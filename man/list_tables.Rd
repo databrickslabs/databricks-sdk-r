@@ -2,9 +2,22 @@
 % Please edit documentation in R/tables.R
 \name{list_tables}
 \alias{list_tables}
+\alias{tablesList}
 \title{List tables.}
 \usage{
 list_tables(
+  client,
+  catalog_name,
+  schema_name,
+  include_browse = NULL,
+  include_delta_metadata = NULL,
+  max_results = NULL,
+  omit_columns = NULL,
+  omit_properties = NULL,
+  page_token = NULL
+)
+
+tablesList(
   client,
   catalog_name,
   schema_name,

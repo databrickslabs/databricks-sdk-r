@@ -2,9 +2,12 @@
 % Please edit documentation in R/dbfs.R
 \name{move_dbfs}
 \alias{move_dbfs}
+\alias{dbfsMove}
 \title{Move a file.}
 \usage{
 move_dbfs(client, source_path, destination_path)
+
+dbfsMove(client, source_path, destination_path)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

@@ -2,9 +2,12 @@
 % Please edit documentation in R/secrets.R
 \name{put_secret}
 \alias{put_secret}
+\alias{secretsPutSecret}
 \title{Add a secret.}
 \usage{
 put_secret(client, scope, key, bytes_value = NULL, string_value = NULL)
+
+secretsPutSecret(client, scope, key, bytes_value = NULL, string_value = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

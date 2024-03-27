@@ -2,9 +2,12 @@
 % Please edit documentation in R/model_registry.R
 \name{test_model_registry_webhook}
 \alias{test_model_registry_webhook}
+\alias{modelRegistryTestRegistryWebhook}
 \title{Test a webhook.}
 \usage{
 test_model_registry_webhook(client, id, event = NULL)
+
+modelRegistryTestRegistryWebhook(client, id, event = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

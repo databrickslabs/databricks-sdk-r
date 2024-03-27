@@ -2,9 +2,19 @@
 % Please edit documentation in R/model_registry.R
 \name{transition_model_stage}
 \alias{transition_model_stage}
+\alias{modelRegistryTransitionStage}
 \title{Transition a stage.}
 \usage{
 transition_model_stage(
+  client,
+  name,
+  version,
+  stage,
+  archive_existing_versions,
+  comment = NULL
+)
+
+modelRegistryTransitionStage(
   client,
   name,
   version,

@@ -2,9 +2,26 @@
 % Please edit documentation in R/storage_credentials.R
 \name{update_storage_credential}
 \alias{update_storage_credential}
+\alias{storageCredentialsUpdate}
 \title{Update a credential.}
 \usage{
 update_storage_credential(
+  client,
+  name,
+  aws_iam_role = NULL,
+  azure_managed_identity = NULL,
+  azure_service_principal = NULL,
+  cloudflare_api_token = NULL,
+  comment = NULL,
+  databricks_gcp_service_account = NULL,
+  force = NULL,
+  new_name = NULL,
+  owner = NULL,
+  read_only = NULL,
+  skip_validation = NULL
+)
+
+storageCredentialsUpdate(
   client,
   name,
   aws_iam_role = NULL,

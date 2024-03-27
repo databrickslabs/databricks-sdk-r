@@ -2,9 +2,12 @@
 % Please edit documentation in R/instance_pools.R
 \name{delete_instance_pool}
 \alias{delete_instance_pool}
+\alias{instancePoolsDelete}
 \title{Delete an instance pool.}
 \usage{
 delete_instance_pool(client, instance_pool_id)
+
+instancePoolsDelete(client, instance_pool_id)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

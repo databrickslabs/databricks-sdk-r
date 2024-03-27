@@ -2,9 +2,19 @@
 % Please edit documentation in R/query_visualizations.R
 \name{create_query_visualization}
 \alias{create_query_visualization}
+\alias{queryVisualizationsCreate}
 \title{Add visualization to a query.}
 \usage{
 create_query_visualization(
+  client,
+  query_id,
+  type,
+  options,
+  description = NULL,
+  name = NULL
+)
+
+queryVisualizationsCreate(
   client,
   query_id,
   type,

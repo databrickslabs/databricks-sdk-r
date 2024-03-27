@@ -2,9 +2,18 @@
 % Please edit documentation in R/experiments.R
 \name{create_experiment_run}
 \alias{create_experiment_run}
+\alias{experimentsCreateRun}
 \title{Create a run.}
 \usage{
 create_experiment_run(
+  client,
+  experiment_id = NULL,
+  start_time = NULL,
+  tags = NULL,
+  user_id = NULL
+)
+
+experimentsCreateRun(
   client,
   experiment_id = NULL,
   start_time = NULL,

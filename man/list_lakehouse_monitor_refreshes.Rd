@@ -2,9 +2,12 @@
 % Please edit documentation in R/lakehouse_monitors.R
 \name{list_lakehouse_monitor_refreshes}
 \alias{list_lakehouse_monitor_refreshes}
+\alias{lakehouseMonitorsListRefreshes}
 \title{List refreshes.}
 \usage{
 list_lakehouse_monitor_refreshes(client, full_name)
+
+lakehouseMonitorsListRefreshes(client, full_name)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

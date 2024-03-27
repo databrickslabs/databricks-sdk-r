@@ -2,9 +2,12 @@
 % Please edit documentation in R/cluster_policies.R
 \name{list_cluster_policies}
 \alias{list_cluster_policies}
+\alias{clusterPoliciesList}
 \title{List cluster policies.}
 \usage{
 list_cluster_policies(client, sort_column = NULL, sort_order = NULL)
+
+clusterPoliciesList(client, sort_column = NULL, sort_order = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

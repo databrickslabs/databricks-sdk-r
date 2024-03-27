@@ -2,9 +2,16 @@
 % Please edit documentation in R/cluster_policies.R
 \name{update_cluster_policy_permissions}
 \alias{update_cluster_policy_permissions}
+\alias{clusterPoliciesUpdatePermissions}
 \title{Update cluster policy permissions.}
 \usage{
 update_cluster_policy_permissions(
+  client,
+  cluster_policy_id,
+  access_control_list = NULL
+)
+
+clusterPoliciesUpdatePermissions(
   client,
   cluster_policy_id,
   access_control_list = NULL

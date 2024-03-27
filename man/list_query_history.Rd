@@ -2,9 +2,18 @@
 % Please edit documentation in R/query_history.R
 \name{list_query_history}
 \alias{list_query_history}
+\alias{queryHistoryList}
 \title{List Queries.}
 \usage{
 list_query_history(
+  client,
+  filter_by = NULL,
+  include_metrics = NULL,
+  max_results = NULL,
+  page_token = NULL
+)
+
+queryHistoryList(
   client,
   filter_by = NULL,
   include_metrics = NULL,

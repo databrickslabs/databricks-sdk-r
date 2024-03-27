@@ -2,9 +2,19 @@
 % Please edit documentation in R/shares.R
 \name{update_share}
 \alias{update_share}
+\alias{sharesUpdate}
 \title{Update a share.}
 \usage{
 update_share(
+  client,
+  name,
+  comment = NULL,
+  new_name = NULL,
+  owner = NULL,
+  updates = NULL
+)
+
+sharesUpdate(
   client,
   name,
   comment = NULL,

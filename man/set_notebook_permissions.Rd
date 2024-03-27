@@ -2,9 +2,17 @@
 % Please edit documentation in R/workspace.R
 \name{set_notebook_permissions}
 \alias{set_notebook_permissions}
+\alias{workspaceSetPermissions}
 \title{Set workspace object permissions.}
 \usage{
 set_notebook_permissions(
+  client,
+  workspace_object_type,
+  workspace_object_id,
+  access_control_list = NULL
+)
+
+workspaceSetPermissions(
   client,
   workspace_object_type,
   workspace_object_id,

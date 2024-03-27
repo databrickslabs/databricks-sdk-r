@@ -2,9 +2,23 @@
 % Please edit documentation in R/storage_credentials.R
 \name{validate_storage_credential}
 \alias{validate_storage_credential}
+\alias{storageCredentialsValidate}
 \title{Validate a storage credential.}
 \usage{
 validate_storage_credential(
+  client,
+  aws_iam_role = NULL,
+  azure_managed_identity = NULL,
+  azure_service_principal = NULL,
+  cloudflare_api_token = NULL,
+  databricks_gcp_service_account = NULL,
+  external_location_name = NULL,
+  read_only = NULL,
+  storage_credential_name = NULL,
+  url = NULL
+)
+
+storageCredentialsValidate(
   client,
   aws_iam_role = NULL,
   azure_managed_identity = NULL,

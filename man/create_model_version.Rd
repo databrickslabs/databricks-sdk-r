@@ -2,9 +2,20 @@
 % Please edit documentation in R/model_registry.R
 \name{create_model_version}
 \alias{create_model_version}
+\alias{modelRegistryCreateModelVersion}
 \title{Create a model version.}
 \usage{
 create_model_version(
+  client,
+  name,
+  source,
+  description = NULL,
+  run_id = NULL,
+  run_link = NULL,
+  tags = NULL
+)
+
+modelRegistryCreateModelVersion(
   client,
   name,
   source,

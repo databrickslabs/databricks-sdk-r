@@ -2,9 +2,23 @@
 % Please edit documentation in R/groups.R
 \name{create_group}
 \alias{create_group}
+\alias{groupsCreate}
 \title{Create a new group.}
 \usage{
 create_group(
+  client,
+  display_name = NULL,
+  entitlements = NULL,
+  external_id = NULL,
+  groups = NULL,
+  id = NULL,
+  members = NULL,
+  meta = NULL,
+  roles = NULL,
+  schemas = NULL
+)
+
+groupsCreate(
   client,
   display_name = NULL,
   entitlements = NULL,

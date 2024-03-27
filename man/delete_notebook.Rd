@@ -2,9 +2,12 @@
 % Please edit documentation in R/workspace.R
 \name{delete_notebook}
 \alias{delete_notebook}
+\alias{workspaceDelete}
 \title{Delete a workspace object.}
 \usage{
 delete_notebook(client, path, recursive = NULL)
+
+workspaceDelete(client, path, recursive = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

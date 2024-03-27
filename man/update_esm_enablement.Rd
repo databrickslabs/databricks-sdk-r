@@ -2,9 +2,12 @@
 % Please edit documentation in R/esm_enablement.R
 \name{update_esm_enablement}
 \alias{update_esm_enablement}
+\alias{esmEnablementUpdate}
 \title{Update the enhanced security monitoring setting.}
 \usage{
 update_esm_enablement(client, allow_missing, setting, field_mask)
+
+esmEnablementUpdate(client, allow_missing, setting, field_mask)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

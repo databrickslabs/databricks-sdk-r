@@ -2,9 +2,12 @@
 % Please edit documentation in R/libraries.R
 \name{all_cluster_library_statuses}
 \alias{all_cluster_library_statuses}
+\alias{librariesAllClusterStatuses}
 \title{Get all statuses.}
 \usage{
 all_cluster_library_statuses(client)
+
+librariesAllClusterStatuses(client)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

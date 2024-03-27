@@ -2,9 +2,19 @@
 % Please edit documentation in R/global_init_scripts.R
 \name{update_global_init_script}
 \alias{update_global_init_script}
+\alias{globalInitScriptsUpdate}
 \title{Update init script.}
 \usage{
 update_global_init_script(
+  client,
+  script_id,
+  name,
+  script,
+  enabled = NULL,
+  position = NULL
+)
+
+globalInitScriptsUpdate(
   client,
   script_id,
   name,

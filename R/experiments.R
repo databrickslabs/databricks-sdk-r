@@ -18,11 +18,16 @@ NULL
 #' @param tags A collection of tags to set on the experiment.
 #'
 #' @rdname create_experiment
+#' @alias experimentsCreateExperiment
 #' @export
 create_experiment <- function(client, name, artifact_location = NULL, tags = NULL) {
   body <- list(artifact_location = artifact_location, name = name, tags = tags)
   client$do("POST", "/api/2.0/mlflow/experiments/create", body = body)
 }
+
+#' @rdname create_experiment
+#' @export 
+experimentsCreateExperiment <- create_experiment
 #' Create a run.
 #' 
 #' Creates a new run within an experiment. A run is usually a single execution
@@ -37,6 +42,7 @@ create_experiment <- function(client, name, artifact_location = NULL, tags = NUL
 #' @param user_id ID of the user executing the run.
 #'
 #' @rdname create_experiment_run
+#' @alias experimentsCreateRun
 #' @export
 create_experiment_run <- function(client, experiment_id = NULL, start_time = NULL,
   tags = NULL, user_id = NULL) {
@@ -44,6 +50,10 @@ create_experiment_run <- function(client, experiment_id = NULL, start_time = NUL
     user_id = user_id)
   client$do("POST", "/api/2.0/mlflow/runs/create", body = body)
 }
+
+#' @rdname create_experiment_run
+#' @export 
+experimentsCreateRun <- create_experiment_run
 #' Delete an experiment.
 #' 
 #' Marks an experiment and associated metadata, runs, metrics, params, and tags
@@ -54,11 +64,16 @@ create_experiment_run <- function(client, experiment_id = NULL, start_time = NUL
 #' @param experiment_id Required. ID of the associated experiment.
 #'
 #' @rdname delete_experiment
+#' @alias experimentsDeleteExperiment
 #' @export
 delete_experiment <- function(client, experiment_id) {
   body <- list(experiment_id = experiment_id)
   client$do("POST", "/api/2.0/mlflow/experiments/delete", body = body)
 }
+
+#' @rdname delete_experiment
+#' @export 
+experimentsDeleteExperiment <- delete_experiment
 #' Delete a run.
 #' 
 #' Marks a run for deletion.
@@ -67,11 +82,16 @@ delete_experiment <- function(client, experiment_id) {
 #' @param run_id Required. ID of the run to delete.
 #'
 #' @rdname delete_experiment_run
+#' @alias experimentsDeleteRun
 #' @export
 delete_experiment_run <- function(client, run_id) {
   body <- list(run_id = run_id)
   client$do("POST", "/api/2.0/mlflow/runs/delete", body = body)
 }
+
+#' @rdname delete_experiment_run
+#' @export 
+experimentsDeleteRun <- delete_experiment_run
 #' Delete runs by creation time.
 #' 
 #' Bulk delete runs in an experiment that were created prior to or at the
@@ -85,11 +105,16 @@ delete_experiment_run <- function(client, run_id) {
 #' @param max_timestamp_millis Required. The maximum creation timestamp in milliseconds since the UNIX epoch for deleting runs.
 #'
 #' @rdname delete_experiment_runs
+#' @alias experimentsDeleteRuns
 #' @export
 delete_experiment_runs <- function(client, experiment_id, max_timestamp_millis, max_runs = NULL) {
   body <- list(experiment_id = experiment_id, max_runs = max_runs, max_timestamp_millis = max_timestamp_millis)
   client$do("POST", "/api/2.0/mlflow/databricks/runs/delete-runs", body = body)
 }
+
+#' @rdname delete_experiment_runs
+#' @export 
+experimentsDeleteRuns <- delete_experiment_runs
 #' Delete a tag.
 #' 
 #' Deletes a tag on a run. Tags are run metadata that can be updated during a
@@ -100,11 +125,16 @@ delete_experiment_runs <- function(client, experiment_id, max_timestamp_millis, 
 #' @param run_id Required. ID of the run that the tag was logged under.
 #'
 #' @rdname delete_experiment_tag
+#' @alias experimentsDeleteTag
 #' @export
 delete_experiment_tag <- function(client, run_id, key) {
   body <- list(key = key, run_id = run_id)
   client$do("POST", "/api/2.0/mlflow/runs/delete-tag", body = body)
 }
+
+#' @rdname delete_experiment_tag
+#' @export 
+experimentsDeleteTag <- delete_experiment_tag
 #' Get metadata.
 #' 
 #' Gets metadata for an experiment.
@@ -121,11 +151,16 @@ delete_experiment_tag <- function(client, run_id, key) {
 #' @param experiment_name Required. Name of the associated experiment.
 #'
 #' @rdname get_experiment_by_name
+#' @alias experimentsGetByName
 #' @export
 get_experiment_by_name <- function(client, experiment_name) {
   query <- list(experiment_name = experiment_name)
   client$do("GET", "/api/2.0/mlflow/experiments/get-by-name", query = query)
 }
+
+#' @rdname get_experiment_by_name
+#' @export 
+experimentsGetByName <- get_experiment_by_name
 #' Get an experiment.
 #' 
 #' Gets metadata for an experiment. This method works on deleted experiments.
@@ -134,11 +169,16 @@ get_experiment_by_name <- function(client, experiment_name) {
 #' @param experiment_id Required. ID of the associated experiment.
 #'
 #' @rdname get_experiment
+#' @alias experimentsGetExperiment
 #' @export
 get_experiment <- function(client, experiment_id) {
   query <- list(experiment_id = experiment_id)
   client$do("GET", "/api/2.0/mlflow/experiments/get", query = query)
 }
+
+#' @rdname get_experiment
+#' @export 
+experimentsGetExperiment <- get_experiment
 #' Get history of a given metric within a run.
 #' 
 #' Gets a list of all values for the specified metric for a given run.
@@ -153,6 +193,7 @@ get_experiment <- function(client, experiment_id) {
 #' @return `data.frame` with all of the response pages.
 #'
 #' @rdname get_experiment_history
+#' @alias experimentsGetHistory
 #' @export
 get_experiment_history <- function(client, metric_key, max_results = NULL, page_token = NULL,
   run_id = NULL, run_uuid = NULL) {
@@ -175,6 +216,10 @@ get_experiment_history <- function(client, metric_key, max_results = NULL, page_
   return(results)
 
 }
+
+#' @rdname get_experiment_history
+#' @export 
+experimentsGetHistory <- get_experiment_history
 #' Get experiment permission levels.
 #' 
 #' Gets the permission levels that a user can have on an object.
@@ -183,12 +228,17 @@ get_experiment_history <- function(client, metric_key, max_results = NULL, page_
 #' @param experiment_id Required. The experiment for which to get or manage permissions.
 #'
 #' @rdname get_experiment_permission_levels
+#' @alias experimentsGetPermissionLevels
 #' @export
 get_experiment_permission_levels <- function(client, experiment_id) {
 
   client$do("GET", paste("/api/2.0/permissions/experiments/", experiment_id, "/permissionLevels",
     , sep = ""))
 }
+
+#' @rdname get_experiment_permission_levels
+#' @export 
+experimentsGetPermissionLevels <- get_experiment_permission_levels
 #' Get experiment permissions.
 #' 
 #' Gets the permissions of an experiment. Experiments can inherit permissions
@@ -198,11 +248,16 @@ get_experiment_permission_levels <- function(client, experiment_id) {
 #' @param experiment_id Required. The experiment for which to get or manage permissions.
 #'
 #' @rdname get_experiment_permissions
+#' @alias experimentsGetPermissions
 #' @export
 get_experiment_permissions <- function(client, experiment_id) {
 
   client$do("GET", paste("/api/2.0/permissions/experiments/", experiment_id, sep = ""))
 }
+
+#' @rdname get_experiment_permissions
+#' @export 
+experimentsGetPermissions <- get_experiment_permissions
 #' Get a run.
 #' 
 #' Gets the metadata, metrics, params, and tags for a run. In the case where
@@ -217,11 +272,16 @@ get_experiment_permissions <- function(client, experiment_id) {
 #' @param run_uuid Deprecated, use run_id instead. ID of the run to fetch.
 #'
 #' @rdname get_experiment_run
+#' @alias experimentsGetRun
 #' @export
 get_experiment_run <- function(client, run_id, run_uuid = NULL) {
   query <- list(run_id = run_id, run_uuid = run_uuid)
   client$do("GET", "/api/2.0/mlflow/runs/get", query = query)
 }
+
+#' @rdname get_experiment_run
+#' @export 
+experimentsGetRun <- get_experiment_run
 #' Get all artifacts.
 #' 
 #' List artifacts for a run. Takes an optional `artifact_path` prefix. If it is
@@ -236,6 +296,7 @@ get_experiment_run <- function(client, run_id, run_uuid = NULL) {
 #' @return `data.frame` with all of the response pages.
 #'
 #' @rdname list_experiment_artifacts
+#' @alias experimentsListArtifacts
 #' @export
 list_experiment_artifacts <- function(client, page_token = NULL, path = NULL, run_id = NULL,
   run_uuid = NULL) {
@@ -257,6 +318,10 @@ list_experiment_artifacts <- function(client, page_token = NULL, path = NULL, ru
   return(results)
 
 }
+
+#' @rdname list_experiment_artifacts
+#' @export 
+experimentsListArtifacts <- list_experiment_artifacts
 #' List experiments.
 #' 
 #' Gets a list of all experiments.
@@ -269,6 +334,7 @@ list_experiment_artifacts <- function(client, page_token = NULL, path = NULL, ru
 #' @return `data.frame` with all of the response pages.
 #'
 #' @rdname list_experiment_experiments
+#' @alias experimentsListExperiments
 #' @export
 list_experiment_experiments <- function(client, max_results = NULL, page_token = NULL,
   view_type = NULL) {
@@ -290,6 +356,10 @@ list_experiment_experiments <- function(client, max_results = NULL, page_token =
   return(results)
 
 }
+
+#' @rdname list_experiment_experiments
+#' @export 
+experimentsListExperiments <- list_experiment_experiments
 #' Log a batch.
 #' 
 #' Logs a batch of metrics, params, and tags for a run. If any data failed to be
@@ -337,12 +407,17 @@ list_experiment_experiments <- function(client, max_results = NULL, page_token =
 #' @param tags Tags to log.
 #'
 #' @rdname log_experiment_batch
+#' @alias experimentsLogBatch
 #' @export
 log_experiment_batch <- function(client, metrics = NULL, params = NULL, run_id = NULL,
   tags = NULL) {
   body <- list(metrics = metrics, params = params, run_id = run_id, tags = tags)
   client$do("POST", "/api/2.0/mlflow/runs/log-batch", body = body)
 }
+
+#' @rdname log_experiment_batch
+#' @export 
+experimentsLogBatch <- log_experiment_batch
 #' Log inputs to a run.
 #' 
 #' **NOTE:** Experimental: This API may change or be removed in a future release
@@ -353,11 +428,16 @@ log_experiment_batch <- function(client, metrics = NULL, params = NULL, run_id =
 #' @param run_id ID of the run to log under.
 #'
 #' @rdname log_experiment_inputs
+#' @alias experimentsLogInputs
 #' @export
 log_experiment_inputs <- function(client, datasets = NULL, run_id = NULL) {
   body <- list(datasets = datasets, run_id = run_id)
   client$do("POST", "/api/2.0/mlflow/runs/log-inputs", body = body)
 }
+
+#' @rdname log_experiment_inputs
+#' @export 
+experimentsLogInputs <- log_experiment_inputs
 #' Log a metric.
 #' 
 #' Logs a metric for a run. A metric is a key-value pair (string key, float
@@ -373,6 +453,7 @@ log_experiment_inputs <- function(client, datasets = NULL, run_id = NULL) {
 #' @param value Required. Double value of the metric being logged.
 #'
 #' @rdname log_experiment_metric
+#' @alias experimentsLogMetric
 #' @export
 log_experiment_metric <- function(client, key, value, timestamp, run_id = NULL, run_uuid = NULL,
   step = NULL) {
@@ -380,6 +461,10 @@ log_experiment_metric <- function(client, key, value, timestamp, run_id = NULL, 
     value = value)
   client$do("POST", "/api/2.0/mlflow/runs/log-metric", body = body)
 }
+
+#' @rdname log_experiment_metric
+#' @export 
+experimentsLogMetric <- log_experiment_metric
 #' Log a model.
 #' 
 #' **NOTE:** Experimental: This API may change or be removed in a future release
@@ -390,11 +475,16 @@ log_experiment_metric <- function(client, key, value, timestamp, run_id = NULL, 
 #' @param run_id ID of the run to log under.
 #'
 #' @rdname log_experiment_model
+#' @alias experimentsLogModel
 #' @export
 log_experiment_model <- function(client, model_json = NULL, run_id = NULL) {
   body <- list(model_json = model_json, run_id = run_id)
   client$do("POST", "/api/2.0/mlflow/runs/log-model", body = body)
 }
+
+#' @rdname log_experiment_model
+#' @export 
+experimentsLogModel <- log_experiment_model
 #' Log a param.
 #' 
 #' Logs a param used for a run. A param is a key-value pair (string key, string
@@ -409,11 +499,16 @@ log_experiment_model <- function(client, model_json = NULL, run_id = NULL) {
 #' @param value Required. String value of the param being logged.
 #'
 #' @rdname log_experiment_param
+#' @alias experimentsLogParam
 #' @export
 log_experiment_param <- function(client, key, value, run_id = NULL, run_uuid = NULL) {
   body <- list(key = key, run_id = run_id, run_uuid = run_uuid, value = value)
   client$do("POST", "/api/2.0/mlflow/runs/log-parameter", body = body)
 }
+
+#' @rdname log_experiment_param
+#' @export 
+experimentsLogParam <- log_experiment_param
 #' Restores an experiment.
 #' 
 #' Restore an experiment marked for deletion. This also restores associated
@@ -427,11 +522,16 @@ log_experiment_param <- function(client, key, value, run_id = NULL, run_uuid = N
 #' @param experiment_id Required. ID of the associated experiment.
 #'
 #' @rdname restore_experiment
+#' @alias experimentsRestoreExperiment
 #' @export
 restore_experiment <- function(client, experiment_id) {
   body <- list(experiment_id = experiment_id)
   client$do("POST", "/api/2.0/mlflow/experiments/restore", body = body)
 }
+
+#' @rdname restore_experiment
+#' @export 
+experimentsRestoreExperiment <- restore_experiment
 #' Restore a run.
 #' 
 #' Restores a deleted run.
@@ -440,11 +540,16 @@ restore_experiment <- function(client, experiment_id) {
 #' @param run_id Required. ID of the run to restore.
 #'
 #' @rdname restore_experiment_run
+#' @alias experimentsRestoreRun
 #' @export
 restore_experiment_run <- function(client, run_id) {
   body <- list(run_id = run_id)
   client$do("POST", "/api/2.0/mlflow/runs/restore", body = body)
 }
+
+#' @rdname restore_experiment_run
+#' @export 
+experimentsRestoreRun <- restore_experiment_run
 #' Restore runs by deletion time.
 #' 
 #' Bulk restore runs in an experiment that were deleted no earlier than the
@@ -458,12 +563,17 @@ restore_experiment_run <- function(client, run_id) {
 #' @param min_timestamp_millis Required. The minimum deletion timestamp in milliseconds since the UNIX epoch for restoring runs.
 #'
 #' @rdname restore_experiment_runs
+#' @alias experimentsRestoreRuns
 #' @export
 restore_experiment_runs <- function(client, experiment_id, min_timestamp_millis,
   max_runs = NULL) {
   body <- list(experiment_id = experiment_id, max_runs = max_runs, min_timestamp_millis = min_timestamp_millis)
   client$do("POST", "/api/2.0/mlflow/databricks/runs/restore-runs", body = body)
 }
+
+#' @rdname restore_experiment_runs
+#' @export 
+experimentsRestoreRuns <- restore_experiment_runs
 #' Search experiments.
 #' 
 #' Searches for experiments that satisfy specified search criteria.
@@ -478,6 +588,7 @@ restore_experiment_runs <- function(client, experiment_id, min_timestamp_millis,
 #' @return `data.frame` with all of the response pages.
 #'
 #' @rdname search_experiment_experiments
+#' @alias experimentsSearchExperiments
 #' @export
 search_experiment_experiments <- function(client, filter = NULL, max_results = NULL,
   order_by = NULL, page_token = NULL, view_type = NULL) {
@@ -500,6 +611,10 @@ search_experiment_experiments <- function(client, filter = NULL, max_results = N
   return(results)
 
 }
+
+#' @rdname search_experiment_experiments
+#' @export 
+experimentsSearchExperiments <- search_experiment_experiments
 #' Search for runs.
 #' 
 #' Searches for runs that satisfy expressions.
@@ -517,6 +632,7 @@ search_experiment_experiments <- function(client, filter = NULL, max_results = N
 #' @return `data.frame` with all of the response pages.
 #'
 #' @rdname search_experiment_runs
+#' @alias experimentsSearchRuns
 #' @export
 search_experiment_runs <- function(client, experiment_ids = NULL, filter = NULL,
   max_results = NULL, order_by = NULL, page_token = NULL, run_view_type = NULL) {
@@ -539,6 +655,10 @@ search_experiment_runs <- function(client, experiment_ids = NULL, filter = NULL,
   return(results)
 
 }
+
+#' @rdname search_experiment_runs
+#' @export 
+experimentsSearchRuns <- search_experiment_runs
 #' Set a tag.
 #' 
 #' Sets a tag on an experiment. Experiment tags are metadata that can be
@@ -550,11 +670,16 @@ search_experiment_runs <- function(client, experiment_ids = NULL, filter = NULL,
 #' @param value Required. String value of the tag being logged.
 #'
 #' @rdname set_experiment_tag
+#' @alias experimentsSetExperimentTag
 #' @export
 set_experiment_tag <- function(client, experiment_id, key, value) {
   body <- list(experiment_id = experiment_id, key = key, value = value)
   client$do("POST", "/api/2.0/mlflow/experiments/set-experiment-tag", body = body)
 }
+
+#' @rdname set_experiment_tag
+#' @export 
+experimentsSetExperimentTag <- set_experiment_tag
 #' Set experiment permissions.
 #' 
 #' Sets permissions on an experiment. Experiments can inherit permissions from
@@ -565,12 +690,17 @@ set_experiment_tag <- function(client, experiment_id, key, value) {
 #' @param experiment_id Required. The experiment for which to get or manage permissions.
 #'
 #' @rdname set_experiment_permissions
+#' @alias experimentsSetPermissions
 #' @export
 set_experiment_permissions <- function(client, experiment_id, access_control_list = NULL) {
   body <- list(access_control_list = access_control_list)
   client$do("PUT", paste("/api/2.0/permissions/experiments/", experiment_id, sep = ""),
     body = body)
 }
+
+#' @rdname set_experiment_permissions
+#' @export 
+experimentsSetPermissions <- set_experiment_permissions
 #' Set a tag.
 #' 
 #' Sets a tag on a run. Tags are run metadata that can be updated during a run
@@ -583,11 +713,16 @@ set_experiment_permissions <- function(client, experiment_id, access_control_lis
 #' @param value Required. String value of the tag being logged.
 #'
 #' @rdname set_experiment_tag
+#' @alias experimentsSetTag
 #' @export
 set_experiment_tag <- function(client, key, value, run_id = NULL, run_uuid = NULL) {
   body <- list(key = key, run_id = run_id, run_uuid = run_uuid, value = value)
   client$do("POST", "/api/2.0/mlflow/runs/set-tag", body = body)
 }
+
+#' @rdname set_experiment_tag
+#' @export 
+experimentsSetTag <- set_experiment_tag
 #' Update an experiment.
 #' 
 #' Updates experiment metadata.
@@ -597,11 +732,16 @@ set_experiment_tag <- function(client, key, value, run_id = NULL, run_uuid = NUL
 #' @param new_name If provided, the experiment's name is changed to the new name.
 #'
 #' @rdname update_experiment
+#' @alias experimentsUpdateExperiment
 #' @export
 update_experiment <- function(client, experiment_id, new_name = NULL) {
   body <- list(experiment_id = experiment_id, new_name = new_name)
   client$do("POST", "/api/2.0/mlflow/experiments/update", body = body)
 }
+
+#' @rdname update_experiment
+#' @export 
+experimentsUpdateExperiment <- update_experiment
 #' Update experiment permissions.
 #' 
 #' Updates the permissions on an experiment. Experiments can inherit permissions
@@ -612,12 +752,17 @@ update_experiment <- function(client, experiment_id, new_name = NULL) {
 #' @param experiment_id Required. The experiment for which to get or manage permissions.
 #'
 #' @rdname update_experiment_permissions
+#' @alias experimentsUpdatePermissions
 #' @export
 update_experiment_permissions <- function(client, experiment_id, access_control_list = NULL) {
   body <- list(access_control_list = access_control_list)
   client$do("PATCH", paste("/api/2.0/permissions/experiments/", experiment_id,
     sep = ""), body = body)
 }
+
+#' @rdname update_experiment_permissions
+#' @export 
+experimentsUpdatePermissions <- update_experiment_permissions
 #' Update a run.
 #' 
 #' Updates run metadata.
@@ -629,12 +774,17 @@ update_experiment_permissions <- function(client, experiment_id, access_control_
 #' @param status Updated status of the run.
 #'
 #' @rdname update_experiment_run
+#' @alias experimentsUpdateRun
 #' @export
 update_experiment_run <- function(client, end_time = NULL, run_id = NULL, run_uuid = NULL,
   status = NULL) {
   body <- list(end_time = end_time, run_id = run_id, run_uuid = run_uuid, status = status)
   client$do("POST", "/api/2.0/mlflow/runs/update", body = body)
 }
+
+#' @rdname update_experiment_run
+#' @export 
+experimentsUpdateRun <- update_experiment_run
 
 
 

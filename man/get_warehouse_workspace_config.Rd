@@ -2,9 +2,12 @@
 % Please edit documentation in R/warehouses.R
 \name{get_warehouse_workspace_config}
 \alias{get_warehouse_workspace_config}
+\alias{warehousesGetWorkspaceWarehouseConfig}
 \title{Get the workspace configuration.}
 \usage{
 get_warehouse_workspace_config(client)
+
+warehousesGetWorkspaceWarehouseConfig(client)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

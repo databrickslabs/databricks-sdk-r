@@ -2,9 +2,12 @@
 % Please edit documentation in R/ip_access_lists.R
 \name{delete_ip_access_list}
 \alias{delete_ip_access_list}
+\alias{ipAccessListsDelete}
 \title{Delete access list.}
 \usage{
 delete_ip_access_list(client, ip_access_list_id)
+
+ipAccessListsDelete(client, ip_access_list_id)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

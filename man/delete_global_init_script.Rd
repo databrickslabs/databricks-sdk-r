@@ -2,9 +2,12 @@
 % Please edit documentation in R/global_init_scripts.R
 \name{delete_global_init_script}
 \alias{delete_global_init_script}
+\alias{globalInitScriptsDelete}
 \title{Delete init script.}
 \usage{
 delete_global_init_script(client, script_id)
+
+globalInitScriptsDelete(client, script_id)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

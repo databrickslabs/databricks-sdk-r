@@ -2,9 +2,22 @@
 % Please edit documentation in R/users.R
 \name{get_user}
 \alias{get_user}
+\alias{usersGet}
 \title{Get user details.}
 \usage{
 get_user(
+  client,
+  id,
+  attributes = NULL,
+  count = NULL,
+  excluded_attributes = NULL,
+  filter = NULL,
+  sort_by = NULL,
+  sort_order = NULL,
+  start_index = NULL
+)
+
+usersGet(
   client,
   id,
   attributes = NULL,

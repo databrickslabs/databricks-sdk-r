@@ -2,9 +2,21 @@
 % Please edit documentation in R/instance_pools.R
 \name{edit_instance_pool}
 \alias{edit_instance_pool}
+\alias{instancePoolsEdit}
 \title{Edit an existing instance pool.}
 \usage{
 edit_instance_pool(
+  client,
+  instance_pool_id,
+  instance_pool_name,
+  node_type_id,
+  custom_tags = NULL,
+  idle_instance_autotermination_minutes = NULL,
+  max_capacity = NULL,
+  min_idle_instances = NULL
+)
+
+instancePoolsEdit(
   client,
   instance_pool_id,
   instance_pool_name,

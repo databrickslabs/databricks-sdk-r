@@ -14,10 +14,15 @@ NULL
 #' @param token_type Required. A list of token types being requested.
 #'
 #' @rdname exchange_credentials_manager_token
+#' @alias credentialsManagerExchangeToken
 #' @export
 exchange_credentials_manager_token <- function(client, partition_id, token_type,
   scopes) {
   body <- list(partitionId = partition_id, scopes = scopes, tokenType = token_type)
   client$do("POST", "/api/2.0/credentials-manager/exchange-tokens/token", body = body)
 }
+
+#' @rdname exchange_credentials_manager_token
+#' @export 
+credentialsManagerExchangeToken <- exchange_credentials_manager_token
 

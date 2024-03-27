@@ -2,9 +2,16 @@
 % Please edit documentation in R/model_registry.R
 \name{update_model_permissions}
 \alias{update_model_permissions}
+\alias{modelRegistryUpdatePermissions}
 \title{Update registered model permissions.}
 \usage{
 update_model_permissions(
+  client,
+  registered_model_id,
+  access_control_list = NULL
+)
+
+modelRegistryUpdatePermissions(
   client,
   registered_model_id,
   access_control_list = NULL

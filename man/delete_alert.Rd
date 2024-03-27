@@ -2,9 +2,12 @@
 % Please edit documentation in R/alerts.R
 \name{delete_alert}
 \alias{delete_alert}
+\alias{alertsDelete}
 \title{Delete an alert.}
 \usage{
 delete_alert(client, alert_id)
+
+alertsDelete(client, alert_id)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

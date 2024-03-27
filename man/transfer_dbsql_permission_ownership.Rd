@@ -2,9 +2,17 @@
 % Please edit documentation in R/dbsql_permissions.R
 \name{transfer_dbsql_permission_ownership}
 \alias{transfer_dbsql_permission_ownership}
+\alias{dbsqlPermissionsTransferOwnership}
 \title{Transfer object ownership.}
 \usage{
 transfer_dbsql_permission_ownership(
+  client,
+  object_type,
+  object_id,
+  new_owner = NULL
+)
+
+dbsqlPermissionsTransferOwnership(
   client,
   object_type,
   object_id,

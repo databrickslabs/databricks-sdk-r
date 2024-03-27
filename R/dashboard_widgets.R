@@ -13,6 +13,7 @@ NULL
 #' @param width Required. Width of a widget.
 #'
 #' @rdname create_dashboard_widget
+#' @alias dashboardWidgetsCreate
 #' @export
 create_dashboard_widget <- function(client, dashboard_id, options, width, text = NULL,
   visualization_id = NULL) {
@@ -20,17 +21,26 @@ create_dashboard_widget <- function(client, dashboard_id, options, width, text =
     width = width)
   client$do("POST", "/api/2.0/preview/sql/widgets", body = body)
 }
+
+#' @rdname create_dashboard_widget
+#' @export 
+dashboardWidgetsCreate <- create_dashboard_widget
 #' Remove widget.
 #' @param client Required. Instance of DatabricksClient()
 #'
 #' @param id Required. Widget ID returned by :method:dashboardwidgets/create.
 #'
 #' @rdname delete_dashboard_widget
+#' @alias dashboardWidgetsDelete
 #' @export
 delete_dashboard_widget <- function(client, id) {
 
   client$do("DELETE", paste("/api/2.0/preview/sql/widgets/", id, sep = ""))
 }
+
+#' @rdname delete_dashboard_widget
+#' @export 
+dashboardWidgetsDelete <- delete_dashboard_widget
 #' Update existing widget.
 #' @param client Required. Instance of DatabricksClient()
 #'
@@ -42,6 +52,7 @@ delete_dashboard_widget <- function(client, id) {
 #' @param width Required. Width of a widget.
 #'
 #' @rdname update_dashboard_widget
+#' @alias dashboardWidgetsUpdate
 #' @export
 update_dashboard_widget <- function(client, id, dashboard_id, options, width, text = NULL,
   visualization_id = NULL) {
@@ -49,6 +60,10 @@ update_dashboard_widget <- function(client, id, dashboard_id, options, width, te
     width = width)
   client$do("POST", paste("/api/2.0/preview/sql/widgets/", id, sep = ""), body = body)
 }
+
+#' @rdname update_dashboard_widget
+#' @export 
+dashboardWidgetsUpdate <- update_dashboard_widget
 
 
 

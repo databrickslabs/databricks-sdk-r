@@ -2,9 +2,19 @@
 % Please edit documentation in R/providers.R
 \name{update_provider}
 \alias{update_provider}
+\alias{providersUpdate}
 \title{Update a provider.}
 \usage{
 update_provider(
+  client,
+  name,
+  comment = NULL,
+  new_name = NULL,
+  owner = NULL,
+  recipient_profile_str = NULL
+)
+
+providersUpdate(
   client,
   name,
   comment = NULL,

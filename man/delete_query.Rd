@@ -2,9 +2,12 @@
 % Please edit documentation in R/queries.R
 \name{delete_query}
 \alias{delete_query}
+\alias{queriesDelete}
 \title{Delete a query.}
 \usage{
 delete_query(client, query_id)
+
+queriesDelete(client, query_id)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

@@ -2,9 +2,12 @@
 % Please edit documentation in R/default_namespace.R
 \name{delete_default_namespace}
 \alias{delete_default_namespace}
+\alias{defaultNamespaceDelete}
 \title{Delete the default namespace setting.}
 \usage{
 delete_default_namespace(client, etag = NULL)
+
+defaultNamespaceDelete(client, etag = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

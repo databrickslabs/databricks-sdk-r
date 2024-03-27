@@ -2,9 +2,12 @@
 % Please edit documentation in R/workspace.R
 \name{mkdirs_notebook}
 \alias{mkdirs_notebook}
+\alias{workspaceMkdirs}
 \title{Create a directory.}
 \usage{
 mkdirs_notebook(client, path)
+
+workspaceMkdirs(client, path)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

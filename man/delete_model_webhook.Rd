@@ -2,9 +2,12 @@
 % Please edit documentation in R/model_registry.R
 \name{delete_model_webhook}
 \alias{delete_model_webhook}
+\alias{modelRegistryDeleteWebhook}
 \title{Delete a webhook.}
 \usage{
 delete_model_webhook(client, id = NULL)
+
+modelRegistryDeleteWebhook(client, id = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

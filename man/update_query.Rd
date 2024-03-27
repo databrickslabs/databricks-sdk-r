@@ -2,9 +2,21 @@
 % Please edit documentation in R/queries.R
 \name{update_query}
 \alias{update_query}
+\alias{queriesUpdate}
 \title{Change a query definition.}
 \usage{
 update_query(
+  client,
+  query_id,
+  data_source_id = NULL,
+  description = NULL,
+  name = NULL,
+  options = NULL,
+  query = NULL,
+  run_as_role = NULL
+)
+
+queriesUpdate(
   client,
   query_id,
   data_source_id = NULL,

@@ -2,9 +2,21 @@
 % Please edit documentation in R/queries.R
 \name{create_query}
 \alias{create_query}
+\alias{queriesCreate}
 \title{Create a new query definition.}
 \usage{
 create_query(
+  client,
+  data_source_id = NULL,
+  description = NULL,
+  name = NULL,
+  options = NULL,
+  parent = NULL,
+  query = NULL,
+  run_as_role = NULL
+)
+
+queriesCreate(
   client,
   data_source_id = NULL,
   description = NULL,

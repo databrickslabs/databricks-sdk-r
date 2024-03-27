@@ -2,9 +2,12 @@
 % Please edit documentation in R/groups.R
 \name{patch_group}
 \alias{patch_group}
+\alias{groupsPatch}
 \title{Update group details.}
 \usage{
 patch_group(client, id, operations = NULL, schemas = NULL)
+
+groupsPatch(client, id, operations = NULL, schemas = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

@@ -2,9 +2,12 @@
 % Please edit documentation in R/apps.R
 \name{get_app_apps}
 \alias{get_app_apps}
+\alias{appsGetApps}
 \title{List all applications.}
 \usage{
 get_app_apps(client)
+
+appsGetApps(client)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

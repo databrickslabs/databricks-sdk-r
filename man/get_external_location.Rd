@@ -2,9 +2,12 @@
 % Please edit documentation in R/external_locations.R
 \name{get_external_location}
 \alias{get_external_location}
+\alias{externalLocationsGet}
 \title{Get an external location.}
 \usage{
 get_external_location(client, name, include_browse = NULL)
+
+externalLocationsGet(client, name, include_browse = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

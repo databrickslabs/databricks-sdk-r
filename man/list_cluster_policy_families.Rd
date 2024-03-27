@@ -2,9 +2,12 @@
 % Please edit documentation in R/policy_families.R
 \name{list_cluster_policy_families}
 \alias{list_cluster_policy_families}
+\alias{policyFamiliesList}
 \title{List policy families.}
 \usage{
 list_cluster_policy_families(client, max_results = NULL, page_token = NULL)
+
+policyFamiliesList(client, max_results = NULL, page_token = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

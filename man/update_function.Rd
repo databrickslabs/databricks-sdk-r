@@ -2,9 +2,12 @@
 % Please edit documentation in R/functions.R
 \name{update_function}
 \alias{update_function}
+\alias{functionsUpdate}
 \title{Update a function.}
 \usage{
 update_function(client, name, owner = NULL)
+
+functionsUpdate(client, name, owner = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

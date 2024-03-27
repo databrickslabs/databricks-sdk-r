@@ -2,9 +2,12 @@
 % Please edit documentation in R/serving_endpoints.R
 \name{patch_serving_endpoint}
 \alias{patch_serving_endpoint}
+\alias{servingEndpointsPatch}
 \title{Update tags of a serving endpoint.}
 \usage{
 patch_serving_endpoint(client, name, add_tags = NULL, delete_tags = NULL)
+
+servingEndpointsPatch(client, name, add_tags = NULL, delete_tags = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

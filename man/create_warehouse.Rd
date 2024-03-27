@@ -2,9 +2,27 @@
 % Please edit documentation in R/warehouses.R
 \name{create_warehouse}
 \alias{create_warehouse}
+\alias{warehousesCreate}
 \title{Create a warehouse.}
 \usage{
 create_warehouse(
+  client,
+  auto_stop_mins = NULL,
+  channel = NULL,
+  cluster_size = NULL,
+  creator_name = NULL,
+  enable_photon = NULL,
+  enable_serverless_compute = NULL,
+  instance_profile_arn = NULL,
+  max_num_clusters = NULL,
+  min_num_clusters = NULL,
+  name = NULL,
+  spot_instance_policy = NULL,
+  tags = NULL,
+  warehouse_type = NULL
+)
+
+warehousesCreate(
   client,
   auto_stop_mins = NULL,
   channel = NULL,

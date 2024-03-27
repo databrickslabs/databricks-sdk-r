@@ -2,9 +2,18 @@
 % Please edit documentation in R/workspace_bindings.R
 \name{update_workspace_binding_bindings}
 \alias{update_workspace_binding_bindings}
+\alias{workspaceBindingsUpdateBindings}
 \title{Update securable workspace bindings.}
 \usage{
 update_workspace_binding_bindings(
+  client,
+  securable_type,
+  securable_name,
+  add = NULL,
+  remove = NULL
+)
+
+workspaceBindingsUpdateBindings(
   client,
   securable_type,
   securable_name,

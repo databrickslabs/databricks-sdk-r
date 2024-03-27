@@ -2,9 +2,21 @@
 % Please edit documentation in R/service_principals.R
 \name{list_service_principals}
 \alias{list_service_principals}
+\alias{servicePrincipalsList}
 \title{List service principals.}
 \usage{
 list_service_principals(
+  client,
+  attributes = NULL,
+  count = NULL,
+  excluded_attributes = NULL,
+  filter = NULL,
+  sort_by = NULL,
+  sort_order = NULL,
+  start_index = NULL
+)
+
+servicePrincipalsList(
   client,
   attributes = NULL,
   count = NULL,

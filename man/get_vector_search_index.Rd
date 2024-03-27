@@ -2,9 +2,12 @@
 % Please edit documentation in R/vector_search_indexes.R
 \name{get_vector_search_index}
 \alias{get_vector_search_index}
+\alias{vectorSearchIndexesGetIndex}
 \title{Get an index.}
 \usage{
 get_vector_search_index(client, index_name)
+
+vectorSearchIndexesGetIndex(client, index_name)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

@@ -2,9 +2,12 @@
 % Please edit documentation in R/jobs.R
 \name{update_job_permissions}
 \alias{update_job_permissions}
+\alias{jobsUpdatePermissions}
 \title{Update job permissions.}
 \usage{
 update_job_permissions(client, job_id, access_control_list = NULL)
+
+jobsUpdatePermissions(client, job_id, access_control_list = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

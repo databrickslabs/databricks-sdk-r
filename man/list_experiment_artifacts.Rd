@@ -2,9 +2,18 @@
 % Please edit documentation in R/experiments.R
 \name{list_experiment_artifacts}
 \alias{list_experiment_artifacts}
+\alias{experimentsListArtifacts}
 \title{Get all artifacts.}
 \usage{
 list_experiment_artifacts(
+  client,
+  page_token = NULL,
+  path = NULL,
+  run_id = NULL,
+  run_uuid = NULL
+)
+
+experimentsListArtifacts(
   client,
   page_token = NULL,
   path = NULL,

@@ -2,9 +2,18 @@
 % Please edit documentation in R/model_registry.R
 \name{search_model_models}
 \alias{search_model_models}
+\alias{modelRegistrySearchModels}
 \title{Search models.}
 \usage{
 search_model_models(
+  client,
+  filter = NULL,
+  max_results = NULL,
+  order_by = NULL,
+  page_token = NULL
+)
+
+modelRegistrySearchModels(
   client,
   filter = NULL,
   max_results = NULL,

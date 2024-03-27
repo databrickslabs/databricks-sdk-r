@@ -2,9 +2,12 @@
 % Please edit documentation in R/repos.R
 \name{update_repo}
 \alias{update_repo}
+\alias{reposUpdate}
 \title{Update a repo.}
 \usage{
 update_repo(client, repo_id, branch = NULL, sparse_checkout = NULL, tag = NULL)
+
+reposUpdate(client, repo_id, branch = NULL, sparse_checkout = NULL, tag = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

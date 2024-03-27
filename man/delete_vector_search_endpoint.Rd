@@ -2,9 +2,12 @@
 % Please edit documentation in R/vector_search_endpoints.R
 \name{delete_vector_search_endpoint}
 \alias{delete_vector_search_endpoint}
+\alias{vectorSearchEndpointsDeleteEndpoint}
 \title{Delete an endpoint.}
 \usage{
 delete_vector_search_endpoint(client, endpoint_name)
+
+vectorSearchEndpointsDeleteEndpoint(client, endpoint_name)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

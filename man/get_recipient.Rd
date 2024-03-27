@@ -2,9 +2,12 @@
 % Please edit documentation in R/recipients.R
 \name{get_recipient}
 \alias{get_recipient}
+\alias{recipientsGet}
 \title{Get a share recipient.}
 \usage{
 get_recipient(client, name)
+
+recipientsGet(client, name)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

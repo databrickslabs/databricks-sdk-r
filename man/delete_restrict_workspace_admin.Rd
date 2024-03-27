@@ -2,9 +2,12 @@
 % Please edit documentation in R/restrict_workspace_admins.R
 \name{delete_restrict_workspace_admin}
 \alias{delete_restrict_workspace_admin}
+\alias{restrictWorkspaceAdminsDelete}
 \title{Delete the restrict workspace admins setting.}
 \usage{
 delete_restrict_workspace_admin(client, etag = NULL)
+
+restrictWorkspaceAdminsDelete(client, etag = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

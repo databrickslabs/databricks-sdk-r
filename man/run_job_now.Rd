@@ -2,9 +2,26 @@
 % Please edit documentation in R/jobs.R
 \name{run_job_now}
 \alias{run_job_now}
+\alias{jobsRunNow}
 \title{Trigger a new job run.}
 \usage{
 run_job_now(
+  client,
+  job_id,
+  dbt_commands = NULL,
+  idempotency_token = NULL,
+  jar_params = NULL,
+  job_parameters = NULL,
+  notebook_params = NULL,
+  pipeline_params = NULL,
+  python_named_params = NULL,
+  python_params = NULL,
+  queue = NULL,
+  spark_submit_params = NULL,
+  sql_params = NULL
+)
+
+jobsRunNow(
   client,
   job_id,
   dbt_commands = NULL,

@@ -2,9 +2,17 @@
 % Please edit documentation in R/tables.R
 \name{get_table}
 \alias{get_table}
+\alias{tablesGet}
 \title{Get a table.}
 \usage{
 get_table(
+  client,
+  full_name,
+  include_browse = NULL,
+  include_delta_metadata = NULL
+)
+
+tablesGet(
   client,
   full_name,
   include_browse = NULL,

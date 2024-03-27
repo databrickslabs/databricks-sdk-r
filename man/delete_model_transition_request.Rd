@@ -2,9 +2,19 @@
 % Please edit documentation in R/model_registry.R
 \name{delete_model_transition_request}
 \alias{delete_model_transition_request}
+\alias{modelRegistryDeleteTransitionRequest}
 \title{Delete a transition request.}
 \usage{
 delete_model_transition_request(
+  client,
+  name,
+  version,
+  stage,
+  creator,
+  comment = NULL
+)
+
+modelRegistryDeleteTransitionRequest(
   client,
   name,
   version,

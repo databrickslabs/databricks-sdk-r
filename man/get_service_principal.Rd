@@ -2,9 +2,12 @@
 % Please edit documentation in R/service_principals.R
 \name{get_service_principal}
 \alias{get_service_principal}
+\alias{servicePrincipalsGet}
 \title{Get service principal details.}
 \usage{
 get_service_principal(client, id)
+
+servicePrincipalsGet(client, id)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

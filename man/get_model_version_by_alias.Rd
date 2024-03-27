@@ -2,9 +2,12 @@
 % Please edit documentation in R/model_versions.R
 \name{get_model_version_by_alias}
 \alias{get_model_version_by_alias}
+\alias{modelVersionsGetByAlias}
 \title{Get Model Version By Alias.}
 \usage{
 get_model_version_by_alias(client, full_name, alias)
+
+modelVersionsGetByAlias(client, full_name, alias)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

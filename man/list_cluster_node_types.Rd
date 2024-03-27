@@ -2,9 +2,12 @@
 % Please edit documentation in R/clusters.R
 \name{list_cluster_node_types}
 \alias{list_cluster_node_types}
+\alias{clustersListNodeTypes}
 \title{List node types.}
 \usage{
 list_cluster_node_types(client)
+
+clustersListNodeTypes(client)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

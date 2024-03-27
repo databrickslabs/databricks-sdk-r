@@ -2,9 +2,12 @@
 % Please edit documentation in R/tables.R
 \name{update_table}
 \alias{update_table}
+\alias{tablesUpdate}
 \title{Update a table owner.}
 \usage{
 update_table(client, full_name, owner = NULL)
+
+tablesUpdate(client, full_name, owner = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

@@ -2,9 +2,12 @@
 % Please edit documentation in R/model_registry.R
 \name{delete_model_comment}
 \alias{delete_model_comment}
+\alias{modelRegistryDeleteComment}
 \title{Delete a comment.}
 \usage{
 delete_model_comment(client, id)
+
+modelRegistryDeleteComment(client, id)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

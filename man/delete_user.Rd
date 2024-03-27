@@ -2,9 +2,12 @@
 % Please edit documentation in R/users.R
 \name{delete_user}
 \alias{delete_user}
+\alias{usersDelete}
 \title{Delete a user.}
 \usage{
 delete_user(client, id)
+
+usersDelete(client, id)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

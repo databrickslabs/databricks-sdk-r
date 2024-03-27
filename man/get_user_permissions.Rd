@@ -2,9 +2,12 @@
 % Please edit documentation in R/users.R
 \name{get_user_permissions}
 \alias{get_user_permissions}
+\alias{usersGetPermissions}
 \title{Get password permissions.}
 \usage{
 get_user_permissions(client)
+
+usersGetPermissions(client)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

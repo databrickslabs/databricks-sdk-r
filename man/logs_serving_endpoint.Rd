@@ -2,9 +2,12 @@
 % Please edit documentation in R/serving_endpoints.R
 \name{logs_serving_endpoint}
 \alias{logs_serving_endpoint}
+\alias{servingEndpointsLogs}
 \title{Get the latest logs for a served model.}
 \usage{
 logs_serving_endpoint(client, name, served_model_name)
+
+servingEndpointsLogs(client, name, served_model_name)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

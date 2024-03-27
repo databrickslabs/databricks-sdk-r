@@ -2,9 +2,12 @@
 % Please edit documentation in R/experiments.R
 \name{delete_experiment_tag}
 \alias{delete_experiment_tag}
+\alias{experimentsDeleteTag}
 \title{Delete a tag.}
 \usage{
 delete_experiment_tag(client, run_id, key)
+
+experimentsDeleteTag(client, run_id, key)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

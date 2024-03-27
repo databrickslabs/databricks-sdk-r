@@ -2,9 +2,19 @@
 % Please edit documentation in R/jobs.R
 \name{list_jobs}
 \alias{list_jobs}
+\alias{jobsList}
 \title{List jobs.}
 \usage{
 list_jobs(
+  client,
+  expand_tasks = NULL,
+  limit = NULL,
+  name = NULL,
+  offset = NULL,
+  page_token = NULL
+)
+
+jobsList(
   client,
   expand_tasks = NULL,
   limit = NULL,

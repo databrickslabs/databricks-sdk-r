@@ -2,9 +2,12 @@
 % Please edit documentation in R/recipients.R
 \name{delete_recipient}
 \alias{delete_recipient}
+\alias{recipientsDelete}
 \title{Delete a share recipient.}
 \usage{
 delete_recipient(client, name)
+
+recipientsDelete(client, name)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

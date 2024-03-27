@@ -2,9 +2,12 @@
 % Please edit documentation in R/default_namespace.R
 \name{update_default_namespace}
 \alias{update_default_namespace}
+\alias{defaultNamespaceUpdate}
 \title{Update the default namespace setting.}
 \usage{
 update_default_namespace(client, allow_missing, setting, field_mask)
+
+defaultNamespaceUpdate(client, allow_missing, setting, field_mask)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

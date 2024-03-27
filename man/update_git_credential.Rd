@@ -2,9 +2,18 @@
 % Please edit documentation in R/git_credentials.R
 \name{update_git_credential}
 \alias{update_git_credential}
+\alias{gitCredentialsUpdate}
 \title{Update a credential.}
 \usage{
 update_git_credential(
+  client,
+  credential_id,
+  git_provider = NULL,
+  git_username = NULL,
+  personal_access_token = NULL
+)
+
+gitCredentialsUpdate(
   client,
   credential_id,
   git_provider = NULL,

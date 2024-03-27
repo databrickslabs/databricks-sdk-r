@@ -17,11 +17,16 @@ NULL
 #' @param handle Required. The handle on an open stream.
 #'
 #' @rdname add_dbfs_block
+#' @alias dbfsAddBlock
 #' @export
 add_dbfs_block <- function(client, handle, data) {
   body <- list(data = data, handle = handle)
   client$do("POST", "/api/2.0/dbfs/add-block", body = body)
 }
+
+#' @rdname add_dbfs_block
+#' @export 
+dbfsAddBlock <- add_dbfs_block
 #' Close the stream.
 #' 
 #' Closes the stream specified by the input handle. If the handle does not
@@ -31,11 +36,16 @@ add_dbfs_block <- function(client, handle, data) {
 #' @param handle Required. The handle on an open stream.
 #'
 #' @rdname close_dbfs
+#' @alias dbfsClose
 #' @export
 close_dbfs <- function(client, handle) {
   body <- list(handle = handle)
   client$do("POST", "/api/2.0/dbfs/close", body = body)
 }
+
+#' @rdname close_dbfs
+#' @export 
+dbfsClose <- close_dbfs
 #' Open a stream.
 #' 
 #' Opens a stream to write to a file and returns a handle to this stream. There
@@ -54,11 +64,16 @@ close_dbfs <- function(client, handle) {
 #' @param path Required. The path of the new file.
 #'
 #' @rdname create_dbfs
+#' @alias dbfsCreate
 #' @export
 create_dbfs <- function(client, path, overwrite = NULL) {
   body <- list(overwrite = overwrite, path = path)
   client$do("POST", "/api/2.0/dbfs/create", body = body)
 }
+
+#' @rdname create_dbfs
+#' @export 
+dbfsCreate <- create_dbfs
 #' Delete a file/directory.
 #' 
 #' Delete the file or directory (optionally recursively delete all files in the
@@ -85,11 +100,16 @@ create_dbfs <- function(client, path, overwrite = NULL) {
 #' @param recursive Whether or not to recursively delete the directory's contents.
 #'
 #' @rdname delete_dbfs
+#' @alias dbfsDelete
 #' @export
 delete_dbfs <- function(client, path, recursive = NULL) {
   body <- list(path = path, recursive = recursive)
   client$do("POST", "/api/2.0/dbfs/delete", body = body)
 }
+
+#' @rdname delete_dbfs
+#' @export 
+dbfsDelete <- delete_dbfs
 #' Get the information of a file or directory.
 #' 
 #' Gets the file information for a file or directory. If the file or directory
@@ -99,11 +119,16 @@ delete_dbfs <- function(client, path, recursive = NULL) {
 #' @param path Required. The path of the file or directory.
 #'
 #' @rdname get_dbfs_status
+#' @alias dbfsGetStatus
 #' @export
 get_dbfs_status <- function(client, path) {
   query <- list(path = path)
   client$do("GET", "/api/2.0/dbfs/get-status", query = query)
 }
+
+#' @rdname get_dbfs_status
+#' @export 
+dbfsGetStatus <- get_dbfs_status
 #' List directory contents or file details.
 #' 
 #' List the contents of a directory, or details of the file. If the file or
@@ -124,6 +149,7 @@ get_dbfs_status <- function(client, path) {
 #' @return `data.frame` with all of the response pages.
 #'
 #' @rdname list_dbfs
+#' @alias dbfsList
 #' @export
 list_dbfs <- function(client, path) {
   query <- list(path = path)
@@ -132,6 +158,10 @@ list_dbfs <- function(client, path) {
   return(json$files)
 
 }
+
+#' @rdname list_dbfs
+#' @export 
+dbfsList <- list_dbfs
 #' Create a directory.
 #' 
 #' Creates the given directory and necessary parent directories if they do not
@@ -144,11 +174,16 @@ list_dbfs <- function(client, path) {
 #' @param path Required. The path of the new directory.
 #'
 #' @rdname mkdirs_dbfs
+#' @alias dbfsMkdirs
 #' @export
 mkdirs_dbfs <- function(client, path) {
   body <- list(path = path)
   client$do("POST", "/api/2.0/dbfs/mkdirs", body = body)
 }
+
+#' @rdname mkdirs_dbfs
+#' @export 
+dbfsMkdirs <- mkdirs_dbfs
 #' Move a file.
 #' 
 #' Moves a file from one location to another location within DBFS. If the source
@@ -162,11 +197,16 @@ mkdirs_dbfs <- function(client, path) {
 #' @param source_path Required. The source path of the file or directory.
 #'
 #' @rdname move_dbfs
+#' @alias dbfsMove
 #' @export
 move_dbfs <- function(client, source_path, destination_path) {
   body <- list(destination_path = destination_path, source_path = source_path)
   client$do("POST", "/api/2.0/dbfs/move", body = body)
 }
+
+#' @rdname move_dbfs
+#' @export 
+dbfsMove <- move_dbfs
 #' Upload a file.
 #' 
 #' Uploads a file through the use of multipart form post. It is mainly used for
@@ -188,11 +228,16 @@ move_dbfs <- function(client, source_path, destination_path) {
 #' @param path Required. The path of the new file.
 #'
 #' @rdname put_dbfs
+#' @alias dbfsPut
 #' @export
 put_dbfs <- function(client, path, contents = NULL, overwrite = NULL) {
   body <- list(contents = contents, overwrite = overwrite, path = path)
   client$do("POST", "/api/2.0/dbfs/put", body = body)
 }
+
+#' @rdname put_dbfs
+#' @export 
+dbfsPut <- put_dbfs
 #' Get the contents of a file.
 #' 
 #' Returns the contents of a file. If the file does not exist, this call throws
@@ -210,11 +255,16 @@ put_dbfs <- function(client, path, contents = NULL, overwrite = NULL) {
 #' @param path Required. The path of the file to read.
 #'
 #' @rdname read_dbfs
+#' @alias dbfsRead
 #' @export
 read_dbfs <- function(client, path, length = NULL, offset = NULL) {
   query <- list(length = length, offset = offset, path = path)
   client$do("GET", "/api/2.0/dbfs/read", query = query)
 }
+
+#' @rdname read_dbfs
+#' @export 
+dbfsRead <- read_dbfs
 
 
 

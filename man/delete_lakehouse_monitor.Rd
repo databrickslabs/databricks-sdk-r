@@ -2,9 +2,12 @@
 % Please edit documentation in R/lakehouse_monitors.R
 \name{delete_lakehouse_monitor}
 \alias{delete_lakehouse_monitor}
+\alias{lakehouseMonitorsDelete}
 \title{Delete a table monitor.}
 \usage{
 delete_lakehouse_monitor(client, full_name)
+
+lakehouseMonitorsDelete(client, full_name)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

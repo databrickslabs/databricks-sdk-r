@@ -2,9 +2,12 @@
 % Please edit documentation in R/secrets.R
 \name{delete_secret}
 \alias{delete_secret}
+\alias{secretsDeleteSecret}
 \title{Delete a secret.}
 \usage{
 delete_secret(client, scope, key)
+
+secretsDeleteSecret(client, scope, key)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

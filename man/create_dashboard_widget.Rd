@@ -2,9 +2,19 @@
 % Please edit documentation in R/dashboard_widgets.R
 \name{create_dashboard_widget}
 \alias{create_dashboard_widget}
+\alias{dashboardWidgetsCreate}
 \title{Add widget to a dashboard.}
 \usage{
 create_dashboard_widget(
+  client,
+  dashboard_id,
+  options,
+  width,
+  text = NULL,
+  visualization_id = NULL
+)
+
+dashboardWidgetsCreate(
   client,
   dashboard_id,
   options,

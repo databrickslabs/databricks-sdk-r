@@ -2,9 +2,12 @@
 % Please edit documentation in R/recipients.R
 \name{list_recipients}
 \alias{list_recipients}
+\alias{recipientsList}
 \title{List share recipients.}
 \usage{
 list_recipients(client, data_recipient_global_metastore_id = NULL)
+
+recipientsList(client, data_recipient_global_metastore_id = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

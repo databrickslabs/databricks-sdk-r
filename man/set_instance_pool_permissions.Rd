@@ -2,9 +2,16 @@
 % Please edit documentation in R/instance_pools.R
 \name{set_instance_pool_permissions}
 \alias{set_instance_pool_permissions}
+\alias{instancePoolsSetPermissions}
 \title{Set instance pool permissions.}
 \usage{
 set_instance_pool_permissions(
+  client,
+  instance_pool_id,
+  access_control_list = NULL
+)
+
+instancePoolsSetPermissions(
   client,
   instance_pool_id,
   access_control_list = NULL

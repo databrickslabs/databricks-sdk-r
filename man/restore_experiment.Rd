@@ -2,9 +2,12 @@
 % Please edit documentation in R/experiments.R
 \name{restore_experiment}
 \alias{restore_experiment}
+\alias{experimentsRestoreExperiment}
 \title{Restores an experiment.}
 \usage{
 restore_experiment(client, experiment_id)
+
+experimentsRestoreExperiment(client, experiment_id)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

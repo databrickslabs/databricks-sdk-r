@@ -2,9 +2,12 @@
 % Please edit documentation in R/serving_endpoints.R
 \name{export_serving_endpoint_metrics}
 \alias{export_serving_endpoint_metrics}
+\alias{servingEndpointsExportMetrics}
 \title{Get metrics of a serving endpoint.}
 \usage{
 export_serving_endpoint_metrics(client, name)
+
+servingEndpointsExportMetrics(client, name)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

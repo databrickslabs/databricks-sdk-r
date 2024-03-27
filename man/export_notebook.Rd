@@ -2,9 +2,12 @@
 % Please edit documentation in R/workspace.R
 \name{export_notebook}
 \alias{export_notebook}
+\alias{workspaceExport}
 \title{Export a workspace object.}
 \usage{
 export_notebook(client, path, format = NULL)
+
+workspaceExport(client, path, format = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

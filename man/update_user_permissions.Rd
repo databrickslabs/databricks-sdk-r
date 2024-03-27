@@ -2,9 +2,12 @@
 % Please edit documentation in R/users.R
 \name{update_user_permissions}
 \alias{update_user_permissions}
+\alias{usersUpdatePermissions}
 \title{Update password permissions.}
 \usage{
 update_user_permissions(client, access_control_list = NULL)
+
+usersUpdatePermissions(client, access_control_list = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

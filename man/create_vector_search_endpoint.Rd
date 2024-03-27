@@ -2,9 +2,12 @@
 % Please edit documentation in R/vector_search_endpoints.R
 \name{create_vector_search_endpoint}
 \alias{create_vector_search_endpoint}
+\alias{vectorSearchEndpointsCreateEndpoint}
 \title{Create an endpoint.}
 \usage{
 create_vector_search_endpoint(client, name, endpoint_type)
+
+vectorSearchEndpointsCreateEndpoint(client, name, endpoint_type)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

@@ -2,9 +2,17 @@
 % Please edit documentation in R/files.R
 \name{list_file_directory_contents}
 \alias{list_file_directory_contents}
+\alias{filesListDirectoryContents}
 \title{List directory contents.}
 \usage{
 list_file_directory_contents(
+  client,
+  directory_path,
+  page_size = NULL,
+  page_token = NULL
+)
+
+filesListDirectoryContents(
   client,
   directory_path,
   page_size = NULL,

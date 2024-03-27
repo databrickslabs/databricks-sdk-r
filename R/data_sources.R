@@ -11,8 +11,13 @@ NULL
 #' @param client Required. Instance of DatabricksClient()
 #'
 #' @rdname list_data_sources
+#' @alias dataSourcesList
 #' @export
 list_data_sources <- function(client) {
   client$do("GET", "/api/2.0/preview/sql/data_sources")
 }
+
+#' @rdname list_data_sources
+#' @export 
+dataSourcesList <- list_data_sources
 

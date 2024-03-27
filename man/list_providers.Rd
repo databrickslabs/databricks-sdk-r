@@ -2,9 +2,12 @@
 % Please edit documentation in R/providers.R
 \name{list_providers}
 \alias{list_providers}
+\alias{providersList}
 \title{List providers.}
 \usage{
 list_providers(client, data_provider_global_metastore_id = NULL)
+
+providersList(client, data_provider_global_metastore_id = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

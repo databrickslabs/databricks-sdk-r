@@ -2,9 +2,17 @@
 % Please edit documentation in R/metastores.R
 \name{update_metastore_assignment}
 \alias{update_metastore_assignment}
+\alias{metastoresUpdateAssignment}
 \title{Update an assignment.}
 \usage{
 update_metastore_assignment(
+  client,
+  workspace_id,
+  default_catalog_name = NULL,
+  metastore_id = NULL
+)
+
+metastoresUpdateAssignment(
   client,
   workspace_id,
   default_catalog_name = NULL,

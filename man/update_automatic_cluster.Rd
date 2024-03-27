@@ -2,9 +2,12 @@
 % Please edit documentation in R/automatic_cluster_update.R
 \name{update_automatic_cluster}
 \alias{update_automatic_cluster}
+\alias{automaticClusterUpdateUpdate}
 \title{Update the automatic cluster update setting.}
 \usage{
 update_automatic_cluster(client, allow_missing, setting, field_mask)
+
+automaticClusterUpdateUpdate(client, allow_missing, setting, field_mask)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

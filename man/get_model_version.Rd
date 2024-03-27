@@ -2,11 +2,17 @@
 % Please edit documentation in R/model_registry.R, R/model_versions.R
 \name{get_model_version}
 \alias{get_model_version}
+\alias{modelRegistryGetModelVersion}
+\alias{modelVersionsGet}
 \title{Get a model version.}
 \usage{
 get_model_version(client, full_name, version, include_browse = NULL)
 
+modelRegistryGetModelVersion(client, name, version)
+
 get_model_version(client, full_name, version, include_browse = NULL)
+
+modelVersionsGet(client, full_name, version, include_browse = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

@@ -2,9 +2,12 @@
 % Please edit documentation in R/dbfs.R
 \name{create_dbfs}
 \alias{create_dbfs}
+\alias{dbfsCreate}
 \title{Open a stream.}
 \usage{
 create_dbfs(client, path, overwrite = NULL)
+
+dbfsCreate(client, path, overwrite = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

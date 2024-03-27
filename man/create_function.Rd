@@ -2,9 +2,12 @@
 % Please edit documentation in R/functions.R
 \name{create_function}
 \alias{create_function}
+\alias{functionsCreate}
 \title{Create a function.}
 \usage{
 create_function(client, function_info)
+
+functionsCreate(client, function_info)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

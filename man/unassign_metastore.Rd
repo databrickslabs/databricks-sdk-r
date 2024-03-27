@@ -2,9 +2,12 @@
 % Please edit documentation in R/metastores.R
 \name{unassign_metastore}
 \alias{unassign_metastore}
+\alias{metastoresUnassign}
 \title{Delete an assignment.}
 \usage{
 unassign_metastore(client, workspace_id, metastore_id)
+
+metastoresUnassign(client, workspace_id, metastore_id)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

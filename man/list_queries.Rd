@@ -2,9 +2,12 @@
 % Please edit documentation in R/queries.R
 \name{list_queries}
 \alias{list_queries}
+\alias{queriesList}
 \title{Get a list of queries.}
 \usage{
 list_queries(client, order = NULL, page = NULL, page_size = NULL, q = NULL)
+
+queriesList(client, order = NULL, page = NULL, page_size = NULL, q = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

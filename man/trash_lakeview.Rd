@@ -2,9 +2,12 @@
 % Please edit documentation in R/lakeview.R
 \name{trash_lakeview}
 \alias{trash_lakeview}
+\alias{lakeviewTrash}
 \title{Trash dashboard.}
 \usage{
 trash_lakeview(client, dashboard_id)
+
+lakeviewTrash(client, dashboard_id)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

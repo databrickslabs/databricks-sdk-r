@@ -2,9 +2,12 @@
 % Please edit documentation in R/connections.R
 \name{delete_connection}
 \alias{delete_connection}
+\alias{connectionsDelete}
 \title{Delete a connection.}
 \usage{
 delete_connection(client, name)
+
+connectionsDelete(client, name)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

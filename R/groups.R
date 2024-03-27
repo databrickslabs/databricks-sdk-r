@@ -20,6 +20,7 @@ NULL
 #' @param schemas The schema of the group.
 #'
 #' @rdname create_group
+#' @alias groupsCreate
 #' @export
 create_group <- function(client, display_name = NULL, entitlements = NULL, external_id = NULL,
   groups = NULL, id = NULL, members = NULL, meta = NULL, roles = NULL, schemas = NULL) {
@@ -28,6 +29,10 @@ create_group <- function(client, display_name = NULL, entitlements = NULL, exter
     schemas = schemas)
   client$do("POST", "/api/2.0/preview/scim/v2/Groups", body = body)
 }
+
+#' @rdname create_group
+#' @export 
+groupsCreate <- create_group
 #' Delete a group.
 #' 
 #' Deletes a group from the Databricks workspace.
@@ -36,11 +41,16 @@ create_group <- function(client, display_name = NULL, entitlements = NULL, exter
 #' @param id Required. Unique ID for a group in the Databricks workspace.
 #'
 #' @rdname delete_group
+#' @alias groupsDelete
 #' @export
 delete_group <- function(client, id) {
 
   client$do("DELETE", paste("/api/2.0/preview/scim/v2/Groups/", id, sep = ""))
 }
+
+#' @rdname delete_group
+#' @export 
+groupsDelete <- delete_group
 #' Get group details.
 #' 
 #' Gets the information for a specific group in the Databricks workspace.
@@ -49,11 +59,16 @@ delete_group <- function(client, id) {
 #' @param id Required. Unique ID for a group in the Databricks workspace.
 #'
 #' @rdname get_group
+#' @alias groupsGet
 #' @export
 get_group <- function(client, id) {
 
   client$do("GET", paste("/api/2.0/preview/scim/v2/Groups/", id, sep = ""))
 }
+
+#' @rdname get_group
+#' @export 
+groupsGet <- get_group
 #' List group details.
 #' 
 #' Gets all details of the groups associated with the Databricks workspace.
@@ -70,6 +85,7 @@ get_group <- function(client, id) {
 #' @return `data.frame` with all of the response pages.
 #'
 #' @rdname list_groups
+#' @alias groupsList
 #' @export
 list_groups <- function(client, attributes = NULL, count = NULL, excluded_attributes = NULL,
   filter = NULL, sort_by = NULL, sort_order = NULL, start_index = NULL) {
@@ -92,6 +108,10 @@ list_groups <- function(client, attributes = NULL, count = NULL, excluded_attrib
   return(results)
 
 }
+
+#' @rdname list_groups
+#' @export 
+groupsList <- list_groups
 #' Update group details.
 #' 
 #' Partially updates the details of a group.
@@ -102,11 +122,16 @@ list_groups <- function(client, attributes = NULL, count = NULL, excluded_attrib
 #' @param schemas The schema of the patch request.
 #'
 #' @rdname patch_group
+#' @alias groupsPatch
 #' @export
 patch_group <- function(client, id, operations = NULL, schemas = NULL) {
   body <- list(Operations = operations, schemas = schemas)
   client$do("PATCH", paste("/api/2.0/preview/scim/v2/Groups/", id, sep = ""), body = body)
 }
+
+#' @rdname patch_group
+#' @export 
+groupsPatch <- patch_group
 #' Replace a group.
 #' 
 #' Updates the details of a group by replacing the entire group entity.
@@ -123,6 +148,7 @@ patch_group <- function(client, id, operations = NULL, schemas = NULL) {
 #' @param schemas The schema of the group.
 #'
 #' @rdname update_group
+#' @alias groupsUpdate
 #' @export
 update_group <- function(client, id, display_name = NULL, entitlements = NULL, external_id = NULL,
   groups = NULL, members = NULL, meta = NULL, roles = NULL, schemas = NULL) {
@@ -131,6 +157,10 @@ update_group <- function(client, id, display_name = NULL, entitlements = NULL, e
     schemas = schemas)
   client$do("PUT", paste("/api/2.0/preview/scim/v2/Groups/", id, sep = ""), body = body)
 }
+
+#' @rdname update_group
+#' @export 
+groupsUpdate <- update_group
 
 
 

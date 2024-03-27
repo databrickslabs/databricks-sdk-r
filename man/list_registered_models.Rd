@@ -2,9 +2,19 @@
 % Please edit documentation in R/registered_models.R
 \name{list_registered_models}
 \alias{list_registered_models}
+\alias{registeredModelsList}
 \title{List Registered Models.}
 \usage{
 list_registered_models(
+  client,
+  catalog_name = NULL,
+  include_browse = NULL,
+  max_results = NULL,
+  page_token = NULL,
+  schema_name = NULL
+)
+
+registeredModelsList(
   client,
   catalog_name = NULL,
   include_browse = NULL,

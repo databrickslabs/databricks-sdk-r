@@ -2,9 +2,12 @@
 % Please edit documentation in R/clusters.R
 \name{get_cluster}
 \alias{get_cluster}
+\alias{clustersGet}
 \title{Get cluster info.}
 \usage{
 get_cluster(client, cluster_id)
+
+clustersGet(client, cluster_id)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

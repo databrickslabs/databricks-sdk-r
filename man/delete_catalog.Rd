@@ -2,9 +2,12 @@
 % Please edit documentation in R/catalogs.R
 \name{delete_catalog}
 \alias{delete_catalog}
+\alias{catalogsDelete}
 \title{Delete a catalog.}
 \usage{
 delete_catalog(client, name, force = NULL)
+
+catalogsDelete(client, name, force = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

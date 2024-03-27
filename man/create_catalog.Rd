@@ -2,9 +2,22 @@
 % Please edit documentation in R/catalogs.R
 \name{create_catalog}
 \alias{create_catalog}
+\alias{catalogsCreate}
 \title{Create a catalog.}
 \usage{
 create_catalog(
+  client,
+  name,
+  comment = NULL,
+  connection_name = NULL,
+  options = NULL,
+  properties = NULL,
+  provider_name = NULL,
+  share_name = NULL,
+  storage_root = NULL
+)
+
+catalogsCreate(
   client,
   name,
   comment = NULL,

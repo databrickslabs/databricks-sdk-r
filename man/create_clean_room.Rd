@@ -2,9 +2,12 @@
 % Please edit documentation in R/clean_rooms.R
 \name{create_clean_room}
 \alias{create_clean_room}
+\alias{cleanRoomsCreate}
 \title{Create a clean room.}
 \usage{
 create_clean_room(client, name, remote_detailed_info, comment = NULL)
+
+cleanRoomsCreate(client, name, remote_detailed_info, comment = NULL)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

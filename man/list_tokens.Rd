@@ -2,9 +2,12 @@
 % Please edit documentation in R/tokens.R
 \name{list_tokens}
 \alias{list_tokens}
+\alias{tokensList}
 \title{List tokens.}
 \usage{
 list_tokens(client)
+
+tokensList(client)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}

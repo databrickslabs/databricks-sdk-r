@@ -2,9 +2,12 @@
 % Please edit documentation in R/recipients.R
 \name{share_recipient_permissions}
 \alias{share_recipient_permissions}
+\alias{recipientsSharePermissions}
 \title{Get recipient share permissions.}
 \usage{
 share_recipient_permissions(client, name)
+
+recipientsSharePermissions(client, name)
 }
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
