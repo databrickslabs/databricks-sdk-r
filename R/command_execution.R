@@ -14,13 +14,18 @@ NULL
 #' @param command_id This field has no description yet.
 #' @param context_id This field has no description yet.
 #'
-#' @rdname commandExecutionCancel
+#' @rdname cancel_command_execution
+#' @alias commandExecutionCancel
 #' @export
-commandExecutionCancel <- function(client, cluster_id = NULL, command_id = NULL,
+cancel_command_execution <- function(client, cluster_id = NULL, command_id = NULL,
   context_id = NULL) {
   body <- list(clusterId = cluster_id, commandId = command_id, contextId = context_id)
   client$do("POST", "/api/1.2/commands/cancel", body = body)
 }
+
+#' @rdname cancel_command_execution
+#' @export 
+commandExecutionCancel <- cancel_command_execution
 #' Get command info.
 #' 
 #' Gets the status of and, if available, the results from a currently executing
@@ -33,12 +38,17 @@ commandExecutionCancel <- function(client, cluster_id = NULL, command_id = NULL,
 #' @param command_id Required. This field has no description yet.
 #' @param context_id Required. This field has no description yet.
 #'
-#' @rdname commandExecutionCommandStatus
+#' @rdname command_execution_status
+#' @alias commandExecutionCommandStatus
 #' @export
-commandExecutionCommandStatus <- function(client, cluster_id, context_id, command_id) {
+command_execution_status <- function(client, cluster_id, context_id, command_id) {
   query <- list(clusterId = cluster_id, commandId = command_id, contextId = context_id)
   client$do("GET", "/api/1.2/commands/status", query = query)
 }
+
+#' @rdname command_execution_status
+#' @export 
+commandExecutionCommandStatus <- command_execution_status
 #' Get status.
 #' 
 #' Gets the status for an execution context.
@@ -47,12 +57,17 @@ commandExecutionCommandStatus <- function(client, cluster_id, context_id, comman
 #' @param cluster_id Required. This field has no description yet.
 #' @param context_id Required. This field has no description yet.
 #'
-#' @rdname commandExecutionContextStatus
+#' @rdname context_command_execution_status
+#' @alias commandExecutionContextStatus
 #' @export
-commandExecutionContextStatus <- function(client, cluster_id, context_id) {
+context_command_execution_status <- function(client, cluster_id, context_id) {
   query <- list(clusterId = cluster_id, contextId = context_id)
   client$do("GET", "/api/1.2/contexts/status", query = query)
 }
+
+#' @rdname context_command_execution_status
+#' @export 
+commandExecutionContextStatus <- context_command_execution_status
 #' Create an execution context.
 #' 
 #' Creates an execution context for running cluster commands.
@@ -63,12 +78,17 @@ commandExecutionContextStatus <- function(client, cluster_id, context_id) {
 #' @param cluster_id Running cluster id.
 #' @param language This field has no description yet.
 #'
-#' @rdname commandExecutionCreate
+#' @rdname create_command_execution
+#' @alias commandExecutionCreate
 #' @export
-commandExecutionCreate <- function(client, cluster_id = NULL, language = NULL) {
+create_command_execution <- function(client, cluster_id = NULL, language = NULL) {
   body <- list(clusterId = cluster_id, language = language)
   client$do("POST", "/api/1.2/contexts/create", body = body)
 }
+
+#' @rdname create_command_execution
+#' @export 
+commandExecutionCreate <- create_command_execution
 #' Delete an execution context.
 #' 
 #' Deletes an execution context.
@@ -77,12 +97,17 @@ commandExecutionCreate <- function(client, cluster_id = NULL, language = NULL) {
 #' @param cluster_id Required. This field has no description yet.
 #' @param context_id Required. This field has no description yet.
 #'
-#' @rdname commandExecutionDestroy
+#' @rdname destroy_command_execution
+#' @alias commandExecutionDestroy
 #' @export
-commandExecutionDestroy <- function(client, cluster_id, context_id) {
+destroy_command_execution <- function(client, cluster_id, context_id) {
   body <- list(clusterId = cluster_id, contextId = context_id)
   client$do("POST", "/api/1.2/contexts/destroy", body = body)
 }
+
+#' @rdname destroy_command_execution
+#' @export 
+commandExecutionDestroy <- destroy_command_execution
 #' Run a command.
 #' 
 #' Runs a cluster command in the given execution context, using the provided
@@ -97,14 +122,19 @@ commandExecutionDestroy <- function(client, cluster_id, context_id) {
 #' @param context_id Running context id.
 #' @param language This field has no description yet.
 #'
-#' @rdname commandExecutionExecute
+#' @rdname execute_command
+#' @alias commandExecutionExecute
 #' @export
-commandExecutionExecute <- function(client, cluster_id = NULL, command = NULL, context_id = NULL,
+execute_command <- function(client, cluster_id = NULL, command = NULL, context_id = NULL,
   language = NULL) {
   body <- list(clusterId = cluster_id, command = command, contextId = context_id,
     language = language)
   client$do("POST", "/api/1.2/commands/execute", body = body)
 }
+
+#' @rdname execute_command
+#' @export 
+commandExecutionExecute <- execute_command
 #' Cancel a command.
 #' 
 #' Cancels a currently running command within an execution context.
@@ -125,9 +155,9 @@ commandExecutionExecute <- function(client, cluster_id = NULL, command = NULL, c
 #' @param command_id This field has no description yet.
 #' @param context_id This field has no description yet.
 #'
-#' @rdname commandExecutionCancelAndWait
+#' @rdname cancel_command_execution_and_wait
 #' @export
-commandExecutionCancelAndWait <- function(client, cluster_id = NULL, command_id = NULL,
+cancel_command_execution_and_wait <- function(client, cluster_id = NULL, command_id = NULL,
   context_id = NULL, timeout = 20, callback = cli_reporter) {
   body <- list(clusterId = cluster_id, commandId = command_id, contextId = context_id)
   op_response <- client$do("POST", "/api/1.2/commands/cancel", body = body)
@@ -193,9 +223,9 @@ commandExecutionCancelAndWait <- function(client, cluster_id = NULL, command_id 
 #' @param cluster_id Running cluster id.
 #' @param language This field has no description yet.
 #'
-#' @rdname commandExecutionCreateAndWait
+#' @rdname create_command_execution_and_wait
 #' @export
-commandExecutionCreateAndWait <- function(client, cluster_id = NULL, language = NULL,
+create_command_execution_and_wait <- function(client, cluster_id = NULL, language = NULL,
   timeout = 20, callback = cli_reporter) {
   body <- list(clusterId = cluster_id, language = language)
   op_response <- client$do("POST", "/api/1.2/contexts/create", body = body)
@@ -260,10 +290,10 @@ commandExecutionCreateAndWait <- function(client, cluster_id = NULL, language = 
 #' @param context_id Running context id.
 #' @param language This field has no description yet.
 #'
-#' @rdname commandExecutionExecuteAndWait
+#' @rdname execute_command_and_wait
 #' @export
-commandExecutionExecuteAndWait <- function(client, cluster_id = NULL, command = NULL,
-  context_id = NULL, language = NULL, timeout = 20, callback = cli_reporter) {
+execute_command_and_wait <- function(client, cluster_id = NULL, command = NULL, context_id = NULL,
+  language = NULL, timeout = 20, callback = cli_reporter) {
   body <- list(clusterId = cluster_id, command = command, contextId = context_id,
     language = language)
   op_response <- client$do("POST", "/api/1.2/commands/execute", body = body)

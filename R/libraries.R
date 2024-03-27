@@ -11,11 +11,16 @@ NULL
 #' UI.
 #' @param client Required. Instance of DatabricksClient()
 #'
-#' @rdname librariesAllClusterStatuses
+#' @rdname all_cluster_library_statuses
+#' @alias librariesAllClusterStatuses
 #' @export
-librariesAllClusterStatuses <- function(client) {
+all_cluster_library_statuses <- function(client) {
   client$do("GET", "/api/2.0/libraries/all-cluster-statuses")
 }
+
+#' @rdname all_cluster_library_statuses
+#' @export 
+librariesAllClusterStatuses <- all_cluster_library_statuses
 #' Get status.
 #' 
 #' Get the status of libraries on a cluster. A status will be available for all
@@ -39,15 +44,20 @@ librariesAllClusterStatuses <- function(client) {
 #'
 #' @return `data.frame` with all of the response pages.
 #'
-#' @rdname librariesClusterStatus
+#' @rdname cluster_library_status
+#' @alias librariesClusterStatus
 #' @export
-librariesClusterStatus <- function(client, cluster_id) {
+cluster_library_status <- function(client, cluster_id) {
   query <- list(cluster_id = cluster_id)
 
   json <- client$do("GET", "/api/2.0/libraries/cluster-status", query = query)
   return(json$library_statuses)
 
 }
+
+#' @rdname cluster_library_status
+#' @export 
+librariesClusterStatus <- cluster_library_status
 #' Add a library.
 #' 
 #' Add libraries to be installed on a cluster. The installation is asynchronous;
@@ -61,12 +71,17 @@ librariesClusterStatus <- function(client, cluster_id) {
 #' @param cluster_id Required. Unique identifier for the cluster on which to install these libraries.
 #' @param libraries Required. The libraries to install.
 #'
-#' @rdname librariesInstall
+#' @rdname install_cluster_library
+#' @alias librariesInstall
 #' @export
-librariesInstall <- function(client, cluster_id, libraries) {
+install_cluster_library <- function(client, cluster_id, libraries) {
   body <- list(cluster_id = cluster_id, libraries = libraries)
   client$do("POST", "/api/2.0/libraries/install", body = body)
 }
+
+#' @rdname install_cluster_library
+#' @export 
+librariesInstall <- install_cluster_library
 #' Uninstall libraries.
 #' 
 #' Set libraries to be uninstalled on a cluster. The libraries won't be
@@ -77,12 +92,17 @@ librariesInstall <- function(client, cluster_id, libraries) {
 #' @param cluster_id Required. Unique identifier for the cluster on which to uninstall these libraries.
 #' @param libraries Required. The libraries to uninstall.
 #'
-#' @rdname librariesUninstall
+#' @rdname uninstall_cluster_library
+#' @alias librariesUninstall
 #' @export
-librariesUninstall <- function(client, cluster_id, libraries) {
+uninstall_cluster_library <- function(client, cluster_id, libraries) {
   body <- list(cluster_id = cluster_id, libraries = libraries)
   client$do("POST", "/api/2.0/libraries/uninstall", body = body)
 }
+
+#' @rdname uninstall_cluster_library
+#' @export 
+librariesUninstall <- uninstall_cluster_library
 
 
 

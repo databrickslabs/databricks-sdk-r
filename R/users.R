@@ -21,9 +21,10 @@ NULL
 #' @param schemas The schema of the user.
 #' @param user_name Email address of the Databricks user.
 #'
-#' @rdname usersCreate
+#' @rdname create_user
+#' @alias usersCreate
 #' @export
-usersCreate <- function(client, active = NULL, display_name = NULL, emails = NULL,
+create_user <- function(client, active = NULL, display_name = NULL, emails = NULL,
   entitlements = NULL, external_id = NULL, groups = NULL, id = NULL, name = NULL,
   roles = NULL, schemas = NULL, user_name = NULL) {
   body <- list(active = active, displayName = display_name, emails = emails, entitlements = entitlements,
@@ -31,6 +32,10 @@ usersCreate <- function(client, active = NULL, display_name = NULL, emails = NUL
     schemas = schemas, userName = user_name)
   client$do("POST", "/api/2.0/preview/scim/v2/Users", body = body)
 }
+
+#' @rdname create_user
+#' @export 
+usersCreate <- create_user
 #' Delete a user.
 #' 
 #' Deletes a user. Deleting a user from a Databricks workspace also removes
@@ -39,12 +44,17 @@ usersCreate <- function(client, active = NULL, display_name = NULL, emails = NUL
 #'
 #' @param id Required. Unique ID for a user in the Databricks workspace.
 #'
-#' @rdname usersDelete
+#' @rdname delete_user
+#' @alias usersDelete
 #' @export
-usersDelete <- function(client, id) {
+delete_user <- function(client, id) {
 
   client$do("DELETE", paste("/api/2.0/preview/scim/v2/Users/", id, sep = ""))
 }
+
+#' @rdname delete_user
+#' @export 
+usersDelete <- delete_user
 #' Get user details.
 #' 
 #' Gets information for a specific user in Databricks workspace.
@@ -59,35 +69,50 @@ usersDelete <- function(client, id) {
 #' @param sort_order The order to sort the results.
 #' @param start_index Specifies the index of the first result.
 #'
-#' @rdname usersGet
+#' @rdname get_user
+#' @alias usersGet
 #' @export
-usersGet <- function(client, id, attributes = NULL, count = NULL, excluded_attributes = NULL,
+get_user <- function(client, id, attributes = NULL, count = NULL, excluded_attributes = NULL,
   filter = NULL, sort_by = NULL, sort_order = NULL, start_index = NULL) {
   query <- list(attributes = attributes, count = count, excludedAttributes = excluded_attributes,
     filter = filter, sortBy = sort_by, sortOrder = sort_order, startIndex = start_index)
   client$do("GET", paste("/api/2.0/preview/scim/v2/Users/", id, sep = ""), query = query)
 }
+
+#' @rdname get_user
+#' @export 
+usersGet <- get_user
 #' Get password permission levels.
 #' 
 #' Gets the permission levels that a user can have on an object.
 #' @param client Required. Instance of DatabricksClient()
 #'
-#' @rdname usersGetPermissionLevels
+#' @rdname get_user_permission_levels
+#' @alias usersGetPermissionLevels
 #' @export
-usersGetPermissionLevels <- function(client) {
+get_user_permission_levels <- function(client) {
   client$do("GET", "/api/2.0/permissions/authorization/passwords/permissionLevels")
 }
+
+#' @rdname get_user_permission_levels
+#' @export 
+usersGetPermissionLevels <- get_user_permission_levels
 #' Get password permissions.
 #' 
 #' Gets the permissions of all passwords. Passwords can inherit permissions from
 #' their root object.
 #' @param client Required. Instance of DatabricksClient()
 #'
-#' @rdname usersGetPermissions
+#' @rdname get_user_permissions
+#' @alias usersGetPermissions
 #' @export
-usersGetPermissions <- function(client) {
+get_user_permissions <- function(client) {
   client$do("GET", "/api/2.0/permissions/authorization/passwords")
 }
+
+#' @rdname get_user_permissions
+#' @export 
+usersGetPermissions <- get_user_permissions
 #' List users.
 #' 
 #' Gets details for all the users associated with a Databricks workspace.
@@ -103,9 +128,10 @@ usersGetPermissions <- function(client) {
 #'
 #' @return `data.frame` with all of the response pages.
 #'
-#' @rdname usersList
+#' @rdname list_users
+#' @alias usersList
 #' @export
-usersList <- function(client, attributes = NULL, count = NULL, excluded_attributes = NULL,
+list_users <- function(client, attributes = NULL, count = NULL, excluded_attributes = NULL,
   filter = NULL, sort_by = NULL, sort_order = NULL, start_index = NULL) {
   query <- list(attributes = attributes, count = count, excludedAttributes = excluded_attributes,
     filter = filter, sortBy = sort_by, sortOrder = sort_order, startIndex = start_index)
@@ -126,6 +152,10 @@ usersList <- function(client, attributes = NULL, count = NULL, excluded_attribut
   return(results)
 
 }
+
+#' @rdname list_users
+#' @export 
+usersList <- list_users
 #' Update user details.
 #' 
 #' Partially updates a user resource by applying the supplied operations on
@@ -136,12 +166,17 @@ usersList <- function(client, attributes = NULL, count = NULL, excluded_attribut
 #' @param operations This field has no description yet.
 #' @param schemas The schema of the patch request.
 #'
-#' @rdname usersPatch
+#' @rdname patch_user
+#' @alias usersPatch
 #' @export
-usersPatch <- function(client, id, operations = NULL, schemas = NULL) {
+patch_user <- function(client, id, operations = NULL, schemas = NULL) {
   body <- list(Operations = operations, schemas = schemas)
   client$do("PATCH", paste("/api/2.0/preview/scim/v2/Users/", id, sep = ""), body = body)
 }
+
+#' @rdname patch_user
+#' @export 
+usersPatch <- patch_user
 #' Set password permissions.
 #' 
 #' Sets permissions on all passwords. Passwords can inherit permissions from
@@ -150,12 +185,17 @@ usersPatch <- function(client, id, operations = NULL, schemas = NULL) {
 #'
 #' @param access_control_list This field has no description yet.
 #'
-#' @rdname usersSetPermissions
+#' @rdname set_user_permissions
+#' @alias usersSetPermissions
 #' @export
-usersSetPermissions <- function(client, access_control_list = NULL) {
+set_user_permissions <- function(client, access_control_list = NULL) {
   body <- list(access_control_list = access_control_list)
   client$do("PUT", "/api/2.0/permissions/authorization/passwords", body = body)
 }
+
+#' @rdname set_user_permissions
+#' @export 
+usersSetPermissions <- set_user_permissions
 #' Replace a user.
 #' 
 #' Replaces a user's information with the data supplied in request.
@@ -173,9 +213,10 @@ usersSetPermissions <- function(client, access_control_list = NULL) {
 #' @param schemas The schema of the user.
 #' @param user_name Email address of the Databricks user.
 #'
-#' @rdname usersUpdate
+#' @rdname update_user
+#' @alias usersUpdate
 #' @export
-usersUpdate <- function(client, id, active = NULL, display_name = NULL, emails = NULL,
+update_user <- function(client, id, active = NULL, display_name = NULL, emails = NULL,
   entitlements = NULL, external_id = NULL, groups = NULL, name = NULL, roles = NULL,
   schemas = NULL, user_name = NULL) {
   body <- list(active = active, displayName = display_name, emails = emails, entitlements = entitlements,
@@ -183,6 +224,10 @@ usersUpdate <- function(client, id, active = NULL, display_name = NULL, emails =
     schemas = schemas, userName = user_name)
   client$do("PUT", paste("/api/2.0/preview/scim/v2/Users/", id, sep = ""), body = body)
 }
+
+#' @rdname update_user
+#' @export 
+usersUpdate <- update_user
 #' Update password permissions.
 #' 
 #' Updates the permissions on all passwords. Passwords can inherit permissions
@@ -191,12 +236,17 @@ usersUpdate <- function(client, id, active = NULL, display_name = NULL, emails =
 #'
 #' @param access_control_list This field has no description yet.
 #'
-#' @rdname usersUpdatePermissions
+#' @rdname update_user_permissions
+#' @alias usersUpdatePermissions
 #' @export
-usersUpdatePermissions <- function(client, access_control_list = NULL) {
+update_user_permissions <- function(client, access_control_list = NULL) {
   body <- list(access_control_list = access_control_list)
   client$do("PATCH", "/api/2.0/permissions/authorization/passwords", body = body)
 }
+
+#' @rdname update_user_permissions
+#' @export 
+usersUpdatePermissions <- update_user_permissions
 
 
 

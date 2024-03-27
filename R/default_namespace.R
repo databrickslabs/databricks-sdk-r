@@ -14,13 +14,18 @@ NULL
 #'
 #' @param etag etag used for versioning.
 #'
-#' @rdname defaultNamespaceDelete
+#' @rdname delete_default_namespace
+#' @alias defaultNamespaceDelete
 #' @export
-defaultNamespaceDelete <- function(client, etag = NULL) {
+delete_default_namespace <- function(client, etag = NULL) {
   query <- list(etag = etag)
   client$do("DELETE", "/api/2.0/settings/types/default_namespace_ws/names/default",
     query = query)
 }
+
+#' @rdname delete_default_namespace
+#' @export 
+defaultNamespaceDelete <- delete_default_namespace
 #' Get the default namespace setting.
 #' 
 #' Gets the default namespace setting.
@@ -28,13 +33,18 @@ defaultNamespaceDelete <- function(client, etag = NULL) {
 #'
 #' @param etag etag used for versioning.
 #'
-#' @rdname defaultNamespaceGet
+#' @rdname get_default_namespace
+#' @alias defaultNamespaceGet
 #' @export
-defaultNamespaceGet <- function(client, etag = NULL) {
+get_default_namespace <- function(client, etag = NULL) {
   query <- list(etag = etag)
   client$do("GET", "/api/2.0/settings/types/default_namespace_ws/names/default",
     query = query)
 }
+
+#' @rdname get_default_namespace
+#' @export 
+defaultNamespaceGet <- get_default_namespace
 #' Update the default namespace setting.
 #' 
 #' Updates the default namespace setting for the workspace. A fresh etag needs
@@ -50,13 +60,18 @@ defaultNamespaceGet <- function(client, etag = NULL) {
 #' @param field_mask Required. Field mask is required to be passed into the PATCH request.
 #' @param setting Required. This represents the setting configuration for the default namespace in the Databricks workspace.
 #'
-#' @rdname defaultNamespaceUpdate
+#' @rdname update_default_namespace
+#' @alias defaultNamespaceUpdate
 #' @export
-defaultNamespaceUpdate <- function(client, allow_missing, setting, field_mask) {
+update_default_namespace <- function(client, allow_missing, setting, field_mask) {
   body <- list(allow_missing = allow_missing, field_mask = field_mask, setting = setting)
   client$do("PATCH", "/api/2.0/settings/types/default_namespace_ws/names/default",
     body = body)
 }
+
+#' @rdname update_default_namespace
+#' @export 
+defaultNamespaceUpdate <- update_default_namespace
 
 
 

@@ -17,13 +17,18 @@ NULL
 #' @param full_name Required. The three-level (fully qualified) name of the model version.
 #' @param version Required. The integer version number of the model version.
 #'
-#' @rdname modelVersionsDelete
+#' @rdname delete_model_version
+#' @alias modelVersionsDelete
 #' @export
-modelVersionsDelete <- function(client, full_name, version) {
+delete_model_version <- function(client, full_name, version) {
 
   client$do("DELETE", paste("/api/2.1/unity-catalog/models/", full_name, "/versions/",
     version, sep = ""))
 }
+
+#' @rdname delete_model_version
+#' @export 
+modelVersionsDelete <- delete_model_version
 #' Get a Model Version.
 #' 
 #' Get a model version.
@@ -38,13 +43,18 @@ modelVersionsDelete <- function(client, full_name, version) {
 #' @param include_browse Whether to include model versions in the response for which the principal can only access selective metadata for.
 #' @param version Required. The integer version number of the model version.
 #'
-#' @rdname modelVersionsGet
+#' @rdname get_model_version
+#' @alias modelVersionsGet
 #' @export
-modelVersionsGet <- function(client, full_name, version, include_browse = NULL) {
+get_model_version <- function(client, full_name, version, include_browse = NULL) {
   query <- list(include_browse = include_browse)
   client$do("GET", paste("/api/2.1/unity-catalog/models/", full_name, "/versions/",
     version, sep = ""), query = query)
 }
+
+#' @rdname get_model_version
+#' @export 
+modelVersionsGet <- get_model_version
 #' Get Model Version By Alias.
 #' 
 #' Get a model version by alias.
@@ -58,13 +68,18 @@ modelVersionsGet <- function(client, full_name, version, include_browse = NULL) 
 #' @param alias Required. The name of the alias.
 #' @param full_name Required. The three-level (fully qualified) name of the registered model.
 #'
-#' @rdname modelVersionsGetByAlias
+#' @rdname get_model_version_by_alias
+#' @alias modelVersionsGetByAlias
 #' @export
-modelVersionsGetByAlias <- function(client, full_name, alias) {
+get_model_version_by_alias <- function(client, full_name, alias) {
 
   client$do("GET", paste("/api/2.1/unity-catalog/models/", full_name, "/aliases/",
     alias, sep = ""))
 }
+
+#' @rdname get_model_version_by_alias
+#' @export 
+modelVersionsGetByAlias <- get_model_version_by_alias
 #' List Model Versions.
 #' 
 #' List model versions. You can list model versions under a particular schema,
@@ -88,9 +103,10 @@ modelVersionsGetByAlias <- function(client, full_name, alias) {
 #'
 #' @return `data.frame` with all of the response pages.
 #'
-#' @rdname modelVersionsList
+#' @rdname list_model_versions
+#' @alias modelVersionsList
 #' @export
-modelVersionsList <- function(client, full_name, include_browse = NULL, max_results = NULL,
+list_model_versions <- function(client, full_name, include_browse = NULL, max_results = NULL,
   page_token = NULL) {
   query <- list(include_browse = include_browse, max_results = max_results, page_token = page_token)
 
@@ -111,6 +127,10 @@ modelVersionsList <- function(client, full_name, include_browse = NULL, max_resu
   return(results)
 
 }
+
+#' @rdname list_model_versions
+#' @export 
+modelVersionsList <- list_model_versions
 #' Update a Model Version.
 #' 
 #' Updates the specified model version.
@@ -127,13 +147,18 @@ modelVersionsList <- function(client, full_name, include_browse = NULL, max_resu
 #' @param full_name Required. The three-level (fully qualified) name of the model version.
 #' @param version Required. The integer version number of the model version.
 #'
-#' @rdname modelVersionsUpdate
+#' @rdname update_model_version
+#' @alias modelVersionsUpdate
 #' @export
-modelVersionsUpdate <- function(client, full_name, version, comment = NULL) {
+update_model_version <- function(client, full_name, version, comment = NULL) {
   body <- list(comment = comment)
   client$do("PATCH", paste("/api/2.1/unity-catalog/models/", full_name, "/versions/",
     version, sep = ""), body = body)
 }
+
+#' @rdname update_model_version
+#' @export 
+modelVersionsUpdate <- update_model_version
 
 
 

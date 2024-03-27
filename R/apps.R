@@ -11,12 +11,17 @@ NULL
 #' @param manifest Required. Manifest that specifies the application requirements.
 #' @param resources Information passed at app deployment time to fulfill app dependencies.
 #'
-#' @rdname appsCreate
+#' @rdname create_app
+#' @alias appsCreate
 #' @export
-appsCreate <- function(client, manifest, resources = NULL) {
+create_app <- function(client, manifest, resources = NULL) {
   body <- list(manifest = manifest, resources = resources)
   client$do("POST", "/api/2.0/preview/apps/deployments", body = body)
 }
+
+#' @rdname create_app
+#' @export 
+appsCreate <- create_app
 #' Delete an application.
 #' 
 #' Delete an application definition
@@ -24,12 +29,17 @@ appsCreate <- function(client, manifest, resources = NULL) {
 #'
 #' @param name Required. The name of an application.
 #'
-#' @rdname appsDeleteApp
+#' @rdname delete_app
+#' @alias appsDeleteApp
 #' @export
-appsDeleteApp <- function(client, name) {
+delete_app <- function(client, name) {
 
   client$do("DELETE", paste("/api/2.0/preview/apps/instances/", name, sep = ""))
 }
+
+#' @rdname delete_app
+#' @export 
+appsDeleteApp <- delete_app
 #' Get definition for an application.
 #' 
 #' Get an application definition
@@ -37,12 +47,17 @@ appsDeleteApp <- function(client, name) {
 #'
 #' @param name Required. The name of an application.
 #'
-#' @rdname appsGetApp
+#' @rdname get_app
+#' @alias appsGetApp
 #' @export
-appsGetApp <- function(client, name) {
+get_app <- function(client, name) {
 
   client$do("GET", paste("/api/2.0/preview/apps/instances/", name, sep = ""))
 }
+
+#' @rdname get_app
+#' @export 
+appsGetApp <- get_app
 #' Get deployment status for an application.
 #' 
 #' Get deployment status for an application
@@ -51,23 +66,33 @@ appsGetApp <- function(client, name) {
 #' @param deployment_id Required. The deployment id for an application.
 #' @param include_app_log Boolean flag to include application logs.
 #'
-#' @rdname appsGetAppDeploymentStatus
+#' @rdname get_app_deployment_status
+#' @alias appsGetAppDeploymentStatus
 #' @export
-appsGetAppDeploymentStatus <- function(client, deployment_id, include_app_log = NULL) {
+get_app_deployment_status <- function(client, deployment_id, include_app_log = NULL) {
   query <- list(include_app_log = include_app_log)
   client$do("GET", paste("/api/2.0/preview/apps/deployments/", deployment_id, sep = ""),
     query = query)
 }
+
+#' @rdname get_app_deployment_status
+#' @export 
+appsGetAppDeploymentStatus <- get_app_deployment_status
 #' List all applications.
 #' 
 #' List all available applications
 #' @param client Required. Instance of DatabricksClient()
 #'
-#' @rdname appsGetApps
+#' @rdname get_app_apps
+#' @alias appsGetApps
 #' @export
-appsGetApps <- function(client) {
+get_app_apps <- function(client) {
   client$do("GET", "/api/2.0/preview/apps/instances")
 }
+
+#' @rdname get_app_apps
+#' @export 
+appsGetApps <- get_app_apps
 #' Get deployment events for an application.
 #' 
 #' Get deployment events for an application
@@ -75,12 +100,17 @@ appsGetApps <- function(client) {
 #'
 #' @param name Required. The name of an application.
 #'
-#' @rdname appsGetEvents
+#' @rdname get_app_events
+#' @alias appsGetEvents
 #' @export
-appsGetEvents <- function(client, name) {
+get_app_events <- function(client, name) {
 
   client$do("GET", paste("/api/2.0/preview/apps/", name, "/events", , sep = ""))
 }
+
+#' @rdname get_app_events
+#' @export 
+appsGetEvents <- get_app_events
 
 
 

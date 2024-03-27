@@ -14,12 +14,17 @@ NULL
 #'
 #' @param function_info Required. Partial __FunctionInfo__ specifying the function to be created.
 #'
-#' @rdname functionsCreate
+#' @rdname create_function
+#' @alias functionsCreate
 #' @export
-functionsCreate <- function(client, function_info) {
+create_function <- function(client, function_info) {
   body <- list(function_info = function_info)
   client$do("POST", "/api/2.1/unity-catalog/functions", body = body)
 }
+
+#' @rdname create_function
+#' @export 
+functionsCreate <- create_function
 #' Delete a function.
 #' 
 #' Deletes the function that matches the supplied name. For the deletion to
@@ -34,13 +39,18 @@ functionsCreate <- function(client, function_info) {
 #' @param force Force deletion even if the function is notempty.
 #' @param name Required. The fully-qualified name of the function (of the form __catalog_name__.__schema_name__.__function__name__).
 #'
-#' @rdname functionsDelete
+#' @rdname delete_function
+#' @alias functionsDelete
 #' @export
-functionsDelete <- function(client, name, force = NULL) {
+delete_function <- function(client, name, force = NULL) {
   query <- list(force = force)
   client$do("DELETE", paste("/api/2.1/unity-catalog/functions/", name, sep = ""),
     query = query)
 }
+
+#' @rdname delete_function
+#' @export 
+functionsDelete <- delete_function
 #' Get a function.
 #' 
 #' Gets a function from within a parent catalog and schema. For the fetch to
@@ -55,13 +65,18 @@ functionsDelete <- function(client, name, force = NULL) {
 #' @param include_browse Whether to include functions in the response for which the principal can only access selective metadata for.
 #' @param name Required. The fully-qualified name of the function (of the form __catalog_name__.__schema_name__.__function__name__).
 #'
-#' @rdname functionsGet
+#' @rdname get_function
+#' @alias functionsGet
 #' @export
-functionsGet <- function(client, name, include_browse = NULL) {
+get_function <- function(client, name, include_browse = NULL) {
   query <- list(include_browse = include_browse)
   client$do("GET", paste("/api/2.1/unity-catalog/functions/", name, sep = ""),
     query = query)
 }
+
+#' @rdname get_function
+#' @export 
+functionsGet <- get_function
 #' List functions.
 #' 
 #' List functions within the specified parent catalog and schema. If the user is
@@ -81,9 +96,10 @@ functionsGet <- function(client, name, include_browse = NULL) {
 #'
 #' @return `data.frame` with all of the response pages.
 #'
-#' @rdname functionsList
+#' @rdname list_functions
+#' @alias functionsList
 #' @export
-functionsList <- function(client, catalog_name, schema_name, include_browse = NULL,
+list_functions <- function(client, catalog_name, schema_name, include_browse = NULL,
   max_results = NULL, page_token = NULL) {
   query <- list(catalog_name = catalog_name, include_browse = include_browse, max_results = max_results,
     page_token = page_token, schema_name = schema_name)
@@ -104,6 +120,10 @@ functionsList <- function(client, catalog_name, schema_name, include_browse = NU
   return(results)
 
 }
+
+#' @rdname list_functions
+#' @export 
+functionsList <- list_functions
 #' Update a function.
 #' 
 #' Updates the function that matches the supplied name. Only the owner of the
@@ -119,13 +139,18 @@ functionsList <- function(client, catalog_name, schema_name, include_browse = NU
 #' @param name Required. The fully-qualified name of the function (of the form __catalog_name__.__schema_name__.__function__name__).
 #' @param owner Username of current owner of function.
 #'
-#' @rdname functionsUpdate
+#' @rdname update_function
+#' @alias functionsUpdate
 #' @export
-functionsUpdate <- function(client, name, owner = NULL) {
+update_function <- function(client, name, owner = NULL) {
   body <- list(owner = owner)
   client$do("PATCH", paste("/api/2.1/unity-catalog/functions/", name, sep = ""),
     body = body)
 }
+
+#' @rdname update_function
+#' @export 
+functionsUpdate <- update_function
 
 
 

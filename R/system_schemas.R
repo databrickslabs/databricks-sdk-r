@@ -12,13 +12,18 @@ NULL
 #' @param metastore_id Required. The metastore ID under which the system schema lives.
 #' @param schema_name Required. Full name of the system schema.
 #'
-#' @rdname systemSchemasDisable
+#' @rdname disable_system_schema
+#' @alias systemSchemasDisable
 #' @export
-systemSchemasDisable <- function(client, metastore_id, schema_name) {
+disable_system_schema <- function(client, metastore_id, schema_name) {
 
   client$do("DELETE", paste("/api/2.1/unity-catalog/metastores/", metastore_id,
     "/systemschemas/", schema_name, sep = ""))
 }
+
+#' @rdname disable_system_schema
+#' @export 
+systemSchemasDisable <- disable_system_schema
 #' Enable a system schema.
 #' 
 #' Enables the system schema and adds it to the system catalog. The caller must
@@ -28,13 +33,18 @@ systemSchemasDisable <- function(client, metastore_id, schema_name) {
 #' @param metastore_id Required. The metastore ID under which the system schema lives.
 #' @param schema_name Required. Full name of the system schema.
 #'
-#' @rdname systemSchemasEnable
+#' @rdname enable_system_schema
+#' @alias systemSchemasEnable
 #' @export
-systemSchemasEnable <- function(client, metastore_id, schema_name) {
+enable_system_schema <- function(client, metastore_id, schema_name) {
 
   client$do("PUT", paste("/api/2.1/unity-catalog/metastores/", metastore_id, "/systemschemas/",
     schema_name, sep = ""))
 }
+
+#' @rdname enable_system_schema
+#' @export 
+systemSchemasEnable <- enable_system_schema
 #' List system schemas.
 #' 
 #' Gets an array of system schemas for a metastore. The caller must be an
@@ -45,9 +55,10 @@ systemSchemasEnable <- function(client, metastore_id, schema_name) {
 #'
 #' @return `data.frame` with all of the response pages.
 #'
-#' @rdname systemSchemasList
+#' @rdname list_system_schemas
+#' @alias systemSchemasList
 #' @export
-systemSchemasList <- function(client, metastore_id) {
+list_system_schemas <- function(client, metastore_id) {
 
 
   json <- client$do("GET", paste("/api/2.1/unity-catalog/metastores/", metastore_id,
@@ -55,6 +66,10 @@ systemSchemasList <- function(client, metastore_id) {
   return(json$schemas)
 
 }
+
+#' @rdname list_system_schemas
+#' @export 
+systemSchemasList <- list_system_schemas
 
 
 

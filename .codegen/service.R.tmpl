@@ -10,15 +10,20 @@ NULL
 {{end}}{{if .Pagination}}#'
 #' @return `data.frame` with all of the response pages.
 {{end}}#'
-#' @rdname {{.Service.CamelName}}{{.PascalName}}
+#' @rdname {{.AsFlat.SnakeName}}
+#' @alias {{.Service.CamelName}}{{.PascalName}}
 #' @export 
 {{- $hasRequiredFields := and .Request (gt (len .Request.RequiredFields) 0) }}
-{{.Service.CamelName}}{{.PascalName}} <- function(client{{- if .Request}}{{range .Request.RequiredFields}}, {{.SnakeName}}{{end -}}
+{{.AsFlat.SnakeName}} <- function(client{{- if .Request}}{{range .Request.RequiredFields}}, {{.SnakeName}}{{end -}}
     {{- range .Request.NonRequiredFields}}, {{.SnakeName}}=NULL{{end}}
     {{- end}}) {
     {{- template "method-serialize" .}}
     {{template "method-call" .}}
 }
+
+#' @rdname {{.AsFlat.SnakeName}}
+#' @export 
+{{.Service.CamelName}}{{.PascalName}} <- {{.AsFlat.SnakeName}}
 {{end}}
 {{- range .Methods}}{{if and .Wait (not .IsCrudRead)}}{{.Comment "#' " 80}}
 #' @param client Required. Instance of DatabricksClient()
@@ -34,10 +39,10 @@ NULL
 #'{{range .Request.Fields}}
 #' @param {{.SnakeName}} {{if .Required}}Required. {{end}}{{with .Summary}}{{.}}{{else}}This field has no description yet.{{end}}{{end}}
 {{end}}#'
-#' @rdname {{.Service.CamelName}}{{.PascalName}}AndWait
+#' @rdname {{.AsFlat.SnakeName}}_and_wait
 #' @export 
 {{- $hasRequiredFields := and .Request (gt (len .Request.RequiredFields) 0) }}
-{{.Service.CamelName}}{{.PascalName}}AndWait <- function(client{{- if .Request}}{{range .Request.RequiredFields}}, {{.SnakeName}}{{end -}}
+{{.AsFlat.SnakeName}}_and_wait <- function(client{{- if .Request}}{{range .Request.RequiredFields}}, {{.SnakeName}}{{end -}}
     {{- range .Request.NonRequiredFields}}, {{.SnakeName}}=NULL{{end}}
     {{- end}}, timeout={{.Wait.Timeout}}, callback=cli_reporter) {
     {{- template "method-serialize" .}}

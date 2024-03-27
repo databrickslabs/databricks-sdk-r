@@ -9,7 +9,7 @@
 It's recommended that you authenticate via the `.Renviron` file using `DATABRICKS_HOST` and `DATABRICKS_TOKEN` environment variables. You can also use [Databricks CLI Configuration Profiles](https://docs.databricks.com/dev-tools/auth.html#databricks-configuration-profiles) and `DATABRICKS_CONFIG_FILE` or `DATABRICKS_CONFIG_PROFILE` environment variables, but only the [PAT Authentication](https://docs.databricks.com/dev-tools/auth.html#databricks-personal-access-token-authentication) works at the moment. If you need more authentication methods, please fork this GitHub repository and send pull request with the feature suggestion.
 
 Example of overriding authentication profile. Look at `databricks auth profiles` to know which ones are working.
-```
+```r
 client <- DatabricksClient(profile="your-cli-profile")
 ```
 
@@ -21,9 +21,9 @@ Databricks SDK for R comes with all public [workspace-level APIs](https://docs.d
 library(dplyr)
 library(databricks)
 client <- DatabricksClient()
-running <- clustersList(client) %>% filter(state == 'RUNNING')
-context <- commandExecutionCreateAndWait(client, cluster_id=running$cluster_id, language='python')
-res <- commandExecutionExecuteAndWait(client, cluster_id=running$cluster_id, context_id=context$id, language='sql', command='show tables')
+running <- list_clusters(client) %>% filter(state == 'RUNNING')
+context <- create_command_execution_and_wait(client, cluster_id=running$cluster_id, language='python')
+res <- execute_command_and_wait(client, cluster_id=running$cluster_id, context_id=context$id, language='sql', command='show tables')
 res
 ```
 
@@ -32,7 +32,7 @@ res
 All `list` methods (and those, which return any list of results), do consistently return a `data.frame` of all entries from all pages, regardless of the underlying implementation.
 
 ```r
-> clustersList(client)[1:10,c("cluster_id", "cluster_name", "state")]
+> list_clusters(client)[1:10,c("cluster_id", "cluster_name", "state")]
              cluster_id                                      cluster_name      state
 1  1109-110110-kjfoeopq                              DEFAULT Test Cluster TERMINATED
 2  0110-221212-oqqpodoa                               GO_SDK Test Cluster TERMINATED
@@ -46,13 +46,13 @@ All `list` methods (and those, which return any list of results), do consistentl
 All long-running operations do poll Databricks backend until the entity reaches desired state:
 
 ```r
-> clustersCreateAndWait(client, spark_version = "12.x-snapshot-scala2.12", cluster_name = "r-sdk-cluster", num_workers = 1, autotermination_minutes=20, node_type_id="i3.xlarge")
+> create_cluster_and_wait(client, spark_version = "12.x-snapshot-scala2.12", cluster_name = "r-sdk-cluster", num_workers = 1, autotermination_minutes=20, node_type_id="i3.xlarge")
 PENDING: Finding instances for new nodes, acquiring more instances if necessary
 ```
 
 ## Interface stability
 
-API clients for all services are generated from specification files that are synchronized from the main platform. Databricks may have minor [documented](https://github.com/databricks/databricks-sdk-go/blob/main/CHANGELOG.md) backward-incompatible changes, such as renaming the methods or some type names to bring more consistency. 
+API clients for all services are generated from specification files that are synchronized from the main platform. Databricks may have minor [documented](https://github.com/databrickslabs/databricks-sdk-r/blob/main/CHANGELOG.md) backward-incompatible changes, such as renaming the methods or some type names to bring more consistency. 
 
 ## Project Support
 

@@ -12,25 +12,35 @@ NULL
 #' @param visualization_id Query Vizualization ID returned by :method:queryvisualizations/create.
 #' @param width Required. Width of a widget.
 #'
-#' @rdname dashboardWidgetsCreate
+#' @rdname create_dashboard_widget
+#' @alias dashboardWidgetsCreate
 #' @export
-dashboardWidgetsCreate <- function(client, dashboard_id, options, width, text = NULL,
+create_dashboard_widget <- function(client, dashboard_id, options, width, text = NULL,
   visualization_id = NULL) {
   body <- list(dashboard_id = dashboard_id, options = options, text = text, visualization_id = visualization_id,
     width = width)
   client$do("POST", "/api/2.0/preview/sql/widgets", body = body)
 }
+
+#' @rdname create_dashboard_widget
+#' @export 
+dashboardWidgetsCreate <- create_dashboard_widget
 #' Remove widget.
 #' @param client Required. Instance of DatabricksClient()
 #'
 #' @param id Required. Widget ID returned by :method:dashboardwidgets/create.
 #'
-#' @rdname dashboardWidgetsDelete
+#' @rdname delete_dashboard_widget
+#' @alias dashboardWidgetsDelete
 #' @export
-dashboardWidgetsDelete <- function(client, id) {
+delete_dashboard_widget <- function(client, id) {
 
   client$do("DELETE", paste("/api/2.0/preview/sql/widgets/", id, sep = ""))
 }
+
+#' @rdname delete_dashboard_widget
+#' @export 
+dashboardWidgetsDelete <- delete_dashboard_widget
 #' Update existing widget.
 #' @param client Required. Instance of DatabricksClient()
 #'
@@ -41,14 +51,19 @@ dashboardWidgetsDelete <- function(client, id) {
 #' @param visualization_id Query Vizualization ID returned by :method:queryvisualizations/create.
 #' @param width Required. Width of a widget.
 #'
-#' @rdname dashboardWidgetsUpdate
+#' @rdname update_dashboard_widget
+#' @alias dashboardWidgetsUpdate
 #' @export
-dashboardWidgetsUpdate <- function(client, id, dashboard_id, options, width, text = NULL,
+update_dashboard_widget <- function(client, id, dashboard_id, options, width, text = NULL,
   visualization_id = NULL) {
   body <- list(dashboard_id = dashboard_id, options = options, text = text, visualization_id = visualization_id,
     width = width)
   client$do("POST", paste("/api/2.0/preview/sql/widgets/", id, sep = ""), body = body)
 }
+
+#' @rdname update_dashboard_widget
+#' @export 
+dashboardWidgetsUpdate <- update_dashboard_widget
 
 
 

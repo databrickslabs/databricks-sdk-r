@@ -11,12 +11,17 @@ NULL
 #' @param name Full three-part (catalog, schema, table) name of the table.
 #' @param spec Specification of the online table.
 #'
-#' @rdname onlineTablesCreate
+#' @rdname create_online_table
+#' @alias onlineTablesCreate
 #' @export
-onlineTablesCreate <- function(client, name = NULL, spec = NULL) {
+create_online_table <- function(client, name = NULL, spec = NULL) {
   body <- list(name = name, spec = spec)
   client$do("POST", "/api/2.0/online-tables", body = body)
 }
+
+#' @rdname create_online_table
+#' @export 
+onlineTablesCreate <- create_online_table
 #' Delete an Online Table.
 #' 
 #' Delete an online table. Warning: This will delete all the data in the online
@@ -26,12 +31,17 @@ onlineTablesCreate <- function(client, name = NULL, spec = NULL) {
 #'
 #' @param name Required. Full three-part (catalog, schema, table) name of the table.
 #'
-#' @rdname onlineTablesDelete
+#' @rdname delete_online_table
+#' @alias onlineTablesDelete
 #' @export
-onlineTablesDelete <- function(client, name) {
+delete_online_table <- function(client, name) {
 
   client$do("DELETE", paste("/api/2.0/online-tables/", name, sep = ""))
 }
+
+#' @rdname delete_online_table
+#' @export 
+onlineTablesDelete <- delete_online_table
 #' Get an Online Table.
 #' 
 #' Get information about an existing online table and its status.
@@ -39,12 +49,17 @@ onlineTablesDelete <- function(client, name) {
 #'
 #' @param name Required. Full three-part (catalog, schema, table) name of the table.
 #'
-#' @rdname onlineTablesGet
+#' @rdname get_online_table
+#' @alias onlineTablesGet
 #' @export
-onlineTablesGet <- function(client, name) {
+get_online_table <- function(client, name) {
 
   client$do("GET", paste("/api/2.0/online-tables/", name, sep = ""))
 }
+
+#' @rdname get_online_table
+#' @export 
+onlineTablesGet <- get_online_table
 
 
 

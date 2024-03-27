@@ -13,14 +13,19 @@ NULL
 #' @param serialized_dashboard The contents of the dashboard in serialized string form.
 #' @param warehouse_id The warehouse ID used to run the dashboard.
 #'
-#' @rdname lakeviewCreate
+#' @rdname create_lakeview
+#' @alias lakeviewCreate
 #' @export
-lakeviewCreate <- function(client, display_name, parent_path = NULL, serialized_dashboard = NULL,
+create_lakeview <- function(client, display_name, parent_path = NULL, serialized_dashboard = NULL,
   warehouse_id = NULL) {
   body <- list(display_name = display_name, parent_path = parent_path, serialized_dashboard = serialized_dashboard,
     warehouse_id = warehouse_id)
   client$do("POST", "/api/2.0/lakeview/dashboards", body = body)
 }
+
+#' @rdname create_lakeview
+#' @export 
+lakeviewCreate <- create_lakeview
 #' Get dashboard.
 #' 
 #' Get a draft dashboard.
@@ -28,12 +33,17 @@ lakeviewCreate <- function(client, display_name, parent_path = NULL, serialized_
 #'
 #' @param dashboard_id Required. UUID identifying the dashboard.
 #'
-#' @rdname lakeviewGet
+#' @rdname get_lakeview
+#' @alias lakeviewGet
 #' @export
-lakeviewGet <- function(client, dashboard_id) {
+get_lakeview <- function(client, dashboard_id) {
 
   client$do("GET", paste("/api/2.0/lakeview/dashboards/", dashboard_id, sep = ""))
 }
+
+#' @rdname get_lakeview
+#' @export 
+lakeviewGet <- get_lakeview
 #' Get published dashboard.
 #' 
 #' Get the current published dashboard.
@@ -41,13 +51,18 @@ lakeviewGet <- function(client, dashboard_id) {
 #'
 #' @param dashboard_id Required. UUID identifying the dashboard to be published.
 #'
-#' @rdname lakeviewGetPublished
+#' @rdname get_lakeview_published
+#' @alias lakeviewGetPublished
 #' @export
-lakeviewGetPublished <- function(client, dashboard_id) {
+get_lakeview_published <- function(client, dashboard_id) {
 
   client$do("GET", paste("/api/2.0/lakeview/dashboards/", dashboard_id, "/published",
     , sep = ""))
 }
+
+#' @rdname get_lakeview_published
+#' @export 
+lakeviewGetPublished <- get_lakeview_published
 #' Publish dashboard.
 #' 
 #' Publish the current draft dashboard.
@@ -57,13 +72,18 @@ lakeviewGetPublished <- function(client, dashboard_id) {
 #' @param embed_credentials Flag to indicate if the publisher's credentials should be embedded in the published dashboard.
 #' @param warehouse_id The ID of the warehouse that can be used to override the warehouse which was set in the draft.
 #'
-#' @rdname lakeviewPublish
+#' @rdname publish_lakeview
+#' @alias lakeviewPublish
 #' @export
-lakeviewPublish <- function(client, dashboard_id, embed_credentials = NULL, warehouse_id = NULL) {
+publish_lakeview <- function(client, dashboard_id, embed_credentials = NULL, warehouse_id = NULL) {
   body <- list(embed_credentials = embed_credentials, warehouse_id = warehouse_id)
   client$do("POST", paste("/api/2.0/lakeview/dashboards/", dashboard_id, "/published",
     , sep = ""), body = body)
 }
+
+#' @rdname publish_lakeview
+#' @export 
+lakeviewPublish <- publish_lakeview
 #' Trash dashboard.
 #' 
 #' Trash a dashboard.
@@ -71,12 +91,17 @@ lakeviewPublish <- function(client, dashboard_id, embed_credentials = NULL, ware
 #'
 #' @param dashboard_id Required. UUID identifying the dashboard.
 #'
-#' @rdname lakeviewTrash
+#' @rdname trash_lakeview
+#' @alias lakeviewTrash
 #' @export
-lakeviewTrash <- function(client, dashboard_id) {
+trash_lakeview <- function(client, dashboard_id) {
 
   client$do("DELETE", paste("/api/2.0/lakeview/dashboards/", dashboard_id, sep = ""))
 }
+
+#' @rdname trash_lakeview
+#' @export 
+lakeviewTrash <- trash_lakeview
 #' Update dashboard.
 #' 
 #' Update a draft dashboard.
@@ -88,15 +113,20 @@ lakeviewTrash <- function(client, dashboard_id) {
 #' @param serialized_dashboard The contents of the dashboard in serialized string form.
 #' @param warehouse_id The warehouse ID used to run the dashboard.
 #'
-#' @rdname lakeviewUpdate
+#' @rdname update_lakeview
+#' @alias lakeviewUpdate
 #' @export
-lakeviewUpdate <- function(client, dashboard_id, display_name = NULL, etag = NULL,
+update_lakeview <- function(client, dashboard_id, display_name = NULL, etag = NULL,
   serialized_dashboard = NULL, warehouse_id = NULL) {
   body <- list(display_name = display_name, etag = etag, serialized_dashboard = serialized_dashboard,
     warehouse_id = warehouse_id)
   client$do("PATCH", paste("/api/2.0/lakeview/dashboards/", dashboard_id, sep = ""),
     body = body)
 }
+
+#' @rdname update_lakeview
+#' @export 
+lakeviewUpdate <- update_lakeview
 
 
 

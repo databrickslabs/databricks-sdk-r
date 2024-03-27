@@ -13,12 +13,17 @@ NULL
 #'
 #' @param directory_path Required. The absolute path of a directory.
 #'
-#' @rdname filesCreateDirectory
+#' @rdname create_file_directory
+#' @alias filesCreateDirectory
 #' @export
-filesCreateDirectory <- function(client, directory_path) {
+create_file_directory <- function(client, directory_path) {
 
   client$do("PUT", paste("/api/2.0/fs/directories", directory_path, sep = ""))
 }
+
+#' @rdname create_file_directory
+#' @export 
+filesCreateDirectory <- create_file_directory
 #' Delete a file.
 #' 
 #' Deletes a file. If the request is successful, there is no response body.
@@ -26,12 +31,17 @@ filesCreateDirectory <- function(client, directory_path) {
 #'
 #' @param file_path Required. The absolute path of the file.
 #'
-#' @rdname filesDelete
+#' @rdname delete_file
+#' @alias filesDelete
 #' @export
-filesDelete <- function(client, file_path) {
+delete_file <- function(client, file_path) {
 
   client$do("DELETE", paste("/api/2.0/fs/files", file_path, sep = ""))
 }
+
+#' @rdname delete_file
+#' @export 
+filesDelete <- delete_file
 #' Delete a directory.
 #' 
 #' Deletes an empty directory.
@@ -43,12 +53,17 @@ filesDelete <- function(client, file_path) {
 #'
 #' @param directory_path Required. The absolute path of a directory.
 #'
-#' @rdname filesDeleteDirectory
+#' @rdname delete_file_directory
+#' @alias filesDeleteDirectory
 #' @export
-filesDeleteDirectory <- function(client, directory_path) {
+delete_file_directory <- function(client, directory_path) {
 
   client$do("DELETE", paste("/api/2.0/fs/directories", directory_path, sep = ""))
 }
+
+#' @rdname delete_file_directory
+#' @export 
+filesDeleteDirectory <- delete_file_directory
 #' Download a file.
 #' 
 #' Downloads a file of up to 5 GiB. The file contents are the response body.
@@ -57,12 +72,17 @@ filesDeleteDirectory <- function(client, directory_path) {
 #'
 #' @param file_path Required. The absolute path of the file.
 #'
-#' @rdname filesDownload
+#' @rdname download_file
+#' @alias filesDownload
 #' @export
-filesDownload <- function(client, file_path) {
+download_file <- function(client, file_path) {
 
   client$do("GET", paste("/api/2.0/fs/files", file_path, sep = ""))
 }
+
+#' @rdname download_file
+#' @export 
+filesDownload <- download_file
 #' Get directory metadata.
 #' 
 #' Get the metadata of a directory. The response HTTP headers contain the
@@ -78,12 +98,17 @@ filesDownload <- function(client, file_path) {
 #'
 #' @param directory_path Required. The absolute path of a directory.
 #'
-#' @rdname filesGetDirectoryMetadata
+#' @rdname get_file_directory_metadata
+#' @alias filesGetDirectoryMetadata
 #' @export
-filesGetDirectoryMetadata <- function(client, directory_path) {
+get_file_directory_metadata <- function(client, directory_path) {
 
   client$do("HEAD", paste("/api/2.0/fs/directories", directory_path, sep = ""))
 }
+
+#' @rdname get_file_directory_metadata
+#' @export 
+filesGetDirectoryMetadata <- get_file_directory_metadata
 #' Get file metadata.
 #' 
 #' Get the metadata of a file. The response HTTP headers contain the metadata.
@@ -92,12 +117,17 @@ filesGetDirectoryMetadata <- function(client, directory_path) {
 #'
 #' @param file_path Required. The absolute path of the file.
 #'
-#' @rdname filesGetMetadata
+#' @rdname get_file_metadata
+#' @alias filesGetMetadata
 #' @export
-filesGetMetadata <- function(client, file_path) {
+get_file_metadata <- function(client, file_path) {
 
   client$do("HEAD", paste("/api/2.0/fs/files", file_path, sep = ""))
 }
+
+#' @rdname get_file_metadata
+#' @export 
+filesGetMetadata <- get_file_metadata
 #' List directory contents.
 #' 
 #' Returns the contents of a directory. If there is no directory at the
@@ -110,9 +140,10 @@ filesGetMetadata <- function(client, file_path) {
 #'
 #' @return `data.frame` with all of the response pages.
 #'
-#' @rdname filesListDirectoryContents
+#' @rdname list_file_directory_contents
+#' @alias filesListDirectoryContents
 #' @export
-filesListDirectoryContents <- function(client, directory_path, page_size = NULL,
+list_file_directory_contents <- function(client, directory_path, page_size = NULL,
   page_token = NULL) {
   query <- list(page_size = page_size, page_token = page_token)
 
@@ -133,6 +164,10 @@ filesListDirectoryContents <- function(client, directory_path, page_size = NULL,
   return(results)
 
 }
+
+#' @rdname list_file_directory_contents
+#' @export 
+filesListDirectoryContents <- list_file_directory_contents
 #' Upload a file.
 #' 
 #' Uploads a file of up to 5 GiB. The file contents should be sent as the
@@ -146,12 +181,17 @@ filesListDirectoryContents <- function(client, directory_path, page_size = NULL,
 #' @param file_path Required. The absolute path of the file.
 #' @param overwrite If true, an existing file will be overwritten.
 #'
-#' @rdname filesUpload
+#' @rdname upload_file
+#' @alias filesUpload
 #' @export
-filesUpload <- function(client, file_path, contents, overwrite = NULL) {
+upload_file <- function(client, file_path, contents, overwrite = NULL) {
   query <- list(overwrite = overwrite)
   client$do("PUT", paste("/api/2.0/fs/files", file_path, sep = ""), query = query)
 }
+
+#' @rdname upload_file
+#' @export 
+filesUpload <- upload_file
 
 
 

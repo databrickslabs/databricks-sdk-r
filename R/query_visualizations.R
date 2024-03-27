@@ -12,25 +12,35 @@ NULL
 #' @param query_id Required. The identifier returned by :method:queries/create.
 #' @param type Required. The type of visualization: chart, table, pivot table, and so on.
 #'
-#' @rdname queryVisualizationsCreate
+#' @rdname create_query_visualization
+#' @alias queryVisualizationsCreate
 #' @export
-queryVisualizationsCreate <- function(client, query_id, type, options, description = NULL,
+create_query_visualization <- function(client, query_id, type, options, description = NULL,
   name = NULL) {
   body <- list(description = description, name = name, options = options, query_id = query_id,
     type = type)
   client$do("POST", "/api/2.0/preview/sql/visualizations", body = body)
 }
+
+#' @rdname create_query_visualization
+#' @export 
+queryVisualizationsCreate <- create_query_visualization
 #' Remove visualization.
 #' @param client Required. Instance of DatabricksClient()
 #'
 #' @param id Required. Widget ID returned by :method:queryvizualisations/create.
 #'
-#' @rdname queryVisualizationsDelete
+#' @rdname delete_query_visualization
+#' @alias queryVisualizationsDelete
 #' @export
-queryVisualizationsDelete <- function(client, id) {
+delete_query_visualization <- function(client, id) {
 
   client$do("DELETE", paste("/api/2.0/preview/sql/visualizations/", id, sep = ""))
 }
+
+#' @rdname delete_query_visualization
+#' @export 
+queryVisualizationsDelete <- delete_query_visualization
 #' Edit existing visualization.
 #' @param client Required. Instance of DatabricksClient()
 #'
@@ -42,15 +52,20 @@ queryVisualizationsDelete <- function(client, id) {
 #' @param type The type of visualization: chart, table, pivot table, and so on.
 #' @param updated_at This field has no description yet.
 #'
-#' @rdname queryVisualizationsUpdate
+#' @rdname update_query_visualization
+#' @alias queryVisualizationsUpdate
 #' @export
-queryVisualizationsUpdate <- function(client, id, created_at = NULL, description = NULL,
+update_query_visualization <- function(client, id, created_at = NULL, description = NULL,
   name = NULL, options = NULL, type = NULL, updated_at = NULL) {
   body <- list(created_at = created_at, description = description, id = id, name = name,
     options = options, type = type, updated_at = updated_at)
   client$do("POST", paste("/api/2.0/preview/sql/visualizations/", id, sep = ""),
     body = body)
 }
+
+#' @rdname update_query_visualization
+#' @export 
+queryVisualizationsUpdate <- update_query_visualization
 
 
 

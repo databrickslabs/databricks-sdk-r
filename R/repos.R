@@ -15,13 +15,18 @@ NULL
 #' @param sparse_checkout If specified, the repo will be created with sparse checkout enabled.
 #' @param url Required. URL of the Git repository to be linked.
 #'
-#' @rdname reposCreate
+#' @rdname create_repo
+#' @alias reposCreate
 #' @export
-reposCreate <- function(client, url, provider, path = NULL, sparse_checkout = NULL) {
+create_repo <- function(client, url, provider, path = NULL, sparse_checkout = NULL) {
   body <- list(path = path, provider = provider, sparse_checkout = sparse_checkout,
     url = url)
   client$do("POST", "/api/2.0/repos", body = body)
 }
+
+#' @rdname create_repo
+#' @export 
+reposCreate <- create_repo
 #' Delete a repo.
 #' 
 #' Deletes the specified repo.
@@ -29,12 +34,17 @@ reposCreate <- function(client, url, provider, path = NULL, sparse_checkout = NU
 #'
 #' @param repo_id Required. The ID for the corresponding repo to access.
 #'
-#' @rdname reposDelete
+#' @rdname delete_repo
+#' @alias reposDelete
 #' @export
-reposDelete <- function(client, repo_id) {
+delete_repo <- function(client, repo_id) {
 
   client$do("DELETE", paste("/api/2.0/repos/", repo_id, sep = ""))
 }
+
+#' @rdname delete_repo
+#' @export 
+reposDelete <- delete_repo
 #' Get a repo.
 #' 
 #' Returns the repo with the given repo ID.
@@ -42,12 +52,17 @@ reposDelete <- function(client, repo_id) {
 #'
 #' @param repo_id Required. The ID for the corresponding repo to access.
 #'
-#' @rdname reposGet
+#' @rdname get_repo
+#' @alias reposGet
 #' @export
-reposGet <- function(client, repo_id) {
+get_repo <- function(client, repo_id) {
 
   client$do("GET", paste("/api/2.0/repos/", repo_id, sep = ""))
 }
+
+#' @rdname get_repo
+#' @export 
+reposGet <- get_repo
 #' Get repo permission levels.
 #' 
 #' Gets the permission levels that a user can have on an object.
@@ -55,13 +70,18 @@ reposGet <- function(client, repo_id) {
 #'
 #' @param repo_id Required. The repo for which to get or manage permissions.
 #'
-#' @rdname reposGetPermissionLevels
+#' @rdname get_repo_permission_levels
+#' @alias reposGetPermissionLevels
 #' @export
-reposGetPermissionLevels <- function(client, repo_id) {
+get_repo_permission_levels <- function(client, repo_id) {
 
   client$do("GET", paste("/api/2.0/permissions/repos/", repo_id, "/permissionLevels",
     , sep = ""))
 }
+
+#' @rdname get_repo_permission_levels
+#' @export 
+reposGetPermissionLevels <- get_repo_permission_levels
 #' Get repo permissions.
 #' 
 #' Gets the permissions of a repo. Repos can inherit permissions from their root
@@ -70,12 +90,17 @@ reposGetPermissionLevels <- function(client, repo_id) {
 #'
 #' @param repo_id Required. The repo for which to get or manage permissions.
 #'
-#' @rdname reposGetPermissions
+#' @rdname get_repo_permissions
+#' @alias reposGetPermissions
 #' @export
-reposGetPermissions <- function(client, repo_id) {
+get_repo_permissions <- function(client, repo_id) {
 
   client$do("GET", paste("/api/2.0/permissions/repos/", repo_id, sep = ""))
 }
+
+#' @rdname get_repo_permissions
+#' @export 
+reposGetPermissions <- get_repo_permissions
 #' Get repos.
 #' 
 #' Returns repos that the calling user has Manage permissions on. Results are
@@ -87,9 +112,10 @@ reposGetPermissions <- function(client, repo_id) {
 #'
 #' @return `data.frame` with all of the response pages.
 #'
-#' @rdname reposList
+#' @rdname list_repos
+#' @alias reposList
 #' @export
-reposList <- function(client, next_page_token = NULL, path_prefix = NULL) {
+list_repos <- function(client, next_page_token = NULL, path_prefix = NULL) {
   query <- list(next_page_token = next_page_token, path_prefix = path_prefix)
 
   results <- data.frame()
@@ -108,6 +134,10 @@ reposList <- function(client, next_page_token = NULL, path_prefix = NULL) {
   return(results)
 
 }
+
+#' @rdname list_repos
+#' @export 
+reposList <- list_repos
 #' Set repo permissions.
 #' 
 #' Sets permissions on a repo. Repos can inherit permissions from their root
@@ -117,12 +147,17 @@ reposList <- function(client, next_page_token = NULL, path_prefix = NULL) {
 #' @param access_control_list This field has no description yet.
 #' @param repo_id Required. The repo for which to get or manage permissions.
 #'
-#' @rdname reposSetPermissions
+#' @rdname set_repo_permissions
+#' @alias reposSetPermissions
 #' @export
-reposSetPermissions <- function(client, repo_id, access_control_list = NULL) {
+set_repo_permissions <- function(client, repo_id, access_control_list = NULL) {
   body <- list(access_control_list = access_control_list)
   client$do("PUT", paste("/api/2.0/permissions/repos/", repo_id, sep = ""), body = body)
 }
+
+#' @rdname set_repo_permissions
+#' @export 
+reposSetPermissions <- set_repo_permissions
 #' Update a repo.
 #' 
 #' Updates the repo to a different branch or tag, or updates the repo to the
@@ -134,12 +169,17 @@ reposSetPermissions <- function(client, repo_id, access_control_list = NULL) {
 #' @param sparse_checkout If specified, update the sparse checkout settings.
 #' @param tag Tag that the local version of the repo is checked out to.
 #'
-#' @rdname reposUpdate
+#' @rdname update_repo
+#' @alias reposUpdate
 #' @export
-reposUpdate <- function(client, repo_id, branch = NULL, sparse_checkout = NULL, tag = NULL) {
+update_repo <- function(client, repo_id, branch = NULL, sparse_checkout = NULL, tag = NULL) {
   body <- list(branch = branch, sparse_checkout = sparse_checkout, tag = tag)
   client$do("PATCH", paste("/api/2.0/repos/", repo_id, sep = ""), body = body)
 }
+
+#' @rdname update_repo
+#' @export 
+reposUpdate <- update_repo
 #' Update repo permissions.
 #' 
 #' Updates the permissions on a repo. Repos can inherit permissions from their
@@ -149,12 +189,17 @@ reposUpdate <- function(client, repo_id, branch = NULL, sparse_checkout = NULL, 
 #' @param access_control_list This field has no description yet.
 #' @param repo_id Required. The repo for which to get or manage permissions.
 #'
-#' @rdname reposUpdatePermissions
+#' @rdname update_repo_permissions
+#' @alias reposUpdatePermissions
 #' @export
-reposUpdatePermissions <- function(client, repo_id, access_control_list = NULL) {
+update_repo_permissions <- function(client, repo_id, access_control_list = NULL) {
   body <- list(access_control_list = access_control_list)
   client$do("PATCH", paste("/api/2.0/permissions/repos/", repo_id, sep = ""), body = body)
 }
+
+#' @rdname update_repo_permissions
+#' @export 
+reposUpdatePermissions <- update_repo_permissions
 
 
 

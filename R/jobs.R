@@ -12,12 +12,17 @@ NULL
 #' @param all_queued_runs Optional boolean parameter to cancel all queued runs.
 #' @param job_id The canonical identifier of the job to cancel all runs of.
 #'
-#' @rdname jobsCancelAllRuns
+#' @rdname cancel_job_all_runs
+#' @alias jobsCancelAllRuns
 #' @export
-jobsCancelAllRuns <- function(client, all_queued_runs = NULL, job_id = NULL) {
+cancel_job_all_runs <- function(client, all_queued_runs = NULL, job_id = NULL) {
   body <- list(all_queued_runs = all_queued_runs, job_id = job_id)
   client$do("POST", "/api/2.1/jobs/runs/cancel-all", body = body)
 }
+
+#' @rdname cancel_job_all_runs
+#' @export 
+jobsCancelAllRuns <- cancel_job_all_runs
 #' Cancel a run.
 #' 
 #' Cancels a job run or a task run. The run is canceled asynchronously, so it
@@ -26,12 +31,17 @@ jobsCancelAllRuns <- function(client, all_queued_runs = NULL, job_id = NULL) {
 #'
 #' @param run_id Required. This field is required.
 #'
-#' @rdname jobsCancelRun
+#' @rdname cancel_job_run
+#' @alias jobsCancelRun
 #' @export
-jobsCancelRun <- function(client, run_id) {
+cancel_job_run <- function(client, run_id) {
   body <- list(run_id = run_id)
   client$do("POST", "/api/2.1/jobs/runs/cancel", body = body)
 }
+
+#' @rdname cancel_job_run
+#' @export 
+jobsCancelRun <- cancel_job_run
 #' Create a new job.
 #' 
 #' Create a new job.
@@ -61,9 +71,10 @@ jobsCancelRun <- function(client, run_id) {
 #' @param trigger A configuration to trigger a run when certain conditions are met.
 #' @param webhook_notifications A collection of system notification IDs to notify when runs of this job begin or complete.
 #'
-#' @rdname jobsCreate
+#' @rdname create_job
+#' @alias jobsCreate
 #' @export
-jobsCreate <- function(client, access_control_list = NULL, compute = NULL, continuous = NULL,
+create_job <- function(client, access_control_list = NULL, compute = NULL, continuous = NULL,
   deployment = NULL, description = NULL, edit_mode = NULL, email_notifications = NULL,
   format = NULL, git_source = NULL, health = NULL, job_clusters = NULL, max_concurrent_runs = NULL,
   name = NULL, notification_settings = NULL, parameters = NULL, queue = NULL, run_as = NULL,
@@ -78,6 +89,10 @@ jobsCreate <- function(client, access_control_list = NULL, compute = NULL, conti
     timeout_seconds = timeout_seconds, trigger = trigger, webhook_notifications = webhook_notifications)
   client$do("POST", "/api/2.1/jobs/create", body = body)
 }
+
+#' @rdname create_job
+#' @export 
+jobsCreate <- create_job
 #' Delete a job.
 #' 
 #' Deletes a job.
@@ -85,12 +100,17 @@ jobsCreate <- function(client, access_control_list = NULL, compute = NULL, conti
 #'
 #' @param job_id Required. The canonical identifier of the job to delete.
 #'
-#' @rdname jobsDelete
+#' @rdname delete_job
+#' @alias jobsDelete
 #' @export
-jobsDelete <- function(client, job_id) {
+delete_job <- function(client, job_id) {
   body <- list(job_id = job_id)
   client$do("POST", "/api/2.1/jobs/delete", body = body)
 }
+
+#' @rdname delete_job
+#' @export 
+jobsDelete <- delete_job
 #' Delete a job run.
 #' 
 #' Deletes a non-active run. Returns an error if the run is active.
@@ -98,12 +118,17 @@ jobsDelete <- function(client, job_id) {
 #'
 #' @param run_id Required. The canonical identifier of the run for which to retrieve the metadata.
 #'
-#' @rdname jobsDeleteRun
+#' @rdname delete_job_run
+#' @alias jobsDeleteRun
 #' @export
-jobsDeleteRun <- function(client, run_id) {
+delete_job_run <- function(client, run_id) {
   body <- list(run_id = run_id)
   client$do("POST", "/api/2.1/jobs/runs/delete", body = body)
 }
+
+#' @rdname delete_job_run
+#' @export 
+jobsDeleteRun <- delete_job_run
 #' Export and retrieve a job run.
 #' 
 #' Export and retrieve the job run task.
@@ -112,12 +137,17 @@ jobsDeleteRun <- function(client, run_id) {
 #' @param run_id Required. The canonical identifier for the run.
 #' @param views_to_export Which views to export (CODE, DASHBOARDS, or ALL).
 #'
-#' @rdname jobsExportRun
+#' @rdname export_job_run
+#' @alias jobsExportRun
 #' @export
-jobsExportRun <- function(client, run_id, views_to_export = NULL) {
+export_job_run <- function(client, run_id, views_to_export = NULL) {
   query <- list(run_id = run_id, views_to_export = views_to_export)
   client$do("GET", "/api/2.1/jobs/runs/export", query = query)
 }
+
+#' @rdname export_job_run
+#' @export 
+jobsExportRun <- export_job_run
 #' Get a single job.
 #' 
 #' Retrieves the details for a single job.
@@ -125,12 +155,17 @@ jobsExportRun <- function(client, run_id, views_to_export = NULL) {
 #'
 #' @param job_id Required. The canonical identifier of the job to retrieve information about.
 #'
-#' @rdname jobsGet
+#' @rdname get_job
+#' @alias jobsGet
 #' @export
-jobsGet <- function(client, job_id) {
+get_job <- function(client, job_id) {
   query <- list(job_id = job_id)
   client$do("GET", "/api/2.1/jobs/get", query = query)
 }
+
+#' @rdname get_job
+#' @export 
+jobsGet <- get_job
 #' Get job permission levels.
 #' 
 #' Gets the permission levels that a user can have on an object.
@@ -138,13 +173,18 @@ jobsGet <- function(client, job_id) {
 #'
 #' @param job_id Required. The job for which to get or manage permissions.
 #'
-#' @rdname jobsGetPermissionLevels
+#' @rdname get_job_permission_levels
+#' @alias jobsGetPermissionLevels
 #' @export
-jobsGetPermissionLevels <- function(client, job_id) {
+get_job_permission_levels <- function(client, job_id) {
 
   client$do("GET", paste("/api/2.0/permissions/jobs/", job_id, "/permissionLevels",
     , sep = ""))
 }
+
+#' @rdname get_job_permission_levels
+#' @export 
+jobsGetPermissionLevels <- get_job_permission_levels
 #' Get job permissions.
 #' 
 #' Gets the permissions of a job. Jobs can inherit permissions from their root
@@ -153,12 +193,17 @@ jobsGetPermissionLevels <- function(client, job_id) {
 #'
 #' @param job_id Required. The job for which to get or manage permissions.
 #'
-#' @rdname jobsGetPermissions
+#' @rdname get_job_permissions
+#' @alias jobsGetPermissions
 #' @export
-jobsGetPermissions <- function(client, job_id) {
+get_job_permissions <- function(client, job_id) {
 
   client$do("GET", paste("/api/2.0/permissions/jobs/", job_id, sep = ""))
 }
+
+#' @rdname get_job_permissions
+#' @export 
+jobsGetPermissions <- get_job_permissions
 #' Get a single job run.
 #' 
 #' Retrieve the metadata of a run.
@@ -168,13 +213,18 @@ jobsGetPermissions <- function(client, job_id) {
 #' @param include_resolved_values Whether to include resolved parameter values in the response.
 #' @param run_id Required. The canonical identifier of the run for which to retrieve the metadata.
 #'
-#' @rdname jobsGetRun
+#' @rdname get_job_run
+#' @alias jobsGetRun
 #' @export
-jobsGetRun <- function(client, run_id, include_history = NULL, include_resolved_values = NULL) {
+get_job_run <- function(client, run_id, include_history = NULL, include_resolved_values = NULL) {
   query <- list(include_history = include_history, include_resolved_values = include_resolved_values,
     run_id = run_id)
   client$do("GET", "/api/2.1/jobs/runs/get", query = query)
 }
+
+#' @rdname get_job_run
+#' @export 
+jobsGetRun <- get_job_run
 #' Get the output for a single run.
 #' 
 #' Retrieve the output and metadata of a single task run. When a notebook task
@@ -191,12 +241,17 @@ jobsGetRun <- function(client, run_id, include_history = NULL, include_resolved_
 #'
 #' @param run_id Required. The canonical identifier for the run.
 #'
-#' @rdname jobsGetRunOutput
+#' @rdname get_job_run_output
+#' @alias jobsGetRunOutput
 #' @export
-jobsGetRunOutput <- function(client, run_id) {
+get_job_run_output <- function(client, run_id) {
   query <- list(run_id = run_id)
   client$do("GET", "/api/2.1/jobs/runs/get-output", query = query)
 }
+
+#' @rdname get_job_run_output
+#' @export 
+jobsGetRunOutput <- get_job_run_output
 #' List jobs.
 #' 
 #' Retrieves a list of jobs.
@@ -210,9 +265,10 @@ jobsGetRunOutput <- function(client, run_id) {
 #'
 #' @return `data.frame` with all of the response pages.
 #'
-#' @rdname jobsList
+#' @rdname list_jobs
+#' @alias jobsList
 #' @export
-jobsList <- function(client, expand_tasks = NULL, limit = NULL, name = NULL, offset = NULL,
+list_jobs <- function(client, expand_tasks = NULL, limit = NULL, name = NULL, offset = NULL,
   page_token = NULL) {
   query <- list(expand_tasks = expand_tasks, limit = limit, name = name, offset = offset,
     page_token = page_token)
@@ -233,6 +289,10 @@ jobsList <- function(client, expand_tasks = NULL, limit = NULL, name = NULL, off
   return(results)
 
 }
+
+#' @rdname list_jobs
+#' @export 
+jobsList <- list_jobs
 #' List job runs.
 #' 
 #' List runs in descending order by start time.
@@ -251,9 +311,10 @@ jobsList <- function(client, expand_tasks = NULL, limit = NULL, name = NULL, off
 #'
 #' @return `data.frame` with all of the response pages.
 #'
-#' @rdname jobsListRuns
+#' @rdname list_job_runs
+#' @alias jobsListRuns
 #' @export
-jobsListRuns <- function(client, active_only = NULL, completed_only = NULL, expand_tasks = NULL,
+list_job_runs <- function(client, active_only = NULL, completed_only = NULL, expand_tasks = NULL,
   job_id = NULL, limit = NULL, offset = NULL, page_token = NULL, run_type = NULL,
   start_time_from = NULL, start_time_to = NULL) {
   query <- list(active_only = active_only, completed_only = completed_only, expand_tasks = expand_tasks,
@@ -276,6 +337,10 @@ jobsListRuns <- function(client, active_only = NULL, completed_only = NULL, expa
   return(results)
 
 }
+
+#' @rdname list_job_runs
+#' @export 
+jobsListRuns <- list_job_runs
 #' Repair a job run.
 #' 
 #' Re-run one or more tasks. Tasks are re-run as part of the original job run.
@@ -298,9 +363,10 @@ jobsListRuns <- function(client, active_only = NULL, completed_only = NULL, expa
 #' @param spark_submit_params A list of parameters for jobs with spark submit task, for example `'spark_submit_params': ['--class', 'org.apache.spark.examples.SparkPi']`.
 #' @param sql_params A map from keys to values for jobs with SQL task, for example `'sql_params': {'name': 'john doe', 'age': '35'}`.
 #'
-#' @rdname jobsRepairRun
+#' @rdname repair_job_run
+#' @alias jobsRepairRun
 #' @export
-jobsRepairRun <- function(client, run_id, dbt_commands = NULL, jar_params = NULL,
+repair_job_run <- function(client, run_id, dbt_commands = NULL, jar_params = NULL,
   job_parameters = NULL, latest_repair_id = NULL, notebook_params = NULL, pipeline_params = NULL,
   python_named_params = NULL, python_params = NULL, rerun_all_failed_tasks = NULL,
   rerun_dependent_tasks = NULL, rerun_tasks = NULL, spark_submit_params = NULL,
@@ -313,6 +379,10 @@ jobsRepairRun <- function(client, run_id, dbt_commands = NULL, jar_params = NULL
     sql_params = sql_params)
   client$do("POST", "/api/2.1/jobs/runs/repair", body = body)
 }
+
+#' @rdname repair_job_run
+#' @export 
+jobsRepairRun <- repair_job_run
 #' Update all job settings (reset).
 #' 
 #' Overwrite all settings for the given job. Use the [_Update_
@@ -322,12 +392,17 @@ jobsRepairRun <- function(client, run_id, dbt_commands = NULL, jar_params = NULL
 #' @param job_id Required. The canonical identifier of the job to reset.
 #' @param new_settings Required. The new settings of the job.
 #'
-#' @rdname jobsReset
+#' @rdname reset_job
+#' @alias jobsReset
 #' @export
-jobsReset <- function(client, job_id, new_settings) {
+reset_job <- function(client, job_id, new_settings) {
   body <- list(job_id = job_id, new_settings = new_settings)
   client$do("POST", "/api/2.1/jobs/reset", body = body)
 }
+
+#' @rdname reset_job
+#' @export 
+jobsReset <- reset_job
 #' Trigger a new job run.
 #' 
 #' Run a job and return the `run_id` of the triggered run.
@@ -346,9 +421,10 @@ jobsReset <- function(client, job_id, new_settings) {
 #' @param spark_submit_params A list of parameters for jobs with spark submit task, for example `'spark_submit_params': ['--class', 'org.apache.spark.examples.SparkPi']`.
 #' @param sql_params A map from keys to values for jobs with SQL task, for example `'sql_params': {'name': 'john doe', 'age': '35'}`.
 #'
-#' @rdname jobsRunNow
+#' @rdname run_job_now
+#' @alias jobsRunNow
 #' @export
-jobsRunNow <- function(client, job_id, dbt_commands = NULL, idempotency_token = NULL,
+run_job_now <- function(client, job_id, dbt_commands = NULL, idempotency_token = NULL,
   jar_params = NULL, job_parameters = NULL, notebook_params = NULL, pipeline_params = NULL,
   python_named_params = NULL, python_params = NULL, queue = NULL, spark_submit_params = NULL,
   sql_params = NULL) {
@@ -359,6 +435,10 @@ jobsRunNow <- function(client, job_id, dbt_commands = NULL, idempotency_token = 
     sql_params = sql_params)
   client$do("POST", "/api/2.1/jobs/run-now", body = body)
 }
+
+#' @rdname run_job_now
+#' @export 
+jobsRunNow <- run_job_now
 #' Set job permissions.
 #' 
 #' Sets permissions on a job. Jobs can inherit permissions from their root
@@ -368,12 +448,17 @@ jobsRunNow <- function(client, job_id, dbt_commands = NULL, idempotency_token = 
 #' @param access_control_list This field has no description yet.
 #' @param job_id Required. The job for which to get or manage permissions.
 #'
-#' @rdname jobsSetPermissions
+#' @rdname set_job_permissions
+#' @alias jobsSetPermissions
 #' @export
-jobsSetPermissions <- function(client, job_id, access_control_list = NULL) {
+set_job_permissions <- function(client, job_id, access_control_list = NULL) {
   body <- list(access_control_list = access_control_list)
   client$do("PUT", paste("/api/2.0/permissions/jobs/", job_id, sep = ""), body = body)
 }
+
+#' @rdname set_job_permissions
+#' @export 
+jobsSetPermissions <- set_job_permissions
 #' Create and trigger a one-time run.
 #' 
 #' Submit a one-time run. This endpoint allows you to submit a workload directly
@@ -394,9 +479,10 @@ jobsSetPermissions <- function(client, job_id, access_control_list = NULL) {
 #' @param timeout_seconds An optional timeout applied to each run of this job.
 #' @param webhook_notifications A collection of system notification IDs to notify when the run begins or completes.
 #'
-#' @rdname jobsSubmit
+#' @rdname submit_job
+#' @alias jobsSubmit
 #' @export
-jobsSubmit <- function(client, access_control_list = NULL, email_notifications = NULL,
+submit_job <- function(client, access_control_list = NULL, email_notifications = NULL,
   git_source = NULL, health = NULL, idempotency_token = NULL, notification_settings = NULL,
   queue = NULL, run_name = NULL, tasks = NULL, timeout_seconds = NULL, webhook_notifications = NULL) {
   body <- list(access_control_list = access_control_list, email_notifications = email_notifications,
@@ -405,6 +491,10 @@ jobsSubmit <- function(client, access_control_list = NULL, email_notifications =
     tasks = tasks, timeout_seconds = timeout_seconds, webhook_notifications = webhook_notifications)
   client$do("POST", "/api/2.1/jobs/runs/submit", body = body)
 }
+
+#' @rdname submit_job
+#' @export 
+jobsSubmit <- submit_job
 #' Update job settings partially.
 #' 
 #' Add, update, or remove specific settings of an existing job. Use the [_Reset_
@@ -415,12 +505,17 @@ jobsSubmit <- function(client, access_control_list = NULL, email_notifications =
 #' @param job_id Required. The canonical identifier of the job to update.
 #' @param new_settings The new settings for the job.
 #'
-#' @rdname jobsUpdate
+#' @rdname update_job
+#' @alias jobsUpdate
 #' @export
-jobsUpdate <- function(client, job_id, fields_to_remove = NULL, new_settings = NULL) {
+update_job <- function(client, job_id, fields_to_remove = NULL, new_settings = NULL) {
   body <- list(fields_to_remove = fields_to_remove, job_id = job_id, new_settings = new_settings)
   client$do("POST", "/api/2.1/jobs/update", body = body)
 }
+
+#' @rdname update_job
+#' @export 
+jobsUpdate <- update_job
 #' Update job permissions.
 #' 
 #' Updates the permissions on a job. Jobs can inherit permissions from their
@@ -430,12 +525,17 @@ jobsUpdate <- function(client, job_id, fields_to_remove = NULL, new_settings = N
 #' @param access_control_list This field has no description yet.
 #' @param job_id Required. The job for which to get or manage permissions.
 #'
-#' @rdname jobsUpdatePermissions
+#' @rdname update_job_permissions
+#' @alias jobsUpdatePermissions
 #' @export
-jobsUpdatePermissions <- function(client, job_id, access_control_list = NULL) {
+update_job_permissions <- function(client, job_id, access_control_list = NULL) {
   body <- list(access_control_list = access_control_list)
   client$do("PATCH", paste("/api/2.0/permissions/jobs/", job_id, sep = ""), body = body)
 }
+
+#' @rdname update_job_permissions
+#' @export 
+jobsUpdatePermissions <- update_job_permissions
 
 #' Cancel a run.
 #' 
@@ -454,9 +554,9 @@ jobsUpdatePermissions <- function(client, job_id, access_control_list = NULL) {
 #'
 #' @param run_id Required. This field is required.
 #'
-#' @rdname jobsCancelRunAndWait
+#' @rdname cancel_job_run_and_wait
 #' @export
-jobsCancelRunAndWait <- function(client, run_id, timeout = 20, callback = cli_reporter) {
+cancel_job_run_and_wait <- function(client, run_id, timeout = 20, callback = cli_reporter) {
   body <- list(run_id = run_id)
   op_response <- client$do("POST", "/api/2.1/jobs/runs/cancel", body = body)
   started <- as.numeric(Sys.time())
@@ -524,9 +624,9 @@ jobsCancelRunAndWait <- function(client, run_id, timeout = 20, callback = cli_re
 #' @param include_resolved_values Whether to include resolved parameter values in the response.
 #' @param run_id Required. The canonical identifier of the run for which to retrieve the metadata.
 #'
-#' @rdname jobsGetRunAndWait
+#' @rdname get_job_run_and_wait
 #' @export
-jobsGetRunAndWait <- function(client, run_id, include_history = NULL, include_resolved_values = NULL,
+get_job_run_and_wait <- function(client, run_id, include_history = NULL, include_resolved_values = NULL,
   timeout = 20, callback = cli_reporter) {
   query <- list(include_history = include_history, include_resolved_values = include_resolved_values,
     run_id = run_id)
@@ -605,9 +705,9 @@ jobsGetRunAndWait <- function(client, run_id, include_history = NULL, include_re
 #' @param spark_submit_params A list of parameters for jobs with spark submit task, for example `'spark_submit_params': ['--class', 'org.apache.spark.examples.SparkPi']`.
 #' @param sql_params A map from keys to values for jobs with SQL task, for example `'sql_params': {'name': 'john doe', 'age': '35'}`.
 #'
-#' @rdname jobsRepairRunAndWait
+#' @rdname repair_job_run_and_wait
 #' @export
-jobsRepairRunAndWait <- function(client, run_id, dbt_commands = NULL, jar_params = NULL,
+repair_job_run_and_wait <- function(client, run_id, dbt_commands = NULL, jar_params = NULL,
   job_parameters = NULL, latest_repair_id = NULL, notebook_params = NULL, pipeline_params = NULL,
   python_named_params = NULL, python_params = NULL, rerun_all_failed_tasks = NULL,
   rerun_dependent_tasks = NULL, rerun_tasks = NULL, spark_submit_params = NULL,
@@ -687,9 +787,9 @@ jobsRepairRunAndWait <- function(client, run_id, dbt_commands = NULL, jar_params
 #' @param spark_submit_params A list of parameters for jobs with spark submit task, for example `'spark_submit_params': ['--class', 'org.apache.spark.examples.SparkPi']`.
 #' @param sql_params A map from keys to values for jobs with SQL task, for example `'sql_params': {'name': 'john doe', 'age': '35'}`.
 #'
-#' @rdname jobsRunNowAndWait
+#' @rdname run_job_now_and_wait
 #' @export
-jobsRunNowAndWait <- function(client, job_id, dbt_commands = NULL, idempotency_token = NULL,
+run_job_now_and_wait <- function(client, job_id, dbt_commands = NULL, idempotency_token = NULL,
   jar_params = NULL, job_parameters = NULL, notebook_params = NULL, pipeline_params = NULL,
   python_named_params = NULL, python_params = NULL, queue = NULL, spark_submit_params = NULL,
   sql_params = NULL, timeout = 20, callback = cli_reporter) {
@@ -769,9 +869,9 @@ jobsRunNowAndWait <- function(client, job_id, dbt_commands = NULL, idempotency_t
 #' @param timeout_seconds An optional timeout applied to each run of this job.
 #' @param webhook_notifications A collection of system notification IDs to notify when the run begins or completes.
 #'
-#' @rdname jobsSubmitAndWait
+#' @rdname submit_job_and_wait
 #' @export
-jobsSubmitAndWait <- function(client, access_control_list = NULL, email_notifications = NULL,
+submit_job_and_wait <- function(client, access_control_list = NULL, email_notifications = NULL,
   git_source = NULL, health = NULL, idempotency_token = NULL, notification_settings = NULL,
   queue = NULL, run_name = NULL, tasks = NULL, timeout_seconds = NULL, webhook_notifications = NULL,
   timeout = 20, callback = cli_reporter) {

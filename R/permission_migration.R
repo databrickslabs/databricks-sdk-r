@@ -14,12 +14,17 @@ NULL
 #' @param to_account_group_name Required. The name of the account group that permissions will be migrated to.
 #' @param workspace_id Required. WorkspaceId of the associated workspace where the permission migration will occur.
 #'
-#' @rdname permissionMigrationMigratePermissions
+#' @rdname migrate_permission_migration_permissions
+#' @alias permissionMigrationMigratePermissions
 #' @export
-permissionMigrationMigratePermissions <- function(client, workspace_id, from_workspace_group_name,
+migrate_permission_migration_permissions <- function(client, workspace_id, from_workspace_group_name,
   to_account_group_name, size = NULL) {
   body <- list(from_workspace_group_name = from_workspace_group_name, size = size,
     to_account_group_name = to_account_group_name, workspace_id = workspace_id)
   client$do("POST", "/api/2.0/permissionmigration", body = body)
 }
+
+#' @rdname migrate_permission_migration_permissions
+#' @export 
+permissionMigrationMigratePermissions <- migrate_permission_migration_permissions
 

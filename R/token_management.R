@@ -12,13 +12,17 @@ NULL
 #' @param comment Comment that describes the purpose of the token.
 #' @param lifetime_seconds The number of seconds before the token expires.
 #'
-#' @rdname tokenManagementCreateOboToken
+#' @rdname create_obo_token
+#' @alias tokenManagementCreateOboToken
 #' @export
-tokenManagementCreateOboToken <- function(client, application_id, comment = NULL,
-  lifetime_seconds = NULL) {
+create_obo_token <- function(client, application_id, comment = NULL, lifetime_seconds = NULL) {
   body <- list(application_id = application_id, comment = comment, lifetime_seconds = lifetime_seconds)
   client$do("POST", "/api/2.0/token-management/on-behalf-of/tokens", body = body)
 }
+
+#' @rdname create_obo_token
+#' @export 
+tokenManagementCreateOboToken <- create_obo_token
 #' Delete a token.
 #' 
 #' Deletes a token, specified by its ID.
@@ -26,12 +30,17 @@ tokenManagementCreateOboToken <- function(client, application_id, comment = NULL
 #'
 #' @param token_id Required. The ID of the token to get.
 #'
-#' @rdname tokenManagementDelete
+#' @rdname delete_token_management
+#' @alias tokenManagementDelete
 #' @export
-tokenManagementDelete <- function(client, token_id) {
+delete_token_management <- function(client, token_id) {
 
   client$do("DELETE", paste("/api/2.0/token-management/tokens/", token_id, sep = ""))
 }
+
+#' @rdname delete_token_management
+#' @export 
+tokenManagementDelete <- delete_token_management
 #' Get token info.
 #' 
 #' Gets information about a token, specified by its ID.
@@ -39,33 +48,48 @@ tokenManagementDelete <- function(client, token_id) {
 #'
 #' @param token_id Required. The ID of the token to get.
 #'
-#' @rdname tokenManagementGet
+#' @rdname get_token_management
+#' @alias tokenManagementGet
 #' @export
-tokenManagementGet <- function(client, token_id) {
+get_token_management <- function(client, token_id) {
 
   client$do("GET", paste("/api/2.0/token-management/tokens/", token_id, sep = ""))
 }
+
+#' @rdname get_token_management
+#' @export 
+tokenManagementGet <- get_token_management
 #' Get token permission levels.
 #' 
 #' Gets the permission levels that a user can have on an object.
 #' @param client Required. Instance of DatabricksClient()
 #'
-#' @rdname tokenManagementGetPermissionLevels
+#' @rdname get_token_management_permission_levels
+#' @alias tokenManagementGetPermissionLevels
 #' @export
-tokenManagementGetPermissionLevels <- function(client) {
+get_token_management_permission_levels <- function(client) {
   client$do("GET", "/api/2.0/permissions/authorization/tokens/permissionLevels")
 }
+
+#' @rdname get_token_management_permission_levels
+#' @export 
+tokenManagementGetPermissionLevels <- get_token_management_permission_levels
 #' Get token permissions.
 #' 
 #' Gets the permissions of all tokens. Tokens can inherit permissions from their
 #' root object.
 #' @param client Required. Instance of DatabricksClient()
 #'
-#' @rdname tokenManagementGetPermissions
+#' @rdname get_token_management_permissions
+#' @alias tokenManagementGetPermissions
 #' @export
-tokenManagementGetPermissions <- function(client) {
+get_token_management_permissions <- function(client) {
   client$do("GET", "/api/2.0/permissions/authorization/tokens")
 }
+
+#' @rdname get_token_management_permissions
+#' @export 
+tokenManagementGetPermissions <- get_token_management_permissions
 #' List all tokens.
 #' 
 #' Lists all tokens associated with the specified workspace or user.
@@ -76,15 +100,20 @@ tokenManagementGetPermissions <- function(client) {
 #'
 #' @return `data.frame` with all of the response pages.
 #'
-#' @rdname tokenManagementList
+#' @rdname list_token_management
+#' @alias tokenManagementList
 #' @export
-tokenManagementList <- function(client, created_by_id = NULL, created_by_username = NULL) {
+list_token_management <- function(client, created_by_id = NULL, created_by_username = NULL) {
   query <- list(created_by_id = created_by_id, created_by_username = created_by_username)
 
   json <- client$do("GET", "/api/2.0/token-management/tokens", query = query)
   return(json$token_infos)
 
 }
+
+#' @rdname list_token_management
+#' @export 
+tokenManagementList <- list_token_management
 #' Set token permissions.
 #' 
 #' Sets permissions on all tokens. Tokens can inherit permissions from their
@@ -93,12 +122,17 @@ tokenManagementList <- function(client, created_by_id = NULL, created_by_usernam
 #'
 #' @param access_control_list This field has no description yet.
 #'
-#' @rdname tokenManagementSetPermissions
+#' @rdname set_token_management_permissions
+#' @alias tokenManagementSetPermissions
 #' @export
-tokenManagementSetPermissions <- function(client, access_control_list = NULL) {
+set_token_management_permissions <- function(client, access_control_list = NULL) {
   body <- list(access_control_list = access_control_list)
   client$do("PUT", "/api/2.0/permissions/authorization/tokens", body = body)
 }
+
+#' @rdname set_token_management_permissions
+#' @export 
+tokenManagementSetPermissions <- set_token_management_permissions
 #' Update token permissions.
 #' 
 #' Updates the permissions on all tokens. Tokens can inherit permissions from
@@ -107,12 +141,17 @@ tokenManagementSetPermissions <- function(client, access_control_list = NULL) {
 #'
 #' @param access_control_list This field has no description yet.
 #'
-#' @rdname tokenManagementUpdatePermissions
+#' @rdname update_token_management_permissions
+#' @alias tokenManagementUpdatePermissions
 #' @export
-tokenManagementUpdatePermissions <- function(client, access_control_list = NULL) {
+update_token_management_permissions <- function(client, access_control_list = NULL) {
   body <- list(access_control_list = access_control_list)
   client$do("PATCH", "/api/2.0/permissions/authorization/tokens", body = body)
 }
+
+#' @rdname update_token_management_permissions
+#' @export 
+tokenManagementUpdatePermissions <- update_token_management_permissions
 
 
 

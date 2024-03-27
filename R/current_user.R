@@ -8,9 +8,14 @@ NULL
 #' Get details about the current method caller's identity.
 #' @param client Required. Instance of DatabricksClient()
 #'
-#' @rdname currentUserMe
+#' @rdname me
+#' @alias currentUserMe
 #' @export
-currentUserMe <- function(client) {
+me <- function(client) {
   client$do("GET", "/api/2.0/preview/scim/v2/Me")
 }
+
+#' @rdname me
+#' @export 
+currentUserMe <- me
 

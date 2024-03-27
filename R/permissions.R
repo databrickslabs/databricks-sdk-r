@@ -12,13 +12,18 @@ NULL
 #' @param request_object_id Required. The id of the request object.
 #' @param request_object_type Required. The type of the request object.
 #'
-#' @rdname permissionsGet
+#' @rdname get_permission
+#' @alias permissionsGet
 #' @export
-permissionsGet <- function(client, request_object_type, request_object_id) {
+get_permission <- function(client, request_object_type, request_object_id) {
 
   client$do("GET", paste("/api/2.0/permissions/", request_object_type, "/", request_object_id,
     sep = ""))
 }
+
+#' @rdname get_permission
+#' @export 
+permissionsGet <- get_permission
 #' Get object permission levels.
 #' 
 #' Gets the permission levels that a user can have on an object.
@@ -27,13 +32,18 @@ permissionsGet <- function(client, request_object_type, request_object_id) {
 #' @param request_object_id Required. <needs content>.
 #' @param request_object_type Required. <needs content>.
 #'
-#' @rdname permissionsGetPermissionLevels
+#' @rdname get_permission_levels
+#' @alias permissionsGetPermissionLevels
 #' @export
-permissionsGetPermissionLevels <- function(client, request_object_type, request_object_id) {
+get_permission_levels <- function(client, request_object_type, request_object_id) {
 
   client$do("GET", paste("/api/2.0/permissions/", request_object_type, "/", request_object_id,
     "/permissionLevels", , sep = ""))
 }
+
+#' @rdname get_permission_levels
+#' @export 
+permissionsGetPermissionLevels <- get_permission_levels
 #' Set object permissions.
 #' 
 #' Sets permissions on an object. Objects can inherit permissions from their
@@ -44,13 +54,18 @@ permissionsGetPermissionLevels <- function(client, request_object_type, request_
 #' @param request_object_id Required. The id of the request object.
 #' @param request_object_type Required. The type of the request object.
 #'
-#' @rdname permissionsSet
+#' @rdname set_permission
+#' @alias permissionsSet
 #' @export
-permissionsSet <- function(client, request_object_type, request_object_id, access_control_list = NULL) {
+set_permission <- function(client, request_object_type, request_object_id, access_control_list = NULL) {
   body <- list(access_control_list = access_control_list)
   client$do("PUT", paste("/api/2.0/permissions/", request_object_type, "/", request_object_id,
     sep = ""), body = body)
 }
+
+#' @rdname set_permission
+#' @export 
+permissionsSet <- set_permission
 #' Update object permissions.
 #' 
 #' Updates the permissions on an object. Objects can inherit permissions from
@@ -61,13 +76,18 @@ permissionsSet <- function(client, request_object_type, request_object_id, acces
 #' @param request_object_id Required. The id of the request object.
 #' @param request_object_type Required. The type of the request object.
 #'
-#' @rdname permissionsUpdate
+#' @rdname update_permission
+#' @alias permissionsUpdate
 #' @export
-permissionsUpdate <- function(client, request_object_type, request_object_id, access_control_list = NULL) {
+update_permission <- function(client, request_object_type, request_object_id, access_control_list = NULL) {
   body <- list(access_control_list = access_control_list)
   client$do("PATCH", paste("/api/2.0/permissions/", request_object_type, "/", request_object_id,
     sep = ""), body = body)
 }
+
+#' @rdname update_permission
+#' @export 
+permissionsUpdate <- update_permission
 
 
 

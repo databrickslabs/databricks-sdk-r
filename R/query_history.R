@@ -17,10 +17,11 @@ NULL
 #'
 #' @return `data.frame` with all of the response pages.
 #'
-#' @rdname queryHistoryList
+#' @rdname list_query_history
+#' @alias queryHistoryList
 #' @export
-queryHistoryList <- function(client, filter_by = NULL, include_metrics = NULL, max_results = NULL,
-  page_token = NULL) {
+list_query_history <- function(client, filter_by = NULL, include_metrics = NULL,
+  max_results = NULL, page_token = NULL) {
   query <- list(filter_by = filter_by, include_metrics = include_metrics, max_results = max_results,
     page_token = page_token)
 
@@ -40,4 +41,8 @@ queryHistoryList <- function(client, filter_by = NULL, include_metrics = NULL, m
   return(results)
 
 }
+
+#' @rdname list_query_history
+#' @export 
+queryHistoryList <- list_query_history
 

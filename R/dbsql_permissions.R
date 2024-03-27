@@ -12,13 +12,18 @@ NULL
 #' @param object_id Required. Object ID.
 #' @param object_type Required. The type of object permissions to check.
 #'
-#' @rdname dbsqlPermissionsGet
+#' @rdname get_dbsql_permission
+#' @alias dbsqlPermissionsGet
 #' @export
-dbsqlPermissionsGet <- function(client, object_type, object_id) {
+get_dbsql_permission <- function(client, object_type, object_id) {
 
   client$do("GET", paste("/api/2.0/preview/sql/permissions/", object_type, "/",
     object_id, sep = ""))
 }
+
+#' @rdname get_dbsql_permission
+#' @export 
+dbsqlPermissionsGet <- get_dbsql_permission
 #' Set object ACL.
 #' 
 #' Sets the access control list (ACL) for a specified object. This operation
@@ -29,13 +34,18 @@ dbsqlPermissionsGet <- function(client, object_type, object_id) {
 #' @param object_id Required. Object ID.
 #' @param object_type Required. The type of object permission to set.
 #'
-#' @rdname dbsqlPermissionsSet
+#' @rdname set_dbsql_permission
+#' @alias dbsqlPermissionsSet
 #' @export
-dbsqlPermissionsSet <- function(client, object_type, object_id, access_control_list = NULL) {
+set_dbsql_permission <- function(client, object_type, object_id, access_control_list = NULL) {
   body <- list(access_control_list = access_control_list)
   client$do("POST", paste("/api/2.0/preview/sql/permissions/", object_type, "/",
     object_id, sep = ""), body = body)
 }
+
+#' @rdname set_dbsql_permission
+#' @export 
+dbsqlPermissionsSet <- set_dbsql_permission
 #' Transfer object ownership.
 #' 
 #' Transfers ownership of a dashboard, query, or alert to an active user.
@@ -46,13 +56,18 @@ dbsqlPermissionsSet <- function(client, object_type, object_id, access_control_l
 #' @param object_id Required. The ID of the object on which to change ownership.
 #' @param object_type Required. The type of object on which to change ownership.
 #'
-#' @rdname dbsqlPermissionsTransferOwnership
+#' @rdname transfer_dbsql_permission_ownership
+#' @alias dbsqlPermissionsTransferOwnership
 #' @export
-dbsqlPermissionsTransferOwnership <- function(client, object_type, object_id, new_owner = NULL) {
+transfer_dbsql_permission_ownership <- function(client, object_type, object_id, new_owner = NULL) {
   body <- list(new_owner = new_owner)
   client$do("POST", paste("/api/2.0/preview/sql/permissions/", object_type, "/",
     object_id, "/transfer", , sep = ""), body = body)
 }
+
+#' @rdname transfer_dbsql_permission_ownership
+#' @export 
+dbsqlPermissionsTransferOwnership <- transfer_dbsql_permission_ownership
 
 
 

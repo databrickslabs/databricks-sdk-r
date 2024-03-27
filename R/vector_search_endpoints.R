@@ -11,35 +11,50 @@ NULL
 #' @param endpoint_type Required. Type of endpoint.
 #' @param name Required. Name of endpoint.
 #'
-#' @rdname vectorSearchEndpointsCreateEndpoint
+#' @rdname create_vector_search_endpoint
+#' @alias vectorSearchEndpointsCreateEndpoint
 #' @export
-vectorSearchEndpointsCreateEndpoint <- function(client, name, endpoint_type) {
+create_vector_search_endpoint <- function(client, name, endpoint_type) {
   body <- list(endpoint_type = endpoint_type, name = name)
   client$do("POST", "/api/2.0/vector-search/endpoints", body = body)
 }
+
+#' @rdname create_vector_search_endpoint
+#' @export 
+vectorSearchEndpointsCreateEndpoint <- create_vector_search_endpoint
 #' Delete an endpoint.
 #' @param client Required. Instance of DatabricksClient()
 #'
 #' @param endpoint_name Required. Name of the endpoint.
 #'
-#' @rdname vectorSearchEndpointsDeleteEndpoint
+#' @rdname delete_vector_search_endpoint
+#' @alias vectorSearchEndpointsDeleteEndpoint
 #' @export
-vectorSearchEndpointsDeleteEndpoint <- function(client, endpoint_name) {
+delete_vector_search_endpoint <- function(client, endpoint_name) {
 
   client$do("DELETE", paste("/api/2.0/vector-search/endpoints/", endpoint_name,
     sep = ""))
 }
+
+#' @rdname delete_vector_search_endpoint
+#' @export 
+vectorSearchEndpointsDeleteEndpoint <- delete_vector_search_endpoint
 #' Get an endpoint.
 #' @param client Required. Instance of DatabricksClient()
 #'
 #' @param endpoint_name Required. Name of the endpoint.
 #'
-#' @rdname vectorSearchEndpointsGetEndpoint
+#' @rdname get_vector_search_endpoint
+#' @alias vectorSearchEndpointsGetEndpoint
 #' @export
-vectorSearchEndpointsGetEndpoint <- function(client, endpoint_name) {
+get_vector_search_endpoint <- function(client, endpoint_name) {
 
   client$do("GET", paste("/api/2.0/vector-search/endpoints/", endpoint_name, sep = ""))
 }
+
+#' @rdname get_vector_search_endpoint
+#' @export 
+vectorSearchEndpointsGetEndpoint <- get_vector_search_endpoint
 #' List all endpoints.
 #' @param client Required. Instance of DatabricksClient()
 #'
@@ -47,9 +62,10 @@ vectorSearchEndpointsGetEndpoint <- function(client, endpoint_name) {
 #'
 #' @return `data.frame` with all of the response pages.
 #'
-#' @rdname vectorSearchEndpointsListEndpoints
+#' @rdname list_vector_search_endpoint_endpoints
+#' @alias vectorSearchEndpointsListEndpoints
 #' @export
-vectorSearchEndpointsListEndpoints <- function(client, page_token = NULL) {
+list_vector_search_endpoint_endpoints <- function(client, page_token = NULL) {
   query <- list(page_token = page_token)
 
   results <- data.frame()
@@ -68,6 +84,10 @@ vectorSearchEndpointsListEndpoints <- function(client, page_token = NULL) {
   return(results)
 
 }
+
+#' @rdname list_vector_search_endpoint_endpoints
+#' @export 
+vectorSearchEndpointsListEndpoints <- list_vector_search_endpoint_endpoints
 #' Create an endpoint.
 #' 
 #' Create a new endpoint.
@@ -85,10 +105,10 @@ vectorSearchEndpointsListEndpoints <- function(client, page_token = NULL) {
 #' @param endpoint_type Required. Type of endpoint.
 #' @param name Required. Name of endpoint.
 #'
-#' @rdname vectorSearchEndpointsCreateEndpointAndWait
+#' @rdname create_vector_search_endpoint_and_wait
 #' @export
-vectorSearchEndpointsCreateEndpointAndWait <- function(client, name, endpoint_type,
-  timeout = 20, callback = cli_reporter) {
+create_vector_search_endpoint_and_wait <- function(client, name, endpoint_type, timeout = 20,
+  callback = cli_reporter) {
   body <- list(endpoint_type = endpoint_type, name = name)
   op_response <- client$do("POST", "/api/2.0/vector-search/endpoints", body = body)
   started <- as.numeric(Sys.time())

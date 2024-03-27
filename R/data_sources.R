@@ -10,9 +10,14 @@ NULL
 #' you need only a SQL warehouse's `id` to create new queries against it.
 #' @param client Required. Instance of DatabricksClient()
 #'
-#' @rdname dataSourcesList
+#' @rdname list_data_sources
+#' @alias dataSourcesList
 #' @export
-dataSourcesList <- function(client) {
+list_data_sources <- function(client) {
   client$do("GET", "/api/2.0/preview/sql/data_sources")
 }
+
+#' @rdname list_data_sources
+#' @export 
+dataSourcesList <- list_data_sources
 

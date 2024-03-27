@@ -16,13 +16,18 @@ NULL
 #' @param query_id Required. Query ID.
 #' @param rearm Number of seconds after being triggered before the alert rearms itself and can be triggered again.
 #'
-#' @rdname alertsCreate
+#' @rdname create_alert
+#' @alias alertsCreate
 #' @export
-alertsCreate <- function(client, name, options, query_id, parent = NULL, rearm = NULL) {
+create_alert <- function(client, name, options, query_id, parent = NULL, rearm = NULL) {
   body <- list(name = name, options = options, parent = parent, query_id = query_id,
     rearm = rearm)
   client$do("POST", "/api/2.0/preview/sql/alerts", body = body)
 }
+
+#' @rdname create_alert
+#' @export 
+alertsCreate <- create_alert
 #' Delete an alert.
 #' 
 #' Deletes an alert. Deleted alerts are no longer accessible and cannot be
@@ -32,12 +37,17 @@ alertsCreate <- function(client, name, options, query_id, parent = NULL, rearm =
 #'
 #' @param alert_id Required. This field has no description yet.
 #'
-#' @rdname alertsDelete
+#' @rdname delete_alert
+#' @alias alertsDelete
 #' @export
-alertsDelete <- function(client, alert_id) {
+delete_alert <- function(client, alert_id) {
 
   client$do("DELETE", paste("/api/2.0/preview/sql/alerts/", alert_id, sep = ""))
 }
+
+#' @rdname delete_alert
+#' @export 
+alertsDelete <- delete_alert
 #' Get an alert.
 #' 
 #' Gets an alert.
@@ -45,22 +55,32 @@ alertsDelete <- function(client, alert_id) {
 #'
 #' @param alert_id Required. This field has no description yet.
 #'
-#' @rdname alertsGet
+#' @rdname get_alert
+#' @alias alertsGet
 #' @export
-alertsGet <- function(client, alert_id) {
+get_alert <- function(client, alert_id) {
 
   client$do("GET", paste("/api/2.0/preview/sql/alerts/", alert_id, sep = ""))
 }
+
+#' @rdname get_alert
+#' @export 
+alertsGet <- get_alert
 #' Get alerts.
 #' 
 #' Gets a list of alerts.
 #' @param client Required. Instance of DatabricksClient()
 #'
-#' @rdname alertsList
+#' @rdname list_alerts
+#' @alias alertsList
 #' @export
-alertsList <- function(client) {
+list_alerts <- function(client) {
   client$do("GET", "/api/2.0/preview/sql/alerts")
 }
+
+#' @rdname list_alerts
+#' @export 
+alertsList <- list_alerts
 #' Update an alert.
 #' 
 #' Updates an alert.
@@ -72,12 +92,17 @@ alertsList <- function(client) {
 #' @param query_id Required. Query ID.
 #' @param rearm Number of seconds after being triggered before the alert rearms itself and can be triggered again.
 #'
-#' @rdname alertsUpdate
+#' @rdname update_alert
+#' @alias alertsUpdate
 #' @export
-alertsUpdate <- function(client, alert_id, name, options, query_id, rearm = NULL) {
+update_alert <- function(client, alert_id, name, options, query_id, rearm = NULL) {
   body <- list(name = name, options = options, query_id = query_id, rearm = rearm)
   client$do("PUT", paste("/api/2.0/preview/sql/alerts/", alert_id, sep = ""), body = body)
 }
+
+#' @rdname update_alert
+#' @export 
+alertsUpdate <- update_alert
 
 
 

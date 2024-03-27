@@ -20,13 +20,18 @@ NULL
 #' @param full_name Required. Full name of the table.
 #' @param refresh_id Required. ID of the refresh.
 #'
-#' @rdname lakehouseMonitorsCancelRefresh
+#' @rdname cancel_lakehouse_monitor_refresh
+#' @alias lakehouseMonitorsCancelRefresh
 #' @export
-lakehouseMonitorsCancelRefresh <- function(client, full_name, refresh_id) {
+cancel_lakehouse_monitor_refresh <- function(client, full_name, refresh_id) {
 
   client$do("POST", paste("/api/2.1/unity-catalog/tables/", full_name, "/monitor/refreshes/",
     refresh_id, "/cancel", , sep = ""))
 }
+
+#' @rdname cancel_lakehouse_monitor_refresh
+#' @export 
+lakehouseMonitorsCancelRefresh <- cancel_lakehouse_monitor_refresh
 #' Create a table monitor.
 #' 
 #' Creates a new monitor for the specified table.
@@ -58,9 +63,10 @@ lakehouseMonitorsCancelRefresh <- function(client, full_name, refresh_id) {
 #' @param time_series Configuration for monitoring time series tables.
 #' @param warehouse_id Optional argument to specify the warehouse for dashboard creation.
 #'
-#' @rdname lakehouseMonitorsCreate
+#' @rdname create_lakehouse_monitor
+#' @alias lakehouseMonitorsCreate
 #' @export
-lakehouseMonitorsCreate <- function(client, full_name, assets_dir, output_schema_name,
+create_lakehouse_monitor <- function(client, full_name, assets_dir, output_schema_name,
   baseline_table_name = NULL, custom_metrics = NULL, data_classification_config = NULL,
   inference_log = NULL, notifications = NULL, schedule = NULL, skip_builtin_dashboard = NULL,
   slicing_exprs = NULL, snapshot = NULL, time_series = NULL, warehouse_id = NULL) {
@@ -72,6 +78,10 @@ lakehouseMonitorsCreate <- function(client, full_name, assets_dir, output_schema
   client$do("POST", paste("/api/2.1/unity-catalog/tables/", full_name, "/monitor",
     , sep = ""), body = body)
 }
+
+#' @rdname create_lakehouse_monitor
+#' @export 
+lakehouseMonitorsCreate <- create_lakehouse_monitor
 #' Delete a table monitor.
 #' 
 #' Deletes a monitor for the specified table.
@@ -91,13 +101,18 @@ lakehouseMonitorsCreate <- function(client, full_name, assets_dir, output_schema
 #'
 #' @param full_name Required. Full name of the table.
 #'
-#' @rdname lakehouseMonitorsDelete
+#' @rdname delete_lakehouse_monitor
+#' @alias lakehouseMonitorsDelete
 #' @export
-lakehouseMonitorsDelete <- function(client, full_name) {
+delete_lakehouse_monitor <- function(client, full_name) {
 
   client$do("DELETE", paste("/api/2.1/unity-catalog/tables/", full_name, "/monitor",
     , sep = ""))
 }
+
+#' @rdname delete_lakehouse_monitor
+#' @export 
+lakehouseMonitorsDelete <- delete_lakehouse_monitor
 #' Get a table monitor.
 #' 
 #' Gets a monitor for the specified table.
@@ -116,13 +131,18 @@ lakehouseMonitorsDelete <- function(client, full_name) {
 #'
 #' @param full_name Required. Full name of the table.
 #'
-#' @rdname lakehouseMonitorsGet
+#' @rdname get_lakehouse_monitor
+#' @alias lakehouseMonitorsGet
 #' @export
-lakehouseMonitorsGet <- function(client, full_name) {
+get_lakehouse_monitor <- function(client, full_name) {
 
   client$do("GET", paste("/api/2.1/unity-catalog/tables/", full_name, "/monitor",
     , sep = ""))
 }
+
+#' @rdname get_lakehouse_monitor
+#' @export 
+lakehouseMonitorsGet <- get_lakehouse_monitor
 #' Get refresh.
 #' 
 #' Gets info about a specific monitor refresh using the given refresh ID.
@@ -140,13 +160,18 @@ lakehouseMonitorsGet <- function(client, full_name) {
 #' @param full_name Required. Full name of the table.
 #' @param refresh_id Required. ID of the refresh.
 #'
-#' @rdname lakehouseMonitorsGetRefresh
+#' @rdname get_lakehouse_monitor_refresh
+#' @alias lakehouseMonitorsGetRefresh
 #' @export
-lakehouseMonitorsGetRefresh <- function(client, full_name, refresh_id) {
+get_lakehouse_monitor_refresh <- function(client, full_name, refresh_id) {
 
   client$do("GET", paste("/api/2.1/unity-catalog/tables/", full_name, "/monitor/refreshes/",
     refresh_id, sep = ""))
 }
+
+#' @rdname get_lakehouse_monitor_refresh
+#' @export 
+lakehouseMonitorsGetRefresh <- get_lakehouse_monitor_refresh
 #' List refreshes.
 #' 
 #' Gets an array containing the history of the most recent refreshes (up to 25)
@@ -164,13 +189,18 @@ lakehouseMonitorsGetRefresh <- function(client, full_name, refresh_id) {
 #'
 #' @param full_name Required. Full name of the table.
 #'
-#' @rdname lakehouseMonitorsListRefreshes
+#' @rdname list_lakehouse_monitor_refreshes
+#' @alias lakehouseMonitorsListRefreshes
 #' @export
-lakehouseMonitorsListRefreshes <- function(client, full_name) {
+list_lakehouse_monitor_refreshes <- function(client, full_name) {
 
   client$do("GET", paste("/api/2.1/unity-catalog/tables/", full_name, "/monitor/refreshes",
     , sep = ""))
 }
+
+#' @rdname list_lakehouse_monitor_refreshes
+#' @export 
+lakehouseMonitorsListRefreshes <- list_lakehouse_monitor_refreshes
 #' Queue a metric refresh for a monitor.
 #' 
 #' Queues a metric refresh on the monitor for the specified table. The refresh
@@ -188,13 +218,18 @@ lakehouseMonitorsListRefreshes <- function(client, full_name) {
 #'
 #' @param full_name Required. Full name of the table.
 #'
-#' @rdname lakehouseMonitorsRunRefresh
+#' @rdname run_lakehouse_monitor_refresh
+#' @alias lakehouseMonitorsRunRefresh
 #' @export
-lakehouseMonitorsRunRefresh <- function(client, full_name) {
+run_lakehouse_monitor_refresh <- function(client, full_name) {
 
   client$do("POST", paste("/api/2.1/unity-catalog/tables/", full_name, "/monitor/refreshes",
     , sep = ""))
 }
+
+#' @rdname run_lakehouse_monitor_refresh
+#' @export 
+lakehouseMonitorsRunRefresh <- run_lakehouse_monitor_refresh
 #' Update a table monitor.
 #' 
 #' Updates a monitor for the specified table.
@@ -224,9 +259,10 @@ lakehouseMonitorsRunRefresh <- function(client, full_name) {
 #' @param snapshot Configuration for monitoring snapshot tables.
 #' @param time_series Configuration for monitoring time series tables.
 #'
-#' @rdname lakehouseMonitorsUpdate
+#' @rdname update_lakehouse_monitor
+#' @alias lakehouseMonitorsUpdate
 #' @export
-lakehouseMonitorsUpdate <- function(client, full_name, output_schema_name, baseline_table_name = NULL,
+update_lakehouse_monitor <- function(client, full_name, output_schema_name, baseline_table_name = NULL,
   custom_metrics = NULL, data_classification_config = NULL, inference_log = NULL,
   notifications = NULL, schedule = NULL, slicing_exprs = NULL, snapshot = NULL,
   time_series = NULL) {
@@ -237,6 +273,10 @@ lakehouseMonitorsUpdate <- function(client, full_name, output_schema_name, basel
   client$do("PUT", paste("/api/2.1/unity-catalog/tables/", full_name, "/monitor",
     , sep = ""), body = body)
 }
+
+#' @rdname update_lakehouse_monitor
+#' @export 
+lakehouseMonitorsUpdate <- update_lakehouse_monitor
 
 
 

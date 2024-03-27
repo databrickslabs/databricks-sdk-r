@@ -13,12 +13,17 @@ NULL
 #' @param name Required. Name of the clean room.
 #' @param remote_detailed_info Required. Central clean room details.
 #'
-#' @rdname cleanRoomsCreate
+#' @rdname create_clean_room
+#' @alias cleanRoomsCreate
 #' @export
-cleanRoomsCreate <- function(client, name, remote_detailed_info, comment = NULL) {
+create_clean_room <- function(client, name, remote_detailed_info, comment = NULL) {
   body <- list(comment = comment, name = name, remote_detailed_info = remote_detailed_info)
   client$do("POST", "/api/2.1/unity-catalog/clean-rooms", body = body)
 }
+
+#' @rdname create_clean_room
+#' @export 
+cleanRoomsCreate <- create_clean_room
 #' Delete a clean room.
 #' 
 #' Deletes a data object clean room from the metastore. The caller must be an
@@ -27,12 +32,17 @@ cleanRoomsCreate <- function(client, name, remote_detailed_info, comment = NULL)
 #'
 #' @param name Required. The name of the clean room.
 #'
-#' @rdname cleanRoomsDelete
+#' @rdname delete_clean_room
+#' @alias cleanRoomsDelete
 #' @export
-cleanRoomsDelete <- function(client, name) {
+delete_clean_room <- function(client, name) {
 
   client$do("DELETE", paste("/api/2.1/unity-catalog/clean-rooms/", name, sep = ""))
 }
+
+#' @rdname delete_clean_room
+#' @export 
+cleanRoomsDelete <- delete_clean_room
 #' Get a clean room.
 #' 
 #' Gets a data object clean room from the metastore. The caller must be a
@@ -42,13 +52,18 @@ cleanRoomsDelete <- function(client, name) {
 #' @param include_remote_details Whether to include remote details (central) on the clean room.
 #' @param name Required. The name of the clean room.
 #'
-#' @rdname cleanRoomsGet
+#' @rdname get_clean_room
+#' @alias cleanRoomsGet
 #' @export
-cleanRoomsGet <- function(client, name, include_remote_details = NULL) {
+get_clean_room <- function(client, name, include_remote_details = NULL) {
   query <- list(include_remote_details = include_remote_details)
   client$do("GET", paste("/api/2.1/unity-catalog/clean-rooms/", name, sep = ""),
     query = query)
 }
+
+#' @rdname get_clean_room
+#' @export 
+cleanRoomsGet <- get_clean_room
 #' List clean rooms.
 #' 
 #' Gets an array of data object clean rooms from the metastore. The caller must
@@ -61,9 +76,10 @@ cleanRoomsGet <- function(client, name, include_remote_details = NULL) {
 #'
 #' @return `data.frame` with all of the response pages.
 #'
-#' @rdname cleanRoomsList
+#' @rdname list_clean_rooms
+#' @alias cleanRoomsList
 #' @export
-cleanRoomsList <- function(client, max_results = NULL, page_token = NULL) {
+list_clean_rooms <- function(client, max_results = NULL, page_token = NULL) {
   query <- list(max_results = max_results, page_token = page_token)
 
   results <- data.frame()
@@ -82,6 +98,10 @@ cleanRoomsList <- function(client, max_results = NULL, page_token = NULL) {
   return(results)
 
 }
+
+#' @rdname list_clean_rooms
+#' @export 
+cleanRoomsList <- list_clean_rooms
 #' Update a clean room.
 #' 
 #' Updates the clean room with the changes and data objects in the request. The
@@ -106,14 +126,19 @@ cleanRoomsList <- function(client, max_results = NULL, page_token = NULL) {
 #' @param name Required. The name of the clean room.
 #' @param owner Username of current owner of clean room.
 #'
-#' @rdname cleanRoomsUpdate
+#' @rdname update_clean_room
+#' @alias cleanRoomsUpdate
 #' @export
-cleanRoomsUpdate <- function(client, name, catalog_updates = NULL, comment = NULL,
+update_clean_room <- function(client, name, catalog_updates = NULL, comment = NULL,
   owner = NULL) {
   body <- list(catalog_updates = catalog_updates, comment = comment, owner = owner)
   client$do("PATCH", paste("/api/2.1/unity-catalog/clean-rooms/", name, sep = ""),
     body = body)
 }
+
+#' @rdname update_clean_room
+#' @export 
+cleanRoomsUpdate <- update_clean_room
 
 
 

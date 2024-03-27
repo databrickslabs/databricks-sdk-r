@@ -14,13 +14,18 @@ NULL
 #' @param name Required. The name of the Provider.
 #' @param recipient_profile_str This field is required when the __authentication_type__ is **TOKEN** or not provided.
 #'
-#' @rdname providersCreate
+#' @rdname create_provider
+#' @alias providersCreate
 #' @export
-providersCreate <- function(client, name, authentication_type, comment = NULL, recipient_profile_str = NULL) {
+create_provider <- function(client, name, authentication_type, comment = NULL, recipient_profile_str = NULL) {
   body <- list(authentication_type = authentication_type, comment = comment, name = name,
     recipient_profile_str = recipient_profile_str)
   client$do("POST", "/api/2.1/unity-catalog/providers", body = body)
 }
+
+#' @rdname create_provider
+#' @export 
+providersCreate <- create_provider
 #' Delete a provider.
 #' 
 #' Deletes an authentication provider, if the caller is a metastore admin or is
@@ -29,12 +34,17 @@ providersCreate <- function(client, name, authentication_type, comment = NULL, r
 #'
 #' @param name Required. Name of the provider.
 #'
-#' @rdname providersDelete
+#' @rdname delete_provider
+#' @alias providersDelete
 #' @export
-providersDelete <- function(client, name) {
+delete_provider <- function(client, name) {
 
   client$do("DELETE", paste("/api/2.1/unity-catalog/providers/", name, sep = ""))
 }
+
+#' @rdname delete_provider
+#' @export 
+providersDelete <- delete_provider
 #' Get a provider.
 #' 
 #' Gets a specific authentication provider. The caller must supply the name of
@@ -44,12 +54,17 @@ providersDelete <- function(client, name) {
 #'
 #' @param name Required. Name of the provider.
 #'
-#' @rdname providersGet
+#' @rdname get_provider
+#' @alias providersGet
 #' @export
-providersGet <- function(client, name) {
+get_provider <- function(client, name) {
 
   client$do("GET", paste("/api/2.1/unity-catalog/providers/", name, sep = ""))
 }
+
+#' @rdname get_provider
+#' @export 
+providersGet <- get_provider
 #' List providers.
 #' 
 #' Gets an array of available authentication providers. The caller must either
@@ -62,15 +77,20 @@ providersGet <- function(client, name) {
 #'
 #' @return `data.frame` with all of the response pages.
 #'
-#' @rdname providersList
+#' @rdname list_providers
+#' @alias providersList
 #' @export
-providersList <- function(client, data_provider_global_metastore_id = NULL) {
+list_providers <- function(client, data_provider_global_metastore_id = NULL) {
   query <- list(data_provider_global_metastore_id = data_provider_global_metastore_id)
 
   json <- client$do("GET", "/api/2.1/unity-catalog/providers", query = query)
   return(json$providers)
 
 }
+
+#' @rdname list_providers
+#' @export 
+providersList <- list_providers
 #' List shares by Provider.
 #' 
 #' Gets an array of a specified provider's shares within the metastore where:
@@ -82,9 +102,10 @@ providersList <- function(client, data_provider_global_metastore_id = NULL) {
 #'
 #' @return `data.frame` with all of the response pages.
 #'
-#' @rdname providersListShares
+#' @rdname list_provider_shares
+#' @alias providersListShares
 #' @export
-providersListShares <- function(client, name) {
+list_provider_shares <- function(client, name) {
 
 
   json <- client$do("GET", paste("/api/2.1/unity-catalog/providers/", name, "/shares",
@@ -92,6 +113,10 @@ providersListShares <- function(client, name) {
   return(json$shares)
 
 }
+
+#' @rdname list_provider_shares
+#' @export 
+providersListShares <- list_provider_shares
 #' Update a provider.
 #' 
 #' Updates the information for an authentication provider, if the caller is a
@@ -106,14 +131,19 @@ providersListShares <- function(client, name) {
 #' @param owner Username of Provider owner.
 #' @param recipient_profile_str This field is required when the __authentication_type__ is **TOKEN** or not provided.
 #'
-#' @rdname providersUpdate
+#' @rdname update_provider
+#' @alias providersUpdate
 #' @export
-providersUpdate <- function(client, name, comment = NULL, new_name = NULL, owner = NULL,
+update_provider <- function(client, name, comment = NULL, new_name = NULL, owner = NULL,
   recipient_profile_str = NULL) {
   body <- list(comment = comment, new_name = new_name, owner = owner, recipient_profile_str = recipient_profile_str)
   client$do("PATCH", paste("/api/2.1/unity-catalog/providers/", name, sep = ""),
     body = body)
 }
+
+#' @rdname update_provider
+#' @export 
+providersUpdate <- update_provider
 
 
 
