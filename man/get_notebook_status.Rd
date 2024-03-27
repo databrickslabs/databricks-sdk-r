@@ -12,7 +12,10 @@ workspaceGetStatus(client, path)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{path}{Required. The absolute path of the notebook or directory.}
+\item{path}{Required. The absolute path of the notebook or directory.
+
+See the \href{https://docs.databricks.com/api/workspace/workspace/getstatus}{API documentation} for more
+information on the request and response field structure.}
 }
 \description{
 Gets the status of an object or a directory. If \code{path} does not exist, this

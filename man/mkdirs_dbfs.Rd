@@ -12,7 +12,10 @@ dbfsMkdirs(client, path)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{path}{Required. The path of the new directory.}
+\item{path}{Required. The path of the new directory.
+
+See the \href{https://docs.databricks.com/api/workspace/dbfs/mkdirs}{API documentation} for more
+information on the request and response field structure.}
 }
 \description{
 Creates the given directory and necessary parent directories if they do not

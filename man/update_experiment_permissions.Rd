@@ -16,7 +16,10 @@ experimentsUpdatePermissions(client, experiment_id, access_control_list = NULL)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{experiment_id}{Required. The experiment for which to get or manage permissions.}
+\item{experiment_id}{Required. The experiment for which to get or manage permissions.
+
+See the \href{https://docs.databricks.com/api/workspace/experiments/updatepermissions}{API documentation} for more
+information on the request and response field structure.}
 
 \item{access_control_list}{This field has no description yet.}
 }

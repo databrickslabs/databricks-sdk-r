@@ -12,7 +12,10 @@ clustersPin(client, cluster_id)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{cluster_id}{Required. \if{html}{\out{<needs content added>}}.}
+\item{cluster_id}{Required. \if{html}{\out{<needs content added>}}.
+
+See the \href{https://docs.databricks.com/api/workspace/clusters/pin}{API documentation} for more
+information on the request and response field structure.}
 }
 \description{
 Pinning a cluster ensures that the cluster will always be returned by the

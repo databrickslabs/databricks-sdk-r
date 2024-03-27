@@ -42,7 +42,10 @@ vectorSearchIndexesQueryIndex(
 
 \item{query_vector}{Query vector.}
 
-\item{score_threshold}{Threshold for the approximate nearest neighbor search.}
+\item{score_threshold}{Threshold for the approximate nearest neighbor search.
+
+See the \href{https://docs.databricks.com/api/workspace/vectorsearchindexes/queryindex}{API documentation} for more
+information on the request and response field structure.}
 }
 \description{
 Query the specified vector index.

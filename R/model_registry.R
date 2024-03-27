@@ -14,6 +14,9 @@ NULL
 #' @param stage Required. Target stage of the transition.
 #' @param version Required. Version of the model.
 #'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/modelregistry/approvetransitionrequest) for more 
+#' information on the request and response field structure.
+#'
 #' @rdname approve_model_transition_request
 #' @alias modelRegistryApproveTransitionRequest
 #' @export
@@ -38,6 +41,9 @@ modelRegistryApproveTransitionRequest <- approve_model_transition_request
 #' @param name Required. Name of the model.
 #' @param version Required. Version of the model.
 #'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/modelregistry/createcomment) for more 
+#' information on the request and response field structure.
+#'
 #' @rdname create_model_comment
 #' @alias modelRegistryCreateComment
 #' @export
@@ -60,6 +66,9 @@ modelRegistryCreateComment <- create_model_comment
 #' @param description Optional description for registered model.
 #' @param name Required. Register models under this name.
 #' @param tags Additional metadata for registered model.
+#'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/modelregistry/createmodel) for more 
+#' information on the request and response field structure.
 #'
 #' @rdname create_model
 #' @alias modelRegistryCreateModel
@@ -84,6 +93,9 @@ modelRegistryCreateModel <- create_model
 #' @param source Required. URI indicating the location of the model artifacts.
 #' @param tags Additional metadata for model version.
 #'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/modelregistry/createmodelversion) for more 
+#' information on the request and response field structure.
+#'
 #' @rdname create_model_version
 #' @alias modelRegistryCreateModelVersion
 #' @export
@@ -106,6 +118,9 @@ modelRegistryCreateModelVersion <- create_model_version
 #' @param name Required. Name of the model.
 #' @param stage Required. Target stage of the transition.
 #' @param version Required. Version of the model.
+#'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/modelregistry/createtransitionrequest) for more 
+#' information on the request and response field structure.
 #'
 #' @rdname create_model_transition_request
 #' @alias modelRegistryCreateTransitionRequest
@@ -132,6 +147,9 @@ modelRegistryCreateTransitionRequest <- create_model_transition_request
 #' @param model_name Name of the model whose events would trigger this webhook.
 #' @param status Enable or disable triggering the webhook, or put the webhook into test mode.
 #'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/modelregistry/createwebhook) for more 
+#' information on the request and response field structure.
+#'
 #' @rdname create_model_webhook
 #' @alias modelRegistryCreateWebhook
 #' @export
@@ -152,6 +170,9 @@ modelRegistryCreateWebhook <- create_model_webhook
 #'
 #' @param id Required. This field has no description yet.
 #'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/modelregistry/deletecomment) for more 
+#' information on the request and response field structure.
+#'
 #' @rdname delete_model_comment
 #' @alias modelRegistryDeleteComment
 #' @export
@@ -169,6 +190,9 @@ modelRegistryDeleteComment <- delete_model_comment
 #' @param client Required. Instance of DatabricksClient()
 #'
 #' @param name Required. Registered model unique name identifier.
+#'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/modelregistry/deletemodel) for more 
+#' information on the request and response field structure.
 #'
 #' @rdname delete_model
 #' @alias modelRegistryDeleteModel
@@ -189,6 +213,9 @@ modelRegistryDeleteModel <- delete_model
 #' @param key Required. Name of the tag.
 #' @param name Required. Name of the registered model that the tag was logged under.
 #'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/modelregistry/deletemodeltag) for more 
+#' information on the request and response field structure.
+#'
 #' @rdname delete_model_tag
 #' @alias modelRegistryDeleteModelTag
 #' @export
@@ -207,6 +234,9 @@ modelRegistryDeleteModelTag <- delete_model_tag
 #'
 #' @param name Required. Name of the registered model.
 #' @param version Required. Model version number.
+#'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/modelregistry/deletemodelversion) for more 
+#' information on the request and response field structure.
 #'
 #' @rdname delete_model_version
 #' @alias modelRegistryDeleteModelVersion
@@ -227,6 +257,9 @@ modelRegistryDeleteModelVersion <- delete_model_version
 #' @param key Required. Name of the tag.
 #' @param name Required. Name of the registered model that the tag was logged under.
 #' @param version Required. Model version number that the tag was logged under.
+#'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/modelregistry/deletemodelversiontag) for more 
+#' information on the request and response field structure.
 #'
 #' @rdname delete_model_version_tag
 #' @alias modelRegistryDeleteModelVersionTag
@@ -250,6 +283,9 @@ modelRegistryDeleteModelVersionTag <- delete_model_version_tag
 #' @param stage Required. Target stage of the transition request.
 #' @param version Required. Version of the model.
 #'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/modelregistry/deletetransitionrequest) for more 
+#' information on the request and response field structure.
+#'
 #' @rdname delete_model_transition_request
 #' @alias modelRegistryDeleteTransitionRequest
 #' @export
@@ -272,6 +308,9 @@ modelRegistryDeleteTransitionRequest <- delete_model_transition_request
 #'
 #' @param id Webhook ID required to delete a registry webhook.
 #'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/modelregistry/deletewebhook) for more 
+#' information on the request and response field structure.
+#'
 #' @rdname delete_model_webhook
 #' @alias modelRegistryDeleteWebhook
 #' @export
@@ -292,6 +331,9 @@ modelRegistryDeleteWebhook <- delete_model_webhook
 #' @param stages List of stages.
 #'
 #' @return `data.frame` with all of the response pages.
+#'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/modelregistry/getlatestversions) for more 
+#' information on the request and response field structure.
 #'
 #' @rdname get_model_latest_versions
 #' @alias modelRegistryGetLatestVersions
@@ -319,6 +361,9 @@ modelRegistryGetLatestVersions <- get_model_latest_versions
 #'
 #' @param name Required. Registered model unique name identifier.
 #'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/modelregistry/getmodel) for more 
+#' information on the request and response field structure.
+#'
 #' @rdname get_model
 #' @alias modelRegistryGetModel
 #' @export
@@ -337,6 +382,9 @@ modelRegistryGetModel <- get_model
 #'
 #' @param name Required. Name of the registered model.
 #' @param version Required. Model version number.
+#'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/modelregistry/getmodelversion) for more 
+#' information on the request and response field structure.
 #'
 #' @rdname get_model_version
 #' @alias modelRegistryGetModelVersion
@@ -357,6 +405,9 @@ modelRegistryGetModelVersion <- get_model_version
 #' @param name Required. Name of the registered model.
 #' @param version Required. Model version number.
 #'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/modelregistry/getmodelversiondownloaduri) for more 
+#' information on the request and response field structure.
+#'
 #' @rdname get_model_version_download_uri
 #' @alias modelRegistryGetModelVersionDownloadUri
 #' @export
@@ -374,6 +425,9 @@ modelRegistryGetModelVersionDownloadUri <- get_model_version_download_uri
 #' @param client Required. Instance of DatabricksClient()
 #'
 #' @param registered_model_id Required. The registered model for which to get or manage permissions.
+#'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/modelregistry/getpermissionlevels) for more 
+#' information on the request and response field structure.
 #'
 #' @rdname get_model_permission_levels
 #' @alias modelRegistryGetPermissionLevels
@@ -394,6 +448,9 @@ modelRegistryGetPermissionLevels <- get_model_permission_levels
 #' @param client Required. Instance of DatabricksClient()
 #'
 #' @param registered_model_id Required. The registered model for which to get or manage permissions.
+#'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/modelregistry/getpermissions) for more 
+#' information on the request and response field structure.
 #'
 #' @rdname get_model_permissions
 #' @alias modelRegistryGetPermissions
@@ -417,6 +474,9 @@ modelRegistryGetPermissions <- get_model_permissions
 #' @param page_token Pagination token to go to the next page based on a previous query.
 #'
 #' @return `data.frame` with all of the response pages.
+#'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/modelregistry/listmodels) for more 
+#' information on the request and response field structure.
 #'
 #' @rdname list_model_models
 #' @alias modelRegistryListModels
@@ -454,6 +514,9 @@ modelRegistryListModels <- list_model_models
 #'
 #' @return `data.frame` with all of the response pages.
 #'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/modelregistry/listtransitionrequests) for more 
+#' information on the request and response field structure.
+#'
 #' @rdname list_model_transition_requests
 #' @alias modelRegistryListTransitionRequests
 #' @export
@@ -480,6 +543,9 @@ modelRegistryListTransitionRequests <- list_model_transition_requests
 #' @param page_token Token indicating the page of artifact results to fetch.
 #'
 #' @return `data.frame` with all of the response pages.
+#'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/modelregistry/listwebhooks) for more 
+#' information on the request and response field structure.
 #'
 #' @rdname list_model_webhooks
 #' @alias modelRegistryListWebhooks
@@ -517,6 +583,9 @@ modelRegistryListWebhooks <- list_model_webhooks
 #' @param stage Required. Target stage of the transition.
 #' @param version Required. Version of the model.
 #'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/modelregistry/rejecttransitionrequest) for more 
+#' information on the request and response field structure.
+#'
 #' @rdname reject_model_transition_request
 #' @alias modelRegistryRejectTransitionRequest
 #' @export
@@ -535,6 +604,9 @@ modelRegistryRejectTransitionRequest <- reject_model_transition_request
 #'
 #' @param name Required. Registered model unique name identifier.
 #' @param new_name If provided, updates the name for this `registered_model`.
+#'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/modelregistry/renamemodel) for more 
+#' information on the request and response field structure.
 #'
 #' @rdname rename_model
 #' @alias modelRegistryRenameModel
@@ -558,6 +630,9 @@ modelRegistryRenameModel <- rename_model
 #' @param page_token Pagination token to go to next page based on previous search query.
 #'
 #' @return `data.frame` with all of the response pages.
+#'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/modelregistry/searchmodelversions) for more 
+#' information on the request and response field structure.
 #'
 #' @rdname search_model_versions
 #' @alias modelRegistrySearchModelVersions
@@ -599,6 +674,9 @@ modelRegistrySearchModelVersions <- search_model_versions
 #'
 #' @return `data.frame` with all of the response pages.
 #'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/modelregistry/searchmodels) for more 
+#' information on the request and response field structure.
+#'
 #' @rdname search_model_models
 #' @alias modelRegistrySearchModels
 #' @export
@@ -636,6 +714,9 @@ modelRegistrySearchModels <- search_model_models
 #' @param name Required. Unique name of the model.
 #' @param value Required. String value of the tag being logged.
 #'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/modelregistry/setmodeltag) for more 
+#' information on the request and response field structure.
+#'
 #' @rdname set_model_tag
 #' @alias modelRegistrySetModelTag
 #' @export
@@ -657,6 +738,9 @@ modelRegistrySetModelTag <- set_model_tag
 #' @param value Required. String value of the tag being logged.
 #' @param version Required. Model version number.
 #'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/modelregistry/setmodelversiontag) for more 
+#' information on the request and response field structure.
+#'
 #' @rdname set_model_version_tag
 #' @alias modelRegistrySetModelVersionTag
 #' @export
@@ -676,6 +760,9 @@ modelRegistrySetModelVersionTag <- set_model_version_tag
 #'
 #' @param access_control_list This field has no description yet.
 #' @param registered_model_id Required. The registered model for which to get or manage permissions.
+#'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/modelregistry/setpermissions) for more 
+#' information on the request and response field structure.
 #'
 #' @rdname set_model_permissions
 #' @alias modelRegistrySetPermissions
@@ -698,6 +785,9 @@ modelRegistrySetPermissions <- set_model_permissions
 #'
 #' @param event If `event` is specified, the test trigger uses the specified event.
 #' @param id Required. Webhook ID.
+#'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/modelregistry/testregistrywebhook) for more 
+#' information on the request and response field structure.
 #'
 #' @rdname test_model_registry_webhook
 #' @alias modelRegistryTestRegistryWebhook
@@ -725,6 +815,9 @@ modelRegistryTestRegistryWebhook <- test_model_registry_webhook
 #' @param stage Required. Target stage of the transition.
 #' @param version Required. Version of the model.
 #'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/modelregistry/transitionstage) for more 
+#' information on the request and response field structure.
+#'
 #' @rdname transition_model_stage
 #' @alias modelRegistryTransitionStage
 #' @export
@@ -747,6 +840,9 @@ modelRegistryTransitionStage <- transition_model_stage
 #' @param comment Required. User-provided comment on the action.
 #' @param id Required. Unique identifier of an activity.
 #'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/modelregistry/updatecomment) for more 
+#' information on the request and response field structure.
+#'
 #' @rdname update_model_comment
 #' @alias modelRegistryUpdateComment
 #' @export
@@ -765,6 +861,9 @@ modelRegistryUpdateComment <- update_model_comment
 #'
 #' @param description If provided, updates the description for this `registered_model`.
 #' @param name Required. Registered model unique name identifier.
+#'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/modelregistry/updatemodel) for more 
+#' information on the request and response field structure.
 #'
 #' @rdname update_model
 #' @alias modelRegistryUpdateModel
@@ -786,6 +885,9 @@ modelRegistryUpdateModel <- update_model
 #' @param name Required. Name of the registered model.
 #' @param version Required. Model version number.
 #'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/modelregistry/updatemodelversion) for more 
+#' information on the request and response field structure.
+#'
 #' @rdname update_model_version
 #' @alias modelRegistryUpdateModelVersion
 #' @export
@@ -805,6 +907,9 @@ modelRegistryUpdateModelVersion <- update_model_version
 #'
 #' @param access_control_list This field has no description yet.
 #' @param registered_model_id Required. The registered model for which to get or manage permissions.
+#'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/modelregistry/updatepermissions) for more 
+#' information on the request and response field structure.
 #'
 #' @rdname update_model_permissions
 #' @alias modelRegistryUpdatePermissions
@@ -831,6 +936,9 @@ modelRegistryUpdatePermissions <- update_model_permissions
 #' @param id Required. Webhook ID.
 #' @param job_spec This field has no description yet.
 #' @param status Enable or disable triggering the webhook, or put the webhook into test mode.
+#'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/modelregistry/updatewebhook) for more 
+#' information on the request and response field structure.
 #'
 #' @rdname update_model_webhook
 #' @alias modelRegistryUpdateWebhook

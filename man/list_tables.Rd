@@ -50,6 +50,9 @@ tablesList(
 }
 \value{
 \code{data.frame} with all of the response pages.
+
+See the \href{https://docs.databricks.com/api/workspace/tables/list}{API documentation} for more
+information on the request and response field structure.
 }
 \description{
 Gets an array of all tables for the current metastore under the parent

@@ -10,7 +10,10 @@ list_cluster_zones(client)
 clustersListZones(client)
 }
 \arguments{
-\item{client}{Required. Instance of DatabricksClient()}
+\item{client}{Required. Instance of DatabricksClient()
+
+See the \href{https://docs.databricks.com/api/workspace/clusters/listzones}{API documentation} for more
+information on the request and response field structure.}
 }
 \description{
 Returns a list of availability zones where clusters can be created in (For

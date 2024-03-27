@@ -42,7 +42,10 @@ clusterPoliciesCreate(
 
 \item{policy_family_definition_overrides}{Policy definition JSON document expressed in \href{https://docs.databricks.com/administration-guide/clusters/policy-definition.html}{Databricks Policy Definition Language}.}
 
-\item{policy_family_id}{ID of the policy family.}
+\item{policy_family_id}{ID of the policy family.
+
+See the \href{https://docs.databricks.com/api/workspace/clusterpolicies/create}{API documentation} for more
+information on the request and response field structure.}
 }
 \description{
 Creates a new policy with prescribed settings.

@@ -50,7 +50,10 @@ storageCredentialsCreate(
 
 \item{read_only}{Whether the storage credential is only usable for read operations.}
 
-\item{skip_validation}{Supplying true to this argument skips validation of the created credential.}
+\item{skip_validation}{Supplying true to this argument skips validation of the created credential.
+
+See the \href{https://docs.databricks.com/api/workspace/storagecredentials/create}{API documentation} for more
+information on the request and response field structure.}
 }
 \description{
 Creates a new storage credential.

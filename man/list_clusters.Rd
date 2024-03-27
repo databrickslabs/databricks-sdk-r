@@ -16,6 +16,9 @@ clustersList(client, can_use_client = NULL)
 }
 \value{
 \code{data.frame} with all of the response pages.
+
+See the \href{https://docs.databricks.com/api/workspace/clusters/list}{API documentation} for more
+information on the request and response field structure.
 }
 \description{
 Return information about all pinned clusters, active clusters, up to 200 of

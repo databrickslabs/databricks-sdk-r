@@ -12,7 +12,10 @@ jobsDelete(client, job_id)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{job_id}{Required. The canonical identifier of the job to delete.}
+\item{job_id}{Required. The canonical identifier of the job to delete.
+
+See the \href{https://docs.databricks.com/api/workspace/jobs/delete}{API documentation} for more
+information on the request and response field structure.}
 }
 \description{
 Deletes a job.

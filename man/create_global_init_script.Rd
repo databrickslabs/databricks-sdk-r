@@ -20,7 +20,10 @@ globalInitScriptsCreate(client, name, script, enabled = NULL, position = NULL)
 
 \item{name}{Required. The name of the script.}
 
-\item{script}{Required. The Base64-encoded content of the script.}
+\item{script}{Required. The Base64-encoded content of the script.
+
+See the \href{https://docs.databricks.com/api/workspace/globalinitscripts/create}{API documentation} for more
+information on the request and response field structure.}
 
 \item{enabled}{Specifies whether the script is enabled.}
 

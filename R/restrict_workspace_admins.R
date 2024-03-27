@@ -15,6 +15,9 @@ NULL
 #'
 #' @param etag etag used for versioning.
 #'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/restrictworkspaceadmins/delete) for more 
+#' information on the request and response field structure.
+#'
 #' @rdname delete_restrict_workspace_admin
 #' @alias restrictWorkspaceAdminsDelete
 #' @export
@@ -33,6 +36,9 @@ restrictWorkspaceAdminsDelete <- delete_restrict_workspace_admin
 #' @param client Required. Instance of DatabricksClient()
 #'
 #' @param etag etag used for versioning.
+#'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/restrictworkspaceadmins/get) for more 
+#' information on the request and response field structure.
 #'
 #' @rdname get_restrict_workspace_admin
 #' @alias restrictWorkspaceAdminsGet
@@ -58,6 +64,9 @@ restrictWorkspaceAdminsGet <- get_restrict_workspace_admin
 #' @param allow_missing Required. This should always be set to true for Settings API.
 #' @param field_mask Required. Field mask is required to be passed into the PATCH request.
 #' @param setting Required. This field has no description yet.
+#'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/restrictworkspaceadmins/update) for more 
+#' information on the request and response field structure.
 #'
 #' @rdname update_restrict_workspace_admin
 #' @alias restrictWorkspaceAdminsUpdate

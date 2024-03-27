@@ -20,7 +20,10 @@ servingEndpointsUpdatePermissions(
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{serving_endpoint_id}{Required. The serving endpoint for which to get or manage permissions.}
+\item{serving_endpoint_id}{Required. The serving endpoint for which to get or manage permissions.
+
+See the \href{https://docs.databricks.com/api/workspace/servingendpoints/updatepermissions}{API documentation} for more
+information on the request and response field structure.}
 
 \item{access_control_list}{This field has no description yet.}
 }

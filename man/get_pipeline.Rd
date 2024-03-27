@@ -12,7 +12,10 @@ pipelinesGet(client, pipeline_id)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{pipeline_id}{Required. This field has no description yet.}
+\item{pipeline_id}{Required. This field has no description yet.
+
+See the \href{https://docs.databricks.com/api/workspace/pipelines/get}{API documentation} for more
+information on the request and response field structure.}
 }
 \description{
 Get a pipeline.

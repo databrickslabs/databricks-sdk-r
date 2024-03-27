@@ -70,7 +70,10 @@ servingEndpointsQuery(
 
 \item{stream}{The stream field used ONLY for \strong{completions} and \strong{chat external & foundation model} serving endpoints.}
 
-\item{temperature}{The temperature field used ONLY for \strong{completions} and \strong{chat external & foundation model} serving endpoints.}
+\item{temperature}{The temperature field used ONLY for \strong{completions} and \strong{chat external & foundation model} serving endpoints.
+
+See the \href{https://docs.databricks.com/api/workspace/servingendpoints/query}{API documentation} for more
+information on the request and response field structure.}
 }
 \description{
 Query a serving endpoint.

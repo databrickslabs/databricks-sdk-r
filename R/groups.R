@@ -19,6 +19,9 @@ NULL
 #' @param roles Corresponds to AWS instance profile/arn role.
 #' @param schemas The schema of the group.
 #'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/groups/create) for more 
+#' information on the request and response field structure.
+#'
 #' @rdname create_group
 #' @alias groupsCreate
 #' @export
@@ -40,6 +43,9 @@ groupsCreate <- create_group
 #'
 #' @param id Required. Unique ID for a group in the Databricks workspace.
 #'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/groups/delete) for more 
+#' information on the request and response field structure.
+#'
 #' @rdname delete_group
 #' @alias groupsDelete
 #' @export
@@ -57,6 +63,9 @@ groupsDelete <- delete_group
 #' @param client Required. Instance of DatabricksClient()
 #'
 #' @param id Required. Unique ID for a group in the Databricks workspace.
+#'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/groups/get) for more 
+#' information on the request and response field structure.
 #'
 #' @rdname get_group
 #' @alias groupsGet
@@ -83,6 +92,9 @@ groupsGet <- get_group
 #' @param start_index Specifies the index of the first result.
 #'
 #' @return `data.frame` with all of the response pages.
+#'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/groups/list) for more 
+#' information on the request and response field structure.
 #'
 #' @rdname list_groups
 #' @alias groupsList
@@ -121,6 +133,9 @@ groupsList <- list_groups
 #' @param operations This field has no description yet.
 #' @param schemas The schema of the patch request.
 #'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/groups/patch) for more 
+#' information on the request and response field structure.
+#'
 #' @rdname patch_group
 #' @alias groupsPatch
 #' @export
@@ -146,6 +161,9 @@ groupsPatch <- patch_group
 #' @param meta Container for the group identifier.
 #' @param roles Corresponds to AWS instance profile/arn role.
 #' @param schemas The schema of the group.
+#'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/groups/update) for more 
+#' information on the request and response field structure.
 #'
 #' @rdname update_group
 #' @alias groupsUpdate

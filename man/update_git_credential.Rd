@@ -30,7 +30,10 @@ gitCredentialsUpdate(
 
 \item{git_username}{Git username.}
 
-\item{personal_access_token}{The personal access token used to authenticate to the corresponding Git provider.}
+\item{personal_access_token}{The personal access token used to authenticate to the corresponding Git provider.
+
+See the \href{https://docs.databricks.com/api/workspace/gitcredentials/update}{API documentation} for more
+information on the request and response field structure.}
 }
 \description{
 Updates the specified Git credential.

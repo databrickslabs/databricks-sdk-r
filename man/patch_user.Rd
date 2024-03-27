@@ -16,7 +16,10 @@ usersPatch(client, id, operations = NULL, schemas = NULL)
 
 \item{operations}{This field has no description yet.}
 
-\item{schemas}{The schema of the patch request.}
+\item{schemas}{The schema of the patch request.
+
+See the \href{https://docs.databricks.com/api/workspace/users/patch}{API documentation} for more
+information on the request and response field structure.}
 }
 \description{
 Partially updates a user resource by applying the supplied operations on

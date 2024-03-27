@@ -34,6 +34,9 @@ modelRegistrySearchModels(
 }
 \value{
 \code{data.frame} with all of the response pages.
+
+See the \href{https://docs.databricks.com/api/workspace/modelregistry/searchmodels}{API documentation} for more
+information on the request and response field structure.
 }
 \description{
 Search for registered models based on the specified \strong{filter}.

@@ -14,7 +14,10 @@ modelRegistryRenameModel(client, name, new_name = NULL)
 
 \item{name}{Required. Registered model unique name identifier.}
 
-\item{new_name}{If provided, updates the name for this \code{registered_model}.}
+\item{new_name}{If provided, updates the name for this \code{registered_model}.
+
+See the \href{https://docs.databricks.com/api/workspace/modelregistry/renamemodel}{API documentation} for more
+information on the request and response field structure.}
 }
 \description{
 Renames a registered model.

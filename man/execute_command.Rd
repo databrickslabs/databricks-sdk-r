@@ -30,7 +30,10 @@ commandExecutionExecute(
 
 \item{context_id}{Running context id.}
 
-\item{language}{This field has no description yet.}
+\item{language}{This field has no description yet.
+
+See the \href{https://docs.databricks.com/api/workspace/commandexecution/execute}{API documentation} for more
+information on the request and response field structure.}
 }
 \description{
 Runs a cluster command in the given execution context, using the provided

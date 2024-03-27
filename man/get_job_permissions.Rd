@@ -12,7 +12,10 @@ jobsGetPermissions(client, job_id)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{job_id}{Required. The job for which to get or manage permissions.}
+\item{job_id}{Required. The job for which to get or manage permissions.
+
+See the \href{https://docs.databricks.com/api/workspace/jobs/getpermissions}{API documentation} for more
+information on the request and response field structure.}
 }
 \description{
 Gets the permissions of a job. Jobs can inherit permissions from their root

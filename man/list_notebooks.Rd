@@ -18,6 +18,9 @@ workspaceList(client, path, notebooks_modified_after = NULL)
 }
 \value{
 \code{data.frame} with all of the response pages.
+
+See the \href{https://docs.databricks.com/api/workspace/workspace/list}{API documentation} for more
+information on the request and response field structure.
 }
 \description{
 Lists the contents of a directory, or the object if it is not a directory. If

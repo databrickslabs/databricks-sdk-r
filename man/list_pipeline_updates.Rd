@@ -30,7 +30,10 @@ pipelinesListUpdates(
 
 \item{page_token}{Page token returned by previous call.}
 
-\item{until_update_id}{If present, returns updates until and including this update_id.}
+\item{until_update_id}{If present, returns updates until and including this update_id.
+
+See the \href{https://docs.databricks.com/api/workspace/pipelines/listupdates}{API documentation} for more
+information on the request and response field structure.}
 }
 \description{
 List updates for an active pipeline.

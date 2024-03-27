@@ -12,7 +12,10 @@ policyFamiliesGet(client, policy_family_id)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{policy_family_id}{Required. This field has no description yet.}
+\item{policy_family_id}{Required. This field has no description yet.
+
+See the \href{https://docs.databricks.com/api/workspace/policyfamilies/get}{API documentation} for more
+information on the request and response field structure.}
 }
 \description{
 Retrieve the information for an policy family based on its identifier.

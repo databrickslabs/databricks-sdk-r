@@ -34,6 +34,9 @@ experimentsListArtifacts(
 }
 \value{
 \code{data.frame} with all of the response pages.
+
+See the \href{https://docs.databricks.com/api/workspace/experiments/listartifacts}{API documentation} for more
+information on the request and response field structure.
 }
 \description{
 List artifacts for a run. Takes an optional \code{artifact_path} prefix. If it is

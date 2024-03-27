@@ -12,7 +12,10 @@ lakehouseMonitorsRunRefresh(client, full_name)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{full_name}{Required. Full name of the table.}
+\item{full_name}{Required. Full name of the table.
+
+See the \href{https://docs.databricks.com/api/workspace/lakehousemonitors/runrefresh}{API documentation} for more
+information on the request and response field structure.}
 }
 \description{
 Queues a metric refresh on the monitor for the specified table. The refresh

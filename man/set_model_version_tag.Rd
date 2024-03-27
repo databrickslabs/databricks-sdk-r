@@ -14,7 +14,10 @@ modelRegistrySetModelVersionTag(client, name, version, key, value)
 
 \item{name}{Required. Unique name of the model.}
 
-\item{version}{Required. Model version number.}
+\item{version}{Required. Model version number.
+
+See the \href{https://docs.databricks.com/api/workspace/modelregistry/setmodelversiontag}{API documentation} for more
+information on the request and response field structure.}
 
 \item{key}{Required. Name of the tag.}
 

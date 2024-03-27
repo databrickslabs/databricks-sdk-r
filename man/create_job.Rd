@@ -106,7 +106,10 @@ jobsCreate(
 
 \item{trigger}{A configuration to trigger a run when certain conditions are met.}
 
-\item{webhook_notifications}{A collection of system notification IDs to notify when runs of this job begin or complete.}
+\item{webhook_notifications}{A collection of system notification IDs to notify when runs of this job begin or complete.
+
+See the \href{https://docs.databricks.com/api/workspace/jobs/create}{API documentation} for more
+information on the request and response field structure.}
 }
 \description{
 Create a new job.

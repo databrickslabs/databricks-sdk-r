@@ -12,7 +12,10 @@ modelRegistryUpdateComment(client, id, comment)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{id}{Required. Unique identifier of an activity.}
+\item{id}{Required. Unique identifier of an activity.
+
+See the \href{https://docs.databricks.com/api/workspace/modelregistry/updatecomment}{API documentation} for more
+information on the request and response field structure.}
 
 \item{comment}{Required. User-provided comment on the action.}
 }

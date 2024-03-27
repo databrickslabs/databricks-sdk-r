@@ -20,6 +20,9 @@ NULL
 #' @param constraint Required. A table constraint, as defined by *one* of the following fields being set: __primary_key_constraint__, __foreign_key_constraint__, __named_table_constraint__.
 #' @param full_name_arg Required. The full name of the table referenced by the constraint.
 #'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/tableconstraints/create) for more 
+#' information on the request and response field structure.
+#'
 #' @rdname create_table_constraint
 #' @alias tableConstraintsCreate
 #' @export
@@ -47,6 +50,9 @@ tableConstraintsCreate <- create_table_constraint
 #' @param cascade Required. If true, try deleting all child constraints of the current constraint.
 #' @param constraint_name Required. The name of the constraint to delete.
 #' @param full_name Required. Full name of the table referenced by the constraint.
+#'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/tableconstraints/delete) for more 
+#' information on the request and response field structure.
 #'
 #' @rdname delete_table_constraint
 #' @alias tableConstraintsDelete

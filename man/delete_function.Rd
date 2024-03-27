@@ -12,7 +12,10 @@ functionsDelete(client, name, force = NULL)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{name}{Required. The fully-qualified name of the function (of the form \strong{catalog_name}.\strong{schema_name}.\strong{function__name}).}
+\item{name}{Required. The fully-qualified name of the function (of the form \strong{catalog_name}.\strong{schema_name}.\strong{function__name}).
+
+See the \href{https://docs.databricks.com/api/workspace/functions/delete}{API documentation} for more
+information on the request and response field structure.}
 
 \item{force}{Force deletion even if the function is notempty.}
 }

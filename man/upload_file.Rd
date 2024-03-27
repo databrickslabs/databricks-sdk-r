@@ -16,7 +16,10 @@ filesUpload(client, file_path, contents, overwrite = NULL)
 
 \item{contents}{This field has no description yet.}
 
-\item{overwrite}{If true, an existing file will be overwritten.}
+\item{overwrite}{If true, an existing file will be overwritten.
+
+See the \href{https://docs.databricks.com/api/workspace/files/upload}{API documentation} for more
+information on the request and response field structure.}
 }
 \description{
 Uploads a file of up to 5 GiB. The file contents should be sent as the

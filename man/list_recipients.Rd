@@ -16,6 +16,9 @@ recipientsList(client, data_recipient_global_metastore_id = NULL)
 }
 \value{
 \code{data.frame} with all of the response pages.
+
+See the \href{https://docs.databricks.com/api/workspace/recipients/list}{API documentation} for more
+information on the request and response field structure.
 }
 \description{
 Gets an array of all share recipients within the current metastore where:

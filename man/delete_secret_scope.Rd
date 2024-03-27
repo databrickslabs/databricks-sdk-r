@@ -12,7 +12,10 @@ secretsDeleteScope(client, scope)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{scope}{Required. Name of the scope to delete.}
+\item{scope}{Required. Name of the scope to delete.
+
+See the \href{https://docs.databricks.com/api/workspace/secrets/deletescope}{API documentation} for more
+information on the request and response field structure.}
 }
 \description{
 Deletes a secret scope.

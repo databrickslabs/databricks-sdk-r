@@ -46,7 +46,10 @@ usersGet(
 
 \item{sort_order}{The order to sort the results.}
 
-\item{start_index}{Specifies the index of the first result.}
+\item{start_index}{Specifies the index of the first result.
+
+See the \href{https://docs.databricks.com/api/workspace/users/get}{API documentation} for more
+information on the request and response field structure.}
 }
 \description{
 Gets information for a specific user in Databricks workspace.

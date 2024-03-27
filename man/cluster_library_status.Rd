@@ -16,6 +16,9 @@ librariesClusterStatus(client, cluster_id)
 }
 \value{
 \code{data.frame} with all of the response pages.
+
+See the \href{https://docs.databricks.com/api/workspace/libraries/clusterstatus}{API documentation} for more
+information on the request and response field structure.
 }
 \description{
 Get the status of libraries on a cluster. A status will be available for all

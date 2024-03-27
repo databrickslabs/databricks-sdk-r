@@ -21,7 +21,10 @@ experimentsCreateExperiment(
 
 \item{artifact_location}{Location where all artifacts for the experiment are stored.}
 
-\item{tags}{A collection of tags to set on the experiment.}
+\item{tags}{A collection of tags to set on the experiment.
+
+See the \href{https://docs.databricks.com/api/workspace/experiments/createexperiment}{API documentation} for more
+information on the request and response field structure.}
 }
 \description{
 Creates an experiment with a name. Returns the ID of the newly created

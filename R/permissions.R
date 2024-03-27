@@ -12,6 +12,9 @@ NULL
 #' @param request_object_id Required. The id of the request object.
 #' @param request_object_type Required. The type of the request object.
 #'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/permissions/get) for more 
+#' information on the request and response field structure.
+#'
 #' @rdname get_permission
 #' @alias permissionsGet
 #' @export
@@ -31,6 +34,9 @@ permissionsGet <- get_permission
 #'
 #' @param request_object_id Required. <needs content>.
 #' @param request_object_type Required. <needs content>.
+#'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/permissions/getpermissionlevels) for more 
+#' information on the request and response field structure.
 #'
 #' @rdname get_permission_levels
 #' @alias permissionsGetPermissionLevels
@@ -54,6 +60,9 @@ permissionsGetPermissionLevels <- get_permission_levels
 #' @param request_object_id Required. The id of the request object.
 #' @param request_object_type Required. The type of the request object.
 #'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/permissions/set) for more 
+#' information on the request and response field structure.
+#'
 #' @rdname set_permission
 #' @alias permissionsSet
 #' @export
@@ -75,6 +84,9 @@ permissionsSet <- set_permission
 #' @param access_control_list This field has no description yet.
 #' @param request_object_id Required. The id of the request object.
 #' @param request_object_type Required. The type of the request object.
+#'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/permissions/update) for more 
+#' information on the request and response field structure.
 #'
 #' @rdname update_permission
 #' @alias permissionsUpdate

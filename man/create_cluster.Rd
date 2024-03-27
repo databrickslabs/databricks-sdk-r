@@ -126,7 +126,10 @@ clustersCreate(
 
 \item{ssh_public_keys}{SSH public key contents that will be added to each Spark node in this cluster.}
 
-\item{workload_type}{This field has no description yet.}
+\item{workload_type}{This field has no description yet.
+
+See the \href{https://docs.databricks.com/api/workspace/clusters/create}{API documentation} for more
+information on the request and response field structure.}
 }
 \description{
 Creates a new Spark cluster. This method will acquire new instances from the

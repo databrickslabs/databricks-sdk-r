@@ -50,7 +50,10 @@ groupsUpdate(
 
 \item{roles}{Corresponds to AWS instance profile/arn role.}
 
-\item{schemas}{The schema of the group.}
+\item{schemas}{The schema of the group.
+
+See the \href{https://docs.databricks.com/api/workspace/groups/update}{API documentation} for more
+information on the request and response field structure.}
 }
 \description{
 Updates the details of a group by replacing the entire group entity.

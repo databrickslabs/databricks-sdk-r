@@ -38,7 +38,10 @@ dashboardsCreate(
 
 \item{run_as_role}{Sets the \strong{Run as} role for the object.}
 
-\item{tags}{This field has no description yet.}
+\item{tags}{This field has no description yet.
+
+See the \href{https://docs.databricks.com/api/workspace/dashboards/create}{API documentation} for more
+information on the request and response field structure.}
 }
 \description{
 Create a dashboard object.

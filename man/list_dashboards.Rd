@@ -22,6 +22,9 @@ dashboardsList(client, order = NULL, page = NULL, page_size = NULL, q = NULL)
 }
 \value{
 \code{data.frame} with all of the response pages.
+
+See the \href{https://docs.databricks.com/api/workspace/dashboards/list}{API documentation} for more
+information on the request and response field structure.
 }
 \description{
 Fetch a paginated list of dashboard objects.

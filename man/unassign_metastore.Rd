@@ -12,7 +12,10 @@ metastoresUnassign(client, workspace_id, metastore_id)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{workspace_id}{Required. A workspace ID.}
+\item{workspace_id}{Required. A workspace ID.
+
+See the \href{https://docs.databricks.com/api/workspace/metastores/unassign}{API documentation} for more
+information on the request and response field structure.}
 
 \item{metastore_id}{Required. Query for the ID of the metastore to delete.}
 }

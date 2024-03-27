@@ -30,6 +30,9 @@ filesListDirectoryContents(
 }
 \value{
 \code{data.frame} with all of the response pages.
+
+See the \href{https://docs.databricks.com/api/workspace/files/listdirectorycontents}{API documentation} for more
+information on the request and response field structure.
 }
 \description{
 Returns the contents of a directory. If there is no directory at the

@@ -26,7 +26,10 @@ lakeviewPublish(
 
 \item{embed_credentials}{Flag to indicate if the publisher's credentials should be embedded in the published dashboard.}
 
-\item{warehouse_id}{The ID of the warehouse that can be used to override the warehouse which was set in the draft.}
+\item{warehouse_id}{The ID of the warehouse that can be used to override the warehouse which was set in the draft.
+
+See the \href{https://docs.databricks.com/api/workspace/lakeview/publish}{API documentation} for more
+information on the request and response field structure.}
 }
 \description{
 Publish the current draft dashboard.

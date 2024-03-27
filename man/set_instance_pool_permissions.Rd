@@ -20,7 +20,10 @@ instancePoolsSetPermissions(
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{instance_pool_id}{Required. The instance pool for which to get or manage permissions.}
+\item{instance_pool_id}{Required. The instance pool for which to get or manage permissions.
+
+See the \href{https://docs.databricks.com/api/workspace/instancepools/setpermissions}{API documentation} for more
+information on the request and response field structure.}
 
 \item{access_control_list}{This field has no description yet.}
 }

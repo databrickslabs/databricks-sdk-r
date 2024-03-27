@@ -58,7 +58,10 @@ externalLocationsUpdate(
 
 \item{skip_validation}{Skips validation of the storage credential associated with the external location.}
 
-\item{url}{Path URL of the external location.}
+\item{url}{Path URL of the external location.
+
+See the \href{https://docs.databricks.com/api/workspace/externallocations/update}{API documentation} for more
+information on the request and response field structure.}
 }
 \description{
 Updates an external location in the metastore. The caller must be the owner

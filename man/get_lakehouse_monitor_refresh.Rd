@@ -14,7 +14,10 @@ lakehouseMonitorsGetRefresh(client, full_name, refresh_id)
 
 \item{full_name}{Required. Full name of the table.}
 
-\item{refresh_id}{Required. ID of the refresh.}
+\item{refresh_id}{Required. ID of the refresh.
+
+See the \href{https://docs.databricks.com/api/workspace/lakehousemonitors/getrefresh}{API documentation} for more
+information on the request and response field structure.}
 }
 \description{
 Gets info about a specific monitor refresh using the given refresh ID.

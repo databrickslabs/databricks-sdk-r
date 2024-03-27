@@ -16,6 +16,9 @@ NULL
 #' @param data Required. The base64-encoded data to append to the stream.
 #' @param handle Required. The handle on an open stream.
 #'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/dbfs/addblock) for more 
+#' information on the request and response field structure.
+#'
 #' @rdname add_dbfs_block
 #' @alias dbfsAddBlock
 #' @export
@@ -34,6 +37,9 @@ dbfsAddBlock <- add_dbfs_block
 #' @param client Required. Instance of DatabricksClient()
 #'
 #' @param handle Required. The handle on an open stream.
+#'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/dbfs/close) for more 
+#' information on the request and response field structure.
 #'
 #' @rdname close_dbfs
 #' @alias dbfsClose
@@ -62,6 +68,9 @@ dbfsClose <- close_dbfs
 #'
 #' @param overwrite The flag that specifies whether to overwrite existing file/files.
 #' @param path Required. The path of the new file.
+#'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/dbfs/create) for more 
+#' information on the request and response field structure.
 #'
 #' @rdname create_dbfs
 #' @alias dbfsCreate
@@ -99,6 +108,9 @@ dbfsCreate <- create_dbfs
 #' @param path Required. The path of the file or directory to delete.
 #' @param recursive Whether or not to recursively delete the directory's contents.
 #'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/dbfs/delete) for more 
+#' information on the request and response field structure.
+#'
 #' @rdname delete_dbfs
 #' @alias dbfsDelete
 #' @export
@@ -117,6 +129,9 @@ dbfsDelete <- delete_dbfs
 #' @param client Required. Instance of DatabricksClient()
 #'
 #' @param path Required. The path of the file or directory.
+#'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/dbfs/getstatus) for more 
+#' information on the request and response field structure.
 #'
 #' @rdname get_dbfs_status
 #' @alias dbfsGetStatus
@@ -148,6 +163,9 @@ dbfsGetStatus <- get_dbfs_status
 #'
 #' @return `data.frame` with all of the response pages.
 #'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/dbfs/list) for more 
+#' information on the request and response field structure.
+#'
 #' @rdname list_dbfs
 #' @alias dbfsList
 #' @export
@@ -173,6 +191,9 @@ dbfsList <- list_dbfs
 #'
 #' @param path Required. The path of the new directory.
 #'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/dbfs/mkdirs) for more 
+#' information on the request and response field structure.
+#'
 #' @rdname mkdirs_dbfs
 #' @alias dbfsMkdirs
 #' @export
@@ -195,6 +216,9 @@ dbfsMkdirs <- mkdirs_dbfs
 #'
 #' @param destination_path Required. The destination path of the file or directory.
 #' @param source_path Required. The source path of the file or directory.
+#'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/dbfs/move) for more 
+#' information on the request and response field structure.
 #'
 #' @rdname move_dbfs
 #' @alias dbfsMove
@@ -227,6 +251,9 @@ dbfsMove <- move_dbfs
 #' @param overwrite The flag that specifies whether to overwrite existing file/files.
 #' @param path Required. The path of the new file.
 #'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/dbfs/put) for more 
+#' information on the request and response field structure.
+#'
 #' @rdname put_dbfs
 #' @alias dbfsPut
 #' @export
@@ -253,6 +280,9 @@ dbfsPut <- put_dbfs
 #' @param length The number of bytes to read starting from the offset.
 #' @param offset The offset to read from in bytes.
 #' @param path Required. The path of the file to read.
+#'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/dbfs/read) for more 
+#' information on the request and response field structure.
 #'
 #' @rdname read_dbfs
 #' @alias dbfsRead

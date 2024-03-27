@@ -12,7 +12,10 @@ workspaceMkdirs(client, path)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{path}{Required. The absolute path of the directory.}
+\item{path}{Required. The absolute path of the directory.
+
+See the \href{https://docs.databricks.com/api/workspace/workspace/mkdirs}{API documentation} for more
+information on the request and response field structure.}
 }
 \description{
 Creates the specified directory (and necessary parent directories if they do

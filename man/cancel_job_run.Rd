@@ -12,7 +12,10 @@ jobsCancelRun(client, run_id)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{run_id}{Required. This field is required.}
+\item{run_id}{Required. This field is required.
+
+See the \href{https://docs.databricks.com/api/workspace/jobs/cancelrun}{API documentation} for more
+information on the request and response field structure.}
 }
 \description{
 Cancels a job run or a task run. The run is canceled asynchronously, so it

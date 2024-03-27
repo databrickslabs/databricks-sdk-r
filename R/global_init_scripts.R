@@ -13,6 +13,9 @@ NULL
 #' @param position The position of a global init script, where 0 represents the first script to run, 1 is the second script to run, in ascending order.
 #' @param script Required. The Base64-encoded content of the script.
 #'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/globalinitscripts/create) for more 
+#' information on the request and response field structure.
+#'
 #' @rdname create_global_init_script
 #' @alias globalInitScriptsCreate
 #' @export
@@ -31,6 +34,9 @@ globalInitScriptsCreate <- create_global_init_script
 #'
 #' @param script_id Required. The ID of the global init script.
 #'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/globalinitscripts/delete) for more 
+#' information on the request and response field structure.
+#'
 #' @rdname delete_global_init_script
 #' @alias globalInitScriptsDelete
 #' @export
@@ -48,6 +54,9 @@ globalInitScriptsDelete <- delete_global_init_script
 #' @param client Required. Instance of DatabricksClient()
 #'
 #' @param script_id Required. The ID of the global init script.
+#'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/globalinitscripts/get) for more 
+#' information on the request and response field structure.
 #'
 #' @rdname get_global_init_script
 #' @alias globalInitScriptsGet
@@ -69,6 +78,9 @@ globalInitScriptsGet <- get_global_init_script
 #' @param client Required. Instance of DatabricksClient()
 #'
 #' @return `data.frame` with all of the response pages.
+#'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/globalinitscripts/list) for more 
+#' information on the request and response field structure.
 #'
 #' @rdname list_global_init_scripts
 #' @alias globalInitScriptsList
@@ -94,6 +106,9 @@ globalInitScriptsList <- list_global_init_scripts
 #' @param position The position of a script, where 0 represents the first script to run, 1 is the second script to run, in ascending order.
 #' @param script Required. The Base64-encoded content of the script.
 #' @param script_id Required. The ID of the global init script.
+#'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/globalinitscripts/update) for more 
+#' information on the request and response field structure.
 #'
 #' @rdname update_global_init_script
 #' @alias globalInitScriptsUpdate

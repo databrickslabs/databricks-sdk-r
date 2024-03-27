@@ -12,7 +12,10 @@ esmEnablementGet(client, etag = NULL)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{etag}{etag used for versioning.}
+\item{etag}{etag used for versioning.
+
+See the \href{https://docs.databricks.com/api/workspace/esmenablement/get}{API documentation} for more
+information on the request and response field structure.}
 }
 \description{
 Gets the enhanced security monitoring setting.

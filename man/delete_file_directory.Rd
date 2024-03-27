@@ -12,7 +12,10 @@ filesDeleteDirectory(client, directory_path)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{directory_path}{Required. The absolute path of a directory.}
+\item{directory_path}{Required. The absolute path of a directory.
+
+See the \href{https://docs.databricks.com/api/workspace/files/deletedirectory}{API documentation} for more
+information on the request and response field structure.}
 }
 \description{
 Deletes an empty directory.

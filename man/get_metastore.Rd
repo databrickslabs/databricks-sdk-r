@@ -12,7 +12,10 @@ metastoresGet(client, id)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{id}{Required. Unique ID of the metastore.}
+\item{id}{Required. Unique ID of the metastore.
+
+See the \href{https://docs.databricks.com/api/workspace/metastores/get}{API documentation} for more
+information on the request and response field structure.}
 }
 \description{
 Gets a metastore that matches the supplied ID. The caller must be a metastore

@@ -62,7 +62,10 @@ jobsRunNow(
 
 \item{spark_submit_params}{A list of parameters for jobs with spark submit task, for example \verb{'spark_submit_params': ['--class', 'org.apache.spark.examples.SparkPi']}.}
 
-\item{sql_params}{A map from keys to values for jobs with SQL task, for example \verb{'sql_params': \{'name': 'john doe', 'age': '35'\}}.}
+\item{sql_params}{A map from keys to values for jobs with SQL task, for example \verb{'sql_params': \{'name': 'john doe', 'age': '35'\}}.
+
+See the \href{https://docs.databricks.com/api/workspace/jobs/runnow}{API documentation} for more
+information on the request and response field structure.}
 }
 \description{
 Run a job and return the \code{run_id} of the triggered run.

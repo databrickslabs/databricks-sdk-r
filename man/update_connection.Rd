@@ -18,7 +18,10 @@ connectionsUpdate(client, name, options, new_name = NULL, owner = NULL)
 
 \item{new_name}{New name for the connection.}
 
-\item{owner}{Username of current owner of the connection.}
+\item{owner}{Username of current owner of the connection.
+
+See the \href{https://docs.databricks.com/api/workspace/connections/update}{API documentation} for more
+information on the request and response field structure.}
 }
 \description{
 Updates the connection that matches the supplied name.

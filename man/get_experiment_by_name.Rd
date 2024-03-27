@@ -12,7 +12,10 @@ experimentsGetByName(client, experiment_name)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{experiment_name}{Required. Name of the associated experiment.}
+\item{experiment_name}{Required. Name of the associated experiment.
+
+See the \href{https://docs.databricks.com/api/workspace/experiments/getbyname}{API documentation} for more
+information on the request and response field structure.}
 }
 \description{
 Gets metadata for an experiment.

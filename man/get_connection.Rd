@@ -12,7 +12,10 @@ connectionsGet(client, name)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{name}{Required. Name of the connection.}
+\item{name}{Required. Name of the connection.
+
+See the \href{https://docs.databricks.com/api/workspace/connections/get}{API documentation} for more
+information on the request and response field structure.}
 }
 \description{
 Gets a connection from it's name.

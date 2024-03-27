@@ -14,7 +14,10 @@ tokensCreate(client, comment = NULL, lifetime_seconds = NULL)
 
 \item{comment}{Optional description to attach to the token.}
 
-\item{lifetime_seconds}{The lifetime of the token, in seconds.}
+\item{lifetime_seconds}{The lifetime of the token, in seconds.
+
+See the \href{https://docs.databricks.com/api/workspace/tokens/create}{API documentation} for more
+information on the request and response field structure.}
 }
 \description{
 Creates and returns a token for a user. If this call is made through token

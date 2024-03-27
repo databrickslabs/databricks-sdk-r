@@ -12,7 +12,10 @@ tokensDelete(client, token_id)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{token_id}{Required. The ID of the token to be revoked.}
+\item{token_id}{Required. The ID of the token to be revoked.
+
+See the \href{https://docs.databricks.com/api/workspace/tokens/delete}{API documentation} for more
+information on the request and response field structure.}
 }
 \description{
 Revokes an access token.

@@ -20,6 +20,9 @@ NULL
 #' @param full_name Required. Full name of the table.
 #' @param refresh_id Required. ID of the refresh.
 #'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/lakehousemonitors/cancelrefresh) for more 
+#' information on the request and response field structure.
+#'
 #' @rdname cancel_lakehouse_monitor_refresh
 #' @alias lakehouseMonitorsCancelRefresh
 #' @export
@@ -63,6 +66,9 @@ lakehouseMonitorsCancelRefresh <- cancel_lakehouse_monitor_refresh
 #' @param time_series Configuration for monitoring time series tables.
 #' @param warehouse_id Optional argument to specify the warehouse for dashboard creation.
 #'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/lakehousemonitors/create) for more 
+#' information on the request and response field structure.
+#'
 #' @rdname create_lakehouse_monitor
 #' @alias lakehouseMonitorsCreate
 #' @export
@@ -101,6 +107,9 @@ lakehouseMonitorsCreate <- create_lakehouse_monitor
 #'
 #' @param full_name Required. Full name of the table.
 #'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/lakehousemonitors/delete) for more 
+#' information on the request and response field structure.
+#'
 #' @rdname delete_lakehouse_monitor
 #' @alias lakehouseMonitorsDelete
 #' @export
@@ -131,6 +140,9 @@ lakehouseMonitorsDelete <- delete_lakehouse_monitor
 #'
 #' @param full_name Required. Full name of the table.
 #'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/lakehousemonitors/get) for more 
+#' information on the request and response field structure.
+#'
 #' @rdname get_lakehouse_monitor
 #' @alias lakehouseMonitorsGet
 #' @export
@@ -159,6 +171,9 @@ lakehouseMonitorsGet <- get_lakehouse_monitor
 #'
 #' @param full_name Required. Full name of the table.
 #' @param refresh_id Required. ID of the refresh.
+#'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/lakehousemonitors/getrefresh) for more 
+#' information on the request and response field structure.
 #'
 #' @rdname get_lakehouse_monitor_refresh
 #' @alias lakehouseMonitorsGetRefresh
@@ -189,6 +204,9 @@ lakehouseMonitorsGetRefresh <- get_lakehouse_monitor_refresh
 #'
 #' @param full_name Required. Full name of the table.
 #'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/lakehousemonitors/listrefreshes) for more 
+#' information on the request and response field structure.
+#'
 #' @rdname list_lakehouse_monitor_refreshes
 #' @alias lakehouseMonitorsListRefreshes
 #' @export
@@ -217,6 +235,9 @@ lakehouseMonitorsListRefreshes <- list_lakehouse_monitor_refreshes
 #' @param client Required. Instance of DatabricksClient()
 #'
 #' @param full_name Required. Full name of the table.
+#'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/lakehousemonitors/runrefresh) for more 
+#' information on the request and response field structure.
 #'
 #' @rdname run_lakehouse_monitor_refresh
 #' @alias lakehouseMonitorsRunRefresh
@@ -258,6 +279,9 @@ lakehouseMonitorsRunRefresh <- run_lakehouse_monitor_refresh
 #' @param slicing_exprs List of column expressions to slice data with for targeted analysis.
 #' @param snapshot Configuration for monitoring snapshot tables.
 #' @param time_series Configuration for monitoring time series tables.
+#'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/lakehousemonitors/update) for more 
+#' information on the request and response field structure.
 #'
 #' @rdname update_lakehouse_monitor
 #' @alias lakehouseMonitorsUpdate

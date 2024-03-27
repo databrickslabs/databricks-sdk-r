@@ -18,6 +18,9 @@ clusterPoliciesList(client, sort_column = NULL, sort_order = NULL)
 }
 \value{
 \code{data.frame} with all of the response pages.
+
+See the \href{https://docs.databricks.com/api/workspace/clusterpolicies/list}{API documentation} for more
+information on the request and response field structure.
 }
 \description{
 Returns a list of policies accessible by the requesting user.

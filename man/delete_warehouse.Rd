@@ -12,7 +12,10 @@ warehousesDelete(client, id)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{id}{Required. Required.}
+\item{id}{Required. Required.
+
+See the \href{https://docs.databricks.com/api/workspace/warehouses/delete}{API documentation} for more
+information on the request and response field structure.}
 }
 \description{
 Deletes a SQL warehouse.

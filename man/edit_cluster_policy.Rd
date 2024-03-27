@@ -32,7 +32,10 @@ clusterPoliciesEdit(
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{policy_id}{Required. The ID of the policy to update.}
+\item{policy_id}{Required. The ID of the policy to update.
+
+See the \href{https://docs.databricks.com/api/workspace/clusterpolicies/edit}{API documentation} for more
+information on the request and response field structure.}
 
 \item{name}{Required. Cluster Policy name requested by the user.}
 

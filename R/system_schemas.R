@@ -12,6 +12,9 @@ NULL
 #' @param metastore_id Required. The metastore ID under which the system schema lives.
 #' @param schema_name Required. Full name of the system schema.
 #'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/systemschemas/disable) for more 
+#' information on the request and response field structure.
+#'
 #' @rdname disable_system_schema
 #' @alias systemSchemasDisable
 #' @export
@@ -32,6 +35,9 @@ systemSchemasDisable <- disable_system_schema
 #'
 #' @param metastore_id Required. The metastore ID under which the system schema lives.
 #' @param schema_name Required. Full name of the system schema.
+#'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/systemschemas/enable) for more 
+#' information on the request and response field structure.
 #'
 #' @rdname enable_system_schema
 #' @alias systemSchemasEnable
@@ -54,6 +60,9 @@ systemSchemasEnable <- enable_system_schema
 #' @param metastore_id Required. The ID for the metastore in which the system schema resides.
 #'
 #' @return `data.frame` with all of the response pages.
+#'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/systemschemas/list) for more 
+#' information on the request and response field structure.
 #'
 #' @rdname list_system_schemas
 #' @alias systemSchemasList

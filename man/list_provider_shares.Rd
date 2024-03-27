@@ -16,6 +16,9 @@ providersListShares(client, name)
 }
 \value{
 \code{data.frame} with all of the response pages.
+
+See the \href{https://docs.databricks.com/api/workspace/providers/listshares}{API documentation} for more
+information on the request and response field structure.
 }
 \description{
 Gets an array of a specified provider's shares within the metastore where:

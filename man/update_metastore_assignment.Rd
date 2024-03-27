@@ -22,7 +22,10 @@ metastoresUpdateAssignment(
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{workspace_id}{Required. A workspace ID.}
+\item{workspace_id}{Required. A workspace ID.
+
+See the \href{https://docs.databricks.com/api/workspace/metastores/updateassignment}{API documentation} for more
+information on the request and response field structure.}
 
 \item{default_catalog_name}{The name of the default catalog for the metastore.}
 

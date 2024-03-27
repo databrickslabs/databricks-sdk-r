@@ -12,7 +12,10 @@ secretsGetAcl(client, scope, principal)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{scope}{Required. The name of the scope to fetch ACL information from.}
+\item{scope}{Required. The name of the scope to fetch ACL information from.
+
+See the \href{https://docs.databricks.com/api/workspace/secrets/getacl}{API documentation} for more
+information on the request and response field structure.}
 
 \item{principal}{Required. The principal to fetch ACL information for.}
 }

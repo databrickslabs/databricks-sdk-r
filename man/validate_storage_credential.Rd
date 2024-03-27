@@ -50,7 +50,10 @@ storageCredentialsValidate(
 
 \item{storage_credential_name}{The name of the storage credential to validate.}
 
-\item{url}{The external location url to validate.}
+\item{url}{The external location url to validate.
+
+See the \href{https://docs.databricks.com/api/workspace/storagecredentials/validate}{API documentation} for more
+information on the request and response field structure.}
 }
 \description{
 Validates a storage credential. At least one of \strong{external_location_name}

@@ -34,7 +34,10 @@ instancePoolsEdit(
 
 \item{instance_pool_name}{Required. Pool name requested by the user.}
 
-\item{node_type_id}{Required. This field encodes, through a single value, the resources available to each of the Spark nodes in this cluster.}
+\item{node_type_id}{Required. This field encodes, through a single value, the resources available to each of the Spark nodes in this cluster.
+
+See the \href{https://docs.databricks.com/api/workspace/instancepools/edit}{API documentation} for more
+information on the request and response field structure.}
 
 \item{custom_tags}{Additional tags for pool resources.}
 

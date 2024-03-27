@@ -38,7 +38,10 @@ modelRegistryCreateModelVersion(
 
 \item{run_link}{MLflow run link - this is the exact link of the run that generated this model version, potentially hosted at another instance of MLflow.}
 
-\item{tags}{Additional metadata for model version.}
+\item{tags}{Additional metadata for model version.
+
+See the \href{https://docs.databricks.com/api/workspace/modelregistry/createmodelversion}{API documentation} for more
+information on the request and response field structure.}
 }
 \description{
 Creates a model version.

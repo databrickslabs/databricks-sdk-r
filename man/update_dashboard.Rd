@@ -16,7 +16,10 @@ dashboardsUpdate(client, dashboard_id, name = NULL, run_as_role = NULL)
 
 \item{name}{The title of this dashboard that appears in list views and at the top of the dashboard page.}
 
-\item{run_as_role}{Sets the \strong{Run as} role for the object.}
+\item{run_as_role}{Sets the \strong{Run as} role for the object.
+
+See the \href{https://docs.databricks.com/api/workspace/dashboards/update}{API documentation} for more
+information on the request and response field structure.}
 }
 \description{
 Modify this dashboard definition. This operation only affects attributes of

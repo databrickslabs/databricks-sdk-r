@@ -12,7 +12,10 @@ externalLocationsDelete(client, name, force = NULL)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{name}{Required. Name of the external location.}
+\item{name}{Required. Name of the external location.
+
+See the \href{https://docs.databricks.com/api/workspace/externallocations/delete}{API documentation} for more
+information on the request and response field structure.}
 
 \item{force}{Force deletion even if there are dependent external tables or mounts.}
 }

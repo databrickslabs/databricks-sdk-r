@@ -38,7 +38,10 @@ modelRegistryUpdateWebhook(
 
 \item{job_spec}{This field has no description yet.}
 
-\item{status}{Enable or disable triggering the webhook, or put the webhook into test mode.}
+\item{status}{Enable or disable triggering the webhook, or put the webhook into test mode.
+
+See the \href{https://docs.databricks.com/api/workspace/modelregistry/updatewebhook}{API documentation} for more
+information on the request and response field structure.}
 }
 \description{
 \strong{NOTE:} This endpoint is in Public Preview.

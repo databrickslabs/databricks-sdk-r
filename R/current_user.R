@@ -8,6 +8,9 @@ NULL
 #' Get details about the current method caller's identity.
 #' @param client Required. Instance of DatabricksClient()
 #'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/currentuser/me) for more 
+#' information on the request and response field structure.
+#'
 #' @rdname me
 #' @alias currentUserMe
 #' @export

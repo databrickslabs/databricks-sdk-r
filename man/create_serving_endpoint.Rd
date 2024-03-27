@@ -18,7 +18,10 @@ servingEndpointsCreate(client, name, config, rate_limits = NULL, tags = NULL)
 
 \item{rate_limits}{Rate limits to be applied to the serving endpoint.}
 
-\item{tags}{Tags to be attached to the serving endpoint and automatically propagated to billing logs.}
+\item{tags}{Tags to be attached to the serving endpoint and automatically propagated to billing logs.
+
+See the \href{https://docs.databricks.com/api/workspace/servingendpoints/create}{API documentation} for more
+information on the request and response field structure.}
 }
 \description{
 Create a new serving endpoint.

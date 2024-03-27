@@ -18,6 +18,9 @@ modelRegistryListTransitionRequests(client, name, version)
 }
 \value{
 \code{data.frame} with all of the response pages.
+
+See the \href{https://docs.databricks.com/api/workspace/modelregistry/listtransitionrequests}{API documentation} for more
+information on the request and response field structure.
 }
 \description{
 Gets a list of all open stage transition requests for the model version.

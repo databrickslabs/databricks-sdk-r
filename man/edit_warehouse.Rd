@@ -70,7 +70,10 @@ warehousesEdit(
 
 \item{tags}{A set of key-value pairs that will be tagged on all resources (e.g., AWS instances and EBS volumes) associated with this SQL warehouse.}
 
-\item{warehouse_type}{Warehouse type: \code{PRO} or \code{CLASSIC}.}
+\item{warehouse_type}{Warehouse type: \code{PRO} or \code{CLASSIC}.
+
+See the \href{https://docs.databricks.com/api/workspace/warehouses/edit}{API documentation} for more
+information on the request and response field structure.}
 }
 \description{
 Updates the configuration for a SQL warehouse.

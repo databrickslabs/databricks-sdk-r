@@ -14,7 +14,10 @@ schemasGet(client, full_name, include_browse = NULL)
 
 \item{full_name}{Required. Full name of the schema.}
 
-\item{include_browse}{Whether to include schemas in the response for which the principal can only access selective metadata for.}
+\item{include_browse}{Whether to include schemas in the response for which the principal can only access selective metadata for.
+
+See the \href{https://docs.databricks.com/api/workspace/schemas/get}{API documentation} for more
+information on the request and response field structure.}
 }
 \description{
 Gets the specified schema within the metastore. The caller must be a

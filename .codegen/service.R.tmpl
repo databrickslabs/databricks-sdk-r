@@ -10,6 +10,9 @@ NULL
 {{end}}{{if .Pagination}}#'
 #' @return `data.frame` with all of the response pages.
 {{end}}#'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/{{.Service.CamelName | lower}}/{{.CamelName | lower}}) for more 
+#' information on the request and response field structure.
+#'
 #' @rdname {{.AsFlat.SnakeName}}
 #' @alias {{.Service.CamelName}}{{.PascalName}}
 #' @export 

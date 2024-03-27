@@ -12,7 +12,10 @@ automaticClusterUpdateGet(client, etag = NULL)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{etag}{etag used for versioning.}
+\item{etag}{etag used for versioning.
+
+See the \href{https://docs.databricks.com/api/workspace/automaticclusterupdate/get}{API documentation} for more
+information on the request and response field structure.}
 }
 \description{
 Gets the automatic cluster update setting.

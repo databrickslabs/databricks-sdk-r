@@ -12,7 +12,10 @@ globalInitScriptsDelete(client, script_id)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{script_id}{Required. The ID of the global init script.}
+\item{script_id}{Required. The ID of the global init script.
+
+See the \href{https://docs.databricks.com/api/workspace/globalinitscripts/delete}{API documentation} for more
+information on the request and response field structure.}
 }
 \description{
 Deletes a global init script.

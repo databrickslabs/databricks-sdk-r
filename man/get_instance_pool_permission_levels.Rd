@@ -12,7 +12,10 @@ instancePoolsGetPermissionLevels(client, instance_pool_id)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{instance_pool_id}{Required. The instance pool for which to get or manage permissions.}
+\item{instance_pool_id}{Required. The instance pool for which to get or manage permissions.
+
+See the \href{https://docs.databricks.com/api/workspace/instancepools/getpermissionlevels}{API documentation} for more
+information on the request and response field structure.}
 }
 \description{
 Gets the permission levels that a user can have on an object.

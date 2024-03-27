@@ -20,7 +20,10 @@ clusterPoliciesUpdatePermissions(
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{cluster_policy_id}{Required. The cluster policy for which to get or manage permissions.}
+\item{cluster_policy_id}{Required. The cluster policy for which to get or manage permissions.
+
+See the \href{https://docs.databricks.com/api/workspace/clusterpolicies/updatepermissions}{API documentation} for more
+information on the request and response field structure.}
 
 \item{access_control_list}{This field has no description yet.}
 }

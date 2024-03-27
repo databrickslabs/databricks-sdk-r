@@ -38,7 +38,10 @@ recipientsUpdate(
 
 \item{owner}{Username of the recipient owner.}
 
-\item{properties_kvpairs}{Recipient properties as map of string key-value pairs.}
+\item{properties_kvpairs}{Recipient properties as map of string key-value pairs.
+
+See the \href{https://docs.databricks.com/api/workspace/recipients/update}{API documentation} for more
+information on the request and response field structure.}
 }
 \description{
 Updates an existing recipient in the metastore. The caller must be a

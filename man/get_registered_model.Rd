@@ -14,7 +14,10 @@ registeredModelsGet(client, full_name, include_browse = NULL)
 
 \item{full_name}{Required. The three-level (fully qualified) name of the registered model.}
 
-\item{include_browse}{Whether to include registered models in the response for which the principal can only access selective metadata for.}
+\item{include_browse}{Whether to include registered models in the response for which the principal can only access selective metadata for.
+
+See the \href{https://docs.databricks.com/api/workspace/registeredmodels/get}{API documentation} for more
+information on the request and response field structure.}
 }
 \description{
 Get a registered model.

@@ -12,7 +12,10 @@ queryVisualizationsDelete(client, id)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{id}{Required. Widget ID returned by :method:queryvizualisations/create.}
+\item{id}{Required. Widget ID returned by :method:queryvizualisations/create.
+
+See the \href{https://docs.databricks.com/api/workspace/queryvisualizations/delete}{API documentation} for more
+information on the request and response field structure.}
 }
 \description{
 Remove visualization.

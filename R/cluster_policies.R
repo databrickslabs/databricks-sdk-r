@@ -16,6 +16,9 @@ NULL
 #' @param policy_family_definition_overrides Policy definition JSON document expressed in [Databricks Policy Definition Language](https://docs.databricks.com/administration-guide/clusters/policy-definition.html).
 #' @param policy_family_id ID of the policy family.
 #'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/clusterpolicies/create) for more 
+#' information on the request and response field structure.
+#'
 #' @rdname create_cluster_policy
 #' @alias clusterPoliciesCreate
 #' @export
@@ -38,6 +41,9 @@ clusterPoliciesCreate <- create_cluster_policy
 #' @param client Required. Instance of DatabricksClient()
 #'
 #' @param policy_id Required. The ID of the policy to delete.
+#'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/clusterpolicies/delete) for more 
+#' information on the request and response field structure.
 #'
 #' @rdname delete_cluster_policy
 #' @alias clusterPoliciesDelete
@@ -65,6 +71,9 @@ clusterPoliciesDelete <- delete_cluster_policy
 #' @param policy_family_id ID of the policy family.
 #' @param policy_id Required. The ID of the policy to update.
 #'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/clusterpolicies/edit) for more 
+#' information on the request and response field structure.
+#'
 #' @rdname edit_cluster_policy
 #' @alias clusterPoliciesEdit
 #' @export
@@ -88,6 +97,9 @@ clusterPoliciesEdit <- edit_cluster_policy
 #'
 #' @param policy_id Required. Canonical unique identifier for the cluster policy.
 #'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/clusterpolicies/get) for more 
+#' information on the request and response field structure.
+#'
 #' @rdname get_cluster_policy
 #' @alias clusterPoliciesGet
 #' @export
@@ -105,6 +117,9 @@ clusterPoliciesGet <- get_cluster_policy
 #' @param client Required. Instance of DatabricksClient()
 #'
 #' @param cluster_policy_id Required. The cluster policy for which to get or manage permissions.
+#'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/clusterpolicies/getpermissionlevels) for more 
+#' information on the request and response field structure.
 #'
 #' @rdname get_cluster_policy_permission_levels
 #' @alias clusterPoliciesGetPermissionLevels
@@ -125,6 +140,9 @@ clusterPoliciesGetPermissionLevels <- get_cluster_policy_permission_levels
 #' @param client Required. Instance of DatabricksClient()
 #'
 #' @param cluster_policy_id Required. The cluster policy for which to get or manage permissions.
+#'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/clusterpolicies/getpermissions) for more 
+#' information on the request and response field structure.
 #'
 #' @rdname get_cluster_policy_permissions
 #' @alias clusterPoliciesGetPermissions
@@ -147,6 +165,9 @@ clusterPoliciesGetPermissions <- get_cluster_policy_permissions
 #' @param sort_order The order in which the policies get listed.
 #'
 #' @return `data.frame` with all of the response pages.
+#'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/clusterpolicies/list) for more 
+#' information on the request and response field structure.
 #'
 #' @rdname list_cluster_policies
 #' @alias clusterPoliciesList
@@ -171,6 +192,9 @@ clusterPoliciesList <- list_cluster_policies
 #' @param access_control_list This field has no description yet.
 #' @param cluster_policy_id Required. The cluster policy for which to get or manage permissions.
 #'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/clusterpolicies/setpermissions) for more 
+#' information on the request and response field structure.
+#'
 #' @rdname set_cluster_policy_permissions
 #' @alias clusterPoliciesSetPermissions
 #' @export
@@ -191,6 +215,9 @@ clusterPoliciesSetPermissions <- set_cluster_policy_permissions
 #'
 #' @param access_control_list This field has no description yet.
 #' @param cluster_policy_id Required. The cluster policy for which to get or manage permissions.
+#'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/clusterpolicies/updatepermissions) for more 
+#' information on the request and response field structure.
 #'
 #' @rdname update_cluster_policy_permissions
 #' @alias clusterPoliciesUpdatePermissions

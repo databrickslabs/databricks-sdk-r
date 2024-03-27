@@ -25,6 +25,9 @@ NULL
 #' @param schema_name Required. The name of the schema where the registered model resides.
 #' @param storage_location The storage location on the cloud under which model version data files are stored.
 #'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/registeredmodels/create) for more 
+#' information on the request and response field structure.
+#'
 #' @rdname create_registered_model
 #' @alias registeredModelsCreate
 #' @export
@@ -51,6 +54,9 @@ registeredModelsCreate <- create_registered_model
 #'
 #' @param full_name Required. The three-level (fully qualified) name of the registered model.
 #'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/registeredmodels/delete) for more 
+#' information on the request and response field structure.
+#'
 #' @rdname delete_registered_model
 #' @alias registeredModelsDelete
 #' @export
@@ -74,6 +80,9 @@ registeredModelsDelete <- delete_registered_model
 #'
 #' @param alias Required. The name of the alias.
 #' @param full_name Required. The three-level (fully qualified) name of the registered model.
+#'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/registeredmodels/deletealias) for more 
+#' information on the request and response field structure.
 #'
 #' @rdname delete_registered_model_alias
 #' @alias registeredModelsDeleteAlias
@@ -99,6 +108,9 @@ registeredModelsDeleteAlias <- delete_registered_model_alias
 #'
 #' @param full_name Required. The three-level (fully qualified) name of the registered model.
 #' @param include_browse Whether to include registered models in the response for which the principal can only access selective metadata for.
+#'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/registeredmodels/get) for more 
+#' information on the request and response field structure.
 #'
 #' @rdname get_registered_model
 #' @alias registeredModelsGet
@@ -135,6 +147,9 @@ registeredModelsGet <- get_registered_model
 #' @param schema_name The identifier of the schema under which to list registered models.
 #'
 #' @return `data.frame` with all of the response pages.
+#'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/registeredmodels/list) for more 
+#' information on the request and response field structure.
 #'
 #' @rdname list_registered_models
 #' @alias registeredModelsList
@@ -178,6 +193,9 @@ registeredModelsList <- list_registered_models
 #' @param full_name Required. Full name of the registered model.
 #' @param version_num Required. The version number of the model version to which the alias points.
 #'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/registeredmodels/setalias) for more 
+#' information on the request and response field structure.
+#'
 #' @rdname set_registered_model_alias
 #' @alias registeredModelsSetAlias
 #' @export
@@ -207,6 +225,9 @@ registeredModelsSetAlias <- set_registered_model_alias
 #' @param full_name Required. The three-level (fully qualified) name of the registered model.
 #' @param new_name New name for the registered model.
 #' @param owner The identifier of the user who owns the registered model.
+#'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/registeredmodels/update) for more 
+#' information on the request and response field structure.
 #'
 #' @rdname update_registered_model
 #' @alias registeredModelsUpdate

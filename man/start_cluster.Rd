@@ -12,7 +12,10 @@ clustersStart(client, cluster_id)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{cluster_id}{Required. The cluster to be started.}
+\item{cluster_id}{Required. The cluster to be started.
+
+See the \href{https://docs.databricks.com/api/workspace/clusters/start}{API documentation} for more
+information on the request and response field structure.}
 }
 \description{
 Starts a terminated Spark cluster with the supplied ID. This works similar to

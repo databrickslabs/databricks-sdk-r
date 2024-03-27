@@ -12,7 +12,10 @@ recipientActivationRetrieveToken(client, activation_url)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{activation_url}{Required. The one time activation url.}
+\item{activation_url}{Required. The one time activation url.
+
+See the \href{https://docs.databricks.com/api/workspace/recipientactivation/retrievetoken}{API documentation} for more
+information on the request and response field structure.}
 }
 \description{
 Retrieve access token with an activation url. This is a public API without

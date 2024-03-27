@@ -20,7 +20,10 @@ alertsCreate(client, name, options, query_id, parent = NULL, rearm = NULL)
 
 \item{parent}{The identifier of the workspace folder containing the object.}
 
-\item{rearm}{Number of seconds after being triggered before the alert rearms itself and can be triggered again.}
+\item{rearm}{Number of seconds after being triggered before the alert rearms itself and can be triggered again.
+
+See the \href{https://docs.databricks.com/api/workspace/alerts/create}{API documentation} for more
+information on the request and response field structure.}
 }
 \description{
 Creates an alert. An alert is a Databricks SQL object that periodically runs

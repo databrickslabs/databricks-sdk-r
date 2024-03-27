@@ -14,6 +14,9 @@ NULL
 #' @param is_meta_instance_profile Boolean flag indicating whether the instance profile should only be used in credential passthrough scenarios.
 #' @param skip_validation By default, Databricks validates that it has sufficient permissions to launch instances with the instance profile.
 #'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/instanceprofiles/add) for more 
+#' information on the request and response field structure.
+#'
 #' @rdname add_instance_profile
 #' @alias instanceProfilesAdd
 #' @export
@@ -50,6 +53,9 @@ instanceProfilesAdd <- add_instance_profile
 #' @param instance_profile_arn Required. The AWS ARN of the instance profile to register with Databricks.
 #' @param is_meta_instance_profile Boolean flag indicating whether the instance profile should only be used in credential passthrough scenarios.
 #'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/instanceprofiles/edit) for more 
+#' information on the request and response field structure.
+#'
 #' @rdname edit_instance_profile
 #' @alias instanceProfilesEdit
 #' @export
@@ -71,6 +77,9 @@ instanceProfilesEdit <- edit_instance_profile
 #' @param client Required. Instance of DatabricksClient()
 #'
 #' @return `data.frame` with all of the response pages.
+#'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/instanceprofiles/list) for more 
+#' information on the request and response field structure.
 #'
 #' @rdname list_instance_profiles
 #' @alias instanceProfilesList
@@ -94,6 +103,9 @@ instanceProfilesList <- list_instance_profiles
 #' @param client Required. Instance of DatabricksClient()
 #'
 #' @param instance_profile_arn Required. The ARN of the instance profile to remove.
+#'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/instanceprofiles/remove) for more 
+#' information on the request and response field structure.
 #'
 #' @rdname remove_instance_profile
 #' @alias instanceProfilesRemove

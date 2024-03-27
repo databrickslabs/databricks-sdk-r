@@ -12,6 +12,9 @@ NULL
 #' @param principal If provided, only the permissions for the specified principal (user or group) are returned.
 #' @param securable_type Required. Type of securable.
 #'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/grants/get) for more 
+#' information on the request and response field structure.
+#'
 #' @rdname get_grant
 #' @alias grantsGet
 #' @export
@@ -33,6 +36,9 @@ grantsGet <- get_grant
 #' @param principal If provided, only the effective permissions for the specified principal (user or group) are returned.
 #' @param securable_type Required. Type of securable.
 #'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/grants/geteffective) for more 
+#' information on the request and response field structure.
+#'
 #' @rdname get_grant_effective
 #' @alias grantsGetEffective
 #' @export
@@ -53,6 +59,9 @@ grantsGetEffective <- get_grant_effective
 #' @param changes Array of permissions change objects.
 #' @param full_name Required. Full name of securable.
 #' @param securable_type Required. Type of securable.
+#'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/grants/update) for more 
+#' information on the request and response field structure.
 #'
 #' @rdname update_grant
 #' @alias grantsUpdate

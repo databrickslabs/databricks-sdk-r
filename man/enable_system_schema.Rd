@@ -14,7 +14,10 @@ systemSchemasEnable(client, metastore_id, schema_name)
 
 \item{metastore_id}{Required. The metastore ID under which the system schema lives.}
 
-\item{schema_name}{Required. Full name of the system schema.}
+\item{schema_name}{Required. Full name of the system schema.
+
+See the \href{https://docs.databricks.com/api/workspace/systemschemas/enable}{API documentation} for more
+information on the request and response field structure.}
 }
 \description{
 Enables the system schema and adds it to the system catalog. The caller must

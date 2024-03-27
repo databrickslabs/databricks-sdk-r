@@ -12,7 +12,10 @@ vectorSearchEndpointsCreateEndpoint(client, name, endpoint_type)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{name}{Required. Name of endpoint.}
+\item{name}{Required. Name of endpoint.
+
+See the \href{https://docs.databricks.com/api/workspace/vectorsearchendpoints/createendpoint}{API documentation} for more
+information on the request and response field structure.}
 
 \item{endpoint_type}{Required. Type of endpoint.}
 }

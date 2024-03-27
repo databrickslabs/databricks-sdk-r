@@ -12,7 +12,10 @@ dbfsPut(client, path, contents = NULL, overwrite = NULL)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{path}{Required. The path of the new file.}
+\item{path}{Required. The path of the new file.
+
+See the \href{https://docs.databricks.com/api/workspace/dbfs/put}{API documentation} for more
+information on the request and response field structure.}
 
 \item{contents}{This parameter might be absent, and instead a posted file will be used.}
 

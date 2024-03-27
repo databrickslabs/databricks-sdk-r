@@ -12,7 +12,10 @@ secretsGetSecret(client, scope, key)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{scope}{Required. The name of the scope to fetch secret information from.}
+\item{scope}{Required. The name of the scope to fetch secret information from.
+
+See the \href{https://docs.databricks.com/api/workspace/secrets/getsecret}{API documentation} for more
+information on the request and response field structure.}
 
 \item{key}{Required. The key to fetch secret for.}
 }

@@ -14,6 +14,9 @@ NULL
 #'
 #' @param full_name Required. Full name of the table.
 #'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/tables/delete) for more 
+#' information on the request and response field structure.
+#'
 #' @rdname delete_table
 #' @alias tablesDelete
 #' @export
@@ -38,6 +41,9 @@ tablesDelete <- delete_table
 #' @param client Required. Instance of DatabricksClient()
 #'
 #' @param full_name Required. Full name of the table.
+#'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/tables/exists) for more 
+#' information on the request and response field structure.
 #'
 #' @rdname exists_table
 #' @alias tablesExists
@@ -65,6 +71,9 @@ tablesExists <- exists_table
 #' @param full_name Required. Full name of the table.
 #' @param include_browse Whether to include tables in the response for which the principal can only access selective metadata for.
 #' @param include_delta_metadata Whether delta metadata should be included in the response.
+#'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/tables/get) for more 
+#' information on the request and response field structure.
 #'
 #' @rdname get_table
 #' @alias tablesGet
@@ -98,6 +107,9 @@ tablesGet <- get_table
 #' @param schema_name Required. Parent schema of tables.
 #'
 #' @return `data.frame` with all of the response pages.
+#'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/tables/list) for more 
+#' information on the request and response field structure.
 #'
 #' @rdname list_tables
 #' @alias tablesList
@@ -152,6 +164,9 @@ tablesList <- list_tables
 #'
 #' @return `data.frame` with all of the response pages.
 #'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/tables/listsummaries) for more 
+#' information on the request and response field structure.
+#'
 #' @rdname list_table_summaries
 #' @alias tablesListSummaries
 #' @export
@@ -191,6 +206,9 @@ tablesListSummaries <- list_table_summaries
 #'
 #' @param full_name Required. Full name of the table.
 #' @param owner This field has no description yet.
+#'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/tables/update) for more 
+#' information on the request and response field structure.
 #'
 #' @rdname update_table
 #' @alias tablesUpdate

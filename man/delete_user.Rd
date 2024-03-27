@@ -12,7 +12,10 @@ usersDelete(client, id)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{id}{Required. Unique ID for a user in the Databricks workspace.}
+\item{id}{Required. Unique ID for a user in the Databricks workspace.
+
+See the \href{https://docs.databricks.com/api/workspace/users/delete}{API documentation} for more
+information on the request and response field structure.}
 }
 \description{
 Deletes a user. Deleting a user from a Databricks workspace also removes

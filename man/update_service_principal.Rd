@@ -50,7 +50,10 @@ servicePrincipalsUpdate(
 
 \item{roles}{Corresponds to AWS instance profile/arn role.}
 
-\item{schemas}{The schema of the List response.}
+\item{schemas}{The schema of the List response.
+
+See the \href{https://docs.databricks.com/api/workspace/serviceprincipals/update}{API documentation} for more
+information on the request and response field structure.}
 }
 \description{
 Updates the details of a single service principal.

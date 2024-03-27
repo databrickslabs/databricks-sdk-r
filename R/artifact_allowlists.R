@@ -11,6 +11,9 @@ NULL
 #'
 #' @param artifact_type Required. The artifact type of the allowlist.
 #'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/artifactallowlists/get) for more 
+#' information on the request and response field structure.
+#'
 #' @rdname get_artifact_allowlist
 #' @alias artifactAllowlistsGet
 #' @export
@@ -32,6 +35,9 @@ artifactAllowlistsGet <- get_artifact_allowlist
 #'
 #' @param artifact_matchers Required. A list of allowed artifact match patterns.
 #' @param artifact_type Required. The artifact type of the allowlist.
+#'
+#' See the [API documentation](https://docs.databricks.com/api/workspace/artifactallowlists/update) for more 
+#' information on the request and response field structure.
 #'
 #' @rdname update_artifact_allowlist
 #' @alias artifactAllowlistsUpdate
