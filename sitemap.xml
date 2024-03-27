@@ -22,1500 +22,1488 @@
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/DatabricksClient.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/accountAccessControlProxyGetAssignableRolesForResource.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/add_dbfs_block.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/accountAccessControlProxyGetRuleSet.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/add_instance_profile.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/accountAccessControlProxyUpdateRuleSet.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/all_cluster_library_statuses.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/alertsCreate.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/approve_model_transition_request.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/alertsDelete.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/assign_metastore.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/alertsGet.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/build_serving_endpoint_logs.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/alertsList.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/cancel_command_execution.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/alertsUpdate.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/cancel_command_execution_and_wait.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/appsCreate.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/cancel_job_all_runs.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/appsDeleteApp.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/cancel_job_run.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/appsGetApp.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/cancel_job_run_and_wait.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/appsGetAppDeploymentStatus.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/cancel_lakehouse_monitor_refresh.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/appsGetApps.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/cancel_statement_execution.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/appsGetEvents.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/change_cluster_owner.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/artifactAllowlistsGet.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/close_dbfs.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/artifactAllowlistsUpdate.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/cluster_library_status.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/automaticClusterUpdateGet.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/command_execution_status.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/automaticClusterUpdateUpdate.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/context_command_execution_status.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/catalogsCreate.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/create_alert.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/catalogsDelete.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/create_app.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/catalogsGet.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/create_catalog.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/catalogsList.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/create_clean_room.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/catalogsUpdate.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/create_cluster.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/cleanRoomsCreate.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/create_cluster_and_wait.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/cleanRoomsDelete.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/create_cluster_policy.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/cleanRoomsGet.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/create_command_execution.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/cleanRoomsList.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/create_command_execution_and_wait.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/cleanRoomsUpdate.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/create_connection.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/clusterPoliciesCreate.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/create_dashboard.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/clusterPoliciesDelete.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/create_dashboard_widget.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/clusterPoliciesEdit.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/create_dbfs.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/clusterPoliciesGet.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/create_experiment.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/clusterPoliciesGetPermissionLevels.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/create_experiment_run.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/clusterPoliciesGetPermissions.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/create_external_location.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/clusterPoliciesList.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/create_file_directory.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/clusterPoliciesSetPermissions.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/create_function.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/clusterPoliciesUpdatePermissions.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/create_git_credential.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/clustersChangeOwner.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/create_global_init_script.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/clustersCreate.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/create_group.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/clustersCreateAndWait.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/create_instance_pool.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/clustersDelete.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/create_ip_access_list.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/clustersDeleteAndWait.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/create_job.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/clustersEdit.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/create_lakehouse_monitor.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/clustersEditAndWait.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/create_lakeview.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/clustersEvents.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/create_metastore.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/clustersGet.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/create_model.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/clustersGetPermissionLevels.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/create_model_comment.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/clustersGetPermissions.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/create_model_transition_request.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/clustersList.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/create_model_version.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/clustersListNodeTypes.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/create_model_webhook.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/clustersListZones.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/create_obo_token.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/clustersPermanentDelete.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/create_online_table.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/clustersPin.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/create_pipeline.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/clustersResize.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/create_provider.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/clustersResizeAndWait.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/create_query.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/clustersRestart.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/create_query_visualization.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/clustersRestartAndWait.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/create_recipient.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/clustersSetPermissions.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/create_registered_model.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/clustersSparkVersions.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/create_repo.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/clustersStart.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/create_schema.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/clustersStartAndWait.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/create_secret_scope.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/clustersUnpin.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/create_service_principal.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/clustersUpdatePermissions.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/create_serving_endpoint.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/commandExecutionCancel.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/create_serving_endpoint_and_wait.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/commandExecutionCancelAndWait.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/create_share.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/commandExecutionCommandStatus.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/create_storage_credential.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/commandExecutionContextStatus.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/create_table_constraint.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/commandExecutionCreate.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/create_token.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/commandExecutionCreateAndWait.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/create_user.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/commandExecutionDestroy.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/create_vector_search_endpoint.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/commandExecutionExecute.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/create_vector_search_endpoint_and_wait.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/commandExecutionExecuteAndWait.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/create_vector_search_index.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/connectionsCreate.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/create_volume.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/connectionsDelete.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/create_warehouse.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/connectionsGet.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/create_warehouse_and_wait.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/connectionsList.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/connectionsUpdate.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/credentialsManagerExchangeToken.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/cspEnablementGet.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/cspEnablementUpdate.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/currentUserMe.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/dashboardWidgetsCreate.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/dashboardWidgetsDelete.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/dashboardWidgetsUpdate.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/dashboardsCreate.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/dashboardsDelete.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/dashboardsGet.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/dashboardsList.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/dashboardsRestore.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/dashboardsUpdate.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/dataSourcesList.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/current_metastore.html</loc>
   </url>
   <url>
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/databricks-package.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/dbfsAddBlock.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/delete_alert.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/dbfsClose.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/delete_app.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/dbfsCreate.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/delete_catalog.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/dbfsDelete.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/delete_clean_room.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/dbfsGetStatus.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/delete_cluster.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/dbfsList.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/delete_cluster_and_wait.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/dbfsMkdirs.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/delete_cluster_policy.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/dbfsMove.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/delete_connection.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/dbfsPut.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/delete_dashboard.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/dbfsRead.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/delete_dashboard_widget.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/dbsqlPermissionsGet.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/delete_dbfs.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/dbsqlPermissionsSet.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/delete_default_namespace.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/dbsqlPermissionsTransferOwnership.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/delete_experiment.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/defaultNamespaceDelete.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/delete_experiment_run.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/defaultNamespaceGet.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/delete_experiment_runs.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/defaultNamespaceUpdate.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/delete_experiment_tag.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/esmEnablementGet.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/delete_external_location.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/esmEnablementUpdate.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/delete_file.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/experimentsCreateExperiment.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/delete_file_directory.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/experimentsCreateRun.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/delete_function.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/experimentsDeleteExperiment.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/delete_git_credential.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/experimentsDeleteRun.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/delete_global_init_script.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/experimentsDeleteRuns.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/delete_group.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/experimentsDeleteTag.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/delete_instance_pool.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/experimentsGetByName.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/delete_ip_access_list.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/experimentsGetExperiment.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/delete_job.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/experimentsGetHistory.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/delete_job_run.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/experimentsGetPermissionLevels.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/delete_lakehouse_monitor.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/experimentsGetPermissions.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/delete_metastore.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/experimentsGetRun.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/delete_model.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/experimentsListArtifacts.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/delete_model_comment.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/experimentsListExperiments.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/delete_model_tag.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/experimentsLogBatch.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/delete_model_transition_request.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/experimentsLogInputs.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/delete_model_version.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/experimentsLogMetric.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/delete_model_version_tag.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/experimentsLogModel.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/delete_model_webhook.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/experimentsLogParam.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/delete_notebook.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/experimentsRestoreExperiment.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/delete_online_table.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/experimentsRestoreRun.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/delete_pipeline.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/experimentsRestoreRuns.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/delete_provider.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/experimentsSearchExperiments.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/delete_query.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/experimentsSearchRuns.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/delete_query_visualization.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/experimentsSetExperimentTag.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/delete_recipient.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/experimentsSetPermissions.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/delete_registered_model.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/experimentsSetTag.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/delete_registered_model_alias.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/experimentsUpdateExperiment.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/delete_repo.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/experimentsUpdatePermissions.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/delete_restrict_workspace_admin.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/experimentsUpdateRun.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/delete_schema.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/externalLocationsCreate.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/delete_secret.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/externalLocationsDelete.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/delete_secret_acl.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/externalLocationsGet.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/delete_secret_scope.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/externalLocationsList.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/delete_service_principal.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/externalLocationsUpdate.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/delete_serving_endpoint.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/filesCreateDirectory.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/delete_share.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/filesDelete.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/delete_storage_credential.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/filesDeleteDirectory.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/delete_table.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/filesDownload.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/delete_table_constraint.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/filesGetDirectoryMetadata.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/delete_token.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/filesGetMetadata.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/delete_token_management.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/filesListDirectoryContents.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/delete_user.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/filesUpload.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/delete_vector_search_endpoint.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/functionsCreate.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/delete_vector_search_index.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/functionsDelete.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/delete_vector_search_index_data.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/functionsGet.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/delete_volume.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/functionsList.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/delete_warehouse.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/functionsUpdate.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/destroy_command_execution.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/gitCredentialsCreate.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/disable_system_schema.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/gitCredentialsDelete.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/download_file.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/gitCredentialsGet.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/edit_cluster.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/gitCredentialsList.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/edit_cluster_and_wait.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/gitCredentialsUpdate.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/edit_cluster_policy.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/globalInitScriptsCreate.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/edit_instance_pool.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/globalInitScriptsDelete.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/edit_instance_profile.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/globalInitScriptsGet.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/edit_warehouse.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/globalInitScriptsList.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/edit_warehouse_and_wait.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/globalInitScriptsUpdate.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/enable_system_schema.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/grantsGet.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/events_cluster.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/grantsGetEffective.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/exchange_credentials_manager_token.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/grantsUpdate.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/execute_command.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/groupsCreate.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/execute_command_and_wait.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/groupsDelete.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/execute_statement.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/groupsGet.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/exists_table.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/groupsList.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/export_job_run.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/groupsPatch.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/export_notebook.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/groupsUpdate.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/export_serving_endpoint_metrics.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_account_access_control_proxy_assignable_roles_for_resource.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_account_access_control_proxy_rule_set.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_alert.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_app.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_app_apps.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_app_deployment_status.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_app_events.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_artifact_allowlist.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_automatic_cluster_update.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_catalog.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_clean_room.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_cluster.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_cluster_permission_levels.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_cluster_permissions.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_cluster_policy.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_cluster_policy_family.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_cluster_policy_permission_levels.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_cluster_policy_permissions.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_connection.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_csp_enablement.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_dashboard.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_dbfs_status.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_dbsql_permission.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_default_namespace.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_esm_enablement.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_experiment.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_experiment_by_name.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_experiment_history.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_experiment_permission_levels.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_experiment_permissions.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_experiment_run.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_external_location.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_file_directory_metadata.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_file_metadata.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_function.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_git_credential.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_global_init_script.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_grant.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_grant_effective.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_group.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_instance_pool.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_instance_pool_permission_levels.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_instance_pool_permissions.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_ip_access_list.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_job.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_job_permission_levels.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_job_permissions.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_job_run.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_job_run_and_wait.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_job_run_output.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_lakehouse_monitor.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_lakehouse_monitor_refresh.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_lakeview.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_lakeview_published.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_metastore.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_model.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_model_latest_versions.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_model_permission_levels.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_model_permissions.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_model_version.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_model_version_by_alias.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_model_version_download_uri.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_notebook_permission_levels.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_notebook_permissions.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_notebook_status.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_online_table.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_permission.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_permission_levels.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_pipeline.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_pipeline_permission_levels.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_pipeline_permissions.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_pipeline_update.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_provider.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_query.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_recipient.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_recipient_activation_url_info.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_registered_model.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_repo.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_repo_permission_levels.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_repo_permissions.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_restrict_workspace_admin.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_schema.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_secret.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_secret_acl.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_service_principal.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_serving_endpoint.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_serving_endpoint_permission_levels.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_serving_endpoint_permissions.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_share.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_statement_execution.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_statement_execution_result_chunk_n.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_storage_credential.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_table.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_token_management.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_token_management_permission_levels.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_token_management_permissions.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_user.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_user_permission_levels.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_user_permissions.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_vector_search_endpoint.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_vector_search_index.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_warehouse.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_warehouse_permission_levels.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_warehouse_permissions.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_warehouse_workspace_config.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_workspace_binding.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_workspace_binding_bindings.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/get_workspace_conf_status.html</loc>
+  </url>
+  <url>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/import_notebook.html</loc>
   </url>
   <url>
     <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/index.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/instancePoolsCreate.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/install_cluster_library.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/instancePoolsDelete.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/list_alerts.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/instancePoolsEdit.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/list_catalogs.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/instancePoolsGet.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/list_clean_rooms.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/instancePoolsGetPermissionLevels.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/list_cluster_node_types.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/instancePoolsGetPermissions.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/list_cluster_policies.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/instancePoolsList.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/list_cluster_policy_families.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/instancePoolsSetPermissions.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/list_cluster_zones.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/instancePoolsUpdatePermissions.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/list_clusters.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/instanceProfilesAdd.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/list_connections.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/instanceProfilesEdit.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/list_dashboards.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/instanceProfilesList.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/list_data_sources.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/instanceProfilesRemove.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/list_dbfs.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/ipAccessListsCreate.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/list_experiment_artifacts.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/ipAccessListsDelete.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/list_experiment_experiments.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/ipAccessListsGet.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/list_external_locations.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/ipAccessListsList.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/list_file_directory_contents.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/ipAccessListsReplace.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/list_functions.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/ipAccessListsUpdate.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/list_git_credentials.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/jobsCancelAllRuns.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/list_global_init_scripts.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/jobsCancelRun.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/list_groups.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/jobsCancelRunAndWait.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/list_instance_pools.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/jobsCreate.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/list_instance_profiles.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/jobsDelete.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/list_ip_access_lists.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/jobsDeleteRun.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/list_job_runs.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/jobsExportRun.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/list_jobs.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/jobsGet.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/list_lakehouse_monitor_refreshes.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/jobsGetPermissionLevels.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/list_metastores.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/jobsGetPermissions.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/list_model_models.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/jobsGetRun.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/list_model_transition_requests.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/jobsGetRunAndWait.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/list_model_versions.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/jobsGetRunOutput.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/list_model_webhooks.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/jobsList.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/list_notebooks.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/jobsListRuns.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/list_pipeline_events.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/jobsRepairRun.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/list_pipeline_pipelines.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/jobsRepairRunAndWait.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/list_pipeline_updates.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/jobsReset.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/list_provider_shares.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/jobsRunNow.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/list_providers.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/jobsRunNowAndWait.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/list_queries.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/jobsSetPermissions.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/list_query_history.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/jobsSubmit.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/list_recipients.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/jobsSubmitAndWait.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/list_registered_models.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/jobsUpdate.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/list_repos.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/jobsUpdatePermissions.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/list_schemas.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/lakehouseMonitorsCancelRefresh.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/list_secret_acls.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/lakehouseMonitorsCreate.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/list_secret_scopes.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/lakehouseMonitorsDelete.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/list_secret_secrets.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/lakehouseMonitorsGet.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/list_service_principals.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/lakehouseMonitorsGetRefresh.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/list_serving_endpoints.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/lakehouseMonitorsListRefreshes.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/list_shares.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/lakehouseMonitorsRunRefresh.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/list_storage_credentials.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/lakehouseMonitorsUpdate.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/list_system_schemas.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/lakeviewCreate.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/list_table_summaries.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/lakeviewGet.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/list_tables.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/lakeviewGetPublished.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/list_token_management.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/lakeviewPublish.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/list_tokens.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/lakeviewTrash.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/list_users.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/lakeviewUpdate.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/list_vector_search_endpoint_endpoints.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/librariesAllClusterStatuses.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/list_vector_search_index_indexes.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/librariesClusterStatus.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/list_volumes.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/librariesInstall.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/list_warehouses.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/librariesUninstall.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/log_experiment_batch.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/metastoresAssign.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/log_experiment_inputs.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/metastoresCreate.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/log_experiment_metric.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/metastoresCurrent.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/log_experiment_model.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/metastoresDelete.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/log_experiment_param.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/metastoresGet.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/logs_serving_endpoint.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/metastoresList.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/me.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/metastoresSummary.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/migrate_permission_migration_permissions.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/metastoresUnassign.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/mkdirs_dbfs.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/metastoresUpdate.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/mkdirs_notebook.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/metastoresUpdateAssignment.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/move_dbfs.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/modelRegistryApproveTransitionRequest.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/patch_group.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/modelRegistryCreateComment.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/patch_service_principal.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/modelRegistryCreateModel.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/patch_serving_endpoint.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/modelRegistryCreateModelVersion.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/patch_user.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/modelRegistryCreateTransitionRequest.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/permanent_cluster_delete.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/modelRegistryCreateWebhook.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/pin_cluster.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/modelRegistryDeleteComment.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/publish_lakeview.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/modelRegistryDeleteModel.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/put_dbfs.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/modelRegistryDeleteModelTag.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/put_secret.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/modelRegistryDeleteModelVersion.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/put_secret_acl.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/modelRegistryDeleteModelVersionTag.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/put_serving_endpoint.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/modelRegistryDeleteTransitionRequest.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/query_serving_endpoint.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/modelRegistryDeleteWebhook.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/query_vector_search_index.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/modelRegistryGetLatestVersions.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/read_dbfs.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/modelRegistryGetModel.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/read_volume.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/modelRegistryGetModelVersion.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/reject_model_transition_request.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/modelRegistryGetModelVersionDownloadUri.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/remove_instance_profile.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/modelRegistryGetPermissionLevels.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/rename_model.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/modelRegistryGetPermissions.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/repair_job_run.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/modelRegistryListModels.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/repair_job_run_and_wait.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/modelRegistryListTransitionRequests.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/replace_ip_access_list.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/modelRegistryListWebhooks.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/reset_job.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/modelRegistryRejectTransitionRequest.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/resize_cluster.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/modelRegistryRenameModel.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/resize_cluster_and_wait.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/modelRegistrySearchModelVersions.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/restart_cluster.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/modelRegistrySearchModels.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/restart_cluster_and_wait.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/modelRegistrySetModelTag.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/restore_dashboard.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/modelRegistrySetModelVersionTag.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/restore_experiment.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/modelRegistrySetPermissions.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/restore_experiment_run.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/modelRegistryTestRegistryWebhook.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/restore_experiment_runs.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/modelRegistryTransitionStage.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/restore_query.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/modelRegistryUpdateComment.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/retrieve_recipient_activation_token.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/modelRegistryUpdateModel.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/rotate_recipient_token.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/modelRegistryUpdateModelVersion.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/run_job_now.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/modelRegistryUpdatePermissions.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/run_job_now_and_wait.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/modelRegistryUpdateWebhook.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/run_lakehouse_monitor_refresh.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/modelVersionsDelete.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/search_experiment_experiments.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/modelVersionsGet.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/search_experiment_runs.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/modelVersionsGetByAlias.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/search_model_models.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/modelVersionsList.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/search_model_versions.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/modelVersionsUpdate.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/set_cluster_permissions.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/onlineTablesCreate.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/set_cluster_policy_permissions.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/onlineTablesDelete.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/set_dbsql_permission.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/onlineTablesGet.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/set_experiment_permissions.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/permissionMigrationMigratePermissions.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/set_experiment_tag.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/permissionsGet.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/set_instance_pool_permissions.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/permissionsGetPermissionLevels.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/set_job_permissions.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/permissionsSet.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/set_model_permissions.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/permissionsUpdate.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/set_model_tag.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/pipelinesCreate.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/set_model_version_tag.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/pipelinesDelete.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/set_notebook_permissions.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/pipelinesGet.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/set_permission.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/pipelinesGetPermissionLevels.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/set_pipeline_permissions.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/pipelinesGetPermissions.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/set_registered_model_alias.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/pipelinesGetUpdate.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/set_repo_permissions.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/pipelinesListPipelineEvents.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/set_serving_endpoint_permissions.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/pipelinesListPipelines.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/set_token_management_permissions.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/pipelinesListUpdates.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/set_user_permissions.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/pipelinesSetPermissions.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/set_warehouse_permissions.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/pipelinesStartUpdate.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/set_warehouse_workspace_config.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/pipelinesStop.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/set_workspace_conf_status.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/pipelinesStopAndWait.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/share_permissions.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/pipelinesUpdate.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/share_recipient_permissions.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/pipelinesUpdatePermissions.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/spark_cluster_versions.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/policyFamiliesGet.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/start_cluster.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/policyFamiliesList.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/start_cluster_and_wait.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/providersCreate.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/start_pipeline_update.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/providersDelete.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/start_warehouse.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/providersGet.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/start_warehouse_and_wait.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/providersList.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/stop_pipeline.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/providersListShares.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/stop_pipeline_and_wait.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/providersUpdate.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/stop_warehouse.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/queriesCreate.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/stop_warehouse_and_wait.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/queriesDelete.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/submit_job.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/queriesGet.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/submit_job_and_wait.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/queriesList.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/summary_metastore.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/queriesRestore.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/sync_vector_search_index.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/queriesUpdate.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/test_model_registry_webhook.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/queryHistoryList.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/transfer_dbsql_permission_ownership.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/queryVisualizationsCreate.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/transition_model_stage.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/queryVisualizationsDelete.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/trash_lakeview.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/queryVisualizationsUpdate.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/unassign_metastore.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/recipientActivationGetActivationUrlInfo.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/uninstall_cluster_library.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/recipientActivationRetrieveToken.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/unpin_cluster.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/recipientsCreate.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/update_account_access_control_proxy_rule_set.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/recipientsDelete.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/update_alert.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/recipientsGet.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/update_artifact_allowlist.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/recipientsList.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/update_automatic_cluster.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/recipientsRotateToken.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/update_catalog.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/recipientsSharePermissions.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/update_clean_room.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/recipientsUpdate.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/update_cluster_permissions.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/registeredModelsCreate.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/update_cluster_policy_permissions.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/registeredModelsDelete.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/update_connection.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/registeredModelsDeleteAlias.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/update_csp_enablement.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/registeredModelsGet.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/update_dashboard.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/registeredModelsList.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/update_dashboard_widget.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/registeredModelsSetAlias.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/update_default_namespace.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/registeredModelsUpdate.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/update_esm_enablement.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/reposCreate.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/update_experiment.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/reposDelete.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/update_experiment_permissions.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/reposGet.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/update_experiment_run.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/reposGetPermissionLevels.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/update_external_location.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/reposGetPermissions.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/update_function.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/reposList.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/update_git_credential.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/reposSetPermissions.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/update_global_init_script.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/reposUpdate.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/update_grant.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/reposUpdatePermissions.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/update_group.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/restrictWorkspaceAdminsDelete.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/update_instance_pool_permissions.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/restrictWorkspaceAdminsGet.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/update_ip_access_list.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/restrictWorkspaceAdminsUpdate.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/update_job.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/schemasCreate.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/update_job_permissions.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/schemasDelete.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/update_lakehouse_monitor.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/schemasGet.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/update_lakeview.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/schemasList.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/update_metastore.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/schemasUpdate.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/update_metastore_assignment.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/secretsCreateScope.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/update_model.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/secretsDeleteAcl.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/update_model_comment.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/secretsDeleteScope.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/update_model_permissions.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/secretsDeleteSecret.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/update_model_version.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/secretsGetAcl.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/update_model_webhook.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/secretsGetSecret.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/update_notebook_permissions.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/secretsListAcls.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/update_permission.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/secretsListScopes.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/update_pipeline.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/secretsListSecrets.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/update_pipeline_permissions.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/secretsPutAcl.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/update_provider.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/secretsPutSecret.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/update_query.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/servicePrincipalsCreate.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/update_query_visualization.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/servicePrincipalsDelete.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/update_recipient.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/servicePrincipalsGet.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/update_registered_model.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/servicePrincipalsList.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/update_repo.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/servicePrincipalsPatch.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/update_repo_permissions.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/servicePrincipalsUpdate.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/update_restrict_workspace_admin.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/servingEndpointsBuildLogs.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/update_schema.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/servingEndpointsCreate.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/update_service_principal.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/servingEndpointsCreateAndWait.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/update_serving_endpoint_config.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/servingEndpointsDelete.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/update_serving_endpoint_config_and_wait.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/servingEndpointsExportMetrics.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/update_serving_endpoint_permissions.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/servingEndpointsGet.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/update_share.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/servingEndpointsGetPermissionLevels.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/update_share_permissions.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/servingEndpointsGetPermissions.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/update_storage_credential.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/servingEndpointsList.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/update_table.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/servingEndpointsLogs.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/update_token_management_permissions.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/servingEndpointsPatch.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/update_user.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/servingEndpointsPut.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/update_user_permissions.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/servingEndpointsQuery.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/update_volume.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/servingEndpointsSetPermissions.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/update_warehouse_permissions.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/servingEndpointsUpdateConfig.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/update_workspace_binding.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/servingEndpointsUpdateConfigAndWait.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/update_workspace_binding_bindings.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/servingEndpointsUpdatePermissions.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/upload_file.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/sharesCreate.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/upsert_vector_search_index_data.html</loc>
   </url>
   <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/sharesDelete.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/sharesGet.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/sharesList.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/sharesSharePermissions.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/sharesUpdate.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/sharesUpdatePermissions.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/statementExecutionCancelExecution.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/statementExecutionExecuteStatement.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/statementExecutionGetStatement.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/statementExecutionGetStatementResultChunkN.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/storageCredentialsCreate.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/storageCredentialsDelete.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/storageCredentialsGet.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/storageCredentialsList.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/storageCredentialsUpdate.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/storageCredentialsValidate.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/systemSchemasDisable.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/systemSchemasEnable.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/systemSchemasList.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/tableConstraintsCreate.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/tableConstraintsDelete.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/tablesDelete.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/tablesExists.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/tablesGet.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/tablesList.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/tablesListSummaries.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/tablesUpdate.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/tokenManagementCreateOboToken.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/tokenManagementDelete.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/tokenManagementGet.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/tokenManagementGetPermissionLevels.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/tokenManagementGetPermissions.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/tokenManagementList.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/tokenManagementSetPermissions.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/tokenManagementUpdatePermissions.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/tokensCreate.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/tokensDelete.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/tokensList.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/usersCreate.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/usersDelete.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/usersGet.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/usersGetPermissionLevels.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/usersGetPermissions.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/usersList.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/usersPatch.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/usersSetPermissions.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/usersUpdate.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/usersUpdatePermissions.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/vectorSearchEndpointsCreateEndpoint.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/vectorSearchEndpointsCreateEndpointAndWait.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/vectorSearchEndpointsDeleteEndpoint.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/vectorSearchEndpointsGetEndpoint.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/vectorSearchEndpointsListEndpoints.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/vectorSearchIndexesCreateIndex.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/vectorSearchIndexesDeleteDataVectorIndex.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/vectorSearchIndexesDeleteIndex.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/vectorSearchIndexesGetIndex.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/vectorSearchIndexesListIndexes.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/vectorSearchIndexesQueryIndex.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/vectorSearchIndexesSyncIndex.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/vectorSearchIndexesUpsertDataVectorIndex.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/volumesCreate.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/volumesDelete.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/volumesList.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/volumesRead.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/volumesUpdate.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/warehousesCreate.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/warehousesCreateAndWait.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/warehousesDelete.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/warehousesEdit.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/warehousesEditAndWait.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/warehousesGet.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/warehousesGetPermissionLevels.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/warehousesGetPermissions.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/warehousesGetWorkspaceWarehouseConfig.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/warehousesList.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/warehousesSetPermissions.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/warehousesSetWorkspaceWarehouseConfig.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/warehousesStart.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/warehousesStartAndWait.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/warehousesStop.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/warehousesStopAndWait.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/warehousesUpdatePermissions.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/workspaceBindingsGet.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/workspaceBindingsGetBindings.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/workspaceBindingsUpdate.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/workspaceBindingsUpdateBindings.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/workspaceConfGetStatus.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/workspaceConfSetStatus.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/workspaceDelete.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/workspaceExport.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/workspaceGetPermissionLevels.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/workspaceGetPermissions.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/workspaceGetStatus.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/workspaceImport.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/workspaceList.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/workspaceMkdirs.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/workspaceSetPermissions.html</loc>
-  </url>
-  <url>
-    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/workspaceUpdatePermissions.html</loc>
+    <loc>https://databrickslabs.github.io/databricks-sdk-r/reference/validate_storage_credential.html</loc>
   </url>
 </urlset>
