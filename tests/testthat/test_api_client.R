@@ -14,7 +14,7 @@ test_that("loads configuration file", {
 
 test_that("parses configuration profile", {
   client <- databricks:::DatabricksClient(config_file = "./data/awscfg", profile="client-secret")
-  expected <- "host=https://another.cloud.databricks.com/, client_id=xxx, client_secret=***"
+  expected <- "client_id=xxx, client_secret=***, host=https://another.cloud.databricks.com/"
   expect_equal(expected, client$debug_string())
 })
 
