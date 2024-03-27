@@ -22,6 +22,6 @@ Dependency updates:
 
 {{- define "what" -}}
     {{if eq .X "method" -}}
-        `{{.AsFlat.SnakeName}}()` function
+        [`{{.AsFlat.SnakeName}}()`](https://databrickslabs.github.io/databricks-sdk-r/reference/{{.AsFlat.SnakeName}}.html) function
     {{- end}}
 {{- end -}}

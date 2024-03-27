@@ -28,8 +28,9 @@ jobs:
 
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
-          extra-packages: any::rcmdcheck
-          needs: check
+          extra-packages: devtools
+        env:
+          R_COMPILE_AND_INSTALL_PACKAGES: never
       
       - name: Run tests
         run: |
