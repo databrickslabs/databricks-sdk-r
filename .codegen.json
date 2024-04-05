@@ -17,6 +17,7 @@
       "gsed -i -- 's/\\[Deprecated, use run_id instead\\]/Deprecated, use run_id instead./g' **/*.R",
       "gsed -i -- 's/\\[MLflow endpoint\\]/MLflow endpoint/g' **/*.R",
       "gsed -i -- \"s/\\['timestamp asc'\\]/timestamp asc/g\" **/*.R",
+      "gsed -i -- \"s/<needs content added>/needs content added/g\" **/*.R",
       "Rscript -e \"devtools::document()\""
     ]
   }
