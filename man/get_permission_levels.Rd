@@ -12,9 +12,9 @@ permissionsGetPermissionLevels(client, request_object_type, request_object_id)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{request_object_type}{Required. \if{html}{\out{<needs content>}}.}
+\item{request_object_type}{Required. needs content.}
 
-\item{request_object_id}{Required. \if{html}{\out{<needs content>}}.}
+\item{request_object_id}{Required. needs content.}
 }
 \description{
 Gets the permission levels that a user can have on an object.

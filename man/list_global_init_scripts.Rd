@@ -18,5 +18,5 @@ globalInitScriptsList(client)
 \description{
 Get a list of all global init scripts for this workspace. This returns all
 properties for each script but \strong{not} the script contents. To retrieve the
-contents of a script, use the \href{:method:globalinitscripts/get}{get a global init script} operation.
+contents of a script, use the \href{https://docs.databricks.com}{get a global init script} operation.
 }

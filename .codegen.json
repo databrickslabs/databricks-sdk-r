@@ -18,6 +18,12 @@
       "gsed -i -- 's/\\[MLflow endpoint\\]/MLflow endpoint/g' **/*.R",
       "gsed -i -- \"s/\\['timestamp asc'\\]/timestamp asc/g\" **/*.R",
       "gsed -i -- \"s/<needs content added>/needs content added/g\" **/*.R",
+      "gsed -i -- \"s!\\(/dev-tools/databricks-utils.html#dbutils-fs\\)!\\(https://docs.databricks.com/en/dev-tools/databricks-utils.html\\)!g\" **/*.R",
+      "gsed -i -- \"s!:method:globalinitscripts/get!https://docs.databricks.com!g\" **/*.R",
+      "gsed -i -- \"s!:method:jobs/update!https://docs.databricks.com!g\" **/*.R",
+      "gsed -i -- \"s!:method:jobs/reset!https://docs.databricks.com!g\" **/*.R",
+      "gsed -i -- \"s!<Databricks>!Databricks!g\" **/*.R",
+      "gsed -i -- \"s!<needs content>!needs content!g\" **/*.R",
       "Rscript -e \"devtools::document()\""
     ]
   }

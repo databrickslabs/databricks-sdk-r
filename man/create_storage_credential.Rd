@@ -46,7 +46,7 @@ storageCredentialsCreate(
 
 \item{comment}{Comment associated with the credential.}
 
-\item{databricks_gcp_service_account}{The \if{html}{\out{<Databricks>}} managed GCP service account configuration.}
+\item{databricks_gcp_service_account}{The Databricks managed GCP service account configuration.}
 
 \item{read_only}{Whether the storage credential is only usable for read operations.}
 

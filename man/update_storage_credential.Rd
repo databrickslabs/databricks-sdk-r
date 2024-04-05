@@ -52,7 +52,7 @@ storageCredentialsUpdate(
 
 \item{comment}{Comment associated with the credential.}
 
-\item{databricks_gcp_service_account}{The \if{html}{\out{<Databricks>}} managed GCP service account configuration.}
+\item{databricks_gcp_service_account}{The Databricks managed GCP service account configuration.}
 
 \item{force}{Force update even if there are dependent external locations or external tables.}
 

@@ -30,8 +30,8 @@ permissionsGet <- get_permission
 #' Gets the permission levels that a user can have on an object.
 #' @param client Required. Instance of DatabricksClient()
 #'
-#' @param request_object_id Required. <needs content>.
-#' @param request_object_type Required. <needs content>.
+#' @param request_object_id Required. needs content.
+#' @param request_object_type Required. needs content.
 #'
 #'
 #' @rdname get_permission_levels

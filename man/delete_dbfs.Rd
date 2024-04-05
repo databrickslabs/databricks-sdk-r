@@ -30,7 +30,7 @@ operation until the directory structure is fully deleted.
 
 For operations that delete more than 10K files, we discourage using the DBFS
 REST API, but advise you to perform such operations in the context of a
-cluster, using the \href{/dev-tools/databricks-utils.html#dbutils-fs}{File system utility (dbutils.fs)}. \code{dbutils.fs}
+cluster, using the \href{(https://docs.databricks.com/en/dev-tools/databricks-utils.html)}{File system utility (dbutils.fs)}. \code{dbutils.fs}
 covers the functional scope of the DBFS REST API, but from notebooks. Running
 such operations using notebooks provides better control and manageability,
 such as selective deletes, and the possibility to automate periodic delete

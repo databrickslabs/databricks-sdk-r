@@ -13,7 +13,7 @@ NULL
 #' @param azure_service_principal The Azure service principal configuration.
 #' @param cloudflare_api_token The Cloudflare API token configuration.
 #' @param comment Comment associated with the credential.
-#' @param databricks_gcp_service_account The <Databricks> managed GCP service account configuration.
+#' @param databricks_gcp_service_account The Databricks managed GCP service account configuration.
 #' @param name Required. The credential name.
 #' @param read_only Whether the storage credential is only usable for read operations.
 #' @param skip_validation Supplying true to this argument skips validation of the created credential.
@@ -129,7 +129,7 @@ storageCredentialsList <- list_storage_credentials
 #' @param azure_service_principal The Azure service principal configuration.
 #' @param cloudflare_api_token The Cloudflare API token configuration.
 #' @param comment Comment associated with the credential.
-#' @param databricks_gcp_service_account The <Databricks> managed GCP service account configuration.
+#' @param databricks_gcp_service_account The Databricks managed GCP service account configuration.
 #' @param force Force update even if there are dependent external locations or external tables.
 #' @param name Required. Name of the storage credential.
 #' @param new_name New name for the storage credential.
