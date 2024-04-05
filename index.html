@@ -26,7 +26,7 @@
     
     <a class="navbar-brand me-2" href="index.html">databricks</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.4.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.4.1</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -37,6 +37,9 @@
       <ul class="navbar-nav me-auto">
 <li class="nav-item">
   <a class="nav-link" href="reference/index.html">Reference</a>
+</li>
+<li class="nav-item">
+  <a class="nav-link" href="news/index.html">Changelog</a>
 </li>
       </ul>
 <form class="form-inline my-2 my-lg-0" role="search">
@@ -66,7 +69,7 @@
 <div class="section level2">
 <h2 id="complete-with-databricks-workspace-level-apis">Complete with Databricks workspace-level APIs<a class="anchor" aria-label="anchor" href="#complete-with-databricks-workspace-level-apis"></a>
 </h2>
-<p>Databricks SDK for R comes with all public <a href="https://docs.databricks.com/api/workspace/introduction" class="external-link">workspace-level APIs</a> and is consistent with <a href="https://github.com/databricks/databricks-sdk-py" class="external-link">Databricks SDK for Python</a>, <a href="https://github.com/databricks/databricks-sdk-go" class="external-link">Databricks SDK for Go</a>, and <a href="https://github.com/databricks/databricks-sdk-java" class="external-link">Databricks SDK for Java</a>. Databricks SDK for R does not expose <a href="https://docs.databricks.com/api/account/introduction" class="external-link">account-level APIs</a> and you’re recommended to use Go, Python, or Java SDK to build an account-level automation.</p>
+<p>Databricks SDK for R comes with all public workspace-level API and is consistent with <a href="https://github.com/databricks/databricks-sdk-py" class="external-link">Databricks SDK for Python</a>, <a href="https://github.com/databricks/databricks-sdk-go" class="external-link">Databricks SDK for Go</a>, and <a href="https://github.com/databricks/databricks-sdk-java" class="external-link">Databricks SDK for Java</a>. Databricks SDK for R does not expose account-level API and you’re recommended to use Go, Python, or Java SDK to build an account-level automation.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://databrickslabs.github.io/databricks-sdk-r/">databricks</a></span><span class="op">)</span></span>
