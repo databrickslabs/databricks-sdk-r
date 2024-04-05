@@ -400,7 +400,7 @@ jobsRepairRun <- repair_job_run
 #' Update all job settings (reset).
 #' 
 #' Overwrite all settings for the given job. Use the [_Update_
-#' endpoint](https://docs.databricks.com) to update job settings partially.
+#' endpoint](https://docs.databricks.com/) to update job settings partially.
 #' @param client Required. Instance of DatabricksClient()
 #'
 #' @param job_id Required. The canonical identifier of the job to reset.
@@ -516,7 +516,7 @@ jobsSubmit <- submit_job
 #' Update job settings partially.
 #' 
 #' Add, update, or remove specific settings of an existing job. Use the [_Reset_
-#' endpoint](https://docs.databricks.com) to overwrite all job settings.
+#' endpoint](https://docs.databricks.com/) to overwrite all job settings.
 #' @param client Required. Instance of DatabricksClient()
 #'
 #' @param fields_to_remove Remove top-level fields in the job settings.

@@ -27,6 +27,6 @@ When calling list on a large directory, the list operation will time out
 after approximately 60 seconds. We strongly recommend using list only on
 directories containing less than 10K files and discourage using the DBFS REST
 API for operations that list more than 10K files. Instead, we recommend that
-you perform such operations in the context of a cluster, using the \href{(https://docs.databricks.com/en/dev-tools/databricks-utils.html)}{File system utility (dbutils.fs)},
+you perform such operations in the context of a cluster, using the \href{https://docs.databricks.com/}{File system utility (dbutils.fs)},
 which provides the same functionality without timing out.
 }

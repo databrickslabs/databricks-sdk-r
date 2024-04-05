@@ -92,7 +92,7 @@ dbfsCreate <- create_dbfs
 #' For operations that delete more than 10K files, we discourage using the DBFS
 #' REST API, but advise you to perform such operations in the context of a
 #' cluster, using the [File system utility
-#' (dbutils.fs)]((https://docs.databricks.com/en/dev-tools/databricks-utils.html)). `dbutils.fs`
+#' (dbutils.fs)](https://docs.databricks.com/). `dbutils.fs`
 #' covers the functional scope of the DBFS REST API, but from notebooks. Running
 #' such operations using notebooks provides better control and manageability,
 #' such as selective deletes, and the possibility to automate periodic delete
@@ -145,7 +145,7 @@ dbfsGetStatus <- get_dbfs_status
 #' directories containing less than 10K files and discourage using the DBFS REST
 #' API for operations that list more than 10K files. Instead, we recommend that
 #' you perform such operations in the context of a cluster, using the [File
-#' system utility (dbutils.fs)]((https://docs.databricks.com/en/dev-tools/databricks-utils.html)),
+#' system utility (dbutils.fs)](https://docs.databricks.com/),
 #' which provides the same functionality without timing out.
 #' @param client Required. Instance of DatabricksClient()
 #'

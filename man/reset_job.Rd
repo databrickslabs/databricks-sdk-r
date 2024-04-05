@@ -17,5 +17,5 @@ jobsReset(client, job_id, new_settings)
 \item{new_settings}{Required. The new settings of the job.}
 }
 \description{
-Overwrite all settings for the given job. Use the \href{https://docs.databricks.com}{\emph{Update} endpoint} to update job settings partially.
+Overwrite all settings for the given job. Use the \href{https://docs.databricks.com/}{\emph{Update} endpoint} to update job settings partially.
 }

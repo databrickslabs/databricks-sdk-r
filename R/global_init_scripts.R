@@ -68,7 +68,7 @@ globalInitScriptsGet <- get_global_init_script
 #' Get a list of all global init scripts for this workspace. This returns all
 #' properties for each script but **not** the script contents. To retrieve the
 #' contents of a script, use the [get a global init
-#' script](https://docs.databricks.com) operation.
+#' script](https://docs.databricks.com/) operation.
 #' @param client Required. Instance of DatabricksClient()
 #'
 #' @return `data.frame` with all of the response pages.
