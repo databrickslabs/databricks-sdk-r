@@ -26,10 +26,7 @@ instanceProfilesEdit(
 
 \item{iam_role_arn}{The AWS IAM role ARN of the role associated with the instance profile.}
 
-\item{is_meta_instance_profile}{Boolean flag indicating whether the instance profile should only be used in credential passthrough scenarios.
-
-See the \href{https://docs.databricks.com/api/workspace/instanceprofiles/edit}{API documentation} for more
-information on the request and response field structure.}
+\item{is_meta_instance_profile}{Boolean flag indicating whether the instance profile should only be used in credential passthrough scenarios.}
 }
 \description{
 The only supported field to change is the optional IAM role ARN associated

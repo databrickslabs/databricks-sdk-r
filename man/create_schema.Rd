@@ -34,10 +34,7 @@ schemasCreate(
 
 \item{properties}{A map of key-value properties attached to the securable.}
 
-\item{storage_root}{Storage root URL for managed tables within schema.
-
-See the \href{https://docs.databricks.com/api/workspace/schemas/create}{API documentation} for more
-information on the request and response field structure.}
+\item{storage_root}{Storage root URL for managed tables within schema.}
 }
 \description{
 Creates a new schema for catalog in the Metatastore. The caller must be a

@@ -26,10 +26,7 @@ gitCredentialsCreate(
 
 \item{git_username}{Git username.}
 
-\item{personal_access_token}{The personal access token used to authenticate to the corresponding Git provider.
-
-See the \href{https://docs.databricks.com/api/workspace/gitcredentials/create}{API documentation} for more
-information on the request and response field structure.}
+\item{personal_access_token}{The personal access token used to authenticate to the corresponding Git provider.}
 }
 \description{
 Creates a Git credential entry for the user. Only one Git credential per user

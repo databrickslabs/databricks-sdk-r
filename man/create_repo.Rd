@@ -12,10 +12,7 @@ reposCreate(client, url, provider, path = NULL, sparse_checkout = NULL)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{url}{Required. URL of the Git repository to be linked.
-
-See the \href{https://docs.databricks.com/api/workspace/repos/create}{API documentation} for more
-information on the request and response field structure.}
+\item{url}{Required. URL of the Git repository to be linked.}
 
 \item{provider}{Required. Git provider.}
 

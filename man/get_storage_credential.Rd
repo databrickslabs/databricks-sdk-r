@@ -12,10 +12,7 @@ storageCredentialsGet(client, name)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{name}{Required. Name of the storage credential.
-
-See the \href{https://docs.databricks.com/api/workspace/storagecredentials/get}{API documentation} for more
-information on the request and response field structure.}
+\item{name}{Required. Name of the storage credential.}
 }
 \description{
 Gets a storage credential from the metastore. The caller must be a metastore

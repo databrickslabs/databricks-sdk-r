@@ -10,10 +10,7 @@ set_workspace_conf_status(client)
 workspaceConfSetStatus(client)
 }
 \arguments{
-\item{client}{Required. Instance of DatabricksClient()
-
-See the \href{https://docs.databricks.com/api/workspace/workspaceconf/setstatus}{API documentation} for more
-information on the request and response field structure.}
+\item{client}{Required. Instance of DatabricksClient()}
 }
 \description{
 Sets the configuration status for a workspace, including enabling or

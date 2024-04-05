@@ -34,9 +34,6 @@ modelVersionsList(
 }
 \value{
 \code{data.frame} with all of the response pages.
-
-See the \href{https://docs.databricks.com/api/workspace/modelversions/list}{API documentation} for more
-information on the request and response field structure.
 }
 \description{
 List model versions. You can list model versions under a particular schema,

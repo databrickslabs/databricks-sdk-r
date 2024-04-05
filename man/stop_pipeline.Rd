@@ -12,10 +12,7 @@ pipelinesStop(client, pipeline_id)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{pipeline_id}{Required. This field has no description yet.
-
-See the \href{https://docs.databricks.com/api/workspace/pipelines/stop}{API documentation} for more
-information on the request and response field structure.}
+\item{pipeline_id}{Required. This field has no description yet.}
 }
 \description{
 Stops the pipeline by canceling the active update. If there is no active

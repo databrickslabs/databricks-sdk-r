@@ -12,10 +12,7 @@ recipientsGet(client, name)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{name}{Required. Name of the recipient.
-
-See the \href{https://docs.databricks.com/api/workspace/recipients/get}{API documentation} for more
-information on the request and response field structure.}
+\item{name}{Required. Name of the recipient.}
 }
 \description{
 Gets a share recipient from the metastore if:

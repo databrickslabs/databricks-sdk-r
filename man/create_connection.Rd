@@ -38,10 +38,7 @@ connectionsCreate(
 
 \item{properties}{An object containing map of key-value properties attached to the connection.}
 
-\item{read_only}{If the connection is read only.
-
-See the \href{https://docs.databricks.com/api/workspace/connections/create}{API documentation} for more
-information on the request and response field structure.}
+\item{read_only}{If the connection is read only.}
 }
 \description{
 Creates a new connection

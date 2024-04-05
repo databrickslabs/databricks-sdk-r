@@ -10,8 +10,6 @@ NULL
 #'
 #' @param etag etag used for versioning.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/esmenablement/get) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname get_esm_enablement
 #' @alias esmEnablementGet
@@ -38,8 +36,6 @@ esmEnablementGet <- get_esm_enablement
 #' @param field_mask Required. Field mask is required to be passed into the PATCH request.
 #' @param setting Required. This field has no description yet.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/esmenablement/update) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname update_esm_enablement
 #' @alias esmEnablementUpdate

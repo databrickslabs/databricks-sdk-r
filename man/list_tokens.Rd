@@ -14,9 +14,6 @@ tokensList(client)
 }
 \value{
 \code{data.frame} with all of the response pages.
-
-See the \href{https://docs.databricks.com/api/workspace/tokens/list}{API documentation} for more
-information on the request and response field structure.
 }
 \description{
 Lists all the valid tokens for a user-workspace pair.

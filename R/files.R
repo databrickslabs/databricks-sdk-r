@@ -13,8 +13,6 @@ NULL
 #'
 #' @param directory_path Required. The absolute path of a directory.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/files/createdirectory) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname create_file_directory
 #' @alias filesCreateDirectory
@@ -34,8 +32,6 @@ filesCreateDirectory <- create_file_directory
 #'
 #' @param file_path Required. The absolute path of the file.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/files/delete) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname delete_file
 #' @alias filesDelete
@@ -59,8 +55,6 @@ filesDelete <- delete_file
 #'
 #' @param directory_path Required. The absolute path of a directory.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/files/deletedirectory) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname delete_file_directory
 #' @alias filesDeleteDirectory
@@ -81,8 +75,6 @@ filesDeleteDirectory <- delete_file_directory
 #'
 #' @param file_path Required. The absolute path of the file.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/files/download) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname download_file
 #' @alias filesDownload
@@ -110,8 +102,6 @@ filesDownload <- download_file
 #'
 #' @param directory_path Required. The absolute path of a directory.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/files/getdirectorymetadata) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname get_file_directory_metadata
 #' @alias filesGetDirectoryMetadata
@@ -132,8 +122,6 @@ filesGetDirectoryMetadata <- get_file_directory_metadata
 #'
 #' @param file_path Required. The absolute path of the file.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/files/getmetadata) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname get_file_metadata
 #' @alias filesGetMetadata
@@ -158,8 +146,6 @@ filesGetMetadata <- get_file_metadata
 #'
 #' @return `data.frame` with all of the response pages.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/files/listdirectorycontents) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname list_file_directory_contents
 #' @alias filesListDirectoryContents
@@ -202,8 +188,6 @@ filesListDirectoryContents <- list_file_directory_contents
 #' @param file_path Required. The absolute path of the file.
 #' @param overwrite If true, an existing file will be overwritten.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/files/upload) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname upload_file
 #' @alias filesUpload

@@ -13,8 +13,6 @@ NULL
 #' @param scopes Required. Array of scopes for the token request.
 #' @param token_type Required. A list of token types being requested.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/credentialsmanager/exchangetoken) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname exchange_credentials_manager_token
 #' @alias credentialsManagerExchangeToken

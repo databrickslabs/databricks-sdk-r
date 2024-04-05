@@ -14,10 +14,7 @@ accountAccessControlProxyUpdateRuleSet(client, name, rule_set)
 
 \item{name}{Required. Name of the rule set.}
 
-\item{rule_set}{Required. This field has no description yet.
-
-See the \href{https://docs.databricks.com/api/workspace/accountaccesscontrolproxy/updateruleset}{API documentation} for more
-information on the request and response field structure.}
+\item{rule_set}{Required. This field has no description yet.}
 }
 \description{
 Replace the rules of a rule set. First, use a GET rule set request to read

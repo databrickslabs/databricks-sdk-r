@@ -12,10 +12,7 @@ instancePoolsDelete(client, instance_pool_id)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{instance_pool_id}{Required. The instance pool to be terminated.
-
-See the \href{https://docs.databricks.com/api/workspace/instancepools/delete}{API documentation} for more
-information on the request and response field structure.}
+\item{instance_pool_id}{Required. The instance pool to be terminated.}
 }
 \description{
 Deletes the instance pool permanently. The idle instances in the pool are

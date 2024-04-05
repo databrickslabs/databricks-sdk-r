@@ -12,10 +12,7 @@ grantsUpdate(client, securable_type, full_name, changes = NULL)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{securable_type}{Required. Type of securable.
-
-See the \href{https://docs.databricks.com/api/workspace/grants/update}{API documentation} for more
-information on the request and response field structure.}
+\item{securable_type}{Required. Type of securable.}
 
 \item{full_name}{Required. Full name of securable.}
 

@@ -18,9 +18,6 @@ modelRegistryListModels(client, max_results = NULL, page_token = NULL)
 }
 \value{
 \code{data.frame} with all of the response pages.
-
-See the \href{https://docs.databricks.com/api/workspace/modelregistry/listmodels}{API documentation} for more
-information on the request and response field structure.
 }
 \description{
 Lists all available registered models, up to the limit specified in

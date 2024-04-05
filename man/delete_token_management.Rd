@@ -12,10 +12,7 @@ tokenManagementDelete(client, token_id)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{token_id}{Required. The ID of the token to get.
-
-See the \href{https://docs.databricks.com/api/workspace/tokenmanagement/delete}{API documentation} for more
-information on the request and response field structure.}
+\item{token_id}{Required. The ID of the token to get.}
 }
 \description{
 Deletes a token, specified by its ID.

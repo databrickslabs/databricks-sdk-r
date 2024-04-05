@@ -12,10 +12,7 @@ volumesRead(client, name, include_browse = NULL)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{name}{Required. The three-level (fully qualified) name of the volume.
-
-See the \href{https://docs.databricks.com/api/workspace/volumes/read}{API documentation} for more
-information on the request and response field structure.}
+\item{name}{Required. The three-level (fully qualified) name of the volume.}
 
 \item{include_browse}{Whether to include volumes in the response for which the principal can only access selective metadata for.}
 }

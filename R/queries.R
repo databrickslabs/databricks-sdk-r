@@ -24,8 +24,6 @@ NULL
 #' @param query The text of the query to be run.
 #' @param run_as_role Sets the **Run as** role for the object.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/queries/create) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname create_query
 #' @alias queriesCreate
@@ -49,8 +47,6 @@ queriesCreate <- create_query
 #'
 #' @param query_id Required. This field has no description yet.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/queries/delete) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname delete_query
 #' @alias queriesDelete
@@ -71,8 +67,6 @@ queriesDelete <- delete_query
 #'
 #' @param query_id Required. This field has no description yet.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/queries/get) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname get_query
 #' @alias queriesGet
@@ -101,8 +95,6 @@ queriesGet <- get_query
 #'
 #' @return `data.frame` with all of the response pages.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/queries/list) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname list_queries
 #' @alias queriesList
@@ -138,8 +130,6 @@ queriesList <- list_queries
 #'
 #' @param query_id Required. This field has no description yet.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/queries/restore) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname restore_query
 #' @alias queriesRestore
@@ -167,8 +157,6 @@ queriesRestore <- restore_query
 #' @param query_id Required. This field has no description yet.
 #' @param run_as_role Sets the **Run as** role for the object.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/queries/update) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname update_query
 #' @alias queriesUpdate

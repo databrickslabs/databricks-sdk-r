@@ -11,8 +11,6 @@ NULL
 #' @param endpoint_type Required. Type of endpoint.
 #' @param name Required. Name of endpoint.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/vectorsearchendpoints/createendpoint) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname create_vector_search_endpoint
 #' @alias vectorSearchEndpointsCreateEndpoint
@@ -30,8 +28,6 @@ vectorSearchEndpointsCreateEndpoint <- create_vector_search_endpoint
 #'
 #' @param endpoint_name Required. Name of the endpoint.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/vectorsearchendpoints/deleteendpoint) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname delete_vector_search_endpoint
 #' @alias vectorSearchEndpointsDeleteEndpoint
@@ -50,8 +46,6 @@ vectorSearchEndpointsDeleteEndpoint <- delete_vector_search_endpoint
 #'
 #' @param endpoint_name Required. Name of the endpoint.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/vectorsearchendpoints/getendpoint) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname get_vector_search_endpoint
 #' @alias vectorSearchEndpointsGetEndpoint
@@ -71,8 +65,6 @@ vectorSearchEndpointsGetEndpoint <- get_vector_search_endpoint
 #'
 #' @return `data.frame` with all of the response pages.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/vectorsearchendpoints/listendpoints) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname list_vector_search_endpoint_endpoints
 #' @alias vectorSearchEndpointsListEndpoints

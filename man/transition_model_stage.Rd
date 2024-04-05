@@ -28,10 +28,7 @@ modelRegistryTransitionStage(
 
 \item{name}{Required. Name of the model.}
 
-\item{version}{Required. Version of the model.
-
-See the \href{https://docs.databricks.com/api/workspace/modelregistry/transitionstage}{API documentation} for more
-information on the request and response field structure.}
+\item{version}{Required. Version of the model.}
 
 \item{stage}{Required. Target stage of the transition.}
 

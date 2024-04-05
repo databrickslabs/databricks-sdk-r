@@ -12,10 +12,7 @@ clusterPoliciesGet(client, policy_id)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{policy_id}{Required. Canonical unique identifier for the cluster policy.
-
-See the \href{https://docs.databricks.com/api/workspace/clusterpolicies/get}{API documentation} for more
-information on the request and response field structure.}
+\item{policy_id}{Required. Canonical unique identifier for the cluster policy.}
 }
 \description{
 Get a cluster policy entity. Creation and editing is available to admins

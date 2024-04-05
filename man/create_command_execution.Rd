@@ -14,10 +14,7 @@ commandExecutionCreate(client, cluster_id = NULL, language = NULL)
 
 \item{cluster_id}{Running cluster id.}
 
-\item{language}{This field has no description yet.
-
-See the \href{https://docs.databricks.com/api/workspace/commandexecution/create}{API documentation} for more
-information on the request and response field structure.}
+\item{language}{This field has no description yet.}
 }
 \description{
 Creates an execution context for running cluster commands.

@@ -16,10 +16,7 @@ metastoresCreate(client, name, region = NULL, storage_root = NULL)
 
 \item{region}{Cloud region which the metastore serves (e.g., \code{us-west-2}, \code{westus}).}
 
-\item{storage_root}{The storage root URL for metastore.
-
-See the \href{https://docs.databricks.com/api/workspace/metastores/create}{API documentation} for more
-information on the request and response field structure.}
+\item{storage_root}{The storage root URL for metastore.}
 }
 \description{
 Creates a new metastore based on a provided name and optional storage root

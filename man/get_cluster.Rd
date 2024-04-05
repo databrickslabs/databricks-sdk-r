@@ -12,10 +12,7 @@ clustersGet(client, cluster_id)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{cluster_id}{Required. The cluster about which to retrieve information.
-
-See the \href{https://docs.databricks.com/api/workspace/clusters/get}{API documentation} for more
-information on the request and response field structure.}
+\item{cluster_id}{Required. The cluster about which to retrieve information.}
 }
 \description{
 Retrieves the information for a cluster given its identifier. Clusters can be

@@ -14,10 +14,7 @@ servingEndpointsPut(client, name, rate_limits = NULL)
 
 \item{name}{Required. The name of the serving endpoint whose rate limits are being updated.}
 
-\item{rate_limits}{The list of endpoint rate limits.
-
-See the \href{https://docs.databricks.com/api/workspace/servingendpoints/put}{API documentation} for more
-information on the request and response field structure.}
+\item{rate_limits}{The list of endpoint rate limits.}
 }
 \description{
 Used to update the rate limits of a serving endpoint. NOTE: only external and

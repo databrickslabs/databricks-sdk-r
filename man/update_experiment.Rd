@@ -14,10 +14,7 @@ experimentsUpdateExperiment(client, experiment_id, new_name = NULL)
 
 \item{experiment_id}{Required. ID of the associated experiment.}
 
-\item{new_name}{If provided, the experiment's name is changed to the new name.
-
-See the \href{https://docs.databricks.com/api/workspace/experiments/updateexperiment}{API documentation} for more
-information on the request and response field structure.}
+\item{new_name}{If provided, the experiment's name is changed to the new name.}
 }
 \description{
 Updates experiment metadata.

@@ -14,10 +14,7 @@ appsGetAppDeploymentStatus(client, deployment_id, include_app_log = NULL)
 
 \item{deployment_id}{Required. The deployment id for an application.}
 
-\item{include_app_log}{Boolean flag to include application logs.
-
-See the \href{https://docs.databricks.com/api/workspace/apps/getappdeploymentstatus}{API documentation} for more
-information on the request and response field structure.}
+\item{include_app_log}{Boolean flag to include application logs.}
 }
 \description{
 Get deployment status for an application

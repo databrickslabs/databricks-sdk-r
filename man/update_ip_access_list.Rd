@@ -34,10 +34,7 @@ ipAccessListsUpdate(
 
 \item{label}{Label for the IP access list.}
 
-\item{list_type}{Type of IP access list.
-
-See the \href{https://docs.databricks.com/api/workspace/ipaccesslists/update}{API documentation} for more
-information on the request and response field structure.}
+\item{list_type}{Type of IP access list.}
 }
 \description{
 Updates an existing IP access list, specified by its ID.

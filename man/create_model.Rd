@@ -16,10 +16,7 @@ modelRegistryCreateModel(client, name, description = NULL, tags = NULL)
 
 \item{description}{Optional description for registered model.}
 
-\item{tags}{Additional metadata for registered model.
-
-See the \href{https://docs.databricks.com/api/workspace/modelregistry/createmodel}{API documentation} for more
-information on the request and response field structure.}
+\item{tags}{Additional metadata for registered model.}
 }
 \description{
 Creates a new registered model with the name specified in the request body.

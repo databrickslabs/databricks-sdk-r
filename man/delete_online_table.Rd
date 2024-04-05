@@ -12,10 +12,7 @@ onlineTablesDelete(client, name)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{name}{Required. Full three-part (catalog, schema, table) name of the table.
-
-See the \href{https://docs.databricks.com/api/workspace/onlinetables/delete}{API documentation} for more
-information on the request and response field structure.}
+\item{name}{Required. Full three-part (catalog, schema, table) name of the table.}
 }
 \description{
 Delete an online table. Warning: This will delete all the data in the online

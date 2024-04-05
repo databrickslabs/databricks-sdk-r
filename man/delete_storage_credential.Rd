@@ -12,10 +12,7 @@ storageCredentialsDelete(client, name, force = NULL)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{name}{Required. Name of the storage credential.
-
-See the \href{https://docs.databricks.com/api/workspace/storagecredentials/delete}{API documentation} for more
-information on the request and response field structure.}
+\item{name}{Required. Name of the storage credential.}
 
 \item{force}{Force deletion even if there are dependent external locations or external tables.}
 }

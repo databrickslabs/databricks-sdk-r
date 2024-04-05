@@ -12,10 +12,7 @@ metastoresDelete(client, id, force = NULL)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{id}{Required. Unique ID of the metastore.
-
-See the \href{https://docs.databricks.com/api/workspace/metastores/delete}{API documentation} for more
-information on the request and response field structure.}
+\item{id}{Required. Unique ID of the metastore.}
 
 \item{force}{Force deletion even if the metastore is not empty.}
 }

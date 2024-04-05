@@ -11,8 +11,6 @@ NULL
 #' @param name Required. The name of the serving endpoint that the served model belongs to.
 #' @param served_model_name Required. The name of the served model that build logs will be retrieved for.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/servingendpoints/buildlogs) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname build_serving_endpoint_logs
 #' @alias servingEndpointsBuildLogs
@@ -34,8 +32,6 @@ servingEndpointsBuildLogs <- build_serving_endpoint_logs
 #' @param rate_limits Rate limits to be applied to the serving endpoint.
 #' @param tags Tags to be attached to the serving endpoint and automatically propagated to billing logs.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/servingendpoints/create) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname create_serving_endpoint
 #' @alias servingEndpointsCreate
@@ -53,8 +49,6 @@ servingEndpointsCreate <- create_serving_endpoint
 #'
 #' @param name Required. The name of the serving endpoint.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/servingendpoints/delete) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname delete_serving_endpoint
 #' @alias servingEndpointsDelete
@@ -75,8 +69,6 @@ servingEndpointsDelete <- delete_serving_endpoint
 #'
 #' @param name Required. The name of the serving endpoint to retrieve metrics for.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/servingendpoints/exportmetrics) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname export_serving_endpoint_metrics
 #' @alias servingEndpointsExportMetrics
@@ -96,8 +88,6 @@ servingEndpointsExportMetrics <- export_serving_endpoint_metrics
 #'
 #' @param name Required. The name of the serving endpoint.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/servingendpoints/get) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname get_serving_endpoint
 #' @alias servingEndpointsGet
@@ -117,8 +107,6 @@ servingEndpointsGet <- get_serving_endpoint
 #'
 #' @param serving_endpoint_id Required. The serving endpoint for which to get or manage permissions.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/servingendpoints/getpermissionlevels) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname get_serving_endpoint_permission_levels
 #' @alias servingEndpointsGetPermissionLevels
@@ -140,8 +128,6 @@ servingEndpointsGetPermissionLevels <- get_serving_endpoint_permission_levels
 #'
 #' @param serving_endpoint_id Required. The serving endpoint for which to get or manage permissions.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/servingendpoints/getpermissions) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname get_serving_endpoint_permissions
 #' @alias servingEndpointsGetPermissions
@@ -160,8 +146,6 @@ servingEndpointsGetPermissions <- get_serving_endpoint_permissions
 #'
 #' @return `data.frame` with all of the response pages.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/servingendpoints/list) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname list_serving_endpoints
 #' @alias servingEndpointsList
@@ -184,8 +168,6 @@ servingEndpointsList <- list_serving_endpoints
 #' @param name Required. The name of the serving endpoint that the served model belongs to.
 #' @param served_model_name Required. The name of the served model that logs will be retrieved for.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/servingendpoints/logs) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname logs_serving_endpoint
 #' @alias servingEndpointsLogs
@@ -209,8 +191,6 @@ servingEndpointsLogs <- logs_serving_endpoint
 #' @param delete_tags List of tag keys to delete.
 #' @param name Required. The name of the serving endpoint who's tags to patch.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/servingendpoints/patch) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname patch_serving_endpoint
 #' @alias servingEndpointsPatch
@@ -233,8 +213,6 @@ servingEndpointsPatch <- patch_serving_endpoint
 #' @param name Required. The name of the serving endpoint whose rate limits are being updated.
 #' @param rate_limits The list of endpoint rate limits.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/servingendpoints/put) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname put_serving_endpoint
 #' @alias servingEndpointsPut
@@ -266,8 +244,6 @@ servingEndpointsPut <- put_serving_endpoint
 #' @param stream The stream field used ONLY for __completions__ and __chat external & foundation model__ serving endpoints.
 #' @param temperature The temperature field used ONLY for __completions__ and __chat external & foundation model__ serving endpoints.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/servingendpoints/query) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname query_serving_endpoint
 #' @alias servingEndpointsQuery
@@ -295,8 +271,6 @@ servingEndpointsQuery <- query_serving_endpoint
 #' @param access_control_list This field has no description yet.
 #' @param serving_endpoint_id Required. The serving endpoint for which to get or manage permissions.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/servingendpoints/setpermissions) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname set_serving_endpoint_permissions
 #' @alias servingEndpointsSetPermissions
@@ -324,8 +298,6 @@ servingEndpointsSetPermissions <- set_serving_endpoint_permissions
 #' @param served_models (Deprecated, use served_entities instead) A list of served models for the endpoint to serve.
 #' @param traffic_config The traffic config defining how invocations to the serving endpoint should be routed.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/servingendpoints/updateconfig) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname update_serving_endpoint_config
 #' @alias servingEndpointsUpdateConfig
@@ -350,8 +322,6 @@ servingEndpointsUpdateConfig <- update_serving_endpoint_config
 #' @param access_control_list This field has no description yet.
 #' @param serving_endpoint_id Required. The serving endpoint for which to get or manage permissions.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/servingendpoints/updatepermissions) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname update_serving_endpoint_permissions
 #' @alias servingEndpointsUpdatePermissions

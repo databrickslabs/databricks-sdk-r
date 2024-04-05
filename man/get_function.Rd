@@ -12,10 +12,7 @@ functionsGet(client, name, include_browse = NULL)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{name}{Required. The fully-qualified name of the function (of the form \strong{catalog_name}.\strong{schema_name}.\strong{function__name}).
-
-See the \href{https://docs.databricks.com/api/workspace/functions/get}{API documentation} for more
-information on the request and response field structure.}
+\item{name}{Required. The fully-qualified name of the function (of the form \strong{catalog_name}.\strong{schema_name}.\strong{function__name}).}
 
 \item{include_browse}{Whether to include functions in the response for which the principal can only access selective metadata for.}
 }

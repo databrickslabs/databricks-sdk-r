@@ -14,10 +14,7 @@ vectorSearchIndexesDeleteDataVectorIndex(client, index_name, primary_keys)
 
 \item{index_name}{Required. Name of the vector index where data is to be deleted.}
 
-\item{primary_keys}{Required. List of primary keys for the data to be deleted.
-
-See the \href{https://docs.databricks.com/api/workspace/vectorsearchindexes/deletedatavectorindex}{API documentation} for more
-information on the request and response field structure.}
+\item{primary_keys}{Required. List of primary keys for the data to be deleted.}
 }
 \description{
 Handles the deletion of data from a specified vector index.

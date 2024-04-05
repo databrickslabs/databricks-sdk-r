@@ -10,11 +10,9 @@ NULL
 #' can be supplied as an argument to `owner_username`.
 #' @param client Required. Instance of DatabricksClient()
 #'
-#' @param cluster_id Required. <needs content added>.
+#' @param cluster_id Required. needs content added.
 #' @param owner_username Required. New owner of the cluster_id after this RPC.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/clusters/changeowner) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname change_cluster_owner
 #' @alias clustersChangeOwner
@@ -68,8 +66,6 @@ clustersChangeOwner <- change_cluster_owner
 #' @param ssh_public_keys SSH public key contents that will be added to each Spark node in this cluster.
 #' @param workload_type This field has no description yet.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/clusters/create) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname create_cluster
 #' @alias clustersCreate
@@ -109,8 +105,6 @@ clustersCreate <- create_cluster
 #'
 #' @param cluster_id Required. The cluster to be terminated.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/clusters/delete) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname delete_cluster
 #' @alias clustersDelete
@@ -169,8 +163,6 @@ clustersDelete <- delete_cluster
 #' @param ssh_public_keys SSH public key contents that will be added to each Spark node in this cluster.
 #' @param workload_type This field has no description yet.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/clusters/edit) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname edit_cluster
 #' @alias clustersEdit
@@ -217,8 +209,6 @@ clustersEdit <- edit_cluster
 #'
 #' @return `data.frame` with all of the response pages.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/clusters/events) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname events_cluster
 #' @alias clustersEvents
@@ -256,8 +246,6 @@ clustersEvents <- events_cluster
 #'
 #' @param cluster_id Required. The cluster about which to retrieve information.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/clusters/get) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname get_cluster
 #' @alias clustersGet
@@ -277,8 +265,6 @@ clustersGet <- get_cluster
 #'
 #' @param cluster_id Required. The cluster for which to get or manage permissions.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/clusters/getpermissionlevels) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname get_cluster_permission_levels
 #' @alias clustersGetPermissionLevels
@@ -300,8 +286,6 @@ clustersGetPermissionLevels <- get_cluster_permission_levels
 #'
 #' @param cluster_id Required. The cluster for which to get or manage permissions.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/clusters/getpermissions) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname get_cluster_permissions
 #' @alias clustersGetPermissions
@@ -331,8 +315,6 @@ clustersGetPermissions <- get_cluster_permissions
 #'
 #' @return `data.frame` with all of the response pages.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/clusters/list) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname list_clusters
 #' @alias clustersList
@@ -354,8 +336,6 @@ clustersList <- list_clusters
 #' launch a cluster.
 #' @param client Required. Instance of DatabricksClient()
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/clusters/listnodetypes) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname list_cluster_node_types
 #' @alias clustersListNodeTypes
@@ -373,8 +353,6 @@ clustersListNodeTypes <- list_cluster_node_types
 #' example, us-west-2a). These zones can be used to launch a cluster.
 #' @param client Required. Instance of DatabricksClient()
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/clusters/listzones) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname list_cluster_zones
 #' @alias clustersListZones
@@ -398,8 +376,6 @@ clustersListZones <- list_cluster_zones
 #'
 #' @param cluster_id Required. The cluster to be deleted.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/clusters/permanentdelete) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname permanent_cluster_delete
 #' @alias clustersPermanentDelete
@@ -419,10 +395,8 @@ clustersPermanentDelete <- permanent_cluster_delete
 #' effect. This API can only be called by workspace admins.
 #' @param client Required. Instance of DatabricksClient()
 #'
-#' @param cluster_id Required. <needs content added>.
+#' @param cluster_id Required. needs content added.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/clusters/pin) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname pin_cluster
 #' @alias clustersPin
@@ -445,8 +419,6 @@ clustersPin <- pin_cluster
 #' @param cluster_id Required. The cluster to be resized.
 #' @param num_workers Number of worker nodes that this cluster should have.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/clusters/resize) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname resize_cluster
 #' @alias clustersResize
@@ -466,10 +438,8 @@ clustersResize <- resize_cluster
 #' @param client Required. Instance of DatabricksClient()
 #'
 #' @param cluster_id Required. The cluster to be started.
-#' @param restart_user <needs content added>.
+#' @param restart_user needs content added.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/clusters/restart) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname restart_cluster
 #' @alias clustersRestart
@@ -491,8 +461,6 @@ clustersRestart <- restart_cluster
 #' @param access_control_list This field has no description yet.
 #' @param cluster_id Required. The cluster for which to get or manage permissions.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/clusters/setpermissions) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname set_cluster_permissions
 #' @alias clustersSetPermissions
@@ -512,8 +480,6 @@ clustersSetPermissions <- set_cluster_permissions
 #' launch a cluster.
 #' @param client Required. Instance of DatabricksClient()
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/clusters/sparkversions) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname spark_cluster_versions
 #' @alias clustersSparkVersions
@@ -539,8 +505,6 @@ clustersSparkVersions <- spark_cluster_versions
 #'
 #' @param cluster_id Required. The cluster to be started.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/clusters/start) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname start_cluster
 #' @alias clustersStart
@@ -560,10 +524,8 @@ clustersStart <- start_cluster
 #' This API can only be called by workspace admins.
 #' @param client Required. Instance of DatabricksClient()
 #'
-#' @param cluster_id Required. <needs content added>.
+#' @param cluster_id Required. needs content added.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/clusters/unpin) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname unpin_cluster
 #' @alias clustersUnpin
@@ -585,8 +547,6 @@ clustersUnpin <- unpin_cluster
 #' @param access_control_list This field has no description yet.
 #' @param cluster_id Required. The cluster for which to get or manage permissions.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/clusters/updatepermissions) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname update_cluster_permissions
 #' @alias clustersUpdatePermissions
@@ -971,7 +931,7 @@ resize_cluster_and_wait <- function(client, cluster_id, autoscale = NULL, num_wo
 #' @param callback Function to report the status of the operation. By default, it reports to console.
 #'
 #' @param cluster_id Required. The cluster to be started.
-#' @param restart_user <needs content added>.
+#' @param restart_user needs content added.
 #'
 #' @rdname restart_cluster_and_wait
 #' @export

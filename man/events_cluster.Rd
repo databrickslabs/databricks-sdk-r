@@ -46,9 +46,6 @@ clustersEvents(
 }
 \value{
 \code{data.frame} with all of the response pages.
-
-See the \href{https://docs.databricks.com/api/workspace/clusters/events}{API documentation} for more
-information on the request and response field structure.
 }
 \description{
 Retrieves a list of events about the activity of a cluster. This API is

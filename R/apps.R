@@ -11,8 +11,6 @@ NULL
 #' @param manifest Required. Manifest that specifies the application requirements.
 #' @param resources Information passed at app deployment time to fulfill app dependencies.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/apps/create) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname create_app
 #' @alias appsCreate
@@ -32,8 +30,6 @@ appsCreate <- create_app
 #'
 #' @param name Required. The name of an application.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/apps/deleteapp) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname delete_app
 #' @alias appsDeleteApp
@@ -53,8 +49,6 @@ appsDeleteApp <- delete_app
 #'
 #' @param name Required. The name of an application.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/apps/getapp) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname get_app
 #' @alias appsGetApp
@@ -75,8 +69,6 @@ appsGetApp <- get_app
 #' @param deployment_id Required. The deployment id for an application.
 #' @param include_app_log Boolean flag to include application logs.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/apps/getappdeploymentstatus) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname get_app_deployment_status
 #' @alias appsGetAppDeploymentStatus
@@ -95,8 +87,6 @@ appsGetAppDeploymentStatus <- get_app_deployment_status
 #' List all available applications
 #' @param client Required. Instance of DatabricksClient()
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/apps/getapps) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname get_app_apps
 #' @alias appsGetApps
@@ -115,8 +105,6 @@ appsGetApps <- get_app_apps
 #'
 #' @param name Required. The name of an application.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/apps/getevents) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname get_app_events
 #' @alias appsGetEvents

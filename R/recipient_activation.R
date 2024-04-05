@@ -10,8 +10,6 @@ NULL
 #'
 #' @param activation_url Required. The one time activation url.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/recipientactivation/getactivationurlinfo) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname get_recipient_activation_url_info
 #' @alias recipientActivationGetActivationUrlInfo
@@ -33,8 +31,6 @@ recipientActivationGetActivationUrlInfo <- get_recipient_activation_url_info
 #'
 #' @param activation_url Required. The one time activation url.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/recipientactivation/retrievetoken) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname retrieve_recipient_activation_token
 #' @alias recipientActivationRetrieveToken

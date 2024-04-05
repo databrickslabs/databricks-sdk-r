@@ -16,9 +16,6 @@ catalogsList(client, include_browse = NULL)
 }
 \value{
 \code{data.frame} with all of the response pages.
-
-See the \href{https://docs.databricks.com/api/workspace/catalogs/list}{API documentation} for more
-information on the request and response field structure.
 }
 \description{
 Gets an array of catalogs in the metastore. If the caller is the metastore

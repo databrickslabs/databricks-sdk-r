@@ -14,10 +14,7 @@ pipelinesGetUpdate(client, pipeline_id, update_id)
 
 \item{pipeline_id}{Required. The ID of the pipeline.}
 
-\item{update_id}{Required. The ID of the update.
-
-See the \href{https://docs.databricks.com/api/workspace/pipelines/getupdate}{API documentation} for more
-information on the request and response field structure.}
+\item{update_id}{Required. The ID of the update.}
 }
 \description{
 Gets an update from an active pipeline.

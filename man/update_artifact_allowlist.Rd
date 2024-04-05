@@ -12,10 +12,7 @@ artifactAllowlistsUpdate(client, artifact_type, artifact_matchers)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{artifact_type}{Required. The artifact type of the allowlist.
-
-See the \href{https://docs.databricks.com/api/workspace/artifactallowlists/update}{API documentation} for more
-information on the request and response field structure.}
+\item{artifact_type}{Required. The artifact type of the allowlist.}
 
 \item{artifact_matchers}{Required. A list of allowed artifact match patterns.}
 }

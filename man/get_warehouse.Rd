@@ -12,10 +12,7 @@ warehousesGet(client, id)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{id}{Required. Required.
-
-See the \href{https://docs.databricks.com/api/workspace/warehouses/get}{API documentation} for more
-information on the request and response field structure.}
+\item{id}{Required. Required.}
 }
 \description{
 Gets the information for a single SQL warehouse.

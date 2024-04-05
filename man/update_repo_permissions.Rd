@@ -12,10 +12,7 @@ reposUpdatePermissions(client, repo_id, access_control_list = NULL)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{repo_id}{Required. The repo for which to get or manage permissions.
-
-See the \href{https://docs.databricks.com/api/workspace/repos/updatepermissions}{API documentation} for more
-information on the request and response field structure.}
+\item{repo_id}{Required. The repo for which to get or manage permissions.}
 
 \item{access_control_list}{This field has no description yet.}
 }

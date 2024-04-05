@@ -14,10 +14,7 @@ servingEndpointsBuildLogs(client, name, served_model_name)
 
 \item{name}{Required. The name of the serving endpoint that the served model belongs to.}
 
-\item{served_model_name}{Required. The name of the served model that build logs will be retrieved for.
-
-See the \href{https://docs.databricks.com/api/workspace/servingendpoints/buildlogs}{API documentation} for more
-information on the request and response field structure.}
+\item{served_model_name}{Required. The name of the served model that build logs will be retrieved for.}
 }
 \description{
 Retrieves the build logs associated with the provided served model.

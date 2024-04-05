@@ -17,8 +17,6 @@ NULL
 #'
 #' @return `data.frame` with all of the response pages.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/queryhistory/list) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname list_query_history
 #' @alias queryHistoryList

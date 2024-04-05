@@ -12,10 +12,7 @@ modelRegistryGetPermissionLevels(client, registered_model_id)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{registered_model_id}{Required. The registered model for which to get or manage permissions.
-
-See the \href{https://docs.databricks.com/api/workspace/modelregistry/getpermissionlevels}{API documentation} for more
-information on the request and response field structure.}
+\item{registered_model_id}{Required. The registered model for which to get or manage permissions.}
 }
 \description{
 Gets the permission levels that a user can have on an object.

@@ -12,10 +12,7 @@ dashboardsDelete(client, dashboard_id)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{dashboard_id}{Required. This field has no description yet.
-
-See the \href{https://docs.databricks.com/api/workspace/dashboards/delete}{API documentation} for more
-information on the request and response field structure.}
+\item{dashboard_id}{Required. This field has no description yet.}
 }
 \description{
 Moves a dashboard to the trash. Trashed dashboards do not appear in list

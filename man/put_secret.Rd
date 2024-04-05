@@ -18,10 +18,7 @@ secretsPutSecret(client, scope, key, bytes_value = NULL, string_value = NULL)
 
 \item{bytes_value}{If specified, value will be stored as bytes.}
 
-\item{string_value}{If specified, note that the value will be stored in UTF-8 (MB4) form.
-
-See the \href{https://docs.databricks.com/api/workspace/secrets/putsecret}{API documentation} for more
-information on the request and response field structure.}
+\item{string_value}{If specified, note that the value will be stored in UTF-8 (MB4) form.}
 }
 \description{
 Inserts a secret under the provided scope with the given name. If a secret

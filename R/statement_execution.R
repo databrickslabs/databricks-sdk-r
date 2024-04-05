@@ -11,8 +11,6 @@ NULL
 #'
 #' @param statement_id Required. The statement ID is returned upon successfully submitting a SQL statement, and is a required reference for all subsequent calls.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/statementexecution/cancelexecution) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname cancel_statement_execution
 #' @alias statementExecutionCancelExecution
@@ -41,8 +39,6 @@ statementExecutionCancelExecution <- cancel_statement_execution
 #' @param wait_timeout The time in seconds the call will wait for the statement's result set as `Ns`, where `N` can be set to 0 or to a value between 5 and 50.
 #' @param warehouse_id Required. Warehouse upon which to execute a statement.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/statementexecution/executestatement) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname execute_statement
 #' @alias statementExecutionExecuteStatement
@@ -75,8 +71,6 @@ statementExecutionExecuteStatement <- execute_statement
 #'
 #' @param statement_id Required. The statement ID is returned upon successfully submitting a SQL statement, and is a required reference for all subsequent calls.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/statementexecution/getstatement) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname get_statement_execution
 #' @alias statementExecutionGetStatement
@@ -104,8 +98,6 @@ statementExecutionGetStatement <- get_statement_execution
 #' @param chunk_index Required. This field has no description yet.
 #' @param statement_id Required. The statement ID is returned upon successfully submitting a SQL statement, and is a required reference for all subsequent calls.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/statementexecution/getstatementresultchunkn) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname get_statement_execution_result_chunk_n
 #' @alias statementExecutionGetStatementResultChunkN

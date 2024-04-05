@@ -14,10 +14,7 @@ appsCreate(client, manifest, resources = NULL)
 
 \item{manifest}{Required. Manifest that specifies the application requirements.}
 
-\item{resources}{Information passed at app deployment time to fulfill app dependencies.
-
-See the \href{https://docs.databricks.com/api/workspace/apps/create}{API documentation} for more
-information on the request and response field structure.}
+\item{resources}{Information passed at app deployment time to fulfill app dependencies.}
 }
 \description{
 Creates and deploys an application.

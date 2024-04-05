@@ -94,10 +94,7 @@ pipelinesUpdate(
 
 \item{target}{Target schema (database) to add tables in this pipeline to.}
 
-\item{trigger}{Which pipeline trigger to use.
-
-See the \href{https://docs.databricks.com/api/workspace/pipelines/update}{API documentation} for more
-information on the request and response field structure.}
+\item{trigger}{Which pipeline trigger to use.}
 }
 \description{
 Updates a pipeline with the supplied configuration.

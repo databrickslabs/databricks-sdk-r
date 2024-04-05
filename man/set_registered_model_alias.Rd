@@ -16,10 +16,7 @@ registeredModelsSetAlias(client, full_name, alias, version_num)
 
 \item{alias}{Required. The name of the alias.}
 
-\item{version_num}{Required. The version number of the model version to which the alias points.
-
-See the \href{https://docs.databricks.com/api/workspace/registeredmodels/setalias}{API documentation} for more
-information on the request and response field structure.}
+\item{version_num}{Required. The version number of the model version to which the alias points.}
 }
 \description{
 Set an alias on the specified registered model.

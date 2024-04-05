@@ -12,10 +12,7 @@ filesGetDirectoryMetadata(client, directory_path)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{directory_path}{Required. The absolute path of a directory.
-
-See the \href{https://docs.databricks.com/api/workspace/files/getdirectorymetadata}{API documentation} for more
-information on the request and response field structure.}
+\item{directory_path}{Required. The absolute path of a directory.}
 }
 \description{
 Get the metadata of a directory. The response HTTP headers contain the

@@ -12,10 +12,7 @@ clustersPermanentDelete(client, cluster_id)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{cluster_id}{Required. The cluster to be deleted.
-
-See the \href{https://docs.databricks.com/api/workspace/clusters/permanentdelete}{API documentation} for more
-information on the request and response field structure.}
+\item{cluster_id}{Required. The cluster to be deleted.}
 }
 \description{
 Permanently deletes a Spark cluster. This cluster is terminated and resources

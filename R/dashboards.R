@@ -13,8 +13,6 @@ NULL
 #' @param run_as_role Sets the **Run as** role for the object.
 #' @param tags This field has no description yet.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/dashboards/create) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname create_dashboard
 #' @alias dashboardsCreate
@@ -37,8 +35,6 @@ dashboardsCreate <- create_dashboard
 #'
 #' @param dashboard_id Required. This field has no description yet.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/dashboards/delete) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname delete_dashboard
 #' @alias dashboardsDelete
@@ -59,8 +55,6 @@ dashboardsDelete <- delete_dashboard
 #'
 #' @param dashboard_id Required. This field has no description yet.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/dashboards/get) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname get_dashboard
 #' @alias dashboardsGet
@@ -88,8 +82,6 @@ dashboardsGet <- get_dashboard
 #'
 #' @return `data.frame` with all of the response pages.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/dashboards/list) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname list_dashboards
 #' @alias dashboardsList
@@ -125,8 +117,6 @@ dashboardsList <- list_dashboards
 #'
 #' @param dashboard_id Required. This field has no description yet.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/dashboards/restore) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname restore_dashboard
 #' @alias dashboardsRestore
@@ -152,8 +142,6 @@ dashboardsRestore <- restore_dashboard
 #' @param name The title of this dashboard that appears in list views and at the top of the dashboard page.
 #' @param run_as_role Sets the **Run as** role for the object.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/dashboards/update) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname update_dashboard
 #' @alias dashboardsUpdate

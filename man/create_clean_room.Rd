@@ -14,10 +14,7 @@ cleanRoomsCreate(client, name, remote_detailed_info, comment = NULL)
 
 \item{name}{Required. Name of the clean room.}
 
-\item{remote_detailed_info}{Required. Central clean room details.
-
-See the \href{https://docs.databricks.com/api/workspace/cleanrooms/create}{API documentation} for more
-information on the request and response field structure.}
+\item{remote_detailed_info}{Required. Central clean room details.}
 
 \item{comment}{User-provided free-form text description.}
 }

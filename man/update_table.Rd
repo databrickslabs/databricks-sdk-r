@@ -14,10 +14,7 @@ tablesUpdate(client, full_name, owner = NULL)
 
 \item{full_name}{Required. Full name of the table.}
 
-\item{owner}{This field has no description yet.
-
-See the \href{https://docs.databricks.com/api/workspace/tables/update}{API documentation} for more
-information on the request and response field structure.}
+\item{owner}{This field has no description yet.}
 }
 \description{
 Change the owner of the table. The caller must be the owner of the parent

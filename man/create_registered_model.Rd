@@ -34,10 +34,7 @@ registeredModelsCreate(
 
 \item{comment}{The comment attached to the registered model.}
 
-\item{storage_location}{The storage location on the cloud under which model version data files are stored.
-
-See the \href{https://docs.databricks.com/api/workspace/registeredmodels/create}{API documentation} for more
-information on the request and response field structure.}
+\item{storage_location}{The storage location on the cloud under which model version data files are stored.}
 }
 \description{
 Creates a new registered model in Unity Catalog.

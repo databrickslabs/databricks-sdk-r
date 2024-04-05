@@ -12,10 +12,7 @@ gitCredentialsDelete(client, credential_id)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{credential_id}{Required. The ID for the corresponding credential to access.
-
-See the \href{https://docs.databricks.com/api/workspace/gitcredentials/delete}{API documentation} for more
-information on the request and response field structure.}
+\item{credential_id}{Required. The ID for the corresponding credential to access.}
 }
 \description{
 Deletes the specified Git credential.

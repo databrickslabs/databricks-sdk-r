@@ -14,10 +14,7 @@ systemSchemasDisable(client, metastore_id, schema_name)
 
 \item{metastore_id}{Required. The metastore ID under which the system schema lives.}
 
-\item{schema_name}{Required. Full name of the system schema.
-
-See the \href{https://docs.databricks.com/api/workspace/systemschemas/disable}{API documentation} for more
-information on the request and response field structure.}
+\item{schema_name}{Required. Full name of the system schema.}
 }
 \description{
 Disables the system schema and removes it from the system catalog. The caller

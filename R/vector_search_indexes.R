@@ -15,8 +15,6 @@ NULL
 #' @param name Required. Name of the index.
 #' @param primary_key Required. Primary key of the index.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/vectorsearchindexes/createindex) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname create_vector_search_index
 #' @alias vectorSearchIndexesCreateIndex
@@ -39,8 +37,6 @@ vectorSearchIndexesCreateIndex <- create_vector_search_index
 #' @param index_name Required. Name of the vector index where data is to be deleted.
 #' @param primary_keys Required. List of primary keys for the data to be deleted.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/vectorsearchindexes/deletedatavectorindex) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname delete_vector_search_index_data
 #' @alias vectorSearchIndexesDeleteDataVectorIndex
@@ -61,8 +57,6 @@ vectorSearchIndexesDeleteDataVectorIndex <- delete_vector_search_index_data
 #'
 #' @param index_name Required. Name of the index.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/vectorsearchindexes/deleteindex) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname delete_vector_search_index
 #' @alias vectorSearchIndexesDeleteIndex
@@ -82,8 +76,6 @@ vectorSearchIndexesDeleteIndex <- delete_vector_search_index
 #'
 #' @param index_name Required. Name of the index.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/vectorsearchindexes/getindex) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname get_vector_search_index
 #' @alias vectorSearchIndexesGetIndex
@@ -106,8 +98,6 @@ vectorSearchIndexesGetIndex <- get_vector_search_index
 #'
 #' @return `data.frame` with all of the response pages.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/vectorsearchindexes/listindexes) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname list_vector_search_index_indexes
 #' @alias vectorSearchIndexesListIndexes
@@ -148,8 +138,6 @@ vectorSearchIndexesListIndexes <- list_vector_search_index_indexes
 #' @param query_vector Query vector.
 #' @param score_threshold Threshold for the approximate nearest neighbor search.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/vectorsearchindexes/queryindex) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname query_vector_search_index
 #' @alias vectorSearchIndexesQueryIndex
@@ -172,8 +160,6 @@ vectorSearchIndexesQueryIndex <- query_vector_search_index
 #'
 #' @param index_name Required. Name of the vector index to synchronize.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/vectorsearchindexes/syncindex) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname sync_vector_search_index
 #' @alias vectorSearchIndexesSyncIndex
@@ -195,8 +181,6 @@ vectorSearchIndexesSyncIndex <- sync_vector_search_index
 #' @param index_name Required. Name of the vector index where data is to be upserted.
 #' @param inputs_json Required. JSON string representing the data to be upserted.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/vectorsearchindexes/upsertdatavectorindex) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname upsert_vector_search_index_data
 #' @alias vectorSearchIndexesUpsertDataVectorIndex

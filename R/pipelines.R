@@ -29,8 +29,6 @@ NULL
 #' @param target Target schema (database) to add tables in this pipeline to.
 #' @param trigger Which pipeline trigger to use.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/pipelines/create) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname create_pipeline
 #' @alias pipelinesCreate
@@ -59,8 +57,6 @@ pipelinesCreate <- create_pipeline
 #'
 #' @param pipeline_id Required. This field has no description yet.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/pipelines/delete) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname delete_pipeline
 #' @alias pipelinesDelete
@@ -78,8 +74,6 @@ pipelinesDelete <- delete_pipeline
 #'
 #' @param pipeline_id Required. This field has no description yet.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/pipelines/get) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname get_pipeline
 #' @alias pipelinesGet
@@ -99,8 +93,6 @@ pipelinesGet <- get_pipeline
 #'
 #' @param pipeline_id Required. The pipeline for which to get or manage permissions.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/pipelines/getpermissionlevels) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname get_pipeline_permission_levels
 #' @alias pipelinesGetPermissionLevels
@@ -122,8 +114,6 @@ pipelinesGetPermissionLevels <- get_pipeline_permission_levels
 #'
 #' @param pipeline_id Required. The pipeline for which to get or manage permissions.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/pipelines/getpermissions) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname get_pipeline_permissions
 #' @alias pipelinesGetPermissions
@@ -144,8 +134,6 @@ pipelinesGetPermissions <- get_pipeline_permissions
 #' @param pipeline_id Required. The ID of the pipeline.
 #' @param update_id Required. The ID of the update.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/pipelines/getupdate) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname get_pipeline_update
 #' @alias pipelinesGetUpdate
@@ -172,8 +160,6 @@ pipelinesGetUpdate <- get_pipeline_update
 #'
 #' @return `data.frame` with all of the response pages.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/pipelines/listpipelineevents) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname list_pipeline_events
 #' @alias pipelinesListPipelineEvents
@@ -216,8 +202,6 @@ pipelinesListPipelineEvents <- list_pipeline_events
 #'
 #' @return `data.frame` with all of the response pages.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/pipelines/listpipelines) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname list_pipeline_pipelines
 #' @alias pipelinesListPipelines
@@ -257,8 +241,6 @@ pipelinesListPipelines <- list_pipeline_pipelines
 #' @param pipeline_id Required. The pipeline to return updates for.
 #' @param until_update_id If present, returns updates until and including this update_id.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/pipelines/listupdates) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname list_pipeline_updates
 #' @alias pipelinesListUpdates
@@ -282,8 +264,6 @@ pipelinesListUpdates <- list_pipeline_updates
 #' @param access_control_list This field has no description yet.
 #' @param pipeline_id Required. The pipeline for which to get or manage permissions.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/pipelines/setpermissions) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname set_pipeline_permissions
 #' @alias pipelinesSetPermissions
@@ -311,8 +291,6 @@ pipelinesSetPermissions <- set_pipeline_permissions
 #' @param refresh_selection A list of tables to update without fullRefresh.
 #' @param validate_only If true, this update only validates the correctness of pipeline source code but does not materialize or publish any datasets.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/pipelines/startupdate) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname start_pipeline_update
 #' @alias pipelinesStartUpdate
@@ -336,8 +314,6 @@ pipelinesStartUpdate <- start_pipeline_update
 #'
 #' @param pipeline_id Required. This field has no description yet.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/pipelines/stop) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname stop_pipeline
 #' @alias pipelinesStop
@@ -376,8 +352,6 @@ pipelinesStop <- stop_pipeline
 #' @param target Target schema (database) to add tables in this pipeline to.
 #' @param trigger Which pipeline trigger to use.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/pipelines/update) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname update_pipeline
 #' @alias pipelinesUpdate
@@ -408,8 +382,6 @@ pipelinesUpdate <- update_pipeline
 #' @param access_control_list This field has no description yet.
 #' @param pipeline_id Required. The pipeline for which to get or manage permissions.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/pipelines/updatepermissions) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname update_pipeline_permissions
 #' @alias pipelinesUpdatePermissions

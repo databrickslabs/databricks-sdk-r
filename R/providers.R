@@ -14,8 +14,6 @@ NULL
 #' @param name Required. The name of the Provider.
 #' @param recipient_profile_str This field is required when the __authentication_type__ is **TOKEN** or not provided.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/providers/create) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname create_provider
 #' @alias providersCreate
@@ -37,8 +35,6 @@ providersCreate <- create_provider
 #'
 #' @param name Required. Name of the provider.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/providers/delete) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname delete_provider
 #' @alias providersDelete
@@ -60,8 +56,6 @@ providersDelete <- delete_provider
 #'
 #' @param name Required. Name of the provider.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/providers/get) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname get_provider
 #' @alias providersGet
@@ -86,8 +80,6 @@ providersGet <- get_provider
 #'
 #' @return `data.frame` with all of the response pages.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/providers/list) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname list_providers
 #' @alias providersList
@@ -114,8 +106,6 @@ providersList <- list_providers
 #'
 #' @return `data.frame` with all of the response pages.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/providers/listshares) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname list_provider_shares
 #' @alias providersListShares
@@ -146,8 +136,6 @@ providersListShares <- list_provider_shares
 #' @param owner Username of Provider owner.
 #' @param recipient_profile_str This field is required when the __authentication_type__ is **TOKEN** or not provided.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/providers/update) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname update_provider
 #' @alias providersUpdate

@@ -12,10 +12,7 @@ clustersGetPermissions(client, cluster_id)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{cluster_id}{Required. The cluster for which to get or manage permissions.
-
-See the \href{https://docs.databricks.com/api/workspace/clusters/getpermissions}{API documentation} for more
-information on the request and response field structure.}
+\item{cluster_id}{Required. The cluster for which to get or manage permissions.}
 }
 \description{
 Gets the permissions of a cluster. Clusters can inherit permissions from

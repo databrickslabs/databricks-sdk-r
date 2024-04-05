@@ -14,10 +14,7 @@ commandExecutionCommandStatus(client, cluster_id, context_id, command_id)
 
 \item{cluster_id}{Required. This field has no description yet.}
 
-\item{context_id}{Required. This field has no description yet.
-
-See the \href{https://docs.databricks.com/api/workspace/commandexecution/commandstatus}{API documentation} for more
-information on the request and response field structure.}
+\item{context_id}{Required. This field has no description yet.}
 
 \item{command_id}{Required. This field has no description yet.}
 }

@@ -12,10 +12,7 @@ modelRegistryGetModel(client, name)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{name}{Required. Registered model unique name identifier.
-
-See the \href{https://docs.databricks.com/api/workspace/modelregistry/getmodel}{API documentation} for more
-information on the request and response field structure.}
+\item{name}{Required. Registered model unique name identifier.}
 }
 \description{
 Get the details of a model. This is a Databricks workspace version of the

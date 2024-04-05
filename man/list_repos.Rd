@@ -18,9 +18,6 @@ reposList(client, next_page_token = NULL, path_prefix = NULL)
 }
 \value{
 \code{data.frame} with all of the response pages.
-
-See the \href{https://docs.databricks.com/api/workspace/repos/list}{API documentation} for more
-information on the request and response field structure.
 }
 \description{
 Returns repos that the calling user has Manage permissions on. Results are

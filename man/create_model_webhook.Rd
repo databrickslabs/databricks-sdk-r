@@ -38,10 +38,7 @@ modelRegistryCreateWebhook(
 
 \item{model_name}{Name of the model whose events would trigger this webhook.}
 
-\item{status}{Enable or disable triggering the webhook, or put the webhook into test mode.
-
-See the \href{https://docs.databricks.com/api/workspace/modelregistry/createwebhook}{API documentation} for more
-information on the request and response field structure.}
+\item{status}{Enable or disable triggering the webhook, or put the webhook into test mode.}
 }
 \description{
 \strong{NOTE}: This endpoint is in Public Preview.

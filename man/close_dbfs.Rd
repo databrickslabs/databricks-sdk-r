@@ -12,10 +12,7 @@ dbfsClose(client, handle)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{handle}{Required. The handle on an open stream.
-
-See the \href{https://docs.databricks.com/api/workspace/dbfs/close}{API documentation} for more
-information on the request and response field structure.}
+\item{handle}{Required. The handle on an open stream.}
 }
 \description{
 Closes the stream specified by the input handle. If the handle does not

@@ -12,10 +12,7 @@ cleanRoomsDelete(client, name)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{name}{Required. The name of the clean room.
-
-See the \href{https://docs.databricks.com/api/workspace/cleanrooms/delete}{API documentation} for more
-information on the request and response field structure.}
+\item{name}{Required. The name of the clean room.}
 }
 \description{
 Deletes a data object clean room from the metastore. The caller must be an

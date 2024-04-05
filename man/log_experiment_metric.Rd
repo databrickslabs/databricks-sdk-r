@@ -30,10 +30,7 @@ experimentsLogMetric(
 
 \item{key}{Required. Name of the metric.}
 
-\item{value}{Required. Double value of the metric being logged.
-
-See the \href{https://docs.databricks.com/api/workspace/experiments/logmetric}{API documentation} for more
-information on the request and response field structure.}
+\item{value}{Required. Double value of the metric being logged.}
 
 \item{timestamp}{Required. Unix timestamp in milliseconds at the time metric was logged.}
 

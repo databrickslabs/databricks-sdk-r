@@ -16,10 +16,7 @@ jobsUpdate(client, job_id, fields_to_remove = NULL, new_settings = NULL)
 
 \item{fields_to_remove}{Remove top-level fields in the job settings.}
 
-\item{new_settings}{The new settings for the job.
-
-See the \href{https://docs.databricks.com/api/workspace/jobs/update}{API documentation} for more
-information on the request and response field structure.}
+\item{new_settings}{The new settings for the job.}
 }
 \description{
 Add, update, or remove specific settings of an existing job. Use the \href{:method:jobs/reset}{\emph{Reset} endpoint} to overwrite all job settings.

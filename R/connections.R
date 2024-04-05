@@ -19,8 +19,6 @@ NULL
 #' @param properties An object containing map of key-value properties attached to the connection.
 #' @param read_only If the connection is read only.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/connections/create) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname create_connection
 #' @alias connectionsCreate
@@ -42,8 +40,6 @@ connectionsCreate <- create_connection
 #'
 #' @param name Required. The name of the connection to be deleted.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/connections/delete) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname delete_connection
 #' @alias connectionsDelete
@@ -63,8 +59,6 @@ connectionsDelete <- delete_connection
 #'
 #' @param name Required. Name of the connection.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/connections/get) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname get_connection
 #' @alias connectionsGet
@@ -84,8 +78,6 @@ connectionsGet <- get_connection
 #'
 #' @return `data.frame` with all of the response pages.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/connections/list) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname list_connections
 #' @alias connectionsList
@@ -110,8 +102,6 @@ connectionsList <- list_connections
 #' @param options Required. A map of key-value properties attached to the securable.
 #' @param owner Username of current owner of the connection.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/connections/update) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname update_connection
 #' @alias connectionsUpdate

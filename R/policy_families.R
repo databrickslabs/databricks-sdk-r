@@ -10,8 +10,6 @@ NULL
 #'
 #' @param policy_family_id Required. This field has no description yet.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/policyfamilies/get) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname get_cluster_policy_family
 #' @alias policyFamiliesGet
@@ -34,8 +32,6 @@ policyFamiliesGet <- get_cluster_policy_family
 #'
 #' @return `data.frame` with all of the response pages.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/policyfamilies/list) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname list_cluster_policy_families
 #' @alias policyFamiliesList

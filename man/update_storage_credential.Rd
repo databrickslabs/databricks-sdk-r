@@ -62,10 +62,7 @@ storageCredentialsUpdate(
 
 \item{read_only}{Whether the storage credential is only usable for read operations.}
 
-\item{skip_validation}{Supplying true to this argument skips validation of the updated credential.
-
-See the \href{https://docs.databricks.com/api/workspace/storagecredentials/update}{API documentation} for more
-information on the request and response field structure.}
+\item{skip_validation}{Supplying true to this argument skips validation of the updated credential.}
 }
 \description{
 Updates a storage credential on the metastore.

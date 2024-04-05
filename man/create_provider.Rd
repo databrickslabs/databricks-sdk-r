@@ -30,10 +30,7 @@ providersCreate(
 
 \item{comment}{Description about the provider.}
 
-\item{recipient_profile_str}{This field is required when the \strong{authentication_type} is \strong{TOKEN} or not provided.
-
-See the \href{https://docs.databricks.com/api/workspace/providers/create}{API documentation} for more
-information on the request and response field structure.}
+\item{recipient_profile_str}{This field is required when the \strong{authentication_type} is \strong{TOKEN} or not provided.}
 }
 \description{
 Creates a new authentication provider minimally based on a name and

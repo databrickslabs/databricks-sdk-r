@@ -17,7 +17,7 @@ restart_cluster_and_wait(
 
 \item{cluster_id}{Required. The cluster to be started.}
 
-\item{restart_user}{\if{html}{\out{<needs content added>}}.}
+\item{restart_user}{needs content added.}
 
 \item{timeout}{Time to wait for the operation to complete in minutes.}
 

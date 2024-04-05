@@ -21,8 +21,6 @@ NULL
 #' @param schemas The schema of the user.
 #' @param user_name Email address of the Databricks user.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/users/create) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname create_user
 #' @alias usersCreate
@@ -47,8 +45,6 @@ usersCreate <- create_user
 #'
 #' @param id Required. Unique ID for a user in the Databricks workspace.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/users/delete) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname delete_user
 #' @alias usersDelete
@@ -75,8 +71,6 @@ usersDelete <- delete_user
 #' @param sort_order The order to sort the results.
 #' @param start_index Specifies the index of the first result.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/users/get) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname get_user
 #' @alias usersGet
@@ -96,8 +90,6 @@ usersGet <- get_user
 #' Gets the permission levels that a user can have on an object.
 #' @param client Required. Instance of DatabricksClient()
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/users/getpermissionlevels) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname get_user_permission_levels
 #' @alias usersGetPermissionLevels
@@ -115,8 +107,6 @@ usersGetPermissionLevels <- get_user_permission_levels
 #' their root object.
 #' @param client Required. Instance of DatabricksClient()
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/users/getpermissions) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname get_user_permissions
 #' @alias usersGetPermissions
@@ -143,8 +133,6 @@ usersGetPermissions <- get_user_permissions
 #'
 #' @return `data.frame` with all of the response pages.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/users/list) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname list_users
 #' @alias usersList
@@ -184,8 +172,6 @@ usersList <- list_users
 #' @param operations This field has no description yet.
 #' @param schemas The schema of the patch request.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/users/patch) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname patch_user
 #' @alias usersPatch
@@ -206,8 +192,6 @@ usersPatch <- patch_user
 #'
 #' @param access_control_list This field has no description yet.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/users/setpermissions) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname set_user_permissions
 #' @alias usersSetPermissions
@@ -237,8 +221,6 @@ usersSetPermissions <- set_user_permissions
 #' @param schemas The schema of the user.
 #' @param user_name Email address of the Databricks user.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/users/update) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname update_user
 #' @alias usersUpdate
@@ -263,8 +245,6 @@ usersUpdate <- update_user
 #'
 #' @param access_control_list This field has no description yet.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/users/updatepermissions) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname update_user_permissions
 #' @alias usersUpdatePermissions

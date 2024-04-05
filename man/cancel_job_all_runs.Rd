@@ -14,10 +14,7 @@ jobsCancelAllRuns(client, all_queued_runs = NULL, job_id = NULL)
 
 \item{all_queued_runs}{Optional boolean parameter to cancel all queued runs.}
 
-\item{job_id}{The canonical identifier of the job to cancel all runs of.
-
-See the \href{https://docs.databricks.com/api/workspace/jobs/cancelallruns}{API documentation} for more
-information on the request and response field structure.}
+\item{job_id}{The canonical identifier of the job to cancel all runs of.}
 }
 \description{
 Cancels all active runs of a job. The runs are canceled asynchronously, so it

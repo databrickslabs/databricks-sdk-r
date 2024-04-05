@@ -50,10 +50,7 @@ warehousesSetWorkspaceWarehouseConfig(
 
 \item{security_policy}{Security policy for warehouses.}
 
-\item{sql_configuration_parameters}{SQL configuration parameters.
-
-See the \href{https://docs.databricks.com/api/workspace/warehouses/setworkspacewarehouseconfig}{API documentation} for more
-information on the request and response field structure.}
+\item{sql_configuration_parameters}{SQL configuration parameters.}
 }
 \description{
 Sets the workspace level configuration that is shared by all SQL warehouses

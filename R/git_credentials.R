@@ -15,8 +15,6 @@ NULL
 #' @param git_username Git username.
 #' @param personal_access_token The personal access token used to authenticate to the corresponding Git provider.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/gitcredentials/create) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname create_git_credential
 #' @alias gitCredentialsCreate
@@ -36,8 +34,6 @@ gitCredentialsCreate <- create_git_credential
 #'
 #' @param credential_id Required. The ID for the corresponding credential to access.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/gitcredentials/delete) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname delete_git_credential
 #' @alias gitCredentialsDelete
@@ -57,8 +53,6 @@ gitCredentialsDelete <- delete_git_credential
 #'
 #' @param credential_id Required. The ID for the corresponding credential to access.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/gitcredentials/get) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname get_git_credential
 #' @alias gitCredentialsGet
@@ -79,8 +73,6 @@ gitCredentialsGet <- get_git_credential
 #'
 #' @return `data.frame` with all of the response pages.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/gitcredentials/list) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname list_git_credentials
 #' @alias gitCredentialsList
@@ -105,8 +97,6 @@ gitCredentialsList <- list_git_credentials
 #' @param git_username Git username.
 #' @param personal_access_token The personal access token used to authenticate to the corresponding Git provider.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/gitcredentials/update) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname update_git_credential
 #' @alias gitCredentialsUpdate

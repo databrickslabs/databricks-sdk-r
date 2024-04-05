@@ -16,10 +16,7 @@ groupsPatch(client, id, operations = NULL, schemas = NULL)
 
 \item{operations}{This field has no description yet.}
 
-\item{schemas}{The schema of the patch request.
-
-See the \href{https://docs.databricks.com/api/workspace/groups/patch}{API documentation} for more
-information on the request and response field structure.}
+\item{schemas}{The schema of the patch request.}
 }
 \description{
 Partially updates the details of a group.

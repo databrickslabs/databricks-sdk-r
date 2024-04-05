@@ -12,8 +12,6 @@ NULL
 #' @param query_id Required. The identifier returned by :method:queries/create.
 #' @param type Required. The type of visualization: chart, table, pivot table, and so on.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/queryvisualizations/create) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname create_query_visualization
 #' @alias queryVisualizationsCreate
@@ -33,8 +31,6 @@ queryVisualizationsCreate <- create_query_visualization
 #'
 #' @param id Required. Widget ID returned by :method:queryvizualisations/create.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/queryvisualizations/delete) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname delete_query_visualization
 #' @alias queryVisualizationsDelete
@@ -58,8 +54,6 @@ queryVisualizationsDelete <- delete_query_visualization
 #' @param type The type of visualization: chart, table, pivot table, and so on.
 #' @param updated_at This field has no description yet.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/queryvisualizations/update) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname update_query_visualization
 #' @alias queryVisualizationsUpdate

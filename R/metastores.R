@@ -14,8 +14,6 @@ NULL
 #' @param metastore_id Required. The unique ID of the metastore.
 #' @param workspace_id Required. A workspace ID.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/metastores/assign) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname assign_metastore
 #' @alias metastoresAssign
@@ -42,8 +40,6 @@ metastoresAssign <- assign_metastore
 #' @param region Cloud region which the metastore serves (e.g., `us-west-2`, `westus`).
 #' @param storage_root The storage root URL for metastore.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/metastores/create) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname create_metastore
 #' @alias metastoresCreate
@@ -61,8 +57,6 @@ metastoresCreate <- create_metastore
 #' Gets the metastore assignment for the workspace being accessed.
 #' @param client Required. Instance of DatabricksClient()
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/metastores/current) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname current_metastore
 #' @alias metastoresCurrent
@@ -82,8 +76,6 @@ metastoresCurrent <- current_metastore
 #' @param force Force deletion even if the metastore is not empty.
 #' @param id Required. Unique ID of the metastore.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/metastores/delete) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname delete_metastore
 #' @alias metastoresDelete
@@ -105,8 +97,6 @@ metastoresDelete <- delete_metastore
 #'
 #' @param id Required. Unique ID of the metastore.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/metastores/get) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname get_metastore
 #' @alias metastoresGet
@@ -128,8 +118,6 @@ metastoresGet <- get_metastore
 #'
 #' @return `data.frame` with all of the response pages.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/metastores/list) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname list_metastores
 #' @alias metastoresList
@@ -150,8 +138,6 @@ metastoresList <- list_metastores
 #' credential, the cloud vendor, the cloud region, and the global metastore ID.
 #' @param client Required. Instance of DatabricksClient()
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/metastores/summary) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname summary_metastore
 #' @alias metastoresSummary
@@ -171,8 +157,6 @@ metastoresSummary <- summary_metastore
 #' @param metastore_id Required. Query for the ID of the metastore to delete.
 #' @param workspace_id Required. A workspace ID.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/metastores/unassign) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname unassign_metastore
 #' @alias metastoresUnassign
@@ -202,8 +186,6 @@ metastoresUnassign <- unassign_metastore
 #' @param privilege_model_version Privilege model version of the metastore, of the form `major.minor` (e.g., `1.0`).
 #' @param storage_root_credential_id UUID of storage credential to access the metastore storage_root.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/metastores/update) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname update_metastore
 #' @alias metastoresUpdate
@@ -235,8 +217,6 @@ metastoresUpdate <- update_metastore
 #' @param metastore_id The unique ID of the metastore.
 #' @param workspace_id Required. A workspace ID.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/metastores/updateassignment) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname update_metastore_assignment
 #' @alias metastoresUpdateAssignment

@@ -14,8 +14,6 @@ NULL
 #' @param scope Required. Scope name requested by the user.
 #' @param scope_backend_type The backend type the scope will be created with.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/secrets/createscope) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname create_secret_scope
 #' @alias secretsCreateScope
@@ -43,8 +41,6 @@ secretsCreateScope <- create_secret_scope
 #' @param principal Required. The principal to remove an existing ACL from.
 #' @param scope Required. The name of the scope to remove permissions from.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/secrets/deleteacl) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname delete_secret_acl
 #' @alias secretsDeleteAcl
@@ -68,8 +64,6 @@ secretsDeleteAcl <- delete_secret_acl
 #'
 #' @param scope Required. Name of the scope to delete.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/secrets/deletescope) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname delete_secret_scope
 #' @alias secretsDeleteScope
@@ -95,8 +89,6 @@ secretsDeleteScope <- delete_secret_scope
 #' @param key Required. Name of the secret to delete.
 #' @param scope Required. The name of the scope that contains the secret to delete.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/secrets/deletesecret) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname delete_secret
 #' @alias secretsDeleteSecret
@@ -122,8 +114,6 @@ secretsDeleteSecret <- delete_secret
 #' @param principal Required. The principal to fetch ACL information for.
 #' @param scope Required. The name of the scope to fetch ACL information from.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/secrets/getacl) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname get_secret_acl
 #' @alias secretsGetAcl
@@ -155,8 +145,6 @@ secretsGetAcl <- get_secret_acl
 #' @param key Required. The key to fetch secret for.
 #' @param scope Required. The name of the scope to fetch secret information from.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/secrets/getsecret) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname get_secret
 #' @alias secretsGetSecret
@@ -183,8 +171,6 @@ secretsGetSecret <- get_secret
 #'
 #' @return `data.frame` with all of the response pages.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/secrets/listacls) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname list_secret_acls
 #' @alias secretsListAcls
@@ -210,8 +196,6 @@ secretsListAcls <- list_secret_acls
 #'
 #' @return `data.frame` with all of the response pages.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/secrets/listscopes) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname list_secret_scopes
 #' @alias secretsListScopes
@@ -242,8 +226,6 @@ secretsListScopes <- list_secret_scopes
 #'
 #' @return `data.frame` with all of the response pages.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/secrets/listsecrets) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname list_secret_secrets
 #' @alias secretsListSecrets
@@ -293,8 +275,6 @@ secretsListSecrets <- list_secret_secrets
 #' @param principal Required. The principal in which the permission is applied.
 #' @param scope Required. The name of the scope to apply permissions to.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/secrets/putacl) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname put_secret_acl
 #' @alias secretsPutAcl
@@ -335,8 +315,6 @@ secretsPutAcl <- put_secret_acl
 #' @param scope Required. The name of the scope to which the secret will be associated with.
 #' @param string_value If specified, note that the value will be stored in UTF-8 (MB4) form.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/secrets/putsecret) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname put_secret
 #' @alias secretsPutSecret

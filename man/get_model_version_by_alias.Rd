@@ -12,10 +12,7 @@ modelVersionsGetByAlias(client, full_name, alias)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{full_name}{Required. The three-level (fully qualified) name of the registered model.
-
-See the \href{https://docs.databricks.com/api/workspace/modelversions/getbyalias}{API documentation} for more
-information on the request and response field structure.}
+\item{full_name}{Required. The three-level (fully qualified) name of the registered model.}
 
 \item{alias}{Required. The name of the alias.}
 }

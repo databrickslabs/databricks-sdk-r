@@ -26,10 +26,7 @@ tablesGet(
 
 \item{include_browse}{Whether to include tables in the response for which the principal can only access selective metadata for.}
 
-\item{include_delta_metadata}{Whether delta metadata should be included in the response.
-
-See the \href{https://docs.databricks.com/api/workspace/tables/get}{API documentation} for more
-information on the request and response field structure.}
+\item{include_delta_metadata}{Whether delta metadata should be included in the response.}
 }
 \description{
 Gets a table from the metastore for a specific catalog and schema. The caller

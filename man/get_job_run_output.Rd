@@ -12,10 +12,7 @@ jobsGetRunOutput(client, run_id)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{run_id}{Required. The canonical identifier for the run.
-
-See the \href{https://docs.databricks.com/api/workspace/jobs/getrunoutput}{API documentation} for more
-information on the request and response field structure.}
+\item{run_id}{Required. The canonical identifier for the run.}
 }
 \description{
 Retrieve the output and metadata of a single task run. When a notebook task

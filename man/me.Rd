@@ -10,10 +10,7 @@ me(client)
 currentUserMe(client)
 }
 \arguments{
-\item{client}{Required. Instance of DatabricksClient()
-
-See the \href{https://docs.databricks.com/api/workspace/currentuser/me}{API documentation} for more
-information on the request and response field structure.}
+\item{client}{Required. Instance of DatabricksClient()}
 }
 \description{
 Get details about the current method caller's identity.

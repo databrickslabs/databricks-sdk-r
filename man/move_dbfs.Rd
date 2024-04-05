@@ -12,10 +12,7 @@ dbfsMove(client, source_path, destination_path)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{source_path}{Required. The source path of the file or directory.
-
-See the \href{https://docs.databricks.com/api/workspace/dbfs/move}{API documentation} for more
-information on the request and response field structure.}
+\item{source_path}{Required. The source path of the file or directory.}
 
 \item{destination_path}{Required. The destination path of the file or directory.}
 }

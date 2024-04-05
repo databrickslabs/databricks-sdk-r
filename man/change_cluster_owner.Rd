@@ -12,12 +12,9 @@ clustersChangeOwner(client, cluster_id, owner_username)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{cluster_id}{Required. \if{html}{\out{<needs content added>}}.}
+\item{cluster_id}{Required. needs content added.}
 
-\item{owner_username}{Required. New owner of the cluster_id after this RPC.
-
-See the \href{https://docs.databricks.com/api/workspace/clusters/changeowner}{API documentation} for more
-information on the request and response field structure.}
+\item{owner_username}{Required. New owner of the cluster_id after this RPC.}
 }
 \description{
 Change the owner of the cluster. You must be an admin and the cluster must be

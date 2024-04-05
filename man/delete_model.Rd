@@ -12,10 +12,7 @@ modelRegistryDeleteModel(client, name)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{name}{Required. Registered model unique name identifier.
-
-See the \href{https://docs.databricks.com/api/workspace/modelregistry/deletemodel}{API documentation} for more
-information on the request and response field structure.}
+\item{name}{Required. Registered model unique name identifier.}
 }
 \description{
 Deletes a registered model.

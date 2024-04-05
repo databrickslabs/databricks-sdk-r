@@ -46,10 +46,7 @@ recipientsCreate(
 
 \item{properties_kvpairs}{Recipient properties as map of string key-value pairs.}
 
-\item{sharing_code}{The one-time sharing code provided by the data recipient.
-
-See the \href{https://docs.databricks.com/api/workspace/recipients/create}{API documentation} for more
-information on the request and response field structure.}
+\item{sharing_code}{The one-time sharing code provided by the data recipient.}
 }
 \description{
 Creates a new recipient with the delta sharing authentication type in the

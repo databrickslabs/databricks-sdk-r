@@ -46,9 +46,6 @@ groupsList(
 }
 \value{
 \code{data.frame} with all of the response pages.
-
-See the \href{https://docs.databricks.com/api/workspace/groups/list}{API documentation} for more
-information on the request and response field structure.
 }
 \description{
 Gets all details of the groups associated with the Databricks workspace.

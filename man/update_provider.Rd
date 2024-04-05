@@ -34,10 +34,7 @@ providersUpdate(
 
 \item{owner}{Username of Provider owner.}
 
-\item{recipient_profile_str}{This field is required when the \strong{authentication_type} is \strong{TOKEN} or not provided.
-
-See the \href{https://docs.databricks.com/api/workspace/providers/update}{API documentation} for more
-information on the request and response field structure.}
+\item{recipient_profile_str}{This field is required when the \strong{authentication_type} is \strong{TOKEN} or not provided.}
 }
 \description{
 Updates the information for an authentication provider, if the caller is a

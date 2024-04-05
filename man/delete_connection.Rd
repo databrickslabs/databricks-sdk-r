@@ -12,10 +12,7 @@ connectionsDelete(client, name)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{name}{Required. The name of the connection to be deleted.
-
-See the \href{https://docs.databricks.com/api/workspace/connections/delete}{API documentation} for more
-information on the request and response field structure.}
+\item{name}{Required. The name of the connection to be deleted.}
 }
 \description{
 Deletes the connection that matches the supplied name.

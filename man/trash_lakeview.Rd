@@ -12,10 +12,7 @@ lakeviewTrash(client, dashboard_id)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{dashboard_id}{Required. UUID identifying the dashboard.
-
-See the \href{https://docs.databricks.com/api/workspace/lakeview/trash}{API documentation} for more
-information on the request and response field structure.}
+\item{dashboard_id}{Required. UUID identifying the dashboard.}
 }
 \description{
 Trash a dashboard.

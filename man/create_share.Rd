@@ -12,10 +12,7 @@ sharesCreate(client, name, comment = NULL)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{name}{Required. Name of the share.
-
-See the \href{https://docs.databricks.com/api/workspace/shares/create}{API documentation} for more
-information on the request and response field structure.}
+\item{name}{Required. Name of the share.}
 
 \item{comment}{User-provided free-form text description.}
 }

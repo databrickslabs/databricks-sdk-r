@@ -12,10 +12,7 @@ servingEndpointsPatch(client, name, add_tags = NULL, delete_tags = NULL)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{name}{Required. The name of the serving endpoint who's tags to patch.
-
-See the \href{https://docs.databricks.com/api/workspace/servingendpoints/patch}{API documentation} for more
-information on the request and response field structure.}
+\item{name}{Required. The name of the serving endpoint who's tags to patch.}
 
 \item{add_tags}{List of endpoint tags to add.}
 

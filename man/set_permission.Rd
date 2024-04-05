@@ -22,10 +22,7 @@ permissionsSet(
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{request_object_type}{Required. The type of the request object.
-
-See the \href{https://docs.databricks.com/api/workspace/permissions/set}{API documentation} for more
-information on the request and response field structure.}
+\item{request_object_type}{Required. The type of the request object.}
 
 \item{request_object_id}{Required. The id of the request object.}
 

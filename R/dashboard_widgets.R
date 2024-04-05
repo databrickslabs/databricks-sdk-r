@@ -12,8 +12,6 @@ NULL
 #' @param visualization_id Query Vizualization ID returned by :method:queryvisualizations/create.
 #' @param width Required. Width of a widget.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/dashboardwidgets/create) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname create_dashboard_widget
 #' @alias dashboardWidgetsCreate
@@ -33,8 +31,6 @@ dashboardWidgetsCreate <- create_dashboard_widget
 #'
 #' @param id Required. Widget ID returned by :method:dashboardwidgets/create.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/dashboardwidgets/delete) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname delete_dashboard_widget
 #' @alias dashboardWidgetsDelete
@@ -57,8 +53,6 @@ dashboardWidgetsDelete <- delete_dashboard_widget
 #' @param visualization_id Query Vizualization ID returned by :method:queryvisualizations/create.
 #' @param width Required. Width of a widget.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/dashboardwidgets/update) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname update_dashboard_widget
 #' @alias dashboardWidgetsUpdate

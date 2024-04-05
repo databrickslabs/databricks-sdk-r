@@ -10,10 +10,7 @@ list_data_sources(client)
 dataSourcesList(client)
 }
 \arguments{
-\item{client}{Required. Instance of DatabricksClient()
-
-See the \href{https://docs.databricks.com/api/workspace/datasources/list}{API documentation} for more
-information on the request and response field structure.}
+\item{client}{Required. Instance of DatabricksClient()}
 }
 \description{
 Retrieves a full list of SQL warehouses available in this workspace. All

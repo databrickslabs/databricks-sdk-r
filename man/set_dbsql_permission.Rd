@@ -17,10 +17,7 @@ dbsqlPermissionsSet(client, object_type, object_id, access_control_list = NULL)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{object_type}{Required. The type of object permission to set.
-
-See the \href{https://docs.databricks.com/api/workspace/dbsqlpermissions/set}{API documentation} for more
-information on the request and response field structure.}
+\item{object_type}{Required. The type of object permission to set.}
 
 \item{object_id}{Required. Object ID.}
 

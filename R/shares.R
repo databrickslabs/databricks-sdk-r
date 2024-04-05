@@ -13,8 +13,6 @@ NULL
 #' @param comment User-provided free-form text description.
 #' @param name Required. Name of the share.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/shares/create) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname create_share
 #' @alias sharesCreate
@@ -35,8 +33,6 @@ sharesCreate <- create_share
 #'
 #' @param name Required. The name of the share.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/shares/delete) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname delete_share
 #' @alias sharesDelete
@@ -58,8 +54,6 @@ sharesDelete <- delete_share
 #' @param include_shared_data Query for data to include in the share.
 #' @param name Required. The name of the share.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/shares/get) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname get_share
 #' @alias sharesGet
@@ -81,8 +75,6 @@ sharesGet <- get_share
 #'
 #' @return `data.frame` with all of the response pages.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/shares/list) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname list_shares
 #' @alias sharesList
@@ -105,8 +97,6 @@ sharesList <- list_shares
 #'
 #' @param name Required. The name of the share.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/shares/sharepermissions) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname share_permissions
 #' @alias sharesSharePermissions
@@ -145,8 +135,6 @@ sharesSharePermissions <- share_permissions
 #' @param owner Username of current owner of share.
 #' @param updates Array of shared data object updates.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/shares/update) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname update_share
 #' @alias sharesUpdate
@@ -172,8 +160,6 @@ sharesUpdate <- update_share
 #' @param changes Array of permission changes.
 #' @param name Required. The name of the share.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/shares/updatepermissions) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname update_share_permissions
 #' @alias sharesUpdatePermissions

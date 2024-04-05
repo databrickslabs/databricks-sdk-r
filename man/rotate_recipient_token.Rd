@@ -12,10 +12,7 @@ recipientsRotateToken(client, name, existing_token_expire_in_seconds)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{name}{Required. The name of the recipient.
-
-See the \href{https://docs.databricks.com/api/workspace/recipients/rotatetoken}{API documentation} for more
-information on the request and response field structure.}
+\item{name}{Required. The name of the recipient.}
 
 \item{existing_token_expire_in_seconds}{Required. The expiration time of the bearer token in ISO 8601 format.}
 }

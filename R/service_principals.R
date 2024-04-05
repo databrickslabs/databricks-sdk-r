@@ -18,8 +18,6 @@ NULL
 #' @param roles Corresponds to AWS instance profile/arn role.
 #' @param schemas The schema of the List response.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/serviceprincipals/create) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname create_service_principal
 #' @alias servicePrincipalsCreate
@@ -43,8 +41,6 @@ servicePrincipalsCreate <- create_service_principal
 #'
 #' @param id Required. Unique ID for a service principal in the Databricks workspace.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/serviceprincipals/delete) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname delete_service_principal
 #' @alias servicePrincipalsDelete
@@ -66,8 +62,6 @@ servicePrincipalsDelete <- delete_service_principal
 #'
 #' @param id Required. Unique ID for a service principal in the Databricks workspace.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/serviceprincipals/get) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname get_service_principal
 #' @alias servicePrincipalsGet
@@ -95,8 +89,6 @@ servicePrincipalsGet <- get_service_principal
 #'
 #' @return `data.frame` with all of the response pages.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/serviceprincipals/list) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname list_service_principals
 #' @alias servicePrincipalsList
@@ -136,8 +128,6 @@ servicePrincipalsList <- list_service_principals
 #' @param operations This field has no description yet.
 #' @param schemas The schema of the patch request.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/serviceprincipals/patch) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname patch_service_principal
 #' @alias servicePrincipalsPatch
@@ -168,8 +158,6 @@ servicePrincipalsPatch <- patch_service_principal
 #' @param roles Corresponds to AWS instance profile/arn role.
 #' @param schemas The schema of the List response.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/serviceprincipals/update) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname update_service_principal
 #' @alias servicePrincipalsUpdate

@@ -12,10 +12,7 @@ functionsCreate(client, function_info)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{function_info}{Required. Partial \strong{FunctionInfo} specifying the function to be created.
-
-See the \href{https://docs.databricks.com/api/workspace/functions/create}{API documentation} for more
-information on the request and response field structure.}
+\item{function_info}{Required. Partial \strong{FunctionInfo} specifying the function to be created.}
 }
 \description{
 Creates a new function

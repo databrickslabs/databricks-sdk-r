@@ -12,10 +12,7 @@ workspaceExport(client, path, format = NULL)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{path}{Required. The absolute path of the object or directory.
-
-See the \href{https://docs.databricks.com/api/workspace/workspace/export}{API documentation} for more
-information on the request and response field structure.}
+\item{path}{Required. The absolute path of the object or directory.}
 
 \item{format}{This specifies the format of the exported file.}
 }

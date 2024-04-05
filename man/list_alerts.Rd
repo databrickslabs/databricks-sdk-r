@@ -10,10 +10,7 @@ list_alerts(client)
 alertsList(client)
 }
 \arguments{
-\item{client}{Required. Instance of DatabricksClient()
-
-See the \href{https://docs.databricks.com/api/workspace/alerts/list}{API documentation} for more
-information on the request and response field structure.}
+\item{client}{Required. Instance of DatabricksClient()}
 }
 \description{
 Gets a list of alerts.

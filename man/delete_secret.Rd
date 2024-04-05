@@ -12,10 +12,7 @@ secretsDeleteSecret(client, scope, key)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{scope}{Required. The name of the scope that contains the secret to delete.
-
-See the \href{https://docs.databricks.com/api/workspace/secrets/deletesecret}{API documentation} for more
-information on the request and response field structure.}
+\item{scope}{Required. The name of the scope that contains the secret to delete.}
 
 \item{key}{Required. Name of the secret to delete.}
 }

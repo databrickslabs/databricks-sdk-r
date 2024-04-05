@@ -14,10 +14,7 @@ experimentsLogInputs(client, datasets = NULL, run_id = NULL)
 
 \item{datasets}{Dataset inputs.}
 
-\item{run_id}{ID of the run to log under.
-
-See the \href{https://docs.databricks.com/api/workspace/experiments/loginputs}{API documentation} for more
-information on the request and response field structure.}
+\item{run_id}{ID of the run to log under.}
 }
 \description{
 \strong{NOTE:} Experimental: This API may change or be removed in a future release

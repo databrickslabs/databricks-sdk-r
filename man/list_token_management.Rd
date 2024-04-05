@@ -18,9 +18,6 @@ tokenManagementList(client, created_by_id = NULL, created_by_username = NULL)
 }
 \value{
 \code{data.frame} with all of the response pages.
-
-See the \href{https://docs.databricks.com/api/workspace/tokenmanagement/list}{API documentation} for more
-information on the request and response field structure.
 }
 \description{
 Lists all tokens associated with the specified workspace or user.

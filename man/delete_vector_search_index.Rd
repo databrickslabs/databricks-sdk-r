@@ -12,10 +12,7 @@ vectorSearchIndexesDeleteIndex(client, index_name)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{index_name}{Required. Name of the index.
-
-See the \href{https://docs.databricks.com/api/workspace/vectorsearchindexes/deleteindex}{API documentation} for more
-information on the request and response field structure.}
+\item{index_name}{Required. Name of the index.}
 }
 \description{
 Delete an index.

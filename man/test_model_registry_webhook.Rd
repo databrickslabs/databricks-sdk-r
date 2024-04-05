@@ -12,10 +12,7 @@ modelRegistryTestRegistryWebhook(client, id, event = NULL)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{id}{Required. Webhook ID.
-
-See the \href{https://docs.databricks.com/api/workspace/modelregistry/testregistrywebhook}{API documentation} for more
-information on the request and response field structure.}
+\item{id}{Required. Webhook ID.}
 
 \item{event}{If \code{event} is specified, the test trigger uses the specified event.}
 }

@@ -34,9 +34,6 @@ queryHistoryList(
 }
 \value{
 \code{data.frame} with all of the response pages.
-
-See the \href{https://docs.databricks.com/api/workspace/queryhistory/list}{API documentation} for more
-information on the request and response field structure.
 }
 \description{
 List the history of queries through SQL warehouses.

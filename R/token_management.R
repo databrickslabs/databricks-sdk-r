@@ -12,8 +12,6 @@ NULL
 #' @param comment Comment that describes the purpose of the token.
 #' @param lifetime_seconds The number of seconds before the token expires.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/tokenmanagement/createobotoken) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname create_obo_token
 #' @alias tokenManagementCreateOboToken
@@ -33,8 +31,6 @@ tokenManagementCreateOboToken <- create_obo_token
 #'
 #' @param token_id Required. The ID of the token to get.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/tokenmanagement/delete) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname delete_token_management
 #' @alias tokenManagementDelete
@@ -54,8 +50,6 @@ tokenManagementDelete <- delete_token_management
 #'
 #' @param token_id Required. The ID of the token to get.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/tokenmanagement/get) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname get_token_management
 #' @alias tokenManagementGet
@@ -73,8 +67,6 @@ tokenManagementGet <- get_token_management
 #' Gets the permission levels that a user can have on an object.
 #' @param client Required. Instance of DatabricksClient()
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/tokenmanagement/getpermissionlevels) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname get_token_management_permission_levels
 #' @alias tokenManagementGetPermissionLevels
@@ -92,8 +84,6 @@ tokenManagementGetPermissionLevels <- get_token_management_permission_levels
 #' root object.
 #' @param client Required. Instance of DatabricksClient()
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/tokenmanagement/getpermissions) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname get_token_management_permissions
 #' @alias tokenManagementGetPermissions
@@ -115,8 +105,6 @@ tokenManagementGetPermissions <- get_token_management_permissions
 #'
 #' @return `data.frame` with all of the response pages.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/tokenmanagement/list) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname list_token_management
 #' @alias tokenManagementList
@@ -140,8 +128,6 @@ tokenManagementList <- list_token_management
 #'
 #' @param access_control_list This field has no description yet.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/tokenmanagement/setpermissions) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname set_token_management_permissions
 #' @alias tokenManagementSetPermissions
@@ -162,8 +148,6 @@ tokenManagementSetPermissions <- set_token_management_permissions
 #'
 #' @param access_control_list This field has no description yet.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/tokenmanagement/updatepermissions) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname update_token_management_permissions
 #' @alias tokenManagementUpdatePermissions

@@ -30,10 +30,7 @@ experimentsUpdateRun(
 
 \item{run_uuid}{Deprecated, use run_id instead. ID of the run to update.}
 
-\item{status}{Updated status of the run.
-
-See the \href{https://docs.databricks.com/api/workspace/experiments/updaterun}{API documentation} for more
-information on the request and response field structure.}
+\item{status}{Updated status of the run.}
 }
 \description{
 Updates run metadata.

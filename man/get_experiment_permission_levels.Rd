@@ -12,10 +12,7 @@ experimentsGetPermissionLevels(client, experiment_id)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{experiment_id}{Required. The experiment for which to get or manage permissions.
-
-See the \href{https://docs.databricks.com/api/workspace/experiments/getpermissionlevels}{API documentation} for more
-information on the request and response field structure.}
+\item{experiment_id}{Required. The experiment for which to get or manage permissions.}
 }
 \description{
 Gets the permission levels that a user can have on an object.

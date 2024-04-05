@@ -10,10 +10,7 @@ summary_metastore(client)
 metastoresSummary(client)
 }
 \arguments{
-\item{client}{Required. Instance of DatabricksClient()
-
-See the \href{https://docs.databricks.com/api/workspace/metastores/summary}{API documentation} for more
-information on the request and response field structure.}
+\item{client}{Required. Instance of DatabricksClient()}
 }
 \description{
 Gets information about a metastore. This summary includes the storage

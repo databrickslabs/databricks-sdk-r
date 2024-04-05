@@ -34,9 +34,6 @@ pipelinesListPipelines(
 }
 \value{
 \code{data.frame} with all of the response pages.
-
-See the \href{https://docs.databricks.com/api/workspace/pipelines/listpipelines}{API documentation} for more
-information on the request and response field structure.
 }
 \description{
 Lists pipelines defined in the Delta Live Tables system.

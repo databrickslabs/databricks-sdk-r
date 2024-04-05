@@ -14,10 +14,7 @@ esmEnablementUpdate(client, allow_missing, setting, field_mask)
 
 \item{allow_missing}{Required. This should always be set to true for Settings API.}
 
-\item{setting}{Required. This field has no description yet.
-
-See the \href{https://docs.databricks.com/api/workspace/esmenablement/update}{API documentation} for more
-information on the request and response field structure.}
+\item{setting}{Required. This field has no description yet.}
 
 \item{field_mask}{Required. Field mask is required to be passed into the PATCH request.}
 }

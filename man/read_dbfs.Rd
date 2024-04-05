@@ -12,10 +12,7 @@ dbfsRead(client, path, length = NULL, offset = NULL)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{path}{Required. The path of the file to read.
-
-See the \href{https://docs.databricks.com/api/workspace/dbfs/read}{API documentation} for more
-information on the request and response field structure.}
+\item{path}{Required. The path of the file to read.}
 
 \item{length}{The number of bytes to read starting from the offset.}
 

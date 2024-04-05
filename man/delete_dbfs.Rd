@@ -14,10 +14,7 @@ dbfsDelete(client, path, recursive = NULL)
 
 \item{path}{Required. The path of the file or directory to delete.}
 
-\item{recursive}{Whether or not to recursively delete the directory's contents.
-
-See the \href{https://docs.databricks.com/api/workspace/dbfs/delete}{API documentation} for more
-information on the request and response field structure.}
+\item{recursive}{Whether or not to recursively delete the directory's contents.}
 }
 \description{
 Delete the file or directory (optionally recursively delete all files in the

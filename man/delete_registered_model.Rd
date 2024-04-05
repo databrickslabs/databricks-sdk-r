@@ -12,10 +12,7 @@ registeredModelsDelete(client, full_name)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{full_name}{Required. The three-level (fully qualified) name of the registered model.
-
-See the \href{https://docs.databricks.com/api/workspace/registeredmodels/delete}{API documentation} for more
-information on the request and response field structure.}
+\item{full_name}{Required. The three-level (fully qualified) name of the registered model.}
 }
 \description{
 Deletes a registered model and all its model versions from the specified

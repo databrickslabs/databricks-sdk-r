@@ -12,8 +12,6 @@ NULL
 #' @param all_queued_runs Optional boolean parameter to cancel all queued runs.
 #' @param job_id The canonical identifier of the job to cancel all runs of.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/jobs/cancelallruns) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname cancel_job_all_runs
 #' @alias jobsCancelAllRuns
@@ -34,8 +32,6 @@ jobsCancelAllRuns <- cancel_job_all_runs
 #'
 #' @param run_id Required. This field is required.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/jobs/cancelrun) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname cancel_job_run
 #' @alias jobsCancelRun
@@ -77,8 +73,6 @@ jobsCancelRun <- cancel_job_run
 #' @param trigger A configuration to trigger a run when certain conditions are met.
 #' @param webhook_notifications A collection of system notification IDs to notify when runs of this job begin or complete.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/jobs/create) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname create_job
 #' @alias jobsCreate
@@ -109,8 +103,6 @@ jobsCreate <- create_job
 #'
 #' @param job_id Required. The canonical identifier of the job to delete.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/jobs/delete) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname delete_job
 #' @alias jobsDelete
@@ -130,8 +122,6 @@ jobsDelete <- delete_job
 #'
 #' @param run_id Required. The canonical identifier of the run for which to retrieve the metadata.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/jobs/deleterun) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname delete_job_run
 #' @alias jobsDeleteRun
@@ -152,8 +142,6 @@ jobsDeleteRun <- delete_job_run
 #' @param run_id Required. The canonical identifier for the run.
 #' @param views_to_export Which views to export (CODE, DASHBOARDS, or ALL).
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/jobs/exportrun) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname export_job_run
 #' @alias jobsExportRun
@@ -173,8 +161,6 @@ jobsExportRun <- export_job_run
 #'
 #' @param job_id Required. The canonical identifier of the job to retrieve information about.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/jobs/get) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname get_job
 #' @alias jobsGet
@@ -194,8 +180,6 @@ jobsGet <- get_job
 #'
 #' @param job_id Required. The job for which to get or manage permissions.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/jobs/getpermissionlevels) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname get_job_permission_levels
 #' @alias jobsGetPermissionLevels
@@ -217,8 +201,6 @@ jobsGetPermissionLevels <- get_job_permission_levels
 #'
 #' @param job_id Required. The job for which to get or manage permissions.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/jobs/getpermissions) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname get_job_permissions
 #' @alias jobsGetPermissions
@@ -240,8 +222,6 @@ jobsGetPermissions <- get_job_permissions
 #' @param include_resolved_values Whether to include resolved parameter values in the response.
 #' @param run_id Required. The canonical identifier of the run for which to retrieve the metadata.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/jobs/getrun) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname get_job_run
 #' @alias jobsGetRun
@@ -271,8 +251,6 @@ jobsGetRun <- get_job_run
 #'
 #' @param run_id Required. The canonical identifier for the run.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/jobs/getrunoutput) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname get_job_run_output
 #' @alias jobsGetRunOutput
@@ -298,8 +276,6 @@ jobsGetRunOutput <- get_job_run_output
 #'
 #' @return `data.frame` with all of the response pages.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/jobs/list) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname list_jobs
 #' @alias jobsList
@@ -347,8 +323,6 @@ jobsList <- list_jobs
 #'
 #' @return `data.frame` with all of the response pages.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/jobs/listruns) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname list_job_runs
 #' @alias jobsListRuns
@@ -402,8 +376,6 @@ jobsListRuns <- list_job_runs
 #' @param spark_submit_params A list of parameters for jobs with spark submit task, for example `'spark_submit_params': ['--class', 'org.apache.spark.examples.SparkPi']`.
 #' @param sql_params A map from keys to values for jobs with SQL task, for example `'sql_params': {'name': 'john doe', 'age': '35'}`.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/jobs/repairrun) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname repair_job_run
 #' @alias jobsRepairRun
@@ -434,8 +406,6 @@ jobsRepairRun <- repair_job_run
 #' @param job_id Required. The canonical identifier of the job to reset.
 #' @param new_settings Required. The new settings of the job.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/jobs/reset) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname reset_job
 #' @alias jobsReset
@@ -466,8 +436,6 @@ jobsReset <- reset_job
 #' @param spark_submit_params A list of parameters for jobs with spark submit task, for example `'spark_submit_params': ['--class', 'org.apache.spark.examples.SparkPi']`.
 #' @param sql_params A map from keys to values for jobs with SQL task, for example `'sql_params': {'name': 'john doe', 'age': '35'}`.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/jobs/runnow) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname run_job_now
 #' @alias jobsRunNow
@@ -496,8 +464,6 @@ jobsRunNow <- run_job_now
 #' @param access_control_list This field has no description yet.
 #' @param job_id Required. The job for which to get or manage permissions.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/jobs/setpermissions) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname set_job_permissions
 #' @alias jobsSetPermissions
@@ -530,8 +496,6 @@ jobsSetPermissions <- set_job_permissions
 #' @param timeout_seconds An optional timeout applied to each run of this job.
 #' @param webhook_notifications A collection of system notification IDs to notify when the run begins or completes.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/jobs/submit) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname submit_job
 #' @alias jobsSubmit
@@ -559,8 +523,6 @@ jobsSubmit <- submit_job
 #' @param job_id Required. The canonical identifier of the job to update.
 #' @param new_settings The new settings for the job.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/jobs/update) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname update_job
 #' @alias jobsUpdate
@@ -582,8 +544,6 @@ jobsUpdate <- update_job
 #' @param access_control_list This field has no description yet.
 #' @param job_id Required. The job for which to get or manage permissions.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/jobs/updatepermissions) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname update_job_permissions
 #' @alias jobsUpdatePermissions

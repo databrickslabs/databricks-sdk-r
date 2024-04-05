@@ -12,10 +12,7 @@ alertsDelete(client, alert_id)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{alert_id}{Required. This field has no description yet.
-
-See the \href{https://docs.databricks.com/api/workspace/alerts/delete}{API documentation} for more
-information on the request and response field structure.}
+\item{alert_id}{Required. This field has no description yet.}
 }
 \description{
 Deletes an alert. Deleted alerts are no longer accessible and cannot be

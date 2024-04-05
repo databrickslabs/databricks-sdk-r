@@ -30,10 +30,7 @@ experimentsLogBatch(
 
 \item{run_id}{ID of the run to log under.}
 
-\item{tags}{Tags to log.
-
-See the \href{https://docs.databricks.com/api/workspace/experiments/logbatch}{API documentation} for more
-information on the request and response field structure.}
+\item{tags}{Tags to log.}
 }
 \description{
 Logs a batch of metrics, params, and tags for a run. If any data failed to be

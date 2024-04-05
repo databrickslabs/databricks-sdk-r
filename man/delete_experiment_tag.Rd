@@ -12,10 +12,7 @@ experimentsDeleteTag(client, run_id, key)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{run_id}{Required. ID of the run that the tag was logged under.
-
-See the \href{https://docs.databricks.com/api/workspace/experiments/deletetag}{API documentation} for more
-information on the request and response field structure.}
+\item{run_id}{Required. ID of the run that the tag was logged under.}
 
 \item{key}{Required. Name of the tag.}
 }

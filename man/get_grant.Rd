@@ -12,10 +12,7 @@ grantsGet(client, securable_type, full_name, principal = NULL)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{securable_type}{Required. Type of securable.
-
-See the \href{https://docs.databricks.com/api/workspace/grants/get}{API documentation} for more
-information on the request and response field structure.}
+\item{securable_type}{Required. Type of securable.}
 
 \item{full_name}{Required. Full name of securable.}
 

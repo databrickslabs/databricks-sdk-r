@@ -58,10 +58,7 @@ lakehouseMonitorsUpdate(
 
 \item{snapshot}{Configuration for monitoring snapshot tables.}
 
-\item{time_series}{Configuration for monitoring time series tables.
-
-See the \href{https://docs.databricks.com/api/workspace/lakehousemonitors/update}{API documentation} for more
-information on the request and response field structure.}
+\item{time_series}{Configuration for monitoring time series tables.}
 }
 \description{
 Updates a monitor for the specified table.

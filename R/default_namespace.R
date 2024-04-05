@@ -14,8 +14,6 @@ NULL
 #'
 #' @param etag etag used for versioning.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/defaultnamespace/delete) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname delete_default_namespace
 #' @alias defaultNamespaceDelete
@@ -36,8 +34,6 @@ defaultNamespaceDelete <- delete_default_namespace
 #'
 #' @param etag etag used for versioning.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/defaultnamespace/get) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname get_default_namespace
 #' @alias defaultNamespaceGet
@@ -66,8 +62,6 @@ defaultNamespaceGet <- get_default_namespace
 #' @param field_mask Required. Field mask is required to be passed into the PATCH request.
 #' @param setting Required. This represents the setting configuration for the default namespace in the Databricks workspace.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/defaultnamespace/update) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname update_default_namespace
 #' @alias defaultNamespaceUpdate

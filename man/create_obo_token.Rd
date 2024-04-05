@@ -26,10 +26,7 @@ tokenManagementCreateOboToken(
 
 \item{comment}{Comment that describes the purpose of the token.}
 
-\item{lifetime_seconds}{The number of seconds before the token expires.
-
-See the \href{https://docs.databricks.com/api/workspace/tokenmanagement/createobotoken}{API documentation} for more
-information on the request and response field structure.}
+\item{lifetime_seconds}{The number of seconds before the token expires.}
 }
 \description{
 Creates a token on behalf of a service principal.

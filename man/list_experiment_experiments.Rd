@@ -30,9 +30,6 @@ experimentsListExperiments(
 }
 \value{
 \code{data.frame} with all of the response pages.
-
-See the \href{https://docs.databricks.com/api/workspace/experiments/listexperiments}{API documentation} for more
-information on the request and response field structure.
 }
 \description{
 Gets a list of all experiments.

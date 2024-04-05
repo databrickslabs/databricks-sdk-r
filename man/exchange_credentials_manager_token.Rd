@@ -14,10 +14,7 @@ credentialsManagerExchangeToken(client, partition_id, token_type, scopes)
 
 \item{partition_id}{Required. The partition of Credentials store.}
 
-\item{token_type}{Required. A list of token types being requested.
-
-See the \href{https://docs.databricks.com/api/workspace/credentialsmanager/exchangetoken}{API documentation} for more
-information on the request and response field structure.}
+\item{token_type}{Required. A list of token types being requested.}
 
 \item{scopes}{Required. Array of scopes for the token request.}
 }

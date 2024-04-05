@@ -50,10 +50,7 @@ servicePrincipalsCreate(
 
 \item{roles}{Corresponds to AWS instance profile/arn role.}
 
-\item{schemas}{The schema of the List response.
-
-See the \href{https://docs.databricks.com/api/workspace/serviceprincipals/create}{API documentation} for more
-information on the request and response field structure.}
+\item{schemas}{The schema of the List response.}
 }
 \description{
 Creates a new service principal in the Databricks workspace.

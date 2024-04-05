@@ -14,10 +14,7 @@ vectorSearchIndexesUpsertDataVectorIndex(client, index_name, inputs_json)
 
 \item{index_name}{Required. Name of the vector index where data is to be upserted.}
 
-\item{inputs_json}{Required. JSON string representing the data to be upserted.
-
-See the \href{https://docs.databricks.com/api/workspace/vectorsearchindexes/upsertdatavectorindex}{API documentation} for more
-information on the request and response field structure.}
+\item{inputs_json}{Required. JSON string representing the data to be upserted.}
 }
 \description{
 Handles the upserting of data into a specified vector index.

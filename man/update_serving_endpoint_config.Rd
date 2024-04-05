@@ -34,10 +34,7 @@ servingEndpointsUpdateConfig(
 
 \item{served_models}{(Deprecated, use served_entities instead) A list of served models for the endpoint to serve.}
 
-\item{traffic_config}{The traffic config defining how invocations to the serving endpoint should be routed.
-
-See the \href{https://docs.databricks.com/api/workspace/servingendpoints/updateconfig}{API documentation} for more
-information on the request and response field structure.}
+\item{traffic_config}{The traffic config defining how invocations to the serving endpoint should be routed.}
 }
 \description{
 Updates any combination of the serving endpoint's served entities, the

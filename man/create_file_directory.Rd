@@ -12,10 +12,7 @@ filesCreateDirectory(client, directory_path)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{directory_path}{Required. The absolute path of a directory.
-
-See the \href{https://docs.databricks.com/api/workspace/files/createdirectory}{API documentation} for more
-information on the request and response field structure.}
+\item{directory_path}{Required. The absolute path of a directory.}
 }
 \description{
 Creates an empty directory. If necessary, also creates any parent directories

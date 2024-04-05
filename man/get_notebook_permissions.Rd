@@ -12,10 +12,7 @@ workspaceGetPermissions(client, workspace_object_type, workspace_object_id)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{workspace_object_type}{Required. The workspace object type for which to get or manage permissions.
-
-See the \href{https://docs.databricks.com/api/workspace/workspace/getpermissions}{API documentation} for more
-information on the request and response field structure.}
+\item{workspace_object_type}{Required. The workspace object type for which to get or manage permissions.}
 
 \item{workspace_object_id}{Required. The workspace object for which to get or manage permissions.}
 }

@@ -12,10 +12,7 @@ reposGet(client, repo_id)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{repo_id}{Required. The ID for the corresponding repo to access.
-
-See the \href{https://docs.databricks.com/api/workspace/repos/get}{API documentation} for more
-information on the request and response field structure.}
+\item{repo_id}{Required. The ID for the corresponding repo to access.}
 }
 \description{
 Returns the repo with the given repo ID.

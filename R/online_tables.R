@@ -11,8 +11,6 @@ NULL
 #' @param name Full three-part (catalog, schema, table) name of the table.
 #' @param spec Specification of the online table.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/onlinetables/create) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname create_online_table
 #' @alias onlineTablesCreate
@@ -34,8 +32,6 @@ onlineTablesCreate <- create_online_table
 #'
 #' @param name Required. Full three-part (catalog, schema, table) name of the table.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/onlinetables/delete) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname delete_online_table
 #' @alias onlineTablesDelete
@@ -55,8 +51,6 @@ onlineTablesDelete <- delete_online_table
 #'
 #' @param name Required. Full three-part (catalog, schema, table) name of the table.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/onlinetables/get) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname get_online_table
 #' @alias onlineTablesGet

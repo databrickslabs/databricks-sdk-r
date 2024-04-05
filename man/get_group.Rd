@@ -12,10 +12,7 @@ groupsGet(client, id)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{id}{Required. Unique ID for a group in the Databricks workspace.
-
-See the \href{https://docs.databricks.com/api/workspace/groups/get}{API documentation} for more
-information on the request and response field structure.}
+\item{id}{Required. Unique ID for a group in the Databricks workspace.}
 }
 \description{
 Gets the information for a specific group in the Databricks workspace.

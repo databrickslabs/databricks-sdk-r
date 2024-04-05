@@ -12,10 +12,7 @@ appsGetApp(client, name)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{name}{Required. The name of an application.
-
-See the \href{https://docs.databricks.com/api/workspace/apps/getapp}{API documentation} for more
-information on the request and response field structure.}
+\item{name}{Required. The name of an application.}
 }
 \description{
 Get an application definition

@@ -38,9 +38,6 @@ jobsList(
 }
 \value{
 \code{data.frame} with all of the response pages.
-
-See the \href{https://docs.databricks.com/api/workspace/jobs/list}{API documentation} for more
-information on the request and response field structure.
 }
 \description{
 Retrieves a list of jobs.

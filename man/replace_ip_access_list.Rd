@@ -30,10 +30,7 @@ ipAccessListsReplace(
 
 \item{label}{Required. Label for the IP access list.}
 
-\item{list_type}{Required. Type of IP access list.
-
-See the \href{https://docs.databricks.com/api/workspace/ipaccesslists/replace}{API documentation} for more
-information on the request and response field structure.}
+\item{list_type}{Required. Type of IP access list.}
 
 \item{enabled}{Required. Specifies whether this IP access list is enabled.}
 

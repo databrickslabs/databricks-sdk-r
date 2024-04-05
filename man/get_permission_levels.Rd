@@ -12,10 +12,7 @@ permissionsGetPermissionLevels(client, request_object_type, request_object_id)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{request_object_type}{Required. \if{html}{\out{<needs content>}}.
-
-See the \href{https://docs.databricks.com/api/workspace/permissions/getpermissionlevels}{API documentation} for more
-information on the request and response field structure.}
+\item{request_object_type}{Required. \if{html}{\out{<needs content>}}.}
 
 \item{request_object_id}{Required. \if{html}{\out{<needs content>}}.}
 }

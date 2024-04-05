@@ -34,9 +34,6 @@ modelRegistrySearchModelVersions(
 }
 \value{
 \code{data.frame} with all of the response pages.
-
-See the \href{https://docs.databricks.com/api/workspace/modelregistry/searchmodelversions}{API documentation} for more
-information on the request and response field structure.
 }
 \description{
 Searches for specific model versions based on the supplied \strong{filter}.

@@ -24,10 +24,7 @@ workspaceBindingsUpdateBindings(
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{securable_type}{Required. The type of the securable.
-
-See the \href{https://docs.databricks.com/api/workspace/workspacebindings/updatebindings}{API documentation} for more
-information on the request and response field structure.}
+\item{securable_type}{Required. The type of the securable.}
 
 \item{securable_name}{Required. The name of the securable.}
 

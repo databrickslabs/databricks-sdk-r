@@ -14,10 +14,7 @@ jobsExportRun(client, run_id, views_to_export = NULL)
 
 \item{run_id}{Required. The canonical identifier for the run.}
 
-\item{views_to_export}{Which views to export (CODE, DASHBOARDS, or ALL).
-
-See the \href{https://docs.databricks.com/api/workspace/jobs/exportrun}{API documentation} for more
-information on the request and response field structure.}
+\item{views_to_export}{Which views to export (CODE, DASHBOARDS, or ALL).}
 }
 \description{
 Export and retrieve the job run task.

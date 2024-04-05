@@ -17,8 +17,6 @@ NULL
 #' @param name Required. Experiment name.
 #' @param tags A collection of tags to set on the experiment.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/experiments/createexperiment) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname create_experiment
 #' @alias experimentsCreateExperiment
@@ -44,8 +42,6 @@ experimentsCreateExperiment <- create_experiment
 #' @param tags Additional metadata for run.
 #' @param user_id ID of the user executing the run.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/experiments/createrun) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname create_experiment_run
 #' @alias experimentsCreateRun
@@ -69,8 +65,6 @@ experimentsCreateRun <- create_experiment_run
 #'
 #' @param experiment_id Required. ID of the associated experiment.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/experiments/deleteexperiment) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname delete_experiment
 #' @alias experimentsDeleteExperiment
@@ -90,8 +84,6 @@ experimentsDeleteExperiment <- delete_experiment
 #'
 #' @param run_id Required. ID of the run to delete.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/experiments/deleterun) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname delete_experiment_run
 #' @alias experimentsDeleteRun
@@ -116,8 +108,6 @@ experimentsDeleteRun <- delete_experiment_run
 #' @param max_runs An optional positive integer indicating the maximum number of runs to delete.
 #' @param max_timestamp_millis Required. The maximum creation timestamp in milliseconds since the UNIX epoch for deleting runs.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/experiments/deleteruns) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname delete_experiment_runs
 #' @alias experimentsDeleteRuns
@@ -139,8 +129,6 @@ experimentsDeleteRuns <- delete_experiment_runs
 #' @param key Required. Name of the tag.
 #' @param run_id Required. ID of the run that the tag was logged under.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/experiments/deletetag) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname delete_experiment_tag
 #' @alias experimentsDeleteTag
@@ -168,8 +156,6 @@ experimentsDeleteTag <- delete_experiment_tag
 #'
 #' @param experiment_name Required. Name of the associated experiment.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/experiments/getbyname) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname get_experiment_by_name
 #' @alias experimentsGetByName
@@ -189,8 +175,6 @@ experimentsGetByName <- get_experiment_by_name
 #'
 #' @param experiment_id Required. ID of the associated experiment.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/experiments/getexperiment) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname get_experiment
 #' @alias experimentsGetExperiment
@@ -216,8 +200,6 @@ experimentsGetExperiment <- get_experiment
 #'
 #' @return `data.frame` with all of the response pages.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/experiments/gethistory) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname get_experiment_history
 #' @alias experimentsGetHistory
@@ -254,8 +236,6 @@ experimentsGetHistory <- get_experiment_history
 #'
 #' @param experiment_id Required. The experiment for which to get or manage permissions.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/experiments/getpermissionlevels) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname get_experiment_permission_levels
 #' @alias experimentsGetPermissionLevels
@@ -277,8 +257,6 @@ experimentsGetPermissionLevels <- get_experiment_permission_levels
 #'
 #' @param experiment_id Required. The experiment for which to get or manage permissions.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/experiments/getpermissions) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname get_experiment_permissions
 #' @alias experimentsGetPermissions
@@ -304,8 +282,6 @@ experimentsGetPermissions <- get_experiment_permissions
 #' @param run_id Required. ID of the run to fetch.
 #' @param run_uuid Deprecated, use run_id instead. ID of the run to fetch.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/experiments/getrun) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname get_experiment_run
 #' @alias experimentsGetRun
@@ -331,8 +307,6 @@ experimentsGetRun <- get_experiment_run
 #'
 #' @return `data.frame` with all of the response pages.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/experiments/listartifacts) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname list_experiment_artifacts
 #' @alias experimentsListArtifacts
@@ -372,8 +346,6 @@ experimentsListArtifacts <- list_experiment_artifacts
 #'
 #' @return `data.frame` with all of the response pages.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/experiments/listexperiments) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname list_experiment_experiments
 #' @alias experimentsListExperiments
@@ -448,8 +420,6 @@ experimentsListExperiments <- list_experiment_experiments
 #' @param run_id ID of the run to log under.
 #' @param tags Tags to log.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/experiments/logbatch) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname log_experiment_batch
 #' @alias experimentsLogBatch
@@ -472,8 +442,6 @@ experimentsLogBatch <- log_experiment_batch
 #' @param datasets Dataset inputs.
 #' @param run_id ID of the run to log under.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/experiments/loginputs) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname log_experiment_inputs
 #' @alias experimentsLogInputs
@@ -500,8 +468,6 @@ experimentsLogInputs <- log_experiment_inputs
 #' @param timestamp Required. Unix timestamp in milliseconds at the time metric was logged.
 #' @param value Required. Double value of the metric being logged.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/experiments/logmetric) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname log_experiment_metric
 #' @alias experimentsLogMetric
@@ -525,8 +491,6 @@ experimentsLogMetric <- log_experiment_metric
 #' @param model_json MLmodel file in json format.
 #' @param run_id ID of the run to log under.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/experiments/logmodel) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname log_experiment_model
 #' @alias experimentsLogModel
@@ -552,8 +516,6 @@ experimentsLogModel <- log_experiment_model
 #' @param run_uuid Deprecated, use run_id instead. ID of the run under which to log the param.
 #' @param value Required. String value of the param being logged.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/experiments/logparam) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname log_experiment_param
 #' @alias experimentsLogParam
@@ -578,8 +540,6 @@ experimentsLogParam <- log_experiment_param
 #'
 #' @param experiment_id Required. ID of the associated experiment.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/experiments/restoreexperiment) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname restore_experiment
 #' @alias experimentsRestoreExperiment
@@ -599,8 +559,6 @@ experimentsRestoreExperiment <- restore_experiment
 #'
 #' @param run_id Required. ID of the run to restore.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/experiments/restorerun) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname restore_experiment_run
 #' @alias experimentsRestoreRun
@@ -625,8 +583,6 @@ experimentsRestoreRun <- restore_experiment_run
 #' @param max_runs An optional positive integer indicating the maximum number of runs to restore.
 #' @param min_timestamp_millis Required. The minimum deletion timestamp in milliseconds since the UNIX epoch for restoring runs.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/experiments/restoreruns) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname restore_experiment_runs
 #' @alias experimentsRestoreRuns
@@ -653,8 +609,6 @@ experimentsRestoreRuns <- restore_experiment_runs
 #'
 #' @return `data.frame` with all of the response pages.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/experiments/searchexperiments) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname search_experiment_experiments
 #' @alias experimentsSearchExperiments
@@ -700,8 +654,6 @@ experimentsSearchExperiments <- search_experiment_experiments
 #'
 #' @return `data.frame` with all of the response pages.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/experiments/searchruns) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname search_experiment_runs
 #' @alias experimentsSearchRuns
@@ -741,8 +693,6 @@ experimentsSearchRuns <- search_experiment_runs
 #' @param key Required. Name of the tag.
 #' @param value Required. String value of the tag being logged.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/experiments/setexperimenttag) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname set_experiment_tag
 #' @alias experimentsSetExperimentTag
@@ -764,8 +714,6 @@ experimentsSetExperimentTag <- set_experiment_tag
 #' @param access_control_list This field has no description yet.
 #' @param experiment_id Required. The experiment for which to get or manage permissions.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/experiments/setpermissions) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname set_experiment_permissions
 #' @alias experimentsSetPermissions
@@ -790,8 +738,6 @@ experimentsSetPermissions <- set_experiment_permissions
 #' @param run_uuid Deprecated, use run_id instead. ID of the run under which to log the tag.
 #' @param value Required. String value of the tag being logged.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/experiments/settag) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname set_experiment_tag
 #' @alias experimentsSetTag
@@ -812,8 +758,6 @@ experimentsSetTag <- set_experiment_tag
 #' @param experiment_id Required. ID of the associated experiment.
 #' @param new_name If provided, the experiment's name is changed to the new name.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/experiments/updateexperiment) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname update_experiment
 #' @alias experimentsUpdateExperiment
@@ -835,8 +779,6 @@ experimentsUpdateExperiment <- update_experiment
 #' @param access_control_list This field has no description yet.
 #' @param experiment_id Required. The experiment for which to get or manage permissions.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/experiments/updatepermissions) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname update_experiment_permissions
 #' @alias experimentsUpdatePermissions
@@ -860,8 +802,6 @@ experimentsUpdatePermissions <- update_experiment_permissions
 #' @param run_uuid Deprecated, use run_id instead. ID of the run to update.
 #' @param status Updated status of the run.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/experiments/updaterun) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname update_experiment_run
 #' @alias experimentsUpdateRun

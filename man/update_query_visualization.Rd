@@ -42,10 +42,7 @@ queryVisualizationsUpdate(
 
 \item{type}{The type of visualization: chart, table, pivot table, and so on.}
 
-\item{updated_at}{This field has no description yet.
-
-See the \href{https://docs.databricks.com/api/workspace/queryvisualizations/update}{API documentation} for more
-information on the request and response field structure.}
+\item{updated_at}{This field has no description yet.}
 }
 \description{
 Edit existing visualization.

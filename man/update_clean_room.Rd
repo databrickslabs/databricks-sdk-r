@@ -30,10 +30,7 @@ cleanRoomsUpdate(
 
 \item{comment}{User-provided free-form text description.}
 
-\item{owner}{Username of current owner of clean room.
-
-See the \href{https://docs.databricks.com/api/workspace/cleanrooms/update}{API documentation} for more
-information on the request and response field structure.}
+\item{owner}{Username of current owner of clean room.}
 }
 \description{
 Updates the clean room with the changes and data objects in the request. The

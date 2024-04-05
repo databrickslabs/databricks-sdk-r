@@ -14,10 +14,7 @@ onlineTablesCreate(client, name = NULL, spec = NULL)
 
 \item{name}{Full three-part (catalog, schema, table) name of the table.}
 
-\item{spec}{Specification of the online table.
-
-See the \href{https://docs.databricks.com/api/workspace/onlinetables/create}{API documentation} for more
-information on the request and response field structure.}
+\item{spec}{Specification of the online table.}
 }
 \description{
 Create a new Online Table.

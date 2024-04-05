@@ -12,8 +12,6 @@ NULL
 #'
 #' @param resource Required. The resource name for which assignable roles will be listed.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/accountaccesscontrolproxy/getassignablerolesforresource) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname get_account_access_control_proxy_assignable_roles_for_resource
 #' @alias accountAccessControlProxyGetAssignableRolesForResource
@@ -38,8 +36,6 @@ accountAccessControlProxyGetAssignableRolesForResource <- get_account_access_con
 #' @param etag Required. Etag used for versioning.
 #' @param name Required. The ruleset name associated with the request.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/accountaccesscontrolproxy/getruleset) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname get_account_access_control_proxy_rule_set
 #' @alias accountAccessControlProxyGetRuleSet
@@ -62,8 +58,6 @@ accountAccessControlProxyGetRuleSet <- get_account_access_control_proxy_rule_set
 #' @param name Required. Name of the rule set.
 #' @param rule_set Required. This field has no description yet.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/accountaccesscontrolproxy/updateruleset) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname update_account_access_control_proxy_rule_set
 #' @alias accountAccessControlProxyUpdateRuleSet

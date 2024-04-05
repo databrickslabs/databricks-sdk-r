@@ -10,10 +10,7 @@ get_user_permissions(client)
 usersGetPermissions(client)
 }
 \arguments{
-\item{client}{Required. Instance of DatabricksClient()
-
-See the \href{https://docs.databricks.com/api/workspace/users/getpermissions}{API documentation} for more
-information on the request and response field structure.}
+\item{client}{Required. Instance of DatabricksClient()}
 }
 \description{
 Gets the permissions of all passwords. Passwords can inherit permissions from

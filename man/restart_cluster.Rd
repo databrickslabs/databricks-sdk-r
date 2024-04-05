@@ -14,10 +14,7 @@ clustersRestart(client, cluster_id, restart_user = NULL)
 
 \item{cluster_id}{Required. The cluster to be started.}
 
-\item{restart_user}{\if{html}{\out{<needs content added>}}.
-
-See the \href{https://docs.databricks.com/api/workspace/clusters/restart}{API documentation} for more
-information on the request and response field structure.}
+\item{restart_user}{needs content added.}
 }
 \description{
 Restarts a Spark cluster with the supplied ID. If the cluster is not

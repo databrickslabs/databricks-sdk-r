@@ -12,10 +12,7 @@ dashboardsGet(client, dashboard_id)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{dashboard_id}{Required. This field has no description yet.
-
-See the \href{https://docs.databricks.com/api/workspace/dashboards/get}{API documentation} for more
-information on the request and response field structure.}
+\item{dashboard_id}{Required. This field has no description yet.}
 }
 \description{
 Returns a JSON representation of a dashboard object, including its

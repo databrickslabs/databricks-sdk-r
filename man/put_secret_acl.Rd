@@ -12,10 +12,7 @@ secretsPutAcl(client, scope, principal, permission)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{scope}{Required. The name of the scope to apply permissions to.
-
-See the \href{https://docs.databricks.com/api/workspace/secrets/putacl}{API documentation} for more
-information on the request and response field structure.}
+\item{scope}{Required. The name of the scope to apply permissions to.}
 
 \item{principal}{Required. The principal in which the permission is applied.}
 

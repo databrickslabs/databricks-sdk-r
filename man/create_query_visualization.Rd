@@ -28,10 +28,7 @@ queryVisualizationsCreate(
 
 \item{query_id}{Required. The identifier returned by :method:queries/create.}
 
-\item{type}{Required. The type of visualization: chart, table, pivot table, and so on.
-
-See the \href{https://docs.databricks.com/api/workspace/queryvisualizations/create}{API documentation} for more
-information on the request and response field structure.}
+\item{type}{Required. The type of visualization: chart, table, pivot table, and so on.}
 
 \item{options}{Required. The options object varies widely from one visualization type to the next and is unsupported.}
 

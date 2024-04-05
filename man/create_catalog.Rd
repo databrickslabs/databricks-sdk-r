@@ -46,10 +46,7 @@ catalogsCreate(
 
 \item{share_name}{The name of the share under the share provider.}
 
-\item{storage_root}{Storage root URL for managed tables within catalog.
-
-See the \href{https://docs.databricks.com/api/workspace/catalogs/create}{API documentation} for more
-information on the request and response field structure.}
+\item{storage_root}{Storage root URL for managed tables within catalog.}
 }
 \description{
 Creates a new catalog instance in the parent metastore if the caller is a

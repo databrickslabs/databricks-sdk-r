@@ -12,10 +12,7 @@ onlineTablesGet(client, name)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{name}{Required. Full three-part (catalog, schema, table) name of the table.
-
-See the \href{https://docs.databricks.com/api/workspace/onlinetables/get}{API documentation} for more
-information on the request and response field structure.}
+\item{name}{Required. Full three-part (catalog, schema, table) name of the table.}
 }
 \description{
 Get information about an existing online table and its status.

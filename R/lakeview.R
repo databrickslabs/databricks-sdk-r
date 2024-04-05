@@ -13,8 +13,6 @@ NULL
 #' @param serialized_dashboard The contents of the dashboard in serialized string form.
 #' @param warehouse_id The warehouse ID used to run the dashboard.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/lakeview/create) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname create_lakeview
 #' @alias lakeviewCreate
@@ -36,8 +34,6 @@ lakeviewCreate <- create_lakeview
 #'
 #' @param dashboard_id Required. UUID identifying the dashboard.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/lakeview/get) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname get_lakeview
 #' @alias lakeviewGet
@@ -57,8 +53,6 @@ lakeviewGet <- get_lakeview
 #'
 #' @param dashboard_id Required. UUID identifying the dashboard to be published.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/lakeview/getpublished) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname get_lakeview_published
 #' @alias lakeviewGetPublished
@@ -81,8 +75,6 @@ lakeviewGetPublished <- get_lakeview_published
 #' @param embed_credentials Flag to indicate if the publisher's credentials should be embedded in the published dashboard.
 #' @param warehouse_id The ID of the warehouse that can be used to override the warehouse which was set in the draft.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/lakeview/publish) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname publish_lakeview
 #' @alias lakeviewPublish
@@ -103,8 +95,6 @@ lakeviewPublish <- publish_lakeview
 #'
 #' @param dashboard_id Required. UUID identifying the dashboard.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/lakeview/trash) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname trash_lakeview
 #' @alias lakeviewTrash
@@ -128,8 +118,6 @@ lakeviewTrash <- trash_lakeview
 #' @param serialized_dashboard The contents of the dashboard in serialized string form.
 #' @param warehouse_id The warehouse ID used to run the dashboard.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/lakeview/update) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname update_lakeview
 #' @alias lakeviewUpdate

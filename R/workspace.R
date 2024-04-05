@@ -18,8 +18,6 @@ NULL
 #' @param path Required. The absolute path of the notebook or directory.
 #' @param recursive The flag that specifies whether to delete the object recursively.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/workspace/delete) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname delete_notebook
 #' @alias workspaceDelete
@@ -47,8 +45,6 @@ workspaceDelete <- delete_notebook
 #' @param format This specifies the format of the exported file.
 #' @param path Required. The absolute path of the object or directory.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/workspace/export) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname export_notebook
 #' @alias workspaceExport
@@ -69,8 +65,6 @@ workspaceExport <- export_notebook
 #' @param workspace_object_id Required. The workspace object for which to get or manage permissions.
 #' @param workspace_object_type Required. The workspace object type for which to get or manage permissions.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/workspace/getpermissionlevels) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname get_notebook_permission_levels
 #' @alias workspaceGetPermissionLevels
@@ -93,8 +87,6 @@ workspaceGetPermissionLevels <- get_notebook_permission_levels
 #' @param workspace_object_id Required. The workspace object for which to get or manage permissions.
 #' @param workspace_object_type Required. The workspace object type for which to get or manage permissions.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/workspace/getpermissions) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname get_notebook_permissions
 #' @alias workspaceGetPermissions
@@ -116,8 +108,6 @@ workspaceGetPermissions <- get_notebook_permissions
 #'
 #' @param path Required. The absolute path of the notebook or directory.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/workspace/getstatus) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname get_notebook_status
 #' @alias workspaceGetStatus
@@ -146,8 +136,6 @@ workspaceGetStatus <- get_notebook_status
 #' @param overwrite The flag that specifies whether to overwrite existing object.
 #' @param path Required. The absolute path of the object or directory.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/workspace/import) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname import_notebook
 #' @alias workspaceImport
@@ -174,8 +162,6 @@ workspaceImport <- import_notebook
 #'
 #' @return `data.frame` with all of the response pages.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/workspace/list) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname list_notebooks
 #' @alias workspaceList
@@ -203,8 +189,6 @@ workspaceList <- list_notebooks
 #'
 #' @param path Required. The absolute path of the directory.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/workspace/mkdirs) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname mkdirs_notebook
 #' @alias workspaceMkdirs
@@ -227,8 +211,6 @@ workspaceMkdirs <- mkdirs_notebook
 #' @param workspace_object_id Required. The workspace object for which to get or manage permissions.
 #' @param workspace_object_type Required. The workspace object type for which to get or manage permissions.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/workspace/setpermissions) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname set_notebook_permissions
 #' @alias workspaceSetPermissions
@@ -253,8 +235,6 @@ workspaceSetPermissions <- set_notebook_permissions
 #' @param workspace_object_id Required. The workspace object for which to get or manage permissions.
 #' @param workspace_object_type Required. The workspace object type for which to get or manage permissions.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/workspace/updatepermissions) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname update_notebook_permissions
 #' @alias workspaceUpdatePermissions

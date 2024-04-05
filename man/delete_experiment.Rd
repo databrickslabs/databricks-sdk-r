@@ -12,10 +12,7 @@ experimentsDeleteExperiment(client, experiment_id)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{experiment_id}{Required. ID of the associated experiment.
-
-See the \href{https://docs.databricks.com/api/workspace/experiments/deleteexperiment}{API documentation} for more
-information on the request and response field structure.}
+\item{experiment_id}{Required. ID of the associated experiment.}
 }
 \description{
 Marks an experiment and associated metadata, runs, metrics, params, and tags

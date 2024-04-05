@@ -16,9 +16,6 @@ secretsListAcls(client, scope)
 }
 \value{
 \code{data.frame} with all of the response pages.
-
-See the \href{https://docs.databricks.com/api/workspace/secrets/listacls}{API documentation} for more
-information on the request and response field structure.
 }
 \description{
 List the ACLs for a given secret scope. Users must have the \code{MANAGE}

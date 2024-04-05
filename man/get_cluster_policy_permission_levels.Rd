@@ -12,10 +12,7 @@ clusterPoliciesGetPermissionLevels(client, cluster_policy_id)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{cluster_policy_id}{Required. The cluster policy for which to get or manage permissions.
-
-See the \href{https://docs.databricks.com/api/workspace/clusterpolicies/getpermissionlevels}{API documentation} for more
-information on the request and response field structure.}
+\item{cluster_policy_id}{Required. The cluster policy for which to get or manage permissions.}
 }
 \description{
 Gets the permission levels that a user can have on an object.

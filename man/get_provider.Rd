@@ -12,10 +12,7 @@ providersGet(client, name)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{name}{Required. Name of the provider.
-
-See the \href{https://docs.databricks.com/api/workspace/providers/get}{API documentation} for more
-information on the request and response field structure.}
+\item{name}{Required. Name of the provider.}
 }
 \description{
 Gets a specific authentication provider. The caller must supply the name of

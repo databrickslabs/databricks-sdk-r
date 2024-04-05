@@ -22,10 +22,7 @@ jobsGetRun(
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{run_id}{Required. The canonical identifier of the run for which to retrieve the metadata.
-
-See the \href{https://docs.databricks.com/api/workspace/jobs/getrun}{API documentation} for more
-information on the request and response field structure.}
+\item{run_id}{Required. The canonical identifier of the run for which to retrieve the metadata.}
 
 \item{include_history}{Whether to include the repair history in the response.}
 

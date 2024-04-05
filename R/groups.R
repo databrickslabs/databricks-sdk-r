@@ -19,8 +19,6 @@ NULL
 #' @param roles Corresponds to AWS instance profile/arn role.
 #' @param schemas The schema of the group.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/groups/create) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname create_group
 #' @alias groupsCreate
@@ -43,8 +41,6 @@ groupsCreate <- create_group
 #'
 #' @param id Required. Unique ID for a group in the Databricks workspace.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/groups/delete) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname delete_group
 #' @alias groupsDelete
@@ -64,8 +60,6 @@ groupsDelete <- delete_group
 #'
 #' @param id Required. Unique ID for a group in the Databricks workspace.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/groups/get) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname get_group
 #' @alias groupsGet
@@ -93,8 +87,6 @@ groupsGet <- get_group
 #'
 #' @return `data.frame` with all of the response pages.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/groups/list) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname list_groups
 #' @alias groupsList
@@ -133,8 +125,6 @@ groupsList <- list_groups
 #' @param operations This field has no description yet.
 #' @param schemas The schema of the patch request.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/groups/patch) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname patch_group
 #' @alias groupsPatch
@@ -162,8 +152,6 @@ groupsPatch <- patch_group
 #' @param roles Corresponds to AWS instance profile/arn role.
 #' @param schemas The schema of the group.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/groups/update) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname update_group
 #' @alias groupsUpdate

@@ -26,10 +26,7 @@ workspaceImport(
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{path}{Required. The absolute path of the object or directory.
-
-See the \href{https://docs.databricks.com/api/workspace/workspace/import}{API documentation} for more
-information on the request and response field structure.}
+\item{path}{Required. The absolute path of the object or directory.}
 
 \item{content}{The base64-encoded content.}
 

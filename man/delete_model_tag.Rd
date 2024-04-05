@@ -12,10 +12,7 @@ modelRegistryDeleteModelTag(client, name, key)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{name}{Required. Name of the registered model that the tag was logged under.
-
-See the \href{https://docs.databricks.com/api/workspace/modelregistry/deletemodeltag}{API documentation} for more
-information on the request and response field structure.}
+\item{name}{Required. Name of the registered model that the tag was logged under.}
 
 \item{key}{Required. Name of the tag.}
 }

@@ -12,10 +12,7 @@ secretsDeleteAcl(client, scope, principal)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{scope}{Required. The name of the scope to remove permissions from.
-
-See the \href{https://docs.databricks.com/api/workspace/secrets/deleteacl}{API documentation} for more
-information on the request and response field structure.}
+\item{scope}{Required. The name of the scope to remove permissions from.}
 
 \item{principal}{Required. The principal to remove an existing ACL from.}
 }

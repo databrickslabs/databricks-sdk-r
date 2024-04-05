@@ -14,8 +14,6 @@ NULL
 #' @param comment Optional description to attach to the token.
 #' @param lifetime_seconds The lifetime of the token, in seconds.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/tokens/create) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname create_token
 #' @alias tokensCreate
@@ -38,8 +36,6 @@ tokensCreate <- create_token
 #'
 #' @param token_id Required. The ID of the token to be revoked.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/tokens/delete) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname delete_token
 #' @alias tokensDelete
@@ -59,8 +55,6 @@ tokensDelete <- delete_token
 #'
 #' @return `data.frame` with all of the response pages.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/tokens/list) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname list_tokens
 #' @alias tokensList

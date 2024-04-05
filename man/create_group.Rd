@@ -50,10 +50,7 @@ groupsCreate(
 
 \item{roles}{Corresponds to AWS instance profile/arn role.}
 
-\item{schemas}{The schema of the group.
-
-See the \href{https://docs.databricks.com/api/workspace/groups/create}{API documentation} for more
-information on the request and response field structure.}
+\item{schemas}{The schema of the group.}
 }
 \description{
 Creates a group in the Databricks workspace with a unique name, using the

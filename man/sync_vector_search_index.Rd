@@ -12,10 +12,7 @@ vectorSearchIndexesSyncIndex(client, index_name)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{index_name}{Required. Name of the vector index to synchronize.
-
-See the \href{https://docs.databricks.com/api/workspace/vectorsearchindexes/syncindex}{API documentation} for more
-information on the request and response field structure.}
+\item{index_name}{Required. Name of the vector index to synchronize.}
 }
 \description{
 Triggers a synchronization process for a specified vector index.

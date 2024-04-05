@@ -17,8 +17,6 @@ NULL
 #' @param full_name Required. The three-level (fully qualified) name of the model version.
 #' @param version Required. The integer version number of the model version.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/modelversions/delete) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname delete_model_version
 #' @alias modelVersionsDelete
@@ -46,8 +44,6 @@ modelVersionsDelete <- delete_model_version
 #' @param include_browse Whether to include model versions in the response for which the principal can only access selective metadata for.
 #' @param version Required. The integer version number of the model version.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/modelversions/get) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname get_model_version
 #' @alias modelVersionsGet
@@ -74,8 +70,6 @@ modelVersionsGet <- get_model_version
 #' @param alias Required. The name of the alias.
 #' @param full_name Required. The three-level (fully qualified) name of the registered model.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/modelversions/getbyalias) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname get_model_version_by_alias
 #' @alias modelVersionsGetByAlias
@@ -112,8 +106,6 @@ modelVersionsGetByAlias <- get_model_version_by_alias
 #'
 #' @return `data.frame` with all of the response pages.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/modelversions/list) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname list_model_versions
 #' @alias modelVersionsList
@@ -159,8 +151,6 @@ modelVersionsList <- list_model_versions
 #' @param full_name Required. The three-level (fully qualified) name of the model version.
 #' @param version Required. The integer version number of the model version.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/modelversions/update) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname update_model_version
 #' @alias modelVersionsUpdate

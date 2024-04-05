@@ -27,8 +27,6 @@ NULL
 #' @param label Required. Label for the IP access list.
 #' @param list_type Required. Type of IP access list.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/ipaccesslists/create) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname create_ip_access_list
 #' @alias ipAccessListsCreate
@@ -48,8 +46,6 @@ ipAccessListsCreate <- create_ip_access_list
 #'
 #' @param ip_access_list_id Required. The ID for the corresponding IP access list.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/ipaccesslists/delete) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname delete_ip_access_list
 #' @alias ipAccessListsDelete
@@ -69,8 +65,6 @@ ipAccessListsDelete <- delete_ip_access_list
 #'
 #' @param ip_access_list_id Required. The ID for the corresponding IP access list.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/ipaccesslists/get) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname get_ip_access_list
 #' @alias ipAccessListsGet
@@ -90,8 +84,6 @@ ipAccessListsGet <- get_ip_access_list
 #'
 #' @return `data.frame` with all of the response pages.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/ipaccesslists/list) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname list_ip_access_lists
 #' @alias ipAccessListsList
@@ -128,8 +120,6 @@ ipAccessListsList <- list_ip_access_lists
 #' @param label Required. Label for the IP access list.
 #' @param list_type Required. Type of IP access list.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/ipaccesslists/replace) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname replace_ip_access_list
 #' @alias ipAccessListsReplace
@@ -171,8 +161,6 @@ ipAccessListsReplace <- replace_ip_access_list
 #' @param label Label for the IP access list.
 #' @param list_type Type of IP access list.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/ipaccesslists/update) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname update_ip_access_list
 #' @alias ipAccessListsUpdate

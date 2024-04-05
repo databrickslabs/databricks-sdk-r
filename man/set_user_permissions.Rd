@@ -12,10 +12,7 @@ usersSetPermissions(client, access_control_list = NULL)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{access_control_list}{This field has no description yet.
-
-See the \href{https://docs.databricks.com/api/workspace/users/setpermissions}{API documentation} for more
-information on the request and response field structure.}
+\item{access_control_list}{This field has no description yet.}
 }
 \description{
 Sets permissions on all passwords. Passwords can inherit permissions from

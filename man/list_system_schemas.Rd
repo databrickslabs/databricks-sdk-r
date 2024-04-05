@@ -16,9 +16,6 @@ systemSchemasList(client, metastore_id)
 }
 \value{
 \code{data.frame} with all of the response pages.
-
-See the \href{https://docs.databricks.com/api/workspace/systemschemas/list}{API documentation} for more
-information on the request and response field structure.
 }
 \description{
 Gets an array of system schemas for a metastore. The caller must be an

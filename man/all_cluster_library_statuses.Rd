@@ -10,10 +10,7 @@ all_cluster_library_statuses(client)
 librariesAllClusterStatuses(client)
 }
 \arguments{
-\item{client}{Required. Instance of DatabricksClient()
-
-See the \href{https://docs.databricks.com/api/workspace/libraries/allclusterstatuses}{API documentation} for more
-information on the request and response field structure.}
+\item{client}{Required. Instance of DatabricksClient()}
 }
 \description{
 Get the status of all libraries on all clusters. A status will be available

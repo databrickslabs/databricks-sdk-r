@@ -12,10 +12,7 @@ sharesDelete(client, name)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{name}{Required. The name of the share.
-
-See the \href{https://docs.databricks.com/api/workspace/shares/delete}{API documentation} for more
-information on the request and response field structure.}
+\item{name}{Required. The name of the share.}
 }
 \description{
 Deletes a data object share from the metastore. The caller must be an owner

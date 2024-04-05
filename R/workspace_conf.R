@@ -10,8 +10,6 @@ NULL
 #'
 #' @param keys Required. This field has no description yet.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/workspaceconf/getstatus) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname get_workspace_conf_status
 #' @alias workspaceConfGetStatus
@@ -31,8 +29,6 @@ workspaceConfGetStatus <- get_workspace_conf_status
 #' @param client Required. Instance of DatabricksClient()
 #'
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/workspaceconf/setstatus) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname set_workspace_conf_status
 #' @alias workspaceConfSetStatus

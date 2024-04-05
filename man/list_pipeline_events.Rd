@@ -38,9 +38,6 @@ pipelinesListPipelineEvents(
 }
 \value{
 \code{data.frame} with all of the response pages.
-
-See the \href{https://docs.databricks.com/api/workspace/pipelines/listpipelineevents}{API documentation} for more
-information on the request and response field structure.
 }
 \description{
 Retrieves events for a pipeline.

@@ -30,10 +30,7 @@ experimentsCreateRun(
 
 \item{tags}{Additional metadata for run.}
 
-\item{user_id}{ID of the user executing the run.
-
-See the \href{https://docs.databricks.com/api/workspace/experiments/createrun}{API documentation} for more
-information on the request and response field structure.}
+\item{user_id}{ID of the user executing the run.}
 }
 \description{
 Creates a new run within an experiment. A run is usually a single execution

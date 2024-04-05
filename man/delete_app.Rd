@@ -12,10 +12,7 @@ appsDeleteApp(client, name)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{name}{Required. The name of an application.
-
-See the \href{https://docs.databricks.com/api/workspace/apps/deleteapp}{API documentation} for more
-information on the request and response field structure.}
+\item{name}{Required. The name of an application.}
 }
 \description{
 Delete an application definition

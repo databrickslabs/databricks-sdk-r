@@ -16,9 +16,6 @@ secretsListSecrets(client, scope)
 }
 \value{
 \code{data.frame} with all of the response pages.
-
-See the \href{https://docs.databricks.com/api/workspace/secrets/listsecrets}{API documentation} for more
-information on the request and response field structure.
 }
 \description{
 Lists the secret keys that are stored at this scope. This is a metadata-only

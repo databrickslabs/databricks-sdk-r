@@ -12,10 +12,7 @@ restrictWorkspaceAdminsGet(client, etag = NULL)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{etag}{etag used for versioning.
-
-See the \href{https://docs.databricks.com/api/workspace/restrictworkspaceadmins/get}{API documentation} for more
-information on the request and response field structure.}
+\item{etag}{etag used for versioning.}
 }
 \description{
 Gets the restrict workspace admins setting.

@@ -16,10 +16,7 @@ modelRegistrySetModelTag(client, name, key, value)
 
 \item{key}{Required. Name of the tag.}
 
-\item{value}{Required. String value of the tag being logged.
-
-See the \href{https://docs.databricks.com/api/workspace/modelregistry/setmodeltag}{API documentation} for more
-information on the request and response field structure.}
+\item{value}{Required. String value of the tag being logged.}
 }
 \description{
 Sets a tag on a registered model.

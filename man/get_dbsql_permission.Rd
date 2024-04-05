@@ -12,10 +12,7 @@ dbsqlPermissionsGet(client, object_type, object_id)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{object_type}{Required. The type of object permissions to check.
-
-See the \href{https://docs.databricks.com/api/workspace/dbsqlpermissions/get}{API documentation} for more
-information on the request and response field structure.}
+\item{object_type}{Required. The type of object permissions to check.}
 
 \item{object_id}{Required. Object ID.}
 }

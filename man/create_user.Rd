@@ -58,10 +58,7 @@ usersCreate(
 
 \item{schemas}{The schema of the user.}
 
-\item{user_name}{Email address of the Databricks user.
-
-See the \href{https://docs.databricks.com/api/workspace/users/create}{API documentation} for more
-information on the request and response field structure.}
+\item{user_name}{Email address of the Databricks user.}
 }
 \description{
 Creates a new user in the Databricks workspace. This new user will also be

@@ -14,10 +14,7 @@ ipAccessListsCreate(client, label, list_type, ip_addresses = NULL)
 
 \item{label}{Required. Label for the IP access list.}
 
-\item{list_type}{Required. Type of IP access list.
-
-See the \href{https://docs.databricks.com/api/workspace/ipaccesslists/create}{API documentation} for more
-information on the request and response field structure.}
+\item{list_type}{Required. Type of IP access list.}
 
 \item{ip_addresses}{This field has no description yet.}
 }

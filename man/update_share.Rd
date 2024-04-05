@@ -34,10 +34,7 @@ sharesUpdate(
 
 \item{owner}{Username of current owner of share.}
 
-\item{updates}{Array of shared data object updates.
-
-See the \href{https://docs.databricks.com/api/workspace/shares/update}{API documentation} for more
-information on the request and response field structure.}
+\item{updates}{Array of shared data object updates.}
 }
 \description{
 Updates the share with the changes and data objects in the request. The

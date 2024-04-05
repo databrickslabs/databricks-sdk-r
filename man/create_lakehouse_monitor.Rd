@@ -70,10 +70,7 @@ lakehouseMonitorsCreate(
 
 \item{time_series}{Configuration for monitoring time series tables.}
 
-\item{warehouse_id}{Optional argument to specify the warehouse for dashboard creation.
-
-See the \href{https://docs.databricks.com/api/workspace/lakehousemonitors/create}{API documentation} for more
-information on the request and response field structure.}
+\item{warehouse_id}{Optional argument to specify the warehouse for dashboard creation.}
 }
 \description{
 Creates a new monitor for the specified table.

@@ -16,10 +16,7 @@ clustersResize(client, cluster_id, autoscale = NULL, num_workers = NULL)
 
 \item{autoscale}{Parameters needed in order to automatically scale clusters up and down based on load.}
 
-\item{num_workers}{Number of worker nodes that this cluster should have.
-
-See the \href{https://docs.databricks.com/api/workspace/clusters/resize}{API documentation} for more
-information on the request and response field structure.}
+\item{num_workers}{Number of worker nodes that this cluster should have.}
 }
 \description{
 Resizes a cluster to have a desired number of workers. This will fail unless

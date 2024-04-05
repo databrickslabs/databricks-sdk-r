@@ -58,9 +58,6 @@ jobsListRuns(
 }
 \value{
 \code{data.frame} with all of the response pages.
-
-See the \href{https://docs.databricks.com/api/workspace/jobs/listruns}{API documentation} for more
-information on the request and response field structure.
 }
 \description{
 List runs in descending order by start time.

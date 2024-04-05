@@ -12,10 +12,7 @@ dbfsGetStatus(client, path)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{path}{Required. The path of the file or directory.
-
-See the \href{https://docs.databricks.com/api/workspace/dbfs/getstatus}{API documentation} for more
-information on the request and response field structure.}
+\item{path}{Required. The path of the file or directory.}
 }
 \description{
 Gets the file information for a file or directory. If the file or directory

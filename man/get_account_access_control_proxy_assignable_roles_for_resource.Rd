@@ -15,10 +15,7 @@ accountAccessControlProxyGetAssignableRolesForResource(client, resource)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{resource}{Required. The resource name for which assignable roles will be listed.
-
-See the \href{https://docs.databricks.com/api/workspace/accountaccesscontrolproxy/getassignablerolesforresource}{API documentation} for more
-information on the request and response field structure.}
+\item{resource}{Required. The resource name for which assignable roles will be listed.}
 }
 \description{
 Gets all the roles that can be granted on an account-level resource. A role

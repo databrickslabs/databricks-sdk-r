@@ -12,10 +12,7 @@ schemasDelete(client, full_name)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{full_name}{Required. Full name of the schema.
-
-See the \href{https://docs.databricks.com/api/workspace/schemas/delete}{API documentation} for more
-information on the request and response field structure.}
+\item{full_name}{Required. Full name of the schema.}
 }
 \description{
 Deletes the specified schema from the parent catalog. The caller must be the

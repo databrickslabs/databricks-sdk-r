@@ -18,8 +18,6 @@ NULL
 #' @param share_name The name of the share under the share provider.
 #' @param storage_root Storage root URL for managed tables within catalog.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/catalogs/create) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname create_catalog
 #' @alias catalogsCreate
@@ -44,8 +42,6 @@ catalogsCreate <- create_catalog
 #' @param force Force deletion even if the catalog is not empty.
 #' @param name Required. The name of the catalog.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/catalogs/delete) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname delete_catalog
 #' @alias catalogsDelete
@@ -69,8 +65,6 @@ catalogsDelete <- delete_catalog
 #' @param include_browse Whether to include catalogs in the response for which the principal can only access selective metadata for.
 #' @param name Required. The name of the catalog.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/catalogs/get) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname get_catalog
 #' @alias catalogsGet
@@ -96,8 +90,6 @@ catalogsGet <- get_catalog
 #'
 #' @return `data.frame` with all of the response pages.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/catalogs/list) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname list_catalogs
 #' @alias catalogsList
@@ -128,8 +120,6 @@ catalogsList <- list_catalogs
 #' @param owner Username of current owner of catalog.
 #' @param properties A map of key-value properties attached to the securable.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/catalogs/update) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname update_catalog
 #' @alias catalogsUpdate

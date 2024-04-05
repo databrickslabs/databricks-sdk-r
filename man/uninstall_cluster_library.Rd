@@ -14,10 +14,7 @@ librariesUninstall(client, cluster_id, libraries)
 
 \item{cluster_id}{Required. Unique identifier for the cluster on which to uninstall these libraries.}
 
-\item{libraries}{Required. The libraries to uninstall.
-
-See the \href{https://docs.databricks.com/api/workspace/libraries/uninstall}{API documentation} for more
-information on the request and response field structure.}
+\item{libraries}{Required. The libraries to uninstall.}
 }
 \description{
 Set libraries to be uninstalled on a cluster. The libraries won't be

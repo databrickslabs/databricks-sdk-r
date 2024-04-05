@@ -12,10 +12,7 @@ volumesDelete(client, name)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{name}{Required. The three-level (fully qualified) name of the volume.
-
-See the \href{https://docs.databricks.com/api/workspace/volumes/delete}{API documentation} for more
-information on the request and response field structure.}
+\item{name}{Required. The three-level (fully qualified) name of the volume.}
 }
 \description{
 Deletes a volume from the specified parent catalog and schema.

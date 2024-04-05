@@ -10,10 +10,7 @@ get_warehouse_workspace_config(client)
 warehousesGetWorkspaceWarehouseConfig(client)
 }
 \arguments{
-\item{client}{Required. Instance of DatabricksClient()
-
-See the \href{https://docs.databricks.com/api/workspace/warehouses/getworkspacewarehouseconfig}{API documentation} for more
-information on the request and response field structure.}
+\item{client}{Required. Instance of DatabricksClient()}
 }
 \description{
 Gets the workspace level configuration that is shared by all SQL warehouses

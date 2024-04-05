@@ -12,10 +12,7 @@ filesGetMetadata(client, file_path)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{file_path}{Required. The absolute path of the file.
-
-See the \href{https://docs.databricks.com/api/workspace/files/getmetadata}{API documentation} for more
-information on the request and response field structure.}
+\item{file_path}{Required. The absolute path of the file.}
 }
 \description{
 Get the metadata of a file. The response HTTP headers contain the metadata.

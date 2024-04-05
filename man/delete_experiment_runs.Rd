@@ -24,10 +24,7 @@ experimentsDeleteRuns(
 
 \item{experiment_id}{Required. The ID of the experiment containing the runs to delete.}
 
-\item{max_timestamp_millis}{Required. The maximum creation timestamp in milliseconds since the UNIX epoch for deleting runs.
-
-See the \href{https://docs.databricks.com/api/workspace/experiments/deleteruns}{API documentation} for more
-information on the request and response field structure.}
+\item{max_timestamp_millis}{Required. The maximum creation timestamp in milliseconds since the UNIX epoch for deleting runs.}
 
 \item{max_runs}{An optional positive integer indicating the maximum number of runs to delete.}
 }

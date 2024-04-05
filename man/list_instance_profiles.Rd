@@ -14,9 +14,6 @@ instanceProfilesList(client)
 }
 \value{
 \code{data.frame} with all of the response pages.
-
-See the \href{https://docs.databricks.com/api/workspace/instanceprofiles/list}{API documentation} for more
-information on the request and response field structure.
 }
 \description{
 List the instance profiles that the calling user can use to launch a cluster.

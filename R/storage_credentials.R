@@ -18,8 +18,6 @@ NULL
 #' @param read_only Whether the storage credential is only usable for read operations.
 #' @param skip_validation Supplying true to this argument skips validation of the created credential.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/storagecredentials/create) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname create_storage_credential
 #' @alias storageCredentialsCreate
@@ -46,8 +44,6 @@ storageCredentialsCreate <- create_storage_credential
 #' @param force Force deletion even if there are dependent external locations or external tables.
 #' @param name Required. Name of the storage credential.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/storagecredentials/delete) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname delete_storage_credential
 #' @alias storageCredentialsDelete
@@ -70,8 +66,6 @@ storageCredentialsDelete <- delete_storage_credential
 #'
 #' @param name Required. Name of the storage credential.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/storagecredentials/get) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname get_storage_credential
 #' @alias storageCredentialsGet
@@ -98,8 +92,6 @@ storageCredentialsGet <- get_storage_credential
 #'
 #' @return `data.frame` with all of the response pages.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/storagecredentials/list) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname list_storage_credentials
 #' @alias storageCredentialsList
@@ -145,8 +137,6 @@ storageCredentialsList <- list_storage_credentials
 #' @param read_only Whether the storage credential is only usable for read operations.
 #' @param skip_validation Supplying true to this argument skips validation of the updated credential.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/storagecredentials/update) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname update_storage_credential
 #' @alias storageCredentialsUpdate
@@ -193,8 +183,6 @@ storageCredentialsUpdate <- update_storage_credential
 #' @param storage_credential_name The name of the storage credential to validate.
 #' @param url The external location url to validate.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/storagecredentials/validate) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname validate_storage_credential
 #' @alias storageCredentialsValidate

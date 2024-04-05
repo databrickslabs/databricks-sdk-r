@@ -30,10 +30,7 @@ instanceProfilesAdd(
 
 \item{is_meta_instance_profile}{Boolean flag indicating whether the instance profile should only be used in credential passthrough scenarios.}
 
-\item{skip_validation}{By default, Databricks validates that it has sufficient permissions to launch instances with the instance profile.
-
-See the \href{https://docs.databricks.com/api/workspace/instanceprofiles/add}{API documentation} for more
-information on the request and response field structure.}
+\item{skip_validation}{By default, Databricks validates that it has sufficient permissions to launch instances with the instance profile.}
 }
 \description{
 In the UI, you can select the instance profile when launching clusters. This

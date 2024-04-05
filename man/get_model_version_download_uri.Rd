@@ -14,10 +14,7 @@ modelRegistryGetModelVersionDownloadUri(client, name, version)
 
 \item{name}{Required. Name of the registered model.}
 
-\item{version}{Required. Model version number.
-
-See the \href{https://docs.databricks.com/api/workspace/modelregistry/getmodelversiondownloaduri}{API documentation} for more
-information on the request and response field structure.}
+\item{version}{Required. Model version number.}
 }
 \description{
 Gets a URI to download the model version.

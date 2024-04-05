@@ -22,8 +22,6 @@ NULL
 #' @param preloaded_docker_images Custom Docker Image BYOC.
 #' @param preloaded_spark_versions A list containing at most one preloaded Spark image version for the pool.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/instancepools/create) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname create_instance_pool
 #' @alias instancePoolsCreate
@@ -52,8 +50,6 @@ instancePoolsCreate <- create_instance_pool
 #'
 #' @param instance_pool_id Required. The instance pool to be terminated.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/instancepools/delete) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname delete_instance_pool
 #' @alias instancePoolsDelete
@@ -79,8 +75,6 @@ instancePoolsDelete <- delete_instance_pool
 #' @param min_idle_instances Minimum number of idle instances to keep in the instance pool.
 #' @param node_type_id Required. This field encodes, through a single value, the resources available to each of the Spark nodes in this cluster.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/instancepools/edit) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname edit_instance_pool
 #' @alias instancePoolsEdit
@@ -104,8 +98,6 @@ instancePoolsEdit <- edit_instance_pool
 #'
 #' @param instance_pool_id Required. The canonical unique identifier for the instance pool.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/instancepools/get) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname get_instance_pool
 #' @alias instancePoolsGet
@@ -125,8 +117,6 @@ instancePoolsGet <- get_instance_pool
 #'
 #' @param instance_pool_id Required. The instance pool for which to get or manage permissions.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/instancepools/getpermissionlevels) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname get_instance_pool_permission_levels
 #' @alias instancePoolsGetPermissionLevels
@@ -148,8 +138,6 @@ instancePoolsGetPermissionLevels <- get_instance_pool_permission_levels
 #'
 #' @param instance_pool_id Required. The instance pool for which to get or manage permissions.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/instancepools/getpermissions) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname get_instance_pool_permissions
 #' @alias instancePoolsGetPermissions
@@ -170,8 +158,6 @@ instancePoolsGetPermissions <- get_instance_pool_permissions
 #'
 #' @return `data.frame` with all of the response pages.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/instancepools/list) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname list_instance_pools
 #' @alias instancePoolsList
@@ -195,8 +181,6 @@ instancePoolsList <- list_instance_pools
 #' @param access_control_list This field has no description yet.
 #' @param instance_pool_id Required. The instance pool for which to get or manage permissions.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/instancepools/setpermissions) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname set_instance_pool_permissions
 #' @alias instancePoolsSetPermissions
@@ -219,8 +203,6 @@ instancePoolsSetPermissions <- set_instance_pool_permissions
 #' @param access_control_list This field has no description yet.
 #' @param instance_pool_id Required. The instance pool for which to get or manage permissions.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/instancepools/updatepermissions) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname update_instance_pool_permissions
 #' @alias instancePoolsUpdatePermissions

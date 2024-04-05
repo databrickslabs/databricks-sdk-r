@@ -12,10 +12,7 @@ jobsGet(client, job_id)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{job_id}{Required. The canonical identifier of the job to retrieve information about.
-
-See the \href{https://docs.databricks.com/api/workspace/jobs/get}{API documentation} for more
-information on the request and response field structure.}
+\item{job_id}{Required. The canonical identifier of the job to retrieve information about.}
 }
 \description{
 Retrieves the details for a single job.

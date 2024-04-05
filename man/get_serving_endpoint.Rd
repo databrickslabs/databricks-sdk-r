@@ -12,10 +12,7 @@ servingEndpointsGet(client, name)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{name}{Required. The name of the serving endpoint.
-
-See the \href{https://docs.databricks.com/api/workspace/servingendpoints/get}{API documentation} for more
-information on the request and response field structure.}
+\item{name}{Required. The name of the serving endpoint.}
 }
 \description{
 Retrieves the details for a single serving endpoint.

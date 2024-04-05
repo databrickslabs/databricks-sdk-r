@@ -14,10 +14,7 @@ experimentsLogParam(client, key, value, run_id = NULL, run_uuid = NULL)
 
 \item{key}{Required. Name of the param.}
 
-\item{value}{Required. String value of the param being logged.
-
-See the \href{https://docs.databricks.com/api/workspace/experiments/logparam}{API documentation} for more
-information on the request and response field structure.}
+\item{value}{Required. String value of the param being logged.}
 
 \item{run_id}{ID of the run under which to log the param.}
 

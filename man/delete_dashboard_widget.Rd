@@ -12,10 +12,7 @@ dashboardWidgetsDelete(client, id)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{id}{Required. Widget ID returned by :method:dashboardwidgets/create.
-
-See the \href{https://docs.databricks.com/api/workspace/dashboardwidgets/delete}{API documentation} for more
-information on the request and response field structure.}
+\item{id}{Required. Widget ID returned by :method:dashboardwidgets/create.}
 }
 \description{
 Remove widget.

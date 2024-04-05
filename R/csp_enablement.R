@@ -10,8 +10,6 @@ NULL
 #'
 #' @param etag etag used for versioning.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/cspenablement/get) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname get_csp_enablement
 #' @alias cspEnablementGet
@@ -38,8 +36,6 @@ cspEnablementGet <- get_csp_enablement
 #' @param field_mask Required. Field mask is required to be passed into the PATCH request.
 #' @param setting Required. This field has no description yet.
 #'
-#' See the [API documentation](https://docs.databricks.com/api/workspace/cspenablement/update) for more 
-#' information on the request and response field structure.
 #'
 #' @rdname update_csp_enablement
 #' @alias cspEnablementUpdate

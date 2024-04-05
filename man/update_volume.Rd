@@ -18,10 +18,7 @@ volumesUpdate(client, name, comment = NULL, new_name = NULL, owner = NULL)
 
 \item{new_name}{New name for the volume.}
 
-\item{owner}{The identifier of the user who owns the volume.
-
-See the \href{https://docs.databricks.com/api/workspace/volumes/update}{API documentation} for more
-information on the request and response field structure.}
+\item{owner}{The identifier of the user who owns the volume.}
 }
 \description{
 Updates the specified volume under the specified parent catalog and schema.

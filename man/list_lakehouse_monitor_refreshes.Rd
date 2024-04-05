@@ -12,10 +12,7 @@ lakehouseMonitorsListRefreshes(client, full_name)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{full_name}{Required. Full name of the table.
-
-See the \href{https://docs.databricks.com/api/workspace/lakehousemonitors/listrefreshes}{API documentation} for more
-information on the request and response field structure.}
+\item{full_name}{Required. Full name of the table.}
 }
 \description{
 Gets an array containing the history of the most recent refreshes (up to 25)

@@ -38,10 +38,7 @@ schemasUpdate(
 
 \item{owner}{Username of current owner of schema.}
 
-\item{properties}{A map of key-value properties attached to the securable.
-
-See the \href{https://docs.databricks.com/api/workspace/schemas/update}{API documentation} for more
-information on the request and response field structure.}
+\item{properties}{A map of key-value properties attached to the securable.}
 }
 \description{
 Updates a schema for a catalog. The caller must be the owner of the schema or

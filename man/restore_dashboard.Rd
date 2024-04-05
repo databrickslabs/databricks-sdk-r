@@ -12,10 +12,7 @@ dashboardsRestore(client, dashboard_id)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{dashboard_id}{Required. This field has no description yet.
-
-See the \href{https://docs.databricks.com/api/workspace/dashboards/restore}{API documentation} for more
-information on the request and response field structure.}
+\item{dashboard_id}{Required. This field has no description yet.}
 }
 \description{
 A restored dashboard appears in list views and searches and can be shared.

@@ -14,9 +14,6 @@ globalInitScriptsList(client)
 }
 \value{
 \code{data.frame} with all of the response pages.
-
-See the \href{https://docs.databricks.com/api/workspace/globalinitscripts/list}{API documentation} for more
-information on the request and response field structure.
 }
 \description{
 Get a list of all global init scripts for this workspace. This returns all

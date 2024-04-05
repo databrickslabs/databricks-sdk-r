@@ -18,10 +18,7 @@ reposUpdate(client, repo_id, branch = NULL, sparse_checkout = NULL, tag = NULL)
 
 \item{sparse_checkout}{If specified, update the sparse checkout settings.}
 
-\item{tag}{Tag that the local version of the repo is checked out to.
-
-See the \href{https://docs.databricks.com/api/workspace/repos/update}{API documentation} for more
-information on the request and response field structure.}
+\item{tag}{Tag that the local version of the repo is checked out to.}
 }
 \description{
 Updates the repo to a different branch or tag, or updates the repo to the

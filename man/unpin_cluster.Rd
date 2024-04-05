@@ -12,10 +12,7 @@ clustersUnpin(client, cluster_id)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{cluster_id}{Required. \if{html}{\out{<needs content added>}}.
-
-See the \href{https://docs.databricks.com/api/workspace/clusters/unpin}{API documentation} for more
-information on the request and response field structure.}
+\item{cluster_id}{Required. needs content added.}
 }
 \description{
 Unpinning a cluster will allow the cluster to eventually be removed from the

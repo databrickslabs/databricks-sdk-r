@@ -10,10 +10,7 @@ get_token_management_permissions(client)
 tokenManagementGetPermissions(client)
 }
 \arguments{
-\item{client}{Required. Instance of DatabricksClient()
-
-See the \href{https://docs.databricks.com/api/workspace/tokenmanagement/getpermissions}{API documentation} for more
-information on the request and response field structure.}
+\item{client}{Required. Instance of DatabricksClient()}
 }
 \description{
 Gets the permissions of all tokens. Tokens can inherit permissions from their

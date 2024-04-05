@@ -14,10 +14,7 @@ jobsReset(client, job_id, new_settings)
 
 \item{job_id}{Required. The canonical identifier of the job to reset.}
 
-\item{new_settings}{Required. The new settings of the job.
-
-See the \href{https://docs.databricks.com/api/workspace/jobs/reset}{API documentation} for more
-information on the request and response field structure.}
+\item{new_settings}{Required. The new settings of the job.}
 }
 \description{
 Overwrite all settings for the given job. Use the \href{:method:jobs/update}{\emph{Update} endpoint} to update job settings partially.

@@ -12,10 +12,7 @@ metastoresAssign(client, workspace_id, metastore_id, default_catalog_name)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{workspace_id}{Required. A workspace ID.
-
-See the \href{https://docs.databricks.com/api/workspace/metastores/assign}{API documentation} for more
-information on the request and response field structure.}
+\item{workspace_id}{Required. A workspace ID.}
 
 \item{metastore_id}{Required. The unique ID of the metastore.}
 

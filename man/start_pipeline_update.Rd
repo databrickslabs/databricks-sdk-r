@@ -38,10 +38,7 @@ pipelinesStartUpdate(
 
 \item{refresh_selection}{A list of tables to update without fullRefresh.}
 
-\item{validate_only}{If true, this update only validates the correctness of pipeline source code but does not materialize or publish any datasets.
-
-See the \href{https://docs.databricks.com/api/workspace/pipelines/startupdate}{API documentation} for more
-information on the request and response field structure.}
+\item{validate_only}{If true, this update only validates the correctness of pipeline source code but does not materialize or publish any datasets.}
 }
 \description{
 Starts a new update for the pipeline. If there is already an active update

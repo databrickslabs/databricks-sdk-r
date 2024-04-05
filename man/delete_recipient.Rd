@@ -12,10 +12,7 @@ recipientsDelete(client, name)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{name}{Required. Name of the recipient.
-
-See the \href{https://docs.databricks.com/api/workspace/recipients/delete}{API documentation} for more
-information on the request and response field structure.}
+\item{name}{Required. Name of the recipient.}
 }
 \description{
 Deletes the specified recipient from the metastore. The caller must be the

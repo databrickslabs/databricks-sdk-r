@@ -22,10 +22,7 @@ dbsqlPermissionsTransferOwnership(
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{object_type}{Required. The type of object on which to change ownership.
-
-See the \href{https://docs.databricks.com/api/workspace/dbsqlpermissions/transferownership}{API documentation} for more
-information on the request and response field structure.}
+\item{object_type}{Required. The type of object on which to change ownership.}
 
 \item{object_id}{Required. The ID of the object on which to change ownership.}
 

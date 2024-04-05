@@ -12,10 +12,7 @@ filesDownload(client, file_path)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{file_path}{Required. The absolute path of the file.
-
-See the \href{https://docs.databricks.com/api/workspace/files/download}{API documentation} for more
-information on the request and response field structure.}
+\item{file_path}{Required. The absolute path of the file.}
 }
 \description{
 Downloads a file of up to 5 GiB. The file contents are the response body.

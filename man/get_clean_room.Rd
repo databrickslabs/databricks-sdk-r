@@ -12,10 +12,7 @@ cleanRoomsGet(client, name, include_remote_details = NULL)
 \arguments{
 \item{client}{Required. Instance of DatabricksClient()}
 
-\item{name}{Required. The name of the clean room.
-
-See the \href{https://docs.databricks.com/api/workspace/cleanrooms/get}{API documentation} for more
-information on the request and response field structure.}
+\item{name}{Required. The name of the clean room.}
 
 \item{include_remote_details}{Whether to include remote details (central) on the clean room.}
 }

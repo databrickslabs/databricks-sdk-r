@@ -18,9 +18,6 @@ vectorSearchIndexesListIndexes(client, endpoint_name, page_token = NULL)
 }
 \value{
 \code{data.frame} with all of the response pages.
-
-See the \href{https://docs.databricks.com/api/workspace/vectorsearchindexes/listindexes}{API documentation} for more
-information on the request and response field structure.
 }
 \description{
 List all indexes in the given endpoint.

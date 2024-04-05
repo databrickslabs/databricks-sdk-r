@@ -30,10 +30,7 @@ secretsCreateScope(
 
 \item{initial_manage_principal}{The principal that is initially granted \code{MANAGE} permission to the created scope.}
 
-\item{scope_backend_type}{The backend type the scope will be created with.
-
-See the \href{https://docs.databricks.com/api/workspace/secrets/createscope}{API documentation} for more
-information on the request and response field structure.}
+\item{scope_backend_type}{The backend type the scope will be created with.}
 }
 \description{
 The scope name must consist of alphanumeric characters, dashes, underscores,
