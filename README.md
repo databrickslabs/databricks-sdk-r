@@ -15,7 +15,7 @@ client <- DatabricksClient(profile="your-cli-profile")
 
 ## Complete with Databricks workspace-level APIs
 
-Databricks SDK for R comes with all public [workspace-level APIs](https://docs.databricks.com/api/workspace/introduction) and is consistent with [Databricks SDK for Python](https://github.com/databricks/databricks-sdk-py), [Databricks SDK for Go](https://github.com/databricks/databricks-sdk-go), and [Databricks SDK for Java](https://github.com/databricks/databricks-sdk-java). Databricks SDK for R does not expose [account-level APIs](https://docs.databricks.com/api/account/introduction) and you're recommended to use Go, Python, or Java SDK to build an account-level automation.
+Databricks SDK for R comes with all public workspace-level API and is consistent with [Databricks SDK for Python](https://github.com/databricks/databricks-sdk-py), [Databricks SDK for Go](https://github.com/databricks/databricks-sdk-go), and [Databricks SDK for Java](https://github.com/databricks/databricks-sdk-java). Databricks SDK for R does not expose account-level API and you're recommended to use Go, Python, or Java SDK to build an account-level automation.
 
 ```r
 library(dplyr)
