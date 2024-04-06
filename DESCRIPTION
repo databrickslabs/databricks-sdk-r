@@ -1,12 +1,12 @@
 Package: databricks
 Type: Package
-Title: Databricks SDK for R (Experimental)
-Version: 0.4.2
+Title: R Software Development Kit for Databricks Workspaces (Experimental)
+Version: 0.4.3
 Authors@R: c(
     person("Serge", "Smertin", email = "serge.smertin@databricks.com", role = c("aut", "cre")),
     person("Databricks", role = c("cph", "fnd"))
     )
-Description: Call all Databricks REST APIs from R.
+Description: Call Databricks Workspace REST API from R.
 License: Apache License (>= 2)
 Encoding: UTF-8
 RoxygenNote: 7.3.1
