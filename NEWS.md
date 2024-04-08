@@ -1,3 +1,3 @@
-# databricks 0.4.3
+# databricks 0.4.4
 
 * Initial CRAN submission.

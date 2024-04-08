@@ -1,7 +1,7 @@
 Package: databricks
 Type: Package
 Title: R Software Development Kit for Databricks Workspaces (Experimental)
-Version: 0.4.3
+Version: 0.4.4
 Authors@R: c(
     person("Serge", "Smertin", email = "serge.smertin@databricks.com", role = c("aut", "cre")),
     person("Databricks", role = c("cph", "fnd"))
@@ -12,7 +12,7 @@ Encoding: UTF-8
 RoxygenNote: 7.3.1
 Roxygen: list(markdown = TRUE, roclets = c("rd", "namespace", "collate"))
 ByteCompile: false
-StagedInstall: no 
+StagedInstall: yes 
 Imports: httr, jsonlite, dplyr, rlang
 Suggests: 
     covr,
